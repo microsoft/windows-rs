@@ -3,7 +3,7 @@
 pub mod Pnp;
 pub type DeviceAccessChangedEventArgs = *mut ::core::ffi::c_void;
 pub type DeviceAccessInformation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
@@ -18,7 +18,7 @@ impl ::core::clone::Clone for DeviceAccessStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
@@ -41,7 +41,7 @@ pub type DeviceDisconnectButtonClickedEventArgs = *mut ::core::ffi::c_void;
 pub type DeviceInformation = *mut ::core::ffi::c_void;
 pub type DeviceInformationCollection = *mut ::core::ffi::c_void;
 pub type DeviceInformationCustomPairing = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
@@ -63,7 +63,7 @@ impl ::core::clone::Clone for DeviceInformationKind {
 }
 pub type DeviceInformationPairing = *mut ::core::ffi::c_void;
 pub type DeviceInformationUpdate = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
@@ -80,7 +80,7 @@ impl ::core::clone::Clone for DevicePairingKinds {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
@@ -97,7 +97,7 @@ impl ::core::clone::Clone for DevicePairingProtectionLevel {
 }
 pub type DevicePairingRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type DevicePairingResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
@@ -130,7 +130,7 @@ impl ::core::clone::Clone for DevicePairingResultStatus {
 }
 pub type DevicePicker = *mut ::core::ffi::c_void;
 pub type DevicePickerAppearance = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
@@ -149,7 +149,7 @@ pub type DevicePickerFilter = *mut ::core::ffi::c_void;
 pub type DeviceSelectedEventArgs = *mut ::core::ffi::c_void;
 pub type DeviceThumbnail = *mut ::core::ffi::c_void;
 pub type DeviceUnpairingResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
@@ -167,7 +167,7 @@ impl ::core::clone::Clone for DeviceUnpairingResultStatus {
 }
 pub type DeviceWatcher = *mut ::core::ffi::c_void;
 pub type DeviceWatcherEvent = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
@@ -181,7 +181,7 @@ impl ::core::clone::Clone for DeviceWatcherEventKind {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
@@ -201,7 +201,7 @@ impl ::core::clone::Clone for DeviceWatcherStatus {
 pub type DeviceWatcherTriggerDetails = *mut ::core::ffi::c_void;
 pub type EnclosureLocation = *mut ::core::ffi::c_void;
 pub type IDevicePairingSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Enumeration'*"]
+#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 pub struct Panel(pub i32);
 impl Panel {

@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for DataClasses {
 }
 pub type ESim = *mut ::core::ffi::c_void;
 pub type ESimAddedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for ESimAuthenticationPreference {
 }
 pub type ESimDiscoverEvent = *mut ::core::ffi::c_void;
 pub type ESimDiscoverResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
@@ -61,7 +61,7 @@ impl ::core::clone::Clone for ESimDiscoverResultKind {
 }
 pub type ESimDownloadProfileMetadataResult = *mut ::core::ffi::c_void;
 pub type ESimOperationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
@@ -103,7 +103,7 @@ impl ::core::clone::Clone for ESimOperationStatus {
 }
 pub type ESimPolicy = *mut ::core::ffi::c_void;
 pub type ESimProfile = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
@@ -118,7 +118,7 @@ impl ::core::clone::Clone for ESimProfileClass {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 pub struct ESimProfileInstallProgress {
     pub TotalSizeInBytes: i32,
     pub InstalledSizeInBytes: i32,
@@ -130,7 +130,7 @@ impl ::core::clone::Clone for ESimProfileInstallProgress {
     }
 }
 pub type ESimProfileMetadata = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
@@ -150,7 +150,7 @@ impl ::core::clone::Clone for ESimProfileMetadataState {
     }
 }
 pub type ESimProfilePolicy = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
@@ -167,7 +167,7 @@ impl ::core::clone::Clone for ESimProfileState {
 }
 pub type ESimRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type ESimServiceInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimState(pub i32);
 impl ESimState {
@@ -184,7 +184,7 @@ impl ::core::clone::Clone for ESimState {
 }
 pub type ESimUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type ESimWatcher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
@@ -202,7 +202,7 @@ impl ::core::clone::Clone for ESimWatcherStatus {
 }
 pub type HotspotAuthenticationContext = *mut ::core::ffi::c_void;
 pub type HotspotAuthenticationEventDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
@@ -225,7 +225,7 @@ pub type MobileBroadbandAccount = *mut ::core::ffi::c_void;
 pub type MobileBroadbandAccountEventArgs = *mut ::core::ffi::c_void;
 pub type MobileBroadbandAccountUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type MobileBroadbandAccountWatcher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
@@ -258,7 +258,7 @@ pub type MobileBroadbandDeviceServiceDataReceivedEventArgs = *mut ::core::ffi::c
 pub type MobileBroadbandDeviceServiceDataSession = *mut ::core::ffi::c_void;
 pub type MobileBroadbandDeviceServiceInformation = *mut ::core::ffi::c_void;
 pub type MobileBroadbandDeviceServiceTriggerDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
@@ -276,7 +276,7 @@ impl ::core::clone::Clone for MobileBroadbandDeviceType {
 pub type MobileBroadbandModem = *mut ::core::ffi::c_void;
 pub type MobileBroadbandModemConfiguration = *mut ::core::ffi::c_void;
 pub type MobileBroadbandModemIsolation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
@@ -297,7 +297,7 @@ pub type MobileBroadbandNetworkRegistrationStateChangeTriggerDetails = *mut ::co
 pub type MobileBroadbandPco = *mut ::core::ffi::c_void;
 pub type MobileBroadbandPcoDataChangeTriggerDetails = *mut ::core::ffi::c_void;
 pub type MobileBroadbandPin = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
@@ -311,7 +311,7 @@ impl ::core::clone::Clone for MobileBroadbandPinFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
@@ -330,7 +330,7 @@ pub type MobileBroadbandPinLockStateChange = *mut ::core::ffi::c_void;
 pub type MobileBroadbandPinLockStateChangeTriggerDetails = *mut ::core::ffi::c_void;
 pub type MobileBroadbandPinManager = *mut ::core::ffi::c_void;
 pub type MobileBroadbandPinOperationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
@@ -352,7 +352,7 @@ impl ::core::clone::Clone for MobileBroadbandPinType {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
@@ -371,7 +371,7 @@ pub type MobileBroadbandSarManager = *mut ::core::ffi::c_void;
 pub type MobileBroadbandSlotInfo = *mut ::core::ffi::c_void;
 pub type MobileBroadbandSlotInfoChangedEventArgs = *mut ::core::ffi::c_void;
 pub type MobileBroadbandSlotManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
@@ -395,7 +395,7 @@ impl ::core::clone::Clone for MobileBroadbandSlotState {
 pub type MobileBroadbandTransmissionStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type MobileBroadbandUicc = *mut ::core::ffi::c_void;
 pub type MobileBroadbandUiccApp = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
@@ -413,7 +413,7 @@ impl ::core::clone::Clone for MobileBroadbandUiccAppOperationStatus {
 pub type MobileBroadbandUiccAppReadRecordResult = *mut ::core::ffi::c_void;
 pub type MobileBroadbandUiccAppRecordDetailsResult = *mut ::core::ffi::c_void;
 pub type MobileBroadbandUiccAppsResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
@@ -432,7 +432,7 @@ impl ::core::clone::Clone for NetworkDeviceStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
@@ -445,7 +445,7 @@ impl ::core::clone::Clone for NetworkOperatorDataUsageNotificationKind {
     }
 }
 pub type NetworkOperatorDataUsageTriggerDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
@@ -474,7 +474,7 @@ pub type NetworkOperatorTetheringAccessPointConfiguration = *mut ::core::ffi::c_
 pub type NetworkOperatorTetheringClient = *mut ::core::ffi::c_void;
 pub type NetworkOperatorTetheringManager = *mut ::core::ffi::c_void;
 pub type NetworkOperatorTetheringOperationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
@@ -492,7 +492,7 @@ impl ::core::clone::Clone for NetworkRegistrationState {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
@@ -506,7 +506,7 @@ impl ::core::clone::Clone for ProfileMediaType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Networking_NetworkOperators', 'Foundation'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,
@@ -523,7 +523,7 @@ impl ::core::clone::Clone for ProfileUsage {
 pub type ProvisionFromXmlDocumentResults = *mut ::core::ffi::c_void;
 pub type ProvisionedProfile = *mut ::core::ffi::c_void;
 pub type ProvisioningAgent = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
@@ -543,7 +543,7 @@ impl ::core::clone::Clone for TetheringCapability {
     }
 }
 pub type TetheringEntitlementCheckTriggerDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
@@ -563,7 +563,7 @@ impl ::core::clone::Clone for TetheringOperationStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
@@ -578,7 +578,7 @@ impl ::core::clone::Clone for TetheringOperationalState {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
@@ -592,7 +592,7 @@ impl ::core::clone::Clone for TetheringWiFiBand {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
@@ -611,7 +611,7 @@ impl ::core::clone::Clone for UiccAccessCondition {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
@@ -629,7 +629,7 @@ impl ::core::clone::Clone for UiccAppKind {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
@@ -645,7 +645,7 @@ impl ::core::clone::Clone for UiccAppRecordKind {
 }
 pub type UssdMessage = *mut ::core::ffi::c_void;
 pub type UssdReply = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_NetworkOperators'*"]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {

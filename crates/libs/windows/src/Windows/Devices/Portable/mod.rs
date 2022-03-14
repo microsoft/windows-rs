@@ -30,17 +30,17 @@ pub struct IStorageDeviceStatics_Vtbl {
     FromId: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Portable'*"]
+#[doc = "*Required features: `\"Devices_Portable\"`*"]
 pub struct ServiceDevice {}
 impl ServiceDevice {
-    #[doc = "*Required features: 'Devices_Portable'*"]
+    #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), servicetype, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Portable'*"]
+    #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelectorFromServiceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(serviceid: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -56,7 +56,7 @@ impl ServiceDevice {
 impl ::windows::core::RuntimeName for ServiceDevice {
     const NAME: &'static str = "Windows.Devices.Portable.ServiceDevice";
 }
-#[doc = "*Required features: 'Devices_Portable'*"]
+#[doc = "*Required features: `\"Devices_Portable\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ServiceDeviceType(pub i32);
@@ -95,10 +95,10 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Devices_Portable'*"]
+#[doc = "*Required features: `\"Devices_Portable\"`*"]
 pub struct StorageDevice {}
 impl StorageDevice {
-    #[doc = "*Required features: 'Devices_Portable', 'Storage'*"]
+    #[doc = "*Required features: `\"Devices_Portable\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {
@@ -106,7 +106,7 @@ impl StorageDevice {
             (::windows::core::Interface::vtable(this).FromId)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Portable'*"]
+    #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();

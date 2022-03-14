@@ -107,11 +107,11 @@ pub struct IPaymentTransactionStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     FromIdAsync: usize,
 }
-#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
 #[repr(transparent)]
 pub struct PaymentAppCanMakePaymentTriggerDetails(::windows::core::IUnknown);
 impl PaymentAppCanMakePaymentTriggerDetails {
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<super::PaymentRequest> {
         let this = self;
         unsafe {
@@ -119,7 +119,7 @@ impl PaymentAppCanMakePaymentTriggerDetails {
             (::windows::core::Interface::vtable(this).Request)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PaymentRequest>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn ReportCanMakePaymentResult<'a, Param0: ::windows::core::IntoParam<'a, super::PaymentCanMakePaymentResult>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCanMakePaymentResult)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -197,11 +197,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTriggerDetails {}
 unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
-#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
 #[repr(transparent)]
 pub struct PaymentAppManager(::windows::core::IUnknown);
 impl PaymentAppManager {
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, supportedpaymentmethodids: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -210,7 +210,7 @@ impl PaymentAppManager {
             (::windows::core::Interface::vtable(this).RegisterAsync)(::core::mem::transmute_copy(this), supportedpaymentmethodids.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UnregisterAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -219,7 +219,7 @@ impl PaymentAppManager {
             (::windows::core::Interface::vtable(this).UnregisterAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn Current() -> ::windows::core::Result<PaymentAppManager> {
         Self::IPaymentAppManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -304,11 +304,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PaymentAppManager {}
 unsafe impl ::core::marker::Sync for PaymentAppManager {}
-#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
 #[repr(transparent)]
 pub struct PaymentTransaction(::windows::core::IUnknown);
 impl PaymentTransaction {
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn PaymentRequest(&self) -> ::windows::core::Result<super::PaymentRequest> {
         let this = self;
         unsafe {
@@ -316,7 +316,7 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).PaymentRequest)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PaymentRequest>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn PayerEmail(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -324,12 +324,12 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).PayerEmail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn SetPayerEmail<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPayerEmail)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn PayerName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -337,12 +337,12 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).PayerName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn SetPayerName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPayerName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn PayerPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -350,12 +350,12 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).PayerPhoneNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn SetPayerPhoneNumber<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPayerPhoneNumber)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateShippingAddressAsync<'a, Param0: ::windows::core::IntoParam<'a, super::PaymentAddress>>(&self, shippingaddress: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
         let this = self;
@@ -364,7 +364,7 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).UpdateShippingAddressAsync)(::core::mem::transmute_copy(this), shippingaddress.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateSelectedShippingOptionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::PaymentShippingOption>>(&self, selectedshippingoption: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
         let this = self;
@@ -373,7 +373,7 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(::core::mem::transmute_copy(this), selectedshippingoption.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AcceptAsync<'a, Param0: ::windows::core::IntoParam<'a, super::PaymentToken>>(&self, paymenttoken: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>> {
         let this = self;
@@ -382,12 +382,12 @@ impl PaymentTransaction {
             (::windows::core::Interface::vtable(this).AcceptAsync)(::core::mem::transmute_copy(this), paymenttoken.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn Reject(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Reject)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransaction>> {
         Self::IPaymentTransactionStatics(|this| unsafe {
@@ -473,11 +473,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PaymentTransaction {}
 unsafe impl ::core::marker::Sync for PaymentTransaction {}
-#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
 #[repr(transparent)]
 pub struct PaymentTransactionAcceptResult(::windows::core::IUnknown);
 impl PaymentTransactionAcceptResult {
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Payments_Provider\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<super::PaymentRequestCompletionStatus> {
         let this = self;
         unsafe {

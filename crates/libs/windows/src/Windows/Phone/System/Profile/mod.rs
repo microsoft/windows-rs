@@ -18,12 +18,12 @@ pub struct IRetailModeStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RetailModeEnabled: usize,
 }
-#[doc = "*Required features: 'Phone_System_Profile', 'deprecated'*"]
+#[doc = "*Required features: `\"Phone_System_Profile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct RetailMode {}
 #[cfg(feature = "deprecated")]
 impl RetailMode {
-    #[doc = "*Required features: 'Phone_System_Profile', 'deprecated'*"]
+    #[doc = "*Required features: `\"Phone_System_Profile\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn RetailModeEnabled() -> ::windows::core::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {

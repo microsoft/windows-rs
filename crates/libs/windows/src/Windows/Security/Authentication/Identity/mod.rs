@@ -3,11 +3,11 @@
 pub mod Core;
 #[cfg(feature = "Security_Authentication_Identity_Provider")]
 pub mod Provider;
-#[doc = "*Required features: 'Security_Authentication_Identity'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(::windows::core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationInfo {
-    #[doc = "*Required features: 'Security_Authentication_Identity'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
     pub fn TenantId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -15,7 +15,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::core::Interface::vtable(this).TenantId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
     pub fn TenantName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -23,7 +23,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::core::Interface::vtable(this).TenantName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -31,7 +31,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::core::Interface::vtable(this).Subject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
     pub fn KeyId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -39,7 +39,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::core::Interface::vtable(this).KeyId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
     pub fn KeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -120,11 +120,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 }
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
-#[doc = "*Required features: 'Security_Authentication_Identity'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows::core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {
-    #[doc = "*Required features: 'Security_Authentication_Identity', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRegistrationsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
@@ -133,7 +133,7 @@ impl EnterpriseKeyCredentialRegistrationManager {
             (::windows::core::Interface::vtable(this).GetRegistrationsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
     pub fn Current() -> ::windows::core::Result<EnterpriseKeyCredentialRegistrationManager> {
         Self::IEnterpriseKeyCredentialRegistrationManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

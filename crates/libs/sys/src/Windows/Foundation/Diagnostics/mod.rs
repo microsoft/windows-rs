@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CausalityRelation(pub i32);
 impl CausalityRelation {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for CausalityRelation {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CausalitySource(pub i32);
 impl CausalitySource {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for CausalitySource {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CausalitySynchronousWork(pub i32);
 impl CausalitySynchronousWork {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for CausalitySynchronousWork {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CausalityTraceLevel(pub i32);
 impl CausalityTraceLevel {
@@ -58,7 +58,7 @@ impl ::core::clone::Clone for CausalityTraceLevel {
     }
 }
 pub type ErrorDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
@@ -84,7 +84,7 @@ pub type LogFileGeneratedEventArgs = *mut ::core::ffi::c_void;
 pub type LoggingActivity = *mut ::core::ffi::c_void;
 pub type LoggingChannel = *mut ::core::ffi::c_void;
 pub type LoggingChannelOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct LoggingFieldFormat(pub i32);
 impl LoggingFieldFormat {
@@ -115,7 +115,7 @@ impl ::core::clone::Clone for LoggingFieldFormat {
     }
 }
 pub type LoggingFields = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct LoggingLevel(pub i32);
 impl LoggingLevel {
@@ -131,7 +131,7 @@ impl ::core::clone::Clone for LoggingLevel {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Diagnostics'*"]
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct LoggingOpcode(pub i32);
 impl LoggingOpcode {

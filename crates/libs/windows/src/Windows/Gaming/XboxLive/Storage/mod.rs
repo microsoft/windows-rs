@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveBlobGetResult(::windows::core::IUnknown);
 impl GameSaveBlobGetResult {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
@@ -11,7 +11,7 @@ impl GameSaveBlobGetResult {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -93,11 +93,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobGetResult {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveBlobInfo(::windows::core::IUnknown);
 impl GameSaveBlobInfo {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -105,7 +105,7 @@ impl GameSaveBlobInfo {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -186,11 +186,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfo {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveBlobInfoGetResult(::windows::core::IUnknown);
 impl GameSaveBlobInfoGetResult {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
@@ -198,7 +198,7 @@ impl GameSaveBlobInfoGetResult {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>> {
         let this = self;
@@ -280,11 +280,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoGetResult {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveBlobInfoQuery(::windows::core::IUnknown);
 impl GameSaveBlobInfoQuery {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetBlobInfoAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
@@ -293,7 +293,7 @@ impl GameSaveBlobInfoQuery {
             (::windows::core::Interface::vtable(this).GetBlobInfoAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetBlobInfoWithIndexAndMaxAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
@@ -302,7 +302,7 @@ impl GameSaveBlobInfoQuery {
             (::windows::core::Interface::vtable(this).GetBlobInfoWithIndexAndMaxAsync)(::core::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemCountAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
@@ -384,11 +384,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoQuery {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveContainer(::windows::core::IUnknown);
 impl GameSaveContainer {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -396,7 +396,7 @@ impl GameSaveContainer {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Provider(&self) -> ::windows::core::Result<GameSaveProvider> {
         let this = self;
         unsafe {
@@ -404,7 +404,7 @@ impl GameSaveContainer {
             (::windows::core::Interface::vtable(this).Provider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveProvider>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn SubmitUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, blobstowrite: Param0, blobstodelete: Param1, displayname: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
@@ -413,7 +413,7 @@ impl GameSaveContainer {
             (::windows::core::Interface::vtable(this).SubmitUpdatesAsync)(::core::mem::transmute_copy(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>>(&self, blobstoread: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
@@ -422,7 +422,7 @@ impl GameSaveContainer {
             (::windows::core::Interface::vtable(this).ReadAsync)(::core::mem::transmute_copy(this), blobstoread.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, blobstoread: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>> {
         let this = self;
@@ -431,7 +431,7 @@ impl GameSaveContainer {
             (::windows::core::Interface::vtable(this).GetAsync)(::core::mem::transmute_copy(this), blobstoread.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SubmitPropertySetUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, blobstowrite: Param0, blobstodelete: Param1, displayname: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
@@ -440,7 +440,7 @@ impl GameSaveContainer {
             (::windows::core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::core::mem::transmute_copy(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn CreateBlobInfoQuery<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, blobnameprefix: Param0) -> ::windows::core::Result<GameSaveBlobInfoQuery> {
         let this = self;
         unsafe {
@@ -521,11 +521,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveContainer {}
 unsafe impl ::core::marker::Sync for GameSaveContainer {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveContainerInfo(::windows::core::IUnknown);
 impl GameSaveContainerInfo {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -533,7 +533,7 @@ impl GameSaveContainerInfo {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn TotalSize(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -541,7 +541,7 @@ impl GameSaveContainerInfo {
             (::windows::core::Interface::vtable(this).TotalSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -549,7 +549,7 @@ impl GameSaveContainerInfo {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastModifiedTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -558,7 +558,7 @@ impl GameSaveContainerInfo {
             (::windows::core::Interface::vtable(this).LastModifiedTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn NeedsSync(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -639,11 +639,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfo {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveContainerInfoGetResult(::windows::core::IUnknown);
 impl GameSaveContainerInfoGetResult {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
@@ -651,7 +651,7 @@ impl GameSaveContainerInfoGetResult {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>> {
         let this = self;
@@ -733,11 +733,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoGetResult {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveContainerInfoQuery(::windows::core::IUnknown);
 impl GameSaveContainerInfoQuery {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContainerInfoAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
@@ -746,7 +746,7 @@ impl GameSaveContainerInfoQuery {
             (::windows::core::Interface::vtable(this).GetContainerInfoAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContainerInfoWithIndexAndMaxAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
@@ -755,7 +755,7 @@ impl GameSaveContainerInfoQuery {
             (::windows::core::Interface::vtable(this).GetContainerInfoWithIndexAndMaxAsync)(::core::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemCountAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
@@ -837,7 +837,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameSaveErrorStatus(pub i32);
@@ -884,11 +884,11 @@ unsafe impl ::windows::core::RuntimeType for GameSaveErrorStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveOperationResult(::windows::core::IUnknown);
 impl GameSaveOperationResult {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
@@ -969,11 +969,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveOperationResult {}
 unsafe impl ::core::marker::Sync for GameSaveOperationResult {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveProvider(::windows::core::IUnknown);
 impl GameSaveProvider {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'System'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = self;
@@ -982,7 +982,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn CreateContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<GameSaveContainer> {
         let this = self;
         unsafe {
@@ -990,7 +990,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).CreateContainer)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<GameSaveContainer>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteContainerAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
@@ -999,7 +999,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).DeleteContainerAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn CreateContainerInfoQuery(&self) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
@@ -1007,7 +1007,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).CreateContainerInfoQuery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn CreateContainerInfoQueryWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, containernameprefix: Param0) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
@@ -1015,7 +1015,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::core::mem::transmute_copy(this), containernameprefix.into_param().abi(), &mut result__).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRemainingBytesInQuotaAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<i64>> {
         let this = self;
@@ -1024,7 +1024,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).GetRemainingBytesInQuotaAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<i64>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContainersChangedSinceLastSync(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1033,7 +1033,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).ContainersChangedSinceLastSync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
@@ -1041,7 +1041,7 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).GetForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), serviceconfigid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetSyncOnDemandForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
@@ -1127,11 +1127,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameSaveProvider {}
 unsafe impl ::core::marker::Sync for GameSaveProvider {}
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveProviderGetResult(::windows::core::IUnknown);
 impl GameSaveProviderGetResult {
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
@@ -1139,7 +1139,7 @@ impl GameSaveProviderGetResult {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+    #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<GameSaveProvider> {
         let this = self;
         unsafe {

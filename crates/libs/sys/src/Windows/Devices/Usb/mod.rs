@@ -5,7 +5,7 @@ pub type UsbBulkOutEndpointDescriptor = *mut ::core::ffi::c_void;
 pub type UsbBulkOutPipe = *mut ::core::ffi::c_void;
 pub type UsbConfiguration = *mut ::core::ffi::c_void;
 pub type UsbConfigurationDescriptor = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Usb'*"]
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
@@ -22,7 +22,7 @@ impl ::core::clone::Clone for UsbControlRecipient {
     }
 }
 pub type UsbControlRequestType = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Usb'*"]
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
@@ -42,7 +42,7 @@ pub type UsbDeviceClass = *mut ::core::ffi::c_void;
 pub type UsbDeviceClasses = *mut ::core::ffi::c_void;
 pub type UsbDeviceDescriptor = *mut ::core::ffi::c_void;
 pub type UsbEndpointDescriptor = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Usb'*"]
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
@@ -65,7 +65,7 @@ pub type UsbInterruptInEventArgs = *mut ::core::ffi::c_void;
 pub type UsbInterruptInPipe = *mut ::core::ffi::c_void;
 pub type UsbInterruptOutEndpointDescriptor = *mut ::core::ffi::c_void;
 pub type UsbInterruptOutPipe = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Usb'*"]
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
@@ -82,7 +82,7 @@ impl ::core::clone::Clone for UsbReadOptions {
     }
 }
 pub type UsbSetupPacket = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Usb'*"]
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {
@@ -95,7 +95,7 @@ impl ::core::clone::Clone for UsbTransferDirection {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Usb'*"]
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbWriteOptions(pub u32);
 impl UsbWriteOptions {

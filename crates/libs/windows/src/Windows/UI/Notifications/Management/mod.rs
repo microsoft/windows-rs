@@ -44,11 +44,11 @@ pub struct IUserNotificationListenerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Notifications_Management'*"]
+#[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
 #[repr(transparent)]
 pub struct UserNotificationListener(::windows::core::IUnknown);
 impl UserNotificationListener {
-    #[doc = "*Required features: 'UI_Notifications_Management', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
         let this = self;
@@ -57,7 +57,7 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn GetAccessStatus(&self) -> ::windows::core::Result<UserNotificationListenerAccessStatus> {
         let this = self;
         unsafe {
@@ -65,7 +65,7 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).GetAccessStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotificationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -74,13 +74,13 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).NotificationChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNotificationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveNotificationChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
         let this = self;
@@ -89,7 +89,7 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).GetNotificationsAsync)(::core::mem::transmute_copy(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn GetNotification(&self, notificationid: u32) -> ::windows::core::Result<super::UserNotification> {
         let this = self;
         unsafe {
@@ -97,17 +97,17 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).GetNotification)(::core::mem::transmute_copy(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn ClearNotifications(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClearNotifications)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn RemoveNotification(&self, notificationid: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveNotification)(::core::mem::transmute_copy(this), notificationid).ok() }
     }
-    #[doc = "*Required features: 'UI_Notifications_Management'*"]
+    #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn Current() -> ::windows::core::Result<UserNotificationListener> {
         Self::IUserNotificationListenerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -192,7 +192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
-#[doc = "*Required features: 'UI_Notifications_Management'*"]
+#[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);

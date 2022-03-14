@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_UI_Input_Radial'*"]
+#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`*"]
 #[repr(transparent)]
 pub struct IRadialControllerConfigurationInterop(::windows::core::IUnknown);
 impl IRadialControllerConfigurationInterop {
-    #[doc = "*Required features: 'Win32_UI_Input_Radial', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
@@ -79,11 +79,11 @@ pub struct IRadialControllerConfigurationInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: 'Win32_UI_Input_Radial'*"]
+#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`*"]
 #[repr(transparent)]
 pub struct IRadialControllerIndependentInputSourceInterop(::windows::core::IUnknown);
 impl IRadialControllerIndependentInputSourceInterop {
-    #[doc = "*Required features: 'Win32_UI_Input_Radial', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
@@ -159,11 +159,11 @@ pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateForWindow: usize,
 }
-#[doc = "*Required features: 'Win32_UI_Input_Radial'*"]
+#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`*"]
 #[repr(transparent)]
 pub struct IRadialControllerInterop(::windows::core::IUnknown);
 impl IRadialControllerInterop {
-    #[doc = "*Required features: 'Win32_UI_Input_Radial', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;

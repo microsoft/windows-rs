@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
 pub type IDesktopWindowXamlSourceNative = *mut ::core::ffi::c_void;
 pub type IDesktopWindowXamlSourceNative2 = *mut ::core::ffi::c_void;
@@ -19,7 +19,7 @@ pub type ITrackerOwner = *mut ::core::ffi::c_void;
 pub type IVirtualSurfaceImageSourceNative = *mut ::core::ffi::c_void;
 pub type IVirtualSurfaceUpdatesCallbackNative = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub struct TrackerHandle__ {
     pub unused: i32,
 }
@@ -29,9 +29,9 @@ impl ::core::clone::Clone for TrackerHandle__ {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub type XAML_REFERENCETRACKER_DISCONNECT = i32;
-#[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = 0i32;
-#[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = 1i32;

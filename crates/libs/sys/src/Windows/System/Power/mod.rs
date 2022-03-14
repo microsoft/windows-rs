@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "System_Power_Diagnostics")]
 pub mod Diagnostics;
-#[doc = "*Required features: 'System_Power'*"]
+#[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
@@ -16,7 +16,7 @@ impl ::core::clone::Clone for BatteryStatus {
         *self
     }
 }
-#[doc = "*Required features: 'System_Power'*"]
+#[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for EnergySaverStatus {
         *self
     }
 }
-#[doc = "*Required features: 'System_Power'*"]
+#[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {

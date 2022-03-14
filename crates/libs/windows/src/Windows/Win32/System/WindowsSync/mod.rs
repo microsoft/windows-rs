@@ -1,15 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
 impl ::core::marker::Copy for CONFLICT_RESOLUTION_POLICY {}
 impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
@@ -30,17 +30,17 @@ impl ::core::fmt::Debug for CONFLICT_RESOLUTION_POLICY {
         f.debug_tuple("CONFLICT_RESOLUTION_POLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
 impl ::core::marker::Copy for CONSTRAINT_CONFLICT_REASON {}
 impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
@@ -61,13 +61,13 @@ impl ::core::fmt::Debug for CONSTRAINT_CONFLICT_REASON {
         f.debug_tuple("CONSTRAINT_CONFLICT_REASON").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FILTERING_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
 impl ::core::marker::Copy for FILTERING_TYPE {}
 impl ::core::clone::Clone for FILTERING_TYPE {
@@ -88,11 +88,11 @@ impl ::core::fmt::Debug for FILTERING_TYPE {
         f.debug_tuple("FILTERING_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FILTER_COMBINATION_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
 impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
 impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
@@ -113,24 +113,24 @@ impl ::core::fmt::Debug for FILTER_COMBINATION_TYPE {
         f.debug_tuple("FILTER_COMBINATION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IAsynchronousDataRetriever(::windows::core::IUnknown);
 impl IAsynchronousDataRetriever {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIdParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidparameters)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn RegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, IDataRetrieverCallback>>(&self, pdataretrievercallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterCallback)(::core::mem::transmute_copy(self), pdataretrievercallback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn RevokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IDataRetrieverCallback>>(&self, pdataretrievercallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RevokeCallback)(::core::mem::transmute_copy(self), pdataretrievercallback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadChangeData<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>>(&self, ploadchangecontext: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadChangeData)(::core::mem::transmute_copy(self), ploadchangecontext.into_param().abi()).ok()
     }
@@ -187,43 +187,43 @@ pub struct IAsynchronousDataRetriever_Vtbl {
     pub RevokeCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataretrievercallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LoadChangeData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploadchangecontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IChangeConflict(::windows::core::IUnknown);
 impl IChangeConflict {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetDestinationProviderConflictingChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDestinationProviderConflictingChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceProviderConflictingChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceProviderConflictingChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetDestinationProviderConflictingData(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDestinationProviderConflictingData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceProviderConflictingData(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceProviderConflictingData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetResolveActionForChange(&self, presolveaction: *mut SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetResolveActionForChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(presolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetResolveActionForChange(&self, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetResolveActionForChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(resolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, presolveaction: *mut SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetResolveActionForChangeUnit)(::core::mem::transmute_copy(self), pchangeunit.into_param().abi(), ::core::mem::transmute(presolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetResolveActionForChangeUnit)(::core::mem::transmute_copy(self), pchangeunit.into_param().abi(), ::core::mem::transmute(resolveaction)).ok()
     }
@@ -281,19 +281,19 @@ pub struct IChangeConflict_Vtbl {
     pub GetResolveActionForChangeUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchangeunit: ::windows::core::RawPtr, presolveaction: *mut SYNC_RESOLVE_ACTION) -> ::windows::core::HRESULT,
     pub SetResolveActionForChangeUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchangeunit: ::windows::core::RawPtr, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IChangeUnitException(::windows::core::IUnknown);
 impl IChangeUnitException {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitId(&self, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVector(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClockVector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
@@ -346,23 +346,23 @@ pub struct IChangeUnitException_Vtbl {
     pub GetChangeUnitId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
     pub GetClockVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IChangeUnitListFilterInfo(::windows::core::IUnknown);
 impl IChangeUnitListFilterInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pcbbuffer)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Initialize(&self, ppbchangeunitids: *const *const u8, dwchangeunitcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbchangeunitids), ::core::mem::transmute(dwchangeunitcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitIdCount(&self, pdwchangeunitidcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitIdCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwchangeunitidcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitId(&self, dwchangeunitidindex: u32, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitId)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeunitidindex), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(pcbidsize)).ok()
     }
@@ -435,15 +435,15 @@ pub struct IChangeUnitListFilterInfo_Vtbl {
     pub GetChangeUnitIdCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwchangeunitidcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetChangeUnitId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangeunitidindex: u32, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IClockVector(::windows::core::IUnknown);
 impl IClockVector {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVectorElements(&self, riid: *const ::windows::core::GUID, ppienumclockvector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClockVectorElements)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppienumclockvector)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVectorElementCount(&self, pdwcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClockVectorElementCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcount)).ok()
     }
@@ -495,15 +495,15 @@ pub struct IClockVector_Vtbl {
     pub GetClockVectorElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppienumclockvector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetClockVectorElementCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IClockVectorElement(::windows::core::IUnknown);
 impl IClockVectorElement {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetReplicaKey(&self, pdwreplicakey: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetReplicaKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwreplicakey)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetTickCount(&self, pulltickcount: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTickCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulltickcount)).ok()
     }
@@ -555,24 +555,24 @@ pub struct IClockVectorElement_Vtbl {
     pub GetReplicaKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwreplicakey: *mut u32) -> ::windows::core::HRESULT,
     pub GetTickCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulltickcount: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ICombinedFilterInfo(::windows::core::IUnknown);
 impl ICombinedFilterInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pcbbuffer)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterCount(&self, pdwfiltercount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFilterCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwfiltercount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterInfo(&self, dwfilterindex: u32) -> ::windows::core::Result<ISyncFilterInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilterInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfilterindex), ::core::mem::transmute(&mut result__)).from_abi::<ISyncFilterInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterCombinationType(&self, pfiltercombinationtype: *mut FILTER_COMBINATION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFilterCombinationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfiltercombinationtype)).ok()
     }
@@ -645,61 +645,61 @@ pub struct ICombinedFilterInfo_Vtbl {
     pub GetFilterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfilterindex: u32, ppifilterinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFilterCombinationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfiltercombinationtype: *mut FILTER_COMBINATION_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IConstraintConflict(::windows::core::IUnknown);
 impl IConstraintConflict {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetDestinationProviderConflictingChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDestinationProviderConflictingChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceProviderConflictingChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceProviderConflictingChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetDestinationProviderOriginalChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDestinationProviderOriginalChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetDestinationProviderConflictingData(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDestinationProviderConflictingData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceProviderConflictingData(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceProviderConflictingData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetDestinationProviderOriginalData(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDestinationProviderOriginalData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetConstraintResolveActionForChange(&self, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconstraintresolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetConstraintResolveActionForChange(&self, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(constraintresolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetConstraintResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChangeUnit)(::core::mem::transmute_copy(self), pchangeunit.into_param().abi(), ::core::mem::transmute(pconstraintresolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetConstraintResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChangeUnit)(::core::mem::transmute_copy(self), pchangeunit.into_param().abi(), ::core::mem::transmute(constraintresolveaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetConstraintConflictReason(&self, pconstraintconflictreason: *mut CONSTRAINT_CONFLICT_REASON) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConstraintConflictReason)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconstraintconflictreason)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn IsTemporary(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsTemporary)(::core::mem::transmute_copy(self)).ok()
     }
@@ -761,11 +761,11 @@ pub struct IConstraintConflict_Vtbl {
     pub GetConstraintConflictReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconstraintconflictreason: *mut CONSTRAINT_CONFLICT_REASON) -> ::windows::core::HRESULT,
     pub IsTemporary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IConstructReplicaKeyMap(::windows::core::IUnknown);
 impl IConstructReplicaKeyMap {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindOrAddReplica(&self, pbreplicaid: *const u8, pdwreplicakey: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FindOrAddReplica)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pdwreplicakey)).ok()
     }
@@ -816,27 +816,27 @@ pub struct IConstructReplicaKeyMap_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FindOrAddReplica: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbreplicaid: *const u8, pdwreplicakey: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ICoreFragment(::windows::core::IUnknown);
 impl ICoreFragment {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn NextColumn(&self, pchangeunitid: *mut u8, pchangeunitidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NextColumn)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchangeunitid), ::core::mem::transmute(pchangeunitidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn NextRange(&self, pitemid: *mut u8, pitemidsize: *mut u32, piclockvector: *mut ::core::option::Option<IClockVector>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NextRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pitemid), ::core::mem::transmute(pitemidsize), ::core::mem::transmute(piclockvector)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetColumnCount(&self, pcolumncount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColumnCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolumncount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRangeCount(&self, prangecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRangeCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(prangecount)).ok()
     }
@@ -891,15 +891,15 @@ pub struct ICoreFragment_Vtbl {
     pub GetColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolumncount: *mut u32) -> ::windows::core::HRESULT,
     pub GetRangeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangecount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ICoreFragmentInspector(::windows::core::IUnknown);
 impl ICoreFragmentInspector {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn NextCoreFragments(&self, requestedcount: u32, ppicorefragments: *mut ::core::option::Option<ICoreFragment>, pfetchedcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NextCoreFragments)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedcount), ::core::mem::transmute(ppicorefragments), ::core::mem::transmute(pfetchedcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
@@ -951,15 +951,15 @@ pub struct ICoreFragmentInspector_Vtbl {
     pub NextCoreFragments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedcount: u32, ppicorefragments: *mut ::windows::core::RawPtr, pfetchedcount: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ICustomFilterInfo(::windows::core::IUnknown);
 impl ICustomFilterInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pcbbuffer)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncFilter(&self) -> ::windows::core::Result<ISyncFilter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncFilter>(result__)
@@ -1032,7 +1032,7 @@ pub struct ICustomFilterInfo_Vtbl {
     pub GetSyncFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisyncfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETERS {
     pub dwSize: u32,
@@ -1073,7 +1073,7 @@ impl ::core::default::Default for ID_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETER_PAIR {
     pub fIsVariable: super::super::Foundation::BOOL,
@@ -1111,15 +1111,15 @@ impl ::core::default::Default for ID_PARAMETER_PAIR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IDataRetrieverCallback(::windows::core::IUnknown);
 impl IDataRetrieverCallback {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadChangeDataComplete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkdata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadChangeDataComplete)(::core::mem::transmute_copy(self), punkdata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadChangeDataError(&self, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadChangeDataError)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrerror)).ok()
     }
@@ -1171,23 +1171,23 @@ pub struct IDataRetrieverCallback_Vtbl {
     pub LoadChangeDataComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LoadChangeDataError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumChangeUnitExceptions(::windows::core::IUnknown);
 impl IEnumChangeUnitExceptions {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cexceptions: u32, ppchangeunitexception: *mut ::core::option::Option<IChangeUnitException>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cexceptions), ::core::mem::transmute(ppchangeunitexception), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cexceptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cexceptions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumChangeUnitExceptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumChangeUnitExceptions>(result__)
@@ -1242,23 +1242,23 @@ pub struct IEnumChangeUnitExceptions_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumClockVector(::windows::core::IUnknown);
 impl IEnumClockVector {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cclockvectorelements: u32, ppiclockvectorelements: *mut ::core::option::Option<IClockVectorElement>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cclockvectorelements), ::core::mem::transmute(ppiclockvectorelements), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, csyncversions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(csyncversions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumClockVector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumClockVector>(result__)
@@ -1313,23 +1313,23 @@ pub struct IEnumClockVector_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumFeedClockVector(::windows::core::IUnknown);
 impl IEnumFeedClockVector {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cclockvectorelements: u32, ppiclockvectorelements: *mut ::core::option::Option<IFeedClockVectorElement>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cclockvectorelements), ::core::mem::transmute(ppiclockvectorelements), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, csyncversions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(csyncversions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumFeedClockVector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumFeedClockVector>(result__)
@@ -1384,11 +1384,11 @@ pub struct IEnumFeedClockVector_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumItemIds(::windows::core::IUnknown);
 impl IEnumItemIds {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbitemidsize)).ok()
     }
@@ -1439,23 +1439,23 @@ pub struct IEnumItemIds_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumRangeExceptions(::windows::core::IUnknown);
 impl IEnumRangeExceptions {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cexceptions: u32, pprangeexception: *mut ::core::option::Option<IRangeException>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cexceptions), ::core::mem::transmute(pprangeexception), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cexceptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cexceptions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRangeExceptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRangeExceptions>(result__)
@@ -1510,23 +1510,23 @@ pub struct IEnumRangeExceptions_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumSingleItemExceptions(::windows::core::IUnknown);
 impl IEnumSingleItemExceptions {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cexceptions: u32, ppsingleitemexception: *mut ::core::option::Option<ISingleItemException>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cexceptions), ::core::mem::transmute(ppsingleitemexception), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cexceptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cexceptions)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSingleItemExceptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSingleItemExceptions>(result__)
@@ -1581,23 +1581,23 @@ pub struct IEnumSingleItemExceptions_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumSyncChangeUnits(::windows::core::IUnknown);
 impl IEnumSyncChangeUnits {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cchanges: u32, ppchangeunit: *mut ::core::option::Option<ISyncChangeUnit>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchanges), ::core::mem::transmute(ppchangeunit), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cchanges: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchanges)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSyncChangeUnits> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChangeUnits>(result__)
@@ -1652,23 +1652,23 @@ pub struct IEnumSyncChangeUnits_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumSyncChanges(::windows::core::IUnknown);
 impl IEnumSyncChanges {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Next(&self, cchanges: u32, ppchange: *mut ::core::option::Option<ISyncChange>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchanges), ::core::mem::transmute(ppchange), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cchanges: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchanges)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
@@ -1723,24 +1723,24 @@ pub struct IEnumSyncChanges_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumSyncProviderConfigUIInfos(::windows::core::IUnknown);
 impl IEnumSyncProviderConfigUIInfos {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Next(&self, cfactories: u32, ppsyncproviderconfiguiinfo: *mut ::core::option::Option<ISyncProviderConfigUIInfo>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfactories), ::core::mem::transmute(ppsyncproviderconfiguiinfo), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cfactories: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfactories)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSyncProviderConfigUIInfos> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncProviderConfigUIInfos>(result__)
@@ -1798,24 +1798,24 @@ pub struct IEnumSyncProviderConfigUIInfos_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IEnumSyncProviderInfos(::windows::core::IUnknown);
 impl IEnumSyncProviderInfos {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Next(&self, cinstances: u32, ppsyncproviderinfo: *mut ::core::option::Option<ISyncProviderInfo>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cinstances), ::core::mem::transmute(ppsyncproviderinfo), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Skip(&self, cinstances: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cinstances)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSyncProviderInfos> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncProviderInfos>(result__)
@@ -1873,23 +1873,23 @@ pub struct IEnumSyncProviderInfos_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFeedClockVector(::windows::core::IUnknown);
 impl IFeedClockVector {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVectorElements(&self, riid: *const ::windows::core::GUID, ppienumclockvector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetClockVectorElements)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppienumclockvector)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVectorElementCount(&self, pdwcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetClockVectorElementCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetUpdateCount(&self, pdwupdatecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetUpdateCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwupdatecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsNoConflictsSpecified(&self, pfisnoconflictsspecified: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsNoConflictsSpecified)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfisnoconflictsspecified)).ok()
@@ -1965,23 +1965,23 @@ pub struct IFeedClockVector_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsNoConflictsSpecified: usize,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFeedClockVectorElement(::windows::core::IUnknown);
 impl IFeedClockVectorElement {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetReplicaKey(&self, pdwreplicakey: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetReplicaKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwreplicakey)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetTickCount(&self, pulltickcount: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetTickCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulltickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncTime(&self, psynctime: *mut SYNC_TIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSyncTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(psynctime)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFlags(&self, pbflags: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbflags)).ok()
     }
@@ -2053,24 +2053,24 @@ pub struct IFeedClockVectorElement_Vtbl {
     pub GetSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psynctime: *mut SYNC_TIME) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbflags: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFilterKeyMap(::windows::core::IUnknown);
 impl IFilterKeyMap {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetCount(&self, pdwcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddFilter<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, pisyncfilter: Param0, pdwfilterkey: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddFilter)(::core::mem::transmute_copy(self), pisyncfilter.into_param().abi(), ::core::mem::transmute(pdwfilterkey)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilter(&self, dwfilterkey: u32) -> ::windows::core::Result<ISyncFilter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(&mut result__)).from_abi::<ISyncFilter>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbfilterkeymap: *mut u8, pcbfilterkeymap: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbfilterkeymap), ::core::mem::transmute(pcbfilterkeymap)).ok()
     }
@@ -2124,11 +2124,11 @@ pub struct IFilterKeyMap_Vtbl {
     pub GetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfilterkey: u32, ppisyncfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbfilterkeymap: *mut u8, pcbfilterkeymap: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFilterRequestCallback(::windows::core::IUnknown);
 impl IFilterRequestCallback {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn RequestFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0, filteringtype: FILTERING_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestFilter)(::core::mem::transmute_copy(self), pfilter.into_param().abi(), ::core::mem::transmute(filteringtype)).ok()
     }
@@ -2179,15 +2179,15 @@ pub struct IFilterRequestCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RequestFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void, filteringtype: FILTERING_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFilterTrackingProvider(::windows::core::IUnknown);
 impl IFilterTrackingProvider {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SpecifyTrackedFilters<'a, Param0: ::windows::core::IntoParam<'a, IFilterTrackingRequestCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SpecifyTrackedFilters)(::core::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddTrackedFilter<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddTrackedFilter)(::core::mem::transmute_copy(self), pfilter.into_param().abi()).ok()
     }
@@ -2239,11 +2239,11 @@ pub struct IFilterTrackingProvider_Vtbl {
     pub SpecifyTrackedFilters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AddTrackedFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFilterTrackingRequestCallback(::windows::core::IUnknown);
 impl IFilterTrackingRequestCallback {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn RequestTrackedFilter<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestTrackedFilter)(::core::mem::transmute_copy(self), pfilter.into_param().abi()).ok()
     }
@@ -2294,16 +2294,16 @@ pub struct IFilterTrackingRequestCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RequestTrackedFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IFilterTrackingSyncChangeBuilder(::windows::core::IUnknown);
 impl IFilterTrackingSyncChangeBuilder {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddFilterChange(&self, dwfilterkey: u32, pfilterchange: *const SYNC_FILTER_CHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddFilterChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(pfilterchange)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetAllChangeUnitsPresentFlag(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllChangeUnitsPresentFlag)(::core::mem::transmute_copy(self)).ok()
     }
@@ -2358,114 +2358,114 @@ pub struct IFilterTrackingSyncChangeBuilder_Vtbl {
     AddFilterChange: usize,
     pub SetAllChangeUnitsPresentFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IForgottenKnowledge(::windows::core::IUnknown);
 impl IForgottenKnowledge {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetOwnerReplicaId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), fserializereplicakeymap.into_param().abi(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetLocalTickCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulltickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsChange(&self, pbversionownerreplicaid: *const u8, pgiditemid: *const u8, psyncversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbversionownerreplicaid), ::core::mem::transmute(pgiditemid), ::core::mem::transmute(psyncversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsChangeUnit(&self, pbversionownerreplicaid: *const u8, pbitemid: *const u8, pbchangeunitid: *const u8, psyncversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainsChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbversionownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(psyncversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetScopeVector(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetScopeVector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetReplicaKeyMap(&self) -> ::windows::core::Result<IReplicaKeyMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetReplicaKeyMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IReplicaKeyMap>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ConvertVersion)(::core::mem::transmute_copy(self), pknowledgein.into_param().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn MapRemoteToLocal<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.MapRemoteToLocal)(::core::mem::transmute_copy(self), premoteknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Union<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Union)(::core::mem::transmute_copy(self), pknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProjectOntoItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProjectOntoChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoRange(&self, psrngsyncrange: *const SYNC_RANGE) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProjectOntoRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(psrngsyncrange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ExcludeItem(&self, pbitemid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ExcludeItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ExcludeChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ExcludeChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainsKnowledge)(::core::mem::transmute_copy(self), pknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.FindMinTickCountForReplica)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pullreplicatickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRangeExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRangeExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSingleItemExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSingleItemExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetChangeUnitExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindClockVectorForItem(&self, pbitemid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.FindClockVectorForItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindClockVectorForChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.FindClockVectorForChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetVersion(&self, pdwversion: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ForgetToVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0, pversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ForgetToVersion)(::core::mem::transmute_copy(self), pknowledge.into_param().abi(), ::core::mem::transmute(pversion)).ok()
     }
@@ -2536,40 +2536,40 @@ pub struct IForgottenKnowledge_Vtbl {
     pub base: ISyncKnowledge_Vtbl,
     pub ForgetToVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pknowledge: ::windows::core::RawPtr, pversion: *const SYNC_VERSION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IKnowledgeSyncProvider(::windows::core::IUnknown);
 impl IKnowledgeSyncProvider {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIdParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidparameters)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginSession<'a, Param1: ::windows::core::IntoParam<'a, ISyncSessionState>>(&self, role: SYNC_PROVIDER_ROLE, psessionstate: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(role), psessionstate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncBatchParameters(&self, ppsyncknowledge: *mut ::core::option::Option<ISyncKnowledge>, pdwrequestedbatchsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSyncBatchParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppsyncknowledge), ::core::mem::transmute(pdwrequestedbatchsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeBatch<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, dwbatchsize: u32, psyncknowledge: Param1, ppsyncchangebatch: *mut ::core::option::Option<ISyncChangeBatch>, ppunkdataretriever: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwbatchsize), psyncknowledge.into_param().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFullEnumerationChangeBatch<'a, Param2: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, dwbatchsize: u32, pblowerenumerationbound: *const u8, psyncknowledge: Param2, ppsyncchangebatch: *mut ::core::option::Option<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFullEnumerationChangeBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwbatchsize), ::core::mem::transmute(pblowerenumerationbound), psyncknowledge.into_param().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProcessChangeBatch<'a, Param1: ::windows::core::IntoParam<'a, ISyncChangeBatch>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, ISyncCallback>>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: Param1, punkdataretriever: Param2, pcallback: Param3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProcessChangeBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(resolutionpolicy), psourcechangebatch.into_param().abi(), punkdataretriever.into_param().abi(), pcallback.into_param().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProcessFullEnumerationChangeBatch<'a, Param1: ::windows::core::IntoParam<'a, ISyncFullEnumerationChangeBatch>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, ISyncCallback>>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: Param1, punkdataretriever: Param2, pcallback: Param3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(resolutionpolicy), psourcechangebatch.into_param().abi(), punkdataretriever.into_param().abi(), pcallback.into_param().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndSession<'a, Param0: ::windows::core::IntoParam<'a, ISyncSessionState>>(&self, psessionstate: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndSession)(::core::mem::transmute_copy(self), psessionstate.into_param().abi()).ok()
     }
@@ -2646,20 +2646,20 @@ pub struct IKnowledgeSyncProvider_Vtbl {
     pub ProcessFullEnumerationChangeBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: ::windows::core::RawPtr, punkdataretriever: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psessionstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ILoadChangeContext(::windows::core::IUnknown);
 impl ILoadChangeContext {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRecoverableErrorOnChange<'a, Param1: ::windows::core::IntoParam<'a, IRecoverableErrorData>>(&self, hrerror: ::windows::core::HRESULT, perrordata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecoverableErrorOnChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrerror), perrordata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRecoverableErrorOnChangeUnit<'a, Param1: ::windows::core::IntoParam<'a, ISyncChangeUnit>, Param2: ::windows::core::IntoParam<'a, IRecoverableErrorData>>(&self, hrerror: ::windows::core::HRESULT, pchangeunit: Param1, perrordata: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecoverableErrorOnChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrerror), pchangeunit.into_param().abi(), perrordata.into_param().abi()).ok()
     }
@@ -2712,11 +2712,11 @@ pub struct ILoadChangeContext_Vtbl {
     pub SetRecoverableErrorOnChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, perrordata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetRecoverableErrorOnChangeUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, pchangeunit: ::windows::core::RawPtr, perrordata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IProviderConverter(::windows::core::IUnknown);
 impl IProviderConverter {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ISyncProvider>>(&self, pisyncprovider: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisyncprovider.into_param().abi()).ok()
     }
@@ -2767,19 +2767,19 @@ pub struct IProviderConverter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisyncprovider: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IRangeException(::windows::core::IUnknown);
 impl IRangeException {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClosedRangeStart(&self, pbclosedrangestart: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClosedRangeStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbclosedrangestart), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClosedRangeEnd(&self, pbclosedrangeend: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClosedRangeEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbclosedrangeend), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVector(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClockVector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
@@ -2832,28 +2832,28 @@ pub struct IRangeException_Vtbl {
     pub GetClosedRangeEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbclosedrangeend: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
     pub GetClockVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IRecoverableError(::windows::core::IUnknown);
 impl IRecoverableError {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetStage(&self, pstage: *mut SYNC_PROGRESS_STAGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstage)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetProvider(&self, pproviderrole: *mut SYNC_PROVIDER_ROLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(pproviderrole)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeWithRecoverableError(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetChangeWithRecoverableError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRecoverableErrorDataForChange(&self, phrerror: *mut ::windows::core::HRESULT, pperrordata: *mut ::core::option::Option<IRecoverableErrorData>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRecoverableErrorDataForChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(phrerror), ::core::mem::transmute(pperrordata)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRecoverableErrorDataForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, phrerror: *mut ::windows::core::HRESULT, pperrordata: *mut ::core::option::Option<IRecoverableErrorData>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRecoverableErrorDataForChangeUnit)(::core::mem::transmute_copy(self), pchangeunit.into_param().abi(), ::core::mem::transmute(phrerror), ::core::mem::transmute(pperrordata)).ok()
     }
@@ -2908,19 +2908,19 @@ pub struct IRecoverableError_Vtbl {
     pub GetRecoverableErrorDataForChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrerror: *mut ::windows::core::HRESULT, pperrordata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRecoverableErrorDataForChangeUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchangeunit: ::windows::core::RawPtr, phrerror: *mut ::windows::core::HRESULT, pperrordata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IRecoverableErrorData(::windows::core::IUnknown);
 impl IRecoverableErrorData {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pcszitemdisplayname: Param0, pcszerrordescription: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pcszitemdisplayname.into_param().abi(), pcszerrordescription.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetItemDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszitemdisplayname: Param0, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetItemDisplayName)(::core::mem::transmute_copy(self), pszitemdisplayname.into_param().abi(), ::core::mem::transmute(pcchitemdisplayname)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetErrorDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszerrordescription: Param0, pccherrordescription: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetErrorDescription)(::core::mem::transmute_copy(self), pszerrordescription.into_param().abi(), ::core::mem::transmute(pccherrordescription)).ok()
     }
@@ -2973,21 +2973,21 @@ pub struct IRecoverableErrorData_Vtbl {
     pub GetItemDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszitemdisplayname: ::windows::core::PCWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::HRESULT,
     pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszerrordescription: ::windows::core::PCWSTR, pccherrordescription: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IRegisteredSyncProvider(::windows::core::IUnknown);
 impl IRegisteredSyncProvider {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Init<'a, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(&self, pguidinstanceid: *const ::windows::core::GUID, pguidcontenttype: *const ::windows::core::GUID, pcontextpropertystore: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Init)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(pguidcontenttype), pcontextpropertystore.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInstanceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
@@ -3043,19 +3043,19 @@ pub struct IRegisteredSyncProvider_Vtbl {
     pub GetInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IReplicaKeyMap(::windows::core::IUnknown);
 impl IReplicaKeyMap {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LookupReplicaKey(&self, pbreplicaid: *const u8, pdwreplicakey: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LookupReplicaKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pdwreplicakey)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LookupReplicaId(&self, dwreplicakey: u32, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LookupReplicaId)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreplicakey), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbreplicakeymap: *mut u8, pcbreplicakeymap: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicakeymap), ::core::mem::transmute(pcbreplicakeymap)).ok()
     }
@@ -3108,11 +3108,11 @@ pub struct IReplicaKeyMap_Vtbl {
     pub LookupReplicaId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreplicakey: u32, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbreplicakeymap: *mut u8, pcbreplicakeymap: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct IRequestFilteredSync(::windows::core::IUnknown);
 impl IRequestFilteredSync {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SpecifyFilter<'a, Param0: ::windows::core::IntoParam<'a, IFilterRequestCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SpecifyFilter)(::core::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
@@ -3163,15 +3163,15 @@ pub struct IRequestFilteredSync_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SpecifyFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISingleItemException(::windows::core::IUnknown);
 impl ISingleItemException {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClockVector(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClockVector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
@@ -3223,11 +3223,11 @@ pub struct ISingleItemException_Vtbl {
     pub GetItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbitemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
     pub GetClockVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISupportFilteredSync(::windows::core::IUnknown);
 impl ISupportFilteredSync {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0, filteringtype: FILTERING_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddFilter)(::core::mem::transmute_copy(self), pfilter.into_param().abi(), ::core::mem::transmute(filteringtype)).ok()
     }
@@ -3278,15 +3278,15 @@ pub struct ISupportFilteredSync_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void, filteringtype: FILTERING_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISupportLastWriteTime(::windows::core::IUnknown);
 impl ISupportLastWriteTime {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetItemChangeTime(&self, pbitemid: *const u8, pulltimestamp: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetItemChangeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pulltimestamp)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitChangeTime(&self, pbitemid: *const u8, pbchangeunitid: *const u8, pulltimestamp: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitChangeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(pulltimestamp)).ok()
     }
@@ -3338,27 +3338,27 @@ pub struct ISupportLastWriteTime_Vtbl {
     pub GetItemChangeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbitemid: *const u8, pulltimestamp: *mut u64) -> ::windows::core::HRESULT,
     pub GetChangeUnitChangeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbitemid: *const u8, pbchangeunitid: *const u8, pulltimestamp: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncCallback(::windows::core::IUnknown);
 impl ISyncCallback {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChange<'a, Param0: ::windows::core::IntoParam<'a, ISyncChange>>(&self, psyncchange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnChange)(::core::mem::transmute_copy(self), psyncchange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnConflict<'a, Param0: ::windows::core::IntoParam<'a, IChangeConflict>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnConflict)(::core::mem::transmute_copy(self), pconflict.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnFullEnumerationNeeded(&self, pfullenumerationaction: *mut SYNC_FULL_ENUMERATION_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnFullEnumerationNeeded)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullenumerationaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnRecoverableError<'a, Param0: ::windows::core::IntoParam<'a, IRecoverableError>>(&self, precoverableerror: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnRecoverableError)(::core::mem::transmute_copy(self), precoverableerror.into_param().abi()).ok()
     }
@@ -3413,35 +3413,35 @@ pub struct ISyncCallback_Vtbl {
     pub OnFullEnumerationNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfullenumerationaction: *mut SYNC_FULL_ENUMERATION_ACTION) -> ::windows::core::HRESULT,
     pub OnRecoverableError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precoverableerror: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncCallback2(::windows::core::IUnknown);
 impl ISyncCallback2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.OnProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChange<'a, Param0: ::windows::core::IntoParam<'a, ISyncChange>>(&self, psyncchange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.OnChange)(::core::mem::transmute_copy(self), psyncchange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnConflict<'a, Param0: ::windows::core::IntoParam<'a, IChangeConflict>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.OnConflict)(::core::mem::transmute_copy(self), pconflict.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnFullEnumerationNeeded(&self, pfullenumerationaction: *mut SYNC_FULL_ENUMERATION_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.OnFullEnumerationNeeded)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullenumerationaction)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnRecoverableError<'a, Param0: ::windows::core::IntoParam<'a, IRecoverableError>>(&self, precoverableerror: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.OnRecoverableError)(::core::mem::transmute_copy(self), precoverableerror.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChangeApplied(&self, dwchangesapplied: u32, dwchangesfailed: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnChangeApplied)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangesapplied), ::core::mem::transmute(dwchangesfailed)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChangeFailed(&self, dwchangesapplied: u32, dwchangesfailed: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnChangeFailed)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangesapplied), ::core::mem::transmute(dwchangesfailed)).ok()
     }
@@ -3513,50 +3513,50 @@ pub struct ISyncCallback2_Vtbl {
     pub OnChangeApplied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangesapplied: u32, dwchangesfailed: u32) -> ::windows::core::HRESULT,
     pub OnChangeFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangesapplied: u32, dwchangesfailed: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChange(::windows::core::IUnknown);
 impl ISyncChange {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOwnerReplicaId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRootItemId(&self, pbrootitemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRootItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbrootitemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeVersion(&self, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbcurrentreplicaid), ::core::mem::transmute(pversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetCreationVersion(&self, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCreationVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbcurrentreplicaid), ::core::mem::transmute(pversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimate(&self, pdwwork: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWorkEstimate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwwork)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnits(&self) -> ::windows::core::Result<IEnumSyncChangeUnits> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetChangeUnits)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChangeUnits>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetMadeWithKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMadeWithKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimate(&self, dwwork: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWorkEstimate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwwork)).ok()
     }
@@ -3616,82 +3616,82 @@ pub struct ISyncChange_Vtbl {
     pub GetLearnedKnowledge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplearnedknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetWorkEstimate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwork: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatch(::windows::core::IUnknown);
 impl ISyncChangeBatch {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginUnorderedGroup(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginUnorderedGroup)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndUnorderedGroup<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pmadewithknowledge: Param0, fallchangesforknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndUnorderedGroup)(::core::mem::transmute_copy(self), pmadewithknowledge.into_param().abi(), fallchangesforknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddLoggedConflict<'a, Param6: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AddLoggedConflict)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
@@ -3768,92 +3768,92 @@ pub struct ISyncChangeBatch_Vtbl {
     EndUnorderedGroup: usize,
     pub AddLoggedConflict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: ::windows::core::RawPtr, ppchangebuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatch2(::windows::core::IUnknown);
 impl ISyncChangeBatch2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginUnorderedGroup(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginUnorderedGroup)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndUnorderedGroup<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pmadewithknowledge: Param0, fallchangesforknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EndUnorderedGroup)(::core::mem::transmute_copy(self), pmadewithknowledge.into_param().abi(), fallchangesforknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddLoggedConflict<'a, Param6: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AddLoggedConflict)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddMergeTombstoneLoggedConflict<'a, Param6: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AddMergeTombstoneLoggedConflict)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
@@ -3946,25 +3946,25 @@ pub struct ISyncChangeBatch2_Vtbl {
     pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AddMergeTombstoneLoggedConflict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: ::windows::core::RawPtr, ppchangebuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatchAdvanced(::windows::core::IUnknown);
 impl ISyncChangeBatchAdvanced {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterInfo(&self) -> ::windows::core::Result<ISyncFilterInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilterInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncFilterInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertFullEnumerationChangeBatchToRegularChangeBatch(&self) -> ::windows::core::Result<ISyncChangeBatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ConvertFullEnumerationChangeBatchToRegularChangeBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBatch>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetUpperBoundItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetUpperBoundItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBatchLevelKnowledgeShouldBeApplied(&self, pfbatchknowledgeshouldbeapplied: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBatchLevelKnowledgeShouldBeApplied)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfbatchknowledgeshouldbeapplied)).ok()
@@ -4022,69 +4022,69 @@ pub struct ISyncChangeBatchAdvanced_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetBatchLevelKnowledgeShouldBeApplied: usize,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatchBase(::windows::core::IUnknown);
 impl ISyncChangeBatchBase {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
@@ -4151,73 +4151,73 @@ pub struct ISyncChangeBatchBase_Vtbl {
     pub SetRemainingWorkEstimateForSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwremainingworkforsession: u32) -> ::windows::core::HRESULT,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatchBase2(::windows::core::IUnknown);
 impl ISyncChangeBatchBase2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SerializeWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetformatversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
     }
@@ -4288,44 +4288,44 @@ pub struct ISyncChangeBatchBase2_Vtbl {
     pub base: ISyncChangeBatchBase_Vtbl,
     pub SerializeWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatchWithFilterKeyMap(::windows::core::IUnknown);
 impl ISyncChangeBatchWithFilterKeyMap {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterKeyMap(&self) -> ::windows::core::Result<IFilterKeyMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilterKeyMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFilterKeyMap>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetFilterKeyMap<'a, Param0: ::windows::core::IntoParam<'a, IFilterKeyMap>>(&self, pifilterkeymap: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFilterKeyMap)(::core::mem::transmute_copy(self), pifilterkeymap.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetFilterForgottenKnowledge<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, dwfilterkey: u32, pfilterforgottenknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFilterForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfilterkey), pfilterforgottenknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilteredReplicaLearnedKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedFilterForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
@@ -4384,82 +4384,82 @@ pub struct ISyncChangeBatchWithFilterKeyMap_Vtbl {
     pub GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationknowledge: ::windows::core::RawPtr, pnewmoveins: ::windows::core::RawPtr, pplearnedforgottenknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationknowledge: ::windows::core::RawPtr, pnewmoveins: ::windows::core::RawPtr, dwfilterkey: u32, pplearnedfilterforgottenknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBatchWithPrerequisite(::windows::core::IUnknown);
 impl ISyncChangeBatchWithPrerequisite {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetPrerequisiteKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pprerequisiteknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), pprerequisiteknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledgeWithPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pdestinationknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
@@ -4533,11 +4533,11 @@ pub struct ISyncChangeBatchWithPrerequisite_Vtbl {
     pub GetLearnedKnowledgeWithPrerequisite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationknowledge: ::windows::core::RawPtr, pplearnedwithprerequisiteknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetLearnedForgottenKnowledge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplearnedforgottenknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeBuilder(::windows::core::IUnknown);
 impl ISyncChangeBuilder {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddChangeUnitMetadata(&self, pbchangeunitid: *const u8, pchangeunitversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddChangeUnitMetadata)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(pchangeunitversion)).ok()
     }
@@ -4588,20 +4588,20 @@ pub struct ISyncChangeBuilder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddChangeUnitMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbchangeunitid: *const u8, pchangeunitversion: *const SYNC_VERSION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeUnit(::windows::core::IUnknown);
 impl ISyncChangeUnit {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetItemChange(&self) -> ::windows::core::Result<ISyncChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetItemChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChange>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitId(&self, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitVersion(&self, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbcurrentreplicaid), ::core::mem::transmute(pversion)).ok()
     }
@@ -4654,50 +4654,50 @@ pub struct ISyncChangeUnit_Vtbl {
     pub GetChangeUnitId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
     pub GetChangeUnitVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeWithFilterKeyMap(::windows::core::IUnknown);
 impl ISyncChangeWithFilterKeyMap {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterCount(&self, pdwfiltercount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFilterCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwfiltercount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFilterChange(&self, dwfilterkey: u32, pfilterchange: *mut SYNC_FILTER_CHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFilterChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(pfilterchange)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllChangeUnitsPresentFlag(&self, pfallchangeunitspresent: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAllChangeUnitsPresentFlag)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfallchangeunitspresent)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilterForgottenKnowledge(&self, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilterForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilteredReplicaLearnedKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedFilterForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
@@ -4763,16 +4763,16 @@ pub struct ISyncChangeWithFilterKeyMap_Vtbl {
     pub GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationknowledge: ::windows::core::RawPtr, pnewmoveins: ::windows::core::RawPtr, pplearnedforgottenknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationknowledge: ::windows::core::RawPtr, pnewmoveins: ::windows::core::RawPtr, dwfilterkey: u32, pplearnedfilterforgottenknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncChangeWithPrerequisite(::windows::core::IUnknown);
 impl ISyncChangeWithPrerequisite {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledgeWithPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pdestinationknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::core::mem::transmute_copy(self), pdestinationknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
@@ -4825,11 +4825,11 @@ pub struct ISyncChangeWithPrerequisite_Vtbl {
     pub GetPrerequisiteKnowledge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprerequisiteknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetLearnedKnowledgeWithPrerequisite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationknowledge: ::windows::core::RawPtr, pplearnedknowledgewithprerequisite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncConstraintCallback(::windows::core::IUnknown);
 impl ISyncConstraintCallback {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnConstraintConflict<'a, Param0: ::windows::core::IntoParam<'a, IConstraintConflict>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnConstraintConflict)(::core::mem::transmute_copy(self), pconflict.into_param().abi()).ok()
     }
@@ -4880,26 +4880,26 @@ pub struct ISyncConstraintCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnConstraintConflict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconflict: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncDataConverter(::windows::core::IUnknown);
 impl ISyncDataConverter {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertDataRetrieverFromProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IEnumSyncChanges>>(&self, punkdataretrieverin: Param0, penumsyncchanges: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ConvertDataRetrieverFromProviderFormat)(::core::mem::transmute_copy(self), punkdataretrieverin.into_param().abi(), penumsyncchanges.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertDataRetrieverToProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IEnumSyncChanges>>(&self, punkdataretrieverin: Param0, penumsyncchanges: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ConvertDataRetrieverToProviderFormat)(::core::mem::transmute_copy(self), punkdataretrieverin.into_param().abi(), penumsyncchanges.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertDataFromProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdatacontext: Param0, punkdatain: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ConvertDataFromProviderFormat)(::core::mem::transmute_copy(self), pdatacontext.into_param().abi(), punkdatain.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertDataToProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdatacontext: Param0, punkdataout: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ConvertDataToProviderFormat)(::core::mem::transmute_copy(self), pdatacontext.into_param().abi(), punkdataout.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -4954,15 +4954,15 @@ pub struct ISyncDataConverter_Vtbl {
     pub ConvertDataFromProviderFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatacontext: ::windows::core::RawPtr, punkdatain: *mut ::core::ffi::c_void, ppunkdataout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ConvertDataToProviderFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatacontext: ::windows::core::RawPtr, punkdataout: *mut ::core::ffi::c_void, ppunkdataout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFilter(::windows::core::IUnknown);
 impl ISyncFilter {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn IsIdentical<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, psyncfilter: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsIdentical)(::core::mem::transmute_copy(self), psyncfilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbsyncfilter: *mut u8, pcbsyncfilter: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsyncfilter), ::core::mem::transmute(pcbsyncfilter)).ok()
     }
@@ -5014,11 +5014,11 @@ pub struct ISyncFilter_Vtbl {
     pub IsIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psyncfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsyncfilter: *mut u8, pcbsyncfilter: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFilterDeserializer(::windows::core::IUnknown);
 impl ISyncFilterDeserializer {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn DeserializeSyncFilter(&self, pbsyncfilter: *const u8, dwcbsyncfilter: u32) -> ::windows::core::Result<ISyncFilter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DeserializeSyncFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsyncfilter), ::core::mem::transmute(dwcbsyncfilter), ::core::mem::transmute(&mut result__)).from_abi::<ISyncFilter>(result__)
@@ -5070,11 +5070,11 @@ pub struct ISyncFilterDeserializer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DeserializeSyncFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsyncfilter: *const u8, dwcbsyncfilter: u32, ppisyncfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFilterInfo(::windows::core::IUnknown);
 impl ISyncFilterInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pcbbuffer)).ok()
     }
@@ -5125,15 +5125,15 @@ pub struct ISyncFilterInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFilterInfo2(::windows::core::IUnknown);
 impl ISyncFilterInfo2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pcbbuffer)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
     }
@@ -5204,16 +5204,16 @@ pub struct ISyncFilterInfo2_Vtbl {
     pub base: ISyncFilterInfo_Vtbl,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFullEnumerationChange(::windows::core::IUnknown);
 impl ISyncFullEnumerationChange {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
@@ -5266,82 +5266,82 @@ pub struct ISyncFullEnumerationChange_Vtbl {
     pub GetLearnedKnowledgeAfterRecoveryComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplearnedknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetLearnedForgottenKnowledge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplearnedforgottenknowledge: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFullEnumerationChangeBatch(::windows::core::IUnknown);
 impl ISyncFullEnumerationChangeBatch {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLearnedKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClosedLowerBoundItemId(&self, pbclosedlowerbounditemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClosedLowerBoundItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbclosedlowerbounditemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClosedUpperBoundItemId(&self, pbclosedupperbounditemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClosedUpperBoundItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbclosedupperbounditemid), ::core::mem::transmute(pcbidsize)).ok()
     }
@@ -5414,86 +5414,86 @@ pub struct ISyncFullEnumerationChangeBatch_Vtbl {
     pub GetClosedLowerBoundItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbclosedlowerbounditemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
     pub GetClosedUpperBoundItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbclosedupperbounditemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncFullEnumerationChangeBatch2(::windows::core::IUnknown);
 impl ISyncFullEnumerationChangeBatch2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeEnumerator(&self) -> ::windows::core::Result<IEnumSyncChanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetChangeEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncChanges>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIsLastBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflastbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.BeginOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblowerbound)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.EndOrderedGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.AddItemMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetLearnedKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPrerequisiteKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSourceForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetSourceForgottenKnowledge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IForgottenKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLastBatch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetLastBatch)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetWorkEstimateForBatch(&self, dwworkforbatch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetWorkEstimateForBatch)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwworkforbatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetRemainingWorkEstimateForSession(&self, dwremainingworkforsession: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRemainingWorkEstimateForSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwremainingworkforsession)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetLearnedKnowledgeAfterRecoveryComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClosedLowerBoundItemId(&self, pbclosedlowerbounditemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetClosedLowerBoundItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbclosedlowerbounditemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetClosedUpperBoundItemId(&self, pbclosedupperbounditemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetClosedUpperBoundItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbclosedupperbounditemid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncChangeBuilder>(result__)
@@ -5585,110 +5585,110 @@ pub struct ISyncFullEnumerationChangeBatch2_Vtbl {
     pub base: ISyncFullEnumerationChangeBatch_Vtbl,
     pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncKnowledge(::windows::core::IUnknown);
 impl ISyncKnowledge {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOwnerReplicaId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), fserializereplicakeymap.into_param().abi(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLocalTickCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulltickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsChange(&self, pbversionownerreplicaid: *const u8, pgiditemid: *const u8, psyncversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ContainsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbversionownerreplicaid), ::core::mem::transmute(pgiditemid), ::core::mem::transmute(psyncversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsChangeUnit(&self, pbversionownerreplicaid: *const u8, pbitemid: *const u8, pbchangeunitid: *const u8, psyncversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ContainsChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbversionownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(psyncversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetScopeVector(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetScopeVector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetReplicaKeyMap(&self) -> ::windows::core::Result<IReplicaKeyMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetReplicaKeyMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IReplicaKeyMap>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertVersion)(::core::mem::transmute_copy(self), pknowledgein.into_param().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn MapRemoteToLocal<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MapRemoteToLocal)(::core::mem::transmute_copy(self), premoteknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Union<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Union)(::core::mem::transmute_copy(self), pknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProjectOntoItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProjectOntoChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoRange(&self, psrngsyncrange: *const SYNC_RANGE) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProjectOntoRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(psrngsyncrange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ExcludeItem(&self, pbitemid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExcludeItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ExcludeChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExcludeChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ContainsKnowledge)(::core::mem::transmute_copy(self), pknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FindMinTickCountForReplica)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pullreplicatickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRangeExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRangeExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSingleItemExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSingleItemExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChangeUnitExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindClockVectorForItem(&self, pbitemid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FindClockVectorForItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindClockVectorForChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FindClockVectorForChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetVersion(&self, pdwversion: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwversion)).ok()
     }
@@ -5765,171 +5765,171 @@ pub struct ISyncKnowledge_Vtbl {
     pub FindClockVectorForChangeUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbitemid: *const u8, pbchangeunitid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncKnowledge2(::windows::core::IUnknown);
 impl ISyncKnowledge2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetOwnerReplicaId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pcbidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), fserializereplicakeymap.into_param().abi(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetLocalTickCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulltickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsChange(&self, pbversionownerreplicaid: *const u8, pgiditemid: *const u8, psyncversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbversionownerreplicaid), ::core::mem::transmute(pgiditemid), ::core::mem::transmute(psyncversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsChangeUnit(&self, pbversionownerreplicaid: *const u8, pbitemid: *const u8, pbchangeunitid: *const u8, psyncversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainsChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbversionownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(psyncversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetScopeVector(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetScopeVector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetReplicaKeyMap(&self) -> ::windows::core::Result<IReplicaKeyMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetReplicaKeyMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IReplicaKeyMap>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ConvertVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ConvertVersion)(::core::mem::transmute_copy(self), pknowledgein.into_param().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn MapRemoteToLocal<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.MapRemoteToLocal)(::core::mem::transmute_copy(self), premoteknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Union<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Union)(::core::mem::transmute_copy(self), pknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProjectOntoItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProjectOntoChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoRange(&self, psrngsyncrange: *const SYNC_RANGE) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProjectOntoRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(psrngsyncrange), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ExcludeItem(&self, pbitemid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ExcludeItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ExcludeChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ExcludeChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainsKnowledge)(::core::mem::transmute_copy(self), pknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.FindMinTickCountForReplica)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbreplicaid), ::core::mem::transmute(pullreplicatickcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetRangeExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRangeExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSingleItemExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSingleItemExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetChangeUnitExceptions(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetChangeUnitExceptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindClockVectorForItem(&self, pbitemid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.FindClockVectorForItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindClockVectorForChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.FindClockVectorForChangeUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetVersion(&self, pdwversion: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIdParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidparameters)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> ::windows::core::Result<ISyncKnowledge2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProjectOntoColumnSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcolumns), ::core::mem::transmute(count), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge2>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SerializeWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetformatversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLowestUncontainedId<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge2>>(&self, pisyncknowledge: Param0, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLowestUncontainedId)(::core::mem::transmute_copy(self), pisyncknowledge.into_param().abi(), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbitemidsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInspector(&self, riid: *const ::windows::core::GUID, ppiinspector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInspector)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppiinspector)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetMinimumSupportedVersion(&self, pversion: *mut SYNC_SERIALIZATION_VERSION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetMinimumSupportedVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetStatistics(&self, which: SYNC_STATISTICS, pvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsKnowledgeForItem<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0, pbitemid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ContainsKnowledgeForItem)(::core::mem::transmute_copy(self), pknowledge.into_param().abi(), ::core::mem::transmute(pbitemid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsKnowledgeForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ContainsKnowledgeForChangeUnit)(::core::mem::transmute_copy(self), pknowledge.into_param().abi(), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoKnowledgeWithPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pprerequisiteknowledge: Param0, ptemplateknowledge: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProjectOntoKnowledgeWithPrerequisite)(::core::mem::transmute_copy(self), pprerequisiteknowledge.into_param().abi(), ptemplateknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Complement<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, psyncknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Complement)(::core::mem::transmute_copy(self), psyncknowledge.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncKnowledge>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn IntersectsWithKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, psyncknowledge: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IntersectsWithKnowledge)(::core::mem::transmute_copy(self), psyncknowledge.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetKnowledgeCookie(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetKnowledgeCookie)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn CompareToKnowledgeCookie<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pknowledgecookie: Param0, presult: *mut KNOWLEDGE_COOKIE_COMPARISON_RESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CompareToKnowledgeCookie)(::core::mem::transmute_copy(self), pknowledgecookie.into_param().abi(), ::core::mem::transmute(presult)).ok()
     }
@@ -6016,11 +6016,11 @@ pub struct ISyncKnowledge2_Vtbl {
     pub GetKnowledgeCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppknowledgecookie: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompareToKnowledgeCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pknowledgecookie: *mut ::core::ffi::c_void, presult: *mut KNOWLEDGE_COOKIE_COMPARISON_RESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncMergeTombstoneChange(::windows::core::IUnknown);
 impl ISyncMergeTombstoneChange {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetWinnerItemId(&self, pbwinneritemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWinnerItemId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pcbidsize)).ok()
     }
@@ -6071,11 +6071,11 @@ pub struct ISyncMergeTombstoneChange_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetWinnerItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbwinneritemid: *mut u8, pcbidsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncProvider(::windows::core::IUnknown);
 impl ISyncProvider {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIdParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidparameters)).ok()
@@ -6130,28 +6130,28 @@ pub struct ISyncProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetIdParameters: usize,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncProviderConfigUI(::windows::core::IUnknown);
 impl ISyncProviderConfigUI {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Init<'a, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(&self, pguidinstanceid: *const ::windows::core::GUID, pguidcontenttype: *const ::windows::core::GUID, pconfigurationproperties: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Init)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(pguidcontenttype), pconfigurationproperties.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetRegisteredProperties(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRegisteredProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn CreateAndRegisterNewSyncProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwndparent: Param0, punkcontext: Param1) -> ::windows::core::Result<ISyncProviderInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), punkcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn ModifySyncProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, ISyncProviderInfo>>(&self, hwndparent: Param0, punkcontext: Param1, pproviderinfo: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ModifySyncProvider)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), punkcontext.into_param().abi(), pproviderinfo.into_param().abi()).ok()
@@ -6218,41 +6218,41 @@ pub struct ISyncProviderConfigUI_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))]
     ModifySyncProvider: usize,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[repr(transparent)]
 pub struct ISyncProviderConfigUIInfo(::windows::core::IUnknown);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISyncProviderConfigUIInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetAt(&self, iprop: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY> {
         let mut result__: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(iprop), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, propvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncProviderConfigUI(&self, dwclscontext: u32) -> ::windows::core::Result<ISyncProviderConfigUI> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderConfigUI>(result__)
@@ -6338,41 +6338,41 @@ pub struct ISyncProviderConfigUIInfo_Vtbl {
     pub base: super::super::UI::Shell::PropertiesSystem::IPropertyStore_Vtbl,
     pub GetSyncProviderConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclscontext: u32, ppsyncproviderconfigui: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[repr(transparent)]
 pub struct ISyncProviderInfo(::windows::core::IUnknown);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISyncProviderInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetAt(&self, iprop: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY> {
         let mut result__: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(iprop), ::core::mem::transmute(&mut result__)).from_abi::<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, propvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncProvider(&self, dwclscontext: u32) -> ::windows::core::Result<IRegisteredSyncProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(&mut result__)).from_abi::<IRegisteredSyncProvider>(result__)
@@ -6458,88 +6458,88 @@ pub struct ISyncProviderInfo_Vtbl {
     pub base: super::super::UI::Shell::PropertiesSystem::IPropertyStore_Vtbl,
     pub GetSyncProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclscontext: u32, ppsyncprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncProviderRegistration(::windows::core::IUnknown);
 impl ISyncProviderRegistration {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn CreateSyncProviderConfigUIRegistrationInstance(&self, pconfiguiconfig: *const SyncProviderConfigUIConfiguration) -> ::windows::core::Result<ISyncProviderConfigUIInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSyncProviderConfigUIRegistrationInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconfiguiconfig), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderConfigUIInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn UnregisterSyncProviderConfigUI(&self, pguidinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterSyncProviderConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EnumerateSyncProviderConfigUIs(&self, pguidcontenttype: *const ::windows::core::GUID, dwsupportedarchitecture: u32) -> ::windows::core::Result<IEnumSyncProviderConfigUIInfos> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateSyncProviderConfigUIs)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcontenttype), ::core::mem::transmute(dwsupportedarchitecture), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncProviderConfigUIInfos>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateSyncProviderRegistrationInstance(&self, pproviderconfiguration: *const SyncProviderConfiguration) -> ::windows::core::Result<ISyncProviderInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSyncProviderRegistrationInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(pproviderconfiguration), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn UnregisterSyncProvider(&self, pguidinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterSyncProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderConfigUIInfoforProvider(&self, pguidproviderinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<ISyncProviderConfigUIInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderConfigUIInfoforProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidproviderinstanceid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderConfigUIInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EnumerateSyncProviders(&self, pguidcontenttype: *const ::windows::core::GUID, dwstateflagstofiltermask: u32, dwstateflagstofilter: u32, refproviderclsid: *const ::windows::core::GUID, dwsupportedarchitecture: u32) -> ::windows::core::Result<IEnumSyncProviderInfos> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateSyncProviders)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidcontenttype), ::core::mem::transmute(dwstateflagstofiltermask), ::core::mem::transmute(dwstateflagstofilter), ::core::mem::transmute(refproviderclsid), ::core::mem::transmute(dwsupportedarchitecture), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSyncProviderInfos>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderInfo(&self, pguidinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<ISyncProviderInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncProviderFromInstanceId(&self, pguidinstanceid: *const ::windows::core::GUID, dwclscontext: u32) -> ::windows::core::Result<IRegisteredSyncProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderFromInstanceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(&mut result__)).from_abi::<IRegisteredSyncProvider>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetSyncProviderConfigUIInfo(&self, pguidinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<ISyncProviderConfigUIInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderConfigUIInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderConfigUIInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncProviderConfigUIFromInstanceId(&self, pguidinstanceid: *const ::windows::core::GUID, dwclscontext: u32) -> ::windows::core::Result<ISyncProviderConfigUI> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderConfigUIFromInstanceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProviderConfigUI>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncProviderState(&self, pguidinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetSyncProviderState(&self, pguidinstanceid: *const ::windows::core::GUID, dwstateflagsmask: u32, dwstateflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSyncProviderState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(dwstateflagsmask), ::core::mem::transmute(dwstateflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForEvent(&self, phevent: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterForEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(phevent)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RevokeEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RevokeEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<ISyncRegistrationChange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6631,16 +6631,16 @@ pub struct ISyncProviderRegistration_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetChange: usize,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncRegistrationChange(::windows::core::IUnknown);
 impl ISyncRegistrationChange {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetEvent(&self) -> ::windows::core::Result<SYNC_REGISTRATION_EVENT> {
         let mut result__: SYNC_REGISTRATION_EVENT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SYNC_REGISTRATION_EVENT>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInstanceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
@@ -6693,11 +6693,11 @@ pub struct ISyncRegistrationChange_Vtbl {
     pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreevent: *mut SYNC_REGISTRATION_EVENT) -> ::windows::core::HRESULT,
     pub GetInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncSessionExtendedErrorInfo(::windows::core::IUnknown);
 impl ISyncSessionExtendedErrorInfo {
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncProviderWithError(&self) -> ::windows::core::Result<ISyncProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSyncProviderWithError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISyncProvider>(result__)
@@ -6749,36 +6749,36 @@ pub struct ISyncSessionExtendedErrorInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSyncProviderWithError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproviderwitherror: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncSessionState(::windows::core::IUnknown);
 impl ISyncSessionState {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCanceled(&self, pfiscanceled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsCanceled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfiscanceled)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInfoForChangeApplication(&self, pbchangeapplierinfo: *mut u8, pcbchangeapplierinfo: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInfoForChangeApplication)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeapplierinfo), ::core::mem::transmute(pcbchangeapplierinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *const u8, cbchangeapplierinfo: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadInfoFromChangeApplication)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeapplierinfo), ::core::mem::transmute(cbchangeapplierinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeStart(&self, pbrangestart: *mut u8, pcbrangestart: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbrangestart), ::core::mem::transmute(pcbrangestart)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeEnd(&self, pbrangeend: *mut u8, pcbrangeend: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbrangeend), ::core::mem::transmute(pcbrangeend)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetForgottenKnowledgeRecoveryRange(&self, prange: *const SYNC_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetForgottenKnowledgeRecoveryRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(prange)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
@@ -6838,45 +6838,45 @@ pub struct ISyncSessionState_Vtbl {
     pub SetForgottenKnowledgeRecoveryRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *const SYNC_RANGE) -> ::windows::core::HRESULT,
     pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISyncSessionState2(::windows::core::IUnknown);
 impl ISyncSessionState2 {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCanceled(&self, pfiscanceled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.IsCanceled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfiscanceled)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInfoForChangeApplication(&self, pbchangeapplierinfo: *mut u8, pcbchangeapplierinfo: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetInfoForChangeApplication)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeapplierinfo), ::core::mem::transmute(pcbchangeapplierinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *const u8, cbchangeapplierinfo: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.LoadInfoFromChangeApplication)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbchangeapplierinfo), ::core::mem::transmute(cbchangeapplierinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeStart(&self, pbrangestart: *mut u8, pcbrangestart: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetForgottenKnowledgeRecoveryRangeStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbrangestart), ::core::mem::transmute(pcbrangestart)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeEnd(&self, pbrangeend: *mut u8, pcbrangeend: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetForgottenKnowledgeRecoveryRangeEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbrangeend), ::core::mem::transmute(pcbrangeend)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetForgottenKnowledgeRecoveryRange(&self, prange: *const SYNC_RANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetForgottenKnowledgeRecoveryRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(prange)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.OnProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProviderWithError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fself: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProviderWithError)(::core::mem::transmute_copy(self), fself.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSessionErrorStatus(&self, phrsessionerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSessionErrorStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(phrsessionerror)).ok()
     }
@@ -6951,16 +6951,16 @@ pub struct ISyncSessionState2_Vtbl {
     SetProviderWithError: usize,
     pub GetSessionErrorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrsessionerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 pub struct ISynchronousDataRetriever(::windows::core::IUnknown);
 impl ISynchronousDataRetriever {
-    #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIdParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidparameters)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+    #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadChangeData<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>>(&self, ploadchangecontext: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LoadChangeData)(::core::mem::transmute_copy(self), ploadchangecontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -7016,17 +7016,17 @@ pub struct ISynchronousDataRetriever_Vtbl {
     GetIdParameters: usize,
     pub LoadChangeData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploadchangecontext: ::windows::core::RawPtr, ppunkdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
 impl ::core::marker::Copy for KNOWLEDGE_COOKIE_COMPARISON_RESULT {}
 impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
@@ -7047,95 +7047,95 @@ impl ::core::fmt::Debug for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
         f.debug_tuple("KNOWLEDGE_COOKIE_COMPARISON_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 5u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 3u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 4u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 9u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 11u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 2u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 7u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 13u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 12u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 8u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 6u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 10u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 6u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 3u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 4u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 5u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 9u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 11u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 2u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 8u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 7u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 10u32 };
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_ACCEPT_DESTINATION_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_ACCEPT_SOURCE_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_TRANSFER_AND_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(3i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_MERGE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(4i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_RENAME_SOURCE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(5i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_RENAME_DESTINATION: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(6i32);
 impl ::core::marker::Copy for SYNC_CONSTRAINT_RESOLVE_ACTION {}
 impl ::core::clone::Clone for SYNC_CONSTRAINT_RESOLVE_ACTION {
@@ -7157,7 +7157,7 @@ impl ::core::fmt::Debug for SYNC_CONSTRAINT_RESOLVE_ACTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYNC_FILTER_CHANGE {
     pub fMoveIn: super::super::Foundation::BOOL,
@@ -7195,23 +7195,23 @@ impl ::core::default::Default for SYNC_FILTER_CHANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SFEA_FULL_ENUMERATION: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SFEA_PARTIAL_SYNC: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SFEA_ABORT: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(2i32);
 impl ::core::marker::Copy for SYNC_FULL_ENUMERATION_ACTION {}
 impl ::core::clone::Clone for SYNC_FULL_ENUMERATION_ACTION {
@@ -7232,15 +7232,15 @@ impl ::core::fmt::Debug for SYNC_FULL_ENUMERATION_ACTION {
         f.debug_tuple("SYNC_FULL_ENUMERATION_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_PROGRESS_STAGE(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPS_CHANGE_DETECTION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPS_CHANGE_ENUMERATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPS_CHANGE_APPLICATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(2i32);
 impl ::core::marker::Copy for SYNC_PROGRESS_STAGE {}
 impl ::core::clone::Clone for SYNC_PROGRESS_STAGE {
@@ -7261,13 +7261,13 @@ impl ::core::fmt::Debug for SYNC_PROGRESS_STAGE {
         f.debug_tuple("SYNC_PROGRESS_STAGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_PROVIDER_ROLE(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPR_DESTINATION: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(1i32);
 impl ::core::marker::Copy for SYNC_PROVIDER_ROLE {}
 impl ::core::clone::Clone for SYNC_PROVIDER_ROLE {
@@ -7289,7 +7289,7 @@ impl ::core::fmt::Debug for SYNC_PROVIDER_ROLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub struct SYNC_RANGE {
     pub pbClosedLowerBound: *mut u8,
     pub pbClosedUpperBound: *mut u8,
@@ -7319,23 +7319,23 @@ impl ::core::default::Default for SYNC_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_PROVIDER_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_PROVIDER_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_PROVIDER_STATE_CHANGED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(3i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_CONFIGUI_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(4i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_CONFIGUI_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(5i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_CONFIGUI_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(6i32);
 impl ::core::marker::Copy for SYNC_REGISTRATION_EVENT {}
 impl ::core::clone::Clone for SYNC_REGISTRATION_EVENT {
@@ -7356,21 +7356,21 @@ impl ::core::fmt::Debug for SYNC_REGISTRATION_EVENT {
         f.debug_tuple("SYNC_REGISTRATION_EVENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_RESOLVE_ACTION(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_ACCEPT_DESTINATION_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_ACCEPT_SOURCE_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_MERGE: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(3i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_TRANSFER_AND_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(4i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_LAST: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(5i32);
 impl ::core::marker::Copy for SYNC_RESOLVE_ACTION {}
 impl ::core::clone::Clone for SYNC_RESOLVE_ACTION {
@@ -7391,15 +7391,15 @@ impl ::core::fmt::Debug for SYNC_RESOLVE_ACTION {
         f.debug_tuple("SYNC_RESOLVE_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_SERIALIZATION_VERSION(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(1i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(4i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
 impl ::core::marker::Copy for SYNC_SERIALIZATION_VERSION {}
 impl ::core::clone::Clone for SYNC_SERIALIZATION_VERSION {
@@ -7420,10 +7420,10 @@ impl ::core::fmt::Debug for SYNC_SERIALIZATION_VERSION {
         f.debug_tuple("SYNC_SERIALIZATION_VERSION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub struct SYNC_SESSION_STATISTICS {
     pub dwChangesApplied: u32,
     pub dwChangesFailed: u32,
@@ -7453,11 +7453,11 @@ impl ::core::default::Default for SYNC_SESSION_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SYNC_STATISTICS(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
 impl ::core::marker::Copy for SYNC_STATISTICS {}
 impl ::core::clone::Clone for SYNC_STATISTICS {
@@ -7479,7 +7479,7 @@ impl ::core::fmt::Debug for SYNC_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub struct SYNC_TIME {
     pub dwDate: u32,
     pub dwTime: u32,
@@ -7510,7 +7510,7 @@ impl ::core::default::Default for SYNC_TIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub struct SYNC_VERSION {
     pub dwLastUpdatingReplicaKey: u32,
     pub ullTickCount: u64,
@@ -7540,12 +7540,12 @@ impl ::core::default::Default for SYNC_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SyncProviderConfigUIConfiguration {
     pub dwVersion: u32,
@@ -7589,7 +7589,7 @@ impl ::core::default::Default for SyncProviderConfigUIConfiguration {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub struct SyncProviderConfiguration {
     pub dwVersion: u32,
     pub guidInstanceId: ::windows::core::GUID,

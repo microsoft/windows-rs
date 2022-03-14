@@ -1,78 +1,78 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDeviceHost(pszlocalid: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, ppdevicehost: *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDeviceHost2(pszlocalid: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdevicehost: *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDeviceHostAdvanced(pszlocalid: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, pphostaddresses: *const IWSDAddress, dwhostaddresscount: u32, ppdevicehost: *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDeviceProxy(pszdeviceid: ::windows_sys::core::PCWSTR, pszlocalid: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, ppdeviceproxy: *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDeviceProxy2(pszdeviceid: ::windows_sys::core::PCWSTR, pszlocalid: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdeviceproxy: *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDeviceProxyAdvanced(pszdeviceid: ::windows_sys::core::PCWSTR, pdeviceaddress: IWSDAddress, pszlocalid: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, ppdeviceproxy: *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDiscoveryProvider(pcontext: IWSDXMLContext, ppprovider: *mut IWSDiscoveryProvider) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDiscoveryProvider2(pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppprovider: *mut IWSDiscoveryProvider) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDiscoveryPublisher(pcontext: IWSDXMLContext, pppublisher: *mut IWSDiscoveryPublisher) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateDiscoveryPublisher2(pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, pppublisher: *mut IWSDiscoveryPublisher) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateHttpAddress(ppaddress: *mut IWSDHttpAddress) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateHttpMessageParameters(pptxparams: *mut IWSDHttpMessageParameters) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateOutboundAttachment(ppattachment: *mut IWSDOutboundAttachment) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateUdpAddress(ppaddress: *mut IWSDUdpAddress) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDCreateUdpMessageParameters(pptxparams: *mut IWSDUdpMessageParameters) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDGenerateFault(pszcode: ::windows_sys::core::PCWSTR, pszsubcode: ::windows_sys::core::PCWSTR, pszreason: ::windows_sys::core::PCWSTR, pszdetail: ::windows_sys::core::PCWSTR, pcontext: IWSDXMLContext, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDGenerateFaultEx(pcode: *const WSDXML_NAME, psubcode: *const WSDXML_NAME, preasons: *const WSD_LOCALIZED_STRING_LIST, pszdetail: ::windows_sys::core::PCWSTR, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDUriDecode(source: ::windows_sys::core::PCWSTR, cchsource: u32, destout: *mut ::windows_sys::core::PWSTR, cchdestout: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDUriEncode(source: ::windows_sys::core::PCWSTR, cchsource: u32, destout: *mut ::windows_sys::core::PWSTR, cchdestout: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLBuildAnyForSingleElement(pelementname: *mut WSDXML_NAME, psztext: ::windows_sys::core::PCWSTR, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLCreateContext(ppcontext: *mut IWSDXMLContext) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLGetNameFromBuiltinNamespace(psznamespace: ::windows_sys::core::PCWSTR, pszname: ::windows_sys::core::PCWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+    #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub fn WSDXMLGetValueFromAny(psznamespace: ::windows_sys::core::PCWSTR, pszname: ::windows_sys::core::PCWSTR, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type DeviceDiscoveryMechanism = i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = 0i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const DirectedDiscovery: DeviceDiscoveryMechanism = 1i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = 2i32;
 pub type IWSDAddress = *mut ::core::ffi::c_void;
 pub type IWSDAsyncCallback = *mut ::core::ffi::c_void;
@@ -105,10 +105,10 @@ pub type IWSDiscoveryProvider = *mut ::core::ffi::c_void;
 pub type IWSDiscoveryProviderNotify = *mut ::core::ffi::c_void;
 pub type IWSDiscoveryPublisher = *mut ::core::ffi::c_void;
 pub type IWSDiscoveryPublisherNotify = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: ::windows_sys::core::IUnknown, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct REQUESTBODY_GetStatus {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -119,7 +119,7 @@ impl ::core::clone::Clone for REQUESTBODY_GetStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
@@ -134,7 +134,7 @@ impl ::core::clone::Clone for REQUESTBODY_Renew {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQUESTBODY_Subscribe {
     pub EndTo: *mut WSD_ENDPOINT_REFERENCE,
@@ -152,7 +152,7 @@ impl ::core::clone::Clone for REQUESTBODY_Subscribe {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct REQUESTBODY_Unsubscribe {
     pub any: *mut WSDXML_ELEMENT,
 }
@@ -163,7 +163,7 @@ impl ::core::clone::Clone for REQUESTBODY_Unsubscribe {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct RESPONSEBODY_GetMetadata {
     pub Metadata: *mut WSD_METADATA_SECTION_LIST,
 }
@@ -174,7 +174,7 @@ impl ::core::clone::Clone for RESPONSEBODY_GetMetadata {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
@@ -189,7 +189,7 @@ impl ::core::clone::Clone for RESPONSEBODY_GetStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
@@ -204,7 +204,7 @@ impl ::core::clone::Clone for RESPONSEBODY_Renew {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESPONSEBODY_Subscribe {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
@@ -220,7 +220,7 @@ impl ::core::clone::Clone for RESPONSEBODY_Subscribe {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct RESPONSEBODY_SubscriptionEnd {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub Status: ::windows_sys::core::PCWSTR,
@@ -233,50 +233,50 @@ impl ::core::clone::Clone for RESPONSEBODY_SubscriptionEnd {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type WSDEventType = i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDET_NONE: WSDEventType = 0i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDET_INCOMING_MESSAGE: WSDEventType = 1i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDET_INCOMING_FAULT: WSDEventType = 2i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = 3i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = 4i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type WSDUdpMessageType = i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const ONE_WAY: WSDUdpMessageType = 0i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const TWO_WAY: WSDUdpMessageType = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
     pub ulRepeat: u32,
@@ -291,7 +291,7 @@ impl ::core::clone::Clone for WSDUdpRetransmitParams {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_ATTRIBUTE {
     pub Element: *mut WSDXML_ELEMENT,
     pub Next: *mut WSDXML_ATTRIBUTE,
@@ -305,7 +305,7 @@ impl ::core::clone::Clone for WSDXML_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_ELEMENT {
     pub Node: WSDXML_NODE,
     pub Name: *mut WSDXML_NAME,
@@ -320,7 +320,7 @@ impl ::core::clone::Clone for WSDXML_ELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_ELEMENT_LIST {
     pub Next: *mut WSDXML_ELEMENT_LIST,
     pub Element: *mut WSDXML_ELEMENT,
@@ -332,7 +332,7 @@ impl ::core::clone::Clone for WSDXML_ELEMENT_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_NAME {
     pub Space: *mut WSDXML_NAMESPACE,
     pub LocalName: ::windows_sys::core::PWSTR,
@@ -344,7 +344,7 @@ impl ::core::clone::Clone for WSDXML_NAME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_NAMESPACE {
     pub Uri: ::windows_sys::core::PCWSTR,
     pub PreferredPrefix: ::windows_sys::core::PCWSTR,
@@ -359,7 +359,7 @@ impl ::core::clone::Clone for WSDXML_NAMESPACE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
@@ -375,104 +375,104 @@ impl ::core::clone::Clone for WSDXML_NODE {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type WSDXML_OP = i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpNone: WSDXML_OP = 0i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpEndOfTable: WSDXML_OP = 1i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpBeginElement_: WSDXML_OP = 2i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpBeginAnyElement: WSDXML_OP = 3i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpEndElement: WSDXML_OP = 4i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpElement_: WSDXML_OP = 5i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpAnyElement: WSDXML_OP = 6i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpAnyElements: WSDXML_OP = 7i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpAnyText: WSDXML_OP = 8i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpAttribute_: WSDXML_OP = 9i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpBeginChoice: WSDXML_OP = 10i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpEndChoice: WSDXML_OP = 11i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpBeginSequence: WSDXML_OP = 12i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpEndSequence: WSDXML_OP = 13i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpBeginAll: WSDXML_OP = 14i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpEndAll: WSDXML_OP = 15i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpAnything: WSDXML_OP = 16i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpAnyNumber: WSDXML_OP = 17i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpOneOrMore: WSDXML_OP = 18i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpOptional: WSDXML_OP = 19i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatBool_: WSDXML_OP = 20i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatInt8_: WSDXML_OP = 21i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatInt16_: WSDXML_OP = 22i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatInt32_: WSDXML_OP = 23i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatInt64_: WSDXML_OP = 24i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUInt8_: WSDXML_OP = 25i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUInt16_: WSDXML_OP = 26i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUInt32_: WSDXML_OP = 27i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUInt64_: WSDXML_OP = 28i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUnicodeString_: WSDXML_OP = 29i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatDom_: WSDXML_OP = 30i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatStruct_: WSDXML_OP = 31i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUri_: WSDXML_OP = 32i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatUuidUri_: WSDXML_OP = 33i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatName_: WSDXML_OP = 34i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatListInsertTail_: WSDXML_OP = 35i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatType_: WSDXML_OP = 36i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatDynamicType_: WSDXML_OP = 37i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatLookupType_: WSDXML_OP = 38i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatDuration_: WSDXML_OP = 39i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatDateTime_: WSDXML_OP = 40i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatFloat_: WSDXML_OP = 41i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatDouble_: WSDXML_OP = 42i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpProcess_: WSDXML_OP = 43i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpQualifiedAttribute_: WSDXML_OP = 44i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatXMLDeclaration_: WSDXML_OP = 45i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpFormatMax: WSDXML_OP = 46i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_PREFIX_MAPPING {
     pub Refs: u32,
     pub Next: *mut WSDXML_PREFIX_MAPPING,
@@ -486,7 +486,7 @@ impl ::core::clone::Clone for WSDXML_PREFIX_MAPPING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: ::windows_sys::core::PWSTR,
@@ -498,7 +498,7 @@ impl ::core::clone::Clone for WSDXML_TEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSDXML_TYPE {
     pub Uri: ::windows_sys::core::PCWSTR,
     pub Table: *const u8,
@@ -510,7 +510,7 @@ impl ::core::clone::Clone for WSDXML_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_APP_SEQUENCE {
     pub InstanceId: u64,
     pub SequenceId: ::windows_sys::core::PCWSTR,
@@ -523,7 +523,7 @@ impl ::core::clone::Clone for WSD_APP_SEQUENCE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_BYE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
@@ -535,7 +535,7 @@ impl ::core::clone::Clone for WSD_BYE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut IWSDAddress,
     pub dwAddressCount: u32,
@@ -547,7 +547,7 @@ impl ::core::clone::Clone for WSD_CONFIG_ADDRESSES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_CONFIG_PARAM {
     pub configParamType: WSD_CONFIG_PARAM_TYPE,
     pub pConfigData: *mut ::core::ffi::c_void,
@@ -559,36 +559,36 @@ impl ::core::clone::Clone for WSD_CONFIG_PARAM {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type WSD_CONFIG_PARAM_TYPE = i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 13i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_DATETIME {
     pub isPositive: super::super::Foundation::BOOL,
@@ -612,14 +612,14 @@ impl ::core::clone::Clone for WSD_DATETIME {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_DEFAULT_EVENTING_ADDRESS: &'static str = "http://*:5357/";
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_DEFAULT_HOSTING_ADDRESS: &'static str = "http://*:5357/";
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: &'static str = "https://*:5358/";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_DURATION {
     pub isPositive: super::super::Foundation::BOOL,
@@ -640,7 +640,7 @@ impl ::core::clone::Clone for WSD_DURATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_ENDPOINT_REFERENCE {
     pub Address: ::windows_sys::core::PCWSTR,
     pub ReferenceProperties: WSD_REFERENCE_PROPERTIES,
@@ -656,7 +656,7 @@ impl ::core::clone::Clone for WSD_ENDPOINT_REFERENCE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
     pub Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
@@ -668,7 +668,7 @@ impl ::core::clone::Clone for WSD_ENDPOINT_REFERENCE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_EVENT {
     pub Hr: ::windows_sys::core::HRESULT,
     pub EventType: u32,
@@ -685,7 +685,7 @@ impl ::core::clone::Clone for WSD_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_EVENTING_DELIVERY_MODE {
     pub Mode: ::windows_sys::core::PCWSTR,
     pub Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
@@ -698,7 +698,7 @@ impl ::core::clone::Clone for WSD_EVENTING_DELIVERY_MODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_EVENTING_DELIVERY_MODE_PUSH {
     pub NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
 }
@@ -709,7 +709,7 @@ impl ::core::clone::Clone for WSD_EVENTING_DELIVERY_MODE_PUSH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
@@ -724,7 +724,7 @@ impl ::core::clone::Clone for WSD_EVENTING_EXPIRES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_EVENTING_FILTER {
     pub Dialect: ::windows_sys::core::PCWSTR,
     pub FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
@@ -737,7 +737,7 @@ impl ::core::clone::Clone for WSD_EVENTING_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_EVENTING_FILTER_ACTION {
     pub Actions: *mut WSD_URI_LIST,
 }
@@ -748,7 +748,7 @@ impl ::core::clone::Clone for WSD_EVENTING_FILTER_ACTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut ::core::ffi::c_void,
@@ -761,7 +761,7 @@ impl ::core::clone::Clone for WSD_HANDLER_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_HEADER_RELATESTO {
     pub RelationshipType: *mut WSDXML_NAME,
     pub MessageID: ::windows_sys::core::PCWSTR,
@@ -773,7 +773,7 @@ impl ::core::clone::Clone for WSD_HEADER_RELATESTO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_HELLO {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -789,7 +789,7 @@ impl ::core::clone::Clone for WSD_HELLO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_HOST_METADATA {
     pub Host: *mut WSD_SERVICE_METADATA,
     pub Hosted: *mut WSD_SERVICE_METADATA_LIST,
@@ -801,7 +801,7 @@ impl ::core::clone::Clone for WSD_HOST_METADATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_LOCALIZED_STRING {
     pub lang: ::windows_sys::core::PCWSTR,
     pub String: ::windows_sys::core::PCWSTR,
@@ -813,7 +813,7 @@ impl ::core::clone::Clone for WSD_LOCALIZED_STRING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_LOCALIZED_STRING_LIST {
     pub Next: *mut WSD_LOCALIZED_STRING_LIST,
     pub Element: *mut WSD_LOCALIZED_STRING,
@@ -825,7 +825,7 @@ impl ::core::clone::Clone for WSD_LOCALIZED_STRING_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_METADATA_SECTION {
     pub Dialect: ::windows_sys::core::PCWSTR,
     pub Identifier: ::windows_sys::core::PCWSTR,
@@ -841,7 +841,7 @@ impl ::core::clone::Clone for WSD_METADATA_SECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_METADATA_SECTION_LIST {
     pub Next: *mut WSD_METADATA_SECTION_LIST,
     pub Element: *mut WSD_METADATA_SECTION,
@@ -853,7 +853,7 @@ impl ::core::clone::Clone for WSD_METADATA_SECTION_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_NAME_LIST {
     pub Next: *mut WSD_NAME_LIST,
     pub Element: *mut WSDXML_NAME,
@@ -865,7 +865,7 @@ impl ::core::clone::Clone for WSD_NAME_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
@@ -878,7 +878,7 @@ impl ::core::clone::Clone for WSD_OPERATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_PORT_TYPE {
     pub EncodedName: u32,
     pub OperationCount: u32,
@@ -892,7 +892,7 @@ impl ::core::clone::Clone for WSD_PORT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_PROBE {
     pub Types: *mut WSD_NAME_LIST,
     pub Scopes: *mut WSD_SCOPES,
@@ -905,7 +905,7 @@ impl ::core::clone::Clone for WSD_PROBE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_PROBE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -921,7 +921,7 @@ impl ::core::clone::Clone for WSD_PROBE_MATCH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_PROBE_MATCHES {
     pub ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
     pub Any: *mut WSDXML_ELEMENT,
@@ -933,7 +933,7 @@ impl ::core::clone::Clone for WSD_PROBE_MATCHES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_PROBE_MATCH_LIST {
     pub Next: *mut WSD_PROBE_MATCH_LIST,
     pub Element: *mut WSD_PROBE_MATCH,
@@ -944,20 +944,20 @@ impl ::core::clone::Clone for WSD_PROBE_MATCH_LIST {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type WSD_PROTOCOL_TYPE = i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = 255i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_REFERENCE_PARAMETERS {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -968,7 +968,7 @@ impl ::core::clone::Clone for WSD_REFERENCE_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_REFERENCE_PROPERTIES {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -979,7 +979,7 @@ impl ::core::clone::Clone for WSD_REFERENCE_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_RELATIONSHIP_METADATA {
     pub Type: ::windows_sys::core::PCWSTR,
     pub Data: *mut WSD_HOST_METADATA,
@@ -992,7 +992,7 @@ impl ::core::clone::Clone for WSD_RELATIONSHIP_METADATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_RESOLVE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
@@ -1004,7 +1004,7 @@ impl ::core::clone::Clone for WSD_RESOLVE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_RESOLVE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -1020,7 +1020,7 @@ impl ::core::clone::Clone for WSD_RESOLVE_MATCH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_RESOLVE_MATCHES {
     pub ResolveMatch: *mut WSD_RESOLVE_MATCH,
     pub Any: *mut WSDXML_ELEMENT,
@@ -1032,7 +1032,7 @@ impl ::core::clone::Clone for WSD_RESOLVE_MATCHES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SCOPES {
     pub MatchBy: ::windows_sys::core::PCWSTR,
     pub Scopes: *mut WSD_URI_LIST,
@@ -1044,7 +1044,7 @@ impl ::core::clone::Clone for WSD_SCOPES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
@@ -1065,7 +1065,7 @@ impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
@@ -1082,12 +1082,12 @@ impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION_V1 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
@@ -1104,7 +1104,7 @@ impl ::core::clone::Clone for WSD_SECURITY_SIGNATURE_VALIDATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SERVICE_METADATA {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Types: *mut WSD_NAME_LIST,
@@ -1118,7 +1118,7 @@ impl ::core::clone::Clone for WSD_SERVICE_METADATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SERVICE_METADATA_LIST {
     pub Next: *mut WSD_SERVICE_METADATA_LIST,
     pub Element: *mut WSD_SERVICE_METADATA,
@@ -1130,7 +1130,7 @@ impl ::core::clone::Clone for WSD_SERVICE_METADATA_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SOAP_FAULT {
     pub Code: *mut WSD_SOAP_FAULT_CODE,
     pub Reason: *mut WSD_SOAP_FAULT_REASON,
@@ -1145,7 +1145,7 @@ impl ::core::clone::Clone for WSD_SOAP_FAULT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SOAP_FAULT_CODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
@@ -1157,7 +1157,7 @@ impl ::core::clone::Clone for WSD_SOAP_FAULT_CODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SOAP_FAULT_REASON {
     pub Text: *mut WSD_LOCALIZED_STRING_LIST,
 }
@@ -1168,7 +1168,7 @@ impl ::core::clone::Clone for WSD_SOAP_FAULT_REASON {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
@@ -1180,7 +1180,7 @@ impl ::core::clone::Clone for WSD_SOAP_FAULT_SUBCODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SOAP_HEADER {
     pub To: ::windows_sys::core::PCWSTR,
     pub Action: ::windows_sys::core::PCWSTR,
@@ -1199,7 +1199,7 @@ impl ::core::clone::Clone for WSD_SOAP_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_SOAP_MESSAGE {
     pub Header: WSD_SOAP_HEADER,
     pub Body: *mut ::core::ffi::c_void,
@@ -1211,10 +1211,10 @@ impl ::core::clone::Clone for WSD_SOAP_MESSAGE {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows_sys::core::IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: ::windows_sys::core::HRESULT,
@@ -1231,7 +1231,7 @@ impl ::core::clone::Clone for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_THIS_DEVICE_METADATA {
     pub FriendlyName: *mut WSD_LOCALIZED_STRING_LIST,
     pub FirmwareVersion: ::windows_sys::core::PCWSTR,
@@ -1245,7 +1245,7 @@ impl ::core::clone::Clone for WSD_THIS_DEVICE_METADATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_THIS_MODEL_METADATA {
     pub Manufacturer: *mut WSD_LOCALIZED_STRING_LIST,
     pub ManufacturerUrl: ::windows_sys::core::PCWSTR,
@@ -1262,7 +1262,7 @@ impl ::core::clone::Clone for WSD_THIS_MODEL_METADATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_UNKNOWN_LOOKUP {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -1273,7 +1273,7 @@ impl ::core::clone::Clone for WSD_UNKNOWN_LOOKUP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+#[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub struct WSD_URI_LIST {
     pub Next: *mut WSD_URI_LIST,
     pub Element: ::windows_sys::core::PCWSTR,

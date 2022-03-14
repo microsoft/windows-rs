@@ -5,7 +5,7 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
-#[doc = "*Required features: 'Security_Cryptography'*"]
+#[doc = "*Required features: `\"Security_Cryptography\"`*"]
 #[repr(transparent)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {

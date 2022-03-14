@@ -1,15 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+#[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
 pub struct CommunicationBlockingAccessManager {}
 impl CommunicationBlockingAccessManager {
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn IsBlockingActive() -> ::windows::core::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsBlockingActive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsBlockedNumberAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(number: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
@@ -17,7 +17,7 @@ impl CommunicationBlockingAccessManager {
             (::windows::core::Interface::vtable(this).IsBlockedNumberAsync)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowBlockNumbersUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(phonenumbers: Param0) -> ::windows::core::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
@@ -25,7 +25,7 @@ impl CommunicationBlockingAccessManager {
             (::windows::core::Interface::vtable(this).ShowBlockNumbersUI)(::core::mem::transmute_copy(this), phonenumbers.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowUnblockNumbersUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(phonenumbers: Param0) -> ::windows::core::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
@@ -33,11 +33,11 @@ impl CommunicationBlockingAccessManager {
             (::windows::core::Interface::vtable(this).ShowUnblockNumbersUI)(::core::mem::transmute_copy(this), phonenumbers.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn ShowBlockedCallsUI() -> ::windows::core::Result<()> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowBlockedCallsUI)(::core::mem::transmute_copy(this)).ok() })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn ShowBlockedMessagesUI() -> ::windows::core::Result<()> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowBlockedMessagesUI)(::core::mem::transmute_copy(this)).ok() })
     }
@@ -50,21 +50,21 @@ impl CommunicationBlockingAccessManager {
 impl ::windows::core::RuntimeName for CommunicationBlockingAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager";
 }
-#[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+#[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
 pub struct CommunicationBlockingAppManager {}
 impl CommunicationBlockingAppManager {
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn IsCurrentAppActiveBlockingApp() -> ::windows::core::Result<bool> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsCurrentAppActiveBlockingApp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn ShowCommunicationBlockingSettingsUI() -> ::windows::core::Result<()> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowCommunicationBlockingSettingsUI)(::core::mem::transmute_copy(this)).ok() })
     }
-    #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetAsActiveBlockingAppAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {

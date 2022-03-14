@@ -2,7 +2,7 @@
 #[cfg(feature = "Devices_Adc_Provider")]
 pub mod Provider;
 pub type AdcChannel = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Adc'*"]
+#[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {

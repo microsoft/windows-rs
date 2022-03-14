@@ -53,7 +53,7 @@ pub mod UserDataTasks;
 pub mod VoiceCommands;
 #[cfg(feature = "ApplicationModel_Wallet")]
 pub mod Wallet;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
@@ -68,7 +68,7 @@ impl ::core::clone::Clone for AddResourcePackageOptions {
     }
 }
 pub type AppDisplayInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
@@ -84,7 +84,7 @@ impl ::core::clone::Clone for AppExecutionContext {
 }
 pub type AppInfo = *mut ::core::ffi::c_void;
 pub type AppInstallerInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
@@ -99,7 +99,7 @@ impl ::core::clone::Clone for AppInstallerPolicySource {
 }
 pub type AppInstance = *mut ::core::ffi::c_void;
 pub type EnteredBackgroundEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
@@ -122,7 +122,7 @@ pub type ISuspendingEventArgs = *mut ::core::ffi::c_void;
 pub type ISuspendingOperation = *mut ::core::ffi::c_void;
 pub type LeavingBackgroundEventArgs = *mut ::core::ffi::c_void;
 pub type LimitedAccessFeatureRequestResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
@@ -145,7 +145,7 @@ pub type PackageCatalogRemoveOptionalPackagesResult = *mut ::core::ffi::c_void;
 pub type PackageCatalogRemoveResourcePackagesResult = *mut ::core::ffi::c_void;
 pub type PackageContentGroup = *mut ::core::ffi::c_void;
 pub type PackageContentGroupStagingEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
@@ -162,7 +162,7 @@ impl ::core::clone::Clone for PackageContentGroupState {
 }
 pub type PackageId = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
 }
@@ -173,7 +173,7 @@ impl ::core::clone::Clone for PackageInstallProgress {
     }
 }
 pub type PackageInstallingEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
@@ -193,7 +193,7 @@ pub type PackageStagingEventArgs = *mut ::core::ffi::c_void;
 pub type PackageStatus = *mut ::core::ffi::c_void;
 pub type PackageStatusChangedEventArgs = *mut ::core::ffi::c_void;
 pub type PackageUninstallingEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
@@ -212,7 +212,7 @@ impl ::core::clone::Clone for PackageUpdateAvailability {
 pub type PackageUpdateAvailabilityResult = *mut ::core::ffi::c_void;
 pub type PackageUpdatingEventArgs = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,
@@ -226,7 +226,7 @@ impl ::core::clone::Clone for PackageVersion {
     }
 }
 pub type StartupTask = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel'*"]
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {

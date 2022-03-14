@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type DisplayAdapter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for DisplayBitsPerChannel {
     }
 }
 pub type DisplayDevice = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
@@ -36,7 +36,7 @@ pub type DisplayManager = *mut ::core::ffi::c_void;
 pub type DisplayManagerChangedEventArgs = *mut ::core::ffi::c_void;
 pub type DisplayManagerDisabledEventArgs = *mut ::core::ffi::c_void;
 pub type DisplayManagerEnabledEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
@@ -51,7 +51,7 @@ impl ::core::clone::Clone for DisplayManagerOptions {
     }
 }
 pub type DisplayManagerPathsFailedOrInvalidatedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
@@ -69,7 +69,7 @@ impl ::core::clone::Clone for DisplayManagerResult {
 }
 pub type DisplayManagerResultWithState = *mut ::core::ffi::c_void;
 pub type DisplayModeInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
@@ -83,7 +83,7 @@ impl ::core::clone::Clone for DisplayModeQueryOptions {
     }
 }
 pub type DisplayPath = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
@@ -100,7 +100,7 @@ impl ::core::clone::Clone for DisplayPathScaling {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
@@ -117,7 +117,7 @@ impl ::core::clone::Clone for DisplayPathStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for DisplayPresentStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
@@ -150,7 +150,7 @@ impl ::core::clone::Clone for DisplayPresentationRate {
     }
 }
 pub type DisplayPrimaryDescription = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
@@ -166,7 +166,7 @@ impl ::core::clone::Clone for DisplayRotation {
     }
 }
 pub type DisplayScanout = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
@@ -180,7 +180,7 @@ impl ::core::clone::Clone for DisplayScanoutOptions {
     }
 }
 pub type DisplaySource = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
@@ -197,7 +197,7 @@ impl ::core::clone::Clone for DisplaySourceStatus {
     }
 }
 pub type DisplayState = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
@@ -212,7 +212,7 @@ impl ::core::clone::Clone for DisplayStateApplyOptions {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
@@ -227,7 +227,7 @@ impl ::core::clone::Clone for DisplayStateFunctionalizeOptions {
     }
 }
 pub type DisplayStateOperationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
@@ -248,7 +248,7 @@ impl ::core::clone::Clone for DisplayStateOperationStatus {
 }
 pub type DisplaySurface = *mut ::core::ffi::c_void;
 pub type DisplayTarget = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
@@ -266,7 +266,7 @@ impl ::core::clone::Clone for DisplayTargetPersistence {
 pub type DisplayTask = *mut ::core::ffi::c_void;
 pub type DisplayTaskPool = *mut ::core::ffi::c_void;
 pub type DisplayTaskResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
@@ -281,7 +281,7 @@ impl ::core::clone::Clone for DisplayTaskSignalKind {
 }
 pub type DisplayView = *mut ::core::ffi::c_void;
 pub type DisplayWireFormat = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
@@ -295,7 +295,7 @@ impl ::core::clone::Clone for DisplayWireFormatColorSpace {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
@@ -308,7 +308,7 @@ impl ::core::clone::Clone for DisplayWireFormatEotf {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
@@ -323,7 +323,7 @@ impl ::core::clone::Clone for DisplayWireFormatHdrMetadata {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Display_Core'*"]
+#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {

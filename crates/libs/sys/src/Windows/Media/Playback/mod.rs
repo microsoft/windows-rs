@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct AutoLoadedDisplayPropertyKind(pub i32);
 impl AutoLoadedDisplayPropertyKind {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for AutoLoadedDisplayPropertyKind {
     }
 }
 pub type CurrentMediaPlaybackItemChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct FailedMediaStreamKind(pub i32);
 impl FailedMediaStreamKind {
@@ -33,7 +33,7 @@ pub type IMediaEnginePlaybackSource = *mut ::core::ffi::c_void;
 pub type IMediaPlaybackSource = *mut ::core::ffi::c_void;
 pub type MediaBreak = *mut ::core::ffi::c_void;
 pub type MediaBreakEndedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaBreakInsertionMethod(pub i32);
 impl MediaBreakInsertionMethod {
@@ -51,7 +51,7 @@ pub type MediaBreakSchedule = *mut ::core::ffi::c_void;
 pub type MediaBreakSeekedOverEventArgs = *mut ::core::ffi::c_void;
 pub type MediaBreakSkippedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaBreakStartedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaCommandEnablingRule(pub i32);
 impl MediaCommandEnablingRule {
@@ -80,7 +80,7 @@ pub type MediaPlaybackCommandManagerRateReceivedEventArgs = *mut ::core::ffi::c_
 pub type MediaPlaybackCommandManagerRewindReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaPlaybackCommandManagerShuffleReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaPlaybackItem = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemChangedReason(pub i32);
 impl MediaPlaybackItemChangedReason {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for MediaPlaybackItemChangedReason {
     }
 }
 pub type MediaPlaybackItemError = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemErrorCode(pub i32);
 impl MediaPlaybackItemErrorCode {
@@ -119,7 +119,7 @@ pub type MediaPlaybackList = *mut ::core::ffi::c_void;
 pub type MediaPlaybackSession = *mut ::core::ffi::c_void;
 pub type MediaPlaybackSessionBufferingStartedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaPlaybackSessionOutputDegradationPolicyState = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
 impl MediaPlaybackSessionVideoConstrictionReason {
@@ -138,7 +138,7 @@ impl ::core::clone::Clone for MediaPlaybackSessionVideoConstrictionReason {
     }
 }
 pub type MediaPlaybackSphericalVideoProjection = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlaybackState(pub i32);
 impl MediaPlaybackState {
@@ -157,7 +157,7 @@ impl ::core::clone::Clone for MediaPlaybackState {
 pub type MediaPlaybackTimedMetadataTrackList = *mut ::core::ffi::c_void;
 pub type MediaPlaybackVideoTrackList = *mut ::core::ffi::c_void;
 pub type MediaPlayer = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlayerAudioCategory(pub i32);
 impl MediaPlayerAudioCategory {
@@ -178,7 +178,7 @@ impl ::core::clone::Clone for MediaPlayerAudioCategory {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlayerAudioDeviceType(pub i32);
 impl MediaPlayerAudioDeviceType {
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for MediaPlayerAudioDeviceType {
     }
 }
 pub type MediaPlayerDataReceivedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlayerError(pub i32);
 impl MediaPlayerError {
@@ -211,7 +211,7 @@ impl ::core::clone::Clone for MediaPlayerError {
 }
 pub type MediaPlayerFailedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaPlayerRateChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback', 'deprecated'*"]
+#[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct MediaPlayerState(pub i32);
@@ -236,7 +236,7 @@ pub type MediaPlayerSurface = *mut ::core::ffi::c_void;
 pub type PlaybackMediaMarker = *mut ::core::ffi::c_void;
 pub type PlaybackMediaMarkerReachedEventArgs = *mut ::core::ffi::c_void;
 pub type PlaybackMediaMarkerSequence = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct SphericalVideoProjectionMode(pub i32);
 impl SphericalVideoProjectionMode {
@@ -249,7 +249,7 @@ impl ::core::clone::Clone for SphericalVideoProjectionMode {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct StereoscopicVideoRenderMode(pub i32);
 impl StereoscopicVideoRenderMode {
@@ -263,7 +263,7 @@ impl ::core::clone::Clone for StereoscopicVideoRenderMode {
     }
 }
 pub type TimedMetadataPresentationModeChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Playback'*"]
+#[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrackPresentationMode(pub i32);
 impl TimedMetadataTrackPresentationMode {

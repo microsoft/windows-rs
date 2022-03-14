@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type Enterprise = *mut ::core::ffi::c_void;
 pub type EnterpriseEnrollmentResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Phone_Management_Deployment'*"]
+#[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Phone_Management_Deployment'*"]
+#[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {

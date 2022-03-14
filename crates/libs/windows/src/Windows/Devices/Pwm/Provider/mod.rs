@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+#[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
 #[repr(transparent)]
 pub struct IPwmControllerProvider(::windows::core::IUnknown);
 impl IPwmControllerProvider {
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn PinCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -11,7 +11,7 @@ impl IPwmControllerProvider {
             (::windows::core::Interface::vtable(this).PinCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn ActualFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -19,7 +19,7 @@ impl IPwmControllerProvider {
             (::windows::core::Interface::vtable(this).ActualFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn SetDesiredFrequency(&self, frequency: f64) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -27,7 +27,7 @@ impl IPwmControllerProvider {
             (::windows::core::Interface::vtable(this).SetDesiredFrequency)(::core::mem::transmute_copy(this), frequency, &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn MaxFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -35,7 +35,7 @@ impl IPwmControllerProvider {
             (::windows::core::Interface::vtable(this).MaxFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn MinFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -43,27 +43,27 @@ impl IPwmControllerProvider {
             (::windows::core::Interface::vtable(this).MinFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn AcquirePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AcquirePin)(::core::mem::transmute_copy(this), pin).ok() }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn ReleasePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePin)(::core::mem::transmute_copy(this), pin).ok() }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn EnablePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).EnablePin)(::core::mem::transmute_copy(this), pin).ok() }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn DisablePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).DisablePin)(::core::mem::transmute_copy(this), pin).ok() }
     }
-    #[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
     pub fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPulseParameters)(::core::mem::transmute_copy(this), pin, dutycycle, invertpolarity).ok() }
@@ -151,11 +151,11 @@ pub struct IPwmControllerProvider_Vtbl {
     pub DisablePin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32) -> ::windows::core::HRESULT,
     pub SetPulseParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Pwm_Provider'*"]
+#[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
 #[repr(transparent)]
 pub struct IPwmProvider(::windows::core::IUnknown);
 impl IPwmProvider {
-    #[doc = "*Required features: 'Devices_Pwm_Provider', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>> {
         let this = self;

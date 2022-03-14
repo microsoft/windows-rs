@@ -15,7 +15,7 @@ pub type InlineCollection = *mut ::core::ffi::c_void;
 pub type InlineUIContainer = *mut ::core::ffi::c_void;
 pub type Italic = *mut ::core::ffi::c_void;
 pub type LineBreak = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Documents'*"]
+#[doc = "*Required features: `\"UI_Xaml_Documents\"`*"]
 #[repr(transparent)]
 pub struct LogicalDirection(pub i32);
 impl LogicalDirection {
@@ -37,7 +37,7 @@ pub type TextHighlighter = *mut ::core::ffi::c_void;
 pub type TextHighlighterBase = *mut ::core::ffi::c_void;
 pub type TextPointer = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'UI_Xaml_Documents'*"]
+#[doc = "*Required features: `\"UI_Xaml_Documents\"`*"]
 pub struct TextRange {
     pub StartIndex: i32,
     pub Length: i32,
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for TextRange {
 }
 pub type Typography = *mut ::core::ffi::c_void;
 pub type Underline = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Documents'*"]
+#[doc = "*Required features: `\"UI_Xaml_Documents\"`*"]
 #[repr(transparent)]
 pub struct UnderlineStyle(pub i32);
 impl UnderlineStyle {

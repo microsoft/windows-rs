@@ -8,7 +8,7 @@ pub type AdvancedPhotoCapture = *mut ::core::ffi::c_void;
 pub type AppBroadcastBackgroundService = *mut ::core::ffi::c_void;
 pub type AppBroadcastBackgroundServiceSignInInfo = *mut ::core::ffi::c_void;
 pub type AppBroadcastBackgroundServiceStreamInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureState(pub i32);
 impl AppBroadcastCameraCaptureState {
@@ -23,7 +23,7 @@ impl ::core::clone::Clone for AppBroadcastCameraCaptureState {
     }
 }
 pub type AppBroadcastCameraCaptureStateChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for AppBroadcastCameraOverlayLocation {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
@@ -57,7 +57,7 @@ impl ::core::clone::Clone for AppBroadcastCameraOverlaySize {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
@@ -70,7 +70,7 @@ impl ::core::clone::Clone for AppBroadcastCaptureTargetType {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
@@ -87,7 +87,7 @@ impl ::core::clone::Clone for AppBroadcastExitBroadcastModeReason {
 }
 pub type AppBroadcastGlobalSettings = *mut ::core::ffi::c_void;
 pub type AppBroadcastHeartbeatRequestedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastMicrophoneCaptureState(pub i32);
 impl AppBroadcastMicrophoneCaptureState {
@@ -104,7 +104,7 @@ impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureState {
 pub type AppBroadcastMicrophoneCaptureStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppBroadcastPlugIn = *mut ::core::ffi::c_void;
 pub type AppBroadcastPlugInManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
@@ -124,7 +124,7 @@ impl ::core::clone::Clone for AppBroadcastPlugInState {
 }
 pub type AppBroadcastPlugInStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppBroadcastPreview = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
@@ -144,7 +144,7 @@ pub type AppBroadcastPreviewStreamVideoFrame = *mut ::core::ffi::c_void;
 pub type AppBroadcastPreviewStreamVideoHeader = *mut ::core::ffi::c_void;
 pub type AppBroadcastProviderSettings = *mut ::core::ffi::c_void;
 pub type AppBroadcastServices = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
@@ -160,7 +160,7 @@ impl ::core::clone::Clone for AppBroadcastSignInResult {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
@@ -181,7 +181,7 @@ pub type AppBroadcastState = *mut ::core::ffi::c_void;
 pub type AppBroadcastStreamAudioFrame = *mut ::core::ffi::c_void;
 pub type AppBroadcastStreamAudioHeader = *mut ::core::ffi::c_void;
 pub type AppBroadcastStreamReader = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamState(pub i32);
 impl AppBroadcastStreamState {
@@ -200,7 +200,7 @@ impl ::core::clone::Clone for AppBroadcastStreamState {
 pub type AppBroadcastStreamStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppBroadcastStreamVideoFrame = *mut ::core::ffi::c_void;
 pub type AppBroadcastStreamVideoHeader = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastTerminationReason(pub i32);
 impl AppBroadcastTerminationReason {
@@ -222,7 +222,7 @@ impl ::core::clone::Clone for AppBroadcastTerminationReason {
     }
 }
 pub type AppBroadcastTriggerDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastVideoEncodingBitrateMode(pub i32);
 impl AppBroadcastVideoEncodingBitrateMode {
@@ -235,7 +235,7 @@ impl ::core::clone::Clone for AppBroadcastVideoEncodingBitrateMode {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
@@ -253,7 +253,7 @@ pub type AppCapture = *mut ::core::ffi::c_void;
 pub type AppCaptureAlternateShortcutKeys = *mut ::core::ffi::c_void;
 pub type AppCaptureDurationGeneratedEventArgs = *mut ::core::ffi::c_void;
 pub type AppCaptureFileGeneratedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
@@ -266,7 +266,7 @@ impl ::core::clone::Clone for AppCaptureHistoricalBufferLengthUnit {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
@@ -280,7 +280,7 @@ impl ::core::clone::Clone for AppCaptureMetadataPriority {
     }
 }
 pub type AppCaptureMetadataWriter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
@@ -296,7 +296,7 @@ impl ::core::clone::Clone for AppCaptureMicrophoneCaptureState {
 }
 pub type AppCaptureMicrophoneCaptureStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppCaptureRecordOperation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
@@ -314,7 +314,7 @@ pub type AppCaptureRecordingStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppCaptureServices = *mut ::core::ffi::c_void;
 pub type AppCaptureSettings = *mut ::core::ffi::c_void;
 pub type AppCaptureState = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
@@ -328,7 +328,7 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingBitrateMode {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
@@ -341,7 +341,7 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingFrameRateMode {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
 impl AppCaptureVideoEncodingResolutionMode {
@@ -356,7 +356,7 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingResolutionMode {
     }
 }
 pub type CameraCaptureUI = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
@@ -373,7 +373,7 @@ impl ::core::clone::Clone for CameraCaptureUIMaxPhotoResolution {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
@@ -388,7 +388,7 @@ impl ::core::clone::Clone for CameraCaptureUIMaxVideoResolution {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
@@ -403,7 +403,7 @@ impl ::core::clone::Clone for CameraCaptureUIMode {
     }
 }
 pub type CameraCaptureUIPhotoCaptureSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
@@ -418,7 +418,7 @@ impl ::core::clone::Clone for CameraCaptureUIPhotoFormat {
     }
 }
 pub type CameraCaptureUIVideoCaptureSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
@@ -434,7 +434,7 @@ impl ::core::clone::Clone for CameraCaptureUIVideoFormat {
 pub type CapturedFrame = *mut ::core::ffi::c_void;
 pub type CapturedFrameControlValues = *mut ::core::ffi::c_void;
 pub type CapturedPhoto = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
@@ -447,7 +447,7 @@ impl ::core::clone::Clone for ForegroundActivationArgument {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct GameBarCommand(pub i32);
 impl GameBarCommand {
@@ -472,7 +472,7 @@ impl ::core::clone::Clone for GameBarCommand {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
@@ -488,7 +488,7 @@ impl ::core::clone::Clone for GameBarCommandOrigin {
 }
 pub type GameBarServices = *mut ::core::ffi::c_void;
 pub type GameBarServicesCommandEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
@@ -504,7 +504,7 @@ impl ::core::clone::Clone for GameBarServicesDisplayMode {
 pub type GameBarServicesManager = *mut ::core::ffi::c_void;
 pub type GameBarServicesManagerGameBarServicesCreatedEventArgs = *mut ::core::ffi::c_void;
 pub type GameBarServicesTargetInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
@@ -520,7 +520,7 @@ impl ::core::clone::Clone for GameBarTargetCapturePolicy {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct KnownVideoProfile(pub i32);
 impl KnownVideoProfile {
@@ -546,7 +546,7 @@ pub type LowLagMediaRecording = *mut ::core::ffi::c_void;
 pub type LowLagPhotoCapture = *mut ::core::ffi::c_void;
 pub type LowLagPhotoSequenceCapture = *mut ::core::ffi::c_void;
 pub type MediaCapture = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
@@ -564,7 +564,7 @@ pub type MediaCaptureFailedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaCaptureFailedEventHandler = *mut ::core::ffi::c_void;
 pub type MediaCaptureFocusChangedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaCaptureInitializationSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
@@ -580,7 +580,7 @@ impl ::core::clone::Clone for MediaCaptureMemoryPreference {
 pub type MediaCapturePauseResult = *mut ::core::ffi::c_void;
 pub type MediaCaptureRelativePanelWatcher = *mut ::core::ffi::c_void;
 pub type MediaCaptureSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureSharingMode(pub i32);
 impl MediaCaptureSharingMode {
@@ -594,7 +594,7 @@ impl ::core::clone::Clone for MediaCaptureSharingMode {
     }
 }
 pub type MediaCaptureStopResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
@@ -609,7 +609,7 @@ impl ::core::clone::Clone for MediaCaptureThermalStatus {
 }
 pub type MediaCaptureVideoProfile = *mut ::core::ffi::c_void;
 pub type MediaCaptureVideoProfileMediaDescription = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
@@ -628,7 +628,7 @@ impl ::core::clone::Clone for MediaCategory {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
@@ -645,7 +645,7 @@ impl ::core::clone::Clone for MediaStreamType {
     }
 }
 pub type OptionalReferencePhotoCapturedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
@@ -661,7 +661,7 @@ impl ::core::clone::Clone for PhotoCaptureSource {
 }
 pub type PhotoCapturedEventArgs = *mut ::core::ffi::c_void;
 pub type PhotoConfirmationCapturedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
@@ -679,7 +679,7 @@ impl ::core::clone::Clone for PowerlineFrequency {
 pub type RecordLimitationExceededEventHandler = *mut ::core::ffi::c_void;
 pub type ScreenCapture = *mut ::core::ffi::c_void;
 pub type SourceSuspensionChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
@@ -693,7 +693,7 @@ impl ::core::clone::Clone for StreamingCaptureMode {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
@@ -709,7 +709,7 @@ impl ::core::clone::Clone for VideoDeviceCharacteristic {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
@@ -726,7 +726,7 @@ impl ::core::clone::Clone for VideoRotation {
 }
 pub type VideoStreamConfiguration = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Media_Capture'*"]
+#[doc = "*Required features: `\"Media_Capture\"`*"]
 pub struct WhiteBalanceGain {
     pub R: f64,
     pub G: f64,

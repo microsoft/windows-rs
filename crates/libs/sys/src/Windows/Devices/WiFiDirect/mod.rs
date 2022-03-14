@@ -2,7 +2,7 @@
 #[cfg(feature = "Devices_WiFiDirect_Services")]
 pub mod Services;
 pub type WiFiDirectAdvertisement = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);
 impl WiFiDirectAdvertisementListenStateDiscoverability {
@@ -17,7 +17,7 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementListenStateDiscoverability 
     }
 }
 pub type WiFiDirectAdvertisementPublisher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisherStatus(pub i32);
 impl WiFiDirectAdvertisementPublisherStatus {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatus {
     }
 }
 pub type WiFiDirectAdvertisementPublisherStatusChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectConfigurationMethod(pub i32);
 impl WiFiDirectConfigurationMethod {
@@ -51,7 +51,7 @@ pub type WiFiDirectConnectionListener = *mut ::core::ffi::c_void;
 pub type WiFiDirectConnectionParameters = *mut ::core::ffi::c_void;
 pub type WiFiDirectConnectionRequest = *mut ::core::ffi::c_void;
 pub type WiFiDirectConnectionRequestedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectConnectionStatus(pub i32);
 impl WiFiDirectConnectionStatus {
@@ -65,7 +65,7 @@ impl ::core::clone::Clone for WiFiDirectConnectionStatus {
     }
 }
 pub type WiFiDirectDevice = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectDeviceSelectorType(pub i32);
 impl WiFiDirectDeviceSelectorType {
@@ -78,7 +78,7 @@ impl ::core::clone::Clone for WiFiDirectDeviceSelectorType {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectError(pub i32);
 impl WiFiDirectError {
@@ -94,7 +94,7 @@ impl ::core::clone::Clone for WiFiDirectError {
 }
 pub type WiFiDirectInformationElement = *mut ::core::ffi::c_void;
 pub type WiFiDirectLegacySettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_WiFiDirect'*"]
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectPairingProcedure(pub i32);
 impl WiFiDirectPairingProcedure {

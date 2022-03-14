@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0) -> u32 {
@@ -14,7 +14,7 @@ pub unsafe fn DisableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(threadhandle: Param0, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
@@ -30,7 +30,7 @@ pub unsafe fn EnableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
@@ -61,13 +61,13 @@ impl ::core::default::Default for HARDWARE_COUNTER_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
 impl ::core::marker::Copy for HARDWARE_COUNTER_TYPE {}
 impl ::core::clone::Clone for HARDWARE_COUNTER_TYPE {
@@ -89,7 +89,7 @@ impl ::core::fmt::Debug for HARDWARE_COUNTER_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,
@@ -126,7 +126,7 @@ impl ::core::default::Default for PERFORMANCE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(threadhandle: Param0, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32 {
@@ -141,7 +141,7 @@ pub unsafe fn QueryThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadThreadProfilingData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32 {

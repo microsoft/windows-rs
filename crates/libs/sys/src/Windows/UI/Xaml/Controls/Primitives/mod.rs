@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
@@ -27,7 +27,7 @@ pub type ComboBoxTemplateSettings = *mut ::core::ffi::c_void;
 pub type CommandBarFlyoutCommandBar = *mut ::core::ffi::c_void;
 pub type CommandBarFlyoutCommandBarTemplateSettings = *mut ::core::ffi::c_void;
 pub type CommandBarTemplateSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct ComponentResourceLocation(pub i32);
 impl ComponentResourceLocation {
@@ -46,7 +46,7 @@ pub type DragDeltaEventArgs = *mut ::core::ffi::c_void;
 pub type DragDeltaEventHandler = *mut ::core::ffi::c_void;
 pub type DragStartedEventArgs = *mut ::core::ffi::c_void;
 pub type DragStartedEventHandler = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct EdgeTransitionLocation(pub i32);
 impl EdgeTransitionLocation {
@@ -63,7 +63,7 @@ impl ::core::clone::Clone for EdgeTransitionLocation {
 }
 pub type FlyoutBase = *mut ::core::ffi::c_void;
 pub type FlyoutBaseClosingEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct FlyoutPlacementMode(pub i32);
 impl FlyoutPlacementMode {
@@ -88,7 +88,7 @@ impl ::core::clone::Clone for FlyoutPlacementMode {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct FlyoutShowMode(pub i32);
 impl FlyoutShowMode {
@@ -104,7 +104,7 @@ impl ::core::clone::Clone for FlyoutShowMode {
     }
 }
 pub type FlyoutShowOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct GeneratorDirection(pub i32);
 impl GeneratorDirection {
@@ -118,7 +118,7 @@ impl ::core::clone::Clone for GeneratorDirection {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 pub struct GeneratorPosition {
     pub Index: i32,
     pub Offset: i32,
@@ -132,7 +132,7 @@ impl ::core::clone::Clone for GeneratorPosition {
 pub type GeneratorPositionHelper = *mut ::core::ffi::c_void;
 pub type GridViewItemPresenter = *mut ::core::ffi::c_void;
 pub type GridViewItemTemplateSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct GroupHeaderPlacement(pub i32);
 impl GroupHeaderPlacement {
@@ -152,7 +152,7 @@ pub type JumpListItemBackgroundConverter = *mut ::core::ffi::c_void;
 pub type JumpListItemForegroundConverter = *mut ::core::ffi::c_void;
 pub type LayoutInformation = *mut ::core::ffi::c_void;
 pub type ListViewItemPresenter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct ListViewItemPresenterCheckMode(pub i32);
 impl ListViewItemPresenterCheckMode {
@@ -165,7 +165,7 @@ impl ::core::clone::Clone for ListViewItemPresenterCheckMode {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct ListViewItemPresenterSelectionIndicatorMode(pub i32);
 impl ListViewItemPresenterSelectionIndicatorMode {
@@ -190,7 +190,7 @@ pub type PickerFlyoutBase = *mut ::core::ffi::c_void;
 pub type PivotHeaderItem = *mut ::core::ffi::c_void;
 pub type PivotHeaderPanel = *mut ::core::ffi::c_void;
 pub type PivotPanel = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct PlacementMode(pub i32);
 impl PlacementMode {
@@ -207,7 +207,7 @@ impl ::core::clone::Clone for PlacementMode {
     }
 }
 pub type Popup = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct PopupPlacementMode(pub i32);
 impl PopupPlacementMode {
@@ -240,7 +240,7 @@ pub type RepeatButton = *mut ::core::ffi::c_void;
 pub type ScrollBar = *mut ::core::ffi::c_void;
 pub type ScrollEventArgs = *mut ::core::ffi::c_void;
 pub type ScrollEventHandler = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct ScrollEventType(pub i32);
 impl ScrollEventType {
@@ -260,7 +260,7 @@ impl ::core::clone::Clone for ScrollEventType {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct ScrollingIndicatorMode(pub i32);
 impl ScrollingIndicatorMode {
@@ -277,7 +277,7 @@ impl ::core::clone::Clone for ScrollingIndicatorMode {
 pub type Selector = *mut ::core::ffi::c_void;
 pub type SelectorItem = *mut ::core::ffi::c_void;
 pub type SettingsFlyoutTemplateSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct SliderSnapsTo(pub i32);
 impl SliderSnapsTo {
@@ -290,7 +290,7 @@ impl ::core::clone::Clone for SliderSnapsTo {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct SnapPointsAlignment(pub i32);
 impl SnapPointsAlignment {
@@ -307,7 +307,7 @@ impl ::core::clone::Clone for SnapPointsAlignment {
 pub type SplitViewTemplateSettings = *mut ::core::ffi::c_void;
 pub type Thumb = *mut ::core::ffi::c_void;
 pub type TickBar = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
+#[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
 pub struct TickPlacement(pub i32);
 impl TickPlacement {

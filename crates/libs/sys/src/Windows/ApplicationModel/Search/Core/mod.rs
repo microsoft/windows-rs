@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type RequestingFocusOnKeyboardInputEventArgs = *mut ::core::ffi::c_void;
 pub type SearchSuggestion = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {

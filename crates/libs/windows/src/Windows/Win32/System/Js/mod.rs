@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
@@ -15,11 +15,11 @@ pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> Js
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsBackgroundWorkItemCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsBeforeCollectCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -33,7 +33,7 @@ pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -47,7 +47,7 @@ pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: &[*const ::core::ffi::c_void], result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -61,7 +61,7 @@ pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: &[
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -75,7 +75,7 @@ pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: &[*const ::core::ffi::c_void], result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -89,7 +89,7 @@ pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -103,7 +103,7 @@ pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, boolean
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numbervalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -117,7 +117,7 @@ pub unsafe fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numberva
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -131,7 +131,7 @@ pub unsafe fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -145,7 +145,7 @@ pub unsafe fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringva
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -159,7 +159,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
@@ -175,7 +175,7 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
@@ -191,7 +191,7 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -205,7 +205,7 @@ pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: JsFinalizeCallback, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -219,7 +219,7 @@ pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -233,7 +233,7 @@ pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -247,7 +247,7 @@ pub unsafe fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -261,7 +261,7 @@ pub unsafe fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -275,7 +275,7 @@ pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -289,7 +289,7 @@ pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -303,7 +303,7 @@ pub unsafe fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -317,7 +317,7 @@ pub unsafe fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -331,7 +331,7 @@ pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -345,7 +345,7 @@ pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -359,7 +359,7 @@ pub unsafe fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, usestrictrules: u8, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -373,7 +373,7 @@ pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -387,7 +387,7 @@ pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -401,7 +401,7 @@ pub unsafe fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -415,7 +415,7 @@ pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -429,7 +429,7 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
@@ -444,7 +444,7 @@ pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Dia
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -458,67 +458,67 @@ pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsErrorCode(pub u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
 impl ::core::marker::Copy for JsErrorCode {}
 impl ::core::clone::Clone for JsErrorCode {
@@ -539,9 +539,9 @@ impl ::core::fmt::Debug for JsErrorCode {
         f.debug_tuple("JsErrorCode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsFinalizeCallback = ::core::option::Option<unsafe extern "system" fn(data: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -555,7 +555,7 @@ pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -569,7 +569,7 @@ pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -583,7 +583,7 @@ pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -597,7 +597,7 @@ pub unsafe fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -611,7 +611,7 @@ pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsEr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -625,7 +625,7 @@ pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -639,7 +639,7 @@ pub unsafe fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -653,7 +653,7 @@ pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -667,7 +667,7 @@ pub unsafe fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, pro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, propertynames: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -681,7 +681,7 @@ pub unsafe fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, property
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -695,7 +695,7 @@ pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetPropertyIdFromName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(name: Param0, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -709,7 +709,7 @@ pub unsafe fn JsGetPropertyIdFromName<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode {
     #[cfg(windows)]
@@ -723,7 +723,7 @@ pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, na
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -737,7 +737,7 @@ pub unsafe fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -751,7 +751,7 @@ pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode {
     #[cfg(windows)]
@@ -765,7 +765,7 @@ pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode {
     #[cfg(windows)]
@@ -779,7 +779,7 @@ pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode {
     #[cfg(windows)]
@@ -793,7 +793,7 @@ pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -807,7 +807,7 @@ pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -821,7 +821,7 @@ pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode {
     #[cfg(windows)]
@@ -835,7 +835,7 @@ pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -849,7 +849,7 @@ pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -863,7 +863,7 @@ pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -877,7 +877,7 @@ pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -891,7 +891,7 @@ pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
@@ -905,7 +905,7 @@ pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -919,7 +919,7 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -933,7 +933,7 @@ pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -947,17 +947,17 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsMemoryEventType(pub i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
 impl ::core::marker::Copy for JsMemoryEventType {}
 impl ::core::clone::Clone for JsMemoryEventType {
@@ -978,9 +978,9 @@ impl ::core::fmt::Debug for JsMemoryEventType {
         f.debug_tuple("JsMemoryEventType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode {
     #[cfg(windows)]
@@ -994,7 +994,7 @@ pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsParseScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(script: Param0, sourcecontext: usize, sourceurl: Param2, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1008,7 +1008,7 @@ pub unsafe fn JsParseScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsParseSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(script: Param0, buffer: *const u8, sourcecontext: usize, sourceurl: Param3, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1022,7 +1022,7 @@ pub unsafe fn JsParseSerializedScript<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1036,7 +1036,7 @@ pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1050,7 +1050,7 @@ pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
@@ -1064,7 +1064,7 @@ pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsRunScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(script: Param0, sourcecontext: usize, sourceurl: Param2, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1078,7 +1078,7 @@ pub unsafe fn JsRunScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsRunSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(script: Param0, buffer: *const u8, sourcecontext: usize, sourceurl: Param3, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1092,21 +1092,21 @@ pub unsafe fn JsRunSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsRuntimeAttributes(pub i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
 impl ::core::marker::Copy for JsRuntimeAttributes {}
 impl ::core::clone::Clone for JsRuntimeAttributes {
@@ -1127,15 +1127,15 @@ impl ::core::fmt::Debug for JsRuntimeAttributes {
         f.debug_tuple("JsRuntimeAttributes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsRuntimeVersion(pub i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
 impl ::core::marker::Copy for JsRuntimeVersion {}
 impl ::core::clone::Clone for JsRuntimeVersion {
@@ -1156,7 +1156,7 @@ impl ::core::fmt::Debug for JsRuntimeVersion {
         f.debug_tuple("JsRuntimeVersion").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSerializeScript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(script: Param0, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
@@ -1170,7 +1170,7 @@ pub unsafe fn JsSerializeScript<'a, Param0: ::windows::core::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1184,7 +1184,7 @@ pub unsafe fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1198,7 +1198,7 @@ pub unsafe fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1212,7 +1212,7 @@ pub unsafe fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1226,7 +1226,7 @@ pub unsafe fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode {
     #[cfg(windows)]
@@ -1240,7 +1240,7 @@ pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1254,7 +1254,7 @@ pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode {
     #[cfg(windows)]
@@ -1268,7 +1268,7 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode {
     #[cfg(windows)]
@@ -1282,7 +1282,7 @@ pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode {
     #[cfg(windows)]
@@ -1296,7 +1296,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
@@ -1312,7 +1312,7 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
@@ -1328,7 +1328,7 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsStartProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IActiveScriptProfilerCallback>>(callback: Param0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode {
@@ -1343,7 +1343,7 @@ pub unsafe fn JsStartProfiling<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
     #[cfg(windows)]
@@ -1357,7 +1357,7 @@ pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
@@ -1371,7 +1371,7 @@ pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode {
     #[cfg(windows)]
@@ -1385,9 +1385,9 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
@@ -1402,27 +1402,27 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsValueType(pub i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsUndefined: JsValueType = JsValueType(0i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsNull: JsValueType = JsValueType(1i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsNumber: JsValueType = JsValueType(2i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsString: JsValueType = JsValueType(3i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsBoolean: JsValueType = JsValueType(4i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsObject: JsValueType = JsValueType(5i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsFunction: JsValueType = JsValueType(6i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsError: JsValueType = JsValueType(7i32);
-#[doc = "*Required features: 'Win32_System_Js'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsArray: JsValueType = JsValueType(8i32);
 impl ::core::marker::Copy for JsValueType {}
 impl ::core::clone::Clone for JsValueType {
@@ -1443,7 +1443,7 @@ impl ::core::fmt::Debug for JsValueType {
         f.debug_tuple("JsValueType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {

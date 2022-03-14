@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type CompositionDebugHeatMaps = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
+#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {

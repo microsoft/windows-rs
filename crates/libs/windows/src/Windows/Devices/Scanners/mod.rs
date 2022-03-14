@@ -73,11 +73,11 @@ pub struct IImageScannerFeederConfiguration_Vtbl {
     pub ScanAhead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetScanAhead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct IImageScannerFormatConfiguration(::windows::core::IUnknown);
 impl IImageScannerFormatConfiguration {
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -85,7 +85,7 @@ impl IImageScannerFormatConfiguration {
             (::windows::core::Interface::vtable(this).DefaultFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -93,12 +93,12 @@ impl IImageScannerFormatConfiguration {
             (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -213,11 +213,11 @@ pub struct IImageScannerScanResult_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     ScannedFiles: usize,
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct IImageScannerSourceConfiguration(::windows::core::IUnknown);
 impl IImageScannerSourceConfiguration {
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -226,7 +226,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MinScanArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -235,7 +235,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MaxScanArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -244,13 +244,13 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).SelectedScanRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectedScanRegion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode> {
         let this = self;
         unsafe {
@@ -258,12 +258,12 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).AutoCroppingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerAutoCroppingMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -271,7 +271,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).IsAutoCroppingModeSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
@@ -279,7 +279,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MinResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
@@ -287,7 +287,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MaxResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
@@ -295,7 +295,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).OpticalResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
@@ -303,12 +303,12 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).DesiredResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetDesiredResolution<'a, Param0: ::windows::core::IntoParam<'a, ImageScannerResolution>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredResolution)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
@@ -316,7 +316,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).ActualResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = self;
         unsafe {
@@ -324,7 +324,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).DefaultColorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerColorMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = self;
         unsafe {
@@ -332,12 +332,12 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).ColorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerColorMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -345,7 +345,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).IsColorModeSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinBrightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -353,7 +353,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MinBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxBrightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -361,7 +361,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MaxBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn BrightnessStep(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -369,7 +369,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).BrightnessStep)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultBrightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -377,7 +377,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).DefaultBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -385,12 +385,12 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).Brightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinContrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -398,7 +398,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MinContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxContrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -406,7 +406,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).MaxContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ContrastStep(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -414,7 +414,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).ContrastStep)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultContrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -422,7 +422,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).DefaultContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Contrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -430,12 +430,12 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).Contrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetContrast(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContrast)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
@@ -443,7 +443,7 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).DefaultFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
@@ -451,12 +451,12 @@ impl IImageScannerSourceConfiguration {
             (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
@@ -617,11 +617,11 @@ pub struct IImageScannerStatics_Vtbl {
     FromIdAsync: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScanner(::windows::core::IUnknown);
 impl ImageScanner {
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -629,7 +629,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultScanSource(&self) -> ::windows::core::Result<ImageScannerScanSource> {
         let this = self;
         unsafe {
@@ -637,7 +637,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).DefaultScanSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerScanSource>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsScanSourceSupported(&self, value: ImageScannerScanSource) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -645,7 +645,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).IsScanSourceSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn FlatbedConfiguration(&self) -> ::windows::core::Result<ImageScannerFlatbedConfiguration> {
         let this = self;
         unsafe {
@@ -653,7 +653,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).FlatbedConfiguration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFlatbedConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn FeederConfiguration(&self) -> ::windows::core::Result<ImageScannerFeederConfiguration> {
         let this = self;
         unsafe {
@@ -661,7 +661,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).FeederConfiguration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFeederConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn AutoConfiguration(&self) -> ::windows::core::Result<ImageScannerAutoConfiguration> {
         let this = self;
         unsafe {
@@ -669,7 +669,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).AutoConfiguration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerAutoConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsPreviewSupported(&self, scansource: ImageScannerScanSource) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -677,7 +677,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).IsPreviewSupported)(::core::mem::transmute_copy(this), scansource, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ScanPreviewToStreamAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, scansource: ImageScannerScanSource, targetstream: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>> {
         let this = self;
@@ -686,7 +686,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).ScanPreviewToStreamAsync)(::core::mem::transmute_copy(this), scansource, targetstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn ScanFilesToFolderAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::StorageFolder>>(&self, scansource: ImageScannerScanSource, storagefolder: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>> {
         let this = self;
@@ -695,7 +695,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).ScanFilesToFolderAsync)(::core::mem::transmute_copy(this), scansource, storagefolder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>> {
         Self::IImageScannerStatics(|this| unsafe {
@@ -703,7 +703,7 @@ impl ImageScanner {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageScanner>>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -788,11 +788,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for ImageScanner {}
 unsafe impl ::core::marker::Sync for ImageScanner {}
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScannerAutoConfiguration(::windows::core::IUnknown);
 impl ImageScannerAutoConfiguration {
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -800,7 +800,7 @@ impl ImageScannerAutoConfiguration {
             (::windows::core::Interface::vtable(this).DefaultFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -808,12 +808,12 @@ impl ImageScannerAutoConfiguration {
             (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -916,7 +916,7 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerFormatConfiguration> for &I
 }
 unsafe impl ::core::marker::Send for ImageScannerAutoConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
@@ -951,7 +951,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerColorMode(pub i32);
@@ -987,11 +987,11 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerColorMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScannerFeederConfiguration(::windows::core::IUnknown);
 impl ImageScannerFeederConfiguration {
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn CanAutoDetectPageSize(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -999,7 +999,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).CanAutoDetectPageSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn AutoDetectPageSize(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -1007,12 +1007,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).AutoDetectPageSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetAutoDetectPageSize(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoDetectPageSize)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Graphics_Printing'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PageSize(&self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintMediaSize> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -1021,13 +1021,13 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).PageSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Printing::PrintMediaSize>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Graphics_Printing'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn SetPageSize(&self, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPageSize)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Graphics_Printing'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PageOrientation(&self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintOrientation> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -1036,13 +1036,13 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).PageOrientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Printing::PrintOrientation>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Graphics_Printing'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn SetPageOrientation(&self, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPageOrientation)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PageSizeDimensions(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -1051,7 +1051,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).PageSizeDimensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Graphics_Printing'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn IsPageSizeSupported(&self, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -1060,7 +1060,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).IsPageSizeSupported)(::core::mem::transmute_copy(this), pagesize, pageorientation, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxNumberOfPages(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -1068,12 +1068,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MaxNumberOfPages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetMaxNumberOfPages(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxNumberOfPages)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn CanScanDuplex(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -1081,7 +1081,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).CanScanDuplex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Duplex(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -1089,12 +1089,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).Duplex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetDuplex(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn CanScanAhead(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -1102,7 +1102,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).CanScanAhead)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ScanAhead(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
@@ -1110,12 +1110,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).ScanAhead)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetScanAhead(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScanAhead)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -1123,7 +1123,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).DefaultFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -1131,12 +1131,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1144,7 +1144,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).IsFormatSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
@@ -1153,7 +1153,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MinScanArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
@@ -1162,7 +1162,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MaxScanArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
@@ -1171,13 +1171,13 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).SelectedScanRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectedScanRegion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1185,12 +1185,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).AutoCroppingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerAutoCroppingMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1198,7 +1198,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).IsAutoCroppingModeSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1206,7 +1206,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MinResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1214,7 +1214,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MaxResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1222,7 +1222,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).OpticalResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1230,12 +1230,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).DesiredResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetDesiredResolution<'a, Param0: ::windows::core::IntoParam<'a, ImageScannerResolution>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredResolution)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1243,7 +1243,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).ActualResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1251,7 +1251,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).DefaultColorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerColorMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1259,12 +1259,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).ColorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerColorMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1272,7 +1272,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).IsColorModeSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinBrightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1280,7 +1280,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MinBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxBrightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1288,7 +1288,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MaxBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn BrightnessStep(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1296,7 +1296,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).BrightnessStep)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultBrightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1304,7 +1304,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).DefaultBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1312,12 +1312,12 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).Brightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinContrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1325,7 +1325,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MinContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxContrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1333,7 +1333,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).MaxContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ContrastStep(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1341,7 +1341,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).ContrastStep)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultContrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1349,7 +1349,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).DefaultContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Contrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1357,7 +1357,7 @@ impl ImageScannerFeederConfiguration {
             (::windows::core::Interface::vtable(this).Contrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetContrast(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContrast)(::core::mem::transmute_copy(this), value).ok() }
@@ -1479,11 +1479,11 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerSourceConfiguration> for &I
 }
 unsafe impl ::core::marker::Send for ImageScannerFeederConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFeederConfiguration {}
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScannerFlatbedConfiguration(::windows::core::IUnknown);
 impl ImageScannerFlatbedConfiguration {
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -1491,7 +1491,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).DefaultFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -1499,12 +1499,12 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1512,7 +1512,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).IsFormatSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
@@ -1521,7 +1521,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MinScanArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
@@ -1530,7 +1530,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MaxScanArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
@@ -1539,13 +1539,13 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).SelectedScanRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectedScanRegion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1553,12 +1553,12 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).AutoCroppingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerAutoCroppingMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1566,7 +1566,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).IsAutoCroppingModeSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1574,7 +1574,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MinResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1582,7 +1582,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MaxResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1590,7 +1590,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).OpticalResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1598,12 +1598,12 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).DesiredResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetDesiredResolution<'a, Param0: ::windows::core::IntoParam<'a, ImageScannerResolution>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredResolution)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1611,7 +1611,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).ActualResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerResolution>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1619,7 +1619,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).DefaultColorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerColorMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1627,12 +1627,12 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).ColorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageScannerColorMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1640,7 +1640,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).IsColorModeSupported)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinBrightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1648,7 +1648,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MinBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxBrightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1656,7 +1656,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MaxBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn BrightnessStep(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1664,7 +1664,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).BrightnessStep)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultBrightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1672,7 +1672,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).DefaultBrightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1680,12 +1680,12 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).Brightness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MinContrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1693,7 +1693,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MinContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn MaxContrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1701,7 +1701,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).MaxContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn ContrastStep(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1709,7 +1709,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).ContrastStep)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn DefaultContrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1717,7 +1717,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).DefaultContrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Contrast(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
@@ -1725,7 +1725,7 @@ impl ImageScannerFlatbedConfiguration {
             (::windows::core::Interface::vtable(this).Contrast)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn SetContrast(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContrast)(::core::mem::transmute_copy(this), value).ok() }
@@ -1847,7 +1847,7 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerSourceConfiguration> for &I
 }
 unsafe impl ::core::marker::Send for ImageScannerFlatbedConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFlatbedConfiguration {}
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerFormat(pub i32);
@@ -1886,11 +1886,11 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScannerPreviewResult(::windows::core::IUnknown);
 impl ImageScannerPreviewResult {
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1898,7 +1898,7 @@ impl ImageScannerPreviewResult {
             (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Scanners'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
@@ -1980,7 +1980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 unsafe impl ::core::marker::Send for ImageScannerPreviewResult {}
 unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
 #[repr(C)]
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 pub struct ImageScannerResolution {
     pub DpiX: f32,
     pub DpiY: f32,
@@ -2017,11 +2017,11 @@ impl ::core::default::Default for ImageScannerResolution {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScannerScanResult(::windows::core::IUnknown);
 impl ImageScannerScanResult {
-    #[doc = "*Required features: 'Devices_Scanners', 'Foundation_Collections', 'Storage'*"]
+    #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn ScannedFiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
@@ -2103,7 +2103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for ImageScannerScanResult {}
 unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
-#[doc = "*Required features: 'Devices_Scanners'*"]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerScanSource(pub i32);

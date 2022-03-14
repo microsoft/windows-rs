@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]
 pub struct IWaaSAssessor(::windows::core::IUnknown);
 impl IWaaSAssessor {
-    #[doc = "*Required features: 'Win32_System_UpdateAssessment', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
         let mut result__: OSUpdateAssessment = ::core::mem::zeroed();
@@ -60,7 +60,7 @@ pub struct IWaaSAssessor_Vtbl {
     GetOSUpdateAssessment: usize,
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_UpdateAssessment', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment {
     pub isEndOfSupport: super::super::Foundation::BOOL,
@@ -118,7 +118,7 @@ impl ::core::default::Default for OSUpdateAssessment {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub struct UpdateAssessment {
     pub status: UpdateAssessmentStatus,
     pub impact: UpdateImpactLevel,
@@ -149,33 +149,33 @@ impl ::core::default::Default for UpdateAssessment {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UpdateAssessmentStatus(pub i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestSoftRestriction: UpdateAssessmentStatus = UpdateAssessmentStatus(1i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestHardRestriction: UpdateAssessmentStatus = UpdateAssessmentStatus(2i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestEndOfSupport: UpdateAssessmentStatus = UpdateAssessmentStatus(3i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestServicingTrain: UpdateAssessmentStatus = UpdateAssessmentStatus(4i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestDeferredFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(5i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestDeferredQuality: UpdateAssessmentStatus = UpdateAssessmentStatus(6i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestPausedFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(7i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestPausedQuality: UpdateAssessmentStatus = UpdateAssessmentStatus(8i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestManaged: UpdateAssessmentStatus = UpdateAssessmentStatus(9i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestUnknown: UpdateAssessmentStatus = UpdateAssessmentStatus(10i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_NotLatestTargetedVersion: UpdateAssessmentStatus = UpdateAssessmentStatus(11i32);
 impl ::core::marker::Copy for UpdateAssessmentStatus {}
 impl ::core::clone::Clone for UpdateAssessmentStatus {
@@ -196,17 +196,17 @@ impl ::core::fmt::Debug for UpdateAssessmentStatus {
         f.debug_tuple("UpdateAssessmentStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UpdateImpactLevel(pub i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
-#[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
+#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
 impl ::core::marker::Copy for UpdateImpactLevel {}
 impl ::core::clone::Clone for UpdateImpactLevel {

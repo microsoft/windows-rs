@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -149,13 +149,13 @@ pub struct ITwoPanelHingedDevicePosturePreviewStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     GetDefaultAsync: usize,
 }
-#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreview(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl TwoPanelHingedDevicePosturePreview {
-    #[doc = "*Required features: 'System_Preview', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetCurrentPostureAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreviewReading>> {
         let this = self;
@@ -164,7 +164,7 @@ impl TwoPanelHingedDevicePosturePreview {
             (::windows::core::Interface::vtable(this).GetCurrentPostureAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreviewReading>>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PostureChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TwoPanelHingedDevicePosturePreview, TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -173,13 +173,13 @@ impl TwoPanelHingedDevicePosturePreview {
             (::windows::core::Interface::vtable(this).PostureChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePostureChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePostureChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'System_Preview', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreview>> {
         Self::ITwoPanelHingedDevicePosturePreviewStatics(|this| unsafe {
@@ -283,13 +283,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreview {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreview {}
-#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreviewReading(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl TwoPanelHingedDevicePosturePreviewReading {
-    #[doc = "*Required features: 'System_Preview', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -298,7 +298,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
             (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn HingeState(&self) -> ::windows::core::Result<HingeState> {
         let this = self;
@@ -307,7 +307,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
             (::windows::core::Interface::vtable(this).HingeState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HingeState>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'Devices_Sensors', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Devices_Sensors\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Devices_Sensors", feature = "deprecated"))]
     pub fn Panel1Orientation(&self) -> ::windows::core::Result<super::super::Devices::Sensors::SimpleOrientation> {
         let this = self;
@@ -316,7 +316,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
             (::windows::core::Interface::vtable(this).Panel1Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Sensors::SimpleOrientation>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Panel1Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -325,7 +325,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
             (::windows::core::Interface::vtable(this).Panel1Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'Devices_Sensors', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"Devices_Sensors\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Devices_Sensors", feature = "deprecated"))]
     pub fn Panel2Orientation(&self) -> ::windows::core::Result<super::super::Devices::Sensors::SimpleOrientation> {
         let this = self;
@@ -334,7 +334,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
             (::windows::core::Interface::vtable(this).Panel2Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Sensors::SimpleOrientation>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Panel2Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -433,13 +433,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReading {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreviewReading {}
-#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
-    #[doc = "*Required features: 'System_Preview', 'deprecated'*"]
+    #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Reading(&self) -> ::windows::core::Result<TwoPanelHingedDevicePosturePreviewReading> {
         let this = self;

@@ -6,7 +6,7 @@ pub mod Provider;
 pub type CallAnswerEventArgs = *mut ::core::ffi::c_void;
 pub type CallRejectEventArgs = *mut ::core::ffi::c_void;
 pub type CallStateChangeEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for CellularDtmfMode {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct DtmfKey(pub i32);
 impl DtmfKey {
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for DtmfKey {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct DtmfToneAudioPlayback(pub i32);
 impl DtmfToneAudioPlayback {
@@ -59,7 +59,7 @@ pub type LockScreenCallEndCallDeferral = *mut ::core::ffi::c_void;
 pub type LockScreenCallEndRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type LockScreenCallUI = *mut ::core::ffi::c_void;
 pub type MuteChangeEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
@@ -74,7 +74,7 @@ impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
     }
 }
 pub type PhoneCall = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
@@ -88,7 +88,7 @@ impl ::core::clone::Clone for PhoneCallAudioDevice {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
@@ -104,7 +104,7 @@ impl ::core::clone::Clone for PhoneCallDirection {
 }
 pub type PhoneCallHistoryEntry = *mut ::core::ffi::c_void;
 pub type PhoneCallHistoryEntryAddress = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
@@ -117,7 +117,7 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
 impl PhoneCallHistoryEntryOtherAppReadAccess {
@@ -130,7 +130,7 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
 impl PhoneCallHistoryEntryQueryDesiredMedia {
@@ -146,7 +146,7 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
     }
 }
 pub type PhoneCallHistoryEntryQueryOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
@@ -161,7 +161,7 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
 }
 pub type PhoneCallHistoryEntryReader = *mut ::core::ffi::c_void;
 pub type PhoneCallHistoryManagerForUser = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
@@ -175,7 +175,7 @@ impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
     }
 }
 pub type PhoneCallHistoryStore = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
@@ -190,7 +190,7 @@ impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
     }
 }
 pub type PhoneCallInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
@@ -204,7 +204,7 @@ impl ::core::clone::Clone for PhoneCallMedia {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallOperationStatus(pub i32);
 impl PhoneCallOperationStatus {
@@ -220,7 +220,7 @@ impl ::core::clone::Clone for PhoneCallOperationStatus {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallStatus(pub i32);
 impl PhoneCallStatus {
@@ -245,7 +245,7 @@ pub type PhoneLine = *mut ::core::ffi::c_void;
 pub type PhoneLineCellularDetails = *mut ::core::ffi::c_void;
 pub type PhoneLineConfiguration = *mut ::core::ffi::c_void;
 pub type PhoneLineDialResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
@@ -260,7 +260,7 @@ impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineOperationStatus(pub i32);
 impl PhoneLineOperationStatus {
@@ -276,7 +276,7 @@ impl ::core::clone::Clone for PhoneLineOperationStatus {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineTransport(pub i32);
 impl PhoneLineTransport {
@@ -293,7 +293,7 @@ impl ::core::clone::Clone for PhoneLineTransport {
 pub type PhoneLineTransportDevice = *mut ::core::ffi::c_void;
 pub type PhoneLineWatcher = *mut ::core::ffi::c_void;
 pub type PhoneLineWatcherEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
@@ -308,7 +308,7 @@ impl ::core::clone::Clone for PhoneLineWatcherStatus {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneNetworkState(pub i32);
 impl PhoneNetworkState {
@@ -327,7 +327,7 @@ impl ::core::clone::Clone for PhoneNetworkState {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneSimState(pub i32);
 impl PhoneSimState {
@@ -347,7 +347,7 @@ impl ::core::clone::Clone for PhoneSimState {
     }
 }
 pub type PhoneVoicemail = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
@@ -361,7 +361,7 @@ impl ::core::clone::Clone for PhoneVoicemailType {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
 impl TransportDeviceAudioRoutingStatus {
@@ -377,7 +377,7 @@ impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
 }
 pub type VoipCallCoordinator = *mut ::core::ffi::c_void;
 pub type VoipPhoneCall = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {
@@ -391,7 +391,7 @@ impl ::core::clone::Clone for VoipPhoneCallMedia {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallRejectReason(pub i32);
 impl VoipPhoneCallRejectReason {
@@ -407,7 +407,7 @@ impl ::core::clone::Clone for VoipPhoneCallRejectReason {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
 impl VoipPhoneCallResourceReservationStatus {
@@ -420,7 +420,7 @@ impl ::core::clone::Clone for VoipPhoneCallResourceReservationStatus {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Calls'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallState(pub i32);
 impl VoipPhoneCallState {

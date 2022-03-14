@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type SecondaryAuthenticationFactorAuthentication = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage
     }
 }
 pub type SecondaryAuthenticationFactorAuthenticationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
@@ -62,7 +62,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationScenari
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(pub i32);
@@ -88,7 +88,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
 }
 pub type SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs = *mut ::core::ffi::c_void;
 pub type SecondaryAuthenticationFactorAuthenticationStageInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
@@ -108,7 +108,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStatus 
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(pub u32);
@@ -131,7 +131,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceCapabilities {
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(pub i32);
@@ -148,7 +148,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceFindScope {
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresence(pub i32);
@@ -165,7 +165,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresence {
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(pub i32);
@@ -183,7 +183,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(pub i32);
@@ -201,7 +201,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
         *self
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(pub i32);
@@ -222,7 +222,7 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationS
 pub type SecondaryAuthenticationFactorInfo = *mut ::core::ffi::c_void;
 pub type SecondaryAuthenticationFactorRegistration = *mut ::core::ffi::c_void;
 pub type SecondaryAuthenticationFactorRegistrationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);

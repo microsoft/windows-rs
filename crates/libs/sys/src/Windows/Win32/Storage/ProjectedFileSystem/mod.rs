@@ -1,55 +1,55 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: i32, completionresult: ::windows_sys::core::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjDoesNameContainWildCards(filename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjFileNameCompare(filename1: ::windows_sys::core::PCWSTR, filename2: ::windows_sys::core::PCWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjFileNameMatch(filenametocheck: ::windows_sys::core::PCWSTR, pattern: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjFillDirEntryBuffer(filename: ::windows_sys::core::PCWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: ::windows_sys::core::PCWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjGetOnDiskFileState(destinationfilename: ::windows_sys::core::PCWSTR, filestate: *mut PRJ_FILE_STATE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjMarkDirectoryAsPlaceholder(rootpathname: ::windows_sys::core::PCWSTR, targetpathname: ::windows_sys::core::PCWSTR, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjStartVirtualizing(virtualizationrootpath: ::windows_sys::core::PCWSTR, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT);
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
     pub fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const ::windows_sys::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
@@ -70,7 +70,7 @@ impl ::core::clone::Clone for PRJ_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_CALLBACK_DATA {
     pub Size: u32,
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
@@ -90,16 +90,16 @@ impl ::core::clone::Clone for PRJ_CALLBACK_DATA {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_CALLBACK_DATA_FLAGS = i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = 1i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = 2i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
@@ -111,7 +111,7 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
@@ -123,7 +123,7 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
 }
@@ -134,7 +134,7 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
@@ -144,17 +144,17 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_COMPLETE_COMMAND_TYPE = i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = 2i32;
 pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = isize;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_EXTENDED_INFO {
     pub InfoType: PRJ_EXT_INFO_TYPE,
     pub NextInfoOffset: u32,
@@ -167,7 +167,7 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
 }
@@ -178,7 +178,7 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_EXTENDED_INFO_0_0 {
     pub TargetName: ::windows_sys::core::PCWSTR,
 }
@@ -188,12 +188,12 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0_0 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_EXT_INFO_TYPE = i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_FILE_BASIC_INFO {
     pub IsDirectory: super::super::Foundation::BOOLEAN,
@@ -212,56 +212,56 @@ impl ::core::clone::Clone for PRJ_FILE_BASIC_INFO {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_FILE_STATE = u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = 1u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: PRJ_FILE_STATE = 2u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: PRJ_FILE_STATE = 4u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FILE_STATE_FULL: PRJ_FILE_STATE = 8u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = 16u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID, searchexpression: ::windows_sys::core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT>;
 pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = isize;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_NOTIFICATION = i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_OPENED: PRJ_NOTIFICATION = 2i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_NEW_FILE_CREATED: PRJ_NOTIFICATION = 4i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_OVERWRITTEN: PRJ_NOTIFICATION = 8i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = 16i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = 32i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_PRE_SET_HARDLINK: PRJ_NOTIFICATION = 64i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_RENAMED: PRJ_NOTIFICATION = 128i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_HARDLINK_CREATED: PRJ_NOTIFICATION = 256i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = 512i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = 1024i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = 2048i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFICATION = 4096i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_NOTIFICATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: ::windows_sys::core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_NOTIFICATION_MAPPING {
     pub NotificationBitMask: PRJ_NOTIFY_TYPES,
     pub NotificationRoot: ::windows_sys::core::PCWSTR,
@@ -273,7 +273,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_MAPPING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PRJ_NOTIFICATION_PARAMETERS {
     pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
@@ -289,7 +289,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
@@ -303,7 +303,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
@@ -317,7 +317,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
@@ -330,44 +330,44 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_NOTIFY_TYPES = u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_NONE: PRJ_NOTIFY_TYPES = 0u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_SUPPRESS_NOTIFICATIONS: PRJ_NOTIFY_TYPES = 1u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_OPENED: PRJ_NOTIFY_TYPES = 2u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_NEW_FILE_CREATED: PRJ_NOTIFY_TYPES = 4u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_OVERWRITTEN: PRJ_NOTIFY_TYPES = 8u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_PRE_DELETE: PRJ_NOTIFY_TYPES = 16u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_PRE_RENAME: PRJ_NOTIFY_TYPES = 32u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_PRE_SET_HARDLINK: PRJ_NOTIFY_TYPES = 64u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_RENAMED: PRJ_NOTIFY_TYPES = 128u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_HARDLINK_CREATED: PRJ_NOTIFY_TYPES = 256u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFY_TYPES = 512u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFY_TYPES = 1024u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFY_TYPES = 2048u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFY_TYPES = 4096u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_USE_EXISTING_MASK: PRJ_NOTIFY_TYPES = 4294967295u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_PLACEHOLDER_ID = i32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_PLACEHOLDER_ID_LENGTH: PRJ_PLACEHOLDER_ID = 128i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO {
     pub FileBasicInfo: PRJ_FILE_BASIC_INFO,
@@ -386,7 +386,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
@@ -401,7 +401,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
@@ -416,7 +416,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
@@ -431,7 +431,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_PLACEHOLDER_VERSION_INFO {
     pub ProviderID: [u8; 128],
     pub ContentID: [u8; 128],
@@ -442,16 +442,16 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_VERSION_INFO {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_QUERY_FILE_NAME_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_STARTVIRTUALIZING_FLAGS = u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = 0u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub Flags: PRJ_STARTVIRTUALIZING_FLAGS,
     pub PoolThreadCount: u32,
@@ -465,40 +465,40 @@ impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_UPDATE_FAILURE_CAUSES = u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = 0u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: PRJ_UPDATE_FAILURE_CAUSES = 1u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: PRJ_UPDATE_FAILURE_CAUSES = 2u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: PRJ_UPDATE_FAILURE_CAUSES = 4u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: PRJ_UPDATE_FAILURE_CAUSES = 8u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_UPDATE_TYPES = u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = 0u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: PRJ_UPDATE_TYPES = 1u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: PRJ_UPDATE_TYPES = 2u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_ALLOW_TOMBSTONE: PRJ_UPDATE_TYPES = 4u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = 8u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = 16u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_ALLOW_READ_ONLY: PRJ_UPDATE_TYPES = 32u32;
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_MAX_VAL: PRJ_UPDATE_TYPES = 64u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
     pub InstanceID: ::windows_sys::core::GUID,
     pub WriteAlignment: u32,

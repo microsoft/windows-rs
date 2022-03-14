@@ -8,7 +8,7 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 pub type IUriToStreamResolver = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Web'*"]
+#[doc = "*Required features: `\"Web\"`*"]
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {

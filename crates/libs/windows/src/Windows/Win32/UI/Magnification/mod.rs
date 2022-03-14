@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
@@ -30,7 +30,7 @@ impl ::core::default::Default for MAGCOLOREFFECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -65,7 +65,7 @@ impl ::core::default::Default for MAGIMAGEHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }
@@ -94,17 +94,17 @@ impl ::core::default::Default for MAGTRANSFORM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MS_INVERTCOLORS: i32 = 4i32;
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MW_FILTERMODE_EXCLUDE: u32 = 0u32;
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetColorEffect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL {
@@ -119,7 +119,7 @@ pub unsafe fn MagGetColorEffect<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL {
@@ -134,7 +134,7 @@ pub unsafe fn MagGetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32, pyoffset: *mut i32) -> super::super::Foundation::BOOL {
@@ -149,7 +149,7 @@ pub unsafe fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MagGetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> MagImageScalingCallback {
@@ -164,7 +164,7 @@ pub unsafe fn MagGetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOOL, prectsource: *mut super::super::Foundation::RECT, prectdest: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -179,7 +179,7 @@ pub unsafe fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetWindowFilterList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pdwfiltermode: *mut u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32 {
@@ -194,7 +194,7 @@ pub unsafe fn MagGetWindowFilterList<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetWindowSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, prect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -209,7 +209,7 @@ pub unsafe fn MagGetWindowSource<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagGetWindowTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ptransform: *mut MAGTRANSFORM) -> super::super::Foundation::BOOL {
@@ -224,10 +224,10 @@ pub unsafe fn MagGetWindowTransform<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type MagImageScalingCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
@@ -242,7 +242,7 @@ pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetColorEffect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL {
@@ -257,7 +257,7 @@ pub unsafe fn MagSetColorEffect<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> super::super::Foundation::BOOL {
@@ -272,7 +272,7 @@ pub unsafe fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i32) -> super::super::Foundation::BOOL {
@@ -287,7 +287,7 @@ pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, callback: MagImageScalingCallback) -> super::super::Foundation::BOOL {
@@ -302,7 +302,7 @@ pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetInputTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenabled: Param0, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -317,7 +317,7 @@ pub unsafe fn MagSetInputTransform<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetWindowFilterList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwfiltermode: u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
@@ -332,7 +332,7 @@ pub unsafe fn MagSetWindowFilterList<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetWindowSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>>(hwnd: Param0, rect: Param1) -> super::super::Foundation::BOOL {
@@ -347,7 +347,7 @@ pub unsafe fn MagSetWindowSource<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagSetWindowTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ptransform: *mut MAGTRANSFORM) -> super::super::Foundation::BOOL {
@@ -362,7 +362,7 @@ pub unsafe fn MagSetWindowTransform<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagShowSystemCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fshowcursor: Param0) -> super::super::Foundation::BOOL {
@@ -377,7 +377,7 @@ pub unsafe fn MagShowSystemCursor<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {
@@ -392,11 +392,11 @@ pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIER: &'static str = "Magnifier";
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIERA: &'static str = "Magnifier";
-#[doc = "*Required features: 'Win32_UI_Magnification'*"]
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIERW: &'static str = "Magnifier";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

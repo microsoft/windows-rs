@@ -1,47 +1,47 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DEFAULT_WEIGHT: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPIDSPRG(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGId: DISPIDSPRG = DISPIDSPRG(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGRecoContext: DISPIDSPRG = DISPIDSPRG(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGState: DISPIDSPRG = DISPIDSPRG(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGRules: DISPIDSPRG = DISPIDSPRG(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGReset: DISPIDSPRG = DISPIDSPRG(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCommit: DISPIDSPRG = DISPIDSPRG(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdLoadFromFile: DISPIDSPRG = DISPIDSPRG(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdLoadFromObject: DISPIDSPRG = DISPIDSPRG(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdLoadFromResource: DISPIDSPRG = DISPIDSPRG(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdLoadFromMemory: DISPIDSPRG = DISPIDSPRG(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdLoadFromProprietaryGrammar: DISPIDSPRG = DISPIDSPRG(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdSetRuleState: DISPIDSPRG = DISPIDSPRG(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGCmdSetRuleIdState: DISPIDSPRG = DISPIDSPRG(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGDictationLoad: DISPIDSPRG = DISPIDSPRG(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGDictationUnload: DISPIDSPRG = DISPIDSPRG(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGDictationSetState: DISPIDSPRG = DISPIDSPRG(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGSetWordSequenceData: DISPIDSPRG = DISPIDSPRG(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGSetTextSelection: DISPIDSPRG = DISPIDSPRG(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGIsPronounceable: DISPIDSPRG = DISPIDSPRG(19i32);
 impl ::core::marker::Copy for DISPIDSPRG {}
 impl ::core::clone::Clone for DISPIDSPRG {
@@ -62,17 +62,17 @@ impl ::core::fmt::Debug for DISPIDSPRG {
         f.debug_tuple("DISPIDSPRG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPIDSPTSI(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = DISPIDSPTSI(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = DISPIDSPTSI(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPIDSPTSI_SelectionOffset: DISPIDSPTSI = DISPIDSPTSI(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPIDSPTSI_SelectionLength: DISPIDSPTSI = DISPIDSPTSI(4i32);
 impl ::core::marker::Copy for DISPIDSPTSI {}
 impl ::core::clone::Clone for DISPIDSPTSI {
@@ -93,23 +93,23 @@ impl ::core::fmt::Debug for DISPIDSPTSI {
         f.debug_tuple("DISPIDSPTSI").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechAudio(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAStatus: DISPID_SpeechAudio = DISPID_SpeechAudio(200i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SABufferInfo: DISPID_SpeechAudio = DISPID_SpeechAudio(201i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SADefaultFormat: DISPID_SpeechAudio = DISPID_SpeechAudio(202i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAVolume: DISPID_SpeechAudio = DISPID_SpeechAudio(203i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SABufferNotifySize: DISPID_SpeechAudio = DISPID_SpeechAudio(204i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAEventHandle: DISPID_SpeechAudio = DISPID_SpeechAudio(205i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASetState: DISPID_SpeechAudio = DISPID_SpeechAudio(206i32);
 impl ::core::marker::Copy for DISPID_SpeechAudio {}
 impl ::core::clone::Clone for DISPID_SpeechAudio {
@@ -130,15 +130,15 @@ impl ::core::fmt::Debug for DISPID_SpeechAudio {
         f.debug_tuple("DISPID_SpeechAudio").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechAudioBufferInfo(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SABIBufferSize: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SABIEventBias: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(3i32);
 impl ::core::marker::Copy for DISPID_SpeechAudioBufferInfo {}
 impl ::core::clone::Clone for DISPID_SpeechAudioBufferInfo {
@@ -159,17 +159,17 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioBufferInfo {
         f.debug_tuple("DISPID_SpeechAudioBufferInfo").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechAudioFormat(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAFType: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAFGuid: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAFGetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAFSetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(4i32);
 impl ::core::marker::Copy for DISPID_SpeechAudioFormat {}
 impl ::core::clone::Clone for DISPID_SpeechAudioFormat {
@@ -190,19 +190,19 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioFormat {
         f.debug_tuple("DISPID_SpeechAudioFormat").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechAudioStatus(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASNonBlockingIO: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASState: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASCurrentSeekPosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASCurrentDevicePosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(5i32);
 impl ::core::marker::Copy for DISPID_SpeechAudioStatus {}
 impl ::core::clone::Clone for DISPID_SpeechAudioStatus {
@@ -223,17 +223,17 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioStatus {
         f.debug_tuple("DISPID_SpeechAudioStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechBaseStream(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SBSRead: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SBSWrite: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SBSSeek: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(4i32);
 impl ::core::marker::Copy for DISPID_SpeechBaseStream {}
 impl ::core::clone::Clone for DISPID_SpeechBaseStream {
@@ -254,11 +254,11 @@ impl ::core::fmt::Debug for DISPID_SpeechBaseStream {
         f.debug_tuple("DISPID_SpeechBaseStream").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechCustomStream(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = DISPID_SpeechCustomStream(100i32);
 impl ::core::marker::Copy for DISPID_SpeechCustomStream {}
 impl ::core::clone::Clone for DISPID_SpeechCustomStream {
@@ -279,33 +279,33 @@ impl ::core::fmt::Debug for DISPID_SpeechCustomStream {
         f.debug_tuple("DISPID_SpeechCustomStream").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechDataKey(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKGetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKSetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKGetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKSetLongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKGetlongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKOpenKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKCreateKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKDeleteKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKDeleteValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKEnumKeys: DISPID_SpeechDataKey = DISPID_SpeechDataKey(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKEnumValues: DISPID_SpeechDataKey = DISPID_SpeechDataKey(12i32);
 impl ::core::marker::Copy for DISPID_SpeechDataKey {}
 impl ::core::clone::Clone for DISPID_SpeechDataKey {
@@ -326,13 +326,13 @@ impl ::core::fmt::Debug for DISPID_SpeechDataKey {
         f.debug_tuple("DISPID_SpeechDataKey").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechFileStream(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SFSOpen: DISPID_SpeechFileStream = DISPID_SpeechFileStream(100i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SFSClose: DISPID_SpeechFileStream = DISPID_SpeechFileStream(101i32);
 impl ::core::marker::Copy for DISPID_SpeechFileStream {}
 impl ::core::clone::Clone for DISPID_SpeechFileStream {
@@ -353,23 +353,23 @@ impl ::core::fmt::Debug for DISPID_SpeechFileStream {
         f.debug_tuple("DISPID_SpeechFileStream").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechGrammarRule(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRInitialState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRName: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRId: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRClear: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRAddResource: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRAddState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(7i32);
 impl ::core::marker::Copy for DISPID_SpeechGrammarRule {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRule {
@@ -390,19 +390,19 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRule {
         f.debug_tuple("DISPID_SpeechGrammarRule").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechGrammarRuleState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTransitions: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSAddWordTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSAddRuleTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSAddSpecialTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(5i32);
 impl ::core::marker::Copy for DISPID_SpeechGrammarRuleState {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRuleState {
@@ -423,25 +423,25 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleState {
         f.debug_tuple("DISPID_SpeechGrammarRuleState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTText: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTRule: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTWeight: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTPropertyName: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTPropertyId: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTPropertyValue: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTNextState: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(8i32);
 impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransition {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransition {
@@ -462,15 +462,15 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransition {
         f.debug_tuple("DISPID_SpeechGrammarRuleStateTransition").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTsItem: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTs_NewEnum: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransitions {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransitions {
@@ -491,25 +491,25 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransitions {
         f.debug_tuple("DISPID_SpeechGrammarRuleStateTransitions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechGrammarRules(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsDynamic: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsAdd: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsCommit: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsCommitAndSave: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsFindRule: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsItem: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRs_NewEnum: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechGrammarRules {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRules {
@@ -530,25 +530,25 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRules {
         f.debug_tuple("DISPID_SpeechGrammarRules").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechLexicon(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = DISPID_SpeechLexicon(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLGetWords: DISPID_SpeechLexicon = DISPID_SpeechLexicon(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLAddPronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLAddPronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLRemovePronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLRemovePronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLGetPronunciations: DISPID_SpeechLexicon = DISPID_SpeechLexicon(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLGetGenerationChange: DISPID_SpeechLexicon = DISPID_SpeechLexicon(8i32);
 impl ::core::marker::Copy for DISPID_SpeechLexicon {}
 impl ::core::clone::Clone for DISPID_SpeechLexicon {
@@ -569,15 +569,15 @@ impl ::core::fmt::Debug for DISPID_SpeechLexicon {
         f.debug_tuple("DISPID_SpeechLexicon").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechLexiconProns(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPsItem: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPs_NewEnum: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechLexiconProns {}
 impl ::core::clone::Clone for DISPID_SpeechLexiconProns {
@@ -598,19 +598,19 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconProns {
         f.debug_tuple("DISPID_SpeechLexiconProns").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechLexiconPronunciation(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPLangId: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPPartOfSpeech: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPPhoneIds: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPSymbolic: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(5i32);
 impl ::core::marker::Copy for DISPID_SpeechLexiconPronunciation {}
 impl ::core::clone::Clone for DISPID_SpeechLexiconPronunciation {
@@ -631,17 +631,17 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconPronunciation {
         f.debug_tuple("DISPID_SpeechLexiconPronunciation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechLexiconWord(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWType: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWWord: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWPronunciations: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(4i32);
 impl ::core::marker::Copy for DISPID_SpeechLexiconWord {}
 impl ::core::clone::Clone for DISPID_SpeechLexiconWord {
@@ -662,15 +662,15 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconWord {
         f.debug_tuple("DISPID_SpeechLexiconWord").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechLexiconWords(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWsItem: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWs_NewEnum: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechLexiconWords {}
 impl ::core::clone::Clone for DISPID_SpeechLexiconWords {
@@ -691,15 +691,15 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconWords {
         f.debug_tuple("DISPID_SpeechLexiconWords").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechMMSysAudio(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(300i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSALineId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(301i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSAMMHandle: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(302i32);
 impl ::core::marker::Copy for DISPID_SpeechMMSysAudio {}
 impl ::core::clone::Clone for DISPID_SpeechMMSysAudio {
@@ -720,13 +720,13 @@ impl ::core::fmt::Debug for DISPID_SpeechMMSysAudio {
         f.debug_tuple("DISPID_SpeechMMSysAudio").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechMemoryStream(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(100i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSGetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(101i32);
 impl ::core::marker::Copy for DISPID_SpeechMemoryStream {}
 impl ::core::clone::Clone for DISPID_SpeechMemoryStream {
@@ -747,35 +747,35 @@ impl ::core::fmt::Debug for DISPID_SpeechMemoryStream {
         f.debug_tuple("DISPID_SpeechMemoryStream").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechObjectToken(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTDataKey: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCategory: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTGetDescription: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTSetId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTGetAttribute: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCreateInstance: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTRemove: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTGetStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTRemoveStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTIsUISupported: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTDisplayUI: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTMatchesAttributes: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(13i32);
 impl ::core::marker::Copy for DISPID_SpeechObjectToken {}
 impl ::core::clone::Clone for DISPID_SpeechObjectToken {
@@ -796,19 +796,19 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectToken {
         f.debug_tuple("DISPID_SpeechObjectToken").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechObjectTokenCategory(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCDefault: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCSetId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCGetDataKey: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCEnumerateTokens: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(5i32);
 impl ::core::marker::Copy for DISPID_SpeechObjectTokenCategory {}
 impl ::core::clone::Clone for DISPID_SpeechObjectTokenCategory {
@@ -829,15 +829,15 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectTokenCategory {
         f.debug_tuple("DISPID_SpeechObjectTokenCategory").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechObjectTokens(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTsItem: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTs_NewEnum: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechObjectTokens {}
 impl ::core::clone::Clone for DISPID_SpeechObjectTokens {
@@ -858,15 +858,15 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectTokens {
         f.debug_tuple("DISPID_SpeechObjectTokens").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhoneConverter(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPCPhoneToId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPCIdToPhone: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(3i32);
 impl ::core::marker::Copy for DISPID_SpeechPhoneConverter {}
 impl ::core::clone::Clone for DISPID_SpeechPhoneConverter {
@@ -887,19 +887,19 @@ impl ::core::fmt::Debug for DISPID_SpeechPhoneConverter {
         f.debug_tuple("DISPID_SpeechPhoneConverter").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseAlternate(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPAStartElementInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPANumberOfElementsInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPAPhraseInfo: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPACommit: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(5i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseAlternate {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseAlternate {
@@ -920,15 +920,15 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternate {
         f.debug_tuple("DISPID_SpeechPhraseAlternate").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseAlternates(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPAsItem: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPAs_NewEnum: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseAlternates {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseAlternates {
@@ -949,11 +949,11 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternates {
         f.debug_tuple("DISPID_SpeechPhraseAlternates").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseBuilder(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = DISPID_SpeechPhraseBuilder(1i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseBuilder {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseBuilder {
@@ -974,35 +974,35 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseBuilder {
         f.debug_tuple("DISPID_SpeechPhraseBuilder").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseElement(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEAudioSizeTime: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEAudioStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEAudioSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPERetainedStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPERetainedSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEDisplayText: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPELexicalForm: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEPronunciation: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEDisplayAttributes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPERequiredConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEActualConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEEngineConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(13i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseElement {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseElement {
@@ -1023,15 +1023,15 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseElement {
         f.debug_tuple("DISPID_SpeechPhraseElement").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseElements(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEsItem: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEs_NewEnum: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseElements {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseElements {
@@ -1052,41 +1052,41 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseElements {
         f.debug_tuple("DISPID_SpeechPhraseElements").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseInfo(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIGrammarId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIStartTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIAudioStreamPosition: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIAudioSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIRetainedSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIAudioSizeTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIRule: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIProperties: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIElements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIReplacements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIEngineId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIEnginePrivateData: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPISaveToMemory: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIGetText: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPIGetDisplayAttributes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(16i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseInfo {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseInfo {
@@ -1107,15 +1107,15 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseInfo {
         f.debug_tuple("DISPID_SpeechPhraseInfo").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseProperties(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPsItem: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPs_NewEnum: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseProperties {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseProperties {
@@ -1136,27 +1136,27 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseProperties {
         f.debug_tuple("DISPID_SpeechPhraseProperties").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseProperty(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPId: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPValue: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPFirstElement: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPNumberOfElements: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPEngineConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPParent: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPChildren: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(9i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseProperty {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseProperty {
@@ -1177,17 +1177,17 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseProperty {
         f.debug_tuple("DISPID_SpeechPhraseProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseReplacement(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRText: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRFirstElement: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRNumberOfElements: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(4i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseReplacement {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseReplacement {
@@ -1208,15 +1208,15 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacement {
         f.debug_tuple("DISPID_SpeechPhraseReplacement").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseReplacements(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRsItem: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRs_NewEnum: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseReplacements {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseReplacements {
@@ -1237,25 +1237,25 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacements {
         f.debug_tuple("DISPID_SpeechPhraseReplacements").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseRule(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleId: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleFirstElement: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleNumberOfElements: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleParent: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleChildren: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleEngineConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(8i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseRule {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseRule {
@@ -1276,15 +1276,15 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseRule {
         f.debug_tuple("DISPID_SpeechPhraseRule").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechPhraseRules(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRulesItem: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRules_NewEnum: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(-4i32);
 impl ::core::marker::Copy for DISPID_SpeechPhraseRules {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseRules {
@@ -1305,43 +1305,43 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseRules {
         f.debug_tuple("DISPID_SpeechPhraseRules").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecoContext(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCAudioInInterferenceStatus: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCRequestedUIType: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCVoice: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRAllowVoiceFormatMatchingOnNextSet: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCVoicePurgeEvent: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEventInterests: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCCmdMaxAlternates: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCState: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCRetainedAudio: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCRetainedAudioFormat: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCPause: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCResume: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCCreateGrammar: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCCreateResultFromMemory: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCBookmark: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCSetAdaptationData: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(17i32);
 impl ::core::marker::Copy for DISPID_SpeechRecoContext {}
 impl ::core::clone::Clone for DISPID_SpeechRecoContext {
@@ -1362,45 +1362,45 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoContext {
         f.debug_tuple("DISPID_SpeechRecoContext").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecoContextEvents(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEEndStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEBookmark: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCESoundStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCESoundEnd: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEPhraseStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCERecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEHypothesis: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEPropertyNumberChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEPropertyStringChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEFalseRecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEInterference: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCERequestUI: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCERecognizerStateChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEAdaptation: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCERecognitionForOtherContext: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEAudioLevel: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEEnginePrivate: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(18i32);
 impl ::core::marker::Copy for DISPID_SpeechRecoContextEvents {}
 impl ::core::clone::Clone for DISPID_SpeechRecoContextEvents {
@@ -1421,27 +1421,27 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoContextEvents {
         f.debug_tuple("DISPID_SpeechRecoContextEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecoResult(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRTimes: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRAudioFormat: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRPhraseInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRAlternates: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRSpeakAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRSaveToMemory: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRDiscardResultInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(9i32);
 impl ::core::marker::Copy for DISPID_SpeechRecoResult {}
 impl ::core::clone::Clone for DISPID_SpeechRecoResult {
@@ -1462,11 +1462,11 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResult {
         f.debug_tuple("DISPID_SpeechRecoResult").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecoResult2(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = DISPID_SpeechRecoResult2(12i32);
 impl ::core::marker::Copy for DISPID_SpeechRecoResult2 {}
 impl ::core::clone::Clone for DISPID_SpeechRecoResult2 {
@@ -1487,17 +1487,17 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResult2 {
         f.debug_tuple("DISPID_SpeechRecoResult2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecoResultTimes(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRTLength: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRTTickCount: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRTOffsetFromStart: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(4i32);
 impl ::core::marker::Copy for DISPID_SpeechRecoResultTimes {}
 impl ::core::clone::Clone for DISPID_SpeechRecoResultTimes {
@@ -1518,49 +1518,49 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResultTimes {
         f.debug_tuple("DISPID_SpeechRecoResultTimes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecognizer(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRAllowAudioInputFormatChangesOnNextSet: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRAudioInput: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRAudioInputStream: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRIsShared: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRState: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRStatus: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRProfile: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SREmulateRecognition: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCreateRecoContext: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGetFormat: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRIsUISupported: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRDisplayUI: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGetRecognizers: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVGetAudioInputs: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(19i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVGetProfiles: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(20i32);
 impl ::core::marker::Copy for DISPID_SpeechRecognizer {}
 impl ::core::clone::Clone for DISPID_SpeechRecognizer {
@@ -1581,21 +1581,21 @@ impl ::core::fmt::Debug for DISPID_SpeechRecognizer {
         f.debug_tuple("DISPID_SpeechRecognizer").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechRecognizerStatus(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSCurrentStreamPosition: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSCurrentStreamNumber: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSNumberOfActiveRules: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSClsidEngine: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSSupportedLanguages: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(6i32);
 impl ::core::marker::Copy for DISPID_SpeechRecognizerStatus {}
 impl ::core::clone::Clone for DISPID_SpeechRecognizerStatus {
@@ -1616,53 +1616,53 @@ impl ::core::fmt::Debug for DISPID_SpeechRecognizerStatus {
         f.debug_tuple("DISPID_SpeechRecognizerStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechVoice(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVStatus: DISPID_SpeechVoice = DISPID_SpeechVoice(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVVoice: DISPID_SpeechVoice = DISPID_SpeechVoice(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVAudioOutput: DISPID_SpeechVoice = DISPID_SpeechVoice(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVAudioOutputStream: DISPID_SpeechVoice = DISPID_SpeechVoice(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVRate: DISPID_SpeechVoice = DISPID_SpeechVoice(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVVolume: DISPID_SpeechVoice = DISPID_SpeechVoice(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVAllowAudioOuputFormatChangesOnNextSet: DISPID_SpeechVoice = DISPID_SpeechVoice(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEventInterests: DISPID_SpeechVoice = DISPID_SpeechVoice(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVPriority: DISPID_SpeechVoice = DISPID_SpeechVoice(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVAlertBoundary: DISPID_SpeechVoice = DISPID_SpeechVoice(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSyncronousSpeakTimeout: DISPID_SpeechVoice = DISPID_SpeechVoice(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSpeak: DISPID_SpeechVoice = DISPID_SpeechVoice(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSpeakStream: DISPID_SpeechVoice = DISPID_SpeechVoice(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVPause: DISPID_SpeechVoice = DISPID_SpeechVoice(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVResume: DISPID_SpeechVoice = DISPID_SpeechVoice(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSkip: DISPID_SpeechVoice = DISPID_SpeechVoice(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVGetVoices: DISPID_SpeechVoice = DISPID_SpeechVoice(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVGetAudioOutputs: DISPID_SpeechVoice = DISPID_SpeechVoice(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVWaitUntilDone: DISPID_SpeechVoice = DISPID_SpeechVoice(19i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSpeakCompleteEvent: DISPID_SpeechVoice = DISPID_SpeechVoice(20i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVIsUISupported: DISPID_SpeechVoice = DISPID_SpeechVoice(21i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVDisplayUI: DISPID_SpeechVoice = DISPID_SpeechVoice(22i32);
 impl ::core::marker::Copy for DISPID_SpeechVoice {}
 impl ::core::clone::Clone for DISPID_SpeechVoice {
@@ -1683,29 +1683,29 @@ impl ::core::fmt::Debug for DISPID_SpeechVoice {
         f.debug_tuple("DISPID_SpeechVoice").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechVoiceEvent(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEStreamEnd: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEVoiceChange: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEBookmark: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEWord: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEPhoneme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVESentenceBoundary: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEViseme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEAudioLevel: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEEnginePrivate: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(10i32);
 impl ::core::marker::Copy for DISPID_SpeechVoiceEvent {}
 impl ::core::clone::Clone for DISPID_SpeechVoiceEvent {
@@ -1726,33 +1726,33 @@ impl ::core::fmt::Debug for DISPID_SpeechVoiceEvent {
         f.debug_tuple("DISPID_SpeechVoiceEvent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechVoiceStatus(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSLastStreamNumberQueued: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSLastResult: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSRunningState: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSInputWordPosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSInputWordLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSInputSentencePosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSInputSentenceLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSLastBookmark: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSLastBookmarkId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSPhonemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSVisemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(12i32);
 impl ::core::marker::Copy for DISPID_SpeechVoiceStatus {}
 impl ::core::clone::Clone for DISPID_SpeechVoiceStatus {
@@ -1773,23 +1773,23 @@ impl ::core::fmt::Debug for DISPID_SpeechVoiceStatus {
         f.debug_tuple("DISPID_SpeechVoiceStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechWaveFormatEx(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEChannels: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFESamplesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEAvgBytesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEBlockAlign: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEBitsPerSample: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEExtraData: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(7i32);
 impl ::core::marker::Copy for DISPID_SpeechWaveFormatEx {}
 impl ::core::clone::Clone for DISPID_SpeechWaveFormatEx {
@@ -1810,13 +1810,13 @@ impl ::core::fmt::Debug for DISPID_SpeechWaveFormatEx {
         f.debug_tuple("DISPID_SpeechWaveFormatEx").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DISPID_SpeechXMLRecoResult(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRGetXMLErrorInfo: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(11i32);
 impl ::core::marker::Copy for DISPID_SpeechXMLRecoResult {}
 impl ::core::clone::Clone for DISPID_SpeechXMLRecoResult {
@@ -1837,33 +1837,33 @@ impl ::core::fmt::Debug for DISPID_SpeechXMLRecoResult {
         f.debug_tuple("DISPID_SpeechXMLRecoResult").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct IEnumSpObjectTokens(::windows::core::IUnknown);
 impl IEnumSpObjectTokens {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Next(&self, celt: u32, pelt: *mut ::core::option::Option<ISpObjectToken>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(pelt), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSpObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSpObjectTokens>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Item(&self, index: u32) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetCount(&self, pcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcount)).ok()
     }
@@ -1919,120 +1919,120 @@ pub struct IEnumSpObjectTokens_Vtbl {
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpAudio(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpAudio {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Revert)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut super::Audio::WAVEFORMATEX> {
         let mut result__: *mut super::Audio::WAVEFORMATEX = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidformatid), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Audio::WAVEFORMATEX>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate), ::core::mem::transmute(ullreserved)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetFormat(&self, rguidfmtid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidfmtid), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPAUDIOSTATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatus)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferInfo(&self, pbuffinfo: *const SPAUDIOBUFFERINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBufferInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetBufferInfo(&self, pbuffinfo: *mut SPAUDIOBUFFERINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBufferInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetDefaultFormat(&self, pformatid: *mut ::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDefaultFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatid), ::core::mem::transmute(ppcomemwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).EventHandle)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetVolumeLevel(&self, plevel: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVolumeLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(plevel)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVolumeLevel(&self, level: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVolumeLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(level)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetBufferNotifySize(&self, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcbsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferNotifySize(&self, cbsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbsize)).ok()
     }
@@ -2184,35 +2184,35 @@ pub struct ISpAudio_Vtbl {
     pub GetBufferNotifySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub SetBufferNotifySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpContainerLexicon(::windows::core::IUnknown);
 impl ISpContainerLexicon {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPronunciations<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPronunciations)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwordpronunciationlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddPronunciation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddPronunciation)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(epartofspeech), ::core::mem::transmute(pszpronunciation)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RemovePronunciation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RemovePronunciation)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(epartofspeech), ::core::mem::transmute(pszpronunciation)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGeneration(&self, pdwgeneration: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetGeneration)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwgeneration)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGenerationChange(&self, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetGenerationChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pwordlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetWords(&self, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetWords)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pdwcookie), ::core::mem::transmute(pwordlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddLexicon<'a, Param0: ::windows::core::IntoParam<'a, ISpLexicon>>(&self, paddlexicon: Param0, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddLexicon)(::core::mem::transmute_copy(self), paddlexicon.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
@@ -2283,59 +2283,59 @@ pub struct ISpContainerLexicon_Vtbl {
     pub base: ISpLexicon_Vtbl,
     pub AddLexicon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddlexicon: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpDataKey(::windows::core::IUnknown);
 impl ISpDataKey {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(cbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), pszvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, dwvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pdwvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pdwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn OpenKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkeyname: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).OpenKey)(::core::mem::transmute_copy(self), pszsubkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
@@ -2398,15 +2398,15 @@ pub struct ISpDataKey_Vtbl {
     pub EnumKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppszsubkeyname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub EnumValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppszvaluename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpDisplayAlternates(::windows::core::IUnknown);
 impl ISpDisplayAlternates {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDisplayAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(pphrase), ::core::mem::transmute(crequestcount), ::core::mem::transmute(ppcomemphrases), ::core::mem::transmute(pcphrasesreturned)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetFullStopTrailSpace(&self, ultrailspace: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFullStopTrailSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ultrailspace)).ok()
     }
@@ -2458,15 +2458,15 @@ pub struct ISpDisplayAlternates_Vtbl {
     pub GetDisplayAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub SetFullStopTrailSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultrailspace: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpEnginePronunciation(::windows::core::IUnknown);
 impl ISpEnginePronunciation {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Normalize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, pszleftcontext: Param1, pszrightcontext: Param2, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Normalize)(::core::mem::transmute_copy(self), pszword.into_param().abi(), pszleftcontext.into_param().abi(), pszrightcontext.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(pnormalizationlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPronunciations<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, pszleftcontext: Param1, pszrightcontext: Param2, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPronunciations)(::core::mem::transmute_copy(self), pszword.into_param().abi(), pszleftcontext.into_param().abi(), pszrightcontext.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(penginepronunciationlist)).ok()
     }
@@ -2518,16 +2518,16 @@ pub struct ISpEnginePronunciation_Vtbl {
     pub Normalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, pszleftcontext: ::windows::core::PCWSTR, pszrightcontext: ::windows::core::PCWSTR, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows::core::HRESULT,
     pub GetPronunciations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, pszleftcontext: ::windows::core::PCWSTR, pszrightcontext: ::windows::core::PCWSTR, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpEventSink(::windows::core::IUnknown);
 impl ISpEventSink {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(peventarray), ::core::mem::transmute(ulcount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetEventInterest(&self, pulleventinterest: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEventInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulleventinterest)).ok()
     }
@@ -2582,52 +2582,52 @@ pub struct ISpEventSink_Vtbl {
     AddEvents: usize,
     pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulleventinterest: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpEventSource(::windows::core::IUnknown);
 impl ISpEventSource {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetNotifySink)(::core::mem::transmute_copy(self), pnotifysink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyWindowMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetNotifyWindowMessage)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetNotifyCallbackFunction)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfncallback), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackInterface<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifyCallback>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pspcallback: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetNotifyCallbackInterface)(::core::mem::transmute_copy(self), pspcallback.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetNotifyWin32Event)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.WaitForNotifyEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmilliseconds)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNotifyEventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetNotifyEventHandle)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetInterest(&self, ulleventinterest: u64, ullqueuedinterest: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulleventinterest), ::core::mem::transmute(ullqueuedinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvents(&self, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(peventarray), ::core::mem::transmute(pulfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo)).ok()
     }
@@ -2703,56 +2703,56 @@ pub struct ISpEventSource_Vtbl {
     GetEvents: usize,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpEventSource2(::windows::core::IUnknown);
 impl ISpEventSource2 {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifySink)(::core::mem::transmute_copy(self), pnotifysink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyWindowMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyWindowMessage)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyCallbackFunction)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfncallback), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackInterface<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifyCallback>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pspcallback: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyCallbackInterface)(::core::mem::transmute_copy(self), pspcallback.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyWin32Event)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.WaitForNotifyEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmilliseconds)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNotifyEventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetNotifyEventHandle)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetInterest(&self, ulleventinterest: u64, ullqueuedinterest: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulleventinterest), ::core::mem::transmute(ullqueuedinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvents(&self, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(peventarray), ::core::mem::transmute(pulfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventsEx(&self, ulcount: u32, peventarray: *mut SPEVENTEX, pulfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEventsEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(peventarray), ::core::mem::transmute(pulfetched)).ok()
@@ -2847,42 +2847,42 @@ pub struct ISpEventSource2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetEventsEx: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpGrammarBuilder(::windows::core::IUnknown);
 impl ISpGrammarBuilder {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ResetGrammar)(::core::mem::transmute_copy(self), ::core::mem::transmute(newlanguage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRule<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszrulename: Param0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: Param3, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRule)(::core::mem::transmute_copy(self), pszrulename.into_param().abi(), ::core::mem::transmute(dwruleid), ::core::mem::transmute(dwattributes), fcreateifnotexist.into_param().abi(), ::core::mem::transmute(phinitialstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ClearRule(&self, hstate: *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClearRule)(::core::mem::transmute_copy(self), ::core::mem::transmute(hstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateNewState(&self, hstate: *mut SPSTATEHANDLE__, phstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateNewState)(::core::mem::transmute_copy(self), ::core::mem::transmute(hstate), ::core::mem::transmute(phstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddWordTransition<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: Param2, pszseparators: Param3, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddWordTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfromstate), ::core::mem::transmute(htostate), psz.into_param().abi(), pszseparators.into_param().abi(), ::core::mem::transmute(ewordtype), ::core::mem::transmute(weight), ::core::mem::transmute(ppropinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddRuleTransition(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddRuleTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfromstate), ::core::mem::transmute(htostate), ::core::mem::transmute(hrule), ::core::mem::transmute(weight), ::core::mem::transmute(ppropinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddResource<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: Param1, pszresourcevalue: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrulestate), pszresourcename.into_param().abi(), pszresourcevalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Commit(&self, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -2949,15 +2949,15 @@ pub struct ISpGrammarBuilder_Vtbl {
     pub AddResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: ::windows::core::PCWSTR, pszresourcevalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpGrammarBuilder2(::windows::core::IUnknown);
 impl ISpGrammarBuilder2 {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddTextSubset<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: Param2, ematchmode: SPMATCHINGMODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddTextSubset)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfromstate), ::core::mem::transmute(htostate), psz.into_param().abi(), ::core::mem::transmute(ematchmode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPhoneticAlphabet(&self, phoneticalphabet: PHONETICALPHABET) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPhoneticAlphabet)(::core::mem::transmute_copy(self), ::core::mem::transmute(phoneticalphabet)).ok()
     }
@@ -3009,31 +3009,31 @@ pub struct ISpGrammarBuilder2_Vtbl {
     pub AddTextSubset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: ::windows::core::PCWSTR, ematchmode: SPMATCHINGMODE) -> ::windows::core::HRESULT,
     pub SetPhoneticAlphabet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneticalphabet: PHONETICALPHABET) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpLexicon(::windows::core::IUnknown);
 impl ISpLexicon {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPronunciations<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPronunciations)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwordpronunciationlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddPronunciation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddPronunciation)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(epartofspeech), ::core::mem::transmute(pszpronunciation)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RemovePronunciation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemovePronunciation)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(epartofspeech), ::core::mem::transmute(pszpronunciation)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGeneration(&self, pdwgeneration: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGeneration)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwgeneration)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGenerationChange(&self, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGenerationChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pwordlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetWords(&self, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWords)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pdwcookie), ::core::mem::transmute(pwordlist)).ok()
     }
@@ -3089,140 +3089,140 @@ pub struct ISpLexicon_Vtbl {
     pub GetGenerationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT,
     pub GetWords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpMMSysAudio(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpMMSysAudio {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.Revert)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut super::Audio::WAVEFORMATEX> {
         let mut result__: *mut super::Audio::WAVEFORMATEX = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidformatid), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Audio::WAVEFORMATEX>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate), ::core::mem::transmute(ullreserved)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetFormat(&self, rguidfmtid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidfmtid), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPAUDIOSTATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatus)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferInfo(&self, pbuffinfo: *const SPAUDIOBUFFERINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetBufferInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetBufferInfo(&self, pbuffinfo: *mut SPAUDIOBUFFERINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetBufferInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetDefaultFormat(&self, pformatid: *mut ::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetDefaultFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatid), ::core::mem::transmute(ppcomemwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.EventHandle)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetVolumeLevel(&self, plevel: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetVolumeLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(plevel)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVolumeLevel(&self, level: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetVolumeLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(level)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetBufferNotifySize(&self, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetBufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcbsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferNotifySize(&self, cbsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetBufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDeviceId(&self, pudeviceid: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pudeviceid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDeviceId(&self, udeviceid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(udeviceid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetMMHandle(&self, phandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetMMHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(phandle)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetLineId(&self, pulineid: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLineId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulineid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetLineId(&self, ulineid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLineId)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulineid)).ok()
     }
@@ -3383,11 +3383,11 @@ pub struct ISpMMSysAudio_Vtbl {
     pub GetLineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulineid: *mut u32) -> ::windows::core::HRESULT,
     pub SetLineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulineid: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpNotifyCallback(::windows::core::IUnknown);
 impl ISpNotifyCallback {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NotifyCallback)(::core::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi()).ok()
@@ -3421,11 +3421,11 @@ pub struct ISpNotifyCallback_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     NotifyCallback: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpNotifySink(::windows::core::IUnknown);
 impl ISpNotifySink {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Notify(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self)).ok()
     }
@@ -3476,38 +3476,38 @@ pub struct ISpNotifySink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpNotifySource(::windows::core::IUnknown);
 impl ISpNotifySource {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotifySink)(::core::mem::transmute_copy(self), pnotifysink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyWindowMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotifyWindowMessage)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotifyCallbackFunction)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfncallback), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackInterface<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifyCallback>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pspcallback: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotifyCallbackInterface)(::core::mem::transmute_copy(self), pspcallback.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotifyWin32Event)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WaitForNotifyEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmilliseconds)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNotifyEventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNotifyEventHandle)(::core::mem::transmute_copy(self)))
@@ -3577,39 +3577,39 @@ pub struct ISpNotifySource_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetNotifyEventHandle: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpNotifyTranslator(::windows::core::IUnknown);
 impl ISpNotifyTranslator {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Notify(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Notify)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitWindowMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitWindowMessage)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitCallback<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitCallback)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfncallback), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitSpNotifyCallback<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifyCallback>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pspcallback: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitSpNotifyCallback)(::core::mem::transmute_copy(self), pspcallback.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitWin32Event<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hevent: Param0, fclosehandleonrelease: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitWin32Event)(::core::mem::transmute_copy(self), hevent.into_param().abi(), fclosehandleonrelease.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Wait(&self, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Wait)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmilliseconds)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetEventHandle)(::core::mem::transmute_copy(self)))
@@ -3701,107 +3701,107 @@ pub struct ISpNotifyTranslator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetEventHandle: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpObjectToken(::windows::core::IUnknown);
 impl ISpObjectToken {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(cbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), pszvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, dwvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pdwvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pdwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn OpenKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkeyname: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.OpenKey)(::core::mem::transmute_copy(self), pszsubkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DeleteKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DeleteValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszcategoryid: Param0, psztokenid: Param1, fcreateifnotexist: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetId)(::core::mem::transmute_copy(self), pszcategoryid.into_param().abi(), psztokenid.into_param().abi(), fcreateifnotexist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetCategory(&self) -> ::windows::core::Result<ISpObjectTokenCategory> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCategory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectTokenCategory>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkouter: Param0, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStorageFileName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, clsidcaller: *const ::windows::core::GUID, pszvaluename: Param1, pszfilenamespecifier: Param2, nfolder: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorageFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsidcaller), pszvaluename.into_param().abi(), pszfilenamespecifier.into_param().abi(), ::core::mem::transmute(nfolder), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveStorageFileName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, clsidcaller: *const ::windows::core::GUID, pszkeyname: Param1, fdeletefile: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveStorageFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsidcaller), pszkeyname.into_param().abi(), fdeletefile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Remove(&self, pclsidcaller: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsidcaller)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, psztypeofui: Param0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: Param3, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsUISupported)(::core::mem::transmute_copy(self), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata), punkobject.into_param().abi(), ::core::mem::transmute(pfsupported)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwndparent: Param0, psztitle: Param1, psztypeofui: Param2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayUI)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), psztitle.into_param().abi(), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata), punkobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributes: Param0, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MatchesAttributes)(::core::mem::transmute_copy(self), pszattributes.into_param().abi(), ::core::mem::transmute(pfmatches)).ok()
@@ -3897,88 +3897,88 @@ pub struct ISpObjectToken_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MatchesAttributes: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpObjectTokenCategory(::windows::core::IUnknown);
 impl ISpObjectTokenCategory {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(cbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), pszvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, dwvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pdwvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pdwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn OpenKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkeyname: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.OpenKey)(::core::mem::transmute_copy(self), pszsubkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DeleteKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DeleteValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszcategoryid: Param0, fcreateifnotexist: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetId)(::core::mem::transmute_copy(self), pszcategoryid.into_param().abi(), fcreateifnotexist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDataKey(&self, spdkl: SPDATAKEYLOCATION) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDataKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(spdkl), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumTokens<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pzsreqattribs: Param0, pszoptattribs: Param1) -> ::windows::core::Result<IEnumSpObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumTokens)(::core::mem::transmute_copy(self), pzsreqattribs.into_param().abi(), pszoptattribs.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IEnumSpObjectTokens>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDefaultTokenId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztokenid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultTokenId)(::core::mem::transmute_copy(self), psztokenid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDefaultTokenId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultTokenId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
@@ -4058,112 +4058,112 @@ pub struct ISpObjectTokenCategory_Vtbl {
     pub SetDefaultTokenId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztokenid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetDefaultTokenId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcomemtokenid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpObjectTokenInit(::windows::core::IUnknown);
 impl ISpObjectTokenInit {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(cbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), pszvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, dwvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pdwvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pdwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn OpenKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkeyname: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.OpenKey)(::core::mem::transmute_copy(self), pszsubkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.DeleteKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.DeleteValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszcategoryid: Param0, psztokenid: Param1, fcreateifnotexist: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetId)(::core::mem::transmute_copy(self), pszcategoryid.into_param().abi(), psztokenid.into_param().abi(), fcreateifnotexist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetCategory(&self) -> ::windows::core::Result<ISpObjectTokenCategory> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCategory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectTokenCategory>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkouter: Param0, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStorageFileName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, clsidcaller: *const ::windows::core::GUID, pszvaluename: Param1, pszfilenamespecifier: Param2, nfolder: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorageFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsidcaller), pszvaluename.into_param().abi(), pszfilenamespecifier.into_param().abi(), ::core::mem::transmute(nfolder), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveStorageFileName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, clsidcaller: *const ::windows::core::GUID, pszkeyname: Param1, fdeletefile: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RemoveStorageFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsidcaller), pszkeyname.into_param().abi(), fdeletefile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Remove(&self, pclsidcaller: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsidcaller)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, psztypeofui: Param0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: Param3, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.IsUISupported)(::core::mem::transmute_copy(self), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata), punkobject.into_param().abi(), ::core::mem::transmute(pfsupported)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwndparent: Param0, psztitle: Param1, psztypeofui: Param2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DisplayUI)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), psztitle.into_param().abi(), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata), punkobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributes: Param0, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.MatchesAttributes)(::core::mem::transmute_copy(self), pszattributes.into_param().abi(), ::core::mem::transmute(pfmatches)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn InitFromDataKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ISpDataKey>>(&self, pszcategoryid: Param0, psztokenid: Param1, pdatakey: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitFromDataKey)(::core::mem::transmute_copy(self), pszcategoryid.into_param().abi(), psztokenid.into_param().abi(), pdatakey.into_param().abi()).ok()
     }
@@ -4254,15 +4254,15 @@ pub struct ISpObjectTokenInit_Vtbl {
     pub base: ISpObjectToken_Vtbl,
     pub InitFromDataKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcategoryid: ::windows::core::PCWSTR, psztokenid: ::windows::core::PCWSTR, pdatakey: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpObjectWithToken(::windows::core::IUnknown);
 impl ISpObjectWithToken {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetObjectToken<'a, Param0: ::windows::core::IntoParam<'a, ISpObjectToken>>(&self, ptoken: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectToken)(::core::mem::transmute_copy(self), ptoken.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetObjectToken(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetObjectToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
@@ -4315,25 +4315,25 @@ pub struct ISpObjectWithToken_Vtbl {
     pub SetObjectToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetObjectToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpPhoneConverter(::windows::core::IUnknown);
 impl ISpPhoneConverter {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetObjectToken<'a, Param0: ::windows::core::IntoParam<'a, ISpObjectToken>>(&self, ptoken: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectToken)(::core::mem::transmute_copy(self), ptoken.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetObjectToken(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetObjectToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn PhoneToId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszphone: Param0) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhoneToId)(::core::mem::transmute_copy(self), pszphone.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn IdToPhone(&self, pid: *const u16, pszphone: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IdToPhone)(::core::mem::transmute_copy(self), ::core::mem::transmute(pid), ::core::mem::transmute(pszphone)).ok()
     }
@@ -4405,28 +4405,28 @@ pub struct ISpPhoneConverter_Vtbl {
     pub PhoneToId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszphone: ::windows::core::PCWSTR, pid: *mut u16) -> ::windows::core::HRESULT,
     pub IdToPhone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *const u16, pszphone: ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpPhoneticAlphabetConverter(::windows::core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetLangId(&self, langid: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SAPI2UPS(&self, pszsapiid: *const u16, pszupsid: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SAPI2UPS)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszsapiid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszupsid)), pszupsid.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn UPS2SAPI(&self, pszupsid: *const u16, pszsapiid: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UPS2SAPI)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszupsid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszsapiid)), pszsapiid.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMaxConvertLength<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, csrclength: u32, bsapi2ups: Param1) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
@@ -4486,17 +4486,17 @@ pub struct ISpPhoneticAlphabetConverter_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetMaxConvertLength: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpPhoneticAlphabetSelection(::windows::core::IUnknown);
 impl ISpPhoneticAlphabetSelection {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAlphabetUPS(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsAlphabetUPS)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlphabetToUPS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fforceups: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlphabetToUPS)(::core::mem::transmute_copy(self), fforceups.into_param().abi()).ok()
@@ -4555,27 +4555,27 @@ pub struct ISpPhoneticAlphabetSelection_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetAlphabetToUPS: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpPhrase(::windows::core::IUnknown);
 impl ISpPhrase {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__: *mut SPPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows::core::Result<*mut SPSERIALIZEDPHRASE> {
         let mut result__: *mut SPSERIALIZEDPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSerializedPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPSERIALIZEDPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: Param2, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstart), ::core::mem::transmute(ulcount), fusetextreplacements.into_param().abi(), ::core::mem::transmute(ppszcomemtext), ::core::mem::transmute(pbdisplayattributes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Discard)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwvaluetypes)).ok()
     }
@@ -4635,39 +4635,39 @@ pub struct ISpPhrase_Vtbl {
     GetText: usize,
     pub Discard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwvaluetypes: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpPhrase2(::windows::core::IUnknown);
 impl ISpPhrase2 {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__: *mut SPPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows::core::Result<*mut SPSERIALIZEDPHRASE> {
         let mut result__: *mut SPSERIALIZEDPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSerializedPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPSERIALIZEDPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: Param2, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstart), ::core::mem::transmute(ulcount), fusetextreplacements.into_param().abi(), ::core::mem::transmute(ppszcomemtext), ::core::mem::transmute(pbdisplayattributes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Discard)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwvaluetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetXMLResult(&self, ppszcomemxmlresult: *mut ::windows::core::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXMLResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszcomemxmlresult), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXMLErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(psemanticerrorinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4745,35 +4745,35 @@ pub struct ISpPhrase2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetAudio: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpPhraseAlt(::windows::core::IUnknown);
 impl ISpPhraseAlt {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__: *mut SPPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows::core::Result<*mut SPSERIALIZEDPHRASE> {
         let mut result__: *mut SPSERIALIZEDPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSerializedPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPSERIALIZEDPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: Param2, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstart), ::core::mem::transmute(ulcount), fusetextreplacements.into_param().abi(), ::core::mem::transmute(ppszcomemtext), ::core::mem::transmute(pbdisplayattributes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Discard)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwvaluetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetAltInfo(&self, ppparent: *mut ::core::option::Option<ISpPhrase>, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAltInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppparent), ::core::mem::transmute(pulstartelementinparent), ::core::mem::transmute(pcelementsinparent), ::core::mem::transmute(pcelementsinalt)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self)).ok()
     }
@@ -4845,23 +4845,23 @@ pub struct ISpPhraseAlt_Vtbl {
     pub GetAltInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpProperties(::windows::core::IUnknown);
 impl ISpProperties {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPropertyNum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0, lvalue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPropertyNum)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(lvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPropertyNum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0, plvalue: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyNum)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(plvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPropertyString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0, pvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPropertyString)(::core::mem::transmute_copy(self), pname.into_param().abi(), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPropertyString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyString)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
@@ -4916,132 +4916,132 @@ pub struct ISpProperties_Vtbl {
     pub SetPropertyString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetPropertyString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, ppcomemvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecoContext(::windows::core::IUnknown);
 impl ISpRecoContext {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifySink)(::core::mem::transmute_copy(self), pnotifysink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyWindowMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyWindowMessage)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyCallbackFunction)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfncallback), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackInterface<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifyCallback>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pspcallback: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyCallbackInterface)(::core::mem::transmute_copy(self), pspcallback.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyWin32Event)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.WaitForNotifyEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmilliseconds)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNotifyEventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetNotifyEventHandle)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetInterest(&self, ulleventinterest: u64, ullqueuedinterest: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulleventinterest), ::core::mem::transmute(ullqueuedinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvents(&self, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(peventarray), ::core::mem::transmute(pulfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecognizer(&self) -> ::windows::core::Result<ISpRecognizer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRecognizer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecognizer>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateGrammar(&self, ullgrammarid: u64) -> ::windows::core::Result<ISpRecoGrammar> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateGrammar)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullgrammarid), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoGrammar>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPRECOCONTEXTSTATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatus)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetMaxAlternates(&self, pcalternates: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetMaxAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcalternates)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetMaxAlternates(&self, calternates: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMaxAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(calternates)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetAudioOptions(&self, options: SPAUDIOOPTIONS, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAudioOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(paudioformatid), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAudioOptions(&self, poptions: *mut SPAUDIOOPTIONS, paudioformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAudioOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(poptions), ::core::mem::transmute(paudioformatid), ::core::mem::transmute(ppcomemwfex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeserializeResult(&self, pserializedresult: *const SPSERIALIZEDRESULT) -> ::windows::core::Result<ISpRecoResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DeserializeResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserializedresult), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoResult>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Bookmark<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Bookmark)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(ullstreamposition), lparamevent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAdaptationData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, padaptationdata: Param0, cch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAdaptationData)(::core::mem::transmute_copy(self), padaptationdata.into_param().abi(), ::core::mem::transmute(cch)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Pause(&self, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Resume(&self, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVoice<'a, Param0: ::windows::core::IntoParam<'a, ISpVoice>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvoice: Param0, fallowformatchanges: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVoice)(::core::mem::transmute_copy(self), pvoice.into_param().abi(), fallowformatchanges.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetVoice(&self) -> ::windows::core::Result<ISpVoice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVoice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpVoice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVoicePurgeEvent(&self, ulleventinterest: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVoicePurgeEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulleventinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetVoicePurgeEvent(&self, pulleventinterest: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVoicePurgeEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulleventinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetContextState(&self, econtextstate: SPCONTEXTSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(econtextstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetContextState(&self, pecontextstate: *mut SPCONTEXTSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pecontextstate)).ok()
     }
@@ -5161,19 +5161,19 @@ pub struct ISpRecoContext_Vtbl {
     pub SetContextState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, econtextstate: SPCONTEXTSTATE) -> ::windows::core::HRESULT,
     pub GetContextState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pecontextstate: *mut SPCONTEXTSTATE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecoContext2(::windows::core::IUnknown);
 impl ISpRecoContext2 {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetGrammarOptions(&self, egrammaroptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetGrammarOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(egrammaroptions)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGrammarOptions(&self, pegrammaroptions: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGrammarOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(pegrammaroptions)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAdaptationData2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, padaptationdata: Param0, cch: u32, ptopicname: Param2, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAdaptationData2)(::core::mem::transmute_copy(self), padaptationdata.into_param().abi(), ::core::mem::transmute(cch), ptopicname.into_param().abi(), ::core::mem::transmute(eadaptationsettings), ::core::mem::transmute(erelevance)).ok()
     }
@@ -5226,118 +5226,118 @@ pub struct ISpRecoContext2_Vtbl {
     pub GetGrammarOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pegrammaroptions: *mut u32) -> ::windows::core::HRESULT,
     pub SetAdaptationData2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padaptationdata: ::windows::core::PCWSTR, cch: u32, ptopicname: ::windows::core::PCWSTR, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecoGrammar(::windows::core::IUnknown);
 impl ISpRecoGrammar {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ResetGrammar)(::core::mem::transmute_copy(self), ::core::mem::transmute(newlanguage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRule<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszrulename: Param0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: Param3, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRule)(::core::mem::transmute_copy(self), pszrulename.into_param().abi(), ::core::mem::transmute(dwruleid), ::core::mem::transmute(dwattributes), fcreateifnotexist.into_param().abi(), ::core::mem::transmute(phinitialstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ClearRule(&self, hstate: *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ClearRule)(::core::mem::transmute_copy(self), ::core::mem::transmute(hstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateNewState(&self, hstate: *mut SPSTATEHANDLE__, phstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateNewState)(::core::mem::transmute_copy(self), ::core::mem::transmute(hstate), ::core::mem::transmute(phstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddWordTransition<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: Param2, pszseparators: Param3, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddWordTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfromstate), ::core::mem::transmute(htostate), psz.into_param().abi(), pszseparators.into_param().abi(), ::core::mem::transmute(ewordtype), ::core::mem::transmute(weight), ::core::mem::transmute(ppropinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddRuleTransition(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddRuleTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfromstate), ::core::mem::transmute(htostate), ::core::mem::transmute(hrule), ::core::mem::transmute(weight), ::core::mem::transmute(ppropinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddResource<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: Param1, pszresourcevalue: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrulestate), pszresourcename.into_param().abi(), pszresourcevalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Commit(&self, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGrammarId(&self, pullgrammarid: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGrammarId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pullgrammarid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecoContext(&self) -> ::windows::core::Result<ISpRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadCmdFromFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfilename: Param0, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromFile)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadCmdFromObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, rcid: *const ::windows::core::GUID, pszgrammarname: Param1, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(rcid), pszgrammarname.into_param().abi(), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadCmdFromResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmodule: Param0, pszresourcename: Param1, pszresourcetype: Param2, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromResource)(::core::mem::transmute_copy(self), hmodule.into_param().abi(), pszresourcename.into_param().abi(), pszresourcetype.into_param().abi(), ::core::mem::transmute(wlanguage), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(pgrammar), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadCmdFromProprietaryGrammar<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, rguidparam: *const ::windows::core::GUID, pszstringparam: Param1, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromProprietaryGrammar)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidparam), pszstringparam.into_param().abi(), ::core::mem::transmute(pvdataprarm), ::core::mem::transmute(cbdatasize), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRuleState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0, preserved: *mut ::core::ffi::c_void, newstate: SPRULESTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRuleState)(::core::mem::transmute_copy(self), pszname.into_param().abi(), ::core::mem::transmute(preserved), ::core::mem::transmute(newstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRuleIdState(&self, ulruleid: u32, newstate: SPRULESTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRuleIdState)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulruleid), ::core::mem::transmute(newstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadDictation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztopicname: Param0, options: SPLOADOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadDictation)(::core::mem::transmute_copy(self), psztopicname.into_param().abi(), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn UnloadDictation(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnloadDictation)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDictationState(&self, newstate: SPRULESTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDictationState)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetWordSequenceData(&self, ptext: &[u16], pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWordSequenceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptext)), ptext.len() as _, ::core::mem::transmute(pinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTextSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn IsPronounceable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszword: Param0, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsPronounceable)(::core::mem::transmute_copy(self), pszword.into_param().abi(), ::core::mem::transmute(pwordpronounceable)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetGrammarState(&self, egrammarstate: SPGRAMMARSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetGrammarState)(::core::mem::transmute_copy(self), ::core::mem::transmute(egrammarstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveCmd<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SaveCmd)(::core::mem::transmute_copy(self), pstream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGrammarState(&self, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGrammarState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pegrammarstate)).ok()
     }
@@ -5431,40 +5431,40 @@ pub struct ISpRecoGrammar_Vtbl {
     SaveCmd: usize,
     pub GetGrammarState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecoGrammar2(::windows::core::IUnknown);
 impl ISpRecoGrammar2 {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRules)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcomemrules), ::core::mem::transmute(punumrules)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadCmdFromFile2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfilename: Param0, options: SPLOADOPTIONS, pszsharinguri: Param2, pszbaseuri: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromFile2)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), ::core::mem::transmute(options), pszsharinguri.into_param().abi(), pszbaseuri.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LoadCmdFromMemory2<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: Param2, pszbaseuri: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadCmdFromMemory2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pgrammar), ::core::mem::transmute(options), pszsharinguri.into_param().abi(), pszbaseuri.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRulePriority<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszrulename: Param0, ulruleid: u32, nrulepriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRulePriority)(::core::mem::transmute_copy(self), pszrulename.into_param().abi(), ::core::mem::transmute(ulruleid), ::core::mem::transmute(nrulepriority)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRuleWeight<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszrulename: Param0, ulruleid: u32, flweight: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRuleWeight)(::core::mem::transmute_copy(self), pszrulename.into_param().abi(), ::core::mem::transmute(ulruleid), ::core::mem::transmute(flweight)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDictationWeight(&self, flweight: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDictationWeight)(::core::mem::transmute_copy(self), ::core::mem::transmute(flweight)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetGrammarLoader<'a, Param0: ::windows::core::IntoParam<'a, ISpeechResourceLoader>>(&self, ploader: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetGrammarLoader)(::core::mem::transmute_copy(self), ploader.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com_Urlmon'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com_Urlmon\"`*"]
     #[cfg(feature = "Win32_System_Com_Urlmon")]
     pub unsafe fn SetSMLSecurityManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::Urlmon::IInternetSecurityManager>>(&self, psmlsecuritymanager: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSMLSecurityManager)(::core::mem::transmute_copy(self), psmlsecuritymanager.into_param().abi()).ok()
@@ -5529,59 +5529,59 @@ pub struct ISpRecoGrammar2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_Urlmon"))]
     SetSMLSecurityManager: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecoResult(::windows::core::IUnknown);
 impl ISpRecoResult {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__: *mut SPPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows::core::Result<*mut SPSERIALIZEDPHRASE> {
         let mut result__: *mut SPSERIALIZEDPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSerializedPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPSERIALIZEDPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: Param2, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstart), ::core::mem::transmute(ulcount), fusetextreplacements.into_param().abi(), ::core::mem::transmute(ppszcomemtext), ::core::mem::transmute(pbdisplayattributes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Discard)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwvaluetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetResultTimes)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptimes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [::core::option::Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ppphrases.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppphrases)), ::core::mem::transmute(pcphrasesreturned)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ::core::mem::transmute(&mut result__)).from_abi::<ISpStreamFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ::core::mem::transmute(dwflags), ::core::mem::transmute(pulstreamnumber)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Serialize(&self, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcomemserializedresult)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn ScaleAudio(&self, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ScaleAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(paudioformatid), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecoContext(&self) -> ::windows::core::Result<ISpRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoContext>(result__)
@@ -5668,73 +5668,73 @@ pub struct ISpRecoResult_Vtbl {
     ScaleAudio: usize,
     pub GetRecoContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprecocontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecoResult2(::windows::core::IUnknown);
 impl ISpRecoResult2 {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__: *mut SPPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows::core::Result<*mut SPSERIALIZEDPHRASE> {
         let mut result__: *mut SPSERIALIZEDPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetSerializedPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPSERIALIZEDPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: Param2, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstart), ::core::mem::transmute(ulcount), fusetextreplacements.into_param().abi(), ::core::mem::transmute(ppszcomemtext), ::core::mem::transmute(pbdisplayattributes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Discard)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwvaluetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetResultTimes)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptimes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [::core::option::Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ppphrases.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppphrases)), ::core::mem::transmute(pcphrasesreturned)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ::core::mem::transmute(&mut result__)).from_abi::<ISpStreamFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ::core::mem::transmute(dwflags), ::core::mem::transmute(pulstreamnumber)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Serialize(&self, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcomemserializedresult)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn ScaleAudio(&self, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ScaleAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(paudioformatid), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecoContext(&self) -> ::windows::core::Result<ISpRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetRecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CommitAlternate<'a, Param0: ::windows::core::IntoParam<'a, ISpPhraseAlt>>(&self, pphrasealt: Param0) -> ::windows::core::Result<ISpRecoResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CommitAlternate)(::core::mem::transmute_copy(self), pphrasealt.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoResult>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CommitText<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: Param2, ecommitflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CommitText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), pszcorrecteddata.into_param().abi(), ::core::mem::transmute(ecommitflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextFeedback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszfeedback: Param0, fsuccessful: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTextFeedback)(::core::mem::transmute_copy(self), pszfeedback.into_param().abi(), fsuccessful.into_param().abi()).ok()
@@ -5831,98 +5831,98 @@ pub struct ISpRecoResult2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetTextFeedback: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecognizer(::windows::core::IUnknown);
 impl ISpRecognizer {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPropertyNum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0, lvalue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPropertyNum)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(lvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPropertyNum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0, plvalue: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPropertyNum)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(plvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPropertyString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0, pvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPropertyString)(::core::mem::transmute_copy(self), pname.into_param().abi(), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPropertyString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pname: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPropertyString)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRecognizer<'a, Param0: ::windows::core::IntoParam<'a, ISpObjectToken>>(&self, precognizer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecognizer)(::core::mem::transmute_copy(self), precognizer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecognizer(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRecognizer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, punkinput: Param0, fallowformatchanges: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInput)(::core::mem::transmute_copy(self), punkinput.into_param().abi(), fallowformatchanges.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetInputObjectToken(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputObjectToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInputStream(&self) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpStreamFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateRecoContext(&self) -> ::windows::core::Result<ISpRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateRecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecoProfile(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRecoProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRecoProfile<'a, Param0: ::windows::core::IntoParam<'a, ISpObjectToken>>(&self, ptoken: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecoProfile)(::core::mem::transmute_copy(self), ptoken.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn IsSharedInstance(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsSharedInstance)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecoState(&self, pstate: *mut SPRECOSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRecoState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRecoState(&self, newstate: SPRECOSTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecoState)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPRECOGNIZERSTATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatus)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, waveformattype: SPWAVEFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(waveformattype), ::core::mem::transmute(pformatid), ::core::mem::transmute(ppcomemwfex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztypeofui: Param0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsUISupported)(::core::mem::transmute_copy(self), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata), ::core::mem::transmute(pfsupported)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hwndparent: Param0, psztitle: Param1, psztypeofui: Param2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayUI)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), psztitle.into_param().abi(), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EmulateRecognition<'a, Param0: ::windows::core::IntoParam<'a, ISpPhrase>>(&self, pphrase: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EmulateRecognition)(::core::mem::transmute_copy(self), pphrase.into_param().abi()).ok()
     }
@@ -6023,20 +6023,20 @@ pub struct ISpRecognizer_Vtbl {
     DisplayUI: usize,
     pub EmulateRecognition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphrase: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRecognizer2(::windows::core::IUnknown);
 impl ISpRecognizer2 {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EmulateRecognitionEx<'a, Param0: ::windows::core::IntoParam<'a, ISpPhrase>>(&self, pphrase: Param0, dwcompareflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EmulateRecognitionEx)(::core::mem::transmute_copy(self), pphrase.into_param().abi(), ::core::mem::transmute(dwcompareflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTrainingState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fdoingtraining: Param0, fadaptfromtrainingdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTrainingState)(::core::mem::transmute_copy(self), fdoingtraining.into_param().abi(), fadaptfromtrainingdata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ResetAcousticModelAdaptation(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ResetAcousticModelAdaptation)(::core::mem::transmute_copy(self)).ok()
     }
@@ -6092,64 +6092,64 @@ pub struct ISpRecognizer2_Vtbl {
     SetTrainingState: usize,
     pub ResetAcousticModelAdaptation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpRegDataKey(::windows::core::IUnknown);
 impl ISpRegDataKey {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, cbdata: u32, pdata: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(cbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetData)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pszvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), pszvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStringValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, dwvalue: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0, pdwvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetDWORD)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi(), ::core::mem::transmute(pdwvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn OpenKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkeyname: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.OpenKey)(::core::mem::transmute_copy(self), pszsubkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<ISpDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsubkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DeleteKey)(::core::mem::transmute_copy(self), pszsubkey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszvaluename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DeleteValue)(::core::mem::transmute_copy(self), pszvaluename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Registry'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub unsafe fn SetKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hkey: Param0, freadonly: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetKey)(::core::mem::transmute_copy(self), hkey.into_param().abi(), freadonly.into_param().abi()).ok()
@@ -6224,22 +6224,22 @@ pub struct ISpRegDataKey_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))]
     SetKey: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpResourceManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpResourceManager {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.QueryService)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guidserviceid: *const ::windows::core::GUID, punkobject: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidserviceid), punkobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObject<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: Param3, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidserviceid), ::core::mem::transmute(objectclsid), ::core::mem::transmute(objectiid), freleasewhenlastexternalrefreleased.into_param().abi(), ::core::mem::transmute(ppobject)).ok()
@@ -6329,15 +6329,15 @@ pub struct ISpResourceManager_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetObject: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpSerializeState(::windows::core::IUnknown);
 impl ISpSerializeState {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedState(&self, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSerializedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pulsize), ::core::mem::transmute(dwreserved)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetSerializedState(&self, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSerializedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbdata), ::core::mem::transmute(ulsize), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -6389,40 +6389,40 @@ pub struct ISpSerializeState_Vtbl {
     pub GetSerializedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
     pub SetSerializedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpShortcut(::windows::core::IUnknown);
 impl ISpShortcut {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AddShortcut<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszdisplay: Param0, langid: u16, pszspoken: Param2, shtype: SPSHORTCUTTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddShortcut)(::core::mem::transmute_copy(self), pszdisplay.into_param().abi(), ::core::mem::transmute(langid), pszspoken.into_param().abi(), ::core::mem::transmute(shtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RemoveShortcut<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszdisplay: Param0, langid: u16, pszspoken: Param2, shtype: SPSHORTCUTTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveShortcut)(::core::mem::transmute_copy(self), pszdisplay.into_param().abi(), ::core::mem::transmute(langid), pszspoken.into_param().abi(), ::core::mem::transmute(shtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetShortcuts(&self, langid: u16, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetShortcuts)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid), ::core::mem::transmute(pshortcutpairlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGeneration(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetGeneration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWordsFromGenerationChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pwordlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetWords(&self, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWords)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pdwcookie), ::core::mem::transmute(pwordlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetShortcutsForGeneration(&self, pdwgeneration: *mut u32, pdwcookie: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetShortcutsForGeneration)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pdwcookie), ::core::mem::transmute(pshortcutpairlist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetGenerationChange(&self, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGenerationChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pshortcutpairlist)).ok()
     }
@@ -6480,93 +6480,93 @@ pub struct ISpShortcut_Vtbl {
     pub GetShortcutsForGeneration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pdwcookie: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT,
     pub GetGenerationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpStream(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStream {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Revert)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut super::Audio::WAVEFORMATEX> {
         let mut result__: *mut super::Audio::WAVEFORMATEX = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidformatid), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Audio::WAVEFORMATEX>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
     pub unsafe fn SetBaseStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBaseStream)(::core::mem::transmute_copy(self), pstream.into_param().abi(), ::core::mem::transmute(rguidformat), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBaseStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetBaseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn BindToFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfilename: Param0, emode: SPFILEMODE, pformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ulleventinterest: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BindToFile)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), ::core::mem::transmute(emode), ::core::mem::transmute(pformatid), ::core::mem::transmute(pwaveformatex), ::core::mem::transmute(ulleventinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
@@ -6711,71 +6711,71 @@ pub struct ISpStream_Vtbl {
     BindToFile: usize,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpStreamFormat(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamFormat {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Revert)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut super::Audio::WAVEFORMATEX> {
         let mut result__: *mut super::Audio::WAVEFORMATEX = ::core::mem::zeroed();
@@ -6889,102 +6889,102 @@ pub struct ISpStreamFormat_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio"))]
     GetFormat: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpStreamFormatConverter(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamFormatConverter {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Revert)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut super::Audio::WAVEFORMATEX> {
         let mut result__: *mut super::Audio::WAVEFORMATEX = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidformatid), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Audio::WAVEFORMATEX>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetBaseStream<'a, Param0: ::windows::core::IntoParam<'a, ISpStreamFormat>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstream: Param0, fsetformattobasestreamformat: Param1, fwritetobasestream: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBaseStream)(::core::mem::transmute_copy(self), pstream.into_param().abi(), fsetformattobasestreamformat.into_param().abi(), fwritetobasestream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBaseStream(&self) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetBaseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpStreamFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetFormat(&self, rguidformatidofconvertedstream: *const ::windows::core::GUID, pwaveformatexofconvertedstream: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidformatidofconvertedstream), ::core::mem::transmute(pwaveformatexofconvertedstream)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ResetSeekPosition(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ResetSeekPosition)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: u64) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ScaleConvertedToBaseOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulloffsetconvertedstream), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: u64) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ScaleBaseToConvertedOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulloffsetbasestream), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
@@ -7132,16 +7132,16 @@ pub struct ISpStreamFormatConverter_Vtbl {
     pub ScaleConvertedToBaseOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulloffsetconvertedstream: u64, pulloffsetbasestream: *mut u64) -> ::windows::core::HRESULT,
     pub ScaleBaseToConvertedOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulloffsetbasestream: u64, pulloffsetconvertedstream: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpTranscript(::windows::core::IUnknown);
 impl ISpTranscript {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetTranscript(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTranscript)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AppendTranscript<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztranscript: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AppendTranscript)(::core::mem::transmute_copy(self), psztranscript.into_param().abi()).ok()
     }
@@ -7193,162 +7193,162 @@ pub struct ISpTranscript_Vtbl {
     pub GetTranscript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsztranscript: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub AppendTranscript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztranscript: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpVoice(::windows::core::IUnknown);
 impl ISpVoice {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifySink)(::core::mem::transmute_copy(self), pnotifysink.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyWindowMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyWindowMessage)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyCallbackFunction)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfncallback), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyCallbackInterface<'a, Param0: ::windows::core::IntoParam<'a, ISpNotifyCallback>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pspcallback: Param0, wparam: Param1, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyCallbackInterface)(::core::mem::transmute_copy(self), pspcallback.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetNotifyWin32Event)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.WaitForNotifyEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmilliseconds)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNotifyEventHandle(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetNotifyEventHandle)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetInterest(&self, ulleventinterest: u64, ullqueuedinterest: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulleventinterest), ::core::mem::transmute(ullqueuedinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvents(&self, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcount), ::core::mem::transmute(peventarray), ::core::mem::transmute(pulfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, punkoutput: Param0, fallowformatchanges: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOutput)(::core::mem::transmute_copy(self), punkoutput.into_param().abi(), fallowformatchanges.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetOutputObjectToken(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputObjectToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetOutputStream(&self) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpStreamFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVoice<'a, Param0: ::windows::core::IntoParam<'a, ISpObjectToken>>(&self, ptoken: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVoice)(::core::mem::transmute_copy(self), ptoken.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetVoice(&self) -> ::windows::core::Result<ISpObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVoice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Speak<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwcs: Param0, dwflags: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Speak)(::core::mem::transmute_copy(self), pwcs.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpeakStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwflags: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SpeakStream)(::core::mem::transmute_copy(self), pstream.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppszlastbookmark)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Skip<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pitemtype: Param0, lnumitems: i32, pulnumskipped: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), pitemtype.into_param().abi(), ::core::mem::transmute(lnumitems), ::core::mem::transmute(pulnumskipped)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPriority(&self, epriority: SPVPRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(epriority)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetPriority(&self, pepriority: *mut SPVPRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(pepriority)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAlertBoundary(&self, eboundary: SPEVENTENUM) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlertBoundary)(::core::mem::transmute_copy(self), ::core::mem::transmute(eboundary)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetAlertBoundary(&self, peboundary: *mut SPEVENTENUM) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAlertBoundary)(::core::mem::transmute_copy(self), ::core::mem::transmute(peboundary)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRate(&self, rateadjust: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(rateadjust)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRate(&self, prateadjust: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(prateadjust)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVolume(&self, usvolume: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(usvolume)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetVolume(&self, pusvolume: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(pusvolume)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitUntilDone(&self, mstimeout: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WaitUntilDone)(::core::mem::transmute_copy(self), ::core::mem::transmute(mstimeout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetSyncSpeakTimeout(&self, mstimeout: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSyncSpeakTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(mstimeout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSyncSpeakTimeout(&self, pmstimeout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSyncSpeakTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmstimeout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SpeakCompleteEvent(&self) -> super::super::Foundation::HANDLE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).SpeakCompleteEvent)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztypeofui: Param0, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsUISupported)(::core::mem::transmute_copy(self), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata), ::core::mem::transmute(pfsupported)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hwndparent: Param0, psztitle: Param1, psztypeofui: Param2, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayUI)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), psztitle.into_param().abi(), psztypeofui.into_param().abi(), ::core::mem::transmute(pvextradata), ::core::mem::transmute(cbextradata)).ok()
@@ -7482,68 +7482,68 @@ pub struct ISpVoice_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DisplayUI: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpXMLRecoResult(::windows::core::IUnknown);
 impl ISpXMLRecoResult {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__: *mut SPPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows::core::Result<*mut SPSERIALIZEDPHRASE> {
         let mut result__: *mut SPSERIALIZEDPHRASE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetSerializedPhrase)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut SPSERIALIZEDPHRASE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ulstart: u32, ulcount: u32, fusetextreplacements: Param2, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstart), ::core::mem::transmute(ulcount), fusetextreplacements.into_param().abi(), ::core::mem::transmute(ppszcomemtext), ::core::mem::transmute(pbdisplayattributes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Discard)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwvaluetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetResultTimes)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptimes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [::core::option::Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ppphrases.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppphrases)), ::core::mem::transmute(pcphrasesreturned)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows::core::Result<ISpStreamFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ::core::mem::transmute(&mut result__)).from_abi::<ISpStreamFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartelement), ::core::mem::transmute(celements), ::core::mem::transmute(dwflags), ::core::mem::transmute(pulstreamnumber)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Serialize(&self, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Serialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcomemserializedresult)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Media_Audio'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn ScaleAudio(&self, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ScaleAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(paudioformatid), ::core::mem::transmute(pwaveformatex)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetRecoContext(&self) -> ::windows::core::Result<ISpRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetRecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetXMLResult(&self, ppszcomemxmlresult: *mut ::windows::core::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXMLResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszcomemxmlresult), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXMLErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(psemanticerrorinfo)).ok()
     }
@@ -7635,82 +7635,82 @@ pub struct ISpXMLRecoResult_Vtbl {
     pub GetXMLResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcomemxmlresult: *mut ::windows::core::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows::core::HRESULT,
     pub GetXMLErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechAudio(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudio {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Format<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, audioformat: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.putref_Format)(::core::mem::transmute_copy(self), audioformat.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(numberofbytes), ::core::mem::transmute(bytesread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, buffer: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), buffer.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, position: Param0, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), position.into_param().abi(), ::core::mem::transmute(origin), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<ISpeechAudioStatus> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioStatus>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BufferInfo(&self) -> ::windows::core::Result<ISpeechAudioBufferInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).BufferInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioBufferInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DefaultFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Volume(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Volume)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVolume(&self, volume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(volume)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn BufferNotifySize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).BufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferNotifySize(&self, buffernotifysize: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffernotifysize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EventHandle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EventHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, state: SpeechAudioState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
@@ -7836,36 +7836,36 @@ pub struct ISpeechAudio_Vtbl {
     pub EventHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandle: *mut i32) -> ::windows::core::HRESULT,
     pub SetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: SpeechAudioState) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechAudioBufferInfo(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioBufferInfo {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn MinNotification(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MinNotification)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetMinNotification(&self, minnotification: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMinNotification)(::core::mem::transmute_copy(self), ::core::mem::transmute(minnotification)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn BufferSize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).BufferSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferSize(&self, buffersize: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBufferSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffersize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EventBias(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EventBias)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetEventBias(&self, eventbias: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEventBias)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventbias)).ok()
     }
@@ -7955,39 +7955,39 @@ pub struct ISpeechAudioBufferInfo_Vtbl {
     pub EventBias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventbias: *mut i32) -> ::windows::core::HRESULT,
     pub SetEventBias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventbias: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechAudioFormat(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioFormat {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<SpeechAudioFormatType> {
         let mut result__: SpeechAudioFormatType = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechAudioFormatType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetType(&self, audioformat: SpeechAudioFormatType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(audioformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, guid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), guid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWaveFormatEx(&self) -> ::windows::core::Result<ISpeechWaveFormatEx> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetWaveFormatEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechWaveFormatEx>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWaveFormatEx<'a, Param0: ::windows::core::IntoParam<'a, ISpeechWaveFormatEx>>(&self, speechwaveformatex: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWaveFormatEx)(::core::mem::transmute_copy(self), speechwaveformatex.into_param().abi()).ok()
@@ -8090,34 +8090,34 @@ pub struct ISpeechAudioFormat_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetWaveFormatEx: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechAudioStatus(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioStatus {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn FreeBufferSpace(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FreeBufferSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn NonBlockingIO(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NonBlockingIO)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<SpeechAudioState> {
         let mut result__: SpeechAudioState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).State)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechAudioState>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CurrentSeekPosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CurrentSeekPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CurrentDevicePosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
@@ -8214,35 +8214,35 @@ pub struct ISpeechAudioStatus_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CurrentDevicePosition: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechBaseStream(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechBaseStream {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Format<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, audioformat: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_Format)(::core::mem::transmute_copy(self), audioformat.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(numberofbytes), ::core::mem::transmute(bytesread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, buffer: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), buffer.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, position: Param0, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
@@ -8348,46 +8348,46 @@ pub struct ISpeechBaseStream_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Seek: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechCustomStream(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechCustomStream {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Format<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, audioformat: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.putref_Format)(::core::mem::transmute_copy(self), audioformat.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(numberofbytes), ::core::mem::transmute(bytesread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, buffer: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), buffer.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, position: Param0, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), position.into_param().abi(), ::core::mem::transmute(origin), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn BaseStream(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).BaseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn putref_BaseStream<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkstream: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_BaseStream)(::core::mem::transmute_copy(self), punkstream.into_param().abi()).ok()
     }
@@ -8497,74 +8497,74 @@ pub struct ISpeechCustomStream_Vtbl {
     pub BaseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub putref_BaseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechDataKey(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechDataKey {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, valuename: Param0, value: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBinaryValue)(::core::mem::transmute_copy(self), valuename.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, valuename: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetBinaryValue)(::core::mem::transmute_copy(self), valuename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, valuename: Param0, value: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStringValue)(::core::mem::transmute_copy(self), valuename.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, valuename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStringValue)(::core::mem::transmute_copy(self), valuename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLongValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, valuename: Param0, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLongValue)(::core::mem::transmute_copy(self), valuename.into_param().abi(), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLongValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, valuename: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLongValue)(::core::mem::transmute_copy(self), valuename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OpenKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, subkeyname: Param0) -> ::windows::core::Result<ISpeechDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).OpenKey)(::core::mem::transmute_copy(self), subkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, subkeyname: Param0) -> ::windows::core::Result<ISpeechDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateKey)(::core::mem::transmute_copy(self), subkeyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, subkeyname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteKey)(::core::mem::transmute_copy(self), subkeyname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, valuename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteValue)(::core::mem::transmute_copy(self), valuename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumKeys(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumValues(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
@@ -8698,46 +8698,46 @@ pub struct ISpeechDataKey_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumValues: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechFileStream(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechFileStream {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Format<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, audioformat: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.putref_Format)(::core::mem::transmute_copy(self), audioformat.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(numberofbytes), ::core::mem::transmute(bytesread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, buffer: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), buffer.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, position: Param0, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), position.into_param().abi(), ::core::mem::transmute(origin), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filename: Param0, filemode: SpeechStreamFileMode, doevents: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(filemode), ::core::mem::transmute(doevents)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
@@ -8850,44 +8850,44 @@ pub struct ISpeechFileStream_Vtbl {
     Open: usize,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechGrammarRule(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRule {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Attributes(&self) -> ::windows::core::Result<SpeechRuleAttributes> {
         let mut result__: SpeechRuleAttributes = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRuleAttributes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitialState(&self) -> ::windows::core::Result<ISpeechGrammarRuleState> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).InitialState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRuleState>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, resourcename: Param0, resourcevalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddResource)(::core::mem::transmute_copy(self), resourcename.into_param().abi(), resourcevalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddState(&self) -> ::windows::core::Result<ISpeechGrammarRuleState> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8992,35 +8992,35 @@ pub struct ISpeechGrammarRule_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddState: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleState(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleState {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rule(&self) -> ::windows::core::Result<ISpeechGrammarRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Rule)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Transitions(&self) -> ::windows::core::Result<ISpeechGrammarRuleStateTransitions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Transitions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRuleStateTransitions>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddWordTransition<'a, Param0: ::windows::core::IntoParam<'a, ISpeechGrammarRuleState>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, deststate: Param0, words: Param1, separators: Param2, r#type: SpeechGrammarWordType, propertyname: Param4, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddWordTransition)(::core::mem::transmute_copy(self), deststate.into_param().abi(), words.into_param().abi(), separators.into_param().abi(), ::core::mem::transmute(r#type), propertyname.into_param().abi(), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyvalue), ::core::mem::transmute(weight)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddRuleTransition<'a, Param0: ::windows::core::IntoParam<'a, ISpeechGrammarRuleState>, Param1: ::windows::core::IntoParam<'a, ISpeechGrammarRule>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, destinationstate: Param0, rule: Param1, propertyname: Param2, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddRuleTransition)(::core::mem::transmute_copy(self), destinationstate.into_param().abi(), rule.into_param().abi(), propertyname.into_param().abi(), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyvalue), ::core::mem::transmute(weight)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddSpecialTransition<'a, Param0: ::windows::core::IntoParam<'a, ISpeechGrammarRuleState>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, destinationstate: Param0, r#type: SpeechSpecialTransitionType, propertyname: Param2, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddSpecialTransition)(::core::mem::transmute_copy(self), destinationstate.into_param().abi(), ::core::mem::transmute(r#type), propertyname.into_param().abi(), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyvalue), ::core::mem::transmute(weight)).ok()
@@ -9125,53 +9125,53 @@ pub struct ISpeechGrammarRuleState_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddSpecialTransition: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransition(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleStateTransition {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<SpeechGrammarRuleStateTransitionType> {
         let mut result__: SpeechGrammarRuleStateTransitionType = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechGrammarRuleStateTransitionType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Text(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Text)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rule(&self) -> ::windows::core::Result<ISpeechGrammarRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Rule)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Weight(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Weight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PropertyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PropertyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PropertyId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PropertyValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PropertyValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NextState(&self) -> ::windows::core::Result<ISpeechGrammarRuleState> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -9283,24 +9283,24 @@ pub struct ISpeechGrammarRuleStateTransition_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     NextState: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransitions(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleStateTransitions {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechGrammarRuleStateTransition> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRuleStateTransition>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -9391,50 +9391,50 @@ pub struct ISpeechGrammarRuleStateTransitions_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechGrammarRules(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRules {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn FindRule<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, rulenameorid: Param0) -> ::windows::core::Result<ISpeechGrammarRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FindRule)(::core::mem::transmute_copy(self), rulenameorid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechGrammarRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Dynamic(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Dynamic)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, rulename: Param0, attributes: SpeechRuleAttributes, ruleid: i32) -> ::windows::core::Result<ISpeechGrammarRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), rulename.into_param().abi(), ::core::mem::transmute(attributes), ::core::mem::transmute(ruleid), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CommitAndSave(&self, errortext: *mut super::super::Foundation::BSTR, savestream: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CommitAndSave)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortext), ::core::mem::transmute(savestream)).ok()
@@ -9539,49 +9539,49 @@ pub struct ISpeechGrammarRules_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CommitAndSave: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechLexicon(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexicon {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GenerationId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GenerationId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWords(&self, flags: SpeechLexiconType, generationid: *mut i32, words: *mut ::core::option::Option<ISpeechLexiconWords>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWords)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(generationid), ::core::mem::transmute(words)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddPronunciation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrword: Param0, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddPronunciation)(::core::mem::transmute_copy(self), bstrword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(partofspeech), bstrpronunciation.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddPronunciationByPhoneIds<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrword: Param0, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddPronunciationByPhoneIds)(::core::mem::transmute_copy(self), bstrword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(partofspeech), ::core::mem::transmute(phoneids)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemovePronunciation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrword: Param0, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemovePronunciation)(::core::mem::transmute_copy(self), bstrword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(partofspeech), bstrpronunciation.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RemovePronunciationByPhoneIds<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrword: Param0, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemovePronunciationByPhoneIds)(::core::mem::transmute_copy(self), bstrword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(partofspeech), ::core::mem::transmute(phoneids)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPronunciations<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrword: Param0, langid: i32, typeflags: SpeechLexiconType) -> ::windows::core::Result<ISpeechLexiconPronunciations> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPronunciations)(::core::mem::transmute_copy(self), bstrword.into_param().abi(), ::core::mem::transmute(langid), ::core::mem::transmute(typeflags), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechLexiconPronunciations>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGenerationChange(&self, generationid: *mut i32, ppwords: *mut ::core::option::Option<ISpeechLexiconWords>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGenerationChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(generationid), ::core::mem::transmute(ppwords)).ok()
@@ -9695,34 +9695,34 @@ pub struct ISpeechLexicon_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetGenerationChange: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechLexiconPronunciation(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconPronunciation {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<SpeechLexiconType> {
         let mut result__: SpeechLexiconType = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechLexiconType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LangId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn PartOfSpeech(&self) -> ::windows::core::Result<SpeechPartOfSpeech> {
         let mut result__: SpeechPartOfSpeech = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PartOfSpeech)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechPartOfSpeech>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PhoneIds(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhoneIds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Symbolic(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
@@ -9819,24 +9819,24 @@ pub struct ISpeechLexiconPronunciation_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Symbolic: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechLexiconPronunciations(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconPronunciations {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechLexiconPronunciation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechLexiconPronunciation>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -9927,29 +9927,29 @@ pub struct ISpeechLexiconPronunciations_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechLexiconWord(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconWord {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LangId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<SpeechWordType> {
         let mut result__: SpeechWordType = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechWordType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Word(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Word)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Pronunciations(&self) -> ::windows::core::Result<ISpeechLexiconPronunciations> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10045,24 +10045,24 @@ pub struct ISpeechLexiconWord_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Pronunciations: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechLexiconWords(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconWords {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechLexiconWord> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechLexiconWord>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -10153,104 +10153,104 @@ pub struct ISpeechLexiconWords_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechMMSysAudio(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechMMSysAudio {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Format<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, audioformat: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.putref_Format)(::core::mem::transmute_copy(self), audioformat.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(numberofbytes), ::core::mem::transmute(bytesread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, buffer: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), buffer.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, position: Param0, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Seek)(::core::mem::transmute_copy(self), position.into_param().abi(), ::core::mem::transmute(origin), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<ISpeechAudioStatus> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioStatus>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BufferInfo(&self) -> ::windows::core::Result<ISpeechAudioBufferInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.BufferInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioBufferInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.DefaultFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Volume(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Volume)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVolume(&self, volume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(volume)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn BufferNotifySize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.BufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBufferNotifySize(&self, buffernotifysize: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetBufferNotifySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffernotifysize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EventHandle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EventHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, state: SpeechAudioState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetDeviceId(&self, deviceid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(deviceid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LineId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LineId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetLineId(&self, lineid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLineId)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn MMHandle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MMHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
@@ -10388,46 +10388,46 @@ pub struct ISpeechMMSysAudio_Vtbl {
     pub SetLineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineid: i32) -> ::windows::core::HRESULT,
     pub MMHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechMemoryStream(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechMemoryStream {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Format)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Format<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, audioformat: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.putref_Format)(::core::mem::transmute_copy(self), audioformat.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(numberofbytes), ::core::mem::transmute(bytesread)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, buffer: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), buffer.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, position: Param0, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), position.into_param().abi(), ::core::mem::transmute(origin), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, data: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
@@ -10545,80 +10545,80 @@ pub struct ISpeechMemoryStream_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetData: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechObjectToken(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectToken {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataKey(&self) -> ::windows::core::Result<ISpeechDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DataKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Category(&self) -> ::windows::core::Result<ISpeechObjectTokenCategory> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Category)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectTokenCategory>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self, locale: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(locale), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0, categoryid: Param1, createifnotexist: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetId)(::core::mem::transmute_copy(self), id.into_param().abi(), categoryid.into_param().abi(), ::core::mem::transmute(createifnotexist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, attributename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAttribute)(::core::mem::transmute_copy(self), attributename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkouter: Param0, clscontext: SpeechTokenContext) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), ::core::mem::transmute(clscontext), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, objectstorageclsid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), objectstorageclsid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStorageFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, objectstorageclsid: Param0, keyname: Param1, filename: Param2, folder: SpeechTokenShellFolder) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorageFileName)(::core::mem::transmute_copy(self), objectstorageclsid.into_param().abi(), keyname.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(folder), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveStorageFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, objectstorageclsid: Param0, keyname: Param1, deletefilea: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveStorageFileName)(::core::mem::transmute_copy(self), objectstorageclsid.into_param().abi(), keyname.into_param().abi(), ::core::mem::transmute(deletefilea)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, typeofui: Param0, extradata: *const super::super::System::Com::VARIANT, object: Param2) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsUISupported)(::core::mem::transmute_copy(self), typeofui.into_param().abi(), ::core::mem::transmute(extradata), object.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DisplayUI<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwnd: i32, title: Param1, typeofui: Param2, extradata: *const super::super::System::Com::VARIANT, object: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd), title.into_param().abi(), typeofui.into_param().abi(), ::core::mem::transmute(extradata), object.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, attributes: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
@@ -10753,41 +10753,41 @@ pub struct ISpeechObjectToken_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MatchesAttributes: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechObjectTokenCategory(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokenCategory {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefault<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, tokenid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefault)(::core::mem::transmute_copy(self), tokenid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Default(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Default)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0, createifnotexist: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetId)(::core::mem::transmute_copy(self), id.into_param().abi(), ::core::mem::transmute(createifnotexist)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDataKey(&self, location: SpeechDataKeyLocation) -> ::windows::core::Result<ISpeechDataKey> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDataKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(location), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechDataKey>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumerateTokens<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, requiredattributes: Param0, optionalattributes: Param1) -> ::windows::core::Result<ISpeechObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10897,24 +10897,24 @@ pub struct ISpeechObjectTokenCategory_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     EnumerateTokens: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechObjectTokens(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokens {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -11005,28 +11005,28 @@ pub struct ISpeechObjectTokens_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhoneConverter(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhoneConverter {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LanguageId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LanguageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetLanguageId(&self, languageid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLanguageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(languageid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PhoneToId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, phonemes: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhoneToId)(::core::mem::transmute_copy(self), phonemes.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn IdToPhone<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, idarray: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
@@ -11122,35 +11122,35 @@ pub struct ISpeechPhoneConverter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     IdToPhone: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseAlternate(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseAlternate {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoResult(&self) -> ::windows::core::Result<ISpeechRecoResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RecoResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoResult>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn StartElementInResult(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).StartElementInResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn NumberOfElementsInResult(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NumberOfElementsInResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhraseInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self)).ok()
     }
@@ -11245,24 +11245,24 @@ pub struct ISpeechPhraseAlternate_Vtbl {
     PhraseInfo: usize,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseAlternates(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseAlternates {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechPhraseAlternate> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseAlternate>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -11353,76 +11353,76 @@ pub struct ISpeechPhraseAlternates_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseElement(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseElement {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioTimeOffset(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioTimeOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioSizeTime(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioSizeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioStreamOffset(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioStreamOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioSizeBytes(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioSizeBytes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RetainedStreamOffset(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetainedStreamOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RetainedSizeBytes(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetainedSizeBytes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DisplayText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LexicalForm(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LexicalForm)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Pronunciation(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Pronunciation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DisplayAttributes(&self) -> ::windows::core::Result<SpeechDisplayAttributes> {
         let mut result__: SpeechDisplayAttributes = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DisplayAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechDisplayAttributes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RequiredConfidence(&self) -> ::windows::core::Result<SpeechEngineConfidence> {
         let mut result__: SpeechEngineConfidence = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RequiredConfidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechEngineConfidence>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ActualConfidence(&self) -> ::windows::core::Result<SpeechEngineConfidence> {
         let mut result__: SpeechEngineConfidence = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ActualConfidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechEngineConfidence>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EngineConfidence(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EngineConfidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
@@ -11529,24 +11529,24 @@ pub struct ISpeechPhraseElement_Vtbl {
     pub ActualConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT,
     pub EngineConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, engineconfidence: *mut f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseElements(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseElements {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechPhraseElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseElement>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -11637,99 +11637,99 @@ pub struct ISpeechPhraseElements_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseInfo(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfo {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LanguageId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LanguageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GrammarId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GrammarId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).StartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AudioStreamPosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioStreamPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioSizeBytes(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioSizeBytes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RetainedSizeBytes(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetainedSizeBytes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioSizeTime(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioSizeTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rule(&self) -> ::windows::core::Result<ISpeechPhraseRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Rule)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<ISpeechPhraseProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Properties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseProperties>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Elements(&self) -> ::windows::core::Result<ISpeechPhraseElements> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Elements)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseElements>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Replacements(&self) -> ::windows::core::Result<ISpeechPhraseReplacements> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Replacements)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseReplacements>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EngineId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EngineId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EnginePrivateData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnginePrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SaveToMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self, startelement: i32, elements: i32, usereplacements: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(usereplacements), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn GetDisplayAttributes(&self, startelement: i32, elements: i32, usereplacements: i16) -> ::windows::core::Result<SpeechDisplayAttributes> {
         let mut result__: SpeechDisplayAttributes = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDisplayAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(usereplacements), ::core::mem::transmute(&mut result__)).from_abi::<SpeechDisplayAttributes>(result__)
@@ -11863,13 +11863,13 @@ pub struct ISpeechPhraseInfo_Vtbl {
     GetText: usize,
     pub GetDisplayAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, usereplacements: i16, displayattributes: *mut SpeechDisplayAttributes) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseInfoBuilder(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfoBuilder {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RestorePhraseFromMemory(&self, phraseinmemory: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -11959,24 +11959,24 @@ pub struct ISpeechPhraseInfoBuilder_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RestorePhraseFromMemory: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseProperties(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperties {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechPhraseProperty> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseProperty>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -12067,56 +12067,56 @@ pub struct ISpeechPhraseProperties_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseProperty(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperty {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn FirstElement(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FirstElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn NumberOfElements(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NumberOfElements)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EngineConfidence(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EngineConfidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Confidence(&self) -> ::windows::core::Result<SpeechEngineConfidence> {
         let mut result__: SpeechEngineConfidence = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Confidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechEngineConfidence>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<ISpeechPhraseProperty> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseProperty>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Children(&self) -> ::windows::core::Result<ISpeechPhraseProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12223,29 +12223,29 @@ pub struct ISpeechPhraseProperty_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Children: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseReplacement(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseReplacement {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DisplayAttributes(&self) -> ::windows::core::Result<SpeechDisplayAttributes> {
         let mut result__: SpeechDisplayAttributes = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DisplayAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechDisplayAttributes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Text(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Text)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn FirstElement(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FirstElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn NumberOfElements(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NumberOfElements)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
@@ -12337,24 +12337,24 @@ pub struct ISpeechPhraseReplacement_Vtbl {
     pub FirstElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstelement: *mut i32) -> ::windows::core::HRESULT,
     pub NumberOfElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseReplacements(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseReplacements {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechPhraseReplacement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseReplacement>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -12445,51 +12445,51 @@ pub struct ISpeechPhraseReplacements_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseRule(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRule {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn FirstElement(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FirstElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn NumberOfElements(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NumberOfElements)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<ISpeechPhraseRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Children(&self) -> ::windows::core::Result<ISpeechPhraseRules> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Children)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseRules>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Confidence(&self) -> ::windows::core::Result<SpeechEngineConfidence> {
         let mut result__: SpeechEngineConfidence = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Confidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechEngineConfidence>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EngineConfidence(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EngineConfidence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
@@ -12591,24 +12591,24 @@ pub struct ISpeechPhraseRule_Vtbl {
     pub Confidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT,
     pub EngineConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, engineconfidence: *mut f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechPhraseRules(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRules {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ISpeechPhraseRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseRule>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -12699,131 +12699,131 @@ pub struct ISpeechPhraseRules_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecoContext(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoContext {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognizer(&self) -> ::windows::core::Result<ISpeechRecognizer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Recognizer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecognizer>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AudioInputInterferenceStatus(&self) -> ::windows::core::Result<SpeechInterference> {
         let mut result__: SpeechInterference = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioInputInterferenceStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechInterference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestedUIType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RequestedUIType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Voice<'a, Param0: ::windows::core::IntoParam<'a, ISpeechVoice>>(&self, voice: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_Voice)(::core::mem::transmute_copy(self), voice.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Voice(&self) -> ::windows::core::Result<ISpeechVoice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Voice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechVoice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAllowVoiceFormatMatchingOnNextSet(&self, allow: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllowVoiceFormatMatchingOnNextSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(allow)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AllowVoiceFormatMatchingOnNextSet(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AllowVoiceFormatMatchingOnNextSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVoicePurgeEvent(&self, eventinterest: SpeechRecoEvents) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVoicePurgeEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn VoicePurgeEvent(&self) -> ::windows::core::Result<SpeechRecoEvents> {
         let mut result__: SpeechRecoEvents = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).VoicePurgeEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRecoEvents>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetEventInterests(&self, eventinterest: SpeechRecoEvents) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEventInterests)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventinterest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EventInterests(&self) -> ::windows::core::Result<SpeechRecoEvents> {
         let mut result__: SpeechRecoEvents = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EventInterests)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRecoEvents>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetCmdMaxAlternates(&self, maxalternates: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCmdMaxAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxalternates)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CmdMaxAlternates(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CmdMaxAlternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, state: SpeechRecoContextState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<SpeechRecoContextState> {
         let mut result__: SpeechRecoContextState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).State)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRecoContextState>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRetainedAudio(&self, option: SpeechRetainedAudioOptions) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRetainedAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(option)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RetainedAudio(&self) -> ::windows::core::Result<SpeechRetainedAudioOptions> {
         let mut result__: SpeechRetainedAudioOptions = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetainedAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRetainedAudioOptions>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_RetainedAudioFormat<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, format: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_RetainedAudioFormat)(::core::mem::transmute_copy(self), format.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetainedAudioFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RetainedAudioFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateGrammar<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, grammarid: Param0) -> ::windows::core::Result<ISpeechRecoGrammar> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateGrammar)(::core::mem::transmute_copy(self), grammarid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoGrammar>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateResultFromMemory(&self, resultblock: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechRecoResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateResultFromMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(resultblock), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoResult>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Bookmark<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, options: SpeechBookmarkOptions, streampos: Param1, bookmarkid: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Bookmark)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), streampos.into_param().abi(), bookmarkid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAdaptationData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, adaptationstring: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAdaptationData)(::core::mem::transmute_copy(self), adaptationstring.into_param().abi()).ok()
@@ -12963,101 +12963,101 @@ pub struct ISpeechRecoContext_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetAdaptationData: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecoGrammar(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoGrammar {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows::core::Result<ISpeechRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, state: SpeechGrammarState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<SpeechGrammarState> {
         let mut result__: SpeechGrammarState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).State)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechGrammarState>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rules(&self) -> ::windows::core::Result<ISpeechGrammarRules> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Rules)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechGrammarRules>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Reset(&self, newlanguage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self), ::core::mem::transmute(newlanguage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CmdLoadFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filename: Param0, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdLoadFromFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(loadoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CmdLoadFromObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, classid: Param0, grammarname: Param1, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdLoadFromObject)(::core::mem::transmute_copy(self), classid.into_param().abi(), grammarname.into_param().abi(), ::core::mem::transmute(loadoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CmdLoadFromResource<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, hmodule: i32, resourcename: Param1, resourcetype: Param2, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdLoadFromResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmodule), resourcename.into_param().abi(), resourcetype.into_param().abi(), ::core::mem::transmute(languageid), ::core::mem::transmute(loadoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CmdLoadFromMemory<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, grammardata: Param0, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdLoadFromMemory)(::core::mem::transmute_copy(self), grammardata.into_param().abi(), ::core::mem::transmute(loadoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CmdLoadFromProprietaryGrammar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, proprietaryguid: Param0, proprietarystring: Param1, proprietarydata: Param2, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdLoadFromProprietaryGrammar)(::core::mem::transmute_copy(self), proprietaryguid.into_param().abi(), proprietarystring.into_param().abi(), proprietarydata.into_param().abi(), ::core::mem::transmute(loadoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CmdSetRuleState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, state: SpeechRuleState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdSetRuleState)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CmdSetRuleIdState(&self, ruleid: i32, state: SpeechRuleState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdSetRuleIdState)(::core::mem::transmute_copy(self), ::core::mem::transmute(ruleid), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DictationLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, topicname: Param0, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DictationLoad)(::core::mem::transmute_copy(self), topicname.into_param().abi(), ::core::mem::transmute(loadoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DictationUnload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DictationUnload)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DictationSetState(&self, state: SpeechRuleState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DictationSetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetWordSequenceData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, ISpeechTextSelectionInformation>>(&self, text: Param0, textlength: i32, info: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWordSequenceData)(::core::mem::transmute_copy(self), text.into_param().abi(), ::core::mem::transmute(textlength), info.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTextSelection<'a, Param0: ::windows::core::IntoParam<'a, ISpeechTextSelectionInformation>>(&self, info: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTextSelection)(::core::mem::transmute_copy(self), info.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPronounceable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, word: Param0) -> ::windows::core::Result<SpeechWordPronounceable> {
         let mut result__: SpeechWordPronounceable = ::core::mem::zeroed();
@@ -13201,65 +13201,65 @@ pub struct ISpeechRecoGrammar_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsPronounceable: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecoResult(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResult {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows::core::Result<ISpeechRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows::core::Result<ISpeechRecoResultTimes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Times)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoResultTimes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioFormat<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, format: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_AudioFormat)(::core::mem::transmute_copy(self), format.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhraseInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechPhraseAlternates> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Alternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestcount), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseAlternates>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechMemoryStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Audio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechMemoryStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SaveToMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DiscardResultInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(valuetypes)).ok()
     }
@@ -13377,69 +13377,69 @@ pub struct ISpeechRecoResult_Vtbl {
     SaveToMemory: usize,
     pub DiscardResultInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuetypes: SpeechDiscardType) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecoResult2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResult2 {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows::core::Result<ISpeechRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.RecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows::core::Result<ISpeechRecoResultTimes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Times)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoResultTimes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioFormat<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, format: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.putref_AudioFormat)(::core::mem::transmute_copy(self), format.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AudioFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.PhraseInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechPhraseAlternates> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Alternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestcount), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseAlternates>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechMemoryStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Audio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechMemoryStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SaveToMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DiscardResultInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(valuetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextFeedback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedback: Param0, wassuccessful: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTextFeedback)(::core::mem::transmute_copy(self), feedback.into_param().abi(), ::core::mem::transmute(wassuccessful)).ok()
@@ -13552,80 +13552,80 @@ pub struct ISpeechRecoResult2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetTextFeedback: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecoResultDispatch(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResultDispatch {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows::core::Result<ISpeechRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows::core::Result<ISpeechRecoResultTimes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Times)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoResultTimes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioFormat<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, format: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_AudioFormat)(::core::mem::transmute_copy(self), format.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhraseInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechPhraseAlternates> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Alternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestcount), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseAlternates>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechMemoryStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Audio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechMemoryStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SaveToMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DiscardResultInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(valuetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetXMLResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXMLErrorInfo(&self, linenumber: *mut i32, scriptline: *mut super::super::Foundation::BSTR, source: *mut super::super::Foundation::BSTR, description: *mut super::super::Foundation::BSTR, resultcode: *mut ::windows::core::HRESULT, iserror: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXMLErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(linenumber), ::core::mem::transmute(scriptline), ::core::mem::transmute(source), ::core::mem::transmute(description), ::core::mem::transmute(resultcode), ::core::mem::transmute(iserror)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextFeedback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedback: Param0, wassuccessful: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTextFeedback)(::core::mem::transmute_copy(self), feedback.into_param().abi(), ::core::mem::transmute(wassuccessful)).ok()
@@ -13756,30 +13756,30 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetTextFeedback: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecoResultTimes(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResultTimes {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StreamTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).StreamTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Length(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn TickCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TickCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OffsetFromStart(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
@@ -13878,148 +13878,148 @@ pub struct ISpeechRecoResultTimes_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OffsetFromStart: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecognizer(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecognizer {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Recognizer<'a, Param0: ::windows::core::IntoParam<'a, ISpeechObjectToken>>(&self, recognizer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_Recognizer)(::core::mem::transmute_copy(self), recognizer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognizer(&self) -> ::windows::core::Result<ISpeechObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Recognizer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAllowAudioInputFormatChangesOnNextSet(&self, allow: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllowAudioInputFormatChangesOnNextSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(allow)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AllowAudioInputFormatChangesOnNextSet(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AllowAudioInputFormatChangesOnNextSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioInput<'a, Param0: ::windows::core::IntoParam<'a, ISpeechObjectToken>>(&self, audioinput: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_AudioInput)(::core::mem::transmute_copy(self), audioinput.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioInput(&self) -> ::windows::core::Result<ISpeechObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioInputStream<'a, Param0: ::windows::core::IntoParam<'a, ISpeechBaseStream>>(&self, audioinputstream: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_AudioInputStream)(::core::mem::transmute_copy(self), audioinputstream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioInputStream(&self) -> ::windows::core::Result<ISpeechBaseStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioInputStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechBaseStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn IsShared(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsShared)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetState(&self, state: SpeechRecognizerState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetState)(::core::mem::transmute_copy(self), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<SpeechRecognizerState> {
         let mut result__: SpeechRecognizerState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).State)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRecognizerState>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<ISpeechRecognizerStatus> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecognizerStatus>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Profile<'a, Param0: ::windows::core::IntoParam<'a, ISpeechObjectToken>>(&self, profile: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_Profile)(::core::mem::transmute_copy(self), profile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<ISpeechObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Profile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EmulateRecognition<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, textelements: Param0, elementdisplayattributes: *const super::super::System::Com::VARIANT, languageid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EmulateRecognition)(::core::mem::transmute_copy(self), textelements.into_param().abi(), ::core::mem::transmute(elementdisplayattributes), ::core::mem::transmute(languageid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRecoContext(&self) -> ::windows::core::Result<ISpeechRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateRecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormat(&self, r#type: SpeechFormatType) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPropertyNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: i32) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SetPropertyNumber)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: *mut i32, supported: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyNumber)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(supported)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPropertyString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SetPropertyString)(::core::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: *mut super::super::Foundation::BSTR, supported: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyString)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(supported)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, typeofui: Param0, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsUISupported)(::core::mem::transmute_copy(self), typeofui.into_param().abi(), ::core::mem::transmute(extradata), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DisplayUI<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwndparent: i32, title: Param1, typeofui: Param2, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), title.into_param().abi(), typeofui.into_param().abi(), ::core::mem::transmute(extradata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRecognizers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, requiredattributes: Param0, optionalattributes: Param1) -> ::windows::core::Result<ISpeechObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRecognizers)(::core::mem::transmute_copy(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectTokens>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAudioInputs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, requiredattributes: Param0, optionalattributes: Param1) -> ::windows::core::Result<ISpeechObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAudioInputs)(::core::mem::transmute_copy(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectTokens>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProfiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, requiredattributes: Param0, optionalattributes: Param1) -> ::windows::core::Result<ISpeechObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -14194,41 +14194,41 @@ pub struct ISpeechRecognizer_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetProfiles: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechRecognizerStatus(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecognizerStatus {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioStatus(&self) -> ::windows::core::Result<ISpeechAudioStatus> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioStatus>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CurrentStreamPosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CurrentStreamPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CurrentStreamNumber(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CurrentStreamNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn NumberOfActiveRules(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NumberOfActiveRules)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClsidEngine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ClsidEngine)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SupportedLanguages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
@@ -14332,23 +14332,23 @@ pub struct ISpeechRecognizerStatus_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SupportedLanguages: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechResourceLoader(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechResourceLoader {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrresourceuri: Param0, falwaysreload: i16, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: *mut super::super::Foundation::BSTR, pfmodified: *mut i16, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadResource)(::core::mem::transmute_copy(self), bstrresourceuri.into_param().abi(), ::core::mem::transmute(falwaysreload), ::core::mem::transmute(pstream), ::core::mem::transmute(pbstrmimetype), ::core::mem::transmute(pfmodified), ::core::mem::transmute(pbstrredirecturl)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLocalCopy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrresourceuri: Param0, pbstrlocalpath: *mut super::super::Foundation::BSTR, pbstrmimetype: *mut super::super::Foundation::BSTR, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLocalCopy)(::core::mem::transmute_copy(self), bstrresourceuri.into_param().abi(), ::core::mem::transmute(pbstrlocalpath), ::core::mem::transmute(pbstrmimetype), ::core::mem::transmute(pbstrredirecturl)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseLocalCopy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrlocalpath: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseLocalCopy)(::core::mem::transmute_copy(self), pbstrlocalpath.into_param().abi()).ok()
@@ -14445,44 +14445,44 @@ pub struct ISpeechResourceLoader_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ReleaseLocalCopy: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechTextSelectionInformation(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechTextSelectionInformation {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetActiveOffset(&self, activeoffset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetActiveOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(activeoffset)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ActiveOffset(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ActiveOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetActiveLength(&self, activelength: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetActiveLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(activelength)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn ActiveLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ActiveLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetSelectionOffset(&self, selectionoffset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelectionOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(selectionoffset)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SelectionOffset(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SelectionOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetSelectionLength(&self, selectionlength: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelectionLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(selectionlength)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SelectionLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SelectionLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
@@ -14575,169 +14575,169 @@ pub struct ISpeechTextSelectionInformation_Vtbl {
     pub SetSelectionLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionlength: i32) -> ::windows::core::HRESULT,
     pub SelectionLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionlength: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechVoice(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechVoice {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<ISpeechVoiceStatus> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechVoiceStatus>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Voice(&self) -> ::windows::core::Result<ISpeechObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Voice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Voice<'a, Param0: ::windows::core::IntoParam<'a, ISpeechObjectToken>>(&self, voice: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_Voice)(::core::mem::transmute_copy(self), voice.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioOutput(&self) -> ::windows::core::Result<ISpeechObjectToken> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectToken>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioOutput<'a, Param0: ::windows::core::IntoParam<'a, ISpeechObjectToken>>(&self, audiooutput: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_AudioOutput)(::core::mem::transmute_copy(self), audiooutput.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioOutputStream(&self) -> ::windows::core::Result<ISpeechBaseStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AudioOutputStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechBaseStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioOutputStream<'a, Param0: ::windows::core::IntoParam<'a, ISpeechBaseStream>>(&self, audiooutputstream: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).putref_AudioOutputStream)(::core::mem::transmute_copy(self), audiooutputstream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Rate(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Rate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetRate(&self, rate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(rate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Volume(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Volume)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetVolume(&self, volume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(volume)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAllowAudioOutputFormatChangesOnNextSet(&self, allow: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllowAudioOutputFormatChangesOnNextSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(allow)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AllowAudioOutputFormatChangesOnNextSet(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AllowAudioOutputFormatChangesOnNextSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn EventInterests(&self) -> ::windows::core::Result<SpeechVoiceEvents> {
         let mut result__: SpeechVoiceEvents = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EventInterests)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechVoiceEvents>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetEventInterests(&self, eventinterestflags: SpeechVoiceEvents) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEventInterests)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventinterestflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetPriority(&self, priority: SpeechVoicePriority) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<SpeechVoicePriority> {
         let mut result__: SpeechVoicePriority = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechVoicePriority>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAlertBoundary(&self, boundary: SpeechVoiceEvents) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlertBoundary)(::core::mem::transmute_copy(self), ::core::mem::transmute(boundary)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AlertBoundary(&self) -> ::windows::core::Result<SpeechVoiceEvents> {
         let mut result__: SpeechVoiceEvents = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AlertBoundary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechVoiceEvents>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetSynchronousSpeakTimeout(&self, mstimeout: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSynchronousSpeakTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(mstimeout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SynchronousSpeakTimeout(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SynchronousSpeakTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Speak<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Speak)(::core::mem::transmute_copy(self), text.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpeakStream<'a, Param0: ::windows::core::IntoParam<'a, ISpeechBaseStream>>(&self, stream: Param0, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SpeakStream)(::core::mem::transmute_copy(self), stream.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Skip<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, r#type: Param0, numitems: i32) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), r#type.into_param().abi(), ::core::mem::transmute(numitems), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetVoices<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, requiredattributes: Param0, optionalattributes: Param1) -> ::windows::core::Result<ISpeechObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVoices)(::core::mem::transmute_copy(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectTokens>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAudioOutputs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, requiredattributes: Param0, optionalattributes: Param1) -> ::windows::core::Result<ISpeechObjectTokens> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAudioOutputs)(::core::mem::transmute_copy(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechObjectTokens>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn WaitUntilDone(&self, mstimeout: i32) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).WaitUntilDone)(::core::mem::transmute_copy(self), ::core::mem::transmute(mstimeout), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakCompleteEvent(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SpeakCompleteEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn IsUISupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, typeofui: Param0, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsUISupported)(::core::mem::transmute_copy(self), typeofui.into_param().abi(), ::core::mem::transmute(extradata), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DisplayUI<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwndparent: i32, title: Param1, typeofui: Param2, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwndparent), title.into_param().abi(), typeofui.into_param().abi(), ::core::mem::transmute(extradata)).ok()
@@ -14896,69 +14896,69 @@ pub struct ISpeechVoice_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DisplayUI: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechVoiceStatus(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechVoiceStatus {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn CurrentStreamNumber(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CurrentStreamNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LastStreamNumberQueued(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LastStreamNumberQueued)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LastHResult(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LastHResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn RunningState(&self) -> ::windows::core::Result<SpeechRunState> {
         let mut result__: SpeechRunState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RunningState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SpeechRunState>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn InputWordPosition(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).InputWordPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn InputWordLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).InputWordLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn InputSentencePosition(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).InputSentencePosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn InputSentenceLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).InputSentenceLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastBookmark(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LastBookmark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn LastBookmarkId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).LastBookmarkId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn PhonemeId(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PhonemeId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn VisemeId(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).VisemeId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
@@ -15058,73 +15058,73 @@ pub struct ISpeechVoiceStatus_Vtbl {
     pub PhonemeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneid: *mut i16) -> ::windows::core::HRESULT,
     pub VisemeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visemeid: *mut i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechWaveFormatEx(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechWaveFormatEx {
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn FormatTag(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FormatTag)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetFormatTag(&self, formattag: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormatTag)(::core::mem::transmute_copy(self), ::core::mem::transmute(formattag)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn Channels(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Channels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetChannels(&self, channels: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(channels)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SamplesPerSec(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SamplesPerSec)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetSamplesPerSec(&self, samplespersec: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSamplesPerSec)(::core::mem::transmute_copy(self), ::core::mem::transmute(samplespersec)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn AvgBytesPerSec(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AvgBytesPerSec)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetAvgBytesPerSec(&self, avgbytespersec: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAvgBytesPerSec)(::core::mem::transmute_copy(self), ::core::mem::transmute(avgbytespersec)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn BlockAlign(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).BlockAlign)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBlockAlign(&self, blockalign: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBlockAlign)(::core::mem::transmute_copy(self), ::core::mem::transmute(blockalign)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn BitsPerSample(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).BitsPerSample)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SetBitsPerSample(&self, bitspersample: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBitsPerSample)(::core::mem::transmute_copy(self), ::core::mem::transmute(bitspersample)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExtraData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ExtraData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetExtraData<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, extradata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExtraData)(::core::mem::transmute_copy(self), extradata.into_param().abi()).ok()
@@ -15229,75 +15229,75 @@ pub struct ISpeechWaveFormatEx_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetExtraData: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISpeechXMLRecoResult(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechXMLRecoResult {
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows::core::Result<ISpeechRecoContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.RecoContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows::core::Result<ISpeechRecoResultTimes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Times)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechRecoResultTimes>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AudioFormat<'a, Param0: ::windows::core::IntoParam<'a, ISpeechAudioFormat>>(&self, format: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.putref_AudioFormat)(::core::mem::transmute_copy(self), format.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows::core::Result<ISpeechAudioFormat> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AudioFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechAudioFormat>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.PhraseInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechPhraseAlternates> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Alternates)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestcount), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechPhraseAlternates>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechMemoryStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Audio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<ISpeechMemoryStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SpeakAudio)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(elements), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SaveToMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.DiscardResultInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(valuetypes)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetXMLResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXMLErrorInfo(&self, linenumber: *mut i32, scriptline: *mut super::super::Foundation::BSTR, source: *mut super::super::Foundation::BSTR, description: *mut super::super::Foundation::BSTR, resultcode: *mut i32, iserror: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXMLErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(linenumber), ::core::mem::transmute(scriptline), ::core::mem::transmute(source), ::core::mem::transmute(description), ::core::mem::transmute(resultcode), ::core::mem::transmute(iserror)).ok()
@@ -15414,15 +15414,15 @@ pub struct ISpeechXMLRecoResult_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetXMLErrorInfo: usize,
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PHONETICALPHABET(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const PA_Ipa: PHONETICALPHABET = PHONETICALPHABET(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const PA_Ups: PHONETICALPHABET = PHONETICALPHABET(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const PA_Sapi: PHONETICALPHABET = PHONETICALPHABET(2i32);
 impl ::core::marker::Copy for PHONETICALPHABET {}
 impl ::core::clone::Clone for PHONETICALPHABET {
@@ -15443,19 +15443,19 @@ impl ::core::fmt::Debug for PHONETICALPHABET {
         f.debug_tuple("PHONETICALPHABET").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAPI_ERROR_BASE: u32 = 20480u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPADAPTATIONRELEVANCE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAR_Unknown: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAR_Low: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAR_Medium: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAR_High: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(3i32);
 impl ::core::marker::Copy for SPADAPTATIONRELEVANCE {}
 impl ::core::clone::Clone for SPADAPTATIONRELEVANCE {
@@ -15476,21 +15476,21 @@ impl ::core::fmt::Debug for SPADAPTATIONRELEVANCE {
         f.debug_tuple("SPADAPTATIONRELEVANCE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPADAPTATIONSETTINGS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_Default: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_CurrentRecognizer: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_RecoProfile: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_Immediate: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_Reset: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_HighVolumeDataSource: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(16i32);
 impl ::core::marker::Copy for SPADAPTATIONSETTINGS {}
 impl ::core::clone::Clone for SPADAPTATIONSETTINGS {
@@ -15511,10 +15511,10 @@ impl ::core::fmt::Debug for SPADAPTATIONSETTINGS {
         f.debug_tuple("SPADAPTATIONSETTINGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPALTERNATESCLSID: &'static str = "AlternatesCLSID";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPAUDIOBUFFERINFO {
     pub ulMsMinNotification: u32,
     pub ulMsBufferSize: u32,
@@ -15545,13 +15545,13 @@ impl ::core::default::Default for SPAUDIOBUFFERINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPAUDIOOPTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAO_NONE: SPAUDIOOPTIONS = SPAUDIOOPTIONS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAO_RETAIN_AUDIO: SPAUDIOOPTIONS = SPAUDIOOPTIONS(1i32);
 impl ::core::marker::Copy for SPAUDIOOPTIONS {}
 impl ::core::clone::Clone for SPAUDIOOPTIONS {
@@ -15572,17 +15572,17 @@ impl ::core::fmt::Debug for SPAUDIOOPTIONS {
         f.debug_tuple("SPAUDIOOPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPAUDIOSTATE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAS_CLOSED: SPAUDIOSTATE = SPAUDIOSTATE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAS_STOP: SPAUDIOSTATE = SPAUDIOSTATE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAS_PAUSE: SPAUDIOSTATE = SPAUDIOSTATE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAS_RUN: SPAUDIOSTATE = SPAUDIOSTATE(3i32);
 impl ::core::marker::Copy for SPAUDIOSTATE {}
 impl ::core::clone::Clone for SPAUDIOSTATE {
@@ -15604,7 +15604,7 @@ impl ::core::fmt::Debug for SPAUDIOSTATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
     pub cbNonBlockingIO: u32,
@@ -15640,7 +15640,7 @@ impl ::core::default::Default for SPAUDIOSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPBINARYGRAMMAR {
     pub ulTotalSerializedSize: u32,
 }
@@ -15669,17 +15669,17 @@ impl ::core::default::Default for SPBINARYGRAMMAR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPBOOKMARKOPTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPBO_NONE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPBO_PAUSE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPBO_AHEAD: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPBO_TIME_UNITS: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(4i32);
 impl ::core::marker::Copy for SPBOOKMARKOPTIONS {}
 impl ::core::clone::Clone for SPBOOKMARKOPTIONS {
@@ -15700,43 +15700,43 @@ impl ::core::fmt::Debug for SPBOOKMARKOPTIONS {
         f.debug_tuple("SPBOOKMARKOPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_APPLEXICONS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_AUDIOIN: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_AUDIOOUT: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_PHONECONVERTERS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_RECOGNIZERS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_RECOPROFILES: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_TEXTNORMALIZERS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCAT_VOICES: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPCFGRULEATTRIBUTES(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_Active: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_Export: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_Import: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_Interpreter: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_Dynamic: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_Root: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_AutoPause: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(65536i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(131072i32);
 impl ::core::marker::Copy for SPCFGRULEATTRIBUTES {}
 impl ::core::clone::Clone for SPCFGRULEATTRIBUTES {
@@ -15757,15 +15757,15 @@ impl ::core::fmt::Debug for SPCFGRULEATTRIBUTES {
         f.debug_tuple("SPCFGRULEATTRIBUTES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPCOMMITFLAGS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCF_NONE: SPCOMMITFLAGS = SPCOMMITFLAGS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCF_ADD_TO_USER_LEXICON: SPCOMMITFLAGS = SPCOMMITFLAGS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCF_DEFINITE_CORRECTION: SPCOMMITFLAGS = SPCOMMITFLAGS(2i32);
 impl ::core::marker::Copy for SPCOMMITFLAGS {}
 impl ::core::clone::Clone for SPCOMMITFLAGS {
@@ -15786,13 +15786,13 @@ impl ::core::fmt::Debug for SPCOMMITFLAGS {
         f.debug_tuple("SPCOMMITFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPCONTEXTSTATE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCS_DISABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCS_ENABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(1i32);
 impl ::core::marker::Copy for SPCONTEXTSTATE {}
 impl ::core::clone::Clone for SPCONTEXTSTATE {
@@ -15813,21 +15813,21 @@ impl ::core::fmt::Debug for SPCONTEXTSTATE {
         f.debug_tuple("SPCONTEXTSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCURRENT_USER_LEXICON_TOKEN_ID: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPDATAKEYLOCATION(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDKL_DefaultLocation: SPDATAKEYLOCATION = SPDATAKEYLOCATION(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = SPDATAKEYLOCATION(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDKL_LocalMachine: SPDATAKEYLOCATION = SPDATAKEYLOCATION(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = SPDATAKEYLOCATION(5i32);
 impl ::core::marker::Copy for SPDATAKEYLOCATION {}
 impl ::core::clone::Clone for SPDATAKEYLOCATION {
@@ -15848,10 +15848,10 @@ impl ::core::fmt::Debug for SPDATAKEYLOCATION {
         f.debug_tuple("SPDATAKEYLOCATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDICTATION: &'static str = "*";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPDISPLAYPHRASE {
     pub ulNumTokens: u32,
     pub pTokens: *mut SPDISPLAYTOKEN,
@@ -15882,7 +15882,7 @@ impl ::core::default::Default for SPDISPLAYPHRASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPDISPLAYTOKEN {
     pub pszLexical: ::windows::core::PCWSTR,
     pub pszDisplay: ::windows::core::PCWSTR,
@@ -15913,21 +15913,21 @@ impl ::core::default::Default for SPDISPLAYTOKEN {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPDISPLYATTRIBUTES(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_ONE_TRAILING_SPACE: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_TWO_TRAILING_SPACES: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_CONSUME_LEADING_SPACES: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_BUFFER_POSITION: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_ALL: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(31i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_USER_SPECIFIED: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(128i32);
 impl ::core::marker::Copy for SPDISPLYATTRIBUTES {}
 impl ::core::clone::Clone for SPDISPLYATTRIBUTES {
@@ -15948,59 +15948,59 @@ impl ::core::fmt::Debug for SPDISPLYATTRIBUTES {
         f.debug_tuple("SPDISPLYATTRIBUTES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_AddRemoveWord: &'static str = "AddRemoveWord";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_AudioProperties: &'static str = "AudioProperties";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_AudioVolume: &'static str = "AudioVolume";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_EngineProperties: &'static str = "EngineProperties";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_MicTraining: &'static str = "MicTraining";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_RecoProfileProperties: &'static str = "RecoProfileProperties";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_ShareData: &'static str = "ShareData";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_Tutorial: &'static str = "Tutorial";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_UserEnrollment: &'static str = "UserEnrollment";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDUI_UserTraining: &'static str = "UserTraining";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPEAKFLAGS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_DEFAULT: SPEAKFLAGS = SPEAKFLAGS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_ASYNC: SPEAKFLAGS = SPEAKFLAGS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_PURGEBEFORESPEAK: SPEAKFLAGS = SPEAKFLAGS(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_IS_FILENAME: SPEAKFLAGS = SPEAKFLAGS(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_IS_XML: SPEAKFLAGS = SPEAKFLAGS(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_IS_NOT_XML: SPEAKFLAGS = SPEAKFLAGS(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_PERSIST_XML: SPEAKFLAGS = SPEAKFLAGS(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_NLP_SPEAK_PUNC: SPEAKFLAGS = SPEAKFLAGS(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_PARSE_SAPI: SPEAKFLAGS = SPEAKFLAGS(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_PARSE_SSML: SPEAKFLAGS = SPEAKFLAGS(256i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_PARSE_AUTODETECT: SPEAKFLAGS = SPEAKFLAGS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_NLP_MASK: SPEAKFLAGS = SPEAKFLAGS(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_PARSE_MASK: SPEAKFLAGS = SPEAKFLAGS(384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_VOICE_MASK: SPEAKFLAGS = SPEAKFLAGS(511i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_UNUSED_FLAGS: SPEAKFLAGS = SPEAKFLAGS(-512i32);
 impl ::core::marker::Copy for SPEAKFLAGS {}
 impl ::core::clone::Clone for SPEAKFLAGS {
@@ -16021,15 +16021,15 @@ impl ::core::fmt::Debug for SPEAKFLAGS {
         f.debug_tuple("SPEAKFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPENDSRSTREAMFLAGS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPESF_NONE: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPESF_STREAM_RELEASED: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPESF_EMULATED: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(2i32);
 impl ::core::marker::Copy for SPENDSRSTREAMFLAGS {}
 impl ::core::clone::Clone for SPENDSRSTREAMFLAGS {
@@ -16051,7 +16051,7 @@ impl ::core::fmt::Debug for SPENDSRSTREAMFLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPEVENT {
     pub _bitfield: i32,
@@ -16092,89 +16092,89 @@ impl ::core::default::Default for SPEVENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPEVENTENUM(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_UNDEFINED: SPEVENTENUM = SPEVENTENUM(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_START_INPUT_STREAM: SPEVENTENUM = SPEVENTENUM(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_END_INPUT_STREAM: SPEVENTENUM = SPEVENTENUM(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_VOICE_CHANGE: SPEVENTENUM = SPEVENTENUM(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_TTS_BOOKMARK: SPEVENTENUM = SPEVENTENUM(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_WORD_BOUNDARY: SPEVENTENUM = SPEVENTENUM(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_PHONEME: SPEVENTENUM = SPEVENTENUM(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SENTENCE_BOUNDARY: SPEVENTENUM = SPEVENTENUM(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_VISEME: SPEVENTENUM = SPEVENTENUM(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_TTS_AUDIO_LEVEL: SPEVENTENUM = SPEVENTENUM(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_TTS_PRIVATE: SPEVENTENUM = SPEVENTENUM(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_MIN_TTS: SPEVENTENUM = SPEVENTENUM(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_MAX_TTS: SPEVENTENUM = SPEVENTENUM(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_END_SR_STREAM: SPEVENTENUM = SPEVENTENUM(34i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SOUND_START: SPEVENTENUM = SPEVENTENUM(35i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SOUND_END: SPEVENTENUM = SPEVENTENUM(36i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_PHRASE_START: SPEVENTENUM = SPEVENTENUM(37i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RECOGNITION: SPEVENTENUM = SPEVENTENUM(38i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_HYPOTHESIS: SPEVENTENUM = SPEVENTENUM(39i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SR_BOOKMARK: SPEVENTENUM = SPEVENTENUM(40i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_PROPERTY_NUM_CHANGE: SPEVENTENUM = SPEVENTENUM(41i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_PROPERTY_STRING_CHANGE: SPEVENTENUM = SPEVENTENUM(42i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_FALSE_RECOGNITION: SPEVENTENUM = SPEVENTENUM(43i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_INTERFERENCE: SPEVENTENUM = SPEVENTENUM(44i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_REQUEST_UI: SPEVENTENUM = SPEVENTENUM(45i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RECO_STATE_CHANGE: SPEVENTENUM = SPEVENTENUM(46i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_ADAPTATION: SPEVENTENUM = SPEVENTENUM(47i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_START_SR_STREAM: SPEVENTENUM = SPEVENTENUM(48i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RECO_OTHER_CONTEXT: SPEVENTENUM = SPEVENTENUM(49i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SR_AUDIO_LEVEL: SPEVENTENUM = SPEVENTENUM(50i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SR_RETAINEDAUDIO: SPEVENTENUM = SPEVENTENUM(51i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_SR_PRIVATE: SPEVENTENUM = SPEVENTENUM(52i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RESERVED4: SPEVENTENUM = SPEVENTENUM(53i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RESERVED5: SPEVENTENUM = SPEVENTENUM(54i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RESERVED6: SPEVENTENUM = SPEVENTENUM(55i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_MIN_SR: SPEVENTENUM = SPEVENTENUM(34i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_MAX_SR: SPEVENTENUM = SPEVENTENUM(55i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RESERVED1: SPEVENTENUM = SPEVENTENUM(30i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RESERVED2: SPEVENTENUM = SPEVENTENUM(33i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_RESERVED3: SPEVENTENUM = SPEVENTENUM(63i32);
 impl ::core::marker::Copy for SPEVENTENUM {}
 impl ::core::clone::Clone for SPEVENTENUM {
@@ -16196,7 +16196,7 @@ impl ::core::fmt::Debug for SPEVENTENUM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPEVENTEX {
     pub _bitfield: i32,
@@ -16238,19 +16238,19 @@ impl ::core::default::Default for SPEVENTEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPEVENTLPARAMTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPET_LPARAM_IS_OBJECT: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPET_LPARAM_IS_POINTER: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(4i32);
 impl ::core::marker::Copy for SPEVENTLPARAMTYPE {}
 impl ::core::clone::Clone for SPEVENTLPARAMTYPE {
@@ -16272,7 +16272,7 @@ impl ::core::fmt::Debug for SPEVENTLPARAMTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPEVENTSOURCEINFO {
     pub ullEventInterest: u64,
     pub ullQueuedInterest: u64,
@@ -16303,19 +16303,19 @@ impl ::core::default::Default for SPEVENTSOURCEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPFILEMODE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPFM_OPEN_READONLY: SPFILEMODE = SPFILEMODE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPFM_OPEN_READWRITE: SPFILEMODE = SPFILEMODE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPFM_CREATE: SPFILEMODE = SPFILEMODE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPFM_CREATE_ALWAYS: SPFILEMODE = SPFILEMODE(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPFM_NUM_MODES: SPFILEMODE = SPFILEMODE(4i32);
 impl ::core::marker::Copy for SPFILEMODE {}
 impl ::core::clone::Clone for SPFILEMODE {
@@ -16336,35 +16336,35 @@ impl ::core::fmt::Debug for SPFILEMODE {
         f.debug_tuple("SPFILEMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPGRAMMAROPTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SAPI: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SRGS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_UPS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SRGS_MS_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SRGS_W3C_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(256i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SRGS_STG_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(512i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SRGS_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(778i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_FILE: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_HTTP: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_RES: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_OBJECT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_DEFAULT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1019i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_ALL: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1023i32);
 impl ::core::marker::Copy for SPGRAMMAROPTIONS {}
 impl ::core::clone::Clone for SPGRAMMAROPTIONS {
@@ -16385,15 +16385,15 @@ impl ::core::fmt::Debug for SPGRAMMAROPTIONS {
         f.debug_tuple("SPGRAMMAROPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPGRAMMARSTATE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGS_DISABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGS_ENABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGS_EXCLUSIVE: SPGRAMMARSTATE = SPGRAMMARSTATE(3i32);
 impl ::core::marker::Copy for SPGRAMMARSTATE {}
 impl ::core::clone::Clone for SPGRAMMARSTATE {
@@ -16414,17 +16414,17 @@ impl ::core::fmt::Debug for SPGRAMMARSTATE {
         f.debug_tuple("SPGRAMMARSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPGRAMMARWORDTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWT_DISPLAY: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWT_LEXICAL: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWT_PRONUNCIATION: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWT_LEXICAL_NO_SPECIAL_CHARS: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(3i32);
 impl ::core::marker::Copy for SPGRAMMARWORDTYPE {}
 impl ::core::clone::Clone for SPGRAMMARWORDTYPE {
@@ -16445,31 +16445,31 @@ impl ::core::fmt::Debug for SPGRAMMARWORDTYPE {
         f.debug_tuple("SPGRAMMARWORDTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINFDICTATION: &'static str = "*+";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPINTERFERENCE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_NONE: SPINTERFERENCE = SPINTERFERENCE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_NOISE: SPINTERFERENCE = SPINTERFERENCE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_NOSIGNAL: SPINTERFERENCE = SPINTERFERENCE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_TOOLOUD: SPINTERFERENCE = SPINTERFERENCE(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_TOOQUIET: SPINTERFERENCE = SPINTERFERENCE(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_TOOFAST: SPINTERFERENCE = SPINTERFERENCE(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_TOOSLOW: SPINTERFERENCE = SPINTERFERENCE(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_LATENCY_WARNING: SPINTERFERENCE = SPINTERFERENCE(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_LATENCY_TRUNCATE_BEGIN: SPINTERFERENCE = SPINTERFERENCE(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_LATENCY_TRUNCATE_END: SPINTERFERENCE = SPINTERFERENCE(9i32);
 impl ::core::marker::Copy for SPINTERFERENCE {}
 impl ::core::clone::Clone for SPINTERFERENCE {
@@ -16490,73 +16490,73 @@ impl ::core::fmt::Debug for SPINTERFERENCE {
         f.debug_tuple("SPINTERFERENCE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPLEXICONTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_USER: SPLEXICONTYPE = SPLEXICONTYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_APP: SPLEXICONTYPE = SPLEXICONTYPE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_VENDORLEXICON: SPLEXICONTYPE = SPLEXICONTYPE(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_LETTERTOSOUND: SPLEXICONTYPE = SPLEXICONTYPE(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_MORPHOLOGY: SPLEXICONTYPE = SPLEXICONTYPE(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_RESERVED4: SPLEXICONTYPE = SPLEXICONTYPE(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_USER_SHORTCUT: SPLEXICONTYPE = SPLEXICONTYPE(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_RESERVED6: SPLEXICONTYPE = SPLEXICONTYPE(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_RESERVED7: SPLEXICONTYPE = SPLEXICONTYPE(256i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_RESERVED8: SPLEXICONTYPE = SPLEXICONTYPE(512i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_RESERVED9: SPLEXICONTYPE = SPLEXICONTYPE(1024i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_RESERVED10: SPLEXICONTYPE = SPLEXICONTYPE(2048i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE1: SPLEXICONTYPE = SPLEXICONTYPE(4096i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE2: SPLEXICONTYPE = SPLEXICONTYPE(8192i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE3: SPLEXICONTYPE = SPLEXICONTYPE(16384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE4: SPLEXICONTYPE = SPLEXICONTYPE(32768i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE5: SPLEXICONTYPE = SPLEXICONTYPE(65536i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE6: SPLEXICONTYPE = SPLEXICONTYPE(131072i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE7: SPLEXICONTYPE = SPLEXICONTYPE(262144i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE8: SPLEXICONTYPE = SPLEXICONTYPE(524288i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE9: SPLEXICONTYPE = SPLEXICONTYPE(1048576i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE10: SPLEXICONTYPE = SPLEXICONTYPE(2097152i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE11: SPLEXICONTYPE = SPLEXICONTYPE(4194304i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE12: SPLEXICONTYPE = SPLEXICONTYPE(8388608i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE13: SPLEXICONTYPE = SPLEXICONTYPE(16777216i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE14: SPLEXICONTYPE = SPLEXICONTYPE(33554432i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE15: SPLEXICONTYPE = SPLEXICONTYPE(67108864i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE16: SPLEXICONTYPE = SPLEXICONTYPE(134217728i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE17: SPLEXICONTYPE = SPLEXICONTYPE(268435456i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE18: SPLEXICONTYPE = SPLEXICONTYPE(536870912i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE19: SPLEXICONTYPE = SPLEXICONTYPE(1073741824i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_PRIVATE20: SPLEXICONTYPE = SPLEXICONTYPE(-2147483648i32);
 impl ::core::marker::Copy for SPLEXICONTYPE {}
 impl ::core::clone::Clone for SPLEXICONTYPE {
@@ -16577,13 +16577,13 @@ impl ::core::fmt::Debug for SPLEXICONTYPE {
         f.debug_tuple("SPLEXICONTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPLOADOPTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPLO_STATIC: SPLOADOPTIONS = SPLOADOPTIONS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPLO_DYNAMIC: SPLOADOPTIONS = SPLOADOPTIONS(1i32);
 impl ::core::marker::Copy for SPLOADOPTIONS {}
 impl ::core::clone::Clone for SPLOADOPTIONS {
@@ -16604,19 +16604,19 @@ impl ::core::fmt::Debug for SPLOADOPTIONS {
         f.debug_tuple("SPLOADOPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPMATCHINGMODE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const AllWords: SPMATCHINGMODE = SPMATCHINGMODE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const Subsequence: SPMATCHINGMODE = SPMATCHINGMODE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const OrderedSubset: SPMATCHINGMODE = SPMATCHINGMODE(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SubsequenceContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const OrderedSubsetContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(7i32);
 impl ::core::marker::Copy for SPMATCHINGMODE {}
 impl ::core::clone::Clone for SPMATCHINGMODE {
@@ -16637,12 +16637,12 @@ impl ::core::fmt::Debug for SPMATCHINGMODE {
         f.debug_tuple("SPMATCHINGMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMMSYS_AUDIO_IN_TOKEN_ID: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPNORMALIZATIONLIST {
     pub ulSize: u32,
     pub ppszzNormalizedList: *mut *mut u16,
@@ -16672,32 +16672,32 @@ impl ::core::default::Default for SPNORMALIZATIONLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SPNOTIFYCALLBACK = ::core::option::Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPPARTOFSPEECH(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_NotOverriden: SPPARTOFSPEECH = SPPARTOFSPEECH(-1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Unknown: SPPARTOFSPEECH = SPPARTOFSPEECH(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Noun: SPPARTOFSPEECH = SPPARTOFSPEECH(4096i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Verb: SPPARTOFSPEECH = SPPARTOFSPEECH(8192i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Modifier: SPPARTOFSPEECH = SPPARTOFSPEECH(12288i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Function: SPPARTOFSPEECH = SPPARTOFSPEECH(16384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Interjection: SPPARTOFSPEECH = SPPARTOFSPEECH(20480i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_Noncontent: SPPARTOFSPEECH = SPPARTOFSPEECH(24576i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_LMA: SPPARTOFSPEECH = SPPARTOFSPEECH(28672i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_SuppressWord: SPPARTOFSPEECH = SPPARTOFSPEECH(61440i32);
 impl ::core::marker::Copy for SPPARTOFSPEECH {}
 impl ::core::clone::Clone for SPPARTOFSPEECH {
@@ -16719,7 +16719,7 @@ impl ::core::fmt::Debug for SPPARTOFSPEECH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE {
     pub __AnonymousBase_sapi53_L5821_C34: SPPHRASE_50,
@@ -16759,7 +16759,7 @@ impl ::core::default::Default for SPPHRASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASEELEMENT {
     pub ulAudioTimeOffset: u32,
     pub ulAudioSizeTime: u32,
@@ -16817,7 +16817,7 @@ impl ::core::default::Default for SPPHRASEELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY {
     pub pszName: ::windows::core::PCWSTR,
@@ -16867,7 +16867,7 @@ impl ::core::default::Default for SPPHRASEPROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
@@ -16900,7 +16900,7 @@ impl ::core::default::Default for SPPHRASEPROPERTY_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
@@ -16939,13 +16939,13 @@ impl ::core::default::Default for SPPHRASEPROPERTY_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(1i32);
 impl ::core::marker::Copy for SPPHRASEPROPERTYUNIONTYPE {}
 impl ::core::clone::Clone for SPPHRASEPROPERTYUNIONTYPE {
@@ -16967,7 +16967,7 @@ impl ::core::fmt::Debug for SPPHRASEPROPERTYUNIONTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
     pub pszReplacementText: ::windows::core::PCWSTR,
@@ -16999,11 +16999,11 @@ impl ::core::default::Default for SPPHRASEREPLACEMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPPHRASERNG(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPR_ALL_ELEMENTS: SPPHRASERNG = SPPHRASERNG(-1i32);
 impl ::core::marker::Copy for SPPHRASERNG {}
 impl ::core::clone::Clone for SPPHRASERNG {
@@ -17025,7 +17025,7 @@ impl ::core::fmt::Debug for SPPHRASERNG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASERULE {
     pub pszName: ::windows::core::PCWSTR,
     pub ulId: u32,
@@ -17062,7 +17062,7 @@ impl ::core::default::Default for SPPHRASERULE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
@@ -17133,11 +17133,11 @@ impl ::core::default::Default for SPPHRASE_50 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPPRONUNCIATIONFLAGS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const ePRONFLAG_USED: SPPRONUNCIATIONFLAGS = SPPRONUNCIATIONFLAGS(1i32);
 impl ::core::marker::Copy for SPPRONUNCIATIONFLAGS {}
 impl ::core::clone::Clone for SPPRONUNCIATIONFLAGS {
@@ -17159,7 +17159,7 @@ impl ::core::fmt::Debug for SPPRONUNCIATIONFLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPROPERTYINFO {
     pub pszName: ::windows::core::PCWSTR,
@@ -17191,28 +17191,28 @@ impl ::core::default::Default for SPPROPERTYINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_ADAPTATION_ON: &'static str = "AdaptationOn";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_COMPLEX_RESPONSE_SPEED: &'static str = "ComplexResponseSpeed";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_HIGH_CONFIDENCE_THRESHOLD: &'static str = "HighConfidenceThreshold";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_LOW_CONFIDENCE_THRESHOLD: &'static str = "LowConfidenceThreshold";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: &'static str = "NormalConfidenceThreshold";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: &'static str = "PersistedBackgroundAdaptation";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: &'static str = "PersistedLanguageModelAdaptation";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_RESOURCE_USAGE: &'static str = "ResourceUsage";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_RESPONSE_SPEED: &'static str = "ResponseSpeed";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPROP_UX_IS_LISTENING: &'static str = "UXIsListening";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
     pub szRequestTypeOfUI: [u16; 255],
@@ -17244,23 +17244,23 @@ impl ::core::default::Default for SPRECOCONTEXTSTATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPRECOEVENTFLAGS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_AutoPause: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_Emulated: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_SMLTimeout: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_ExtendableParse: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_ReSent: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_Hypothesis: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_FalseRecognition: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(64i32);
 impl ::core::marker::Copy for SPRECOEVENTFLAGS {}
 impl ::core::clone::Clone for SPRECOEVENTFLAGS {
@@ -17281,10 +17281,10 @@ impl ::core::fmt::Debug for SPRECOEVENTFLAGS {
         f.debug_tuple("SPRECOEVENTFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRECOEXTENSION: &'static str = "RecoExtension";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
     pub ullRecognitionStreamPos: u64,
@@ -17321,7 +17321,7 @@ impl ::core::default::Default for SPRECOGNIZERSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::super::Foundation::FILETIME,
@@ -17361,19 +17361,19 @@ impl ::core::default::Default for SPRECORESULTTIMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPRECOSTATE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRST_INACTIVE: SPRECOSTATE = SPRECOSTATE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRST_ACTIVE: SPRECOSTATE = SPRECOSTATE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = SPRECOSTATE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRST_INACTIVE_WITH_PURGE: SPRECOSTATE = SPRECOSTATE(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRST_NUM_STATES: SPRECOSTATE = SPRECOSTATE(4i32);
 impl ::core::marker::Copy for SPRECOSTATE {}
 impl ::core::clone::Clone for SPRECOSTATE {
@@ -17394,16 +17394,16 @@ impl ::core::fmt::Debug for SPRECOSTATE {
         f.debug_tuple("SPRECOSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREG_LOCAL_MACHINE_ROOT: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREG_SAFE_USER_TOKENS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREG_USER_ROOT: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRP_NORMAL: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPRULE {
     pub pszRuleName: ::windows::core::PCWSTR,
     pub ulRuleId: u32,
@@ -17434,17 +17434,17 @@ impl ::core::default::Default for SPRULE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPRULESTATE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_INACTIVE: SPRULESTATE = SPRULESTATE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_ACTIVE: SPRULESTATE = SPRULESTATE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_ACTIVE_WITH_AUTO_PAUSE: SPRULESTATE = SPRULESTATE(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_ACTIVE_USER_DELIMITED: SPRULESTATE = SPRULESTATE(4i32);
 impl ::core::marker::Copy for SPRULESTATE {}
 impl ::core::clone::Clone for SPRULESTATE {
@@ -17465,13 +17465,13 @@ impl ::core::fmt::Debug for SPRULESTATE {
         f.debug_tuple("SPRULESTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPRUNSTATE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_DONE: SPRUNSTATE = SPRUNSTATE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_IS_SPEAKING: SPRUNSTATE = SPRUNSTATE(2i32);
 impl ::core::marker::Copy for SPRUNSTATE {}
 impl ::core::clone::Clone for SPRUNSTATE {
@@ -17493,7 +17493,7 @@ impl ::core::fmt::Debug for SPRUNSTATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
     pub pszScriptLine: ::windows::core::PWSTR,
@@ -17526,19 +17526,19 @@ impl ::core::default::Default for SPSEMANTICERRORINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPSEMANTICFORMAT(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSMF_SAPI_PROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSMF_SRGS_SEMANTICINTERPRETATION_MS: SPSEMANTICFORMAT = SPSEMANTICFORMAT(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSMF_SRGS_SAPIPROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSMF_UPS: SPSEMANTICFORMAT = SPSEMANTICFORMAT(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSMF_SRGS_SEMANTICINTERPRETATION_W3C: SPSEMANTICFORMAT = SPSEMANTICFORMAT(8i32);
 impl ::core::marker::Copy for SPSEMANTICFORMAT {}
 impl ::core::clone::Clone for SPSEMANTICFORMAT {
@@ -17560,7 +17560,7 @@ impl ::core::fmt::Debug for SPSEMANTICFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSERIALIZEDEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -17594,7 +17594,7 @@ impl ::core::default::Default for SPSERIALIZEDEVENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSERIALIZEDEVENT64 {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -17628,7 +17628,7 @@ impl ::core::default::Default for SPSERIALIZEDEVENT64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSERIALIZEDPHRASE {
     pub ulSerializedSize: u32,
 }
@@ -17658,7 +17658,7 @@ impl ::core::default::Default for SPSERIALIZEDPHRASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSERIALIZEDRESULT {
     pub ulSerializedSize: u32,
 }
@@ -17688,7 +17688,7 @@ impl ::core::default::Default for SPSERIALIZEDRESULT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
     pub LangID: u16,
@@ -17722,7 +17722,7 @@ impl ::core::default::Default for SPSHORTCUTPAIR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSHORTCUTPAIRLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -17753,25 +17753,25 @@ impl ::core::default::Default for SPSHORTCUTPAIRLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPSHORTCUTTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSHT_NotOverriden: SPSHORTCUTTYPE = SPSHORTCUTTYPE(-1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSHT_Unknown: SPSHORTCUTTYPE = SPSHORTCUTTYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSHT_EMAIL: SPSHORTCUTTYPE = SPSHORTCUTTYPE(4096i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSHT_OTHER: SPSHORTCUTTYPE = SPSHORTCUTTYPE(8192i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_RESERVED1: SPSHORTCUTTYPE = SPSHORTCUTTYPE(12288i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_RESERVED2: SPSHORTCUTTYPE = SPSHORTCUTTYPE(16384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_RESERVED3: SPSHORTCUTTYPE = SPSHORTCUTTYPE(20480i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_RESERVED4: SPSHORTCUTTYPE = SPSHORTCUTTYPE(61440i32);
 impl ::core::marker::Copy for SPSHORTCUTTYPE {}
 impl ::core::clone::Clone for SPSHORTCUTTYPE {
@@ -17793,7 +17793,7 @@ impl ::core::fmt::Debug for SPSHORTCUTTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPSTATEHANDLE__ {
     pub unused: i32,
 }
@@ -17822,151 +17822,151 @@ impl ::core::default::Default for SPSTATEHANDLE__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPSTREAMFORMAT(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_Default: SPSTREAMFORMAT = SPSTREAMFORMAT(-1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_NoAssignedFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_Text: SPSTREAMFORMAT = SPSTREAMFORMAT(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_NonStandardFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ExtendedAudioFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_8kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_8kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_8kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_8kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_11kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_11kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_12kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_12kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_12kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_12kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_16kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_16kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_16kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_16kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(19i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_22kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(20i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_22kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(21i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_22kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(22i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_22kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(23i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_24kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(24i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_24kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(25i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_24kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(26i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_24kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(27i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_32kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(28i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_32kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(29i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_32kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(30i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_32kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(31i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_44kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_44kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(33i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_44kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(34i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_44kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(35i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_48kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(36i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_48kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(37i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_48kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(38i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_48kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(39i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(40i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(41i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(42i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(43i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(44i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(45i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(46i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(47i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_ALaw_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(48i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(49i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(50i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(51i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(52i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(53i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(54i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(55i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_CCITT_uLaw_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(56i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(57i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(58i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(59i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(60i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(61i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(62i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(63i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_ADPCM_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_GSM610_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(65i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_GSM610_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(66i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_GSM610_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(67i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_GSM610_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(68i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_NUM_FORMATS: SPSTREAMFORMAT = SPSTREAMFORMAT(69i32);
 impl ::core::marker::Copy for SPSTREAMFORMAT {}
 impl ::core::clone::Clone for SPSTREAMFORMAT {
@@ -17988,7 +17988,7 @@ impl ::core::fmt::Debug for SPSTREAMFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPTEXTSELECTIONINFO {
     pub ulStartActiveOffset: u32,
     pub cchActiveChars: u32,
@@ -18020,41 +18020,41 @@ impl ::core::default::Default for SPTEXTSELECTIONINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_ATTRIBUTES: &'static str = "Attributes";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: &'static str = "LatencyTruncateThreshold";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: &'static str = "LatencyUpdateInterval";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_AUDIO_LATENCY_WARNING: &'static str = "LatencyWarningThreshold";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_FILES: &'static str = "Files";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_RETAINEDAUDIO: &'static str = "SecondsPerRetainedAudioEvent";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENKEY_UI: &'static str = "UI";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOKENVALUE_CLSID: &'static str = "CLSID";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPTOPIC_SPELLING: &'static str = "Spelling";
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVACTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Speak: SPVACTIONS = SPVACTIONS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Silence: SPVACTIONS = SPVACTIONS(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Pronounce: SPVACTIONS = SPVACTIONS(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Bookmark: SPVACTIONS = SPVACTIONS(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_SpellOut: SPVACTIONS = SPVACTIONS(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Section: SPVACTIONS = SPVACTIONS(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_ParseUnknownTag: SPVACTIONS = SPVACTIONS(6i32);
 impl ::core::marker::Copy for SPVACTIONS {}
 impl ::core::clone::Clone for SPVACTIONS {
@@ -18075,27 +18075,27 @@ impl ::core::fmt::Debug for SPVACTIONS {
         f.debug_tuple("SPVACTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVALUETYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_PROPERTY: SPVALUETYPE = SPVALUETYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_REPLACEMENT: SPVALUETYPE = SPVALUETYPE(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_RULE: SPVALUETYPE = SPVALUETYPE(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_DISPLAYTEXT: SPVALUETYPE = SPVALUETYPE(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_LEXICALFORM: SPVALUETYPE = SPVALUETYPE(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_PRONUNCIATION: SPVALUETYPE = SPVALUETYPE(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_AUDIO: SPVALUETYPE = SPVALUETYPE(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_ALTERNATES: SPVALUETYPE = SPVALUETYPE(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_ALL: SPVALUETYPE = SPVALUETYPE(255i32);
 impl ::core::marker::Copy for SPVALUETYPE {}
 impl ::core::clone::Clone for SPVALUETYPE {
@@ -18117,7 +18117,7 @@ impl ::core::fmt::Debug for SPVALUETYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPVCONTEXT {
     pub pCategory: ::windows::core::PCWSTR,
     pub pBefore: ::windows::core::PCWSTR,
@@ -18148,13 +18148,13 @@ impl ::core::default::Default for SPVCONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVFEATURE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVFEATURE_STRESSED: SPVFEATURE = SPVFEATURE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVFEATURE_EMPHASIS: SPVFEATURE = SPVFEATURE(2i32);
 impl ::core::marker::Copy for SPVFEATURE {}
 impl ::core::clone::Clone for SPVFEATURE {
@@ -18175,53 +18175,53 @@ impl ::core::fmt::Debug for SPVFEATURE {
         f.debug_tuple("SPVFEATURE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVISEMES(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_0: SPVISEMES = SPVISEMES(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_1: SPVISEMES = SPVISEMES(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_2: SPVISEMES = SPVISEMES(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_3: SPVISEMES = SPVISEMES(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_4: SPVISEMES = SPVISEMES(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_5: SPVISEMES = SPVISEMES(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_6: SPVISEMES = SPVISEMES(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_7: SPVISEMES = SPVISEMES(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_8: SPVISEMES = SPVISEMES(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_9: SPVISEMES = SPVISEMES(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_10: SPVISEMES = SPVISEMES(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_11: SPVISEMES = SPVISEMES(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_12: SPVISEMES = SPVISEMES(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_13: SPVISEMES = SPVISEMES(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_14: SPVISEMES = SPVISEMES(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_15: SPVISEMES = SPVISEMES(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_16: SPVISEMES = SPVISEMES(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_17: SPVISEMES = SPVISEMES(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_18: SPVISEMES = SPVISEMES(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_19: SPVISEMES = SPVISEMES(19i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_20: SPVISEMES = SPVISEMES(20i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_21: SPVISEMES = SPVISEMES(21i32);
 impl ::core::marker::Copy for SPVISEMES {}
 impl ::core::clone::Clone for SPVISEMES {
@@ -18242,17 +18242,17 @@ impl ::core::fmt::Debug for SPVISEMES {
         f.debug_tuple("SPVISEMES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVLIMITS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMIN_VOLUME: SPVLIMITS = SPVLIMITS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMAX_VOLUME: SPVLIMITS = SPVLIMITS(100i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMIN_RATE: SPVLIMITS = SPVLIMITS(-10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMAX_RATE: SPVLIMITS = SPVLIMITS(10i32);
 impl ::core::marker::Copy for SPVLIMITS {}
 impl ::core::clone::Clone for SPVLIMITS {
@@ -18273,10 +18273,10 @@ impl ::core::fmt::Debug for SPVLIMITS {
         f.debug_tuple("SPVLIMITS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVOICECATEGORY_TTSRATE: &'static str = "DefaultTTSRate";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPVOICESTATUS {
     pub ulCurrentStream: u32,
     pub ulLastStreamQueued: u32,
@@ -18332,7 +18332,7 @@ impl ::core::default::Default for SPVOICESTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPVPITCH {
     pub MiddleAdj: i32,
     pub RangeAdj: i32,
@@ -18362,15 +18362,15 @@ impl ::core::default::Default for SPVPITCH {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVPRIORITY(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVPRI_NORMAL: SPVPRIORITY = SPVPRIORITY(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVPRI_ALERT: SPVPRIORITY = SPVPRIORITY(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVPRI_OVER: SPVPRIORITY = SPVPRIORITY(2i32);
 impl ::core::marker::Copy for SPVPRIORITY {}
 impl ::core::clone::Clone for SPVPRIORITY {
@@ -18392,7 +18392,7 @@ impl ::core::fmt::Debug for SPVPRIORITY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
     pub LangID: u16,
@@ -18431,13 +18431,13 @@ impl ::core::default::Default for SPVSTATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPWAVEFORMATTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWF_INPUT: SPWAVEFORMATTYPE = SPWAVEFORMATTYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWF_SRENGINE: SPWAVEFORMATTYPE = SPWAVEFORMATTYPE(1i32);
 impl ::core::marker::Copy for SPWAVEFORMATTYPE {}
 impl ::core::clone::Clone for SPWAVEFORMATTYPE {
@@ -18458,10 +18458,10 @@ impl ::core::fmt::Debug for SPWAVEFORMATTYPE {
         f.debug_tuple("SPWAVEFORMATTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWILDCARD: &'static str = "...";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPWORD {
     pub pNextWord: *mut SPWORD,
     pub LangID: u16,
@@ -18496,7 +18496,7 @@ impl ::core::default::Default for SPWORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPWORDLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -18527,15 +18527,15 @@ impl ::core::default::Default for SPWORDLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPWORDPRONOUNCEABLE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWP_UNKNOWN_WORD_PRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWP_KNOWN_WORD_PRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(2i32);
 impl ::core::marker::Copy for SPWORDPRONOUNCEABLE {}
 impl ::core::clone::Clone for SPWORDPRONOUNCEABLE {
@@ -18557,7 +18557,7 @@ impl ::core::fmt::Debug for SPWORDPRONOUNCEABLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
     pub eLexiconType: SPLEXICONTYPE,
@@ -18592,7 +18592,7 @@ impl ::core::default::Default for SPWORDPRONUNCIATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPWORDPRONUNCIATIONLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -18623,13 +18623,13 @@ impl ::core::default::Default for SPWORDPRONUNCIATIONLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPWORDTYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eWORDTYPE_ADDED: SPWORDTYPE = SPWORDTYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eWORDTYPE_DELETED: SPWORDTYPE = SPWORDTYPE(2i32);
 impl ::core::marker::Copy for SPWORDTYPE {}
 impl ::core::clone::Clone for SPWORDTYPE {
@@ -18650,13 +18650,13 @@ impl ::core::fmt::Debug for SPWORDTYPE {
         f.debug_tuple("SPWORDTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPXMLRESULTOPTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = SPXMLRESULTOPTIONS(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPXRO_Alternates_SML: SPXMLRESULTOPTIONS = SPXMLRESULTOPTIONS(1i32);
 impl ::core::marker::Copy for SPXMLRESULTOPTIONS {}
 impl ::core::clone::Clone for SPXMLRESULTOPTIONS {
@@ -18677,23 +18677,23 @@ impl ::core::fmt::Debug for SPXMLRESULTOPTIONS {
         f.debug_tuple("SPXMLRESULTOPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_LOW_CONFIDENCE: i32 = -1i32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_MAX_LANGIDS: u32 = 20u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_MAX_PRON_LENGTH: u32 = 384u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SR_LOCALIZED_DESCRIPTION: &'static str = "Description";
 pub const SpAudioFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
 pub const SpCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
@@ -18723,151 +18723,151 @@ pub const SpTextSelectionInformation: ::windows::core::GUID = ::windows::core::G
 pub const SpUnCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
 pub const SpVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
 pub const SpWaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SpeechAllElements: i32 = -1i32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechAudioFormatType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTDefault: SpeechAudioFormatType = SpeechAudioFormatType(-1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTNoAssignedFormat: SpeechAudioFormatType = SpeechAudioFormatType(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTText: SpeechAudioFormatType = SpeechAudioFormatType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTNonStandardFormat: SpeechAudioFormatType = SpeechAudioFormatType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTExtendedAudioFormat: SpeechAudioFormatType = SpeechAudioFormatType(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT8kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT8kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT8kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT8kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT11kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT11kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT11kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT11kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT12kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT12kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT12kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT12kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT16kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT16kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT16kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT16kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(19i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT22kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(20i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT22kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(21i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT22kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(22i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT22kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(23i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT24kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(24i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT24kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(25i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT24kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(26i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT24kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(27i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT32kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(28i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT32kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(29i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT32kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(30i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT32kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(31i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT44kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT44kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(33i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT44kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(34i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT44kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(35i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT48kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(36i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT48kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(37i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT48kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(38i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFT48kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(39i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTTrueSpeech_8kHz1BitMono: SpeechAudioFormatType = SpeechAudioFormatType(40i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(41i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(42i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(43i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(44i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(45i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(46i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(47i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_ALaw_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(48i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(49i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(50i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(51i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(52i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(53i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(54i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(55i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTCCITT_uLaw_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(56i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(57i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(58i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(59i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(60i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(61i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(62i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(63i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTADPCM_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTGSM610_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(65i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTGSM610_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(66i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTGSM610_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(67i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTGSM610_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(68i32);
 impl ::core::marker::Copy for SpeechAudioFormatType {}
 impl ::core::clone::Clone for SpeechAudioFormatType {
@@ -18888,17 +18888,17 @@ impl ::core::fmt::Debug for SpeechAudioFormatType {
         f.debug_tuple("SpeechAudioFormatType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechAudioState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SASClosed: SpeechAudioState = SpeechAudioState(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SASStop: SpeechAudioState = SpeechAudioState(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SASPause: SpeechAudioState = SpeechAudioState(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SASRun: SpeechAudioState = SpeechAudioState(3i32);
 impl ::core::marker::Copy for SpeechAudioState {}
 impl ::core::clone::Clone for SpeechAudioState {
@@ -18919,13 +18919,13 @@ impl ::core::fmt::Debug for SpeechAudioState {
         f.debug_tuple("SpeechAudioState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechBookmarkOptions(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SBONone: SpeechBookmarkOptions = SpeechBookmarkOptions(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SBOPause: SpeechBookmarkOptions = SpeechBookmarkOptions(1i32);
 impl ::core::marker::Copy for SpeechBookmarkOptions {}
 impl ::core::clone::Clone for SpeechBookmarkOptions {
@@ -18946,17 +18946,17 @@ impl ::core::fmt::Debug for SpeechBookmarkOptions {
         f.debug_tuple("SpeechBookmarkOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechDataKeyLocation(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDKLDefaultLocation: SpeechDataKeyLocation = SpeechDataKeyLocation(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDKLCurrentUser: SpeechDataKeyLocation = SpeechDataKeyLocation(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDKLLocalMachine: SpeechDataKeyLocation = SpeechDataKeyLocation(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDKLCurrentConfig: SpeechDataKeyLocation = SpeechDataKeyLocation(5i32);
 impl ::core::marker::Copy for SpeechDataKeyLocation {}
 impl ::core::clone::Clone for SpeechDataKeyLocation {
@@ -18977,27 +18977,27 @@ impl ::core::fmt::Debug for SpeechDataKeyLocation {
         f.debug_tuple("SpeechDataKeyLocation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechDiscardType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTProperty: SpeechDiscardType = SpeechDiscardType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTReplacement: SpeechDiscardType = SpeechDiscardType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTRule: SpeechDiscardType = SpeechDiscardType(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTDisplayText: SpeechDiscardType = SpeechDiscardType(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTLexicalForm: SpeechDiscardType = SpeechDiscardType(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTPronunciation: SpeechDiscardType = SpeechDiscardType(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTAudio: SpeechDiscardType = SpeechDiscardType(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTAlternates: SpeechDiscardType = SpeechDiscardType(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTAll: SpeechDiscardType = SpeechDiscardType(255i32);
 impl ::core::marker::Copy for SpeechDiscardType {}
 impl ::core::clone::Clone for SpeechDiscardType {
@@ -19018,17 +19018,17 @@ impl ::core::fmt::Debug for SpeechDiscardType {
         f.debug_tuple("SpeechDiscardType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechDisplayAttributes(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDA_No_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDA_One_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDA_Two_Trailing_Spaces: SpeechDisplayAttributes = SpeechDisplayAttributes(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDA_Consume_Leading_Spaces: SpeechDisplayAttributes = SpeechDisplayAttributes(8i32);
 impl ::core::marker::Copy for SpeechDisplayAttributes {}
 impl ::core::clone::Clone for SpeechDisplayAttributes {
@@ -19049,21 +19049,21 @@ impl ::core::fmt::Debug for SpeechDisplayAttributes {
         f.debug_tuple("SpeechDisplayAttributes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechEmulationCompareFlags(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFIgnoreCase: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFIgnoreKanaType: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(65536i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFIgnoreWidth: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(131072i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFNoSpecialChars: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(536870912i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFEmulateResult: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1073741824i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFDefault: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(196609i32);
 impl ::core::marker::Copy for SpeechEmulationCompareFlags {}
 impl ::core::clone::Clone for SpeechEmulationCompareFlags {
@@ -19084,15 +19084,15 @@ impl ::core::fmt::Debug for SpeechEmulationCompareFlags {
         f.debug_tuple("SpeechEmulationCompareFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechEngineConfidence(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECLowConfidence: SpeechEngineConfidence = SpeechEngineConfidence(-1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECNormalConfidence: SpeechEngineConfidence = SpeechEngineConfidence(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECHighConfidence: SpeechEngineConfidence = SpeechEngineConfidence(1i32);
 impl ::core::marker::Copy for SpeechEngineConfidence {}
 impl ::core::clone::Clone for SpeechEngineConfidence {
@@ -19113,13 +19113,13 @@ impl ::core::fmt::Debug for SpeechEngineConfidence {
         f.debug_tuple("SpeechEngineConfidence").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechFormatType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SFTInput: SpeechFormatType = SpeechFormatType(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SFTSREngine: SpeechFormatType = SpeechFormatType(1i32);
 impl ::core::marker::Copy for SpeechFormatType {}
 impl ::core::clone::Clone for SpeechFormatType {
@@ -19140,21 +19140,21 @@ impl ::core::fmt::Debug for SpeechFormatType {
         f.debug_tuple("SpeechFormatType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechGrammarRuleStateTransitionType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTEpsilon: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTWord: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTRule: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTDictation: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTWildcard: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTTextBuffer: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(5i32);
 impl ::core::marker::Copy for SpeechGrammarRuleStateTransitionType {}
 impl ::core::clone::Clone for SpeechGrammarRuleStateTransitionType {
@@ -19175,15 +19175,15 @@ impl ::core::fmt::Debug for SpeechGrammarRuleStateTransitionType {
         f.debug_tuple("SpeechGrammarRuleStateTransitionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechGrammarState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGSEnabled: SpeechGrammarState = SpeechGrammarState(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGSDisabled: SpeechGrammarState = SpeechGrammarState(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGSExclusive: SpeechGrammarState = SpeechGrammarState(3i32);
 impl ::core::marker::Copy for SpeechGrammarState {}
 impl ::core::clone::Clone for SpeechGrammarState {
@@ -19204,17 +19204,17 @@ impl ::core::fmt::Debug for SpeechGrammarState {
         f.debug_tuple("SpeechGrammarState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechGrammarWordType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDisplay: SpeechGrammarWordType = SpeechGrammarWordType(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGLexical: SpeechGrammarWordType = SpeechGrammarWordType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGPronounciation: SpeechGrammarWordType = SpeechGrammarWordType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGLexicalNoSpecialChars: SpeechGrammarWordType = SpeechGrammarWordType(3i32);
 impl ::core::marker::Copy for SpeechGrammarWordType {}
 impl ::core::clone::Clone for SpeechGrammarWordType {
@@ -19235,23 +19235,23 @@ impl ::core::fmt::Debug for SpeechGrammarWordType {
         f.debug_tuple("SpeechGrammarWordType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechInterference(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SINone: SpeechInterference = SpeechInterference(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SINoise: SpeechInterference = SpeechInterference(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SINoSignal: SpeechInterference = SpeechInterference(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SITooLoud: SpeechInterference = SpeechInterference(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SITooQuiet: SpeechInterference = SpeechInterference(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SITooFast: SpeechInterference = SpeechInterference(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SITooSlow: SpeechInterference = SpeechInterference(6i32);
 impl ::core::marker::Copy for SpeechInterference {}
 impl ::core::clone::Clone for SpeechInterference {
@@ -19272,13 +19272,13 @@ impl ::core::fmt::Debug for SpeechInterference {
         f.debug_tuple("SpeechInterference").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechLexiconType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SLTUser: SpeechLexiconType = SpeechLexiconType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SLTApp: SpeechLexiconType = SpeechLexiconType(2i32);
 impl ::core::marker::Copy for SpeechLexiconType {}
 impl ::core::clone::Clone for SpeechLexiconType {
@@ -19299,13 +19299,13 @@ impl ::core::fmt::Debug for SpeechLexiconType {
         f.debug_tuple("SpeechLexiconType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechLoadOption(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SLOStatic: SpeechLoadOption = SpeechLoadOption(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SLODynamic: SpeechLoadOption = SpeechLoadOption(1i32);
 impl ::core::marker::Copy for SpeechLoadOption {}
 impl ::core::clone::Clone for SpeechLoadOption {
@@ -19326,27 +19326,27 @@ impl ::core::fmt::Debug for SpeechLoadOption {
         f.debug_tuple("SpeechLoadOption").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechPartOfSpeech(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSNotOverriden: SpeechPartOfSpeech = SpeechPartOfSpeech(-1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSUnknown: SpeechPartOfSpeech = SpeechPartOfSpeech(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSNoun: SpeechPartOfSpeech = SpeechPartOfSpeech(4096i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSVerb: SpeechPartOfSpeech = SpeechPartOfSpeech(8192i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSModifier: SpeechPartOfSpeech = SpeechPartOfSpeech(12288i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSFunction: SpeechPartOfSpeech = SpeechPartOfSpeech(16384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSInterjection: SpeechPartOfSpeech = SpeechPartOfSpeech(20480i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSLMA: SpeechPartOfSpeech = SpeechPartOfSpeech(28672i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSSuppressWord: SpeechPartOfSpeech = SpeechPartOfSpeech(61440i32);
 impl ::core::marker::Copy for SpeechPartOfSpeech {}
 impl ::core::clone::Clone for SpeechPartOfSpeech {
@@ -19367,13 +19367,13 @@ impl ::core::fmt::Debug for SpeechPartOfSpeech {
         f.debug_tuple("SpeechPartOfSpeech").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecoContextState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRCS_Disabled: SpeechRecoContextState = SpeechRecoContextState(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRCS_Enabled: SpeechRecoContextState = SpeechRecoContextState(1i32);
 impl ::core::marker::Copy for SpeechRecoContextState {}
 impl ::core::clone::Clone for SpeechRecoContextState {
@@ -19394,47 +19394,47 @@ impl ::core::fmt::Debug for SpeechRecoContextState {
         f.debug_tuple("SpeechRecoContextState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecoEvents(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREStreamEnd: SpeechRecoEvents = SpeechRecoEvents(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRESoundStart: SpeechRecoEvents = SpeechRecoEvents(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRESoundEnd: SpeechRecoEvents = SpeechRecoEvents(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREPhraseStart: SpeechRecoEvents = SpeechRecoEvents(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRERecognition: SpeechRecoEvents = SpeechRecoEvents(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREHypothesis: SpeechRecoEvents = SpeechRecoEvents(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREBookmark: SpeechRecoEvents = SpeechRecoEvents(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREPropertyNumChange: SpeechRecoEvents = SpeechRecoEvents(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREPropertyStringChange: SpeechRecoEvents = SpeechRecoEvents(256i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREFalseRecognition: SpeechRecoEvents = SpeechRecoEvents(512i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREInterference: SpeechRecoEvents = SpeechRecoEvents(1024i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRERequestUI: SpeechRecoEvents = SpeechRecoEvents(2048i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREStateChange: SpeechRecoEvents = SpeechRecoEvents(4096i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREAdaptation: SpeechRecoEvents = SpeechRecoEvents(8192i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREStreamStart: SpeechRecoEvents = SpeechRecoEvents(16384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRERecoOtherContext: SpeechRecoEvents = SpeechRecoEvents(32768i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREAudioLevel: SpeechRecoEvents = SpeechRecoEvents(65536i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREPrivate: SpeechRecoEvents = SpeechRecoEvents(262144i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREAllEvents: SpeechRecoEvents = SpeechRecoEvents(393215i32);
 impl ::core::marker::Copy for SpeechRecoEvents {}
 impl ::core::clone::Clone for SpeechRecoEvents {
@@ -19455,21 +19455,21 @@ impl ::core::fmt::Debug for SpeechRecoEvents {
         f.debug_tuple("SpeechRecoEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTStandard: SpeechRecognitionType = SpeechRecognitionType(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTAutopause: SpeechRecognitionType = SpeechRecognitionType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTEmulated: SpeechRecognitionType = SpeechRecognitionType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTSMLTimeout: SpeechRecognitionType = SpeechRecognitionType(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTExtendableParse: SpeechRecognitionType = SpeechRecognitionType(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTReSent: SpeechRecognitionType = SpeechRecognitionType(16i32);
 impl ::core::marker::Copy for SpeechRecognitionType {}
 impl ::core::clone::Clone for SpeechRecognitionType {
@@ -19490,17 +19490,17 @@ impl ::core::fmt::Debug for SpeechRecognitionType {
         f.debug_tuple("SpeechRecognitionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognizerState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSInactive: SpeechRecognizerState = SpeechRecognizerState(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSActive: SpeechRecognizerState = SpeechRecognizerState(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSActiveAlways: SpeechRecognizerState = SpeechRecognizerState(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSInactiveWithPurge: SpeechRecognizerState = SpeechRecognizerState(3i32);
 impl ::core::marker::Copy for SpeechRecognizerState {}
 impl ::core::clone::Clone for SpeechRecognizerState {
@@ -19521,13 +19521,13 @@ impl ::core::fmt::Debug for SpeechRecognizerState {
         f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRetainedAudioOptions(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRAONone: SpeechRetainedAudioOptions = SpeechRetainedAudioOptions(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRAORetainAudio: SpeechRetainedAudioOptions = SpeechRetainedAudioOptions(1i32);
 impl ::core::marker::Copy for SpeechRetainedAudioOptions {}
 impl ::core::clone::Clone for SpeechRetainedAudioOptions {
@@ -19548,23 +19548,23 @@ impl ::core::fmt::Debug for SpeechRetainedAudioOptions {
         f.debug_tuple("SpeechRetainedAudioOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRuleAttributes(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRATopLevel: SpeechRuleAttributes = SpeechRuleAttributes(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRADefaultToActive: SpeechRuleAttributes = SpeechRuleAttributes(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRAExport: SpeechRuleAttributes = SpeechRuleAttributes(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRAImport: SpeechRuleAttributes = SpeechRuleAttributes(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRAInterpreter: SpeechRuleAttributes = SpeechRuleAttributes(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRADynamic: SpeechRuleAttributes = SpeechRuleAttributes(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRARoot: SpeechRuleAttributes = SpeechRuleAttributes(64i32);
 impl ::core::marker::Copy for SpeechRuleAttributes {}
 impl ::core::clone::Clone for SpeechRuleAttributes {
@@ -19585,17 +19585,17 @@ impl ::core::fmt::Debug for SpeechRuleAttributes {
         f.debug_tuple("SpeechRuleAttributes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRuleState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDSInactive: SpeechRuleState = SpeechRuleState(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDSActive: SpeechRuleState = SpeechRuleState(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDSActiveWithAutoPause: SpeechRuleState = SpeechRuleState(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDSActiveUserDelimited: SpeechRuleState = SpeechRuleState(4i32);
 impl ::core::marker::Copy for SpeechRuleState {}
 impl ::core::clone::Clone for SpeechRuleState {
@@ -19616,13 +19616,13 @@ impl ::core::fmt::Debug for SpeechRuleState {
         f.debug_tuple("SpeechRuleState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRunState(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSEDone: SpeechRunState = SpeechRunState(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSEIsSpeaking: SpeechRunState = SpeechRunState(2i32);
 impl ::core::marker::Copy for SpeechRunState {}
 impl ::core::clone::Clone for SpeechRunState {
@@ -19643,15 +19643,15 @@ impl ::core::fmt::Debug for SpeechRunState {
         f.debug_tuple("SpeechRunState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechSpecialTransitionType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSTTWildcard: SpeechSpecialTransitionType = SpeechSpecialTransitionType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSTTDictation: SpeechSpecialTransitionType = SpeechSpecialTransitionType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSTTTextBuffer: SpeechSpecialTransitionType = SpeechSpecialTransitionType(3i32);
 impl ::core::marker::Copy for SpeechSpecialTransitionType {}
 impl ::core::clone::Clone for SpeechSpecialTransitionType {
@@ -19672,17 +19672,17 @@ impl ::core::fmt::Debug for SpeechSpecialTransitionType {
         f.debug_tuple("SpeechSpecialTransitionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechStreamFileMode(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSFMOpenForRead: SpeechStreamFileMode = SpeechStreamFileMode(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSFMOpenReadWrite: SpeechStreamFileMode = SpeechStreamFileMode(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSFMCreate: SpeechStreamFileMode = SpeechStreamFileMode(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSFMCreateForWrite: SpeechStreamFileMode = SpeechStreamFileMode(3i32);
 impl ::core::marker::Copy for SpeechStreamFileMode {}
 impl ::core::clone::Clone for SpeechStreamFileMode {
@@ -19703,15 +19703,15 @@ impl ::core::fmt::Debug for SpeechStreamFileMode {
         f.debug_tuple("SpeechStreamFileMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechStreamSeekPositionType(pub u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSSPTRelativeToStart: SpeechStreamSeekPositionType = SpeechStreamSeekPositionType(0u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSSPTRelativeToCurrentPosition: SpeechStreamSeekPositionType = SpeechStreamSeekPositionType(1u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSSPTRelativeToEnd: SpeechStreamSeekPositionType = SpeechStreamSeekPositionType(2u32);
 impl ::core::marker::Copy for SpeechStreamSeekPositionType {}
 impl ::core::clone::Clone for SpeechStreamSeekPositionType {
@@ -19732,19 +19732,19 @@ impl ::core::fmt::Debug for SpeechStreamSeekPositionType {
         f.debug_tuple("SpeechStreamSeekPositionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechTokenContext(pub u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STCInprocServer: SpeechTokenContext = SpeechTokenContext(1u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STCInprocHandler: SpeechTokenContext = SpeechTokenContext(2u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STCLocalServer: SpeechTokenContext = SpeechTokenContext(4u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STCRemoteServer: SpeechTokenContext = SpeechTokenContext(16u32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STCAll: SpeechTokenContext = SpeechTokenContext(23u32);
 impl ::core::marker::Copy for SpeechTokenContext {}
 impl ::core::clone::Clone for SpeechTokenContext {
@@ -19765,17 +19765,17 @@ impl ::core::fmt::Debug for SpeechTokenContext {
         f.debug_tuple("SpeechTokenContext").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechTokenShellFolder(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STSF_AppData: SpeechTokenShellFolder = SpeechTokenShellFolder(26i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STSF_LocalAppData: SpeechTokenShellFolder = SpeechTokenShellFolder(28i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STSF_CommonAppData: SpeechTokenShellFolder = SpeechTokenShellFolder(35i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STSF_FlagCreate: SpeechTokenShellFolder = SpeechTokenShellFolder(32768i32);
 impl ::core::marker::Copy for SpeechTokenShellFolder {}
 impl ::core::clone::Clone for SpeechTokenShellFolder {
@@ -19796,15 +19796,15 @@ impl ::core::fmt::Debug for SpeechTokenShellFolder {
         f.debug_tuple("SpeechTokenShellFolder").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechVisemeFeature(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVF_None: SpeechVisemeFeature = SpeechVisemeFeature(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVF_Stressed: SpeechVisemeFeature = SpeechVisemeFeature(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVF_Emphasis: SpeechVisemeFeature = SpeechVisemeFeature(2i32);
 impl ::core::marker::Copy for SpeechVisemeFeature {}
 impl ::core::clone::Clone for SpeechVisemeFeature {
@@ -19825,53 +19825,53 @@ impl ::core::fmt::Debug for SpeechVisemeFeature {
         f.debug_tuple("SpeechVisemeFeature").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechVisemeType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_0: SpeechVisemeType = SpeechVisemeType(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_1: SpeechVisemeType = SpeechVisemeType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_2: SpeechVisemeType = SpeechVisemeType(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_3: SpeechVisemeType = SpeechVisemeType(3i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_4: SpeechVisemeType = SpeechVisemeType(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_5: SpeechVisemeType = SpeechVisemeType(5i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_6: SpeechVisemeType = SpeechVisemeType(6i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_7: SpeechVisemeType = SpeechVisemeType(7i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_8: SpeechVisemeType = SpeechVisemeType(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_9: SpeechVisemeType = SpeechVisemeType(9i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_10: SpeechVisemeType = SpeechVisemeType(10i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_11: SpeechVisemeType = SpeechVisemeType(11i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_12: SpeechVisemeType = SpeechVisemeType(12i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_13: SpeechVisemeType = SpeechVisemeType(13i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_14: SpeechVisemeType = SpeechVisemeType(14i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_15: SpeechVisemeType = SpeechVisemeType(15i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_16: SpeechVisemeType = SpeechVisemeType(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_17: SpeechVisemeType = SpeechVisemeType(17i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_18: SpeechVisemeType = SpeechVisemeType(18i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_19: SpeechVisemeType = SpeechVisemeType(19i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_20: SpeechVisemeType = SpeechVisemeType(20i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_21: SpeechVisemeType = SpeechVisemeType(21i32);
 impl ::core::marker::Copy for SpeechVisemeType {}
 impl ::core::clone::Clone for SpeechVisemeType {
@@ -19892,31 +19892,31 @@ impl ::core::fmt::Debug for SpeechVisemeType {
         f.debug_tuple("SpeechVisemeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechVoiceEvents(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEStartInputStream: SpeechVoiceEvents = SpeechVoiceEvents(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEEndInputStream: SpeechVoiceEvents = SpeechVoiceEvents(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEVoiceChange: SpeechVoiceEvents = SpeechVoiceEvents(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEBookmark: SpeechVoiceEvents = SpeechVoiceEvents(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEWordBoundary: SpeechVoiceEvents = SpeechVoiceEvents(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEPhoneme: SpeechVoiceEvents = SpeechVoiceEvents(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVESentenceBoundary: SpeechVoiceEvents = SpeechVoiceEvents(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEViseme: SpeechVoiceEvents = SpeechVoiceEvents(256i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEAudioLevel: SpeechVoiceEvents = SpeechVoiceEvents(512i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEPrivate: SpeechVoiceEvents = SpeechVoiceEvents(32768i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEAllEvents: SpeechVoiceEvents = SpeechVoiceEvents(33790i32);
 impl ::core::marker::Copy for SpeechVoiceEvents {}
 impl ::core::clone::Clone for SpeechVoiceEvents {
@@ -19937,15 +19937,15 @@ impl ::core::fmt::Debug for SpeechVoiceEvents {
         f.debug_tuple("SpeechVoiceEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechVoicePriority(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVPNormal: SpeechVoicePriority = SpeechVoicePriority(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVPAlert: SpeechVoicePriority = SpeechVoicePriority(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVPOver: SpeechVoicePriority = SpeechVoicePriority(2i32);
 impl ::core::marker::Copy for SpeechVoicePriority {}
 impl ::core::clone::Clone for SpeechVoicePriority {
@@ -19966,39 +19966,39 @@ impl ::core::fmt::Debug for SpeechVoicePriority {
         f.debug_tuple("SpeechVoicePriority").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechVoiceSpeakFlags(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFDefault: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFlagsAsync: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFPurgeBeforeSpeak: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(2i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFIsFilename: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(4i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFIsXML: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(8i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFIsNotXML: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(16i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFPersistXML: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(32i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFNLPSpeakPunc: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFParseSapi: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(128i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFParseSsml: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(256i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFParseAutodetect: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFNLPMask: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(64i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFParseMask: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(384i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFVoiceMask: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(511i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFUnusedFlags: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(-512i32);
 impl ::core::marker::Copy for SpeechVoiceSpeakFlags {}
 impl ::core::clone::Clone for SpeechVoiceSpeakFlags {
@@ -20019,15 +20019,15 @@ impl ::core::fmt::Debug for SpeechVoiceSpeakFlags {
         f.debug_tuple("SpeechVoiceSpeakFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechWordPronounceable(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWPUnknownWordUnpronounceable: SpeechWordPronounceable = SpeechWordPronounceable(0i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWPUnknownWordPronounceable: SpeechWordPronounceable = SpeechWordPronounceable(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWPKnownWordPronounceable: SpeechWordPronounceable = SpeechWordPronounceable(2i32);
 impl ::core::marker::Copy for SpeechWordPronounceable {}
 impl ::core::clone::Clone for SpeechWordPronounceable {
@@ -20048,13 +20048,13 @@ impl ::core::fmt::Debug for SpeechWordPronounceable {
         f.debug_tuple("SpeechWordPronounceable").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechWordType(pub i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWTAdded: SpeechWordType = SpeechWordType(1i32);
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWTDeleted: SpeechWordType = SpeechWordType(2i32);
 impl ::core::marker::Copy for SpeechWordType {}
 impl ::core::clone::Clone for SpeechWordType {
@@ -20075,17 +20075,17 @@ impl ::core::fmt::Debug for SpeechWordType {
         f.debug_tuple("SpeechWordType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const Speech_Default_Weight: f32 = 1f32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const Speech_Max_Pron_Length: i32 = 384i32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const Speech_Max_Word_Length: i32 = 128i32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const Speech_StreamPos_Asap: i32 = 0i32;
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _ISpeechRecoContextEvents(::windows::core::IUnknown);
@@ -20170,7 +20170,7 @@ unsafe impl ::windows::core::Interface for _ISpeechRecoContextEvents {
 pub struct _ISpeechRecoContextEvents_Vtbl {
     pub base: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _ISpeechVoiceEvents(::windows::core::IUnknown);

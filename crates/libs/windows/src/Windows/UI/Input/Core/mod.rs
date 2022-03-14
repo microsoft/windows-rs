@@ -48,11 +48,11 @@ pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     CreateForView: usize,
 }
-#[doc = "*Required features: 'UI_Input_Core'*"]
+#[doc = "*Required features: `\"UI_Input_Core\"`*"]
 #[repr(transparent)]
 pub struct RadialControllerIndependentInputSource(::windows::core::IUnknown);
 impl RadialControllerIndependentInputSource {
-    #[doc = "*Required features: 'UI_Input_Core'*"]
+    #[doc = "*Required features: `\"UI_Input_Core\"`*"]
     pub fn Controller(&self) -> ::windows::core::Result<super::RadialController> {
         let this = self;
         unsafe {
@@ -60,7 +60,7 @@ impl RadialControllerIndependentInputSource {
             (::windows::core::Interface::vtable(this).Controller)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::RadialController>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Input_Core', 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Input_Core\"`, `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = self;
@@ -69,7 +69,7 @@ impl RadialControllerIndependentInputSource {
             (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Input_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Input_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
@@ -78,7 +78,7 @@ impl RadialControllerIndependentInputSource {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Input_Core', 'ApplicationModel_Core'*"]
+    #[doc = "*Required features: `\"UI_Input_Core\"`, `\"ApplicationModel_Core\"`*"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateForView<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::Core::CoreApplicationView>>(view: Param0) -> ::windows::core::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {

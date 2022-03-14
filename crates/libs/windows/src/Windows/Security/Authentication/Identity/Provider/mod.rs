@@ -308,13 +308,13 @@ pub struct ISecondaryAuthenticationFactorRegistrationStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
     UpdateDeviceConfigurationDataAsync: usize,
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthentication(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthentication {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ServiceAuthenticationHmac(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -323,7 +323,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).ServiceAuthenticationHmac)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SessionNonce(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -332,7 +332,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).SessionNonce)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn DeviceNonce(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -341,7 +341,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).DeviceNonce)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn DeviceConfigurationData(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -350,7 +350,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).DeviceConfigurationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn FinishAuthenticationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(&self, devicehmac: Param0, sessionhmac: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>> {
         let this = self;
@@ -359,7 +359,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).FinishAuthenticationAsync)(::core::mem::transmute_copy(this), devicehmac.into_param().abi(), sessionhmac.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AbortAuthenticationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, errorlogmessage: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -368,7 +368,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).AbortAuthenticationAsync)(::core::mem::transmute_copy(this), errorlogmessage.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ShowNotificationMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(devicename: Param0, message: SecondaryAuthenticationFactorAuthenticationMessage) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
@@ -376,7 +376,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).ShowNotificationMessageAsync)(::core::mem::transmute_copy(this), devicename.into_param().abi(), message, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn StartAuthenticationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(deviceid: Param0, serviceauthenticationnonce: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
@@ -384,7 +384,7 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).StartAuthenticationAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), serviceauthenticationnonce.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AuthenticationStageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
@@ -392,12 +392,12 @@ impl SecondaryAuthenticationFactorAuthentication {
             (::windows::core::Interface::vtable(this).AuthenticationStageChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAuthenticationStageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAuthenticationStageChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetAuthenticationStageInfoAsync() -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationStageInfo>> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
@@ -501,7 +501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthentication {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -570,13 +570,13 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationResult(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationResult {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Status(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationStatus> {
         let this = self;
@@ -585,7 +585,7 @@ impl SecondaryAuthenticationFactorAuthenticationResult {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Authentication(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthentication> {
         let this = self;
@@ -684,7 +684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationResult {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -726,7 +726,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -775,13 +775,13 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn StageInfo(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationStageInfo> {
         let this = self;
@@ -880,13 +880,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationStageInfo {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Stage(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationStage> {
         let this = self;
@@ -895,7 +895,7 @@ impl SecondaryAuthenticationFactorAuthenticationStageInfo {
             (::windows::core::Interface::vtable(this).Stage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStage>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Scenario(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationScenario> {
         let this = self;
@@ -904,7 +904,7 @@ impl SecondaryAuthenticationFactorAuthenticationStageInfo {
             (::windows::core::Interface::vtable(this).Scenario)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationScenario>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1003,7 +1003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageInfo {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1048,7 +1048,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1124,7 +1124,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1166,7 +1166,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1208,7 +1208,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1251,7 +1251,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1294,7 +1294,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1337,13 +1337,13 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorFinish
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorInfo {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1352,7 +1352,7 @@ impl SecondaryAuthenticationFactorInfo {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceFriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1361,7 +1361,7 @@ impl SecondaryAuthenticationFactorInfo {
             (::windows::core::Interface::vtable(this).DeviceFriendlyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceModelNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1370,7 +1370,7 @@ impl SecondaryAuthenticationFactorInfo {
             (::windows::core::Interface::vtable(this).DeviceModelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn DeviceConfigurationData(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1379,7 +1379,7 @@ impl SecondaryAuthenticationFactorInfo {
             (::windows::core::Interface::vtable(this).DeviceConfigurationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn PresenceMonitoringMode(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorDevicePresenceMonitoringMode> {
         let this = &::windows::core::Interface::cast::<ISecondaryAuthenticationFactorInfo2>(self)?;
@@ -1388,7 +1388,7 @@ impl SecondaryAuthenticationFactorInfo {
             (::windows::core::Interface::vtable(this).PresenceMonitoringMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorDevicePresenceMonitoringMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn UpdateDevicePresenceAsync(&self, presencestate: SecondaryAuthenticationFactorDevicePresence) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<ISecondaryAuthenticationFactorInfo2>(self)?;
@@ -1397,7 +1397,7 @@ impl SecondaryAuthenticationFactorInfo {
             (::windows::core::Interface::vtable(this).UpdateDevicePresenceAsync)(::core::mem::transmute_copy(this), presencestate, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsAuthenticationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISecondaryAuthenticationFactorInfo2>(self)?;
@@ -1496,13 +1496,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorInfo {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistration(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorRegistration {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RegisterDevicePresenceMonitoringAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, deviceinstancepath: Param1, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
@@ -1510,7 +1510,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).RegisterDevicePresenceMonitoringAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), deviceinstancepath.into_param().abi(), monitoringmode, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn RegisterDevicePresenceMonitoringWithNewDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(deviceid: Param0, deviceinstancepath: Param1, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, devicefriendlyname: Param3, devicemodelnumber: Param4, deviceconfigurationdata: Param5) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
@@ -1518,7 +1518,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).RegisterDevicePresenceMonitoringWithNewDeviceAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), deviceinstancepath.into_param().abi(), monitoringmode, devicefriendlyname.into_param().abi(), devicemodelnumber.into_param().abi(), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn UnregisterDevicePresenceMonitoringAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
@@ -1526,7 +1526,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).UnregisterDevicePresenceMonitoringAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsDevicePresenceMonitoringSupported() -> ::windows::core::Result<bool> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
@@ -1534,7 +1534,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).IsDevicePresenceMonitoringSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn FinishRegisteringDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(&self, deviceconfigurationdata: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1543,7 +1543,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).FinishRegisteringDeviceAsync)(::core::mem::transmute_copy(this), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AbortRegisteringDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, errorlogmessage: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1552,7 +1552,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).AbortRegisteringDeviceAsync)(::core::mem::transmute_copy(this), errorlogmessage.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn RequestStartRegisteringDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>, Param5: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(deviceid: Param0, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: Param2, devicemodelnumber: Param3, devicekey: Param4, mutualauthenticationkey: Param5) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
@@ -1560,7 +1560,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).RequestStartRegisteringDeviceAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), capabilities, devicefriendlyname.into_param().abi(), devicemodelnumber.into_param().abi(), devicekey.into_param().abi(), mutualauthenticationkey.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation_Collections', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllRegisteredDeviceInfoAsync(querytype: SecondaryAuthenticationFactorDeviceFindScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
@@ -1568,7 +1568,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).FindAllRegisteredDeviceInfoAsync)(::core::mem::transmute_copy(this), querytype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn UnregisterDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
@@ -1576,7 +1576,7 @@ impl SecondaryAuthenticationFactorRegistration {
             (::windows::core::Interface::vtable(this).UnregisterDeviceAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'Foundation', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn UpdateDeviceConfigurationDataAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(deviceid: Param0, deviceconfigurationdata: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
@@ -1686,13 +1686,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistration {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistration {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationResult(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorRegistrationResult {
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Status(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorRegistrationStatus> {
         let this = self;
@@ -1701,7 +1701,7 @@ impl SecondaryAuthenticationFactorRegistrationResult {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorRegistrationStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+    #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Registration(&self) -> ::windows::core::Result<SecondaryAuthenticationFactorRegistration> {
         let this = self;
@@ -1800,7 +1800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistrationResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistrationResult {}
-#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
+#[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

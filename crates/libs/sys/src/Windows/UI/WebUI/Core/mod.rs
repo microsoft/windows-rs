@@ -6,7 +6,7 @@ pub type MenuOpenedEventHandler = *mut ::core::ffi::c_void;
 pub type SizeChangedEventHandler = *mut ::core::ffi::c_void;
 pub type WebUICommandBar = *mut ::core::ffi::c_void;
 pub type WebUICommandBarBitmapIcon = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_WebUI_Core'*"]
+#[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
 impl WebUICommandBarClosedDisplayMode {

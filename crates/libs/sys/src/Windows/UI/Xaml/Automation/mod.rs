@@ -6,7 +6,7 @@ pub mod Provider;
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 pub mod Text;
 pub type AnnotationPatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AnnotationType(pub i32);
 impl AnnotationType {
@@ -40,7 +40,7 @@ impl ::core::clone::Clone for AnnotationType {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationActiveEnd(pub i32);
 impl AutomationActiveEnd {
@@ -54,7 +54,7 @@ impl ::core::clone::Clone for AutomationActiveEnd {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationAnimationStyle(pub i32);
 impl AutomationAnimationStyle {
@@ -74,7 +74,7 @@ impl ::core::clone::Clone for AutomationAnimationStyle {
     }
 }
 pub type AutomationAnnotation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationBulletStyle(pub i32);
 impl AutomationBulletStyle {
@@ -92,7 +92,7 @@ impl ::core::clone::Clone for AutomationBulletStyle {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationCaretBidiMode(pub i32);
 impl AutomationCaretBidiMode {
@@ -105,7 +105,7 @@ impl ::core::clone::Clone for AutomationCaretBidiMode {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationCaretPosition(pub i32);
 impl AutomationCaretPosition {
@@ -120,7 +120,7 @@ impl ::core::clone::Clone for AutomationCaretPosition {
     }
 }
 pub type AutomationElementIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationFlowDirections(pub i32);
 impl AutomationFlowDirections {
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for AutomationFlowDirections {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationOutlineStyles(pub i32);
 impl AutomationOutlineStyles {
@@ -153,7 +153,7 @@ impl ::core::clone::Clone for AutomationOutlineStyles {
 }
 pub type AutomationProperties = *mut ::core::ffi::c_void;
 pub type AutomationProperty = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationStyleId(pub i32);
 impl AutomationStyleId {
@@ -179,7 +179,7 @@ impl ::core::clone::Clone for AutomationStyleId {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationTextDecorationLineStyle(pub i32);
 impl AutomationTextDecorationLineStyle {
@@ -209,7 +209,7 @@ impl ::core::clone::Clone for AutomationTextDecorationLineStyle {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct AutomationTextEditChangeType(pub i32);
 impl AutomationTextEditChangeType {
@@ -225,7 +225,7 @@ impl ::core::clone::Clone for AutomationTextEditChangeType {
     }
 }
 pub type DockPatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct DockPosition(pub i32);
 impl DockPosition {
@@ -245,7 +245,7 @@ impl ::core::clone::Clone for DockPosition {
 pub type DragPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type DropTargetPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type ExpandCollapsePatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
 impl ExpandCollapseState {
@@ -264,7 +264,7 @@ pub type GridItemPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type GridPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type MultipleViewPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type RangeValuePatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct RowOrColumnMajor(pub i32);
 impl RowOrColumnMajor {
@@ -278,7 +278,7 @@ impl ::core::clone::Clone for RowOrColumnMajor {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct ScrollAmount(pub i32);
 impl ScrollAmount {
@@ -299,7 +299,7 @@ pub type SelectionItemPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type SelectionPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type SpreadsheetItemPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type StylesPatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct SupportedTextSelection(pub i32);
 impl SupportedTextSelection {
@@ -313,7 +313,7 @@ impl ::core::clone::Clone for SupportedTextSelection {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct SynchronizedInputType(pub i32);
 impl SynchronizedInputType {
@@ -333,7 +333,7 @@ impl ::core::clone::Clone for SynchronizedInputType {
 pub type TableItemPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type TablePatternIdentifiers = *mut ::core::ffi::c_void;
 pub type TogglePatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct ToggleState(pub i32);
 impl ToggleState {
@@ -350,7 +350,7 @@ impl ::core::clone::Clone for ToggleState {
 pub type TransformPattern2Identifiers = *mut ::core::ffi::c_void;
 pub type TransformPatternIdentifiers = *mut ::core::ffi::c_void;
 pub type ValuePatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
 impl WindowInteractionState {
@@ -367,7 +367,7 @@ impl ::core::clone::Clone for WindowInteractionState {
     }
 }
 pub type WindowPatternIdentifiers = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
 impl WindowVisualState {
@@ -381,7 +381,7 @@ impl ::core::clone::Clone for WindowVisualState {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation\"`*"]
 #[repr(transparent)]
 pub struct ZoomUnit(pub i32);
 impl ZoomUnit {

@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 pub struct BandwidthStatistics {
     pub OutboundBitsPerSecond: u64,
     pub InboundBitsPerSecond: u64,
@@ -16,7 +16,7 @@ impl ::core::clone::Clone for BandwidthStatistics {
     }
 }
 pub type ControlChannelTrigger = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for ControlChannelTriggerResetReason {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for ControlChannelTriggerResourceType {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
@@ -77,7 +77,7 @@ pub type MessageWebSocket = *mut ::core::ffi::c_void;
 pub type MessageWebSocketControl = *mut ::core::ffi::c_void;
 pub type MessageWebSocketInformation = *mut ::core::ffi::c_void;
 pub type MessageWebSocketMessageReceivedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
@@ -91,7 +91,7 @@ impl ::core::clone::Clone for MessageWebSocketReceiveMode {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 pub struct RoundTripTimeStatistics {
     pub Variance: u32,
     pub Max: u32,
@@ -109,7 +109,7 @@ pub type ServerMessageWebSocketControl = *mut ::core::ffi::c_void;
 pub type ServerMessageWebSocketInformation = *mut ::core::ffi::c_void;
 pub type ServerStreamWebSocket = *mut ::core::ffi::c_void;
 pub type ServerStreamWebSocketInformation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
@@ -124,7 +124,7 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
 }
 pub type SocketActivityContext = *mut ::core::ffi::c_void;
 pub type SocketActivityInformation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
@@ -140,7 +140,7 @@ impl ::core::clone::Clone for SocketActivityKind {
     }
 }
 pub type SocketActivityTriggerDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
@@ -156,7 +156,7 @@ impl ::core::clone::Clone for SocketActivityTriggerReason {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
@@ -198,7 +198,7 @@ impl ::core::clone::Clone for SocketErrorStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
@@ -211,7 +211,7 @@ impl ::core::clone::Clone for SocketMessageType {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
@@ -232,7 +232,7 @@ impl ::core::clone::Clone for SocketProtectionLevel {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
@@ -245,7 +245,7 @@ impl ::core::clone::Clone for SocketQualityOfService {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Sockets'*"]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {

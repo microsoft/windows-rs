@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -15,7 +15,7 @@ pub type HolographicCamera = *mut ::core::ffi::c_void;
 pub type HolographicCameraPose = *mut ::core::ffi::c_void;
 pub type HolographicCameraRenderingParameters = *mut ::core::ffi::c_void;
 pub type HolographicCameraViewportParameters = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
 pub type HolographicDisplay = *mut ::core::ffi::c_void;
 pub type HolographicFrame = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 pub struct HolographicFrameId {
     pub Value: u64,
 }
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for HolographicFrameId {
     }
 }
 pub type HolographicFramePrediction = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for HolographicFramePresentResult {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
@@ -75,7 +75,7 @@ pub type HolographicFrameScanoutMonitor = *mut ::core::ffi::c_void;
 pub type HolographicFrameScanoutReport = *mut ::core::ffi::c_void;
 pub type HolographicQuadLayer = *mut ::core::ffi::c_void;
 pub type HolographicQuadLayerUpdateParameters = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
@@ -92,7 +92,7 @@ impl ::core::clone::Clone for HolographicReprojectionMode {
 pub type HolographicSpace = *mut ::core::ffi::c_void;
 pub type HolographicSpaceCameraAddedEventArgs = *mut ::core::ffi::c_void;
 pub type HolographicSpaceCameraRemovedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
@@ -107,7 +107,7 @@ impl ::core::clone::Clone for HolographicSpaceUserPresence {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Holographic', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HolographicStereoTransform {
     pub Left: super::super::Foundation::Numerics::Matrix4x4,
@@ -122,7 +122,7 @@ impl ::core::clone::Clone for HolographicStereoTransform {
     }
 }
 pub type HolographicViewConfiguration = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Holographic'*"]
+#[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {

@@ -3,7 +3,7 @@ pub type AdaptiveMediaSource = *mut ::core::ffi::c_void;
 pub type AdaptiveMediaSourceAdvancedSettings = *mut ::core::ffi::c_void;
 pub type AdaptiveMediaSourceCorrelatedTimes = *mut ::core::ffi::c_void;
 pub type AdaptiveMediaSourceCreationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
+#[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
@@ -22,7 +22,7 @@ impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
     }
 }
 pub type AdaptiveMediaSourceDiagnosticAvailableEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
+#[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
 }
 pub type AdaptiveMediaSourceDiagnostics = *mut ::core::ffi::c_void;
 pub type AdaptiveMediaSourceDownloadBitrateChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
+#[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
@@ -69,7 +69,7 @@ pub type AdaptiveMediaSourceDownloadRequestedEventArgs = *mut ::core::ffi::c_voi
 pub type AdaptiveMediaSourceDownloadResult = *mut ::core::ffi::c_void;
 pub type AdaptiveMediaSourceDownloadStatistics = *mut ::core::ffi::c_void;
 pub type AdaptiveMediaSourcePlaybackBitrateChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
+#[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {

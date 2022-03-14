@@ -4,7 +4,7 @@ pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
 pub mod Surfaces;
 pub type SpatialAnchor = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
@@ -22,7 +22,7 @@ pub type SpatialAnchorExporter = *mut ::core::ffi::c_void;
 pub type SpatialAnchorRawCoordinateSystemAdjustedEventArgs = *mut ::core::ffi::c_void;
 pub type SpatialAnchorStore = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -37,7 +37,7 @@ impl ::core::clone::Clone for SpatialBoundingBox {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingFrustum {
     pub Near: super::super::Foundation::Numerics::Plane,
@@ -56,7 +56,7 @@ impl ::core::clone::Clone for SpatialBoundingFrustum {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingOrientedBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -72,7 +72,7 @@ impl ::core::clone::Clone for SpatialBoundingOrientedBox {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingSphere {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -94,7 +94,7 @@ pub type SpatialEntityRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type SpatialEntityStore = *mut ::core::ffi::c_void;
 pub type SpatialEntityUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type SpatialEntityWatcher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
@@ -111,7 +111,7 @@ impl ::core::clone::Clone for SpatialEntityWatcherStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
@@ -131,7 +131,7 @@ pub type SpatialLocation = *mut ::core::ffi::c_void;
 pub type SpatialLocator = *mut ::core::ffi::c_void;
 pub type SpatialLocatorAttachedFrameOfReference = *mut ::core::ffi::c_void;
 pub type SpatialLocatorPositionalTrackingDeactivatingEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
@@ -144,7 +144,7 @@ impl ::core::clone::Clone for SpatialLookDirectionRange {
         *self
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
@@ -157,7 +157,7 @@ impl ::core::clone::Clone for SpatialMovementRange {
         *self
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
 impl SpatialPerceptionAccessStatus {
@@ -173,7 +173,7 @@ impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialRay {
     pub Origin: super::super::Foundation::Numerics::Vector3,
