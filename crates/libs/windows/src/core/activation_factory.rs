@@ -42,6 +42,7 @@ impl ::windows::core::RuntimeName for IActivationFactory {
     const NAME: &'static str = "";
 }
 
+#[cfg(feature = "implement")]
 impl IActivationFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationFactory_Impl, const OFFSET: isize>() -> IActivationFactory_Vtbl {
         unsafe extern "system" fn ActivateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IActivationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
