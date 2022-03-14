@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Perception_Automation_Core'*"]
+#[doc = "*Required features: `\"Perception_Automation_Core\"`*"]
 pub struct CorePerceptionAutomation {}
 impl CorePerceptionAutomation {
-    #[doc = "*Required features: 'Perception_Automation_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Automation_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActivationFactoryProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IGetActivationFactory>>(provider: Param0) -> ::windows::core::Result<()> {
         Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetActivationFactoryProvider)(::core::mem::transmute_copy(this), provider.into_param().abi()).ok() })

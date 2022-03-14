@@ -1,15 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WSL_DISTRIBUTION_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(0u32);
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_APPEND_NT_PATH: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(4u32);
 impl ::core::marker::Copy for WSL_DISTRIBUTION_FLAGS {}
 impl ::core::clone::Clone for WSL_DISTRIBUTION_FLAGS {
@@ -58,7 +58,7 @@ impl ::core::ops::Not for WSL_DISTRIBUTION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslConfigureDistribution<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(distributionname: Param0, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -72,7 +72,7 @@ pub unsafe fn WslConfigureDistribution<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslGetDistributionConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(distributionname: Param0, distributionversion: *mut u32, defaultuid: *mut u32, wsldistributionflags: *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: *mut *mut ::windows::core::PSTR, defaultenvironmentvariablecount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -86,7 +86,7 @@ pub unsafe fn WslGetDistributionConfiguration<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslIsDistributionRegistered<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(distributionname: Param0) -> super::super::Foundation::BOOL {
@@ -101,7 +101,7 @@ pub unsafe fn WslIsDistributionRegistered<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslLaunch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(distributionname: Param0, command: Param1, usecurrentworkingdirectory: Param2, stdin: Param3, stdout: Param4, stderr: Param5) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -117,7 +117,7 @@ pub unsafe fn WslLaunch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslLaunchInteractive<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(distributionname: Param0, command: Param1, usecurrentworkingdirectory: Param2) -> ::windows::core::Result<u32> {
@@ -133,7 +133,7 @@ pub unsafe fn WslLaunchInteractive<'a, Param0: ::windows::core::IntoParam<'a, ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslRegisterDistribution<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(distributionname: Param0, targzfilename: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -147,7 +147,7 @@ pub unsafe fn WslRegisterDistribution<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SubsystemForLinux'*"]
+#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslUnregisterDistribution<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(distributionname: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]

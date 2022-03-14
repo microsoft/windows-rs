@@ -5,22 +5,22 @@ pub const CLSID_MILBitmapEffectDropShadow: ::windows::core::GUID = ::windows::co
 pub const CLSID_MILBitmapEffectEmboss: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd299846_824f_47ec_a007_12aa767f2816);
 pub const CLSID_MILBitmapEffectGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9c1a9a_7e18_4f64_ac7e_47cf7f051e95);
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667);
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffect(::windows::core::IUnknown);
 impl IMILBitmapEffect {
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetOutput<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, pcontext: Param1) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), pcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Imaging::IWICBitmapSource>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetParentEffect(&self) -> ::windows::core::Result<IMILBitmapEffectGroup> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetParentEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectGroup>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn SetInputSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::IWICBitmapSource>>(&self, uiindex: u32, pbitmapsource: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInputSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), pbitmapsource.into_param().abi()).ok()
@@ -80,16 +80,16 @@ pub struct IMILBitmapEffect_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
     SetInputSource: usize,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnections(::windows::core::IUnknown);
 impl IMILBitmapEffectConnections {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetInputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputConnector)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOutputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputConnector)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectOutputConnector>(result__)
@@ -142,26 +142,26 @@ pub struct IMILBitmapEffectConnections_Vtbl {
     pub GetInputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetOutputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnectionsInfo(::windows::core::IUnknown);
 impl IMILBitmapEffectConnectionsInfo {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberInputs(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNumberInputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberOutputs(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNumberOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetInputConnectorInfo(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectConnectorInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputConnectorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectConnectorInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOutputConnectorInfo(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectConnectorInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputConnectorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectConnectorInfo>(result__)
@@ -216,36 +216,36 @@ pub struct IMILBitmapEffectConnectionsInfo_Vtbl {
     pub GetInputConnectorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetOutputConnectorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectConnector {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetOptimalFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetNumberFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsConnected)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetBitmapEffect(&self) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetBitmapEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
@@ -318,26 +318,26 @@ pub struct IMILBitmapEffectConnector_Vtbl {
     pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfconnected: *mut i16) -> ::windows::core::HRESULT,
     pub GetBitmapEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnectorInfo(::windows::core::IUnknown);
 impl IMILBitmapEffectConnectorInfo {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOptimalFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNumberFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
@@ -392,16 +392,16 @@ pub struct IMILBitmapEffectConnectorInfo_Vtbl {
     pub GetNumberFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulnumberformats: *mut u32) -> ::windows::core::HRESULT,
     pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectEvents(::windows::core::IUnknown);
 impl IMILBitmapEffectEvents {
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PropertyChange<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, peffect: Param0, bstrpropertyname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PropertyChange)(::core::mem::transmute_copy(self), peffect.into_param().abi(), bstrpropertyname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn DirtyRegion<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffect>>(&self, peffect: Param0, prect: *const MilRectD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DirtyRegion)(::core::mem::transmute_copy(self), peffect.into_param().abi(), ::core::mem::transmute(prect)).ok()
     }
@@ -456,21 +456,21 @@ pub struct IMILBitmapEffectEvents_Vtbl {
     PropertyChange: usize,
     pub DirtyRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, prect: *const MilRectD) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectFactory(::windows::core::IUnknown);
 impl IMILBitmapEffectFactory {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn CreateEffect(&self, pguideffect: *const ::windows::core::GUID) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguideffect), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<IMILBitmapEffectRenderContext> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectRenderContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn CreateEffectOuter(&self) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateEffectOuter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
@@ -524,21 +524,21 @@ pub struct IMILBitmapEffectFactory_Vtbl {
     pub CreateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateEffectOuter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectGroup(::windows::core::IUnknown);
 impl IMILBitmapEffectGroup {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetInteriorInputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInteriorInputConnector)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectOutputConnector>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetInteriorOutputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInteriorOutputConnector)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffect>>(&self, peffect: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), peffect.into_param().abi()).ok()
     }
@@ -591,20 +591,20 @@ pub struct IMILBitmapEffectGroup_Vtbl {
     pub GetInteriorOutputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectGroupImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectGroupImpl {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn Preprocess<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Preprocess)(::core::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberChildren(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNumberChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetChildren(&self) -> ::windows::core::Result<IMILBitmapEffects> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffects>(result__)
@@ -658,41 +658,41 @@ pub struct IMILBitmapEffectGroupImpl_Vtbl {
     pub GetNumberChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumberchildren: *mut u32) -> ::windows::core::HRESULT,
     pub GetChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectImpl {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsInPlaceModificationAllowed<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectOutputConnector>>(&self, poutputconnector: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsInPlaceModificationAllowed)(::core::mem::transmute_copy(self), poutputconnector.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn SetParentEffect<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectGroup>>(&self, pparenteffect: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetParentEffect)(::core::mem::transmute_copy(self), pparenteffect.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetInputSource(&self, uiindex: u32) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Imaging::IWICBitmapSource>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetInputSourceBounds(&self, uiindex: u32) -> ::windows::core::Result<MilRectD> {
         let mut result__: MilRectD = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputSourceBounds)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<MilRectD>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetInputBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInputBitmapSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), prendercontext.into_param().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetOutputBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOutputBitmapSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), prendercontext.into_param().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pinner: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pinner.into_param().abi()).ok()
     }
@@ -758,45 +758,45 @@ pub struct IMILBitmapEffectImpl_Vtbl {
     GetOutputBitmapSource: usize,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectInputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectInputConnector {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetOptimalFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetNumberFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.IsConnected)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetBitmapEffect(&self) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetBitmapEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn ConnectTo<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectOutputConnector>>(&self, pconnector: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConnectTo)(::core::mem::transmute_copy(self), pconnector.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetConnection(&self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetConnection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectOutputConnector>(result__)
@@ -889,11 +889,11 @@ pub struct IMILBitmapEffectInputConnector_Vtbl {
     pub ConnectTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnector: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectInteriorInputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectInteriorInputConnector {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetInputConnector(&self) -> ::windows::core::Result<IMILBitmapEffectInputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetInputConnector)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectInputConnector>(result__)
@@ -945,11 +945,11 @@ pub struct IMILBitmapEffectInteriorInputConnector_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectInteriorOutputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectInteriorOutputConnector {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOutputConnector(&self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputConnector)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectOutputConnector>(result__)
@@ -1001,46 +1001,46 @@ pub struct IMILBitmapEffectInteriorOutputConnector_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOutputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectOutputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectOutputConnector {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetOptimalFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetNumberFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.IsConnected)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetBitmapEffect(&self) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetBitmapEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberConnections(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNumberConnections)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetConnection(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetConnection)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectInputConnector>(result__)
@@ -1133,15 +1133,15 @@ pub struct IMILBitmapEffectOutputConnector_Vtbl {
     pub GetNumberConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumberconnections: *mut u32) -> ::windows::core::HRESULT,
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectOutputConnectorImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectOutputConnectorImpl {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn AddBackLink<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectInputConnector>>(&self, pconnection: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddBackLink)(::core::mem::transmute_copy(self), pconnection.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn RemoveBackLink<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectInputConnector>>(&self, pconnection: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveBackLink)(::core::mem::transmute_copy(self), pconnection.into_param().abi()).ok()
     }
@@ -1193,34 +1193,34 @@ pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub AddBackLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveBackLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectPrimitive(::windows::core::IUnknown);
 impl IMILBitmapEffectPrimitive {
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetOutput<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, pcontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), pcontext.into_param().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn TransformPoint<'a, Param3: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: Param3, pfpointtransformed: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransformPoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(p), ::core::mem::transmute(fforwardtransform), pcontext.into_param().abi(), ::core::mem::transmute(pfpointtransformed)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn TransformRect<'a, Param3: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransformRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(p), ::core::mem::transmute(fforwardtransform), pcontext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).HasAffineTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn HasInverseTransform(&self, uiindex: u32) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).HasInverseTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf', 'Win32_Graphics_Dwm'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Dwm\"`*"]
     #[cfg(feature = "Win32_Graphics_Dwm")]
     pub unsafe fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAffineMatrix)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(pmatrix)).ok()
@@ -1283,16 +1283,16 @@ pub struct IMILBitmapEffectPrimitive_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dwm"))]
     GetAffineMatrix: usize,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectPrimitiveImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsDirty(&self, uioutputindex: u32) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(uioutputindex), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsVolatile(&self, uioutputindex: u32) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsVolatile)(::core::mem::transmute_copy(self), ::core::mem::transmute(uioutputindex), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
@@ -1345,41 +1345,41 @@ pub struct IMILBitmapEffectPrimitiveImpl_Vtbl {
     pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT,
     pub IsVolatile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectRenderContext(::windows::core::IUnknown);
 impl IMILBitmapEffectRenderContext {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn SetOutputPixelFormat(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOutputPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOutputPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn SetUseSoftwareRenderer(&self, fsoftware: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetUseSoftwareRenderer)(::core::mem::transmute_copy(self), ::core::mem::transmute(fsoftware)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInitialTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetFinalTransform(&self) -> ::windows::core::Result<MILMatrixF> {
         let mut result__: MILMatrixF = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFinalTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<MILMatrixF>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn SetOutputDPI(&self, dbldpix: f64, dbldpiy: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOutputDPI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dbldpix), ::core::mem::transmute(dbldpiy)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOutputDPI)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdbldpix), ::core::mem::transmute(pdbldpiy)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn SetRegionOfInterest(&self, prect: *const MilRectD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRegionOfInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
     }
@@ -1437,28 +1437,28 @@ pub struct IMILBitmapEffectRenderContext_Vtbl {
     pub GetOutputDPI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::HRESULT,
     pub SetRegionOfInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectRenderContextImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectRenderContextImpl {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetUseSoftwareRenderer(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetUseSoftwareRenderer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn UpdateTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetOutputBounds(&self, prect: *mut MilRectD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOutputBounds)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn UpdateOutputBounds(&self, prect: *const MilRectD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateOutputBounds)(::core::mem::transmute_copy(self), ::core::mem::transmute(prect)).ok()
     }
@@ -1513,26 +1513,26 @@ pub struct IMILBitmapEffectRenderContextImpl_Vtbl {
     pub GetOutputBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *mut MilRectD) -> ::windows::core::HRESULT,
     pub UpdateOutputBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffects(::windows::core::IUnknown);
 impl IMILBitmapEffects {
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<IMILBitmapEffectGroup> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffectGroup>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn Item(&self, uindex: u32) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<IMILBitmapEffect>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Wpf'*"]
+    #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -1587,10 +1587,10 @@ pub struct IMILBitmapEffects_Vtbl {
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puicount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -1635,7 +1635,7 @@ impl ::core::default::Default for MILMatrixF {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
@@ -1666,7 +1666,7 @@ impl ::core::default::Default for MilPoint2D {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Wpf'*"]
+#[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,

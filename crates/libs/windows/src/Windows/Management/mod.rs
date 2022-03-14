@@ -85,7 +85,7 @@ pub struct IMdmSessionManagerStatics_Vtbl {
     pub DeleteSessionById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetSessionById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmAlert(::windows::core::IUnknown);
 impl MdmAlert {
@@ -96,7 +96,7 @@ impl MdmAlert {
         static mut SHARED: ::windows::core::FactoryCache<MdmAlert, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -104,12 +104,12 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<MdmAlertDataType> {
         let this = self;
         unsafe {
@@ -117,12 +117,12 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MdmAlertDataType>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn SetFormat(&self, value: MdmAlertDataType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Mark(&self) -> ::windows::core::Result<MdmAlertMark> {
         let this = self;
         unsafe {
@@ -130,12 +130,12 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Mark)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MdmAlertMark>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn SetMark(&self, value: MdmAlertMark) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMark)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -143,12 +143,12 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -156,7 +156,7 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Target(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -164,12 +164,12 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Target)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn SetTarget<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -177,7 +177,7 @@ impl MdmAlert {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn SetType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -253,7 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MdmAlertDataType(pub i32);
@@ -289,7 +289,7 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MdmAlertMark(pub i32);
@@ -326,11 +326,11 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmSession(::windows::core::IUnknown);
 impl MdmSession {
-    #[doc = "*Required features: 'Management', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Alerts(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<MdmAlert>> {
         let this = self;
@@ -339,7 +339,7 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).Alerts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<MdmAlert>>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -347,7 +347,7 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -355,7 +355,7 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn State(&self) -> ::windows::core::Result<MdmSessionState> {
         let this = self;
         unsafe {
@@ -363,7 +363,7 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MdmSessionState>(result__)
         }
     }
-    #[doc = "*Required features: 'Management', 'Foundation'*"]
+    #[doc = "*Required features: `\"Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -372,12 +372,12 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).AttachAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn Delete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Delete)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Management', 'Foundation'*"]
+    #[doc = "*Required features: `\"Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -386,7 +386,7 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).StartAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Management', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithAlertsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<MdmAlert>>>(&self, alerts: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -466,10 +466,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 pub struct MdmSessionManager {}
 impl MdmSessionManager {
-    #[doc = "*Required features: 'Management', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SessionIds() -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
@@ -477,18 +477,18 @@ impl MdmSessionManager {
             (::windows::core::Interface::vtable(this).SessionIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn TryCreateSession() -> ::windows::core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateSession)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MdmSession>(result__)
         })
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn DeleteSessionById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sessionid: Param0) -> ::windows::core::Result<()> {
         Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DeleteSessionById)(::core::mem::transmute_copy(this), sessionid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Management'*"]
+    #[doc = "*Required features: `\"Management\"`*"]
     pub fn GetSessionById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sessionid: Param0) -> ::windows::core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -504,7 +504,7 @@ impl MdmSessionManager {
 impl ::windows::core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MdmSessionState(pub i32);

@@ -1,11 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWSCDefaultProduct(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefaultProduct<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, etype: SECURITY_PRODUCT_TYPE, pguid: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultProduct)(::core::mem::transmute_copy(self), ::core::mem::transmute(etype), pguid.into_param().abi()).ok()
@@ -94,22 +94,22 @@ pub struct IWSCDefaultProduct_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDefaultProduct: usize,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWSCProductList(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(provider)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: u32) -> ::windows::core::Result<IWscProduct> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -201,47 +201,47 @@ pub struct IWSCProductList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWscProduct(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProductName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn ProductState(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_STATE> {
         let mut result__: WSC_SECURITY_PRODUCT_STATE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProductState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_STATE>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn SignatureStatus(&self) -> ::windows::core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
         let mut result__: WSC_SECURITY_SIGNATURE_STATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SignatureStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_SIGNATURE_STATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemediationPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RemediationPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductStateTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProductStateTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ProductGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
@@ -349,78 +349,78 @@ pub struct IWscProduct_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ProductIsDefault: usize,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWscProduct2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProductName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn ProductState(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_STATE> {
         let mut result__: WSC_SECURITY_PRODUCT_STATE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProductState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_STATE>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn SignatureStatus(&self) -> ::windows::core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
         let mut result__: WSC_SECURITY_SIGNATURE_STATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SignatureStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_SIGNATURE_STATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemediationPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.RemediationPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductStateTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProductStateTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProductGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProductIsDefault)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusScanSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AntivirusScanSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusSettingsSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AntivirusSettingsSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AntivirusProtectionUpdateSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn FirewallDomainProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FirewallDomainProfileSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FirewallPrivateProfileSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn FirewallPublicProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FirewallPublicProfileSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
@@ -535,83 +535,83 @@ pub struct IWscProduct2_Vtbl {
     pub FirewallPrivateProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT,
     pub FirewallPublicProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWscProduct3(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ProductName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn ProductState(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_STATE> {
         let mut result__: WSC_SECURITY_PRODUCT_STATE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ProductState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_STATE>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn SignatureStatus(&self) -> ::windows::core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
         let mut result__: WSC_SECURITY_SIGNATURE_STATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.SignatureStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_SIGNATURE_STATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemediationPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.RemediationPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductStateTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ProductStateTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ProductGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ProductIsDefault)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusScanSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AntivirusScanSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusSettingsSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AntivirusSettingsSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.AntivirusProtectionUpdateSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn FirewallDomainProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.FirewallDomainProfileSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.FirewallPrivateProfileSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn FirewallPublicProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
         let mut result__: WSC_SECURITY_PRODUCT_SUBSTATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.FirewallPublicProfileSubstatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WSC_SECURITY_PRODUCT_SUBSTATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+    #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn AntivirusDaysUntilExpired(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AntivirusDaysUntilExpired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -745,15 +745,15 @@ pub struct IWscProduct3_Vtbl {
     pub base: IWscProduct2_Vtbl,
     pub AntivirusDaysUntilExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdays: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SECURITY_PRODUCT_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(0i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const SECURITY_PRODUCT_TYPE_FIREWALL: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(1i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(2i32);
 impl ::core::marker::Copy for SECURITY_PRODUCT_TYPE {}
 impl ::core::clone::Clone for SECURITY_PRODUCT_TYPE {
@@ -776,17 +776,17 @@ impl ::core::fmt::Debug for SECURITY_PRODUCT_TYPE {
 }
 pub const WSCDefaultProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
 pub const WSCProductList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WSC_SECURITY_PRODUCT_STATE(pub i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_STATE_ON: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(0i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_STATE_OFF: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(1i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_STATE_SNOOZED: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(2i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_STATE_EXPIRED: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(3i32);
 impl ::core::marker::Copy for WSC_SECURITY_PRODUCT_STATE {}
 impl ::core::clone::Clone for WSC_SECURITY_PRODUCT_STATE {
@@ -807,17 +807,17 @@ impl ::core::fmt::Debug for WSC_SECURITY_PRODUCT_STATE {
         f.debug_tuple("WSC_SECURITY_PRODUCT_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WSC_SECURITY_PRODUCT_SUBSTATUS(pub i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_SUBSTATUS_NOT_SET: WSC_SECURITY_PRODUCT_SUBSTATUS = WSC_SECURITY_PRODUCT_SUBSTATUS(0i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_SUBSTATUS_NO_ACTION: WSC_SECURITY_PRODUCT_SUBSTATUS = WSC_SECURITY_PRODUCT_SUBSTATUS(1i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_SUBSTATUS_ACTION_RECOMMENDED: WSC_SECURITY_PRODUCT_SUBSTATUS = WSC_SECURITY_PRODUCT_SUBSTATUS(2i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_SUBSTATUS_ACTION_NEEDED: WSC_SECURITY_PRODUCT_SUBSTATUS = WSC_SECURITY_PRODUCT_SUBSTATUS(3i32);
 impl ::core::marker::Copy for WSC_SECURITY_PRODUCT_SUBSTATUS {}
 impl ::core::clone::Clone for WSC_SECURITY_PRODUCT_SUBSTATUS {
@@ -838,27 +838,27 @@ impl ::core::fmt::Debug for WSC_SECURITY_PRODUCT_SUBSTATUS {
         f.debug_tuple("WSC_SECURITY_PRODUCT_SUBSTATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WSC_SECURITY_PROVIDER(pub i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_FIREWALL: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(1i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_AUTOUPDATE_SETTINGS: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(2i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_ANTIVIRUS: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(4i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_ANTISPYWARE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(8i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_INTERNET_SETTINGS: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(16i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(32i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_SERVICE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(64i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_NONE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(0i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_ALL: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(127i32);
 impl ::core::marker::Copy for WSC_SECURITY_PROVIDER {}
 impl ::core::clone::Clone for WSC_SECURITY_PROVIDER {
@@ -879,17 +879,17 @@ impl ::core::fmt::Debug for WSC_SECURITY_PROVIDER {
         f.debug_tuple("WSC_SECURITY_PROVIDER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WSC_SECURITY_PROVIDER_HEALTH(pub i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_HEALTH_GOOD: WSC_SECURITY_PROVIDER_HEALTH = WSC_SECURITY_PROVIDER_HEALTH(0i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_HEALTH_NOTMONITORED: WSC_SECURITY_PROVIDER_HEALTH = WSC_SECURITY_PROVIDER_HEALTH(1i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_HEALTH_POOR: WSC_SECURITY_PROVIDER_HEALTH = WSC_SECURITY_PROVIDER_HEALTH(2i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_HEALTH_SNOOZE: WSC_SECURITY_PROVIDER_HEALTH = WSC_SECURITY_PROVIDER_HEALTH(3i32);
 impl ::core::marker::Copy for WSC_SECURITY_PROVIDER_HEALTH {}
 impl ::core::clone::Clone for WSC_SECURITY_PROVIDER_HEALTH {
@@ -910,13 +910,13 @@ impl ::core::fmt::Debug for WSC_SECURITY_PROVIDER_HEALTH {
         f.debug_tuple("WSC_SECURITY_PROVIDER_HEALTH").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WSC_SECURITY_SIGNATURE_STATUS(pub i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_OUT_OF_DATE: WSC_SECURITY_SIGNATURE_STATUS = WSC_SECURITY_SIGNATURE_STATUS(0i32);
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_UP_TO_DATE: WSC_SECURITY_SIGNATURE_STATUS = WSC_SECURITY_SIGNATURE_STATUS(1i32);
 impl ::core::marker::Copy for WSC_SECURITY_SIGNATURE_STATUS {}
 impl ::core::clone::Clone for WSC_SECURITY_SIGNATURE_STATUS {
@@ -937,7 +937,7 @@ impl ::core::fmt::Debug for WSC_SECURITY_SIGNATURE_STATUS {
         f.debug_tuple("WSC_SECURITY_SIGNATURE_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg(windows)]
@@ -952,7 +952,7 @@ pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -966,7 +966,7 @@ pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SEC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -980,7 +980,7 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation', 'Win32_System_Threading'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -995,7 +995,7 @@ pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallba
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1009,7 +1009,7 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SecurityCenter', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WscUnRegisterChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hregistrationhandle: Param0) -> ::windows::core::Result<()> {

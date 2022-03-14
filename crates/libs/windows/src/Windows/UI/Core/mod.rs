@@ -3,11 +3,11 @@
 pub mod AnimationMetrics;
 #[cfg(feature = "UI_Core_Preview")]
 pub mod Preview;
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct AcceleratorKeyEventArgs(::windows::core::IUnknown);
 impl AcceleratorKeyEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn EventType(&self) -> ::windows::core::Result<CoreAcceleratorKeyEventType> {
         let this = self;
         unsafe {
@@ -15,7 +15,7 @@ impl AcceleratorKeyEventArgs {
             (::windows::core::Interface::vtable(this).EventType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreAcceleratorKeyEventType>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn VirtualKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey> {
         let this = self;
@@ -24,7 +24,7 @@ impl AcceleratorKeyEventArgs {
             (::windows::core::Interface::vtable(this).VirtualKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn KeyStatus(&self) -> ::windows::core::Result<CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
@@ -32,7 +32,7 @@ impl AcceleratorKeyEventArgs {
             (::windows::core::Interface::vtable(this).KeyStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CorePhysicalKeyStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAcceleratorKeyEventArgs2>(self)?;
         unsafe {
@@ -40,7 +40,7 @@ impl AcceleratorKeyEventArgs {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -48,7 +48,7 @@ impl AcceleratorKeyEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
@@ -148,7 +148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &AcceleratorKe
 }
 unsafe impl ::core::marker::Send for AcceleratorKeyEventArgs {}
 unsafe impl ::core::marker::Sync for AcceleratorKeyEventArgs {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppViewBackButtonVisibility(pub i32);
@@ -183,11 +183,11 @@ unsafe impl ::windows::core::RuntimeType for AppViewBackButtonVisibility {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct AutomationProviderRequestedEventArgs(::windows::core::IUnknown);
 impl AutomationProviderRequestedEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn AutomationProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -195,12 +195,12 @@ impl AutomationProviderRequestedEventArgs {
             (::windows::core::Interface::vtable(this).AutomationProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetAutomationProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAutomationProvider)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -208,7 +208,7 @@ impl AutomationProviderRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
@@ -306,11 +306,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &AutomationPro
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct BackRequestedEventArgs(::windows::core::IUnknown);
 impl BackRequestedEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -318,7 +318,7 @@ impl BackRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
@@ -396,11 +396,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 }
 unsafe impl ::core::marker::Send for BackRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for BackRequestedEventArgs {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CharacterReceivedEventArgs(::windows::core::IUnknown);
 impl CharacterReceivedEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn KeyCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -408,7 +408,7 @@ impl CharacterReceivedEventArgs {
             (::windows::core::Interface::vtable(this).KeyCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn KeyStatus(&self) -> ::windows::core::Result<CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
@@ -416,7 +416,7 @@ impl CharacterReceivedEventArgs {
             (::windows::core::Interface::vtable(this).KeyStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CorePhysicalKeyStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -424,7 +424,7 @@ impl CharacterReceivedEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
@@ -522,11 +522,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &CharacterRece
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ClosestInteractiveBoundsRequestedEventArgs(::windows::core::IUnknown);
 impl ClosestInteractiveBoundsRequestedEventArgs {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -535,7 +535,7 @@ impl ClosestInteractiveBoundsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SearchBounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -544,7 +544,7 @@ impl ClosestInteractiveBoundsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).SearchBounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClosestInteractiveBounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -553,7 +553,7 @@ impl ClosestInteractiveBoundsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).ClosestInteractiveBounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetClosestInteractiveBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -630,7 +630,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
@@ -671,11 +671,11 @@ unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeyEventType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreAcceleratorKeys(::windows::core::IUnknown);
 impl CoreAcceleratorKeys {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AcceleratorKeyActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -684,7 +684,7 @@ impl CoreAcceleratorKeys {
             (::windows::core::Interface::vtable(this).AcceleratorKeyActivated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAcceleratorKeyActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -785,11 +785,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreAcceleratorKeys> for &CoreAccelerat
 }
 unsafe impl ::core::marker::Send for CoreAcceleratorKeys {}
 unsafe impl ::core::marker::Sync for CoreAcceleratorKeys {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreComponentInputSource(::windows::core::IUnknown);
 impl CoreComponentInputSource {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClosestInteractiveBoundsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreComponentInputSource, ClosestInteractiveBoundsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreClosestInteractiveBoundsRequested>(self)?;
@@ -798,13 +798,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosestInteractiveBoundsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreClosestInteractiveBoundsRequested>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosestInteractiveBoundsRequested)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn HasFocus(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe {
@@ -812,7 +812,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).HasFocus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CoreWindowEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreComponentFocusable>(self)?;
@@ -821,13 +821,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).GotFocus)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGotFocus)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LostFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CoreWindowEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreComponentFocusable>(self)?;
@@ -836,13 +836,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).LostFocus)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLostFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveLostFocus)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
@@ -850,7 +850,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -858,12 +858,12 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).IsInputEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInputEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, InputEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -872,13 +872,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).InputEnabled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveInputEnabled)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetCurrentKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
@@ -887,7 +887,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).GetCurrentKeyState)(::core::mem::transmute_copy(this), virtualkey, &mut result__).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CharacterReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
@@ -896,13 +896,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).CharacterReceived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCharacterReceived)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
@@ -911,13 +911,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).KeyDown)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKeyDown)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
@@ -926,13 +926,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).KeyUp)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKeyUp)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn GetCurrentKeyEventDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource2>(self)?;
         unsafe {
@@ -940,17 +940,17 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).GetCurrentKeyEventDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ReleasePointerCapture(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCapture(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn HasCapture(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
@@ -958,7 +958,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).HasCapture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -967,7 +967,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
@@ -975,12 +975,12 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerCursor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursor>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -989,13 +989,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerCaptureLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerCaptureLost)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1004,13 +1004,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1019,13 +1019,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1034,13 +1034,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerMoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1049,13 +1049,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1064,13 +1064,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1079,13 +1079,13 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).PointerWheelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerWheelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource2>(self)?;
@@ -1094,7 +1094,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TouchHitTesting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TouchHitTestingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreTouchHitTesting>(self)?;
@@ -1103,7 +1103,7 @@ impl CoreComponentInputSource {
             (::windows::core::Interface::vtable(this).TouchHitTesting)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTouchHitTesting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreTouchHitTesting>(self)?;
@@ -1248,11 +1248,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICorePointerInputSource2> for &CoreCompo
 }
 unsafe impl ::core::marker::Send for CoreComponentInputSource {}
 unsafe impl ::core::marker::Sync for CoreComponentInputSource {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreCursor(::windows::core::IUnknown);
 impl CoreCursor {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1260,7 +1260,7 @@ impl CoreCursor {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<CoreCursorType> {
         let this = self;
         unsafe {
@@ -1268,7 +1268,7 @@ impl CoreCursor {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursorType>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn CreateCursor(r#type: CoreCursorType, id: u32) -> ::windows::core::Result<CoreCursor> {
         Self::ICoreCursorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1353,7 +1353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreCursor {}
 unsafe impl ::core::marker::Sync for CoreCursor {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreCursorType(pub i32);
@@ -1401,11 +1401,11 @@ unsafe impl ::windows::core::RuntimeType for CoreCursorType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreDispatcher(::windows::core::IUnknown);
 impl CoreDispatcher {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AcceleratorKeyActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreAcceleratorKeys>(self)?;
@@ -1414,13 +1414,13 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).AcceleratorKeyActivated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAcceleratorKeyActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreAcceleratorKeys>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAcceleratorKeyActivated)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn HasThreadAccess(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1428,12 +1428,12 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).HasThreadAccess)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ProcessEvents(&self, options: CoreProcessEventsOption) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessEvents)(::core::mem::transmute_copy(this), options).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RunAsync<'a, Param1: ::windows::core::IntoParam<'a, DispatchedHandler>>(&self, priority: CoreDispatcherPriority, agilecallback: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1442,7 +1442,7 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).RunAsync)(::core::mem::transmute_copy(this), priority, agilecallback.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RunIdleAsync<'a, Param0: ::windows::core::IntoParam<'a, IdleDispatchedHandler>>(&self, agilecallback: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1451,7 +1451,7 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).RunIdleAsync)(::core::mem::transmute_copy(this), agilecallback.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryRunAsync<'a, Param1: ::windows::core::IntoParam<'a, DispatchedHandler>>(&self, priority: CoreDispatcherPriority, agilecallback: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcher2>(self)?;
@@ -1460,7 +1460,7 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).TryRunAsync)(::core::mem::transmute_copy(this), priority, agilecallback.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryRunIdleAsync<'a, Param0: ::windows::core::IntoParam<'a, IdleDispatchedHandler>>(&self, agilecallback: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcher2>(self)?;
@@ -1469,7 +1469,7 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).TryRunIdleAsync)(::core::mem::transmute_copy(this), agilecallback.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn CurrentPriority(&self) -> ::windows::core::Result<CoreDispatcherPriority> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
@@ -1477,12 +1477,12 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).CurrentPriority)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDispatcherPriority>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetCurrentPriority(&self, value: CoreDispatcherPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCurrentPriority)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ShouldYield(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
@@ -1490,7 +1490,7 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).ShouldYield)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ShouldYieldToPriority(&self, priority: CoreDispatcherPriority) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
@@ -1498,7 +1498,7 @@ impl CoreDispatcher {
             (::windows::core::Interface::vtable(this).ShouldYieldToPriority)(::core::mem::transmute_copy(this), priority, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn StopProcessEvents(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopProcessEvents)(::core::mem::transmute_copy(this)).ok() }
@@ -1598,7 +1598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreAcceleratorKeys> for &CoreDispatche
 }
 unsafe impl ::core::marker::Send for CoreDispatcher {}
 unsafe impl ::core::marker::Sync for CoreDispatcher {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreDispatcherPriority(pub i32);
@@ -1634,7 +1634,7 @@ unsafe impl ::windows::core::RuntimeType for CoreDispatcherPriority {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreIndependentInputFilters(pub u32);
@@ -1700,11 +1700,11 @@ unsafe impl ::windows::core::RuntimeType for CoreIndependentInputFilters {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreIndependentInputSource(::windows::core::IUnknown);
 impl CoreIndependentInputSource {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
@@ -1712,7 +1712,7 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1720,12 +1720,12 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).IsInputEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInputEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, InputEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1734,23 +1734,23 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).InputEnabled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveInputEnabled)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ReleasePointerCapture(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCapture(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn HasCapture(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
@@ -1758,7 +1758,7 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).HasCapture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1767,7 +1767,7 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
@@ -1775,12 +1775,12 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerCursor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursor>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1789,13 +1789,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerCaptureLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerCaptureLost)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1804,13 +1804,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1819,13 +1819,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1834,13 +1834,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerMoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1849,13 +1849,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1864,13 +1864,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -1879,13 +1879,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerWheelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerWheelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource2>(self)?;
@@ -1894,7 +1894,7 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedAway<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -1903,13 +1903,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerRoutedAway)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedAway<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedAway)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -1918,13 +1918,13 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerRoutedTo)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedTo)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -1933,7 +1933,7 @@ impl CoreIndependentInputSource {
             (::windows::core::Interface::vtable(this).PointerRoutedReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -2100,17 +2100,17 @@ impl<'a> ::windows::core::IntoParam<'a, ICorePointerRedirector> for &CoreIndepen
 }
 unsafe impl ::core::marker::Send for CoreIndependentInputSource {}
 unsafe impl ::core::marker::Sync for CoreIndependentInputSource {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreIndependentInputSourceController(::windows::core::IUnknown);
 impl CoreIndependentInputSourceController {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsTransparentForUncontrolledInput(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2118,12 +2118,12 @@ impl CoreIndependentInputSourceController {
             (::windows::core::Interface::vtable(this).IsTransparentForUncontrolledInput)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsTransparentForUncontrolledInput(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsTransparentForUncontrolledInput)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsPalmRejectionEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2131,12 +2131,12 @@ impl CoreIndependentInputSourceController {
             (::windows::core::Interface::vtable(this).IsPalmRejectionEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsPalmRejectionEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPalmRejectionEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<CoreIndependentInputSource> {
         let this = self;
         unsafe {
@@ -2144,17 +2144,17 @@ impl CoreIndependentInputSourceController {
             (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreIndependentInputSource>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetControlledInput(&self, inputtypes: CoreInputDeviceTypes) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetControlledInput)(::core::mem::transmute_copy(this), inputtypes).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetControlledInputWithFilters(&self, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetControlledInputWithFilters)(::core::mem::transmute_copy(this), inputtypes, required, excluded).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisual<'a, Param0: ::windows::core::IntoParam<'a, super::Composition::Visual>>(visual: Param0) -> ::windows::core::Result<CoreIndependentInputSourceController> {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
@@ -2162,7 +2162,7 @@ impl CoreIndependentInputSourceController {
             (::windows::core::Interface::vtable(this).CreateForVisual)(::core::mem::transmute_copy(this), visual.into_param().abi(), &mut result__).from_abi::<CoreIndependentInputSourceController>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForIVisualElement<'a, Param0: ::windows::core::IntoParam<'a, super::Composition::IVisualElement>>(visualelement: Param0) -> ::windows::core::Result<CoreIndependentInputSourceController> {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
@@ -2274,7 +2274,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for CoreIndependentInputSourceController {}
 unsafe impl ::core::marker::Sync for CoreIndependentInputSourceController {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreInputDeviceTypes(pub u32);
@@ -2339,7 +2339,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputDeviceTypes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 pub struct CorePhysicalKeyStatus {
     pub RepeatCount: u32,
     pub ScanCode: u32,
@@ -2380,7 +2380,7 @@ impl ::core::default::Default for CorePhysicalKeyStatus {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreProcessEventsOption(pub i32);
@@ -2417,7 +2417,7 @@ unsafe impl ::windows::core::RuntimeType for CoreProcessEventsOption {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+#[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 pub struct CoreProximityEvaluation {
     pub Score: i32,
@@ -2463,7 +2463,7 @@ impl ::core::default::Default for CoreProximityEvaluation {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreProximityEvaluationScore(pub i32);
@@ -2497,7 +2497,7 @@ unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluationScore {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreVirtualKeyStates(pub u32);
@@ -2560,11 +2560,11 @@ unsafe impl ::windows::core::RuntimeType for CoreVirtualKeyStates {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindow(::windows::core::IUnknown);
 impl CoreWindow {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedAway<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -2573,13 +2573,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerRoutedAway)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedAway<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedAway)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -2588,13 +2588,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerRoutedTo)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedTo)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
@@ -2603,13 +2603,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerRoutedReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn AutomationHostProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2617,7 +2617,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).AutomationHostProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -2626,7 +2626,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).Bounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -2635,7 +2635,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).CustomProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
@@ -2643,7 +2643,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn FlowDirection(&self) -> ::windows::core::Result<CoreWindowFlowDirection> {
         let this = self;
         unsafe {
@@ -2651,12 +2651,12 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).FlowDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreWindowFlowDirection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetFlowDirection(&self, value: CoreWindowFlowDirection) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2664,12 +2664,12 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).IsInputEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInputEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor> {
         let this = self;
         unsafe {
@@ -2677,12 +2677,12 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerCursor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursor>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2691,7 +2691,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Visible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2699,17 +2699,17 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).Visible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Activate(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Activate)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -2718,7 +2718,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).GetAsyncKeyState)(::core::mem::transmute_copy(this), virtualkey, &mut result__).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -2727,17 +2727,17 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).GetKeyState)(::core::mem::transmute_copy(this), virtualkey, &mut result__).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ReleasePointerCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Activated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2746,13 +2746,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).Activated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveActivated)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AutomationProviderRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2761,13 +2761,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).AutomationProviderRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAutomationProviderRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAutomationProviderRequested)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2776,13 +2776,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).CharacterReceived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCharacterReceived)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2791,13 +2791,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).Closed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2806,13 +2806,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).InputEnabled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveInputEnabled)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2821,13 +2821,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).KeyDown)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKeyDown)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2836,13 +2836,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).KeyUp)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKeyUp)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2851,13 +2851,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerCaptureLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerCaptureLost)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2866,13 +2866,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2881,13 +2881,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2896,13 +2896,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerMoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2911,13 +2911,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2926,13 +2926,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TouchHitTesting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2941,13 +2941,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).TouchHitTesting)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTouchHitTesting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTouchHitTesting)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2956,13 +2956,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).PointerWheelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerWheelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2971,13 +2971,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).SizeChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSizeChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn VisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2986,19 +2986,19 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).VisibilityChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVisibilityChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPointerPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindow2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerPosition)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClosestInteractiveBoundsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, ClosestInteractiveBoundsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreWindow3>(self)?;
@@ -3007,13 +3007,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosestInteractiveBoundsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindow3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosestInteractiveBoundsRequested)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn GetCurrentKeyEventDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICoreWindow3>(self)?;
         unsafe {
@@ -3021,7 +3021,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).GetCurrentKeyEventDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ResizeStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreWindow4>(self)?;
@@ -3030,13 +3030,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).ResizeStarted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResizeStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveResizeStarted)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ResizeCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreWindow4>(self)?;
@@ -3045,13 +3045,13 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).ResizeCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResizeCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveResizeCompleted)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICoreWindow5>(self)?;
@@ -3060,7 +3060,7 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ActivationMode(&self) -> ::windows::core::Result<CoreWindowActivationMode> {
         let this = &::windows::core::Interface::cast::<ICoreWindow5>(self)?;
         unsafe {
@@ -3068,14 +3068,14 @@ impl CoreWindow {
             (::windows::core::Interface::vtable(this).ActivationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreWindowActivationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn GetForCurrentThread() -> ::windows::core::Result<CoreWindow> {
         Self::ICoreWindowStatic(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetForCurrentThread)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreWindow>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn UIContext(&self) -> ::windows::core::Result<super::UIContext> {
         let this = &::windows::core::Interface::cast::<ICoreWindowWithContext>(self)?;
         unsafe {
@@ -3203,7 +3203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindow> for &CoreWindow {
         ::core::convert::TryInto::<ICoreWindow>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWindowActivationMode(pub i32);
@@ -3239,7 +3239,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowActivationMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWindowActivationState(pub i32);
@@ -3274,7 +3274,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowActivationState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowDialog(::windows::core::IUnknown);
 impl CoreWindowDialog {
@@ -3285,7 +3285,7 @@ impl CoreWindowDialog {
         static mut SHARED: ::windows::core::FactoryCache<CoreWindowDialog, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Showing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3294,13 +3294,13 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).Showing)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShowing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveShowing)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -3309,7 +3309,7 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).MaxSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -3318,7 +3318,7 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).MinSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3326,12 +3326,12 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInteractionDelayed(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -3339,12 +3339,12 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).IsInteractionDelayed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInteractionDelayed(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInteractionDelayed)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation_Collections', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
         let this = self;
@@ -3353,7 +3353,7 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).Commands)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn DefaultCommandIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3361,12 +3361,12 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).DefaultCommandIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultCommandIndex)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn CancelCommandIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3374,12 +3374,12 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).CancelCommandIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetCancelCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCancelCommandIndex)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
     pub fn BackButtonCommand(&self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
@@ -3388,13 +3388,13 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).BackButtonCommand)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Popups::UICommandInvokedHandler>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
     pub fn SetBackButtonCommand<'a, Param0: ::windows::core::IntoParam<'a, super::Popups::UICommandInvokedHandler>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBackButtonCommand)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
@@ -3403,7 +3403,7 @@ impl CoreWindowDialog {
             (::windows::core::Interface::vtable(this).ShowAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn CreateWithTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(title: Param0) -> ::windows::core::Result<CoreWindowDialog> {
         Self::ICoreWindowDialogFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3486,11 +3486,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowEventArgs(::windows::core::IUnknown);
 impl CoreWindowEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3498,7 +3498,7 @@ impl CoreWindowEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
@@ -3596,7 +3596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &CoreWindowEve
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWindowFlowDirection(pub i32);
@@ -3630,11 +3630,11 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowFlowDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowFlyout(::windows::core::IUnknown);
 impl CoreWindowFlyout {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Showing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3643,13 +3643,13 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).Showing)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShowing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveShowing)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -3658,7 +3658,7 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).MaxSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -3667,7 +3667,7 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).MinSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3675,12 +3675,12 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInteractionDelayed(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -3688,12 +3688,12 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).IsInteractionDelayed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInteractionDelayed(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInteractionDelayed)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation_Collections', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
         let this = self;
@@ -3702,7 +3702,7 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).Commands)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn DefaultCommandIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3710,12 +3710,12 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).DefaultCommandIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultCommandIndex)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
     pub fn BackButtonCommand(&self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
@@ -3724,13 +3724,13 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).BackButtonCommand)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Popups::UICommandInvokedHandler>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
     pub fn SetBackButtonCommand<'a, Param0: ::windows::core::IntoParam<'a, super::Popups::UICommandInvokedHandler>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBackButtonCommand)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation', 'UI_Popups'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
@@ -3739,7 +3739,7 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).ShowAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(position: Param0) -> ::windows::core::Result<CoreWindowFlyout> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
@@ -3747,7 +3747,7 @@ impl CoreWindowFlyout {
             (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), position.into_param().abi(), &mut result__).from_abi::<CoreWindowFlyout>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(position: Param0, title: Param1) -> ::windows::core::Result<CoreWindowFlyout> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
@@ -3831,11 +3831,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowPopupShowingEventArgs(::windows::core::IUnknown);
 impl CoreWindowPopupShowingEventArgs {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -3912,21 +3912,21 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowResizeManager(::windows::core::IUnknown);
 impl CoreWindowResizeManager {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn NotifyLayoutCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).NotifyLayoutCompleted)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetShouldWaitForLayoutCompletion(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowResizeManagerLayoutCapability>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetShouldWaitForLayoutCompletion)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ShouldWaitForLayoutCompletion(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowResizeManagerLayoutCapability>(self)?;
         unsafe {
@@ -3934,7 +3934,7 @@ impl CoreWindowResizeManager {
             (::windows::core::Interface::vtable(this).ShouldWaitForLayoutCompletion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<CoreWindowResizeManager> {
         Self::ICoreWindowResizeManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4019,7 +4019,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreWindowResizeManager {}
 unsafe impl ::core::marker::Sync for CoreWindowResizeManager {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct DispatchedHandler(pub ::windows::core::IUnknown);
 impl DispatchedHandler {
@@ -4027,7 +4027,7 @@ impl DispatchedHandler {
         let com = DispatchedHandlerBox::<F> { vtable: &DispatchedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this)).ok() }
@@ -4202,11 +4202,11 @@ pub struct IClosestInteractiveBoundsRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     SetClosestInteractiveBounds: usize,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICoreAcceleratorKeys(::windows::core::IUnknown);
 impl ICoreAcceleratorKeys {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AcceleratorKeyActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4215,7 +4215,7 @@ impl ICoreAcceleratorKeys {
             (::windows::core::Interface::vtable(this).AcceleratorKeyActivated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAcceleratorKeyActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -4476,11 +4476,11 @@ pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
     #[cfg(not(feature = "UI_Composition"))]
     CreateForIVisualElement: usize,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICoreInputSourceBase(::windows::core::IUnknown);
 impl ICoreInputSourceBase {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
@@ -4488,7 +4488,7 @@ impl ICoreInputSourceBase {
             (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4496,12 +4496,12 @@ impl ICoreInputSourceBase {
             (::windows::core::Interface::vtable(this).IsInputEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInputEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, InputEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4510,7 +4510,7 @@ impl ICoreInputSourceBase {
             (::windows::core::Interface::vtable(this).InputEnabled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -4653,21 +4653,21 @@ pub struct ICoreKeyboardInputSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICorePointerInputSource(::windows::core::IUnknown);
 impl ICorePointerInputSource {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ReleasePointerCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn HasCapture(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4675,7 +4675,7 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).HasCapture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -4684,7 +4684,7 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor> {
         let this = self;
         unsafe {
@@ -4692,12 +4692,12 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerCursor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursor>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4706,13 +4706,13 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerCaptureLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerCaptureLost)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4721,13 +4721,13 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4736,13 +4736,13 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4751,13 +4751,13 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerMoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4766,13 +4766,13 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4781,13 +4781,13 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4796,7 +4796,7 @@ impl ICorePointerInputSource {
             (::windows::core::Interface::vtable(this).PointerWheelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -4940,11 +4940,11 @@ pub struct ICorePointerInputSource_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemovePointerWheelChanged: usize,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICorePointerInputSource2(::windows::core::IUnknown);
 impl ICorePointerInputSource2 {
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = self;
@@ -4953,17 +4953,17 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ReleasePointerCapture(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCapture(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn HasCapture(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
@@ -4971,7 +4971,7 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).HasCapture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -4980,7 +4980,7 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
@@ -4988,12 +4988,12 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerCursor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursor>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5002,13 +5002,13 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerCaptureLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerCaptureLost)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5017,13 +5017,13 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5032,13 +5032,13 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5047,13 +5047,13 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerMoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5062,13 +5062,13 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5077,13 +5077,13 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5092,7 +5092,7 @@ impl ICorePointerInputSource2 {
             (::windows::core::Interface::vtable(this).PointerWheelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICorePointerInputSource>(self)?;
@@ -5197,11 +5197,11 @@ pub struct ICorePointerInputSource2_Vtbl {
     #[cfg(not(feature = "System"))]
     DispatcherQueue: usize,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICorePointerRedirector(::windows::core::IUnknown);
 impl ICorePointerRedirector {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedAway<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5210,13 +5210,13 @@ impl ICorePointerRedirector {
             (::windows::core::Interface::vtable(this).PointerRoutedAway)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedAway<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedAway)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5225,13 +5225,13 @@ impl ICorePointerRedirector {
             (::windows::core::Interface::vtable(this).PointerRoutedTo)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedTo)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerRoutedReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5240,7 +5240,7 @@ impl ICorePointerRedirector {
             (::windows::core::Interface::vtable(this).PointerRoutedReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerRoutedReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -5363,11 +5363,11 @@ pub struct ICoreTouchHitTesting_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveTouchHitTesting: usize,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindow(::windows::core::IUnknown);
 impl ICoreWindow {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn AutomationHostProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -5375,7 +5375,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).AutomationHostProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -5384,7 +5384,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).Bounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -5393,7 +5393,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).CustomProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher> {
         let this = self;
         unsafe {
@@ -5401,7 +5401,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn FlowDirection(&self) -> ::windows::core::Result<CoreWindowFlowDirection> {
         let this = self;
         unsafe {
@@ -5409,12 +5409,12 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).FlowDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreWindowFlowDirection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetFlowDirection(&self, value: CoreWindowFlowDirection) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -5422,12 +5422,12 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).IsInputEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInputEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor> {
         let this = self;
         unsafe {
@@ -5435,12 +5435,12 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerCursor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreCursor>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -5449,7 +5449,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Visible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -5457,17 +5457,17 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).Visible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Activate(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Activate)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -5476,7 +5476,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).GetAsyncKeyState)(::core::mem::transmute_copy(this), virtualkey, &mut result__).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -5485,17 +5485,17 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).GetKeyState)(::core::mem::transmute_copy(this), virtualkey, &mut result__).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ReleasePointerCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReleasePointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetPointerCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPointerCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Activated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5504,13 +5504,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).Activated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveActivated)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AutomationProviderRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5519,13 +5519,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).AutomationProviderRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAutomationProviderRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAutomationProviderRequested)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5534,13 +5534,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).CharacterReceived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCharacterReceived)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5549,13 +5549,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).Closed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5564,13 +5564,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).InputEnabled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveInputEnabled)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5579,13 +5579,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).KeyDown)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKeyDown)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5594,13 +5594,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).KeyUp)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKeyUp)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5609,13 +5609,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerCaptureLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerCaptureLost)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5624,13 +5624,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5639,13 +5639,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5654,13 +5654,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerMoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5669,13 +5669,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5684,13 +5684,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TouchHitTesting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5699,13 +5699,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).TouchHitTesting)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTouchHitTesting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTouchHitTesting)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5714,13 +5714,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).PointerWheelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerWheelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5729,13 +5729,13 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).SizeChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSizeChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn VisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5744,7 +5744,7 @@ impl ICoreWindow {
             (::windows::core::Interface::vtable(this).VisibilityChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -6139,11 +6139,11 @@ pub struct ICoreWindowDialogFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowEventArgs(::windows::core::IUnknown);
 impl ICoreWindowEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6151,7 +6151,7 @@ impl ICoreWindowEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
@@ -6396,11 +6396,11 @@ pub struct IIdleDispatchedHandlerArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsDispatcherIdle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct IInitializeWithCoreWindow(::windows::core::IUnknown);
 impl IInitializeWithCoreWindow {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, CoreWindow>>(&self, window: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Initialize)(::core::mem::transmute_copy(this), window.into_param().abi()).ok() }
@@ -6671,7 +6671,7 @@ pub struct IWindowSizeChangedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     Size: usize,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct IdleDispatchedHandler(pub ::windows::core::IUnknown);
 impl IdleDispatchedHandler {
@@ -6679,7 +6679,7 @@ impl IdleDispatchedHandler {
         let com = IdleDispatchedHandlerBox::<F> { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IdleDispatchedHandlerArgs>>(&self, e: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), e.into_param().abi()).ok() }
@@ -6753,11 +6753,11 @@ pub struct IdleDispatchedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct IdleDispatchedHandlerArgs(::windows::core::IUnknown);
 impl IdleDispatchedHandlerArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsDispatcherIdle(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6836,11 +6836,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct InputEnabledEventArgs(::windows::core::IUnknown);
 impl InputEnabledEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -6848,12 +6848,12 @@ impl InputEnabledEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn InputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6954,11 +6954,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &InputEnabledE
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct KeyEventArgs(::windows::core::IUnknown);
 impl KeyEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -6966,12 +6966,12 @@ impl KeyEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn VirtualKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey> {
         let this = self;
@@ -6980,7 +6980,7 @@ impl KeyEventArgs {
             (::windows::core::Interface::vtable(this).VirtualKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn KeyStatus(&self) -> ::windows::core::Result<CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
@@ -6988,7 +6988,7 @@ impl KeyEventArgs {
             (::windows::core::Interface::vtable(this).KeyStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CorePhysicalKeyStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IKeyEventArgs2>(self)?;
         unsafe {
@@ -7089,11 +7089,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &KeyEventArgs 
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct PointerEventArgs(::windows::core::IUnknown);
 impl PointerEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -7101,12 +7101,12 @@ impl PointerEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'UI_Input'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Input\"`*"]
     #[cfg(feature = "UI_Input")]
     pub fn CurrentPoint(&self) -> ::windows::core::Result<super::Input::PointerPoint> {
         let this = self;
@@ -7115,7 +7115,7 @@ impl PointerEventArgs {
             (::windows::core::Interface::vtable(this).CurrentPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::PointerPoint>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'System'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn KeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers> {
         let this = self;
@@ -7124,7 +7124,7 @@ impl PointerEventArgs {
             (::windows::core::Interface::vtable(this).KeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation_Collections', 'UI_Input'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`, `\"UI_Input\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Input"))]
     pub fn GetIntermediatePoints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Input::PointerPoint>> {
         let this = self;
@@ -7226,11 +7226,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &PointerEventA
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct SystemNavigationManager(::windows::core::IUnknown);
 impl SystemNavigationManager {
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BackRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<BackRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -7239,13 +7239,13 @@ impl SystemNavigationManager {
             (::windows::core::Interface::vtable(this).BackRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveBackRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn AppViewBackButtonVisibility(&self) -> ::windows::core::Result<AppViewBackButtonVisibility> {
         let this = &::windows::core::Interface::cast::<ISystemNavigationManager2>(self)?;
         unsafe {
@@ -7253,12 +7253,12 @@ impl SystemNavigationManager {
             (::windows::core::Interface::vtable(this).AppViewBackButtonVisibility)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppViewBackButtonVisibility>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetAppViewBackButtonVisibility(&self, value: AppViewBackButtonVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemNavigationManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAppViewBackButtonVisibility)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SystemNavigationManager> {
         Self::ISystemNavigationManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7343,11 +7343,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemNavigationManager {}
 unsafe impl ::core::marker::Sync for SystemNavigationManager {}
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct TouchHitTestingEventArgs(::windows::core::IUnknown);
 impl TouchHitTestingEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -7355,12 +7355,12 @@ impl TouchHitTestingEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProximityEvaluation(&self) -> ::windows::core::Result<CoreProximityEvaluation> {
         let this = self;
@@ -7369,13 +7369,13 @@ impl TouchHitTestingEventArgs {
             (::windows::core::Interface::vtable(this).ProximityEvaluation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreProximityEvaluation>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetProximityEvaluation<'a, Param0: ::windows::core::IntoParam<'a, CoreProximityEvaluation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProximityEvaluation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -7384,7 +7384,7 @@ impl TouchHitTestingEventArgs {
             (::windows::core::Interface::vtable(this).Point)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -7393,7 +7393,7 @@ impl TouchHitTestingEventArgs {
             (::windows::core::Interface::vtable(this).BoundingBox)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EvaluateProximityToRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, controlboundingbox: Param0) -> ::windows::core::Result<CoreProximityEvaluation> {
         let this = self;
@@ -7402,7 +7402,7 @@ impl TouchHitTestingEventArgs {
             (::windows::core::Interface::vtable(this).EvaluateProximityToRect)(::core::mem::transmute_copy(this), controlboundingbox.into_param().abi(), &mut result__).from_abi::<CoreProximityEvaluation>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EvaluateProximityToPolygon(&self, controlvertices: &[super::super::Foundation::Point]) -> ::windows::core::Result<CoreProximityEvaluation> {
         let this = self;
@@ -7504,11 +7504,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &TouchHitTesti
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct VisibilityChangedEventArgs(::windows::core::IUnknown);
 impl VisibilityChangedEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -7516,12 +7516,12 @@ impl VisibilityChangedEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Visible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -7622,11 +7622,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &VisibilityCha
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct WindowActivatedEventArgs(::windows::core::IUnknown);
 impl WindowActivatedEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -7634,12 +7634,12 @@ impl WindowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn WindowActivationState(&self) -> ::windows::core::Result<CoreWindowActivationState> {
         let this = self;
         unsafe {
@@ -7740,11 +7740,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &WindowActivat
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'UI_Core'*"]
+#[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct WindowSizeChangedEventArgs(::windows::core::IUnknown);
 impl WindowSizeChangedEventArgs {
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe {
@@ -7752,12 +7752,12 @@ impl WindowSizeChangedEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core'*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;

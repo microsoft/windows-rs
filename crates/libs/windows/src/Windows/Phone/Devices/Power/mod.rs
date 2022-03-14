@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Phone_Devices_Power'*"]
+#[doc = "*Required features: `\"Phone_Devices_Power\"`*"]
 #[repr(transparent)]
 pub struct Battery(::windows::core::IUnknown);
 impl Battery {
-    #[doc = "*Required features: 'Phone_Devices_Power'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Power\"`*"]
     pub fn RemainingChargePercent(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -11,7 +11,7 @@ impl Battery {
             (::windows::core::Interface::vtable(this).RemainingChargePercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Phone_Devices_Power', 'Foundation'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Power\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingDischargeTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -20,7 +20,7 @@ impl Battery {
             (::windows::core::Interface::vtable(this).RemainingDischargeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Phone_Devices_Power', 'Foundation'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Power\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingChargePercentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, changehandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -29,13 +29,13 @@ impl Battery {
             (::windows::core::Interface::vtable(this).RemainingChargePercentChanged)(::core::mem::transmute_copy(this), changehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Phone_Devices_Power', 'Foundation'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Power\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemainingChargePercentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRemainingChargePercentChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Phone_Devices_Power'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Power\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

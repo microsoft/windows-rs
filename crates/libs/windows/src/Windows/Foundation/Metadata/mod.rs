@@ -1,71 +1,71 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 pub struct ApiInformation {}
 impl ApiInformation {
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsTypePresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsTypePresent)(::core::mem::transmute_copy(this), typename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsMethodPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, methodname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsMethodPresent)(::core::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsMethodPresentWithArity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, methodname: Param1, inputparametercount: u32) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsMethodPresentWithArity)(::core::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), inputparametercount, &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsEventPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, eventname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsEventPresent)(::core::mem::transmute_copy(this), typename.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsPropertyPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsPropertyPresent)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsReadOnlyPropertyPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsReadOnlyPropertyPresent)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsWriteablePropertyPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsWriteablePropertyPresent)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsEnumNamedValuePresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(enumtypename: Param0, valuename: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsEnumNamedValuePresent)(::core::mem::transmute_copy(this), enumtypename.into_param().abi(), valuename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsApiContractPresentByMajor<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contractname: Param0, majorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsApiContractPresentByMajor)(::core::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Foundation_Metadata'*"]
+    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsApiContractPresentByMajorAndMinor<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contractname: Param0, majorversion: u16, minorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -81,7 +81,7 @@ impl ApiInformation {
 impl ::windows::core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AttributeTargets(pub u32);
@@ -154,7 +154,7 @@ unsafe impl ::windows::core::RuntimeType for AttributeTargets {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionType(pub i32);
@@ -188,7 +188,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeprecationType(pub i32);
@@ -222,7 +222,7 @@ unsafe impl ::windows::core::RuntimeType for DeprecationType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FeatureStage(pub i32);
@@ -258,7 +258,7 @@ unsafe impl ::windows::core::RuntimeType for FeatureStage {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GCPressureAmount(pub i32);
@@ -315,7 +315,7 @@ pub struct IApiInformationStatics_Vtbl {
     pub IsApiContractPresentByMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MarshalingType(pub i32);
@@ -351,7 +351,7 @@ unsafe impl ::windows::core::RuntimeType for MarshalingType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Platform(pub i32);
@@ -385,7 +385,7 @@ unsafe impl ::windows::core::RuntimeType for Platform {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ThreadingModel(pub i32);

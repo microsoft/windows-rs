@@ -1,24 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcCertificateEnumerator(::windows::core::IUnknown);
 impl IOpcCertificateEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(hasnext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(hasprevious)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn GetCurrent(&self, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcCertificateEnumerator>(result__)
@@ -82,21 +82,21 @@ pub struct IOpcCertificateEnumerator_Vtbl {
     GetCurrent: usize,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcCertificateSet(::windows::core::IUnknown);
 impl IOpcCertificateSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Add(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Remove(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificate)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcCertificateEnumerator>(result__)
@@ -156,78 +156,78 @@ pub struct IOpcCertificateSet_Vtbl {
     Remove: usize,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificateenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcDigitalSignature(::windows::core::IUnknown);
 impl IOpcDigitalSignature {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNamespaces)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixes), ::core::mem::transmute(namespaces), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignaturePartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignaturePartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCanonicalizationMethod(&self, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCanonicalizationMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(canonicalizationmethod)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(signaturevalue), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignaturePartReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignaturePartReferenceEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignaturePartReferenceEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureRelationshipReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureRelationshipReferenceEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureRelationshipReferenceEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSigningTime(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSigningTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTimeFormat(&self, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTimeFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetPackageObjectReference(&self) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPackageObjectReference)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCertificateEnumerator(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcCertificateEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCustomReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomReferenceEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReferenceEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCustomObjectEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomObjectEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObjectEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureXml)(::core::mem::transmute_copy(self), ::core::mem::transmute(signaturexml), ::core::mem::transmute(count)).ok()
     }
@@ -295,28 +295,28 @@ pub struct IOpcDigitalSignature_Vtbl {
     pub GetCustomObjectEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSignatureXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcDigitalSignatureEnumerator(::windows::core::IUnknown);
 impl IOpcDigitalSignatureEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcDigitalSignature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcDigitalSignature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcDigitalSignatureEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcDigitalSignatureEnumerator>(result__)
@@ -377,48 +377,48 @@ pub struct IOpcDigitalSignatureEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcDigitalSignatureManager(::windows::core::IUnknown);
 impl IOpcDigitalSignatureManager {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignatureOriginPartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureOriginPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignatureOriginPartName<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signatureoriginpartname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSignatureOriginPartName)(::core::mem::transmute_copy(self), signatureoriginpartname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureEnumerator(&self) -> ::windows::core::Result<IOpcDigitalSignatureEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcDigitalSignatureEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveSignature<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signaturepartname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveSignature)(::core::mem::transmute_copy(self), signaturepartname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreateSigningOptions(&self) -> ::windows::core::Result<IOpcSigningOptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSigningOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSigningOptions>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Validate<'a, Param0: ::windows::core::IntoParam<'a, IOpcDigitalSignature>>(&self, signature: Param0, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Validate)(::core::mem::transmute_copy(self), signature.into_param().abi(), ::core::mem::transmute(certificate), ::core::mem::transmute(validationresult)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Sign<'a, Param1: ::windows::core::IntoParam<'a, IOpcSigningOptions>>(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: Param1) -> ::windows::core::Result<IOpcDigitalSignature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Sign)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificate), signingoptions.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcDigitalSignature>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReplaceSignatureXml<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signaturepartname: Param0, newsignaturexml: *const u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -496,45 +496,45 @@ pub struct IOpcDigitalSignatureManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ReplaceSignatureXml: usize,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcFactory(::windows::core::IUnknown);
 impl IOpcFactory {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePackageRootUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageRootUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePartUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreatePartUri)(::core::mem::transmute_copy(self), pwzuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_Security', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStreamOnFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, filename: Param0, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateStreamOnFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(iomode), ::core::mem::transmute(securityattributes), ::core::mem::transmute(dwflagsandattributes), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreatePackage(&self) -> ::windows::core::Result<IOpcPackage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPackage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReadPackageFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, stream: Param0, flags: OPC_READ_FLAGS) -> ::windows::core::Result<IOpcPackage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ReadPackageFromStream)(::core::mem::transmute_copy(self), stream.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPackage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WritePackageToStream<'a, Param0: ::windows::core::IntoParam<'a, IOpcPackage>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, package: Param0, flags: OPC_WRITE_FLAGS, stream: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WritePackageToStream)(::core::mem::transmute_copy(self), package.into_param().abi(), ::core::mem::transmute(flags), stream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreateDigitalSignatureManager<'a, Param0: ::windows::core::IntoParam<'a, IOpcPackage>>(&self, package: Param0) -> ::windows::core::Result<IOpcDigitalSignatureManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateDigitalSignatureManager)(::core::mem::transmute_copy(self), package.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcDigitalSignatureManager>(result__)
@@ -607,16 +607,16 @@ pub struct IOpcFactory_Vtbl {
     WritePackageToStream: usize,
     pub CreateDigitalSignatureManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, signaturemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcPackage(::windows::core::IUnknown);
 impl IOpcPackage {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetPartSet(&self) -> ::windows::core::Result<IOpcPartSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPartSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationshipSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSet>(result__)
@@ -669,33 +669,33 @@ pub struct IOpcPackage_Vtbl {
     pub GetPartSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRelationshipSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcPart(::windows::core::IUnknown);
 impl IOpcPart {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationshipSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetContentStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetContentStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetContentType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetContentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCompressionOptions(&self) -> ::windows::core::Result<OPC_COMPRESSION_OPTIONS> {
         let mut result__: OPC_COMPRESSION_OPTIONS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCompressionOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_COMPRESSION_OPTIONS>(result__)
@@ -757,28 +757,28 @@ pub struct IOpcPart_Vtbl {
     pub GetContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenttype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetCompressionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compressionoptions: *mut OPC_COMPRESSION_OPTIONS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcPartEnumerator(::windows::core::IUnknown);
 impl IOpcPartEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcPart> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPart>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcPartEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartEnumerator>(result__)
@@ -839,34 +839,34 @@ pub struct IOpcPartEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcPartSet(::windows::core::IUnknown);
 impl IOpcPartSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPart<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, name: Param0) -> ::windows::core::Result<IOpcPart> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPart)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPart>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePart<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, contenttype: Param1, compressionoptions: OPC_COMPRESSION_OPTIONS) -> ::windows::core::Result<IOpcPart> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreatePart)(::core::mem::transmute_copy(self), name.into_param().abi(), contenttype.into_param().abi(), ::core::mem::transmute(compressionoptions), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPart>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeletePart<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, name: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeletePart)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PartExists<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PartExists)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcPartEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartEnumerator>(result__)
@@ -934,190 +934,190 @@ pub struct IOpcPartSet_Vtbl {
     PartExists: usize,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IOpcPartUri(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcPartUri {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetPropertyBSTR)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pbstrproperty), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetPropertyLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pcchproperty), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetPropertyDWORD)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pdwproperty), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HasProperty(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.HasProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAbsoluteUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetAbsoluteUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAuthority(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetAuthority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetDisplayUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDisplayUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetDomain(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDomain)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtension(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetExtension)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFragment(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetFragment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetHost(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetHost)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPassword(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPathAndQuery(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPathAndQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetQuery(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRawUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetRawUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSchemeName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetSchemeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetUserInfo(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetUserInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetUserName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetUserName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHostType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetHostType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPort(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetScheme(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetScheme)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetZone(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, puri: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.IsEqual)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsPartUri(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetRelationshipsPartUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelativeUri<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, targetparturi: Param0) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetRelativeUri)(::core::mem::transmute_copy(self), targetparturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CombinePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, relativeuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CombinePartUri)(::core::mem::transmute_copy(self), relativeuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ComparePartUri<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ComparePartUri)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRelationshipsPartUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
@@ -1239,33 +1239,33 @@ pub struct IOpcPartUri_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsRelationshipsPartUri: usize,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcRelationship(::windows::core::IUnknown);
 impl IOpcRelationship {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetRelationshipType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationshipType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTargetUri(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTargetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTargetMode(&self) -> ::windows::core::Result<OPC_URI_TARGET_MODE> {
         let mut result__: OPC_URI_TARGET_MODE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTargetMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_URI_TARGET_MODE>(result__)
@@ -1327,28 +1327,28 @@ pub struct IOpcRelationship_Vtbl {
     GetTargetUri: usize,
     pub GetTargetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetmode: *mut OPC_URI_TARGET_MODE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipEnumerator(::windows::core::IUnknown);
 impl IOpcRelationshipEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationship>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipEnumerator>(result__)
@@ -1409,16 +1409,16 @@ pub struct IOpcRelationshipEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSelector(::windows::core::IUnknown);
 impl IOpcRelationshipSelector {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSelectorType(&self) -> ::windows::core::Result<OPC_RELATIONSHIP_SELECTOR> {
         let mut result__: OPC_RELATIONSHIP_SELECTOR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSelectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_RELATIONSHIP_SELECTOR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSelectionCriterion(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSelectionCriterion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
@@ -1471,28 +1471,28 @@ pub struct IOpcRelationshipSelector_Vtbl {
     pub GetSelectorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selector: *mut OPC_RELATIONSHIP_SELECTOR) -> ::windows::core::HRESULT,
     pub GetSelectionCriterion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectioncriterion: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSelectorEnumerator(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcRelationshipSelector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSelector>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSelectorEnumerator>(result__)
@@ -1553,20 +1553,20 @@ pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSelectorSet(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Create<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: Param1) -> ::windows::core::Result<IOpcRelationshipSelector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(selector), selectioncriterion.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSelector>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcRelationshipSelector>>(&self, relationshipselector: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), relationshipselector.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSelectorEnumerator>(result__)
@@ -1620,42 +1620,42 @@ pub struct IOpcRelationshipSelectorSet_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSet(::windows::core::IUnknown);
 impl IOpcRelationshipSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetRelationship<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationship)(::core::mem::transmute_copy(self), relationshipidentifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationship>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRelationship<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, relationshipidentifier: Param0, relationshiptype: Param1, targeturi: Param2, targetmode: OPC_URI_TARGET_MODE) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateRelationship)(::core::mem::transmute_copy(self), relationshipidentifier.into_param().abi(), relationshiptype.into_param().abi(), targeturi.into_param().abi(), ::core::mem::transmute(targetmode), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationship>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn DeleteRelationship<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteRelationship)(::core::mem::transmute_copy(self), relationshipidentifier.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelationshipExists<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RelationshipExists)(::core::mem::transmute_copy(self), relationshipidentifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumeratorForType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshiptype: Param0) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumeratorForType)(::core::mem::transmute_copy(self), relationshiptype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsContentStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1723,11 +1723,11 @@ pub struct IOpcRelationshipSet_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRelationshipsContentStream: usize,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObject(::windows::core::IUnknown);
 impl IOpcSignatureCustomObject {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlmarkup), ::core::mem::transmute(count)).ok()
     }
@@ -1778,28 +1778,28 @@ pub struct IOpcSignatureCustomObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObjectEnumerator(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureCustomObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObject>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObjectEnumerator>(result__)
@@ -1860,20 +1860,20 @@ pub struct IOpcSignatureCustomObjectEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObjectSet(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Create(&self, xmlmarkup: &[u8]) -> ::windows::core::Result<IOpcSignatureCustomObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(xmlmarkup)), xmlmarkup.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObject>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureCustomObject>>(&self, customobject: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), customobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObjectEnumerator>(result__)
@@ -1927,31 +1927,31 @@ pub struct IOpcSignatureCustomObjectSet_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignaturePartReference(::windows::core::IUnknown);
 impl IOpcSignaturePartReference {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetContentType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetContentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
         let mut result__: OPC_CANONICALIZATION_METHOD = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTransformMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_CANONICALIZATION_METHOD>(result__)
@@ -2010,28 +2010,28 @@ pub struct IOpcSignaturePartReference_Vtbl {
     pub GetDigestValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetTransformMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignaturePartReferenceEnumerator(::windows::core::IUnknown);
 impl IOpcSignaturePartReferenceEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignaturePartReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignaturePartReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignaturePartReferenceEnumerator>(result__)
@@ -2092,21 +2092,21 @@ pub struct IOpcSignaturePartReferenceEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignaturePartReferenceSet(::windows::core::IUnknown);
 impl IOpcSignaturePartReferenceSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, parturi: Param0, digestmethod: Param1, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignaturePartReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), parturi.into_param().abi(), digestmethod.into_param().abi(), ::core::mem::transmute(transformmethod), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignaturePartReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignaturePartReference>>(&self, partreference: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), partreference.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignaturePartReferenceEnumerator>(result__)
@@ -2163,37 +2163,37 @@ pub struct IOpcSignaturePartReferenceSet_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureReference(::windows::core::IUnknown);
 impl IOpcSignatureReference {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
         let mut result__: OPC_CANONICALIZATION_METHOD = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTransformMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_CANONICALIZATION_METHOD>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
@@ -2252,28 +2252,28 @@ pub struct IOpcSignatureReference_Vtbl {
     pub GetDigestMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetDigestValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureReferenceEnumerator(::windows::core::IUnknown);
 impl IOpcSignatureReferenceEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReferenceEnumerator>(result__)
@@ -2334,21 +2334,21 @@ pub struct IOpcSignatureReferenceEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureReferenceSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, referenceuri: Param0, referenceid: Param1, r#type: Param2, digestmethod: Param3, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), referenceuri.into_param().abi(), referenceid.into_param().abi(), r#type.into_param().abi(), digestmethod.into_param().abi(), ::core::mem::transmute(transformmethod), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureReference>>(&self, reference: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), reference.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReferenceEnumerator>(result__)
@@ -2405,36 +2405,36 @@ pub struct IOpcSignatureReferenceSet_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReference(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReference {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
         let mut result__: OPC_CANONICALIZATION_METHOD = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTransformMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_CANONICALIZATION_METHOD>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetRelationshipSigningOption(&self) -> ::windows::core::Result<OPC_RELATIONSHIPS_SIGNING_OPTION> {
         let mut result__: OPC_RELATIONSHIPS_SIGNING_OPTION = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationshipSigningOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_RELATIONSHIPS_SIGNING_OPTION>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetRelationshipSelectorEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationshipSelectorEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSelectorEnumerator>(result__)
@@ -2494,28 +2494,28 @@ pub struct IOpcSignatureRelationshipReference_Vtbl {
     pub GetRelationshipSigningOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipsigningoption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> ::windows::core::HRESULT,
     pub GetRelationshipSelectorEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReferenceEnumerator {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MovePrevious)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureRelationshipReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureRelationshipReferenceEnumerator>(result__)
@@ -2576,26 +2576,26 @@ pub struct IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReferenceSet {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, IOpcUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IOpcRelationshipSelectorSet>>(&self, sourceuri: Param0, digestmethod: Param1, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: Param3, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), sourceuri.into_param().abi(), digestmethod.into_param().abi(), ::core::mem::transmute(relationshipsigningoption), selectorset.into_param().abi(), ::core::mem::transmute(transformmethod), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureRelationshipReference>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreateRelationshipSelectorSet(&self) -> ::windows::core::Result<IOpcRelationshipSelectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateRelationshipSelectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcRelationshipSelectorSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureRelationshipReference>>(&self, relationshipreference: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), relationshipreference.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureRelationshipReferenceEnumerator>(result__)
@@ -2653,87 +2653,87 @@ pub struct IOpcSignatureRelationshipReferenceSet_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 pub struct IOpcSigningOptions(::windows::core::IUnknown);
 impl IOpcSigningOptions {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn SetSignatureId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, signatureid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSignatureId)(::core::mem::transmute_copy(self), signatureid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn SetSignatureMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, signaturemethod: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSignatureMethod)(::core::mem::transmute_copy(self), signaturemethod.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDefaultDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultDigestMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn SetDefaultDigestMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, digestmethod: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultDigestMethod)(::core::mem::transmute_copy(self), digestmethod.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCertificateEmbeddingOption(&self) -> ::windows::core::Result<OPC_CERTIFICATE_EMBEDDING_OPTION> {
         let mut result__: OPC_CERTIFICATE_EMBEDDING_OPTION = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateEmbeddingOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_CERTIFICATE_EMBEDDING_OPTION>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn SetCertificateEmbeddingOption(&self, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCertificateEmbeddingOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(embeddingoption)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTimeFormat(&self) -> ::windows::core::Result<OPC_SIGNATURE_TIME_FORMAT> {
         let mut result__: OPC_SIGNATURE_TIME_FORMAT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTimeFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OPC_SIGNATURE_TIME_FORMAT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn SetTimeFormat(&self, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTimeFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignaturePartReferenceSet(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignaturePartReferenceSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignaturePartReferenceSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureRelationshipReferenceSet(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureRelationshipReferenceSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureRelationshipReferenceSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCustomObjectSet(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomObjectSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObjectSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCustomReferenceSet(&self) -> ::windows::core::Result<IOpcSignatureReferenceSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomReferenceSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureReferenceSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCertificateSet(&self) -> ::windows::core::Result<IOpcCertificateSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcCertificateSet>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignaturePartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSignaturePartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignaturePartName<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signaturepartname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSignaturePartName)(::core::mem::transmute_copy(self), signaturepartname.into_param().abi()).ok()
@@ -2807,172 +2807,172 @@ pub struct IOpcSigningOptions_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSignaturePartName: usize,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IOpcUri(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcUri {
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPropertyBSTR)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pbstrproperty), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPropertyLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pcchproperty), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPropertyDWORD)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pdwproperty), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HasProperty(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.HasProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAbsoluteUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAbsoluteUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAuthority(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAuthority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetDisplayUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDisplayUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetDomain(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDomain)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtension(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetExtension)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFragment(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFragment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetHost(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetHost)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPassword(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPathAndQuery(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPathAndQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetQuery(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRawUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetRawUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSchemeName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSchemeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetUserInfo(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetUserInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetUserName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetUserName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHostType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetHostType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPort(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetScheme(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetScheme)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetZone(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, puri: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.IsEqual)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsPartUri(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelationshipsPartUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelativeUri<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, targetparturi: Param0) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRelativeUri)(::core::mem::transmute_copy(self), targetparturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CombinePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, relativeuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3070,15 +3070,15 @@ pub struct IOpcUri_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CombinePartUri: usize,
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_CANONICALIZATION_METHOD(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(1i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(2i32);
 impl ::core::marker::Copy for OPC_CANONICALIZATION_METHOD {}
 impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
@@ -3099,15 +3099,15 @@ impl ::core::fmt::Debug for OPC_CANONICALIZATION_METHOD {
         f.debug_tuple("OPC_CANONICALIZATION_METHOD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(1i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(2i32);
 impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
 impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
@@ -3128,19 +3128,19 @@ impl ::core::fmt::Debug for OPC_CERTIFICATE_EMBEDDING_OPTION {
         f.debug_tuple("OPC_CERTIFICATE_EMBEDDING_OPTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_COMPRESSION_OPTIONS(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(-1i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(1i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(2i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(3i32);
 impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
 impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
@@ -3161,219 +3161,219 @@ impl ::core::fmt::Debug for OPC_COMPRESSION_OPTIONS {
         f.debug_tuple("OPC_COMPRESSION_OPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175212i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_COULD_NOT_RECOVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175154i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_DEFAULT_DIGEST_METHOD_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175161i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_DIGEST_VALUE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175206i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_DUPLICATE_PACKAGE_OBJECT_REFERENCES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175187i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_DUPLICATE_SIGNATURE_ORIGIN_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175205i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_DUPLICATE_SIGNATURE_PROPERTY_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175192i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_EXTERNAL_SIGNATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175202i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_EXTERNAL_SIGNATURE_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175185i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_CANONICALIZATION_METHOD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175198i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_CERTIFICATE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175203i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_OPC_SIGNATURE_TIME_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175196i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_RELATIONSHIPS_SIGNING_OPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175197i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_RELATIONSHIP_TRANSFORM_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175199i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_SIGNATURE_COUNT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175189i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_SIGNATURE_ORIGIN_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175204i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_INVALID_SIGNATURE_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175190i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_CANONICALIZATION_TRANSFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175182i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_CERTIFICATE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175146i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_PACKAGE_OBJECT_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175186i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_ALGORITHM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175188i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_ORIGIN_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175201i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175200i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_PROPERTIES_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175194i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_PROPERTY_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175193i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_TIME_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175191i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_MULTIPLE_RELATIONSHIP_TRANSFORMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175183i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_PACKAGE_REFERENCE_URI_RESERVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175195i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_REFERENCE_MISSING_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175184i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_SIGNATURE_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175207i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_SIGNATURE_METHOD_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175162i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_SIGNATURE_ORIGIN_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175148i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_SIGNATURE_PROPERTY_MISSING_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175163i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_SIGNATURE_REFERENCE_MISSING_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175165i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DS_UNSIGNED_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175147i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DUPLICATE_DEFAULT_EXTENSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175217i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DUPLICATE_OVERRIDE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175219i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DUPLICATE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175221i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DUPLICATE_PIECE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175211i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_DUPLICATE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175213i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ENUM_CANNOT_MOVE_NEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175151i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ENUM_CANNOT_MOVE_PREVIOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175150i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ENUM_COLLECTION_CHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175152i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ENUM_INVALID_POSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175149i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175164i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_CONTENT_TYPE_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175226i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_DEFAULT_EXTENSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175218i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_OVERRIDE_PART_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175220i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_PIECE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175210i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_RELATIONSHIP_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175216i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_RELATIONSHIP_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175214i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_RELATIONSHIP_TARGET_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175155i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_RELATIONSHIP_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175215i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_RELS_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175222i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_INVALID_XML_ENCODING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175166i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INCONSISTENT_PRESERVE_ATTRIBUTES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175157i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INCONSISTENT_PRESERVE_ELEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175156i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INCONSISTENT_PROCESS_CONTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175158i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INVALID_ATTRIBUTES_ON_IGNORABLE_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175168i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INVALID_ENUM_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175172i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INVALID_PREFIX_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175177i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INVALID_QNAME_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175176i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_INVALID_XMLNS_ATTRIBUTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175167i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_MISSING_CHOICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175173i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_MISSING_REQUIRES_ATTR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175179i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_MULTIPLE_FALLBACK_ELEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175159i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_NESTED_ALTERNATE_CONTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175175i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_UNEXPECTED_ATTR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175178i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_UNEXPECTED_CHOICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175174i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_UNEXPECTED_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175181i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_UNEXPECTED_REQUIRES_ATTR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175180i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_UNKNOWN_NAMESPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175170i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MC_UNKNOWN_PREFIX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175169i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MISSING_CONTENT_TYPES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175225i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_MISSING_PIECE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175209i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_NONCONFORMING_CONTENT_TYPES_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175224i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_NONCONFORMING_RELS_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175223i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_NONCONFORMING_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175231i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_NO_SUCH_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175208i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_NO_SUCH_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175160i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_NO_SUCH_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175145i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_PART_CANNOT_BE_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175228i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_RELATIONSHIP_URI_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175229i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_RELATIVE_URI_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175230i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_UNEXPECTED_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175227i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_UNSUPPORTED_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175153i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_CENTRAL_DIRECTORY_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171127i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_COMMENT_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171124i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_COMPRESSION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171133i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_CORRUPTED_ARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171134i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_DECOMPRESSION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171132i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_DUPLICATE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171125i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_EXTRA_FIELDS_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171123i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_FILE_HEADER_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171122i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_INCONSISTENT_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171130i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_INCONSISTENT_FILEITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171131i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_INCORRECT_DATA_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171135i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_MISSING_DATA_DESCRIPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171129i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_MISSING_END_OF_CENTRAL_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171121i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_NAME_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171126i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171120i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171128i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_READ_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = OPC_READ_FLAGS(0u32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = OPC_READ_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = OPC_READ_FLAGS(2u32);
 impl ::core::marker::Copy for OPC_READ_FLAGS {}
 impl ::core::clone::Clone for OPC_READ_FLAGS {
@@ -3422,13 +3422,13 @@ impl ::core::ops::Not for OPC_READ_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_RELATIONSHIP_SIGN_USING_SELECTORS: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_RELATIONSHIP_SIGN_PART: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(1i32);
 impl ::core::marker::Copy for OPC_RELATIONSHIPS_SIGNING_OPTION {}
 impl ::core::clone::Clone for OPC_RELATIONSHIPS_SIGNING_OPTION {
@@ -3449,13 +3449,13 @@ impl ::core::fmt::Debug for OPC_RELATIONSHIPS_SIGNING_OPTION {
         f.debug_tuple("OPC_RELATIONSHIPS_SIGNING_OPTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_RELATIONSHIP_SELECTOR(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_RELATIONSHIP_SELECT_BY_ID: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_RELATIONSHIP_SELECT_BY_TYPE: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(1i32);
 impl ::core::marker::Copy for OPC_RELATIONSHIP_SELECTOR {}
 impl ::core::clone::Clone for OPC_RELATIONSHIP_SELECTOR {
@@ -3476,21 +3476,21 @@ impl ::core::fmt::Debug for OPC_RELATIONSHIP_SELECTOR {
         f.debug_tuple("OPC_RELATIONSHIP_SELECTOR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_SIGNATURE_TIME_FORMAT(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_SECONDS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(1i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MINUTES: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(2i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_DAYS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(3i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MONTHS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(4i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_YEARS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(5i32);
 impl ::core::marker::Copy for OPC_SIGNATURE_TIME_FORMAT {}
 impl ::core::clone::Clone for OPC_SIGNATURE_TIME_FORMAT {
@@ -3511,13 +3511,13 @@ impl ::core::fmt::Debug for OPC_SIGNATURE_TIME_FORMAT {
         f.debug_tuple("OPC_SIGNATURE_TIME_FORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_SIGNATURE_VALIDATION_RESULT(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_VALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_INVALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(-1i32);
 impl ::core::marker::Copy for OPC_SIGNATURE_VALIDATION_RESULT {}
 impl ::core::clone::Clone for OPC_SIGNATURE_VALIDATION_RESULT {
@@ -3538,13 +3538,13 @@ impl ::core::fmt::Debug for OPC_SIGNATURE_VALIDATION_RESULT {
         f.debug_tuple("OPC_SIGNATURE_VALIDATION_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_STREAM_IO_MODE(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_STREAM_IO_READ: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(1i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_STREAM_IO_WRITE: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(2i32);
 impl ::core::marker::Copy for OPC_STREAM_IO_MODE {}
 impl ::core::clone::Clone for OPC_STREAM_IO_MODE {
@@ -3565,13 +3565,13 @@ impl ::core::fmt::Debug for OPC_STREAM_IO_MODE {
         f.debug_tuple("OPC_STREAM_IO_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_URI_TARGET_MODE(pub i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(0i32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_URI_TARGET_MODE_EXTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(1i32);
 impl ::core::marker::Copy for OPC_URI_TARGET_MODE {}
 impl ::core::clone::Clone for OPC_URI_TARGET_MODE {
@@ -3592,13 +3592,13 @@ impl ::core::fmt::Debug for OPC_URI_TARGET_MODE {
         f.debug_tuple("OPC_URI_TARGET_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPC_WRITE_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0u32);
-#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1u32);
 impl ::core::marker::Copy for OPC_WRITE_FLAGS {}
 impl ::core::clone::Clone for OPC_WRITE_FLAGS {

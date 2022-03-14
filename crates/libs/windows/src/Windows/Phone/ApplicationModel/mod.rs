@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Phone_ApplicationModel'*"]
+#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 pub struct ApplicationProfile {}
 impl ApplicationProfile {
-    #[doc = "*Required features: 'Phone_ApplicationModel'*"]
+    #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__: ApplicationProfileModes = ::core::mem::zeroed();
@@ -18,7 +18,7 @@ impl ApplicationProfile {
 impl ::windows::core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
-#[doc = "*Required features: 'Phone_ApplicationModel'*"]
+#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationProfileModes(pub u32);

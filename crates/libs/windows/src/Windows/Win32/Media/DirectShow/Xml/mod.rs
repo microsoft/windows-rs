@@ -1,20 +1,20 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
-#[doc = "*Required features: 'Win32_Media_DirectShow_Xml'*"]
+#[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
 #[repr(transparent)]
 pub struct IXMLGraphBuilder(::windows::core::IUnknown);
 impl IXMLGraphBuilder {
-    #[doc = "*Required features: 'Win32_Media_DirectShow_Xml', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn BuildFromXML<'a, Param0: ::windows::core::IntoParam<'a, super::IGraphBuilder>, Param1: ::windows::core::IntoParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>(&self, pgraph: Param0, pxml: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BuildFromXML)(::core::mem::transmute_copy(self), pgraph.into_param().abi(), pxml.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DirectShow_Xml', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaveToXML<'a, Param0: ::windows::core::IntoParam<'a, super::IGraphBuilder>>(&self, pgraph: Param0, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SaveToXML)(::core::mem::transmute_copy(self), pgraph.into_param().abi(), ::core::mem::transmute(pbstrxml)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DirectShow_Xml'*"]
+    #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
     pub unsafe fn BuildFromXMLFile<'a, Param0: ::windows::core::IntoParam<'a, super::IGraphBuilder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pgraph: Param0, wszfilename: Param1, wszbaseurl: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BuildFromXMLFile)(::core::mem::transmute_copy(self), pgraph.into_param().abi(), wszfilename.into_param().abi(), wszbaseurl.into_param().abi()).ok()
     }

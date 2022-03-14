@@ -31,17 +31,17 @@ pub struct ISystemProtectionUnlockStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestScreenUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Phone_System'*"]
+#[doc = "*Required features: `\"Phone_System\"`*"]
 pub struct SystemProtection {}
 impl SystemProtection {
-    #[doc = "*Required features: 'Phone_System'*"]
+    #[doc = "*Required features: `\"Phone_System\"`*"]
     pub fn ScreenLocked() -> ::windows::core::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ScreenLocked)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Phone_System'*"]
+    #[doc = "*Required features: `\"Phone_System\"`*"]
     pub fn RequestScreenUnlock() -> ::windows::core::Result<()> {
         Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RequestScreenUnlock)(::core::mem::transmute_copy(this)).ok() })
     }

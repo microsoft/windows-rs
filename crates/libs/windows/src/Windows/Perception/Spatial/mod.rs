@@ -635,11 +635,11 @@ pub struct ISpatialStationaryFrameOfReference_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialAnchor(::windows::core::IUnknown);
 impl SpatialAnchor {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -647,7 +647,7 @@ impl SpatialAnchor {
             (::windows::core::Interface::vtable(this).CoordinateSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn RawCoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -655,7 +655,7 @@ impl SpatialAnchor {
             (::windows::core::Interface::vtable(this).RawCoordinateSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RawCoordinateSystemAdjusted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialAnchor, SpatialAnchorRawCoordinateSystemAdjustedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -664,13 +664,13 @@ impl SpatialAnchor {
             (::windows::core::Interface::vtable(this).RawCoordinateSystemAdjusted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRawCoordinateSystemAdjusted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRawCoordinateSystemAdjusted)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn RemovedByUser(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISpatialAnchor2>(self)?;
         unsafe {
@@ -678,14 +678,14 @@ impl SpatialAnchor {
             (::windows::core::Interface::vtable(this).RemovedByUser)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn TryCreateRelativeTo<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>>(coordinatesystem: Param0) -> ::windows::core::Result<SpatialAnchor> {
         Self::ISpatialAnchorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateRelativeTo)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialAnchor>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateWithPositionRelativeTo<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(coordinatesystem: Param0, position: Param1) -> ::windows::core::Result<SpatialAnchor> {
         Self::ISpatialAnchorStatics(|this| unsafe {
@@ -693,7 +693,7 @@ impl SpatialAnchor {
             (::windows::core::Interface::vtable(this).TryCreateWithPositionRelativeTo)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), position.into_param().abi(), &mut result__).from_abi::<SpatialAnchor>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateWithPositionAndOrientationRelativeTo<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(coordinatesystem: Param0, position: Param1, orientation: Param2) -> ::windows::core::Result<SpatialAnchor> {
         Self::ISpatialAnchorStatics(|this| unsafe {
@@ -779,7 +779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialAnchorExportPurpose(pub i32);
@@ -813,11 +813,11 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialAnchorExportSufficiency(::windows::core::IUnknown);
 impl SpatialAnchorExportSufficiency {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn IsMinimallySufficient(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -825,7 +825,7 @@ impl SpatialAnchorExportSufficiency {
             (::windows::core::Interface::vtable(this).IsMinimallySufficient)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn SufficiencyLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -833,7 +833,7 @@ impl SpatialAnchorExportSufficiency {
             (::windows::core::Interface::vtable(this).SufficiencyLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn RecommendedSufficiencyLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -914,11 +914,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialAnchorExportSufficiency {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExportSufficiency {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialAnchorExporter(::windows::core::IUnknown);
 impl SpatialAnchorExporter {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAnchorExportSufficiencyAsync<'a, Param0: ::windows::core::IntoParam<'a, SpatialAnchor>>(&self, anchor: Param0, purpose: SpatialAnchorExportPurpose) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>> {
         let this = self;
@@ -927,7 +927,7 @@ impl SpatialAnchorExporter {
             (::windows::core::Interface::vtable(this).GetAnchorExportSufficiencyAsync)(::core::mem::transmute_copy(this), anchor.into_param().abi(), purpose, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryExportAnchorAsync<'a, Param0: ::windows::core::IntoParam<'a, SpatialAnchor>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, anchor: Param0, purpose: SpatialAnchorExportPurpose, stream: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -936,14 +936,14 @@ impl SpatialAnchorExporter {
             (::windows::core::Interface::vtable(this).TryExportAnchorAsync)(::core::mem::transmute_copy(this), anchor.into_param().abi(), purpose, stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<SpatialAnchorExporter> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialAnchorExporter>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
@@ -1029,10 +1029,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialAnchorExporter {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExporter {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 pub struct SpatialAnchorManager {}
 impl SpatialAnchorManager {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorStore>> {
         Self::ISpatialAnchorManagerStatics(|this| unsafe {
@@ -1049,11 +1049,11 @@ impl SpatialAnchorManager {
 impl ::windows::core::RuntimeName for SpatialAnchorManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorManager";
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(::windows::core::IUnknown);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
@@ -1135,11 +1135,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialAnchorStore(::windows::core::IUnknown);
 impl SpatialAnchorStore {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllSavedAnchors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>> {
         let this = self;
@@ -1148,7 +1148,7 @@ impl SpatialAnchorStore {
             (::windows::core::Interface::vtable(this).GetAllSavedAnchors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn TrySave<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SpatialAnchor>>(&self, id: Param0, anchor: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1156,12 +1156,12 @@ impl SpatialAnchorStore {
             (::windows::core::Interface::vtable(this).TrySave)(::core::mem::transmute_copy(this), id.into_param().abi(), anchor.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::core::mem::transmute_copy(this), id.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
@@ -1239,12 +1239,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialAnchorStore {}
 unsafe impl ::core::marker::Sync for SpatialAnchorStore {}
-#[doc = "*Required features: 'Perception_Spatial', 'deprecated'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct SpatialAnchorTransferManager {}
 #[cfg(feature = "deprecated")]
 impl SpatialAnchorTransferManager {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Collections', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn TryImportAnchorsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
@@ -1252,7 +1252,7 @@ impl SpatialAnchorTransferManager {
             (::windows::core::Interface::vtable(this).TryImportAnchorsAsync)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Collections', 'Storage_Streams', 'deprecated'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn TryExportAnchorsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, SpatialAnchor>>>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(anchors: Param0, stream: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
@@ -1260,7 +1260,7 @@ impl SpatialAnchorTransferManager {
             (::windows::core::Interface::vtable(this).TryExportAnchorsAsync)(::core::mem::transmute_copy(this), anchors.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
@@ -1280,7 +1280,7 @@ impl ::windows::core::RuntimeName for SpatialAnchorTransferManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorTransferManager";
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -1327,7 +1327,7 @@ impl ::core::default::Default for SpatialBoundingBox {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingFrustum {
     pub Near: super::super::Foundation::Numerics::Plane,
@@ -1378,7 +1378,7 @@ impl ::core::default::Default for SpatialBoundingFrustum {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingOrientedBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -1426,7 +1426,7 @@ impl ::core::default::Default for SpatialBoundingOrientedBox {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingSphere {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -1472,11 +1472,11 @@ impl ::core::default::Default for SpatialBoundingSphere {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialBoundingVolume(::windows::core::IUnknown);
 impl SpatialBoundingVolume {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromBox<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, SpatialBoundingBox>>(coordinatesystem: Param0, r#box: Param1) -> ::windows::core::Result<SpatialBoundingVolume> {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
@@ -1484,7 +1484,7 @@ impl SpatialBoundingVolume {
             (::windows::core::Interface::vtable(this).FromBox)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), r#box.into_param().abi(), &mut result__).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromOrientedBox<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, SpatialBoundingOrientedBox>>(coordinatesystem: Param0, r#box: Param1) -> ::windows::core::Result<SpatialBoundingVolume> {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
@@ -1492,7 +1492,7 @@ impl SpatialBoundingVolume {
             (::windows::core::Interface::vtable(this).FromOrientedBox)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), r#box.into_param().abi(), &mut result__).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromSphere<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, SpatialBoundingSphere>>(coordinatesystem: Param0, sphere: Param1) -> ::windows::core::Result<SpatialBoundingVolume> {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
@@ -1500,7 +1500,7 @@ impl SpatialBoundingVolume {
             (::windows::core::Interface::vtable(this).FromSphere)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), sphere.into_param().abi(), &mut result__).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FromFrustum<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, SpatialBoundingFrustum>>(coordinatesystem: Param0, frustum: Param1) -> ::windows::core::Result<SpatialBoundingVolume> {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
@@ -1586,11 +1586,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialBoundingVolume {}
 unsafe impl ::core::marker::Sync for SpatialBoundingVolume {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialCoordinateSystem(::windows::core::IUnknown);
 impl SpatialCoordinateSystem {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetTransformTo<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>>(&self, target: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>> {
         let this = self;
@@ -1672,11 +1672,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialCoordinateSystem {}
 unsafe impl ::core::marker::Sync for SpatialCoordinateSystem {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntity(::windows::core::IUnknown);
 impl SpatialEntity {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1684,7 +1684,7 @@ impl SpatialEntity {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Anchor(&self) -> ::windows::core::Result<SpatialAnchor> {
         let this = self;
         unsafe {
@@ -1692,7 +1692,7 @@ impl SpatialEntity {
             (::windows::core::Interface::vtable(this).Anchor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialAnchor>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -1701,14 +1701,14 @@ impl SpatialEntity {
             (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CreateWithSpatialAnchor<'a, Param0: ::windows::core::IntoParam<'a, SpatialAnchor>>(spatialanchor: Param0) -> ::windows::core::Result<SpatialEntity> {
         Self::ISpatialEntityFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithSpatialAnchor)(::core::mem::transmute_copy(this), spatialanchor.into_param().abi(), &mut result__).from_abi::<SpatialEntity>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithSpatialAnchorAndProperties<'a, Param0: ::windows::core::IntoParam<'a, SpatialAnchor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(spatialanchor: Param0, propertyset: Param1) -> ::windows::core::Result<SpatialEntity> {
         Self::ISpatialEntityFactory(|this| unsafe {
@@ -1794,11 +1794,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialEntity {}
 unsafe impl ::core::marker::Sync for SpatialEntity {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntityAddedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityAddedEventArgs {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Entity(&self) -> ::windows::core::Result<SpatialEntity> {
         let this = self;
         unsafe {
@@ -1879,11 +1879,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialEntityAddedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityAddedEventArgs {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntityRemovedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityRemovedEventArgs {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Entity(&self) -> ::windows::core::Result<SpatialEntity> {
         let this = self;
         unsafe {
@@ -1964,11 +1964,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialEntityRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityRemovedEventArgs {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntityStore(::windows::core::IUnknown);
 impl SpatialEntityStore {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync<'a, Param0: ::windows::core::IntoParam<'a, SpatialEntity>>(&self, entity: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1977,7 +1977,7 @@ impl SpatialEntityStore {
             (::windows::core::Interface::vtable(this).SaveAsync)(::core::mem::transmute_copy(this), entity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAsync<'a, Param0: ::windows::core::IntoParam<'a, SpatialEntity>>(&self, entity: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1986,7 +1986,7 @@ impl SpatialEntityStore {
             (::windows::core::Interface::vtable(this).RemoveAsync)(::core::mem::transmute_copy(this), entity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CreateEntityWatcher(&self) -> ::windows::core::Result<SpatialEntityWatcher> {
         let this = self;
         unsafe {
@@ -1994,14 +1994,14 @@ impl SpatialEntityStore {
             (::windows::core::Interface::vtable(this).CreateEntityWatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialEntityWatcher>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::ISpatialEntityStoreStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'System_RemoteSystems'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(feature = "System_RemoteSystems")]
     pub fn TryGetForRemoteSystemSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::RemoteSystems::RemoteSystemSession>>(session: Param0) -> ::windows::core::Result<SpatialEntityStore> {
         Self::ISpatialEntityStoreStatics(|this| unsafe {
@@ -2087,11 +2087,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialEntityStore {}
 unsafe impl ::core::marker::Sync for SpatialEntityStore {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntityUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityUpdatedEventArgs {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Entity(&self) -> ::windows::core::Result<SpatialEntity> {
         let this = self;
         unsafe {
@@ -2172,11 +2172,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialEntityUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityUpdatedEventArgs {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialEntityWatcher(::windows::core::IUnknown);
 impl SpatialEntityWatcher {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<SpatialEntityWatcherStatus> {
         let this = self;
         unsafe {
@@ -2184,7 +2184,7 @@ impl SpatialEntityWatcher {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialEntityWatcherStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2193,13 +2193,13 @@ impl SpatialEntityWatcher {
             (::windows::core::Interface::vtable(this).Added)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2208,13 +2208,13 @@ impl SpatialEntityWatcher {
             (::windows::core::Interface::vtable(this).Updated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2223,13 +2223,13 @@ impl SpatialEntityWatcher {
             (::windows::core::Interface::vtable(this).Removed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2238,18 +2238,18 @@ impl SpatialEntityWatcher {
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
@@ -2327,7 +2327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialEntityWatcherStatus(pub i32);
@@ -2365,7 +2365,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialLocatability(pub i32);
@@ -2402,11 +2402,11 @@ unsafe impl ::windows::core::RuntimeType for SpatialLocatability {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialLocation(::windows::core::IUnknown);
 impl SpatialLocation {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2415,7 +2415,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -2424,7 +2424,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteLinearVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2433,7 +2433,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).AbsoluteLinearVelocity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteLinearAcceleration(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2442,7 +2442,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).AbsoluteLinearAcceleration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics', 'deprecated'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn AbsoluteAngularVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -2451,7 +2451,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).AbsoluteAngularVelocity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics', 'deprecated'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn AbsoluteAngularAcceleration(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -2460,7 +2460,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).AbsoluteAngularAcceleration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteAngularVelocityAxisAngle(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<ISpatialLocation2>(self)?;
@@ -2469,7 +2469,7 @@ impl SpatialLocation {
             (::windows::core::Interface::vtable(this).AbsoluteAngularVelocityAxisAngle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteAngularAccelerationAxisAngle(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<ISpatialLocation2>(self)?;
@@ -2551,11 +2551,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialLocation {}
 unsafe impl ::core::marker::Sync for SpatialLocation {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialLocator(::windows::core::IUnknown);
 impl SpatialLocator {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Locatability(&self) -> ::windows::core::Result<SpatialLocatability> {
         let this = self;
         unsafe {
@@ -2563,7 +2563,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).Locatability)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialLocatability>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LocatabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialLocator, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2572,13 +2572,13 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).LocatabilityChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLocatabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveLocatabilityChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PositionalTrackingDeactivating<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2587,13 +2587,13 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).PositionalTrackingDeactivating)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePositionalTrackingDeactivating<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePositionalTrackingDeactivating)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn TryLocateAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::PerceptionTimestamp>, Param1: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>>(&self, timestamp: Param0, coordinatesystem: Param1) -> ::windows::core::Result<SpatialLocation> {
         let this = self;
         unsafe {
@@ -2601,7 +2601,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).TryLocateAtTimestamp)(::core::mem::transmute_copy(this), timestamp.into_param().abi(), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialLocation>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
@@ -2609,7 +2609,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeading)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, relativeposition: Param0) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
@@ -2618,7 +2618,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition)(::core::mem::transmute_copy(this), relativeposition.into_param().abi(), &mut result__).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, relativeposition: Param0, relativeorientation: Param1) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
@@ -2627,7 +2627,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation)(::core::mem::transmute_copy(this), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, relativeposition: Param0, relativeorientation: Param1, relativeheadinginradians: f64) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
@@ -2636,7 +2636,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading)(::core::mem::transmute_copy(this), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), relativeheadinginradians, &mut result__).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
@@ -2644,7 +2644,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, relativeposition: Param0) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
@@ -2653,7 +2653,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition)(::core::mem::transmute_copy(this), relativeposition.into_param().abi(), &mut result__).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, relativeposition: Param0, relativeorientation: Param1) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
@@ -2662,7 +2662,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation)(::core::mem::transmute_copy(this), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, relativeposition: Param0, relativeorientation: Param1, relativeheadinginradians: f64) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
@@ -2671,7 +2671,7 @@ impl SpatialLocator {
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading)(::core::mem::transmute_copy(this), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), relativeheadinginradians, &mut result__).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<SpatialLocator> {
         Self::ISpatialLocatorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2756,11 +2756,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialLocator {}
 unsafe impl ::core::marker::Sync for SpatialLocator {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialLocatorAttachedFrameOfReference(::windows::core::IUnknown);
 impl SpatialLocatorAttachedFrameOfReference {
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativePosition(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2769,13 +2769,13 @@ impl SpatialLocatorAttachedFrameOfReference {
             (::windows::core::Interface::vtable(this).RelativePosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativePosition)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOrientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -2784,18 +2784,18 @@ impl SpatialLocatorAttachedFrameOfReference {
             (::windows::core::Interface::vtable(this).RelativeOrientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOrientation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn AdjustHeading(&self, headingoffsetinradians: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AdjustHeading)(::core::mem::transmute_copy(this), headingoffsetinradians).ok() }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn GetStationaryCoordinateSystemAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::PerceptionTimestamp>>(&self, timestamp: Param0) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -2803,7 +2803,7 @@ impl SpatialLocatorAttachedFrameOfReference {
             (::windows::core::Interface::vtable(this).GetStationaryCoordinateSystemAtTimestamp)(::core::mem::transmute_copy(this), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryGetRelativeHeadingAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::PerceptionTimestamp>>(&self, timestamp: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -2885,11 +2885,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialLocatorAttachedFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialLocatorAttachedFrameOfReference {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(::windows::core::IUnknown);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Canceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2897,7 +2897,7 @@ impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
             (::windows::core::Interface::vtable(this).Canceled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn SetCanceled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCanceled)(::core::mem::transmute_copy(this), value).ok() }
@@ -2975,7 +2975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialLookDirectionRange(pub i32);
@@ -3009,7 +3009,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialMovementRange(pub i32);
@@ -3043,7 +3043,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
@@ -3080,7 +3080,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialPerceptionAccessStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialRay {
     pub Origin: super::super::Foundation::Numerics::Vector3,
@@ -3126,11 +3126,11 @@ impl ::core::default::Default for SpatialRay {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialStageFrameOfReference(::windows::core::IUnknown);
 impl SpatialStageFrameOfReference {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -3138,7 +3138,7 @@ impl SpatialStageFrameOfReference {
             (::windows::core::Interface::vtable(this).CoordinateSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn MovementRange(&self) -> ::windows::core::Result<SpatialMovementRange> {
         let this = self;
         unsafe {
@@ -3146,7 +3146,7 @@ impl SpatialStageFrameOfReference {
             (::windows::core::Interface::vtable(this).MovementRange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialMovementRange>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn LookDirectionRange(&self) -> ::windows::core::Result<SpatialLookDirectionRange> {
         let this = self;
         unsafe {
@@ -3154,7 +3154,7 @@ impl SpatialStageFrameOfReference {
             (::windows::core::Interface::vtable(this).LookDirectionRange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialLookDirectionRange>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn GetCoordinateSystemAtCurrentLocation<'a, Param0: ::windows::core::IntoParam<'a, SpatialLocator>>(&self, locator: Param0) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -3162,7 +3162,7 @@ impl SpatialStageFrameOfReference {
             (::windows::core::Interface::vtable(this).GetCoordinateSystemAtCurrentLocation)(::core::mem::transmute_copy(this), locator.into_param().abi(), &mut result__).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetMovementBounds<'a, Param0: ::windows::core::IntoParam<'a, SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -3171,14 +3171,14 @@ impl SpatialStageFrameOfReference {
             (::windows::core::Interface::vtable(this).TryGetMovementBounds)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), ::windows::core::Array::<super::super::Foundation::Numerics::Vector3>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn Current() -> ::windows::core::Result<SpatialStageFrameOfReference> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Current)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialStageFrameOfReference>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CurrentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
@@ -3186,12 +3186,12 @@ impl SpatialStageFrameOfReference {
             (::windows::core::Interface::vtable(this).CurrentChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Perception_Spatial', 'Foundation'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestNewStageAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialStageFrameOfReference>> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
@@ -3277,11 +3277,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SpatialStageFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStageFrameOfReference {}
-#[doc = "*Required features: 'Perception_Spatial'*"]
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
 pub struct SpatialStationaryFrameOfReference(::windows::core::IUnknown);
 impl SpatialStationaryFrameOfReference {
-    #[doc = "*Required features: 'Perception_Spatial'*"]
+    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {

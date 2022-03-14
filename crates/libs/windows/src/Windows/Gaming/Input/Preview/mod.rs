@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Gaming_Input_Preview'*"]
+#[doc = "*Required features: `\"Gaming_Input_Preview\"`*"]
 pub struct GameControllerProviderInfo {}
 impl GameControllerProviderInfo {
-    #[doc = "*Required features: 'Gaming_Input_Preview', 'Gaming_Input_Custom'*"]
+    #[doc = "*Required features: `\"Gaming_Input_Preview\"`, `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetParentProviderId<'a, Param0: ::windows::core::IntoParam<'a, super::Custom::IGameControllerProvider>>(provider: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
@@ -10,7 +10,7 @@ impl GameControllerProviderInfo {
             (::windows::core::Interface::vtable(this).GetParentProviderId)(::core::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Gaming_Input_Preview', 'Gaming_Input_Custom'*"]
+    #[doc = "*Required features: `\"Gaming_Input_Preview\"`, `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetProviderId<'a, Param0: ::windows::core::IntoParam<'a, super::Custom::IGameControllerProvider>>(provider: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {

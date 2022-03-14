@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'UI_Core_Preview'*"]
+#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct CoreAppWindowPreview(::windows::core::IUnknown);
 impl CoreAppWindowPreview {
-    #[doc = "*Required features: 'UI_Core_Preview', 'UI_WindowManagement'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`, `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>>(window: Param0) -> ::windows::core::Result<i32> {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
@@ -168,11 +168,11 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Core_Preview'*"]
+#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(::windows::core::IUnknown);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
-    #[doc = "*Required features: 'UI_Core_Preview'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -180,12 +180,12 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
             (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core_Preview'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Core_Preview', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -267,11 +267,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
-#[doc = "*Required features: 'UI_Core_Preview'*"]
+#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct SystemNavigationManagerPreview(::windows::core::IUnknown);
 impl SystemNavigationManagerPreview {
-    #[doc = "*Required features: 'UI_Core_Preview', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CloseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -280,13 +280,13 @@ impl SystemNavigationManagerPreview {
             (::windows::core::Interface::vtable(this).CloseRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Core_Preview', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCloseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCloseRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Core_Preview'*"]
+    #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SystemNavigationManagerPreview> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

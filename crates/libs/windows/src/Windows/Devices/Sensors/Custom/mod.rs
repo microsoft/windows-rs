@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+#[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
 pub struct CustomSensor(::windows::core::IUnknown);
 impl CustomSensor {
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn GetCurrentReading(&self) -> ::windows::core::Result<CustomSensorReading> {
         let this = self;
         unsafe {
@@ -11,7 +11,7 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).GetCurrentReading)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CustomSensorReading>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -19,12 +19,12 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).MinimumReportInterval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -32,7 +32,7 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).ReportInterval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -40,7 +40,7 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -49,18 +49,18 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICustomSensor2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICustomSensor2>(self)?;
         unsafe {
@@ -68,7 +68,7 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).ReportLatency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICustomSensor2>(self)?;
         unsafe {
@@ -76,14 +76,14 @@ impl CustomSensor {
             (::windows::core::Interface::vtable(this).MaxBatchSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn GetDeviceSelector<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(interfaceid: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICustomSensorStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), interfaceid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sensorid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CustomSensor>> {
         Self::ICustomSensorStatics(|this| unsafe {
@@ -169,11 +169,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CustomSensor {}
 unsafe impl ::core::marker::Sync for CustomSensor {}
-#[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+#[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
 pub struct CustomSensorReading(::windows::core::IUnknown);
 impl CustomSensorReading {
-    #[doc = "*Required features: 'Devices_Sensors_Custom', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -182,7 +182,7 @@ impl CustomSensorReading {
             (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
@@ -191,7 +191,7 @@ impl CustomSensorReading {
             (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Sensors_Custom', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ICustomSensorReading2>(self)?;
@@ -273,11 +273,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CustomSensorReading {}
 unsafe impl ::core::marker::Sync for CustomSensorReading {}
-#[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+#[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
 pub struct CustomSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl CustomSensorReadingChangedEventArgs {
-    #[doc = "*Required features: 'Devices_Sensors_Custom'*"]
+    #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
     pub fn Reading(&self) -> ::windows::core::Result<CustomSensorReading> {
         let this = self;
         unsafe {
