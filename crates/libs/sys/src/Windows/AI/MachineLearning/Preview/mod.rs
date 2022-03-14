@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
@@ -35,7 +35,7 @@ pub type ImageVariableDescriptorPreview = *mut ::core::ffi::c_void;
 pub type InferencingOptionsPreview = *mut ::core::ffi::c_void;
 pub type LearningModelBindingPreview = *mut ::core::ffi::c_void;
 pub type LearningModelDescriptionPreview = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
@@ -57,7 +57,7 @@ impl ::core::clone::Clone for LearningModelDeviceKindPreview {
     }
 }
 pub type LearningModelEvaluationResultPreview = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);

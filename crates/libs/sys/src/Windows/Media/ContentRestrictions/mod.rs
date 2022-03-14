@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Media_ContentRestrictions'*"]
+#[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
 pub struct ContentAccessRestrictionLevel(pub i32);
 impl ContentAccessRestrictionLevel {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for ContentAccessRestrictionLevel {
     }
 }
 pub type ContentRestrictionsBrowsePolicy = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_ContentRestrictions'*"]
+#[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {

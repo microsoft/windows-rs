@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
 pub mod InstallControl;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);
 impl DeliveryOptimizationDownloadMode {
@@ -18,7 +18,7 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
 impl DeliveryOptimizationDownloadModeSource {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
 }
 pub type DeliveryOptimizationSettings = *mut ::core::ffi::c_void;
 pub type StoreHardwareManufacturerInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for StoreLogOptions {
     }
 }
 pub type StorePreviewProductInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
@@ -64,7 +64,7 @@ impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
 }
 pub type StorePreviewPurchaseResults = *mut ::core::ffi::c_void;
 pub type StorePreviewSkuInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {

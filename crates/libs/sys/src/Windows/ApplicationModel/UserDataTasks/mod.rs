@@ -3,7 +3,7 @@
 pub mod DataProvider;
 pub type UserDataTask = *mut ::core::ffi::c_void;
 pub type UserDataTaskBatch = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
@@ -22,7 +22,7 @@ impl ::core::clone::Clone for UserDataTaskDaysOfWeek {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskDetailsKind(pub i32);
 impl UserDataTaskDetailsKind {
@@ -35,7 +35,7 @@ impl ::core::clone::Clone for UserDataTaskDetailsKind {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskKind(pub i32);
 impl UserDataTaskKind {
@@ -51,7 +51,7 @@ impl ::core::clone::Clone for UserDataTaskKind {
 }
 pub type UserDataTaskList = *mut ::core::ffi::c_void;
 pub type UserDataTaskListLimitedWriteOperations = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
@@ -65,7 +65,7 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppReadAccess {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
 impl UserDataTaskListOtherAppWriteAccess {
@@ -79,7 +79,7 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppWriteAccess {
     }
 }
 pub type UserDataTaskListSyncManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
@@ -97,7 +97,7 @@ impl ::core::clone::Clone for UserDataTaskListSyncStatus {
     }
 }
 pub type UserDataTaskManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
@@ -111,7 +111,7 @@ impl ::core::clone::Clone for UserDataTaskPriority {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskQueryKind(pub i32);
 impl UserDataTaskQueryKind {
@@ -126,7 +126,7 @@ impl ::core::clone::Clone for UserDataTaskQueryKind {
     }
 }
 pub type UserDataTaskQueryOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
@@ -140,7 +140,7 @@ impl ::core::clone::Clone for UserDataTaskQuerySortProperty {
 }
 pub type UserDataTaskReader = *mut ::core::ffi::c_void;
 pub type UserDataTaskRecurrenceProperties = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
@@ -158,7 +158,7 @@ impl ::core::clone::Clone for UserDataTaskRecurrenceUnit {
     }
 }
 pub type UserDataTaskRegenerationProperties = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
@@ -173,7 +173,7 @@ impl ::core::clone::Clone for UserDataTaskRegenerationUnit {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskSensitivity(pub i32);
 impl UserDataTaskSensitivity {
@@ -187,7 +187,7 @@ impl ::core::clone::Clone for UserDataTaskSensitivity {
     }
 }
 pub type UserDataTaskStore = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {
@@ -200,7 +200,7 @@ impl ::core::clone::Clone for UserDataTaskStoreAccessType {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskWeekOfMonth(pub i32);
 impl UserDataTaskWeekOfMonth {

@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 pub struct DeviceAccountAuthenticationType(pub i32);
 impl DeviceAccountAuthenticationType {
@@ -14,7 +14,7 @@ impl ::core::clone::Clone for DeviceAccountAuthenticationType {
     }
 }
 pub type DeviceAccountConfiguration = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for DeviceAccountIconId {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 pub struct DeviceAccountMailAgeFilter(pub i32);
 impl DeviceAccountMailAgeFilter {
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for DeviceAccountMailAgeFilter {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 pub struct DeviceAccountServerType(pub i32);
 impl DeviceAccountServerType {
@@ -61,7 +61,7 @@ impl ::core::clone::Clone for DeviceAccountServerType {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 pub struct DeviceAccountSyncScheduleKind(pub i32);
 impl DeviceAccountSyncScheduleKind {

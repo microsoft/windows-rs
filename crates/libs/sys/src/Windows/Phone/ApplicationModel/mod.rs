@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Phone_ApplicationModel'*"]
+#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {

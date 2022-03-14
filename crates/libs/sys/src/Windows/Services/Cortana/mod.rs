@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type CortanaActionableInsights = *mut ::core::ffi::c_void;
 pub type CortanaActionableInsightsOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
+#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
@@ -27,7 +27,7 @@ impl ::core::clone::Clone for CortanaPermission {
         *self
     }
 }
-#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
+#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);

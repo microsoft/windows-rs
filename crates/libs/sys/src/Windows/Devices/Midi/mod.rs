@@ -7,7 +7,7 @@ pub type MidiContinueMessage = *mut ::core::ffi::c_void;
 pub type MidiControlChangeMessage = *mut ::core::ffi::c_void;
 pub type MidiInPort = *mut ::core::ffi::c_void;
 pub type MidiMessageReceivedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Midi'*"]
+#[doc = "*Required features: `\"Devices_Midi\"`*"]
 #[repr(transparent)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {

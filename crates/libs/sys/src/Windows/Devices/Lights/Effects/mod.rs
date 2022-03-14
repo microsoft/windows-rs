@@ -5,7 +5,7 @@ pub type LampArrayBitmapRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type LampArrayBlinkEffect = *mut ::core::ffi::c_void;
 pub type LampArrayColorRampEffect = *mut ::core::ffi::c_void;
 pub type LampArrayCustomEffect = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Lights_Effects'*"]
+#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
     }
 }
 pub type LampArrayEffectPlaylist = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Lights_Effects'*"]
+#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for LampArrayEffectStartMode {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_Lights_Effects'*"]
+#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {

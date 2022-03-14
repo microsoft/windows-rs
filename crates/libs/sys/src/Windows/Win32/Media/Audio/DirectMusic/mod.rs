@@ -5,7 +5,7 @@ pub const CLSID_DirectMusicSynth: ::windows_sys::core::GUID = ::windows_sys::cor
 pub const CLSID_DirectMusicSynthSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2931916003, data2: 42260, data3: 4561, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const CLSID_DirectSoundPrivate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 296435392, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct CONNECTION {
     pub usSource: u16,
     pub usControl: u16,
@@ -20,7 +20,7 @@ impl ::core::clone::Clone for CONNECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct CONNECTIONLIST {
     pub cbSize: u32,
     pub cConnections: u32,
@@ -31,172 +31,172 @@ impl ::core::clone::Clone for CONNECTIONLIST {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_ATTENUATION: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_CENTER: u32 = 18u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_CHORUS: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_ATTACKTIME: u32 = 518u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_DECAYTIME: u32 = 519u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_DELAYTIME: u32 = 523u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_HOLDTIME: u32 = 524u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_RELEASETIME: u32 = 521u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_SHUTDOWNTIME: u32 = 525u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG1_SUSTAINLEVEL: u32 = 522u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG2_ATTACKTIME: u32 = 778u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG2_DECAYTIME: u32 = 779u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG2_DELAYTIME: u32 = 783u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG2_HOLDTIME: u32 = 784u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG2_RELEASETIME: u32 = 781u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_EG2_SUSTAINLEVEL: u32 = 782u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_FILTER_CUTOFF: u32 = 1280u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_FILTER_Q: u32 = 1281u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_GAIN: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_KEYNUMBER: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_LEFT: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_LEFTREAR: u32 = 19u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_LFE_CHANNEL: u32 = 21u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_LFO_FREQUENCY: u32 = 260u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_LFO_STARTDELAY: u32 = 261u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_NONE: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_PAN: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_PITCH: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_REVERB: u32 = 129u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_RIGHT: u32 = 17u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_RIGHTREAR: u32 = 20u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_VIB_FREQUENCY: u32 = 276u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_DST_VIB_STARTDELAY: u32 = 277u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CC1: u32 = 129u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CC10: u32 = 138u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CC11: u32 = 139u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CC7: u32 = 135u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CC91: u32 = 219u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CC93: u32 = 221u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_CHANNELPRESSURE: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_EG1: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_EG2: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_KEYNUMBER: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_KEYONVELOCITY: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_LFO: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_MONOPRESSURE: u32 = 10u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_NONE: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_PITCHWHEEL: u32 = 6u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_POLYPRESSURE: u32 = 7u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_SRC_VIBRATO: u32 = 9u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_TRN_CONCAVE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_TRN_CONVEX: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_TRN_NONE: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const CONN_TRN_SWITCH: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN10_VOICE_PRIORITY_OFFSET: u32 = 15u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN11_VOICE_PRIORITY_OFFSET: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN12_VOICE_PRIORITY_OFFSET: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN13_VOICE_PRIORITY_OFFSET: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN14_VOICE_PRIORITY_OFFSET: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN15_VOICE_PRIORITY_OFFSET: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN16_VOICE_PRIORITY_OFFSET: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN1_VOICE_PRIORITY_OFFSET: u32 = 14u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN2_VOICE_PRIORITY_OFFSET: u32 = 13u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN3_VOICE_PRIORITY_OFFSET: u32 = 12u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN4_VOICE_PRIORITY_OFFSET: u32 = 11u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN5_VOICE_PRIORITY_OFFSET: u32 = 10u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN6_VOICE_PRIORITY_OFFSET: u32 = 9u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN7_VOICE_PRIORITY_OFFSET: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN8_VOICE_PRIORITY_OFFSET: u32 = 7u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CHAN9_VOICE_PRIORITY_OFFSET: u32 = 6u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_CRITICAL_VOICE_PRIORITY: u32 = 4026531840u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub type DIRECTSOUNDDEVICE_DATAFLOW = i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = 0i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = 1i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub type DIRECTSOUNDDEVICE_TYPE = i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DLSHEADER {
     pub cInstruments: u32,
 }
@@ -207,7 +207,7 @@ impl ::core::clone::Clone for DLSHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DLSID {
     pub ulData1: u32,
     pub usData2: u16,
@@ -230,7 +230,7 @@ pub const DLSID_SupportsDLS1: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const DLSID_SupportsDLS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const DLSID_XGInHardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DLSVERSION {
     pub dwVersionMS: u32,
     pub dwVersionLS: u32,
@@ -241,44 +241,44 @@ impl ::core::clone::Clone for DLSVERSION {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_ADD: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_AND: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_CONST: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_DIVIDE: u32 = 7u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_EQ: u32 = 14u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_GE: u32 = 13u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_GT: u32 = 12u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_LE: u32 = 11u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_LOGICAL_AND: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_LOGICAL_OR: u32 = 9u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_LT: u32 = 10u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_MULTIPLY: u32 = 6u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_NOT: u32 = 15u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_OR: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_QUERY: u32 = 17u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_QUERYSUPPORTED: u32 = 18u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_SUBTRACT: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLS_CDL_XOR: u32 = 3u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_ARTICPARAMS {
     pub LFO: DMUS_LFOPARAMS,
     pub VolEG: DMUS_VEGPARAMS,
@@ -292,7 +292,7 @@ impl ::core::clone::Clone for DMUS_ARTICPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_ARTICULATION {
     pub ulArt1Idx: u32,
     pub ulFirstExtCkIdx: u32,
@@ -304,7 +304,7 @@ impl ::core::clone::Clone for DMUS_ARTICULATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_ARTICULATION2 {
     pub ulArtIdx: u32,
     pub ulFirstExtCkIdx: u32,
@@ -317,7 +317,7 @@ impl ::core::clone::Clone for DMUS_ARTICULATION2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_BUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -330,10 +330,10 @@ impl ::core::clone::Clone for DMUS_BUFFERDESC {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_CLOCKINFO7 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
@@ -347,7 +347,7 @@ impl ::core::clone::Clone for DMUS_CLOCKINFO7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_CLOCKINFO8 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
@@ -361,14 +361,14 @@ impl ::core::clone::Clone for DMUS_CLOCKINFO8 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub type DMUS_CLOCKTYPE = i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = 0i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_COPYRIGHT {
     pub cbSize: u32,
     pub byCopyright: [u8; 4],
@@ -379,10 +379,10 @@ impl ::core::clone::Clone for DMUS_COPYRIGHT {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_DOWNLOADINFO {
     pub dwDLType: u32,
     pub dwDLId: u32,
@@ -395,28 +395,28 @@ impl ::core::clone::Clone for DMUS_DOWNLOADINFO {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DOWNLOADINFO_ONESHOTWAVE: u32 = 6u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DOWNLOADINFO_STREAMINGWAVE: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DOWNLOADINFO_WAVE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DOWNLOADINFO_WAVEARTICULATION: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_EFFECT_CHORUS: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_EFFECT_DELAY: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_EFFECT_NONE: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_EFFECT_REVERB: u32 = 1u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_EVENTHEADER {
     pub cbEvent: u32,
     pub dwChannelGroup: u32,
@@ -429,10 +429,10 @@ impl ::core::clone::Clone for DMUS_EVENTHEADER {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_EXTENSIONCHUNK {
     pub cbSize: u32,
     pub ulNextExtCkIdx: u32,
@@ -446,7 +446,7 @@ impl ::core::clone::Clone for DMUS_EXTENSIONCHUNK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_INSTRUMENT {
     pub ulPatch: u32,
     pub ulFirstRegionIdx: u32,
@@ -461,10 +461,10 @@ impl ::core::clone::Clone for DMUS_INSTRUMENT {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_LFOPARAMS {
     pub pcFrequency: i32,
     pub tcDelay: i32,
@@ -479,14 +479,14 @@ impl ::core::clone::Clone for DMUS_LFOPARAMS {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_MAX_DRIVER: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_MSCPARAMS {
     pub ptDefaultPan: i32,
 }
@@ -497,7 +497,7 @@ impl ::core::clone::Clone for DMUS_MSCPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_NOTERANGE {
     pub dwLowNote: u32,
     pub dwHighNote: u32,
@@ -509,7 +509,7 @@ impl ::core::clone::Clone for DMUS_NOTERANGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_OFFSETTABLE {
     pub ulOffsetTable: [u32; 1],
 }
@@ -519,38 +519,38 @@ impl ::core::clone::Clone for DMUS_OFFSETTABLE {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_DIRECTSOUND: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_DLS: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_DLS2: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_EXTERNAL: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_GMINHARDWARE: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_GSINHARDWARE: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_INPUTCLASS: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_MEMORYSIZEFIXED: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_OUTPUTCLASS: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_SHAREABLE: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_SOFTWARESYNTH: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_WAVE: u32 = 2048u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PC_XGINHARDWARE: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_PEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -567,7 +567,7 @@ impl ::core::clone::Clone for DMUS_PEGPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_PORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -588,7 +588,7 @@ impl ::core::clone::Clone for DMUS_PORTCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DMUS_PORTPARAMS8 {
     pub dwSize: u32,
@@ -609,32 +609,32 @@ impl ::core::clone::Clone for DMUS_PORTPARAMS8 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_EFFECTS: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_FEATURES: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_SAMPLERATE: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_SHARE: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORTPARAMS_VOICES: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORT_FEATURE_AUDIOPATH: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORT_FEATURE_STREAMING: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORT_KERNEL_MODE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_PORT_WINMM_DRIVER: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_REGION {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
@@ -654,7 +654,7 @@ impl ::core::clone::Clone for DMUS_REGION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_SYNTHSTATS {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -672,7 +672,7 @@ impl ::core::clone::Clone for DMUS_SYNTHSTATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_SYNTHSTATS8 {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -690,22 +690,22 @@ impl ::core::clone::Clone for DMUS_SYNTHSTATS8 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_LOST_NOTES: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_PEAK_VOLUME: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_SYNTHSTATS_VOICES: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_VEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -721,7 +721,7 @@ impl ::core::clone::Clone for DMUS_VEGPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DMUS_VOICE_STATE {
     pub bExists: super::super::super::Foundation::BOOL,
@@ -735,12 +735,12 @@ impl ::core::clone::Clone for DMUS_VOICE_STATE {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_VOLUME_MAX: u32 = 2000u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_VOLUME_MIN: i32 = -20000i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_WAVE {
     pub ulFirstExtCkIdx: u32,
     pub ulCopyrightIdx: u32,
@@ -754,7 +754,7 @@ impl ::core::clone::Clone for DMUS_WAVE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_WAVEARTDL {
     pub ulDownloadIdIdx: u32,
     pub ulBus: u32,
@@ -769,7 +769,7 @@ impl ::core::clone::Clone for DMUS_WAVEARTDL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_WAVEDATA {
     pub cbSize: u32,
     pub byData: [u8; 4],
@@ -781,7 +781,7 @@ impl ::core::clone::Clone for DMUS_WAVEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_WAVEDL {
     pub cbWaveData: u32,
 }
@@ -792,7 +792,7 @@ impl ::core::clone::Clone for DMUS_WAVEDL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_WAVES_REVERB_PARAMS {
     pub fInGain: f32,
     pub fReverbMix: f32,
@@ -805,78 +805,78 @@ impl ::core::clone::Clone for DMUS_WAVES_REVERB_PARAMS {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_BACK_CENTER: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_BACK_LEFT: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_BACK_RIGHT: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_CHORUS_SEND: u32 = 65u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_DYNAMIC_0: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_FIRST_SPKR_LOC: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_FRONT_CENTER: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_FRONT_LEFT: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_FRONT_LEFT_OF_CENTER: u32 = 6u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_FRONT_RIGHT: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_FRONT_RIGHT_OF_CENTER: u32 = 7u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_LAST_SPKR_LOC: u32 = 17u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_LEFT: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_LOW_FREQUENCY: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_NULL: u32 = 4294967295u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_REVERB_SEND: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_RIGHT: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_SIDE_LEFT: u32 = 9u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_SIDE_RIGHT: u32 = 10u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_BACK_CENTER: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_BACK_LEFT: u32 = 15u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_BACK_RIGHT: u32 = 17u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_CENTER: u32 = 11u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub type DSPROPERTY_DIRECTSOUNDDEVICE = i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = 1i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = 2i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = 3i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = 4i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = 5i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = 6i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = 7i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = 8i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: ::windows_sys::core::GUID,
@@ -898,7 +898,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -915,7 +915,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -932,7 +932,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
@@ -947,7 +947,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
@@ -962,7 +962,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
@@ -977,7 +977,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     pub DeviceName: ::windows_sys::core::PSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -990,7 +990,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_D
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     pub DeviceName: ::windows_sys::core::PWSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -1003,47 +1003,47 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_D
     }
 }
 pub const DSPROPSETID_DirectSoundDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2221035394, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_AUDIOMODE: u32 = 3840u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_AUDIOQU: u32 = 117440512u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_AUDIOSMP: u32 = 939524096u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_CAP_AUD12Bits: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_CAP_AUD16Bits: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_DVSD_NTSC_FRAMESIZE: i32 = 120000i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_DVSD_PAL_FRAMESIZE: i32 = 144000i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_HD: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_NTSC: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_NTSCPAL: u32 = 2097152u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_PAL: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_SD: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_SL: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_SMCHN: u32 = 57344u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_STYPE: u32 = 2031616u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
 pub const GUID_DMUS_PROP_DLS1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259687, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 pub const GUID_DMUS_PROP_DLS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
@@ -1080,7 +1080,7 @@ pub type IDirectMusicSynth8 = *mut ::core::ffi::c_void;
 pub type IDirectMusicSynthSink = *mut ::core::ffi::c_void;
 pub type IDirectMusicThru = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct INSTHEADER {
     pub cRegions: u32,
     pub Locale: MIDILOCALE,
@@ -1091,17 +1091,17 @@ impl ::core::clone::Clone for INSTHEADER {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct MDEVICECAPSEX {
     pub cbSize: u32,
     pub pCaps: *mut ::core::ffi::c_void,
@@ -1113,7 +1113,7 @@ impl ::core::clone::Clone for MDEVICECAPSEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct MIDILOCALE {
     pub ulBank: u32,
     pub ulInstrument: u32,
@@ -1125,7 +1125,7 @@ impl ::core::clone::Clone for MIDILOCALE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Media_Multimedia'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Media_Multimedia\"`*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub struct MIDIOPENDESC {
     pub hMidi: super::HMIDI,
@@ -1144,7 +1144,7 @@ impl ::core::clone::Clone for MIDIOPENDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct POOLCUE {
     pub ulOffset: u32,
 }
@@ -1155,7 +1155,7 @@ impl ::core::clone::Clone for POOLCUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct POOLTABLE {
     pub cbSize: u32,
     pub cCues: u32,
@@ -1166,14 +1166,14 @@ impl ::core::clone::Clone for POOLTABLE {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const POOL_CUE_NULL: i32 = -1i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const REGSTR_PATH_SOFTWARESYNTHS: &'static str = "Software\\Microsoft\\DirectMusic\\SoftwareSynths";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct RGNHEADER {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
@@ -1187,7 +1187,7 @@ impl ::core::clone::Clone for RGNHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct RGNRANGE {
     pub usLow: u16,
     pub usHigh: u16,
@@ -1198,10 +1198,10 @@ impl ::core::clone::Clone for RGNRANGE {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const SIZE_DVINFO: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct Tag_DVAudInfo {
     pub bAudStyle: [u8; 2],
     pub bAudQu: [u8; 2],
@@ -1218,7 +1218,7 @@ impl ::core::clone::Clone for Tag_DVAudInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct WAVELINK {
     pub fusOptions: u16,
     pub usPhaseGroup: u16,
@@ -1231,16 +1231,16 @@ impl ::core::clone::Clone for WAVELINK {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _DMUS_PORTPARAMS {
     pub dwSize: u32,
@@ -1261,7 +1261,7 @@ impl ::core::clone::Clone for _DMUS_PORTPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct _rloop {
     pub cbSize: u32,
     pub ulType: u32,
@@ -1275,7 +1275,7 @@ impl ::core::clone::Clone for _rloop {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct _rwsmp {
     pub cbSize: u32,
     pub usUnityNote: u16,

@@ -7,7 +7,7 @@ pub type InfraredMediaFrame = *mut ::core::ffi::c_void;
 pub type MediaFrameArrivedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaFrameFormat = *mut ::core::ffi::c_void;
 pub type MediaFrameReader = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture_Frames'*"]
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
@@ -20,7 +20,7 @@ impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture_Frames'*"]
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
@@ -40,7 +40,7 @@ pub type MediaFrameReference = *mut ::core::ffi::c_void;
 pub type MediaFrameSource = *mut ::core::ffi::c_void;
 pub type MediaFrameSourceController = *mut ::core::ffi::c_void;
 pub type MediaFrameSourceGetPropertyResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture_Frames'*"]
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
@@ -59,7 +59,7 @@ impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
 }
 pub type MediaFrameSourceGroup = *mut ::core::ffi::c_void;
 pub type MediaFrameSourceInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture_Frames'*"]
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
@@ -77,7 +77,7 @@ impl ::core::clone::Clone for MediaFrameSourceKind {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Capture_Frames'*"]
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
 }
 pub type MultiSourceMediaFrameArrivedEventArgs = *mut ::core::ffi::c_void;
 pub type MultiSourceMediaFrameReader = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Capture_Frames'*"]
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {

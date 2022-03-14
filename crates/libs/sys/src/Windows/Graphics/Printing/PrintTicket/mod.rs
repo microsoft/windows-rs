@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type PrintTicketCapabilities = *mut ::core::ffi::c_void;
 pub type PrintTicketFeature = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
     }
 }
 pub type PrintTicketOption = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for PrintTicketParameterDataType {
 pub type PrintTicketParameterDefinition = *mut ::core::ffi::c_void;
 pub type PrintTicketParameterInitializer = *mut ::core::ffi::c_void;
 pub type PrintTicketValue = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {

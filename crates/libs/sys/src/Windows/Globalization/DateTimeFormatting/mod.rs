@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type DateTimeFormatter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
@@ -13,7 +13,7 @@ impl ::core::clone::Clone for DayFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
@@ -28,7 +28,7 @@ impl ::core::clone::Clone for DayOfWeekFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
@@ -41,7 +41,7 @@ impl ::core::clone::Clone for HourFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
@@ -54,7 +54,7 @@ impl ::core::clone::Clone for MinuteFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
@@ -70,7 +70,7 @@ impl ::core::clone::Clone for MonthFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
@@ -83,7 +83,7 @@ impl ::core::clone::Clone for SecondFormat {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
+#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct YearFormat(pub i32);
 impl YearFormat {

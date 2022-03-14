@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+    #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     pub fn MLCreateOperatorRegistry(registry: *mut IMLOperatorRegistry) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+    #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     pub fn WinMLCreateRuntime(runtime: *mut IWinMLRuntime) -> ::windows_sys::core::HRESULT;
 }
 pub type IMLOperatorAttributes = *mut ::core::ffi::c_void;
@@ -23,7 +23,7 @@ pub type IWinMLModel = *mut ::core::ffi::c_void;
 pub type IWinMLRuntime = *mut ::core::ffi::c_void;
 pub type IWinMLRuntimeFactory = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorAttribute {
     pub name: ::windows_sys::core::PCSTR,
     pub r#type: MLOperatorAttributeType,
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for MLOperatorAttribute {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorAttributeNameValue {
     pub name: ::windows_sys::core::PCSTR,
     pub r#type: MLOperatorAttributeType,
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *const ::core::ffi::c_void,
     pub ints: *const i64,
@@ -63,7 +63,7 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
@@ -82,7 +82,7 @@ impl ::core::clone::Clone for MLOperatorAttributeType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorEdgeDescription {
     pub edgeType: MLOperatorEdgeType,
     pub Anonymous: MLOperatorEdgeDescription_0,
@@ -94,7 +94,7 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub union MLOperatorEdgeDescription_0 {
     pub reserved: u64,
     pub tensorDataType: MLOperatorTensorDataType,
@@ -105,7 +105,7 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription_0 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
@@ -119,7 +119,7 @@ impl ::core::clone::Clone for MLOperatorEdgeType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorEdgeTypeConstraint {
     pub typeLabel: ::windows_sys::core::PCSTR,
     pub allowedTypes: *const MLOperatorEdgeDescription,
@@ -131,7 +131,7 @@ impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
@@ -146,7 +146,7 @@ impl ::core::clone::Clone for MLOperatorExecutionType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorKernelDescription {
     pub domain: ::windows_sys::core::PCSTR,
     pub name: ::windows_sys::core::PCSTR,
@@ -165,7 +165,7 @@ impl ::core::clone::Clone for MLOperatorKernelDescription {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
@@ -178,7 +178,7 @@ impl ::core::clone::Clone for MLOperatorKernelOptions {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for MLOperatorParameterOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorSchemaDescription {
     pub name: ::windows_sys::core::PCSTR,
     pub operatorSetVersionAtLastChange: i32,
@@ -215,7 +215,7 @@ impl ::core::clone::Clone for MLOperatorSchemaDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorSchemaEdgeDescription {
     pub options: MLOperatorParameterOptions,
     pub typeFormat: MLOperatorSchemaEdgeTypeFormat,
@@ -228,7 +228,7 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub union MLOperatorSchemaEdgeDescription_0 {
     pub reserved: *const ::core::ffi::c_void,
     pub typeLabel: ::windows_sys::core::PCSTR,
@@ -240,7 +240,7 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription_0 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
@@ -254,7 +254,7 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorSetId {
     pub domain: ::windows_sys::core::PCSTR,
     pub version: i32,
@@ -265,7 +265,7 @@ impl ::core::clone::Clone for MLOperatorSetId {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
@@ -293,7 +293,7 @@ impl ::core::clone::Clone for MLOperatorTensorDataType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Graphics_Direct3D12'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_BINDING_DESC {
     pub Name: ::windows_sys::core::PCWSTR,
@@ -309,7 +309,7 @@ impl ::core::clone::Clone for WINML_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Graphics_Direct3D12'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
@@ -326,34 +326,34 @@ impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub type WINML_BINDING_TYPE = i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = 5i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub type WINML_FEATURE_TYPE = i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = 4i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_IMAGE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -368,7 +368,7 @@ impl ::core::clone::Clone for WINML_IMAGE_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_IMAGE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -381,7 +381,7 @@ impl ::core::clone::Clone for WINML_IMAGE_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_MAP_BINDING_DESC {
     pub ElementCount: u32,
     pub KeyType: WINML_TENSOR_DATA_TYPE,
@@ -396,7 +396,7 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub union WINML_MAP_BINDING_DESC_0 {
     pub pStringKeys: *mut ::windows_sys::core::PWSTR,
     pub pIntKeys: *mut i64,
@@ -408,7 +408,7 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub union WINML_MAP_BINDING_DESC_1 {
     pub pStringFields: *mut ::windows_sys::core::PWSTR,
     pub pIntFields: *mut i64,
@@ -422,7 +422,7 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_MAP_VARIABLE_DESC {
     pub KeyType: WINML_TENSOR_DATA_TYPE,
     pub Fields: WINML_TENSOR_DATA_TYPE,
@@ -434,7 +434,7 @@ impl ::core::clone::Clone for WINML_MAP_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_MODEL_DESC {
     pub Author: ::windows_sys::core::PWSTR,
     pub Name: ::windows_sys::core::PWSTR,
@@ -449,7 +449,7 @@ impl ::core::clone::Clone for WINML_MODEL_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Graphics_Direct3D12'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
@@ -465,12 +465,12 @@ impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub type WINML_RUNTIME_TYPE = i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = 0i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_SEQUENCE_BINDING_DESC {
     pub ElementCount: u32,
     pub ElementType: WINML_TENSOR_DATA_TYPE,
@@ -483,7 +483,7 @@ impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
     pub pStrings: *mut ::windows_sys::core::PWSTR,
     pub pInts: *mut i64,
@@ -497,7 +497,7 @@ impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_SEQUENCE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
 }
@@ -508,7 +508,7 @@ impl ::core::clone::Clone for WINML_SEQUENCE_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_TENSOR_BINDING_DESC {
     pub DataType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -522,44 +522,44 @@ impl ::core::clone::Clone for WINML_TENSOR_BINDING_DESC {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub type WINML_TENSOR_DATA_TYPE = i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = 5i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = 6i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = 7i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = 8i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = 9i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = 10i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = 11i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = 12i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = 13i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = 14i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = 15i32;
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_TENSOR_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -572,7 +572,7 @@ impl ::core::clone::Clone for WINML_TENSOR_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINML_VARIABLE_DESC {
     pub Name: ::windows_sys::core::PWSTR,
@@ -590,7 +590,7 @@ impl ::core::clone::Clone for WINML_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,

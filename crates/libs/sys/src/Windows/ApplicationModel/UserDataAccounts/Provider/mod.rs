@@ -2,7 +2,7 @@
 pub type IUserDataAccountProviderOperation = *mut ::core::ffi::c_void;
 pub type UserDataAccountPartnerAccountInfo = *mut ::core::ffi::c_void;
 pub type UserDataAccountProviderAddAccountOperation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
@@ -16,7 +16,7 @@ impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {

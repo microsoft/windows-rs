@@ -18,7 +18,7 @@ pub type PerceptionDepthFrameSource = *mut ::core::ffi::c_void;
 pub type PerceptionDepthFrameSourceAddedEventArgs = *mut ::core::ffi::c_void;
 pub type PerceptionDepthFrameSourceRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type PerceptionDepthFrameSourceWatcher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
@@ -39,7 +39,7 @@ impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
 }
 pub type PerceptionFrameSourcePropertiesChangedEventArgs = *mut ::core::ffi::c_void;
 pub type PerceptionFrameSourcePropertyChangeResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);

@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type AttributedNetworkUsage = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct CellularApnAuthenticationType(pub i32);
 impl CellularApnAuthenticationType {
@@ -18,7 +18,7 @@ impl ::core::clone::Clone for CellularApnAuthenticationType {
 pub type CellularApnContext = *mut ::core::ffi::c_void;
 pub type ConnectionCost = *mut ::core::ffi::c_void;
 pub type ConnectionProfile = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct ConnectionProfileDeleteStatus(pub i32);
 impl ConnectionProfileDeleteStatus {
@@ -39,7 +39,7 @@ pub type ConnectivityInterval = *mut ::core::ffi::c_void;
 pub type DataPlanStatus = *mut ::core::ffi::c_void;
 pub type DataPlanUsage = *mut ::core::ffi::c_void;
 pub type DataUsage = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct DataUsageGranularity(pub i32);
 impl DataUsageGranularity {
@@ -54,7 +54,7 @@ impl ::core::clone::Clone for DataUsageGranularity {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct DomainConnectivityLevel(pub i32);
 impl DomainConnectivityLevel {
@@ -72,7 +72,7 @@ pub type IPInformation = *mut ::core::ffi::c_void;
 pub type LanIdentifier = *mut ::core::ffi::c_void;
 pub type LanIdentifierData = *mut ::core::ffi::c_void;
 pub type NetworkAdapter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct NetworkAuthenticationType(pub i32);
 impl NetworkAuthenticationType {
@@ -98,7 +98,7 @@ impl ::core::clone::Clone for NetworkAuthenticationType {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct NetworkConnectivityLevel(pub i32);
 impl NetworkConnectivityLevel {
@@ -113,7 +113,7 @@ impl ::core::clone::Clone for NetworkConnectivityLevel {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct NetworkCostType(pub i32);
 impl NetworkCostType {
@@ -128,7 +128,7 @@ impl ::core::clone::Clone for NetworkCostType {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct NetworkEncryptionType(pub i32);
 impl NetworkEncryptionType {
@@ -155,7 +155,7 @@ pub type NetworkItem = *mut ::core::ffi::c_void;
 pub type NetworkSecuritySettings = *mut ::core::ffi::c_void;
 pub type NetworkStateChangeEventDetails = *mut ::core::ffi::c_void;
 pub type NetworkStatusChangedEventHandler = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct NetworkTypes(pub u32);
 impl NetworkTypes {
@@ -171,7 +171,7 @@ impl ::core::clone::Clone for NetworkTypes {
 }
 pub type NetworkUsage = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
     pub Shared: TriStates,
@@ -184,7 +184,7 @@ impl ::core::clone::Clone for NetworkUsageStates {
 }
 pub type ProviderNetworkUsage = *mut ::core::ffi::c_void;
 pub type ProxyConfiguration = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
@@ -199,7 +199,7 @@ impl ::core::clone::Clone for RoamingStates {
     }
 }
 pub type RoutePolicy = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct TriStates(pub i32);
 impl TriStates {
@@ -215,7 +215,7 @@ impl ::core::clone::Clone for TriStates {
 }
 pub type WlanConnectionProfileDetails = *mut ::core::ffi::c_void;
 pub type WwanConnectionProfileDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
@@ -241,7 +241,7 @@ impl ::core::clone::Clone for WwanDataClass {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct WwanNetworkIPKind(pub i32);
 impl WwanNetworkIPKind {
@@ -257,7 +257,7 @@ impl ::core::clone::Clone for WwanNetworkIPKind {
         *self
     }
 }
-#[doc = "*Required features: 'Networking_Connectivity'*"]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct WwanNetworkRegistrationState(pub i32);
 impl WwanNetworkRegistrationState {

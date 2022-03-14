@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type IAdaptiveCard = *mut ::core::ffi::c_void;
 pub type IAdaptiveCardBuilderStatics = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Shell'*"]
+#[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
@@ -14,7 +14,7 @@ impl ::core::clone::Clone for SecurityAppKind {
     }
 }
 pub type SecurityAppManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Shell'*"]
+#[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
@@ -27,7 +27,7 @@ impl ::core::clone::Clone for SecurityAppState {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Shell'*"]
+#[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for SecurityAppSubstatus {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Shell'*"]
+#[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {

@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
+#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
@@ -16,7 +16,7 @@ impl ::core::clone::Clone for PhoneNumberFormat {
 }
 pub type PhoneNumberFormatter = *mut ::core::ffi::c_void;
 pub type PhoneNumberInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
+#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for PhoneNumberMatchResult {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
+#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for PhoneNumberParseResult {
         *self
     }
 }
-#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
+#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {

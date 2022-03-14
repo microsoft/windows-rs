@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Graphics_Display_Core'*"]
+#[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for HdmiDisplayColorSpace {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Display_Core'*"]
+#[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 pub struct HdmiDisplayHdr2086Metadata {
     pub RedPrimaryX: u16,
     pub RedPrimaryY: u16,
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for HdmiDisplayHdr2086Metadata {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Display_Core'*"]
+#[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
@@ -53,7 +53,7 @@ impl ::core::clone::Clone for HdmiDisplayHdrOption {
 }
 pub type HdmiDisplayInformation = *mut ::core::ffi::c_void;
 pub type HdmiDisplayMode = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Display_Core'*"]
+#[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {

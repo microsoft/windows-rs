@@ -17,7 +17,7 @@ pub type PrintDuplexOptionDetails = *mut ::core::ffi::c_void;
 pub type PrintHolePunchOptionDetails = *mut ::core::ffi::c_void;
 pub type PrintMediaSizeOptionDetails = *mut ::core::ffi::c_void;
 pub type PrintMediaTypeOptionDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for PrintOptionStates {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {

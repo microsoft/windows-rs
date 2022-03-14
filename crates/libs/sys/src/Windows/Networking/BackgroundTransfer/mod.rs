@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for BackgroundDownloadProgress {
     }
 }
 pub type BackgroundDownloader = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
 pub type BackgroundTransferCompletionGroup = *mut ::core::ffi::c_void;
 pub type BackgroundTransferCompletionGroupTriggerDetails = *mut ::core::ffi::c_void;
 pub type BackgroundTransferContentPart = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
@@ -46,7 +46,7 @@ impl ::core::clone::Clone for BackgroundTransferCostPolicy {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
@@ -58,7 +58,7 @@ impl ::core::clone::Clone for BackgroundTransferFileRange {
     }
 }
 pub type BackgroundTransferGroup = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
@@ -73,7 +73,7 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
     }
 }
 pub type BackgroundTransferRangesDownloadedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
@@ -95,7 +95,7 @@ impl ::core::clone::Clone for BackgroundTransferStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
+#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,

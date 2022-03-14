@@ -2,7 +2,7 @@
 pub type CurrentTimeChangeRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type MuteChangeRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type PlayToConnection = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
+#[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionError(pub i32);
@@ -23,7 +23,7 @@ impl ::core::clone::Clone for PlayToConnectionError {
     }
 }
 pub type PlayToConnectionErrorEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
+#[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionState(pub i32);

@@ -2,7 +2,7 @@
 pub type CardAddedEventArgs = *mut ::core::ffi::c_void;
 pub type CardRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type SmartCard = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
@@ -16,7 +16,7 @@ impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
     }
 }
 pub type SmartCardAppletIdGroup = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
 }
 pub type SmartCardAppletIdGroupRegistration = *mut ::core::ffi::c_void;
 pub type SmartCardAutomaticResponseApdu = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
@@ -48,7 +48,7 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
 }
 pub type SmartCardChallengeContext = *mut ::core::ffi::c_void;
 pub type SmartCardConnection = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
@@ -69,7 +69,7 @@ impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
     }
 }
 pub type SmartCardCryptogramGenerator = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
@@ -99,7 +99,7 @@ pub type SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult
 pub type SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult = *mut ::core::ffi::c_void;
 pub type SmartCardCryptogramMaterialCharacteristics = *mut ::core::ffi::c_void;
 pub type SmartCardCryptogramMaterialPackageCharacteristics = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
@@ -112,7 +112,7 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResp
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
@@ -126,7 +126,7 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
     }
 }
 pub type SmartCardCryptogramMaterialPossessionProof = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
@@ -139,7 +139,7 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
 impl SmartCardCryptogramMaterialType {
@@ -155,7 +155,7 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
@@ -170,7 +170,7 @@ impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
     }
 }
 pub type SmartCardCryptogramPlacementStep = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
@@ -183,7 +183,7 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
@@ -199,7 +199,7 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
 }
 pub type SmartCardCryptogramStorageKeyCharacteristics = *mut ::core::ffi::c_void;
 pub type SmartCardCryptogramStorageKeyInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
@@ -218,7 +218,7 @@ impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
@@ -231,7 +231,7 @@ impl ::core::clone::Clone for SmartCardEmulationCategory {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardEmulationType(pub i32);
 impl SmartCardEmulationType {
@@ -248,7 +248,7 @@ impl ::core::clone::Clone for SmartCardEmulationType {
 pub type SmartCardEmulator = *mut ::core::ffi::c_void;
 pub type SmartCardEmulatorApduReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type SmartCardEmulatorConnectionDeactivatedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
@@ -262,7 +262,7 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
     }
 }
 pub type SmartCardEmulatorConnectionProperties = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
@@ -275,7 +275,7 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
@@ -290,7 +290,7 @@ impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
@@ -303,7 +303,7 @@ impl ::core::clone::Clone for SmartCardLaunchBehavior {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
 impl SmartCardPinCharacterPolicyOption {
@@ -323,7 +323,7 @@ pub type SmartCardPinResetHandler = *mut ::core::ffi::c_void;
 pub type SmartCardPinResetRequest = *mut ::core::ffi::c_void;
 pub type SmartCardProvisioning = *mut ::core::ffi::c_void;
 pub type SmartCardReader = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
@@ -340,7 +340,7 @@ impl ::core::clone::Clone for SmartCardReaderKind {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
@@ -354,7 +354,7 @@ impl ::core::clone::Clone for SmartCardReaderStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardStatus(pub i32);
 impl SmartCardStatus {
@@ -371,7 +371,7 @@ impl ::core::clone::Clone for SmartCardStatus {
     }
 }
 pub type SmartCardTriggerDetails = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
@@ -388,7 +388,7 @@ impl ::core::clone::Clone for SmartCardTriggerType {
         *self
     }
 }
-#[doc = "*Required features: 'Devices_SmartCards'*"]
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {

@@ -4,7 +4,7 @@ pub type PrintWorkflowBackgroundSetupRequestedEventArgs = *mut ::core::ffi::c_vo
 pub type PrintWorkflowConfiguration = *mut ::core::ffi::c_void;
 pub type PrintWorkflowForegroundSession = *mut ::core::ffi::c_void;
 pub type PrintWorkflowForegroundSetupRequestedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
@@ -25,7 +25,7 @@ pub type PrintWorkflowJobTriggerDetails = *mut ::core::ffi::c_void;
 pub type PrintWorkflowJobUISession = *mut ::core::ffi::c_void;
 pub type PrintWorkflowObjectModelSourceFileContent = *mut ::core::ffi::c_void;
 pub type PrintWorkflowObjectModelTargetPackage = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
@@ -45,7 +45,7 @@ pub type PrintWorkflowPdlModificationRequestedEventArgs = *mut ::core::ffi::c_vo
 pub type PrintWorkflowPdlSourceContent = *mut ::core::ffi::c_void;
 pub type PrintWorkflowPdlTargetStream = *mut ::core::ffi::c_void;
 pub type PrintWorkflowPrinterJob = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
@@ -60,7 +60,7 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
@@ -81,7 +81,7 @@ pub type PrintWorkflowSpoolStreamContent = *mut ::core::ffi::c_void;
 pub type PrintWorkflowStreamTarget = *mut ::core::ffi::c_void;
 pub type PrintWorkflowSubmittedEventArgs = *mut ::core::ffi::c_void;
 pub type PrintWorkflowSubmittedOperation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
@@ -98,7 +98,7 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
 pub type PrintWorkflowTarget = *mut ::core::ffi::c_void;
 pub type PrintWorkflowTriggerDetails = *mut ::core::ffi::c_void;
 pub type PrintWorkflowUIActivatedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {

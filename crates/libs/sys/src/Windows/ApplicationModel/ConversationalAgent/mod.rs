@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type ActivationSignalDetectionConfiguration = *mut ::core::ffi::c_void;
 pub type ActivationSignalDetectionConfigurationCreationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
@@ -20,7 +20,7 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStat
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
 impl ActivationSignalDetectionConfigurationRemovalResult {
@@ -35,7 +35,7 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResul
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
 impl ActivationSignalDetectionConfigurationSetModelDataResult {
@@ -54,7 +54,7 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelData
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
 impl ActivationSignalDetectionConfigurationStateChangeResult {
@@ -68,7 +68,7 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeR
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
 impl ActivationSignalDetectionTrainingDataFormat {
@@ -91,7 +91,7 @@ impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
     }
 }
 pub type ActivationSignalDetector = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
@@ -105,7 +105,7 @@ impl ::core::clone::Clone for ActivationSignalDetectorKind {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectorPowerState(pub i32);
 impl ActivationSignalDetectorPowerState {
@@ -119,7 +119,7 @@ impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentActivationKind(pub i32);
 impl ConversationalAgentActivationKind {
@@ -132,7 +132,7 @@ impl ::core::clone::Clone for ConversationalAgentActivationKind {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentActivationResult(pub i32);
 impl ConversationalAgentActivationResult {
@@ -150,7 +150,7 @@ impl ::core::clone::Clone for ConversationalAgentActivationResult {
 pub type ConversationalAgentDetectorManager = *mut ::core::ffi::c_void;
 pub type ConversationalAgentSession = *mut ::core::ffi::c_void;
 pub type ConversationalAgentSessionInterruptedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
@@ -165,7 +165,7 @@ impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
 }
 pub type ConversationalAgentSignal = *mut ::core::ffi::c_void;
 pub type ConversationalAgentSignalDetectedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
@@ -182,7 +182,7 @@ impl ::core::clone::Clone for ConversationalAgentState {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSystemStateChangeType(pub i32);
 impl ConversationalAgentSystemStateChangeType {
@@ -198,7 +198,7 @@ impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
     }
 }
 pub type ConversationalAgentSystemStateChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
@@ -215,7 +215,7 @@ impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
 impl DetectionConfigurationAvailabilityChangeKind {
@@ -231,7 +231,7 @@ impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
 }
 pub type DetectionConfigurationAvailabilityChangedEventArgs = *mut ::core::ffi::c_void;
 pub type DetectionConfigurationAvailabilityInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
@@ -252,7 +252,7 @@ impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct SignalDetectorResourceKind(pub i32);
 impl SignalDetectorResourceKind {

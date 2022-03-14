@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type AudioDeviceInputNode = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
@@ -18,7 +18,7 @@ impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
 }
 pub type AudioDeviceOutputNode = *mut ::core::ffi::c_void;
 pub type AudioFileInputNode = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
@@ -41,7 +41,7 @@ pub type AudioFrameOutputNode = *mut ::core::ffi::c_void;
 pub type AudioGraph = *mut ::core::ffi::c_void;
 pub type AudioGraphBatchUpdater = *mut ::core::ffi::c_void;
 pub type AudioGraphConnection = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
@@ -57,7 +57,7 @@ impl ::core::clone::Clone for AudioGraphCreationStatus {
     }
 }
 pub type AudioGraphSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
@@ -75,7 +75,7 @@ impl ::core::clone::Clone for AudioGraphUnrecoverableError {
 pub type AudioGraphUnrecoverableErrorOccurredEventArgs = *mut ::core::ffi::c_void;
 pub type AudioNodeEmitter = *mut ::core::ffi::c_void;
 pub type AudioNodeEmitterConeProperties = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
@@ -90,7 +90,7 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
 }
 pub type AudioNodeEmitterDecayModel = *mut ::core::ffi::c_void;
 pub type AudioNodeEmitterNaturalDecayModelProperties = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
@@ -104,7 +104,7 @@ impl ::core::clone::Clone for AudioNodeEmitterSettings {
     }
 }
 pub type AudioNodeEmitterShape = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
@@ -120,7 +120,7 @@ impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
 pub type AudioNodeListener = *mut ::core::ffi::c_void;
 pub type AudioPlaybackConnection = *mut ::core::ffi::c_void;
 pub type AudioPlaybackConnectionOpenResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
@@ -166,7 +166,7 @@ pub type IAudioNode = *mut ::core::ffi::c_void;
 pub type IAudioNodeWithListener = *mut ::core::ffi::c_void;
 pub type LimiterEffectDefinition = *mut ::core::ffi::c_void;
 pub type MediaSourceAudioInputNode = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
@@ -181,7 +181,7 @@ impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
@@ -194,7 +194,7 @@ impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
         *self
     }
 }
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct QuantumSizeSelectionMode(pub i32);
 impl QuantumSizeSelectionMode {
@@ -210,7 +210,7 @@ impl ::core::clone::Clone for QuantumSizeSelectionMode {
 }
 pub type ReverbEffectDefinition = *mut ::core::ffi::c_void;
 pub type SetDefaultSpatialAudioFormatResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
@@ -229,7 +229,7 @@ impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
 }
 pub type SpatialAudioDeviceConfiguration = *mut ::core::ffi::c_void;
 pub type SpatialAudioFormatConfiguration = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Audio'*"]
+#[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
 pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {

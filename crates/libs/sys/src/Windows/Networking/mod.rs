@@ -17,7 +17,7 @@ pub mod Sockets;
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
 pub mod XboxLive;
-#[doc = "*Required features: 'Networking'*"]
+#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for DomainNameType {
 }
 pub type EndpointPair = *mut ::core::ffi::c_void;
 pub type HostName = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Networking'*"]
+#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for HostNameSortOptions {
         *self
     }
 }
-#[doc = "*Required features: 'Networking'*"]
+#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 pub struct HostNameType(pub i32);
 impl HostNameType {

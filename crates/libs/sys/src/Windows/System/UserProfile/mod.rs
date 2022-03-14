@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
+#[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AccountPictureKind(pub i32);
@@ -22,7 +22,7 @@ pub type AssignedAccessSettings = *mut ::core::ffi::c_void;
 pub type DiagnosticsSettings = *mut ::core::ffi::c_void;
 pub type FirstSignInSettings = *mut ::core::ffi::c_void;
 pub type GlobalizationPreferencesForUser = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
+#[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SetAccountPictureResult(pub i32);
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for SetAccountPictureResult {
         *self
     }
 }
-#[doc = "*Required features: 'System_UserProfile'*"]
+#[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {

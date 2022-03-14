@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Security_Credentials_UI'*"]
+#[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for AuthenticationProtocol {
 }
 pub type CredentialPickerOptions = *mut ::core::ffi::c_void;
 pub type CredentialPickerResults = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Security_Credentials_UI'*"]
+#[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for CredentialSaveOption {
         *self
     }
 }
-#[doc = "*Required features: 'Security_Credentials_UI'*"]
+#[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
@@ -51,7 +51,7 @@ impl ::core::clone::Clone for UserConsentVerificationResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_Credentials_UI'*"]
+#[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {

@@ -10,7 +10,7 @@ pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
 pub type MdmAlert = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
@@ -25,7 +25,7 @@ impl ::core::clone::Clone for MdmAlertDataType {
         *self
     }
 }
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for MdmAlertMark {
     }
 }
 pub type MdmSession = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Management'*"]
+#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {

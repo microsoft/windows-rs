@@ -10,7 +10,7 @@ pub type ImageFeatureValue = *mut ::core::ffi::c_void;
 pub type LearningModel = *mut ::core::ffi::c_void;
 pub type LearningModelBinding = *mut ::core::ffi::c_void;
 pub type LearningModelDevice = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'AI_MachineLearning'*"]
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
@@ -27,7 +27,7 @@ impl ::core::clone::Clone for LearningModelDeviceKind {
     }
 }
 pub type LearningModelEvaluationResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'AI_MachineLearning'*"]
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for LearningModelFeatureKind {
         *self
     }
 }
-#[doc = "*Required features: 'AI_MachineLearning'*"]
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
@@ -69,7 +69,7 @@ pub type TensorInt16Bit = *mut ::core::ffi::c_void;
 pub type TensorInt32Bit = *mut ::core::ffi::c_void;
 pub type TensorInt64Bit = *mut ::core::ffi::c_void;
 pub type TensorInt8Bit = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'AI_MachineLearning'*"]
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
