@@ -10,15 +10,28 @@ use std::slice::*;
 pub fn test() {
     let dos = DosHeader::new();
     let pe = PeHeader::new();
-    let optional = OptionalHeader::new(0); // TODO: set to overall image size (e.g. including CLR metadata)
-    let section = SectionHeader::new();
+    let mut optional = OptionalHeader::new();
+    let mut section = SectionHeader::new();
     let clr = ClrHeader::new();
+
+    optional.size_of_image = 0xAABBCCDD;
+
+    optional.data_directory[14] = DataDirectory {
+        virtual_address: 0x1000,
+        size: size_of::<ClrHeader>() as _,
+    };
+
+    section.virtual_size = size_of::<ClrHeader>() as _;
+    section.size_of_raw_data = size_of::<ClrHeader>() as _;
+    section.pointer_to_raw_data = 0x200;
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
     buffer.write(&pe);
     buffer.write(&optional);
     buffer.write(&section);
+    debug_assert!(buffer.len() < 0x200);
+    buffer.resize(0x200, 0);
     buffer.write(&clr);
 
     std::fs::write("/git/test.winmd", buffer).unwrap();
@@ -61,19 +74,18 @@ impl PeHeader {
 }
 
 impl OptionalHeader {
-    fn new(size_of_image: u32) -> Self {
+    fn new() -> Self {
         Self {
             magic: 0x10B, // PE32
             major_linker_version: 0xB,
             size_of_initialized_data: 0x400,
             image_base: 0x400000,
-            section_alignment: 0x1000,
+            section_alignment: 0x200,
             file_alignment: 0x200,
             major_operating_system_version: 6,
             minor_operating_system_version: 2,
             major_subsystem_version: 6,
             minor_subsystem_version: 2,
-            size_of_image,
             size_of_headers: 0x200,
             subsystem: 3, // console
             dll_characteristics: 0x540,
@@ -91,13 +103,20 @@ impl SectionHeader {
         Self { 
             name: *b".text\0\0\0",
             characteristics: 0x4000_0020,
+            virtual_address: 0x1000,
             ..Default::default() }
     }
 }
 
 impl ClrHeader {
     fn new() -> Self {
-        Self { cb: size_of::<Self>() as _, ..Default::default() }
+        Self { 
+            cb: size_of::<Self>() as _, 
+            major_runtime_version: 2,
+            minor_runtime_version: 5,
+            flags: 0x1,
+            ..Default::default() 
+        }
     }
 }
 
@@ -185,7 +204,7 @@ struct DataDirectory {
 #[derive(Default)]
 struct SectionHeader {
     name: [u8; 8],
-    physical_address_or_virtual_size: u32,
+    virtual_size: u32,
     virtual_address: u32,
     size_of_raw_data: u32,
     pointer_to_raw_data: u32,
