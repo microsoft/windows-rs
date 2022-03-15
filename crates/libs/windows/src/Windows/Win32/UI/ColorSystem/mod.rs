@@ -2294,13 +2294,13 @@ impl ::core::fmt::Debug for ICM_COMMAND {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ICM_MODE(pub i32);
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_OFF: ICM_MODE = ICM_MODE(1i32);
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_ON: ICM_MODE = ICM_MODE(2i32);
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_QUERY: ICM_MODE = ICM_MODE(3i32);
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_DONE_OUTSIDEDC: ICM_MODE = ICM_MODE(4i32);
 impl ::core::marker::Copy for ICM_MODE {}
 impl ::core::clone::Clone for ICM_MODE {
@@ -2321,7 +2321,7 @@ impl ::core::fmt::Debug for ICM_MODE {
         f.debug_tuple("ICM_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(::windows::core::IUnknown);
 impl IDeviceModelPlugIn {

@@ -277,7 +277,7 @@ impl ISecurityInformation {
     pub unsafe fn GetSecurity<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, fdefault: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSecurity)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
     pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSecurity)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)).ok()
     }

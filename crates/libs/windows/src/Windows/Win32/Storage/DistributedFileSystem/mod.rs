@@ -284,7 +284,7 @@ impl ::core::default::Default for DFS_INFO_106 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_107 {
     pub Comment: ::windows::core::PWSTR,
     pub State: u32,
@@ -320,7 +320,7 @@ impl ::core::default::Default for DFS_INFO_107 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: *mut ::core::ffi::c_void,
@@ -817,7 +817,7 @@ impl ::core::default::Default for DFS_INFO_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_8 {
     pub EntryPath: ::windows::core::PWSTR,
     pub Comment: ::windows::core::PWSTR,
@@ -856,7 +856,7 @@ impl ::core::default::Default for DFS_INFO_8 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_9 {
     pub EntryPath: ::windows::core::PWSTR,
     pub Comment: ::windows::core::PWSTR,
@@ -1339,7 +1339,7 @@ pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1367,7 +1367,7 @@ pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1381,7 +1381,7 @@ pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1507,7 +1507,7 @@ pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1535,7 +1535,7 @@ pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1549,7 +1549,7 @@ pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]

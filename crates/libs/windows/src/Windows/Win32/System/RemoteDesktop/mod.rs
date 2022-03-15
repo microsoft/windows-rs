@@ -12749,7 +12749,7 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSGetListenerSecurityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hserver: Param0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
@@ -12764,7 +12764,7 @@ pub unsafe fn WTSGetListenerSecurityA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSGetListenerSecurityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hserver: Param0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
@@ -13968,7 +13968,7 @@ pub unsafe fn WTSSendMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSSetListenerSecurityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hserver: Param0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -13983,7 +13983,7 @@ pub unsafe fn WTSSetListenerSecurityA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSSetListenerSecurityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hserver: Param0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {

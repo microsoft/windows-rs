@@ -4546,7 +4546,7 @@ impl IBackgroundCopyJobHttpOptions {
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveClientCertificate)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
+    #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
@@ -4638,7 +4638,7 @@ impl IBackgroundCopyJobHttpOptions2 {
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RemoveClientCertificate)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
+    #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
@@ -4753,7 +4753,7 @@ impl IBackgroundCopyJobHttpOptions3 {
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RemoveClientCertificate)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
+    #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }

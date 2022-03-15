@@ -3339,7 +3339,7 @@ pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
 pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwcsname: Param0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -3487,7 +3487,7 @@ pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
 pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwcsname: Param0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]

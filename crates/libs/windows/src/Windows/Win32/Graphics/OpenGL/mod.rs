@@ -1684,47 +1684,47 @@ impl ::core::default::Default for LAYERPLANEDESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PFD_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DOUBLEBUFFER: PFD_FLAGS = PFD_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_STEREO: PFD_FLAGS = PFD_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DRAW_TO_WINDOW: PFD_FLAGS = PFD_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DRAW_TO_BITMAP: PFD_FLAGS = PFD_FLAGS(8u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SUPPORT_GDI: PFD_FLAGS = PFD_FLAGS(16u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SUPPORT_OPENGL: PFD_FLAGS = PFD_FLAGS(32u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_GENERIC_FORMAT: PFD_FLAGS = PFD_FLAGS(64u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_NEED_PALETTE: PFD_FLAGS = PFD_FLAGS(128u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_NEED_SYSTEM_PALETTE: PFD_FLAGS = PFD_FLAGS(256u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SWAP_EXCHANGE: PFD_FLAGS = PFD_FLAGS(512u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SWAP_COPY: PFD_FLAGS = PFD_FLAGS(1024u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SWAP_LAYER_BUFFERS: PFD_FLAGS = PFD_FLAGS(2048u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_GENERIC_ACCELERATED: PFD_FLAGS = PFD_FLAGS(4096u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SUPPORT_DIRECTDRAW: PFD_FLAGS = PFD_FLAGS(8192u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = PFD_FLAGS(16384u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_SUPPORT_COMPOSITION: PFD_FLAGS = PFD_FLAGS(32768u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DEPTH_DONTCARE: PFD_FLAGS = PFD_FLAGS(536870912u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DOUBLEBUFFER_DONTCARE: PFD_FLAGS = PFD_FLAGS(1073741824u32);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_STEREO_DONTCARE: PFD_FLAGS = PFD_FLAGS(2147483648u32);
 impl ::core::marker::Copy for PFD_FLAGS {}
 impl ::core::clone::Clone for PFD_FLAGS {
@@ -1773,15 +1773,15 @@ impl ::core::ops::Not for PFD_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PFD_LAYER_TYPE(pub i8);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_MAIN_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(0i8);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_OVERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(1i8);
 impl ::core::marker::Copy for PFD_LAYER_TYPE {}
 impl ::core::clone::Clone for PFD_LAYER_TYPE {
@@ -1802,13 +1802,13 @@ impl ::core::fmt::Debug for PFD_LAYER_TYPE {
         f.debug_tuple("PFD_LAYER_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PFD_PIXEL_TYPE(pub i8);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(0i8);
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(1i8);
 impl ::core::marker::Copy for PFD_PIXEL_TYPE {}
 impl ::core::clone::Clone for PFD_PIXEL_TYPE {
@@ -1829,7 +1829,7 @@ impl ::core::fmt::Debug for PFD_PIXEL_TYPE {
         f.debug_tuple("PFD_PIXEL_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub type PFNGLADDSWAPHINTRECTWINPROC = ::core::option::Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub type PFNGLARRAYELEMENTARRAYEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void)>;

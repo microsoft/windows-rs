@@ -2535,7 +2535,7 @@ pub unsafe fn AllocADsStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
     unimplemented!("Unsupported target OS");
 }
 pub const BackLink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
-#[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn BinarySDToSecurityDescriptor<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psecuritydescriptor: *mut ::core::ffi::c_void, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: Param2, username: Param3, password: Param4, dwflags: u32) -> ::windows::core::Result<()> {
@@ -23249,7 +23249,7 @@ pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
 pub const SecurityDescriptor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
-#[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(vvarsecdes: Param0, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, pdwsdlength: *mut u32, pszservername: Param3, username: Param4, password: Param5, dwflags: u32) -> ::windows::core::Result<()> {

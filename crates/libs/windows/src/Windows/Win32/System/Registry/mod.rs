@@ -2830,7 +2830,7 @@ pub unsafe fn RegFlushKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR {
@@ -3385,7 +3385,7 @@ pub unsafe fn RegSaveKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {

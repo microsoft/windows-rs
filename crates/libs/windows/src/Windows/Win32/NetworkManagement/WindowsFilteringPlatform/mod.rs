@@ -6658,7 +6658,7 @@ impl ::core::fmt::Debug for FWP_VSWITCH_NETWORK_TYPE {
         f.debug_tuple("FWP_VSWITCH_NETWORK_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, callout: *const FWPM_CALLOUT0, sd: *const ::core::ffi::c_void, id: *mut u32) -> u32 {
@@ -7751,7 +7751,7 @@ pub unsafe fn FwpmNetEventsSetSecurityInfo0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, provider: *const FWPM_PROVIDER0, sd: *const ::core::ffi::c_void) -> u32 {
@@ -8336,7 +8336,7 @@ pub unsafe fn FwpmSessionEnum0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sublayer: *const FWPM_SUBLAYER0, sd: *const ::core::ffi::c_void) -> u32 {

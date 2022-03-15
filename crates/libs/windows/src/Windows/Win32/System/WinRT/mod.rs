@@ -243,7 +243,7 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_WinRT'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateControlInput<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
     #[cfg(windows)]
@@ -258,7 +258,7 @@ pub unsafe fn CreateControlInput<T: ::windows::core::Interface>() -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_WinRT'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateControlInputEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(pcorewindow: Param0) -> ::windows::core::Result<T> {
     #[cfg(windows)]
@@ -273,7 +273,7 @@ pub unsafe fn CreateControlInputEx<'a, Param0: ::windows::core::IntoParam<'a, ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_WinRT', 'System'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"System\"`*"]
 #[cfg(feature = "System")]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController<'a, Param0: ::windows::core::IntoParam<'a, DispatcherQueueOptions>>(options: Param0) -> ::windows::core::Result<super::super::super::System::DispatcherQueueController> {
@@ -1284,11 +1284,11 @@ pub struct ICastingSourceInfo_Vtbl {
 #[repr(transparent)]
 pub struct ICoreInputInterop(::windows::core::IUnknown);
 impl ICoreInputInterop {
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn SetInputSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInputSource)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn SetMessageHandled(&self, value: u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMessageHandled)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
@@ -1340,46 +1340,46 @@ pub struct ICoreInputInterop_Vtbl {
     pub SetInputSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetMessageHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WinRT'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowAdapterInterop(::windows::core::IUnknown);
 impl ICoreWindowAdapterInterop {
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn AppActivationClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AppActivationClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn ApplicationViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ApplicationViewClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn CoreApplicationViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CoreApplicationViewClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn HoloViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).HoloViewClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn PositionerClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).PositionerClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn SystemNavigationClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SystemNavigationClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn TitleBarClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TitleBarClientAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn SetWindowClientAdapter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWindowClientAdapter)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
@@ -1457,16 +1457,16 @@ pub struct ICoreWindowAdapterInterop_Vtbl {
     pub TitleBarClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetWindowClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WinRT'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowComponentInterop(::windows::core::IUnknown);
 impl ICoreWindowComponentInterop {
-    #[doc = "*Required features: 'Win32_System_WinRT', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureComponentInput<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hostviewinstanceid: u32, hwndhost: Param1, inputsourcevisual: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConfigureComponentInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(hostviewinstanceid), hwndhost.into_param().abi(), inputsourcevisual.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn GetViewInstanceId(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetViewInstanceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -1522,17 +1522,17 @@ pub struct ICoreWindowComponentInterop_Vtbl {
     ConfigureComponentInput: usize,
     pub GetViewInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, componentviewinstanceid: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WinRT'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowInterop(::windows::core::IUnknown);
 impl ICoreWindowInterop {
-    #[doc = "*Required features: 'Win32_System_WinRT', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).WindowHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub unsafe fn SetMessageHandled(&self, value: u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMessageHandled)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
@@ -1587,7 +1587,7 @@ pub struct ICoreWindowInterop_Vtbl {
     WindowHandle: usize,
     pub SetMessageHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WinRT'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICorrelationVectorInformation(::windows::core::IUnknown);
 impl ICorrelationVectorInformation {

@@ -2234,7 +2234,7 @@ pub unsafe fn GetSecurityDescriptorGroup(psecuritydescriptor: *const ::core::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security'*"]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
 pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2263,7 +2263,7 @@ pub unsafe fn GetSecurityDescriptorOwner(psecuritydescriptor: *const ::core::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security'*"]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
 pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: *const ::core::ffi::c_void, rmcontrol: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -4173,7 +4173,7 @@ impl ::core::default::Default for SE_IMPERSONATION_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security'*"]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,
@@ -5079,7 +5079,7 @@ pub unsafe fn SetSecurityDescriptorOwner<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security'*"]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
 pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: *mut ::core::ffi::c_void, rmcontrol: *const u8) -> u32 {
     #[cfg(windows)]

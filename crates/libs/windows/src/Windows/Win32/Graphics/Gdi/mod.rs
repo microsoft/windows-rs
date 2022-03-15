@@ -12275,7 +12275,7 @@ impl ::core::fmt::Debug for HdcMetdataFileHandle {
 unsafe impl ::windows::core::Abi for HdcMetdataFileHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_A: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_B: u32 = 2u32;

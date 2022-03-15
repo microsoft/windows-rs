@@ -9989,7 +9989,7 @@ pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: *const _HREGBATCHPORT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegGetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> i32 {
@@ -10077,7 +10077,7 @@ pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: *const _HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegSetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> i32 {
@@ -19350,10 +19350,10 @@ pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = ::core::option::Option<unsafe extern "s
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: ::windows::core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32>;
-#[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> i32>;
-#[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows::core::PCWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -19362,10 +19362,10 @@ pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = ::core::option::Option<unsafe ext
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows::core::PCWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32>;
-#[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void) -> i32>;
-#[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]

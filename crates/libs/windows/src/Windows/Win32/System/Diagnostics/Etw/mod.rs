@@ -3748,7 +3748,7 @@ pub unsafe fn EventAccessControl<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[inline]
 pub unsafe fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]

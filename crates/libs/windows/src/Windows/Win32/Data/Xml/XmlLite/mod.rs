@@ -139,7 +139,7 @@ impl IXmlReader {
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Data_Xml_XmlLite'*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn Read(&self, pnodetype: *mut XmlNodeType) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnodetype)))
     }
@@ -148,15 +148,15 @@ impl IXmlReader {
         let mut result__: XmlNodeType = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XmlNodeType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Data_Xml_XmlLite'*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToFirstAttribute(&self) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToFirstAttribute)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Data_Xml_XmlLite'*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToNextAttribute(&self) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToNextAttribute)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Data_Xml_XmlLite'*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToAttributeByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszlocalname: Param0, pwsznamespaceuri: Param1) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToAttributeByName)(::core::mem::transmute_copy(self), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()))
     }
@@ -184,7 +184,7 @@ impl IXmlReader {
     pub unsafe fn GetValue(&self, ppwszvalue: *mut ::windows::core::PWSTR, pcwchvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcwchvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Data_Xml_XmlLite'*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn ReadValueChunk(&self, pwchbuffer: &mut [u16], pcwchread: *mut u32) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).ReadValueChunk)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwchbuffer)), pwchbuffer.len() as _, ::core::mem::transmute(pcwchread)))
     }

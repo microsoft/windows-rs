@@ -2533,7 +2533,7 @@ pub unsafe fn CoGetPSClsid(riid: *const ::windows::core::GUID) -> ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -2619,7 +2619,7 @@ pub unsafe fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoInitializeSecurity(psecdesc: *const ::core::ffi::c_void, asauthsvc: &[SOLE_AUTHENTICATION_SERVICE], preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -10541,11 +10541,11 @@ pub struct IRunningObjectTable_Vtbl {
 #[repr(transparent)]
 pub struct ISequentialStream(::windows::core::IUnknown);
 impl ISequentialStream {
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)))
     }
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbwritten)))
     }
@@ -10785,11 +10785,11 @@ pub struct IStdMarshalInfo_Vtbl {
 #[repr(transparent)]
 pub struct IStream(::windows::core::IUnknown);
 impl IStream {
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)))
     }
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbwritten)))
     }

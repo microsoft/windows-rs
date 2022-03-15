@@ -17918,7 +17918,7 @@ impl ::core::default::Default for JOB_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
@@ -18002,7 +18002,7 @@ impl ::core::default::Default for JOB_INFO_2A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
@@ -18118,7 +18118,7 @@ impl ::core::default::Default for JOB_INFO_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
@@ -18204,7 +18204,7 @@ impl ::core::default::Default for JOB_INFO_4A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
@@ -21262,7 +21262,7 @@ impl ::core::default::Default for PRINTER_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTER_INFO_2A {
     pub pServerName: ::windows::core::PSTR,
@@ -21342,7 +21342,7 @@ impl ::core::default::Default for PRINTER_INFO_2A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTER_INFO_2W {
     pub pServerName: ::windows::core::PWSTR,
@@ -21422,7 +21422,7 @@ impl ::core::default::Default for PRINTER_INFO_2W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: *mut ::core::ffi::c_void,
 }

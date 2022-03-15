@@ -2927,7 +2927,7 @@ pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, plistofaccessentries: &[EXPLICIT_ACCESS_A], plistofauditentries: &[EXPLICIT_ACCESS_A], poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2941,7 +2941,7 @@ pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, plistofaccessentries: &[EXPLICIT_ACCESS_W], plistofauditentries: &[EXPLICIT_ACCESS_W], poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -12647,7 +12647,7 @@ impl ::core::default::Default for INHERITED_FROMW {
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_PARENT: u32 = 268435456u32;
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -12661,7 +12661,7 @@ pub unsafe fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
