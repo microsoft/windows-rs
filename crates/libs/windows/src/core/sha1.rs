@@ -205,10 +205,10 @@ const fn digest(mut state: [u32; 5], len: u64, blocks: Blocks) -> Digest {
         data
     }
 
-    const fn clone_slice_128(mut data: [u8; 128], slice: &[u8], offset: usize) -> [u8; 128] {
+    const fn clone_slice_128(mut data: [u8; 128], slice: &[u8], _offset: usize) -> [u8; 128] {
         let mut i = 0;
         while i < slice.len() {
-            data[offset + i] = slice[i];
+            data[_offset + i] = slice[i];
             i += 1;
         }
         data
