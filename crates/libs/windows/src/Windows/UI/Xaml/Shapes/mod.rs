@@ -4,7 +4,7 @@
 pub struct Ellipse(::windows::core::IUnknown);
 impl Ellipse {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Ellipse, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -566,7 +566,7 @@ pub struct IShapeStatics_Vtbl {
 pub struct Line(::windows::core::IUnknown);
 impl Line {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Line, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1123,7 +1123,7 @@ unsafe impl ::core::marker::Sync for Path {}
 pub struct Polygon(::windows::core::IUnknown);
 impl Polygon {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Polygon, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1388,7 +1388,7 @@ unsafe impl ::core::marker::Sync for Polygon {}
 pub struct Polyline(::windows::core::IUnknown);
 impl Polyline {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Polyline, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1653,7 +1653,7 @@ unsafe impl ::core::marker::Sync for Polyline {}
 pub struct Rectangle(::windows::core::IUnknown);
 impl Rectangle {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Rectangle, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -1923,7 +1923,7 @@ unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
 pub struct StorageProviderGetContentInfoForPathResult(::windows::core::IUnknown);
 impl StorageProviderGetContentInfoForPathResult {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2046,7 +2046,7 @@ unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult 
 pub struct StorageProviderGetPathForContentUriResult(::windows::core::IUnknown);
 impl StorageProviderGetPathForContentUriResult {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2411,7 +2411,7 @@ impl ::windows::core::RuntimeName for StorageProviderItemProperties {
 pub struct StorageProviderItemProperty(::windows::core::IUnknown);
 impl StorageProviderItemProperty {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemProperty, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2534,7 +2534,7 @@ unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
 pub struct StorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 impl StorageProviderItemPropertyDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2872,7 +2872,7 @@ unsafe impl ::core::marker::Sync for StorageProviderStatus {}
 pub struct StorageProviderSyncRootInfo(::windows::core::IUnknown);
 impl StorageProviderSyncRootInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

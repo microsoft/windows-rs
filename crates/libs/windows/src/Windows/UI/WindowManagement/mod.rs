@@ -1559,7 +1559,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
 pub struct CompactOverlayPresentationConfiguration(::windows::core::IUnknown);
 impl CompactOverlayPresentationConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompactOverlayPresentationConfiguration, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1671,7 +1671,7 @@ unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
 pub struct DefaultPresentationConfiguration(::windows::core::IUnknown);
 impl DefaultPresentationConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DefaultPresentationConfiguration, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1917,7 +1917,7 @@ unsafe impl ::core::marker::Sync for DisplayRegion {}
 pub struct FullScreenPresentationConfiguration(::windows::core::IUnknown);
 impl FullScreenPresentationConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FullScreenPresentationConfiguration, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

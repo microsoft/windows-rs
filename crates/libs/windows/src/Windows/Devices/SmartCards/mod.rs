@@ -1495,7 +1495,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResu
 pub struct SmartCardAppletIdGroup(::windows::core::IUnknown);
 impl SmartCardAppletIdGroup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardAppletIdGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2741,7 +2741,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperati
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2842,7 +2842,7 @@ unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterial
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2943,7 +2943,7 @@ unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterial
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3044,7 +3044,7 @@ unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageK
 pub struct SmartCardCryptogramMaterialCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialCharacteristics {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramMaterialCharacteristics, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3195,7 +3195,7 @@ unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics 
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramMaterialPackageCharacteristics, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3608,7 +3608,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions
 pub struct SmartCardCryptogramPlacementStep(::windows::core::IUnknown);
 impl SmartCardCryptogramPlacementStep {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramPlacementStep, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3908,7 +3908,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabi
 pub struct SmartCardCryptogramStorageKeyCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramStorageKeyCharacteristics {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardCryptogramStorageKeyCharacteristics, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4973,7 +4973,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
 pub struct SmartCardPinPolicy(::windows::core::IUnknown);
 impl SmartCardPinPolicy {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmartCardPinPolicy, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

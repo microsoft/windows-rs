@@ -554,7 +554,7 @@ unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
 pub struct SpatialSurfaceMeshOptions(::windows::core::IUnknown);
 impl SpatialSurfaceMeshOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SpatialSurfaceMeshOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -725,7 +725,7 @@ unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
 pub struct SpatialSurfaceObserver(::windows::core::IUnknown);
 impl SpatialSurfaceObserver {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SpatialSurfaceObserver, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

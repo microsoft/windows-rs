@@ -858,7 +858,7 @@ unsafe impl ::core::marker::Sync for WebUICommandBar {}
 pub struct WebUICommandBarBitmapIcon(::windows::core::IUnknown);
 impl WebUICommandBarBitmapIcon {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebUICommandBarBitmapIcon, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1027,7 +1027,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarClosedDisplayMode {
 pub struct WebUICommandBarConfirmationButton(::windows::core::IUnknown);
 impl WebUICommandBarConfirmationButton {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebUICommandBarConfirmationButton, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1161,7 +1161,7 @@ unsafe impl ::core::marker::Sync for WebUICommandBarConfirmationButton {}
 pub struct WebUICommandBarIconButton(::windows::core::IUnknown);
 impl WebUICommandBarIconButton {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebUICommandBarIconButton, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1518,7 +1518,7 @@ unsafe impl ::core::marker::Sync for WebUICommandBarSizeChangedEventArgs {}
 pub struct WebUICommandBarSymbolIcon(::windows::core::IUnknown);
 impl WebUICommandBarSymbolIcon {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebUICommandBarSymbolIcon, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

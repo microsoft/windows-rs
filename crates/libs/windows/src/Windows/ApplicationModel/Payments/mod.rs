@@ -591,7 +591,7 @@ pub struct IPaymentTokenFactory_Vtbl {
 pub struct PaymentAddress(::windows::core::IUnknown);
 impl PaymentAddress {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaymentAddress, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1100,7 +1100,7 @@ unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
 pub struct PaymentDetails(::windows::core::IUnknown);
 impl PaymentDetails {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaymentDetails, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1530,7 +1530,7 @@ unsafe impl ::core::marker::Sync for PaymentItem {}
 pub struct PaymentMediator(::windows::core::IUnknown);
 impl PaymentMediator {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaymentMediator, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1650,7 +1650,7 @@ unsafe impl ::core::marker::Sync for PaymentMediator {}
 pub struct PaymentMerchantInfo(::windows::core::IUnknown);
 impl PaymentMerchantInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaymentMerchantInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1914,7 +1914,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentOptionPresence {
 pub struct PaymentOptions(::windows::core::IUnknown);
 impl PaymentOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaymentOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

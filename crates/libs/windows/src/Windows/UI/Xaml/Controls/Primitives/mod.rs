@@ -769,7 +769,7 @@ unsafe impl ::core::marker::Sync for ButtonBase {}
 pub struct CalendarPanel(::windows::core::IUnknown);
 impl CalendarPanel {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CalendarPanel, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9115,7 +9115,7 @@ pub struct ItemsChangedEventHandler_Vtbl {
 pub struct JumpListItemBackgroundConverter(::windows::core::IUnknown);
 impl JumpListItemBackgroundConverter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<JumpListItemBackgroundConverter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9312,7 +9312,7 @@ unsafe impl ::core::marker::Sync for JumpListItemBackgroundConverter {}
 pub struct JumpListItemForegroundConverter(::windows::core::IUnknown);
 impl JumpListItemForegroundConverter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<JumpListItemForegroundConverter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13608,7 +13608,7 @@ unsafe impl ::core::marker::Sync for PivotHeaderItem {}
 pub struct PivotHeaderPanel(::windows::core::IUnknown);
 impl PivotHeaderPanel {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PivotHeaderPanel, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13844,7 +13844,7 @@ unsafe impl ::core::marker::Sync for PivotHeaderPanel {}
 pub struct PivotPanel(::windows::core::IUnknown);
 impl PivotPanel {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PivotPanel, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14182,7 +14182,7 @@ unsafe impl ::windows::core::RuntimeType for PlacementMode {
 pub struct Popup(::windows::core::IUnknown);
 impl Popup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Popup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15504,7 +15504,7 @@ pub struct RangeBaseValueChangedEventHandler_Vtbl {
 pub struct RepeatButton(::windows::core::IUnknown);
 impl RepeatButton {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RepeatButton, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15805,7 +15805,7 @@ unsafe impl ::core::marker::Sync for RepeatButton {}
 pub struct ScrollBar(::windows::core::IUnknown);
 impl ScrollBar {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScrollBar, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -16121,7 +16121,7 @@ unsafe impl ::core::marker::Sync for ScrollBar {}
 pub struct ScrollEventArgs(::windows::core::IUnknown);
 impl ScrollEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScrollEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -17397,7 +17397,7 @@ unsafe impl ::core::marker::Sync for SplitViewTemplateSettings {}
 pub struct Thumb(::windows::core::IUnknown);
 impl Thumb {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Thumb, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -17683,7 +17683,7 @@ unsafe impl ::core::marker::Sync for Thumb {}
 pub struct TickBar(::windows::core::IUnknown);
 impl TickBar {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TickBar, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

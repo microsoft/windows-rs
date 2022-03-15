@@ -4,7 +4,7 @@
 pub struct CompositeTransform3D(::windows::core::IUnknown);
 impl CompositeTransform3D {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositeTransform3D, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -697,7 +697,7 @@ unsafe impl ::core::marker::Sync for Matrix3DHelper {}
 pub struct PerspectiveTransform3D(::windows::core::IUnknown);
 impl PerspectiveTransform3D {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerspectiveTransform3D, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

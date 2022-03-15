@@ -4,7 +4,7 @@
 pub struct AddPagesEventArgs(::windows::core::IUnknown);
 impl AddPagesEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AddPagesEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -179,7 +179,7 @@ pub struct AddPagesEventHandler_Vtbl {
 pub struct GetPreviewPageEventArgs(::windows::core::IUnknown);
 impl GetPreviewPageEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GetPreviewPageEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -470,7 +470,7 @@ pub struct IPrintDocumentStatics_Vtbl {
 pub struct PaginateEventArgs(::windows::core::IUnknown);
 impl PaginateEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaginateEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

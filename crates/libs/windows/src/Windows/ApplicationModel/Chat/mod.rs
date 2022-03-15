@@ -521,7 +521,7 @@ unsafe impl ::core::marker::Sync for ChatConversationReader {}
 pub struct ChatConversationThreadingInfo(::windows::core::IUnknown);
 impl ChatConversationThreadingInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChatConversationThreadingInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -736,7 +736,7 @@ unsafe impl ::windows::core::RuntimeType for ChatItemKind {
 pub struct ChatMessage(::windows::core::IUnknown);
 impl ChatMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChatMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3157,7 +3157,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageValidationStatus {
 pub struct ChatQueryOptions(::windows::core::IUnknown);
 impl ChatQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChatQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3254,7 +3254,7 @@ unsafe impl ::core::marker::Sync for ChatQueryOptions {}
 pub struct ChatRecipientDeliveryInfo(::windows::core::IUnknown);
 impl ChatRecipientDeliveryInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChatRecipientDeliveryInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

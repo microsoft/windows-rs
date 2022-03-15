@@ -314,7 +314,7 @@ unsafe impl ::core::marker::Sync for GameChatOverlay {}
 pub struct GameChatOverlayMessageSource(::windows::core::IUnknown);
 impl GameChatOverlayMessageSource {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GameChatOverlayMessageSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -496,7 +496,7 @@ impl ::windows::core::RuntimeName for CertificateEnrollmentManager {
 pub struct CertificateExtension(::windows::core::IUnknown);
 impl CertificateExtension {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CertificateExtension, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -624,7 +624,7 @@ unsafe impl ::core::marker::Sync for CertificateExtension {}
 pub struct CertificateKeyUsages(::windows::core::IUnknown);
 impl CertificateKeyUsages {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CertificateKeyUsages, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -812,7 +812,7 @@ unsafe impl ::core::marker::Sync for CertificateKeyUsages {}
 pub struct CertificateQuery(::windows::core::IUnknown);
 impl CertificateQuery {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CertificateQuery, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -996,7 +996,7 @@ unsafe impl ::core::marker::Sync for CertificateQuery {}
 pub struct CertificateRequestProperties(::windows::core::IUnknown);
 impl CertificateRequestProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CertificateRequestProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1483,7 +1483,7 @@ impl ::windows::core::RuntimeName for CertificateStores {
 pub struct ChainBuildingParameters(::windows::core::IUnknown);
 impl ChainBuildingParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChainBuildingParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1652,7 +1652,7 @@ unsafe impl ::core::marker::Sync for ChainBuildingParameters {}
 pub struct ChainValidationParameters(::windows::core::IUnknown);
 impl ChainValidationParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChainValidationParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2077,7 +2077,7 @@ unsafe impl ::core::marker::Sync for CmsDetachedSignature {}
 pub struct CmsSignerInfo(::windows::core::IUnknown);
 impl CmsSignerInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CmsSignerInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3594,7 +3594,7 @@ impl ::windows::core::RuntimeName for KeyStorageProviderNames {
 pub struct PfxImportParameters(::windows::core::IUnknown);
 impl PfxImportParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PfxImportParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3839,7 +3839,7 @@ impl ::windows::core::RuntimeName for StandardCertificateStoreNames {
 pub struct SubjectAlternativeNameInfo(::windows::core::IUnknown);
 impl SubjectAlternativeNameInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SubjectAlternativeNameInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

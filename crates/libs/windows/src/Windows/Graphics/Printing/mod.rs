@@ -1639,7 +1639,7 @@ impl ::core::default::Default for PrintPageDescription {
 pub struct PrintPageInfo(::windows::core::IUnknown);
 impl PrintPageInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PrintPageInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

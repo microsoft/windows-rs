@@ -2451,7 +2451,7 @@ unsafe impl ::core::marker::Sync for StoreLicense {}
 pub struct StorePackageInstallOptions(::windows::core::IUnknown);
 impl StorePackageInstallOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorePackageInstallOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3335,7 +3335,7 @@ unsafe impl ::core::marker::Sync for StoreProduct {}
 pub struct StoreProductOptions(::windows::core::IUnknown);
 impl StoreProductOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StoreProductOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3726,7 +3726,7 @@ unsafe impl ::core::marker::Sync for StoreProductResult {}
 pub struct StorePurchaseProperties(::windows::core::IUnknown);
 impl StorePurchaseProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorePurchaseProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

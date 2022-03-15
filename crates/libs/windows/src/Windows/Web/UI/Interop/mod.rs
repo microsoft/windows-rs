@@ -1112,7 +1112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 pub struct WebViewControlProcess(::windows::core::IUnknown);
 impl WebViewControlProcess {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebViewControlProcess, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1303,7 +1303,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityStat
 pub struct WebViewControlProcessOptions(::windows::core::IUnknown);
 impl WebViewControlProcessOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebViewControlProcessOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

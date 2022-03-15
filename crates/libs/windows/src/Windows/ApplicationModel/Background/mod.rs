@@ -493,7 +493,7 @@ unsafe impl ::core::marker::Sync for AppBroadcastTriggerProviderInfo {}
 pub struct ApplicationTrigger(::windows::core::IUnknown);
 impl ApplicationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ApplicationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -739,7 +739,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationTriggerResult {
 pub struct AppointmentStoreNotificationTrigger(::windows::core::IUnknown);
 impl AppointmentStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppointmentStoreNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1009,7 +1009,7 @@ impl ::windows::core::RuntimeName for BackgroundExecutionManager {
 pub struct BackgroundTaskBuilder(::windows::core::IUnknown);
 impl BackgroundTaskBuilder {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundTaskBuilder, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2202,7 +2202,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundWorkCostValue {
 pub struct BluetoothLEAdvertisementPublisherTrigger(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisherTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2371,7 +2371,7 @@ unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTrigger {}
 pub struct BluetoothLEAdvertisementWatcherTrigger(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcherTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2556,7 +2556,7 @@ unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTrigger {}
 pub struct CachedFileUpdaterTrigger(::windows::core::IUnknown);
 impl CachedFileUpdaterTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CachedFileUpdaterTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2765,7 +2765,7 @@ unsafe impl ::core::marker::Sync for CachedFileUpdaterTriggerDetails {}
 pub struct ChatMessageNotificationTrigger(::windows::core::IUnknown);
 impl ChatMessageNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChatMessageNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2871,7 +2871,7 @@ unsafe impl ::core::marker::Sync for ChatMessageNotificationTrigger {}
 pub struct ChatMessageReceivedNotificationTrigger(::windows::core::IUnknown);
 impl ChatMessageReceivedNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChatMessageReceivedNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2977,7 +2977,7 @@ unsafe impl ::core::marker::Sync for ChatMessageReceivedNotificationTrigger {}
 pub struct CommunicationBlockingAppSetAsActiveTrigger(::windows::core::IUnknown);
 impl CommunicationBlockingAppSetAsActiveTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CommunicationBlockingAppSetAsActiveTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3083,7 +3083,7 @@ unsafe impl ::core::marker::Sync for CommunicationBlockingAppSetAsActiveTrigger 
 pub struct ContactStoreNotificationTrigger(::windows::core::IUnknown);
 impl ContactStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactStoreNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3189,7 +3189,7 @@ unsafe impl ::core::marker::Sync for ContactStoreNotificationTrigger {}
 pub struct ContentPrefetchTrigger(::windows::core::IUnknown);
 impl ContentPrefetchTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentPrefetchTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3315,7 +3315,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ContentPrefetch
 pub struct ConversationalAgentTrigger(::windows::core::IUnknown);
 impl ConversationalAgentTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ConversationalAgentTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3869,7 +3869,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceManufactu
 pub struct DeviceServicingTrigger(::windows::core::IUnknown);
 impl DeviceServicingTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DeviceServicingTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4029,7 +4029,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceTriggerResult {
 pub struct DeviceUseTrigger(::windows::core::IUnknown);
 impl DeviceUseTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DeviceUseTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4249,7 +4249,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceWatcherTr
 pub struct EmailStoreNotificationTrigger(::windows::core::IUnknown);
 impl EmailStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailStoreNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4736,7 +4736,7 @@ unsafe impl ::core::marker::Sync for GattServiceProviderTriggerResult {}
 pub struct GeovisitTrigger(::windows::core::IUnknown);
 impl GeovisitTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeovisitTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7767,7 +7767,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MaintenanceTrig
 pub struct MediaProcessingTrigger(::windows::core::IUnknown);
 impl MediaProcessingTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaProcessingTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7925,7 +7925,7 @@ unsafe impl ::windows::core::RuntimeType for MediaProcessingTriggerResult {
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandDeviceServiceNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8031,7 +8031,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceNotificationTri
 pub struct MobileBroadbandPcoDataChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandPcoDataChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandPcoDataChangeTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8137,7 +8137,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTrigger {}
 pub struct MobileBroadbandPinLockStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandPinLockStateChangeTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8243,7 +8243,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTrigger {}
 pub struct MobileBroadbandRadioStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandRadioStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandRadioStateChangeTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8349,7 +8349,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTrigger {}
 pub struct MobileBroadbandRegistrationStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandRegistrationStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandRegistrationStateChangeTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8455,7 +8455,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandRegistrationStateChangeTrigg
 pub struct NetworkOperatorDataUsageTrigger(::windows::core::IUnknown);
 impl NetworkOperatorDataUsageTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorDataUsageTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8561,7 +8561,7 @@ unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTrigger {}
 pub struct NetworkOperatorHotspotAuthenticationTrigger(::windows::core::IUnknown);
 impl NetworkOperatorHotspotAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorHotspotAuthenticationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8782,7 +8782,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperator
 pub struct PaymentAppCanMakePaymentTrigger(::windows::core::IUnknown);
 impl PaymentAppCanMakePaymentTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaymentAppCanMakePaymentTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9017,7 +9017,7 @@ unsafe impl ::core::marker::Sync for PhoneTrigger {}
 pub struct PushNotificationTrigger(::windows::core::IUnknown);
 impl PushNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PushNotificationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9135,7 +9135,7 @@ unsafe impl ::core::marker::Sync for PushNotificationTrigger {}
 pub struct RcsEndUserMessageAvailableTrigger(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RcsEndUserMessageAvailableTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9241,7 +9241,7 @@ unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTrigger {}
 pub struct RfcommConnectionTrigger(::windows::core::IUnknown);
 impl RfcommConnectionTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RfcommConnectionTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9410,7 +9410,7 @@ pub struct SecondaryAuthenticationFactorAuthenticationTrigger(::windows::core::I
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SecondaryAuthenticationFactorAuthenticationTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9876,7 +9876,7 @@ unsafe impl ::core::marker::Sync for SmsMessageReceivedTrigger {}
 pub struct SocketActivityTrigger(::windows::core::IUnknown);
 impl SocketActivityTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SocketActivityTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10551,7 +10551,7 @@ unsafe impl ::windows::core::RuntimeType for SystemTriggerType {
 pub struct TetheringEntitlementCheckTrigger(::windows::core::IUnknown);
 impl TetheringEntitlementCheckTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TetheringEntitlementCheckTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10782,7 +10782,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &TimeTrigger {
 pub struct ToastNotificationActionTrigger(::windows::core::IUnknown);
 impl ToastNotificationActionTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToastNotificationActionTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10900,7 +10900,7 @@ unsafe impl ::core::marker::Sync for ToastNotificationActionTrigger {}
 pub struct ToastNotificationHistoryChangedTrigger(::windows::core::IUnknown);
 impl ToastNotificationHistoryChangedTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToastNotificationHistoryChangedTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

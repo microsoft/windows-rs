@@ -1590,7 +1590,7 @@ pub struct IPenAndInkSettingsStatics_Vtbl {
 pub struct InkDrawingAttributes(::windows::core::IUnknown);
 impl InkDrawingAttributes {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InkDrawingAttributes, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2265,7 +2265,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputRightDragAction {
 pub struct InkManager(::windows::core::IUnknown);
 impl InkManager {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InkManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3907,7 +3907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 pub struct InkRecognizerContainer(::windows::core::IUnknown);
 impl InkRecognizerContainer {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InkRecognizerContainer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4241,7 +4241,7 @@ unsafe impl ::core::marker::Sync for InkStroke {}
 pub struct InkStrokeBuilder(::windows::core::IUnknown);
 impl InkStrokeBuilder {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InkStrokeBuilder, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4376,7 +4376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 pub struct InkStrokeContainer(::windows::core::IUnknown);
 impl InkStrokeContainer {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InkStrokeContainer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

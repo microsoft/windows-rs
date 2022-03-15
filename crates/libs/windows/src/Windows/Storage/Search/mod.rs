@@ -1347,7 +1347,7 @@ pub struct IValueAndLanguage_Vtbl {
 pub struct IndexableContent(::windows::core::IUnknown);
 impl IndexableContent {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IndexableContent, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::RuntimeType for IndexerOption {
 pub struct QueryOptions(::windows::core::IUnknown);
 impl QueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2849,7 +2849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 pub struct ValueAndLanguage(::windows::core::IUnknown);
 impl ValueAndLanguage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ValueAndLanguage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

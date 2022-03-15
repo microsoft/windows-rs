@@ -684,7 +684,7 @@ unsafe impl ::core::marker::Sync for AudioTrackSupportInfo {}
 pub struct ChapterCue(::windows::core::IUnknown);
 impl ChapterCue {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ChapterCue, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::RuntimeType for CodecKind {
 pub struct CodecQuery(::windows::core::IUnknown);
 impl CodecQuery {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CodecQuery, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1494,7 +1494,7 @@ impl ::windows::core::RuntimeName for CodecSubtypes {
 pub struct DataCue(::windows::core::IUnknown);
 impl DataCue {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataCue, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1902,7 +1902,7 @@ pub struct FaceDetectionEffectDefinition(::windows::core::IUnknown);
 #[cfg(feature = "Media_Effects")]
 impl FaceDetectionEffectDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FaceDetectionEffectDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5541,7 +5541,7 @@ pub struct IVideoTrackSupportInfo_Vtbl {
 pub struct ImageCue(::windows::core::IUnknown);
 impl ImageCue {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ImageCue, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5987,7 +5987,7 @@ unsafe impl ::core::marker::Sync for LowLightFusionResult {}
 pub struct MediaBinder(::windows::core::IUnknown);
 impl MediaBinder {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaBinder, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9764,7 +9764,7 @@ unsafe impl ::core::marker::Sync for MseSourceBufferList {}
 pub struct MseStreamSource(::windows::core::IUnknown);
 impl MseStreamSource {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MseStreamSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10191,7 +10191,7 @@ pub struct SceneAnalysisEffectDefinition(::windows::core::IUnknown);
 #[cfg(feature = "Media_Effects")]
 impl SceneAnalysisEffectDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SceneAnalysisEffectDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10695,7 +10695,7 @@ unsafe impl ::core::marker::Sync for SceneAnalyzedEventArgs {}
 pub struct SpeechCue(::windows::core::IUnknown);
 impl SpeechCue {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SpeechCue, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11786,7 +11786,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextBoutenType {
 pub struct TimedTextCue(::windows::core::IUnknown);
 impl TimedTextCue {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimedTextCue, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12112,7 +12112,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextFontStyle {
 pub struct TimedTextLine(::windows::core::IUnknown);
 impl TimedTextLine {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimedTextLine, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12333,7 +12333,7 @@ impl ::core::default::Default for TimedTextPoint {
 pub struct TimedTextRegion(::windows::core::IUnknown);
 impl TimedTextRegion {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimedTextRegion, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13147,7 +13147,7 @@ unsafe impl ::core::marker::Sync for TimedTextSourceResolveResultEventArgs {}
 pub struct TimedTextStyle(::windows::core::IUnknown);
 impl TimedTextStyle {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimedTextStyle, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13487,7 +13487,7 @@ unsafe impl ::core::marker::Sync for TimedTextStyle {}
 pub struct TimedTextSubformat(::windows::core::IUnknown);
 impl TimedTextSubformat {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimedTextSubformat, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13895,7 +13895,7 @@ pub struct VideoStabilizationEffectDefinition(::windows::core::IUnknown);
 #[cfg(feature = "Media_Effects")]
 impl VideoStabilizationEffectDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VideoStabilizationEffectDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -1160,7 +1160,7 @@ impl ::core::default::Default for RetrievalProgress {
 pub struct SyndicationAttribute(::windows::core::IUnknown);
 impl SyndicationAttribute {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationAttribute, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1295,7 +1295,7 @@ unsafe impl ::core::marker::Sync for SyndicationAttribute {}
 pub struct SyndicationCategory(::windows::core::IUnknown);
 impl SyndicationCategory {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationCategory, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1553,7 +1553,7 @@ unsafe impl ::core::marker::Sync for SyndicationCategory {}
 pub struct SyndicationClient(::windows::core::IUnknown);
 impl SyndicationClient {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationClient, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1755,7 +1755,7 @@ unsafe impl ::core::marker::Sync for SyndicationClient {}
 pub struct SyndicationContent(::windows::core::IUnknown);
 impl SyndicationContent {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationContent, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2110,7 +2110,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationErrorStatus {
 pub struct SyndicationFeed(::windows::core::IUnknown);
 impl SyndicationFeed {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationFeed, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2571,7 +2571,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationFormat {
 pub struct SyndicationGenerator(::windows::core::IUnknown);
 impl SyndicationGenerator {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationGenerator, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2824,7 +2824,7 @@ unsafe impl ::core::marker::Sync for SyndicationGenerator {}
 pub struct SyndicationItem(::windows::core::IUnknown);
 impl SyndicationItem {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationItem, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3242,7 +3242,7 @@ unsafe impl ::core::marker::Sync for SyndicationItem {}
 pub struct SyndicationLink(::windows::core::IUnknown);
 impl SyndicationLink {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationLink, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3543,7 +3543,7 @@ unsafe impl ::core::marker::Sync for SyndicationLink {}
 pub struct SyndicationNode(::windows::core::IUnknown);
 impl SyndicationNode {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationNode, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3755,7 +3755,7 @@ unsafe impl ::core::marker::Sync for SyndicationNode {}
 pub struct SyndicationPerson(::windows::core::IUnknown);
 impl SyndicationPerson {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationPerson, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4016,7 +4016,7 @@ unsafe impl ::core::marker::Sync for SyndicationPerson {}
 pub struct SyndicationText(::windows::core::IUnknown);
 impl SyndicationText {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SyndicationText, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

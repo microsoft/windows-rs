@@ -929,7 +929,7 @@ unsafe impl ::windows::core::RuntimeType for GeolocationAccessStatus {
 pub struct Geolocator(::windows::core::IUnknown);
 impl Geolocator {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Geolocator, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1739,7 +1739,7 @@ unsafe impl ::core::marker::Sync for Geovisit {}
 pub struct GeovisitMonitor(::windows::core::IUnknown);
 impl GeovisitMonitor {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeovisitMonitor, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

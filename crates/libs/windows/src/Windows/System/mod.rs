@@ -1832,7 +1832,7 @@ unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
 pub struct AppUriHandlerHost(::windows::core::IUnknown);
 impl AppUriHandlerHost {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppUriHandlerHost, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2913,7 +2913,7 @@ unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
 pub struct FolderLauncherOptions(::windows::core::IUnknown);
 impl FolderLauncherOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FolderLauncherOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5356,7 +5356,7 @@ impl ::windows::core::RuntimeName for Launcher {
 pub struct LauncherOptions(::windows::core::IUnknown);
 impl LauncherOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LauncherOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5918,7 +5918,7 @@ impl ::windows::core::RuntimeName for ProcessLauncher {
 pub struct ProcessLauncherOptions(::windows::core::IUnknown);
 impl ProcessLauncherOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProcessLauncherOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6436,7 +6436,7 @@ impl ::windows::core::RuntimeName for RemoteLauncher {
 pub struct RemoteLauncherOptions(::windows::core::IUnknown);
 impl RemoteLauncherOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RemoteLauncherOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7388,7 +7388,7 @@ unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
 pub struct UserPicker(::windows::core::IUnknown);
 impl UserPicker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserPicker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

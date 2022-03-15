@@ -266,7 +266,7 @@ unsafe impl ::core::marker::Sync for FileExtensionVector {}
 pub struct FileOpenPicker(::windows::core::IUnknown);
 impl FileOpenPicker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileOpenPicker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -933,7 +933,7 @@ unsafe impl ::core::marker::Sync for FilePickerSelectedFilesArray {}
 pub struct FileSavePicker(::windows::core::IUnknown);
 impl FileSavePicker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileSavePicker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1163,7 +1163,7 @@ unsafe impl ::core::marker::Sync for FileSavePicker {}
 pub struct FolderPicker(::windows::core::IUnknown);
 impl FolderPicker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FolderPicker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -431,7 +431,7 @@ unsafe impl ::windows::core::RuntimeType for AlignmentY {
 pub struct ArcSegment(::windows::core::IUnknown);
 impl ArcSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ArcSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -743,7 +743,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceType {
 pub struct BezierSegment(::windows::core::IUnknown);
 impl BezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -938,7 +938,7 @@ unsafe impl ::core::marker::Sync for BezierSegment {}
 pub struct BitmapCache(::windows::core::IUnknown);
 impl BitmapCache {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapCache, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1258,7 +1258,7 @@ pub struct BrushCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl BrushCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BrushCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1687,7 +1687,7 @@ unsafe impl ::windows::core::RuntimeType for ColorInterpolationMode {
 pub struct CompositeTransform(::windows::core::IUnknown);
 impl CompositeTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositeTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2144,7 +2144,7 @@ pub struct DoubleCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl DoubleCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DoubleCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2444,7 +2444,7 @@ unsafe impl ::windows::core::RuntimeType for ElementCompositeMode {
 pub struct EllipseGeometry(::windows::core::IUnknown);
 impl EllipseGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EllipseGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3100,7 +3100,7 @@ pub struct GeometryCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl GeometryCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeometryCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3365,7 +3365,7 @@ unsafe impl ::core::marker::Sync for GeometryCollection {}
 pub struct GeometryGroup(::windows::core::IUnknown);
 impl GeometryGroup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeometryGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3801,7 +3801,7 @@ unsafe impl ::windows::core::RuntimeType for GradientSpreadMethod {
 pub struct GradientStop(::windows::core::IUnknown);
 impl GradientStop {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GradientStop, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3952,7 +3952,7 @@ pub struct GradientStopCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl GradientStopCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GradientStopCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6459,7 +6459,7 @@ pub struct IXamlLightStatics_Vtbl {
 pub struct ImageBrush(::windows::core::IUnknown);
 impl ImageBrush {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ImageBrush, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6780,7 +6780,7 @@ unsafe impl ::core::marker::Sync for ImageSource {}
 pub struct LineGeometry(::windows::core::IUnknown);
 impl LineGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6953,7 +6953,7 @@ unsafe impl ::core::marker::Sync for LineGeometry {}
 pub struct LineSegment(::windows::core::IUnknown);
 impl LineSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7104,7 +7104,7 @@ unsafe impl ::core::marker::Sync for LineSegment {}
 pub struct LinearGradientBrush(::windows::core::IUnknown);
 impl LinearGradientBrush {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LinearGradientBrush, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7713,7 +7713,7 @@ impl ::core::default::Default for Matrix {
 pub struct Matrix3DProjection(::windows::core::IUnknown);
 impl Matrix3DProjection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Matrix3DProjection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7975,7 +7975,7 @@ unsafe impl ::core::marker::Sync for MatrixHelper {}
 pub struct MatrixTransform(::windows::core::IUnknown);
 impl MatrixTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MatrixTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8309,7 +8309,7 @@ unsafe impl ::core::marker::Sync for MediaTransportControlsThumbnailRequestedEve
 pub struct PartialMediaFailureDetectedEventArgs(::windows::core::IUnknown);
 impl PartialMediaFailureDetectedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PartialMediaFailureDetectedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8410,7 +8410,7 @@ unsafe impl ::core::marker::Sync for PartialMediaFailureDetectedEventArgs {}
 pub struct PathFigure(::windows::core::IUnknown);
 impl PathFigure {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathFigure, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8605,7 +8605,7 @@ pub struct PathFigureCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PathFigureCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathFigureCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8870,7 +8870,7 @@ unsafe impl ::core::marker::Sync for PathFigureCollection {}
 pub struct PathGeometry(::windows::core::IUnknown);
 impl PathGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9139,7 +9139,7 @@ pub struct PathSegmentCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PathSegmentCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathSegmentCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9475,7 +9475,7 @@ unsafe impl ::windows::core::RuntimeType for PenLineJoin {
 pub struct PlaneProjection(::windows::core::IUnknown);
 impl PlaneProjection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlaneProjection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9862,7 +9862,7 @@ pub struct PointCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PointCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10127,7 +10127,7 @@ unsafe impl ::core::marker::Sync for PointCollection {}
 pub struct PolyBezierSegment(::windows::core::IUnknown);
 impl PolyBezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PolyBezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10278,7 +10278,7 @@ unsafe impl ::core::marker::Sync for PolyBezierSegment {}
 pub struct PolyLineSegment(::windows::core::IUnknown);
 impl PolyLineSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PolyLineSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10429,7 +10429,7 @@ unsafe impl ::core::marker::Sync for PolyLineSegment {}
 pub struct PolyQuadraticBezierSegment(::windows::core::IUnknown);
 impl PolyQuadraticBezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PolyQuadraticBezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10676,7 +10676,7 @@ unsafe impl ::core::marker::Sync for Projection {}
 pub struct QuadraticBezierSegment(::windows::core::IUnknown);
 impl QuadraticBezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QuadraticBezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10849,7 +10849,7 @@ unsafe impl ::core::marker::Sync for QuadraticBezierSegment {}
 pub struct RateChangedRoutedEventArgs(::windows::core::IUnknown);
 impl RateChangedRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RateChangedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11035,7 +11035,7 @@ pub struct RateChangedRoutedEventHandler_Vtbl {
 pub struct RectangleGeometry(::windows::core::IUnknown);
 impl RectangleGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RectangleGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12045,7 +12045,7 @@ unsafe impl ::windows::core::RuntimeType for RevealBrushState {
 pub struct RotateTransform(::windows::core::IUnknown);
 impl RotateTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RotateTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12254,7 +12254,7 @@ unsafe impl ::core::marker::Sync for RotateTransform {}
 pub struct ScaleTransform(::windows::core::IUnknown);
 impl ScaleTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScaleTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12579,7 +12579,7 @@ unsafe impl ::core::marker::Sync for Shadow {}
 pub struct SkewTransform(::windows::core::IUnknown);
 impl SkewTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SkewTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12808,7 +12808,7 @@ unsafe impl ::core::marker::Sync for SkewTransform {}
 pub struct SolidColorBrush(::windows::core::IUnknown);
 impl SolidColorBrush {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SolidColorBrush, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13523,7 +13523,7 @@ unsafe impl ::core::marker::Sync for TileBrush {}
 pub struct TimelineMarker(::windows::core::IUnknown);
 impl TimelineMarker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineMarker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13696,7 +13696,7 @@ pub struct TimelineMarkerCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TimelineMarkerCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineMarkerCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13961,7 +13961,7 @@ unsafe impl ::core::marker::Sync for TimelineMarkerCollection {}
 pub struct TimelineMarkerRoutedEventArgs(::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineMarkerRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14278,7 +14278,7 @@ pub struct TransformCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TransformCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TransformCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14543,7 +14543,7 @@ unsafe impl ::core::marker::Sync for TransformCollection {}
 pub struct TransformGroup(::windows::core::IUnknown);
 impl TransformGroup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TransformGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14722,7 +14722,7 @@ unsafe impl ::core::marker::Sync for TransformGroup {}
 pub struct TranslateTransform(::windows::core::IUnknown);
 impl TranslateTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TranslateTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

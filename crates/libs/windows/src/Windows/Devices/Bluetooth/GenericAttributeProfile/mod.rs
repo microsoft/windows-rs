@@ -2264,7 +2264,7 @@ unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
 pub struct GattLocalCharacteristicParameters(::windows::core::IUnknown);
 impl GattLocalCharacteristicParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GattLocalCharacteristicParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2657,7 +2657,7 @@ unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
 pub struct GattLocalDescriptorParameters(::windows::core::IUnknown);
 impl GattLocalDescriptorParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GattLocalDescriptorParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3960,7 +3960,7 @@ unsafe impl ::core::marker::Sync for GattReadResult {}
 pub struct GattReliableWriteTransaction(::windows::core::IUnknown);
 impl GattReliableWriteTransaction {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GattReliableWriteTransaction, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4462,7 +4462,7 @@ unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChang
 pub struct GattServiceProviderAdvertisingParameters(::windows::core::IUnknown);
 impl GattServiceProviderAdvertisingParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GattServiceProviderAdvertisingParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

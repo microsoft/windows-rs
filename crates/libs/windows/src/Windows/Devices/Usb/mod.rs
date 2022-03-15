@@ -1297,7 +1297,7 @@ unsafe impl ::windows::core::RuntimeType for UsbControlRecipient {
 pub struct UsbControlRequestType(::windows::core::IUnknown);
 impl UsbControlRequestType {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UsbControlRequestType, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1777,7 +1777,7 @@ unsafe impl ::core::marker::Sync for UsbDevice {}
 pub struct UsbDeviceClass(::windows::core::IUnknown);
 impl UsbDeviceClass {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UsbDeviceClass, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3380,7 +3380,7 @@ unsafe impl ::windows::core::RuntimeType for UsbReadOptions {
 pub struct UsbSetupPacket(::windows::core::IUnknown);
 impl UsbSetupPacket {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UsbSetupPacket, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

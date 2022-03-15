@@ -6,7 +6,7 @@ pub mod DataProvider;
 pub struct EmailAttachment(::windows::core::IUnknown);
 impl EmailAttachment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailAttachment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1079,7 +1079,7 @@ unsafe impl ::windows::core::RuntimeType for EmailImportance {
 pub struct EmailIrmInfo(::windows::core::IUnknown);
 impl EmailIrmInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailIrmInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1334,7 +1334,7 @@ unsafe impl ::core::marker::Sync for EmailIrmInfo {}
 pub struct EmailIrmTemplate(::windows::core::IUnknown);
 impl EmailIrmTemplate {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailIrmTemplate, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2463,7 +2463,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReplyMessageRespons
 pub struct EmailMailboxAutoReplySettings(::windows::core::IUnknown);
 impl EmailMailboxAutoReplySettings {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailMailboxAutoReplySettings, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4243,7 +4243,7 @@ unsafe impl ::core::marker::Sync for EmailManagerForUser {}
 pub struct EmailMeetingInfo(::windows::core::IUnknown);
 impl EmailMeetingInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailMeetingInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4553,7 +4553,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMeetingResponseType {
 pub struct EmailMessage(::windows::core::IUnknown);
 impl EmailMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5422,7 +5422,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQueryKind {
 pub struct EmailQueryOptions(::windows::core::IUnknown);
 impl EmailQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5864,7 +5864,7 @@ unsafe impl ::core::marker::Sync for EmailQueryTextSearch {}
 pub struct EmailRecipient(::windows::core::IUnknown);
 impl EmailRecipient {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailRecipient, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5993,7 +5993,7 @@ unsafe impl ::core::marker::Sync for EmailRecipient {}
 pub struct EmailRecipientResolutionResult(::windows::core::IUnknown);
 impl EmailRecipientResolutionResult {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EmailRecipientResolutionResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

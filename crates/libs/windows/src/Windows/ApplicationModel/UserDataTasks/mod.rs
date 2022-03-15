@@ -397,7 +397,7 @@ pub struct IUserDataTaskStore_Vtbl {
 pub struct UserDataTask(::windows::core::IUnknown);
 impl UserDataTask {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTask, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1667,7 +1667,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
 pub struct UserDataTaskQueryOptions(::windows::core::IUnknown);
 impl UserDataTaskQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTaskQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1896,7 +1896,7 @@ unsafe impl ::core::marker::Sync for UserDataTaskReader {}
 pub struct UserDataTaskRecurrenceProperties(::windows::core::IUnknown);
 impl UserDataTaskRecurrenceProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTaskRecurrenceProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2134,7 +2134,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
 pub struct UserDataTaskRegenerationProperties(::windows::core::IUnknown);
 impl UserDataTaskRegenerationProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTaskRegenerationProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

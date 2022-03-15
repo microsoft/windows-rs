@@ -79,7 +79,7 @@ impl ::windows::core::RuntimeName for CredentialPicker {
 pub struct CredentialPickerOptions(::windows::core::IUnknown);
 impl CredentialPickerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CredentialPickerOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

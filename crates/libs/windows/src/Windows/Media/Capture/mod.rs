@@ -5125,7 +5125,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMetadataPriority {
 pub struct AppCaptureMetadataWriter(::windows::core::IUnknown);
 impl AppCaptureMetadataWriter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppCaptureMetadataWriter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6530,7 +6530,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureVideoEncodingResolutionMo
 pub struct CameraCaptureUI(::windows::core::IUnknown);
 impl CameraCaptureUI {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CameraCaptureUI, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11673,7 +11673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 pub struct MediaCapture(::windows::core::IUnknown);
 impl MediaCapture {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaCapture, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12760,7 +12760,7 @@ unsafe impl ::core::marker::Sync for MediaCaptureFocusChangedEventArgs {}
 pub struct MediaCaptureInitializationSettings(::windows::core::IUnknown);
 impl MediaCaptureInitializationSettings {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaCaptureInitializationSettings, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

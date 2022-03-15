@@ -130,7 +130,7 @@ unsafe impl ::core::marker::Sync for AggregateContactManager {}
 pub struct Contact(::windows::core::IUnknown);
 impl Contact {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Contact, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -643,7 +643,7 @@ unsafe impl ::core::marker::Sync for Contact {}
 pub struct ContactAddress(::windows::core::IUnknown);
 impl ContactAddress {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactAddress, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -853,7 +853,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAddressKind {
 pub struct ContactAnnotation(::windows::core::IUnknown);
 impl ContactAnnotation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactAnnotation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1714,7 +1714,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardHeaderKind {
 pub struct ContactCardOptions(::windows::core::IUnknown);
 impl ContactCardOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactCardOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2366,7 +2366,7 @@ unsafe impl ::core::marker::Sync for ContactChangedEventArgs {}
 pub struct ContactConnectedServiceAccount(::windows::core::IUnknown);
 impl ContactConnectedServiceAccount {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactConnectedServiceAccount, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2476,7 +2476,7 @@ unsafe impl ::core::marker::Sync for ContactConnectedServiceAccount {}
 pub struct ContactDate(::windows::core::IUnknown);
 impl ContactDate {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactDate, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2666,7 +2666,7 @@ unsafe impl ::windows::core::RuntimeType for ContactDateKind {
 pub struct ContactEmail(::windows::core::IUnknown);
 impl ContactEmail {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactEmail, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3018,7 +3018,7 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldCategory {
 pub struct ContactFieldFactory(::windows::core::IUnknown);
 impl ContactFieldFactory {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactFieldFactory, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3698,7 +3698,7 @@ unsafe impl ::core::marker::Sync for ContactInstantMessageField {}
 pub struct ContactJobInfo(::windows::core::IUnknown);
 impl ContactJobInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactJobInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6108,7 +6108,7 @@ unsafe impl ::core::marker::Sync for ContactPanelLaunchFullAppRequestedEventArgs
 pub struct ContactPhone(::windows::core::IUnknown);
 impl ContactPhone {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactPhone, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6273,7 +6273,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPhoneKind {
 pub struct ContactPicker(::windows::core::IUnknown);
 impl ContactPicker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactPicker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6529,7 +6529,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryDesiredFields {
 pub struct ContactQueryOptions(::windows::core::IUnknown);
 impl ContactQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7079,7 +7079,7 @@ unsafe impl ::windows::core::RuntimeType for ContactSelectionMode {
 pub struct ContactSignificantOther(::windows::core::IUnknown);
 impl ContactSignificantOther {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactSignificantOther, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7517,7 +7517,7 @@ unsafe impl ::core::marker::Sync for ContactStoreNotificationTriggerDetails {}
 pub struct ContactWebsite(::windows::core::IUnknown);
 impl ContactWebsite {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactWebsite, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7642,7 +7642,7 @@ unsafe impl ::core::marker::Sync for ContactWebsite {}
 pub struct FullContactCardOptions(::windows::core::IUnknown);
 impl FullContactCardOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FullContactCardOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

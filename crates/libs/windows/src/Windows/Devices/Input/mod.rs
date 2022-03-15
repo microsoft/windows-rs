@@ -363,7 +363,7 @@ pub struct ITouchCapabilities_Vtbl {
 pub struct KeyboardCapabilities(::windows::core::IUnknown);
 impl KeyboardCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KeyboardCapabilities, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -455,7 +455,7 @@ unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
 pub struct MouseCapabilities(::windows::core::IUnknown);
 impl MouseCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MouseCapabilities, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1820,7 +1820,7 @@ impl ::core::default::Default for PointerDeviceUsage {
 pub struct TouchCapabilities(::windows::core::IUnknown);
 impl TouchCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TouchCapabilities, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -8,7 +8,7 @@ pub mod DataProvider;
 pub struct Appointment(::windows::core::IUnknown);
 impl Appointment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Appointment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1535,7 +1535,7 @@ unsafe impl ::core::marker::Sync for AppointmentException {}
 pub struct AppointmentInvitee(::windows::core::IUnknown);
 impl AppointmentInvitee {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppointmentInvitee, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2030,7 +2030,7 @@ unsafe impl ::core::marker::Sync for AppointmentManagerForUser {}
 pub struct AppointmentOrganizer(::windows::core::IUnknown);
 impl AppointmentOrganizer {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppointmentOrganizer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2434,7 +2434,7 @@ impl ::windows::core::RuntimeName for AppointmentProperties {
 pub struct AppointmentRecurrence(::windows::core::IUnknown);
 impl AppointmentRecurrence {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppointmentRecurrence, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3774,7 +3774,7 @@ unsafe impl ::windows::core::RuntimeType for FindAppointmentCalendarsOptions {
 pub struct FindAppointmentsOptions(::windows::core::IUnknown);
 impl FindAppointmentsOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FindAppointmentsOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -259,7 +259,7 @@ unsafe impl ::core::marker::Sync for HttpBufferContent {}
 pub struct HttpClient(::windows::core::IUnknown);
 impl HttpClient {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HttpClient, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2145,7 +2145,7 @@ unsafe impl ::core::marker::Sync for HttpMethod {}
 pub struct HttpMultipartContent(::windows::core::IUnknown);
 impl HttpMultipartContent {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HttpMultipartContent, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2455,7 +2455,7 @@ unsafe impl ::core::marker::Sync for HttpMultipartContent {}
 pub struct HttpMultipartFormDataContent(::windows::core::IUnknown);
 impl HttpMultipartFormDataContent {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HttpMultipartFormDataContent, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2866,7 +2866,7 @@ unsafe impl ::windows::core::RuntimeType for HttpProgressStage {
 pub struct HttpRequestMessage(::windows::core::IUnknown);
 impl HttpRequestMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HttpRequestMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3273,7 +3273,7 @@ unsafe impl ::core::marker::Sync for HttpRequestResult {}
 pub struct HttpResponseMessage(::windows::core::IUnknown);
 impl HttpResponseMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HttpResponseMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

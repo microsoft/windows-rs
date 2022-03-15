@@ -73,7 +73,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         let new = if def.has_default_constructor() {
             quote! {
                 pub fn new() -> ::windows::core::Result<Self> {
-                    Self::IActivationFactory(|f| f.activate_instance::<Self>())
+                    Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
                 fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(
                     callback: F,

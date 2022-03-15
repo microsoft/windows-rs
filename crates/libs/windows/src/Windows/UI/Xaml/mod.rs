@@ -1017,7 +1017,7 @@ pub struct BindingFailedEventHandler_Vtbl {
 pub struct BringIntoViewOptions(::windows::core::IUnknown);
 impl BringIntoViewOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BringIntoViewOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5923,7 +5923,7 @@ pub struct EnteredBackgroundEventHandler_Vtbl {
 pub struct EventTrigger(::windows::core::IUnknown);
 impl EventTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EventTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7621,7 +7621,7 @@ unsafe impl ::core::marker::Sync for FrameworkTemplate {}
 pub struct FrameworkView(::windows::core::IUnknown);
 impl FrameworkView {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkView, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7761,7 +7761,7 @@ unsafe impl ::core::marker::Sync for FrameworkView {}
 pub struct FrameworkViewSource(::windows::core::IUnknown);
 impl FrameworkViewSource {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkViewSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13891,7 +13891,7 @@ unsafe impl ::core::marker::Sync for ScalarTransition {}
 pub struct Setter(::windows::core::IUnknown);
 impl Setter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Setter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14171,7 +14171,7 @@ unsafe impl ::core::marker::Sync for SetterBase {}
 pub struct SetterBaseCollection(::windows::core::IUnknown);
 impl SetterBaseCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SetterBaseCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14738,7 +14738,7 @@ unsafe impl ::core::marker::Sync for SizeHelper {}
 pub struct StateTrigger(::windows::core::IUnknown);
 impl StateTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StateTrigger, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14989,7 +14989,7 @@ unsafe impl ::core::marker::Sync for StateTriggerBase {}
 pub struct Style(::windows::core::IUnknown);
 impl Style {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Style, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15252,7 +15252,7 @@ pub struct SuspendingEventHandler_Vtbl {
 pub struct TargetPropertyPath(::windows::core::IUnknown);
 impl TargetPropertyPath {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TargetPropertyPath, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15789,7 +15789,7 @@ pub struct TriggerActionCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TriggerActionCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TriggerActionCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -19318,7 +19318,7 @@ unsafe impl ::windows::core::RuntimeType for Visibility {
 pub struct VisualState(::windows::core::IUnknown);
 impl VisualState {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VisualState, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -19462,7 +19462,7 @@ unsafe impl ::core::marker::Sync for VisualState {}
 pub struct VisualStateChangedEventArgs(::windows::core::IUnknown);
 impl VisualStateChangedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VisualStateChangedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -19669,7 +19669,7 @@ pub struct VisualStateChangedEventHandler_Vtbl {
 pub struct VisualStateGroup(::windows::core::IUnknown);
 impl VisualStateGroup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VisualStateGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

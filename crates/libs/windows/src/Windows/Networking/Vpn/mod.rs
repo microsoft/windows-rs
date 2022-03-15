@@ -3222,7 +3222,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCredentialType {
 pub struct VpnCustomCheckBox(::windows::core::IUnknown);
 impl VpnCustomCheckBox {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomCheckBox, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3388,7 +3388,7 @@ unsafe impl ::core::marker::Sync for VpnCustomCheckBox {}
 pub struct VpnCustomComboBox(::windows::core::IUnknown);
 impl VpnCustomComboBox {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomComboBox, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3556,7 +3556,7 @@ unsafe impl ::core::marker::Sync for VpnCustomComboBox {}
 pub struct VpnCustomEditBox(::windows::core::IUnknown);
 impl VpnCustomEditBox {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomEditBox, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3735,7 +3735,7 @@ unsafe impl ::core::marker::Sync for VpnCustomEditBox {}
 pub struct VpnCustomErrorBox(::windows::core::IUnknown);
 impl VpnCustomErrorBox {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomErrorBox, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3880,7 +3880,7 @@ unsafe impl ::core::marker::Sync for VpnCustomErrorBox {}
 pub struct VpnCustomPromptBooleanInput(::windows::core::IUnknown);
 impl VpnCustomPromptBooleanInput {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomPromptBooleanInput, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4046,7 +4046,7 @@ unsafe impl ::core::marker::Sync for VpnCustomPromptBooleanInput {}
 pub struct VpnCustomPromptOptionSelector(::windows::core::IUnknown);
 impl VpnCustomPromptOptionSelector {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomPromptOptionSelector, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4208,7 +4208,7 @@ unsafe impl ::core::marker::Sync for VpnCustomPromptOptionSelector {}
 pub struct VpnCustomPromptText(::windows::core::IUnknown);
 impl VpnCustomPromptText {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomPromptText, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4366,7 +4366,7 @@ unsafe impl ::core::marker::Sync for VpnCustomPromptText {}
 pub struct VpnCustomPromptTextInput(::windows::core::IUnknown);
 impl VpnCustomPromptTextInput {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomPromptTextInput, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4545,7 +4545,7 @@ unsafe impl ::core::marker::Sync for VpnCustomPromptTextInput {}
 pub struct VpnCustomTextBox(::windows::core::IUnknown);
 impl VpnCustomTextBox {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnCustomTextBox, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4737,7 +4737,7 @@ unsafe impl ::windows::core::RuntimeType for VpnDataPathType {
 pub struct VpnDomainNameAssignment(::windows::core::IUnknown);
 impl VpnDomainNameAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnDomainNameAssignment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5429,7 +5429,7 @@ unsafe impl ::core::marker::Sync for VpnInterfaceId {}
 pub struct VpnManagementAgent(::windows::core::IUnknown);
 impl VpnManagementAgent {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnManagementAgent, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5681,7 +5681,7 @@ unsafe impl ::windows::core::RuntimeType for VpnManagementErrorStatus {
 pub struct VpnNamespaceAssignment(::windows::core::IUnknown);
 impl VpnNamespaceAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnNamespaceAssignment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5928,7 +5928,7 @@ unsafe impl ::core::marker::Sync for VpnNamespaceInfo {}
 pub struct VpnNativeProfile(::windows::core::IUnknown);
 impl VpnNativeProfile {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnNativeProfile, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6701,7 +6701,7 @@ unsafe impl ::core::marker::Sync for VpnPickedCredential {}
 pub struct VpnPlugInProfile(::windows::core::IUnknown);
 impl VpnPlugInProfile {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnPlugInProfile, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7053,7 +7053,7 @@ unsafe impl ::core::marker::Sync for VpnRoute {}
 pub struct VpnRouteAssignment(::windows::core::IUnknown);
 impl VpnRouteAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnRouteAssignment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7503,7 +7503,7 @@ unsafe impl ::core::marker::Sync for VpnTrafficFilter {}
 pub struct VpnTrafficFilterAssignment(::windows::core::IUnknown);
 impl VpnTrafficFilterAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VpnTrafficFilterAssignment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

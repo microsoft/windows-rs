@@ -489,7 +489,7 @@ unsafe impl ::windows::core::RuntimeType for Placement {
 pub struct PopupMenu(::windows::core::IUnknown);
 impl PopupMenu {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PopupMenu, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -607,7 +607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 pub struct UICommand(::windows::core::IUnknown);
 impl UICommand {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UICommand, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -860,7 +860,7 @@ pub struct UICommandInvokedHandler_Vtbl {
 pub struct UICommandSeparator(::windows::core::IUnknown);
 impl UICommandSeparator {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UICommandSeparator, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

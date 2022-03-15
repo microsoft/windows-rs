@@ -1528,7 +1528,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFil
 pub struct IsolatedWindowsEnvironmentOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1760,7 +1760,7 @@ impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistratio
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2320,7 +2320,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressS
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFileRequestOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentShareFileRequestOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2556,7 +2556,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFile
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentShareFolderRequestOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2921,7 +2921,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProc
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentTelemetryParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentTelemetryParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
