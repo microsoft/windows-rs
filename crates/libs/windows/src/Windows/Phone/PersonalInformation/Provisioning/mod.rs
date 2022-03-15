@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Phone_PersonalInformation_Provisioning'*"]
+#[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
 pub struct ContactPartnerProvisioningManager {}
 impl ContactPartnerProvisioningManager {
-    #[doc = "*Required features: 'Phone_PersonalInformation_Provisioning', 'Foundation'*"]
+    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AssociateNetworkAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::ContactStore>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(store: Param0, networkname: Param1, networkaccountid: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
@@ -10,7 +10,7 @@ impl ContactPartnerProvisioningManager {
             (::windows::core::Interface::vtable(this).AssociateNetworkAccountAsync)(::core::mem::transmute_copy(this), store.into_param().abi(), networkname.into_param().abi(), networkaccountid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'Phone_PersonalInformation_Provisioning', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ImportVcardToSystemAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(stream: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
@@ -18,7 +18,7 @@ impl ContactPartnerProvisioningManager {
             (::windows::core::Interface::vtable(this).ImportVcardToSystemAsync)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'Phone_PersonalInformation_Provisioning', 'Foundation'*"]
+    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AssociateSocialNetworkAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::ContactStore>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(store: Param0, networkname: Param1, networkaccountid: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
@@ -96,10 +96,10 @@ pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ImportMmsToSystemAsync: usize,
 }
-#[doc = "*Required features: 'Phone_PersonalInformation_Provisioning'*"]
+#[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
 pub struct MessagePartnerProvisioningManager {}
 impl MessagePartnerProvisioningManager {
-    #[doc = "*Required features: 'Phone_PersonalInformation_Provisioning', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportSmsToSystemAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>>(incoming: bool, read: bool, body: Param2, sender: Param3, recipients: Param4, deliverytime: Param5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
@@ -107,7 +107,7 @@ impl MessagePartnerProvisioningManager {
             (::windows::core::Interface::vtable(this).ImportSmsToSystemAsync)(::core::mem::transmute_copy(this), incoming, read, body.into_param().abi(), sender.into_param().abi(), recipients.into_param().abi(), deliverytime.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'Phone_PersonalInformation_Provisioning', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportMmsToSystemAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(incoming: bool, read: bool, subject: Param2, sender: Param3, recipients: Param4, deliverytime: Param5, attachments: Param6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {

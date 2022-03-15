@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
+#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for ClosedCaptionColor {
         *self
     }
 }
-#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
+#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for ClosedCaptionEdgeEffect {
         *self
     }
 }
-#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
+#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
@@ -52,7 +52,7 @@ impl ::core::clone::Clone for ClosedCaptionOpacity {
         *self
     }
 }
-#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
+#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
@@ -68,7 +68,7 @@ impl ::core::clone::Clone for ClosedCaptionSize {
         *self
     }
 }
-#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
+#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {

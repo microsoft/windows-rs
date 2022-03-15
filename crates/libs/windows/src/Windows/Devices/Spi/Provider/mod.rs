@@ -34,11 +34,11 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Spi_Provider'*"]
+#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ISpiControllerProvider(::windows::core::IUnknown);
 impl ISpiControllerProvider {
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn GetDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, ProviderSpiConnectionSettings>>(&self, settings: Param0) -> ::windows::core::Result<ISpiDeviceProvider> {
         let this = self;
         unsafe {
@@ -120,11 +120,11 @@ pub struct ISpiControllerProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Spi_Provider'*"]
+#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ISpiDeviceProvider(::windows::core::IUnknown);
 impl ISpiDeviceProvider {
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -132,7 +132,7 @@ impl ISpiDeviceProvider {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn ConnectionSettings(&self) -> ::windows::core::Result<ProviderSpiConnectionSettings> {
         let this = self;
         unsafe {
@@ -140,27 +140,27 @@ impl ISpiDeviceProvider {
             (::windows::core::Interface::vtable(this).ConnectionSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProviderSpiConnectionSettings>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn Write(&self, buffer: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Write)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr())).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn Read(&self, buffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Read)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer)).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn TransferSequential(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).TransferSequential)(::core::mem::transmute_copy(this), writebuffer.len() as u32, ::core::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::core::mem::transmute_copy(&readbuffer)).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn TransferFullDuplex(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).TransferFullDuplex)(::core::mem::transmute_copy(this), writebuffer.len() as u32, ::core::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::core::mem::transmute_copy(&readbuffer)).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -271,11 +271,11 @@ pub struct ISpiDeviceProvider_Vtbl {
     pub TransferSequential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub TransferFullDuplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Devices_Spi_Provider'*"]
+#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ISpiProvider(::windows::core::IUnknown);
 impl ISpiProvider {
-    #[doc = "*Required features: 'Devices_Spi_Provider', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>> {
         let this = self;
@@ -361,11 +361,11 @@ pub struct ISpiProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllersAsync: usize,
 }
-#[doc = "*Required features: 'Devices_Spi_Provider'*"]
+#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ProviderSpiConnectionSettings(::windows::core::IUnknown);
 impl ProviderSpiConnectionSettings {
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn ChipSelectLine(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -373,12 +373,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::core::Interface::vtable(this).ChipSelectLine)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn SetChipSelectLine(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChipSelectLine)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn Mode(&self) -> ::windows::core::Result<ProviderSpiMode> {
         let this = self;
         unsafe {
@@ -386,12 +386,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::core::Interface::vtable(this).Mode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProviderSpiMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn SetMode(&self, value: ProviderSpiMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn DataBitLength(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -399,12 +399,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::core::Interface::vtable(this).DataBitLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn SetDataBitLength(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDataBitLength)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn ClockFrequency(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -412,12 +412,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::core::Interface::vtable(this).ClockFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn SetClockFrequency(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClockFrequency)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn SharingMode(&self) -> ::windows::core::Result<ProviderSpiSharingMode> {
         let this = self;
         unsafe {
@@ -425,12 +425,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::core::Interface::vtable(this).SharingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProviderSpiSharingMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Devices_Spi_Provider'*"]
+    #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn Create(chipselectline: i32) -> ::windows::core::Result<ProviderSpiConnectionSettings> {
         Self::IProviderSpiConnectionSettingsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -515,7 +515,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
-#[doc = "*Required features: 'Devices_Spi_Provider'*"]
+#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderSpiMode(pub i32);
@@ -551,7 +551,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderSpiMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Devices_Spi_Provider'*"]
+#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderSpiSharingMode(pub i32);

@@ -1,11 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EDefaultDevmodeType(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
 impl ::core::marker::Copy for EDefaultDevmodeType {}
 impl ::core::clone::Clone for EDefaultDevmodeType {
@@ -26,15 +26,15 @@ impl ::core::fmt::Debug for EDefaultDevmodeType {
         f.debug_tuple("EDefaultDevmodeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EPrintTicketScope(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
 impl ::core::marker::Copy for EPrintTicketScope {}
 impl ::core::clone::Clone for EPrintTicketScope {
@@ -55,17 +55,17 @@ impl ::core::fmt::Debug for EPrintTicketScope {
         f.debug_tuple("EPrintTicketScope").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Storage_Xps'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
 #[inline]
 pub unsafe fn PTCloseProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>>(hprovider: Param0) -> ::windows::core::Result<()> {
@@ -80,7 +80,7 @@ pub unsafe fn PTCloseProvider<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PTConvertDevModeToPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: Param4) -> ::windows::core::Result<()> {
@@ -95,7 +95,7 @@ pub unsafe fn PTConvertDevModeToPrintTicket<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PTConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
@@ -110,7 +110,7 @@ pub unsafe fn PTConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Foundation', 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pcapabilities: Param2, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
@@ -125,7 +125,7 @@ pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Foundation', 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pdevicecapabilities: Param2, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
@@ -140,7 +140,7 @@ pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Foundation', 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pszlocalename: Param1, pprintticket: Param2, pdeviceresources: Param3, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
@@ -155,7 +155,7 @@ pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Foundation', 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PTMergeAndValidatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pbaseticket: Param1, pdeltaticket: Param2, scope: EPrintTicketScope, presultticket: Param4, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
@@ -170,7 +170,7 @@ pub unsafe fn PTMergeAndValidatePrintTicket<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Storage_Xps'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
 #[inline]
 pub unsafe fn PTOpenProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprintername: Param0, dwversion: u32) -> ::windows::core::Result<super::super::super::Storage::Xps::HPTPROVIDER> {
@@ -186,7 +186,7 @@ pub unsafe fn PTOpenProvider<'a, Param0: ::windows::core::IntoParam<'a, ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Storage_Xps'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
 #[inline]
 pub unsafe fn PTOpenProviderEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprintername: Param0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut super::super::super::Storage::Xps::HPTPROVIDER, pusedversion: *mut u32) -> ::windows::core::Result<()> {
@@ -201,7 +201,7 @@ pub unsafe fn PTOpenProviderEx<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[inline]
 pub unsafe fn PTQuerySchemaVersionSupport<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprintername: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -216,7 +216,7 @@ pub unsafe fn PTQuerySchemaVersionSupport<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[inline]
 pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -230,9 +230,9 @@ pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const S_PT_NO_CONFLICT: u32 = 262145u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 pub struct OPERATION_END_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
@@ -31,11 +31,11 @@ impl ::core::default::Default for OPERATION_END_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
 impl ::core::marker::Copy for OPERATION_END_PARAMETERS_FLAGS {}
 impl ::core::clone::Clone for OPERATION_END_PARAMETERS_FLAGS {
@@ -84,11 +84,11 @@ impl ::core::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OPERATION_START_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
 impl ::core::marker::Copy for OPERATION_START_FLAGS {}
 impl ::core::clone::Clone for OPERATION_START_FLAGS {
@@ -138,7 +138,7 @@ impl ::core::ops::Not for OPERATION_START_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 pub struct OPERATION_START_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
@@ -169,7 +169,7 @@ impl ::core::default::Default for OPERATION_START_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL {
@@ -184,7 +184,7 @@ pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Storage_OperationRecorder', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL {

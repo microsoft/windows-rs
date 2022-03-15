@@ -17,10 +17,10 @@ pub struct IInputActivationListenerPreviewStatics_Vtbl {
     #[cfg(not(feature = "UI_WindowManagement"))]
     CreateForApplicationWindow: usize,
 }
-#[doc = "*Required features: 'UI_Input_Preview'*"]
+#[doc = "*Required features: `\"UI_Input_Preview\"`*"]
 pub struct InputActivationListenerPreview {}
 impl InputActivationListenerPreview {
-    #[doc = "*Required features: 'UI_Input_Preview', 'UI_WindowManagement'*"]
+    #[doc = "*Required features: `\"UI_Input_Preview\"`, `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateForApplicationWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>>(window: Param0) -> ::windows::core::Result<super::InputActivationListener> {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {

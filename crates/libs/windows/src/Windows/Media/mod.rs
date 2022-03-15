@@ -53,11 +53,11 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct AudioBuffer(::windows::core::IUnknown);
 impl AudioBuffer {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Capacity(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -65,7 +65,7 @@ impl AudioBuffer {
             (::windows::core::Interface::vtable(this).Capacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -73,18 +73,18 @@ impl AudioBuffer {
             (::windows::core::Interface::vtable(this).Length)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetLength(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLength)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IMemoryBuffer>(self)?;
@@ -218,7 +218,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IMemoryBuffer> for &A
 }
 unsafe impl ::core::marker::Send for AudioBuffer {}
 unsafe impl ::core::marker::Sync for AudioBuffer {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioBufferAccessMode(pub i32);
@@ -253,11 +253,11 @@ unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct AudioFrame(::windows::core::IUnknown);
 impl AudioFrame {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::core::Result<AudioBuffer> {
         let this = self;
         unsafe {
@@ -265,20 +265,20 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).LockBuffer)(::core::mem::transmute_copy(this), mode, &mut result__).from_abi::<AudioBuffer>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Create(capacity: u32) -> ::windows::core::Result<AudioFrame> {
         Self::IAudioFrameFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), capacity, &mut result__).from_abi::<AudioFrame>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -286,7 +286,7 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -294,13 +294,13 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -309,13 +309,13 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).RelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -324,13 +324,13 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).SystemRelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -339,12 +339,12 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsDiscontinuous)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -352,7 +352,7 @@ impl AudioFrame {
             (::windows::core::Interface::vtable(this).IsDiscontinuous)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -487,7 +487,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &AudioFrame {
 }
 unsafe impl ::core::marker::Send for AudioFrame {}
 unsafe impl ::core::marker::Sync for AudioFrame {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioProcessing(pub i32);
@@ -521,11 +521,11 @@ unsafe impl ::windows::core::RuntimeType for AudioProcessing {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(::windows::core::IUnknown);
 impl AutoRepeatModeChangeRequestedEventArgs {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RequestedAutoRepeatMode(&self) -> ::windows::core::Result<MediaPlaybackAutoRepeatMode> {
         let this = self;
         unsafe {
@@ -823,11 +823,11 @@ pub struct IMediaControl_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     AlbumArt: usize,
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct IMediaExtension(::windows::core::IUnknown);
 impl IMediaExtension {
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -968,11 +968,11 @@ pub struct IMediaExtensionManager2_Vtbl {
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     RegisterMediaExtensionForAppService: usize,
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct IMediaFrame(::windows::core::IUnknown);
 impl IMediaFrame {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -980,7 +980,7 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -988,13 +988,13 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
@@ -1003,13 +1003,13 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).RelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
@@ -1018,13 +1018,13 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).SystemRelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
@@ -1033,12 +1033,12 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsDiscontinuous)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1046,7 +1046,7 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).IsDiscontinuous)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -1055,7 +1055,7 @@ impl IMediaFrame {
             (::windows::core::Interface::vtable(this).ExtendedProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
@@ -1192,11 +1192,11 @@ pub struct IMediaFrame_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ExtendedProperties: usize,
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct IMediaMarker(::windows::core::IUnknown);
 impl IMediaMarker {
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Time(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -1205,7 +1205,7 @@ impl IMediaMarker {
             (::windows::core::Interface::vtable(this).Time)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn MediaMarkerType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1213,7 +1213,7 @@ impl IMediaMarker {
             (::windows::core::Interface::vtable(this).MediaMarkerType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1313,11 +1313,11 @@ pub struct IMediaMarkerTypesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct IMediaMarkers(::windows::core::IUnknown);
 impl IMediaMarkers {
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Markers(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>> {
         let this = self;
@@ -1968,11 +1968,11 @@ pub struct IVideoFrameStatics_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateWithDirect3D11Surface: usize,
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct ImageDisplayProperties(::windows::core::IUnknown);
 impl ImageDisplayProperties {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1980,12 +1980,12 @@ impl ImageDisplayProperties {
             (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1993,7 +1993,7 @@ impl ImageDisplayProperties {
             (::windows::core::Interface::vtable(this).Subtitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetSubtitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2071,12 +2071,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for ImageDisplayProperties {}
 unsafe impl ::core::marker::Sync for ImageDisplayProperties {}
-#[doc = "*Required features: 'Media', 'deprecated'*"]
+#[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct MediaControl {}
 #[cfg(feature = "deprecated")]
 impl MediaControl {
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2084,12 +2084,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).SoundLevelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSoundLevelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PlayPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2097,12 +2097,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).PlayPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePlayPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePlayPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PausePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2110,12 +2110,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).PausePressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePausePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePausePressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn StopPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2123,12 +2123,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).StopPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStopPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveStopPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PlayPauseTogglePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2136,12 +2136,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).PlayPauseTogglePressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePlayPauseTogglePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePlayPauseTogglePressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecordPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2149,12 +2149,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).RecordPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRecordPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecordPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn NextTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2162,12 +2162,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).NextTrackPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveNextTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNextTrackPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PreviousTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2175,12 +2175,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).PreviousTrackPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePreviousTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePreviousTrackPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FastForwardPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2188,12 +2188,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).FastForwardPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveFastForwardPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveFastForwardPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RewindPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2201,12 +2201,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).RewindPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRewindPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRewindPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ChannelUpPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2214,12 +2214,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).ChannelUpPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveChannelUpPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelUpPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ChannelDownPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
@@ -2227,12 +2227,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).ChannelDownPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveChannelDownPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelDownPressed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SoundLevel() -> ::windows::core::Result<SoundLevel> {
         Self::IMediaControl(|this| unsafe {
@@ -2240,12 +2240,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).SoundLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SoundLevel>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetTrackName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetTrackName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TrackName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaControl(|this| unsafe {
@@ -2253,12 +2253,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).TrackName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetArtistName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetArtistName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ArtistName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaControl(|this| unsafe {
@@ -2266,12 +2266,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).ArtistName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsPlaying(value: bool) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetIsPlaying)(::core::mem::transmute_copy(this), value).ok() })
     }
-    #[doc = "*Required features: 'Media', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsPlaying() -> ::windows::core::Result<bool> {
         Self::IMediaControl(|this| unsafe {
@@ -2279,12 +2279,12 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).IsPlaying)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetAlbumArt<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetAlbumArt)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AlbumArt() -> ::windows::core::Result<super::Foundation::Uri> {
         Self::IMediaControl(|this| unsafe {
@@ -2303,84 +2303,84 @@ impl MediaControl {
 impl ::windows::core::RuntimeName for MediaControl {
     const NAME: &'static str = "Windows.Media.MediaControl";
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MediaExtensionManager(::windows::core::IUnknown);
 impl MediaExtensionManager {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaExtensionManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RegisterSchemeHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0, scheme: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandler)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), scheme.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterSchemeHandlerWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, scheme: Param1, configuration: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), scheme.into_param().abi(), configuration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RegisterByteStreamHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandler)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), fileextension.into_param().abi(), mimetype.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterByteStreamHandlerWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), fileextension.into_param().abi(), mimetype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RegisterAudioDecoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoder)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAudioDecoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RegisterAudioEncoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoder)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAudioEncoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RegisterVideoDecoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoder)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterVideoDecoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RegisterVideoEncoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoder)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterVideoEncoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(::core::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'ApplicationModel_AppService'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
     pub fn RegisterMediaExtensionForAppService<'a, Param0: ::windows::core::IntoParam<'a, IMediaExtension>, Param1: ::windows::core::IntoParam<'a, super::ApplicationModel::AppService::AppServiceConnection>>(&self, extension: Param0, connection: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaExtensionManager2>(self)?;
@@ -2459,10 +2459,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaExtensionManager {}
 unsafe impl ::core::marker::Sync for MediaExtensionManager {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 pub struct MediaMarkerTypes {}
 impl MediaMarkerTypes {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Bookmark() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaMarkerTypesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -2478,7 +2478,7 @@ impl MediaMarkerTypes {
 impl ::windows::core::RuntimeName for MediaMarkerTypes {
     const NAME: &'static str = "Windows.Media.MediaMarkerTypes";
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
@@ -2513,7 +2513,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackAutoRepeatMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPlaybackStatus(pub i32);
@@ -2550,7 +2550,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPlaybackType(pub i32);
@@ -2586,11 +2586,11 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MediaProcessingTriggerDetails(::windows::core::IUnknown);
 impl MediaProcessingTriggerDetails {
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Arguments(&self) -> ::windows::core::Result<super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -2673,7 +2673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 unsafe impl ::core::marker::Send for MediaProcessingTriggerDetails {}
 unsafe impl ::core::marker::Sync for MediaProcessingTriggerDetails {}
 #[repr(C)]
-#[doc = "*Required features: 'Media', 'Foundation'*"]
+#[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 pub struct MediaTimeRange {
     pub Start: super::Foundation::TimeSpan,
@@ -2719,33 +2719,33 @@ impl ::core::default::Default for MediaTimeRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MediaTimelineController(::windows::core::IUnknown);
 impl MediaTimelineController {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaTimelineController, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Resume(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Resume)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Pause)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -2754,13 +2754,13 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn ClockRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2768,12 +2768,12 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).ClockRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetClockRate(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClockRate)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn State(&self) -> ::windows::core::Result<MediaTimelineControllerState> {
         let this = self;
         unsafe {
@@ -2781,7 +2781,7 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaTimelineControllerState>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>(&self, positionchangedeventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2790,13 +2790,13 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).PositionChanged)(::core::mem::transmute_copy(this), positionchangedeventhandler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePositionChanged)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>(&self, statechangedeventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2805,13 +2805,13 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), statechangedeventhandler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -2820,13 +2820,13 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsLoopingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -2834,12 +2834,12 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).IsLoopingEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsLoopingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsLoopingEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Failed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -2848,13 +2848,13 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).Failed)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFailed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Ended<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -2863,7 +2863,7 @@ impl MediaTimelineController {
             (::windows::core::Interface::vtable(this).Ended)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnded<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -2942,11 +2942,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaTimelineController {}
 unsafe impl ::core::marker::Sync for MediaTimelineController {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MediaTimelineControllerFailedEventArgs(::windows::core::IUnknown);
 impl MediaTimelineControllerFailedEventArgs {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3027,7 +3027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTimelineControllerFailedEventArgs {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaTimelineControllerState(pub i32);
@@ -3063,11 +3063,11 @@ unsafe impl ::windows::core::RuntimeType for MediaTimelineControllerState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MusicDisplayProperties(::windows::core::IUnknown);
 impl MusicDisplayProperties {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3075,12 +3075,12 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3088,12 +3088,12 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).AlbumArtist)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetAlbumArtist<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlbumArtist)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3101,12 +3101,12 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).Artist)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetArtist<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetArtist)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
@@ -3114,12 +3114,12 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).AlbumTitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetAlbumTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAlbumTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn TrackNumber(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
@@ -3127,12 +3127,12 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).TrackNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetTrackNumber(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTrackNumber)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Genres(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
@@ -3141,7 +3141,7 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).Genres)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn AlbumTrackCount(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties3>(self)?;
         unsafe {
@@ -3149,7 +3149,7 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).AlbumTrackCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetAlbumTrackCount(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAlbumTrackCount)(::core::mem::transmute_copy(this), value).ok() }
@@ -3227,11 +3227,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MusicDisplayProperties {}
 unsafe impl ::core::marker::Sync for MusicDisplayProperties {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct PlaybackPositionChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackPositionChangeRequestedEventArgs {
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedPlaybackPosition(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -3313,11 +3313,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlaybackPositionChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackPositionChangeRequestedEventArgs {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct PlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackRateChangeRequestedEventArgs {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RequestedPlaybackRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3398,11 +3398,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlaybackRateChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackRateChangeRequestedEventArgs {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(::windows::core::IUnknown);
 impl ShuffleEnabledChangeRequestedEventArgs {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn RequestedShuffleEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3483,7 +3483,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SoundLevel(pub i32);
@@ -3518,11 +3518,11 @@ unsafe impl ::windows::core::RuntimeType for SoundLevel {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControls(::windows::core::IUnknown);
 impl SystemMediaTransportControls {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn PlaybackStatus(&self) -> ::windows::core::Result<MediaPlaybackStatus> {
         let this = self;
         unsafe {
@@ -3530,12 +3530,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).PlaybackStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaPlaybackStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetPlaybackStatus(&self, value: MediaPlaybackStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPlaybackStatus)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn DisplayUpdater(&self) -> ::windows::core::Result<SystemMediaTransportControlsDisplayUpdater> {
         let this = self;
         unsafe {
@@ -3543,7 +3543,7 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).DisplayUpdater)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemMediaTransportControlsDisplayUpdater>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SoundLevel(&self) -> ::windows::core::Result<SoundLevel> {
         let this = self;
         unsafe {
@@ -3551,7 +3551,7 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).SoundLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SoundLevel>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3559,12 +3559,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsPlayEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3572,12 +3572,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsPlayEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsPlayEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPlayEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsStopEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3585,12 +3585,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsStopEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsStopEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsStopEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsPauseEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3598,12 +3598,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsPauseEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsPauseEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPauseEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsRecordEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3611,12 +3611,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsRecordEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsRecordEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsRecordEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsFastForwardEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3624,12 +3624,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsFastForwardEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsFastForwardEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsFastForwardEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsRewindEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3637,12 +3637,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsRewindEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsRewindEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsRewindEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsPreviousEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3650,12 +3650,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsPreviousEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsPreviousEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPreviousEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsNextEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3663,12 +3663,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsNextEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsNextEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsNextEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsChannelUpEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3676,12 +3676,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsChannelUpEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsChannelUpEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsChannelUpEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsChannelDownEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3689,12 +3689,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).IsChannelDownEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsChannelDownEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsChannelDownEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3703,13 +3703,13 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).ButtonPressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveButtonPressed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3718,13 +3718,13 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).PropertyChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePropertyChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn AutoRepeatMode(&self) -> ::windows::core::Result<MediaPlaybackAutoRepeatMode> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3732,12 +3732,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).AutoRepeatMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaPlaybackAutoRepeatMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetAutoRepeatMode(&self, value: MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoRepeatMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn ShuffleEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3745,12 +3745,12 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).ShuffleEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetShuffleEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetShuffleEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn PlaybackRate(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3758,17 +3758,17 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).PlaybackRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetPlaybackRate(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPlaybackRate)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn UpdateTimelineProperties<'a, Param0: ::windows::core::IntoParam<'a, SystemMediaTransportControlsTimelineProperties>>(&self, timelineproperties: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).UpdateTimelineProperties)(::core::mem::transmute_copy(this), timelineproperties.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PlaybackPositionChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
@@ -3777,13 +3777,13 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).PlaybackPositionChangeRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlaybackPositionChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackPositionChangeRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PlaybackRateChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
@@ -3792,13 +3792,13 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).PlaybackRateChangeRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlaybackRateChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackRateChangeRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShuffleEnabledChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
@@ -3807,13 +3807,13 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).ShuffleEnabledChangeRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShuffleEnabledChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveShuffleEnabledChangeRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AutoRepeatModeChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
@@ -3822,13 +3822,13 @@ impl SystemMediaTransportControls {
             (::windows::core::Interface::vtable(this).AutoRepeatModeChangeRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAutoRepeatModeChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAutoRepeatModeChangeRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SystemMediaTransportControls> {
         Self::ISystemMediaTransportControlsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3913,7 +3913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControls {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemMediaTransportControlsButton(pub i32);
@@ -3955,11 +3955,11 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsButton 
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(::windows::core::IUnknown);
 impl SystemMediaTransportControlsButtonPressedEventArgs {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Button(&self) -> ::windows::core::Result<SystemMediaTransportControlsButton> {
         let this = self;
         unsafe {
@@ -4040,11 +4040,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsButtonPressedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsButtonPressedEventArgs {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsDisplayUpdater(::windows::core::IUnknown);
 impl SystemMediaTransportControlsDisplayUpdater {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<MediaPlaybackType> {
         let this = self;
         unsafe {
@@ -4052,12 +4052,12 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaPlaybackType>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetType(&self, value: MediaPlaybackType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetType)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn AppMediaId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4065,12 +4065,12 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).AppMediaId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetAppMediaId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAppMediaId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -4079,13 +4079,13 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::Storage::Streams::RandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn MusicProperties(&self) -> ::windows::core::Result<MusicDisplayProperties> {
         let this = self;
         unsafe {
@@ -4093,7 +4093,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).MusicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MusicDisplayProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn VideoProperties(&self) -> ::windows::core::Result<VideoDisplayProperties> {
         let this = self;
         unsafe {
@@ -4101,7 +4101,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).VideoProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoDisplayProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn ImageProperties(&self) -> ::windows::core::Result<ImageDisplayProperties> {
         let this = self;
         unsafe {
@@ -4109,7 +4109,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).ImageProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageDisplayProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CopyFromFileAsync<'a, Param1: ::windows::core::IntoParam<'a, super::Storage::StorageFile>>(&self, r#type: MediaPlaybackType, source: Param1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4118,12 +4118,12 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).CopyFromFileAsync)(::core::mem::transmute_copy(this), r#type, source.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn ClearAll(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClearAll)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Update(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Update)(::core::mem::transmute_copy(this)).ok() }
@@ -4201,7 +4201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
@@ -4234,11 +4234,11 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsPropert
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(::windows::core::IUnknown);
 impl SystemMediaTransportControlsPropertyChangedEventArgs {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Property(&self) -> ::windows::core::Result<SystemMediaTransportControlsProperty> {
         let this = self;
         unsafe {
@@ -4319,18 +4319,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsPropertyChangedEventArgs {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsTimelineProperties(::windows::core::IUnknown);
 impl SystemMediaTransportControlsTimelineProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SystemMediaTransportControlsTimelineProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -4339,13 +4339,13 @@ impl SystemMediaTransportControlsTimelineProperties {
             (::windows::core::Interface::vtable(this).StartTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -4354,13 +4354,13 @@ impl SystemMediaTransportControlsTimelineProperties {
             (::windows::core::Interface::vtable(this).EndTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetEndTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEndTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinSeekTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -4369,13 +4369,13 @@ impl SystemMediaTransportControlsTimelineProperties {
             (::windows::core::Interface::vtable(this).MinSeekTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMinSeekTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMinSeekTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSeekTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -4384,13 +4384,13 @@ impl SystemMediaTransportControlsTimelineProperties {
             (::windows::core::Interface::vtable(this).MaxSeekTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxSeekTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxSeekTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -4399,7 +4399,7 @@ impl SystemMediaTransportControlsTimelineProperties {
             (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -4478,11 +4478,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsTimelineProperties {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsTimelineProperties {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct VideoDisplayProperties(::windows::core::IUnknown);
 impl VideoDisplayProperties {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4490,12 +4490,12 @@ impl VideoDisplayProperties {
             (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4503,12 +4503,12 @@ impl VideoDisplayProperties {
             (::windows::core::Interface::vtable(this).Subtitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetSubtitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Genres(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IVideoDisplayProperties2>(self)?;
@@ -4590,10 +4590,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 }
 unsafe impl ::core::marker::Send for VideoDisplayProperties {}
 unsafe impl ::core::marker::Sync for VideoDisplayProperties {}
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 pub struct VideoEffects {}
 impl VideoEffects {
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn VideoStabilization() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IVideoEffectsStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -4609,17 +4609,17 @@ impl VideoEffects {
 impl ::windows::core::RuntimeName for VideoEffects {
     const NAME: &'static str = "Windows.Media.VideoEffects";
 }
-#[doc = "*Required features: 'Media'*"]
+#[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct VideoFrame(::windows::core::IUnknown);
 impl VideoFrame {
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -4627,7 +4627,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -4635,13 +4635,13 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -4650,13 +4650,13 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).RelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -4665,13 +4665,13 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).SystemRelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -4680,12 +4680,12 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsDiscontinuous)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media'*"]
+    #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -4693,7 +4693,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).IsDiscontinuous)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
@@ -4702,7 +4702,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).ExtendedProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SoftwareBitmap(&self) -> ::windows::core::Result<super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
@@ -4711,7 +4711,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).SoftwareBitmap)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Graphics::Imaging::SoftwareBitmap>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CopyToAsync<'a, Param0: ::windows::core::IntoParam<'a, VideoFrame>>(&self, frame: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -4720,7 +4720,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).CopyToAsync)(::core::mem::transmute_copy(this), frame.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3DSurface(&self) -> ::windows::core::Result<super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
@@ -4729,7 +4729,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).Direct3DSurface)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Foundation', 'Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn CopyToWithBoundsAsync<'a, Param0: ::windows::core::IntoParam<'a, VideoFrame>, Param1: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Param2: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>>(&self, frame: Param0, sourcebounds: Param1, destinationbounds: Param2) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IVideoFrame2>(self)?;
@@ -4738,7 +4738,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).CopyToWithBoundsAsync)(::core::mem::transmute_copy(this), frame.into_param().abi(), sourcebounds.into_param().abi(), destinationbounds.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media', 'Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
@@ -4746,7 +4746,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), format, width, height, &mut result__).from_abi::<VideoFrame>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
@@ -4754,7 +4754,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).CreateWithAlpha)(::core::mem::transmute_copy(this), format, width, height, alpha, &mut result__).from_abi::<VideoFrame>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Graphics_DirectX'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
@@ -4762,7 +4762,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(::core::mem::transmute_copy(this), format, width, height, &mut result__).from_abi::<VideoFrame>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, Param3: ::windows::core::IntoParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: Param3) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
@@ -4770,7 +4770,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(::core::mem::transmute_copy(this), format, width, height, device.into_param().abi(), &mut result__).from_abi::<VideoFrame>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Graphics_Imaging'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CreateWithSoftwareBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Imaging::SoftwareBitmap>>(bitmap: Param0) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
@@ -4778,7 +4778,7 @@ impl VideoFrame {
             (::windows::core::Interface::vtable(this).CreateWithSoftwareBitmap)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<VideoFrame>(result__)
         })
     }
-    #[doc = "*Required features: 'Media', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateWithDirect3D11Surface<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(surface: Param0) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {

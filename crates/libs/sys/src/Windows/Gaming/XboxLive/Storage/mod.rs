@@ -7,7 +7,7 @@ pub type GameSaveContainer = *mut ::core::ffi::c_void;
 pub type GameSaveContainerInfo = *mut ::core::ffi::c_void;
 pub type GameSaveContainerInfoGetResult = *mut ::core::ffi::c_void;
 pub type GameSaveContainerInfoQuery = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
+#[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
 #[repr(transparent)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {

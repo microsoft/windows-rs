@@ -150,59 +150,59 @@ pub struct IPlaceInfoHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromLocalLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct LocalCategories {}
 impl LocalCategories {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn BankAndCreditUnions() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).BankAndCreditUnions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn EatDrink() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).EatDrink)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Hospitals() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Hospitals)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn HotelsAndMotels() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).HotelsAndMotels)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn All() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).All)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Parking() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Parking)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn SeeDo() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).SeeDo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Shop() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -218,11 +218,11 @@ impl LocalCategories {
 impl ::windows::core::RuntimeName for LocalCategories {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalCategories";
 }
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 pub struct LocalLocation(::windows::core::IUnknown);
 impl LocalLocation {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Address(&self) -> ::windows::core::Result<super::MapAddress> {
         let this = self;
         unsafe {
@@ -230,7 +230,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).Address)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MapAddress>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Identifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -238,7 +238,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).Identifier)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -246,7 +246,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -254,7 +254,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Devices_Geolocation'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Point(&self) -> ::windows::core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -263,7 +263,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).Point)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -271,7 +271,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).PhoneNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn DataAttribution(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -279,7 +279,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).DataAttribution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Category(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILocalLocation2>(self)?;
         unsafe {
@@ -287,7 +287,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).Category)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn RatingInfo(&self) -> ::windows::core::Result<LocalLocationRatingInfo> {
         let this = &::windows::core::Interface::cast::<ILocalLocation2>(self)?;
         unsafe {
@@ -295,7 +295,7 @@ impl LocalLocation {
             (::windows::core::Interface::vtable(this).RatingInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LocalLocationRatingInfo>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HoursOfOperation(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
         let this = &::windows::core::Interface::cast::<ILocalLocation2>(self)?;
@@ -377,10 +377,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct LocalLocationFinder {}
 impl LocalLocationFinder {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Devices_Geolocation', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindLocalLocationsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geocircle>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(searchterm: Param0, searcharea: Param1, localcategory: Param2, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
         Self::ILocalLocationFinderStatics(|this| unsafe {
@@ -397,11 +397,11 @@ impl LocalLocationFinder {
 impl ::windows::core::RuntimeName for LocalLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinder";
 }
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 pub struct LocalLocationFinderResult(::windows::core::IUnknown);
 impl LocalLocationFinderResult {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalLocations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
         let this = self;
@@ -410,7 +410,7 @@ impl LocalLocationFinderResult {
             (::windows::core::Interface::vtable(this).LocalLocations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<LocalLocation>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<LocalLocationFinderStatus> {
         let this = self;
         unsafe {
@@ -491,7 +491,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LocalLocationFinderStatus(pub i32);
@@ -531,11 +531,11 @@ unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 pub struct LocalLocationHoursOfOperationItem(::windows::core::IUnknown);
 impl LocalLocationHoursOfOperationItem {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Globalization'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
     pub fn Day(&self) -> ::windows::core::Result<super::super::super::Globalization::DayOfWeek> {
         let this = self;
@@ -544,7 +544,7 @@ impl LocalLocationHoursOfOperationItem {
             (::windows::core::Interface::vtable(this).Day)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Globalization::DayOfWeek>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Start(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -553,7 +553,7 @@ impl LocalLocationHoursOfOperationItem {
             (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Span(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -635,11 +635,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 pub struct LocalLocationRatingInfo(::windows::core::IUnknown);
 impl LocalLocationRatingInfo {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AggregateRating(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -648,7 +648,7 @@ impl LocalLocationRatingInfo {
             (::windows::core::Interface::vtable(this).AggregateRating)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RatingCount(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -657,7 +657,7 @@ impl LocalLocationRatingInfo {
             (::windows::core::Interface::vtable(this).RatingCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn ProviderIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -738,10 +738,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct PlaceInfoHelper {}
 impl PlaceInfoHelper {
-    #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+    #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn CreateFromLocalLocation<'a, Param0: ::windows::core::IntoParam<'a, LocalLocation>>(location: Param0) -> ::windows::core::Result<super::PlaceInfo> {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

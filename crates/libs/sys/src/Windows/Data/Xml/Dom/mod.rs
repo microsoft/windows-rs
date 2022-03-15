@@ -6,7 +6,7 @@ pub type IXmlNode = *mut ::core::ffi::c_void;
 pub type IXmlNodeSelector = *mut ::core::ffi::c_void;
 pub type IXmlNodeSerializer = *mut ::core::ffi::c_void;
 pub type IXmlText = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Data_Xml_Dom'*"]
+#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 pub struct NodeType(pub i32);
 impl NodeType {

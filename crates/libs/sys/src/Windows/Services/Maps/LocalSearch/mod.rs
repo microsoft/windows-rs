@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type LocalLocation = *mut ::core::ffi::c_void;
 pub type LocalLocationFinderResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {

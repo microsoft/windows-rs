@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
 #[repr(transparent)]
 pub struct ILearningModelDeviceFactoryNative(::windows::core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_ML', 'Win32_Graphics_Direct3D12'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateFromD3D12CommandQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, value: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
@@ -59,11 +59,11 @@ pub struct ILearningModelDeviceFactoryNative_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateFromD3D12CommandQueue: usize,
 }
-#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
 #[repr(transparent)]
 pub struct ILearningModelOperatorProviderNative(::windows::core::IUnknown);
 impl ILearningModelOperatorProviderNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_ML', 'Win32_AI_MachineLearning_WinML'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_AI_MachineLearning_WinML\"`*"]
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub unsafe fn GetRegistry(&self) -> ::windows::core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -119,11 +119,11 @@ pub struct ILearningModelOperatorProviderNative_Vtbl {
     #[cfg(not(feature = "Win32_AI_MachineLearning_WinML"))]
     GetRegistry: usize,
 }
-#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
 #[repr(transparent)]
 pub struct ILearningModelSessionOptionsNative(::windows::core::IUnknown);
 impl ILearningModelSessionOptionsNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(::core::mem::transmute_copy(self), ::core::mem::transmute(intraopnumthreads)).ok()
     }
@@ -174,15 +174,15 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
 #[repr(transparent)]
 pub struct ITensorNative(::windows::core::IUnknown);
 impl ITensorNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
     }
-    #[doc = "*Required features: 'Win32_System_WinRT_ML', 'Win32_Graphics_Direct3D12'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -239,11 +239,11 @@ pub struct ITensorNative_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     GetD3D12Resource: usize,
 }
-#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
 #[repr(transparent)]
 pub struct ITensorStaticsNative(::windows::core::IUnknown);
 impl ITensorStaticsNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_ML', 'Win32_Graphics_Direct3D12'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateFromD3D12Resource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, value: Param0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateFromD3D12Resource)(::core::mem::transmute_copy(self), value.into_param().abi(), ::core::mem::transmute(shape), ::core::mem::transmute(shapecount), ::core::mem::transmute(result)).ok()

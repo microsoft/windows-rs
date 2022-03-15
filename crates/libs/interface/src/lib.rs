@@ -102,9 +102,6 @@ impl Interface {
                 let vis = &m.visibility;
                 let name = &m.name;
 
-                if m.args.iter().any(|a| !a.pass_through) {
-                    panic!("TODO: handle methods with non-pass through arguments");
-                }
                 let args = m.gen_args();
                 let params = &m
                     .args
@@ -114,9 +111,10 @@ impl Interface {
                         quote! { #pat }
                     })
                     .collect::<Vec<_>>();
+                let ret = &m.ret;
                 quote! {
-                    #vis unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT {
-                        (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#params)*)
+                    #vis unsafe fn #name(&self, #(#args),*) #ret {
+                        (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#params),*)
                     }
                 }
             })
@@ -137,13 +135,11 @@ impl Interface {
             .map(|m| {
                 let name = &m.name;
                 let docs = &m.docs;
-                if m.args.iter().any(|a| !a.pass_through) {
-                    panic!("TODO: handle methods with non-pass through arguments");
-                }
                 let args = m.gen_args();
+                let ret = &m.ret;
                 quote! {
                     #(#docs)*
-                    unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT;
+                    unsafe fn #name(&self, #(#args),*) #ret;
                 }
             })
             .collect::<Vec<_>>();
@@ -166,9 +162,6 @@ impl Interface {
             .map(|m| {
                 let name = &m.name;
                 let ret = &m.ret;
-                if m.args.iter().any(|a| !a.pass_through) {
-                    panic!("TODO: handle methods with non-pass through arguments");
-                }
                 let args = m.gen_args();
                 quote! {
                     pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) #ret,
@@ -190,8 +183,9 @@ impl Interface {
                         quote! { #pat }
                     })
                     .collect::<Vec<_>>();
+                let ret = &m.ret;
                 quote! {
-                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT {
+                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
                         let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
                         let this = (*this).get_impl() as *mut Impl;
                         (*this).#name(#(#params),*).into()
@@ -442,11 +436,7 @@ impl syn::parse::Parse for InterfaceMethod {
                 syn::FnArg::Receiver(_) => None,
                 syn::FnArg::Typed(p) => Some(p),
             })
-            .map(|p| {
-                let pass_through = matches!(&*p.ty, syn::Type::Ptr(_));
-
-                Ok(InterfaceMethodArg { ty: p.ty, pat: p.pat, pass_through })
-            })
+            .map(|p| Ok(InterfaceMethodArg { ty: p.ty, pat: p.pat }))
             .collect::<Result<Vec<InterfaceMethodArg>, syn::Error>>()?;
 
         let ret = sig.output;
@@ -460,6 +450,4 @@ struct InterfaceMethodArg {
     pub ty: Box<syn::Type>,
     /// The name of the argument
     pub pat: Box<syn::Pat>,
-    /// Whether the argument needs transformation before crossing an FFI boundary
-    pub pass_through: bool,
 }

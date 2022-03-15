@@ -77,11 +77,11 @@ pub struct IVariablePhotoSequenceCapture2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     UpdateSettingsAsync: usize,
 }
-#[doc = "*Required features: 'Media_Capture_Core'*"]
+#[doc = "*Required features: `\"Media_Capture_Core\"`*"]
 #[repr(transparent)]
 pub struct VariablePhotoCapturedEventArgs(::windows::core::IUnknown);
 impl VariablePhotoCapturedEventArgs {
-    #[doc = "*Required features: 'Media_Capture_Core'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`*"]
     pub fn Frame(&self) -> ::windows::core::Result<super::CapturedFrame> {
         let this = self;
         unsafe {
@@ -89,7 +89,7 @@ impl VariablePhotoCapturedEventArgs {
             (::windows::core::Interface::vtable(this).Frame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::CapturedFrame>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CaptureTimeOffset(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -98,7 +98,7 @@ impl VariablePhotoCapturedEventArgs {
             (::windows::core::Interface::vtable(this).CaptureTimeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UsedFrameControllerIndex(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -107,7 +107,7 @@ impl VariablePhotoCapturedEventArgs {
             (::windows::core::Interface::vtable(this).UsedFrameControllerIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`*"]
     pub fn CapturedFrameControlValues(&self) -> ::windows::core::Result<super::CapturedFrameControlValues> {
         let this = self;
         unsafe {
@@ -188,11 +188,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 }
 unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
-#[doc = "*Required features: 'Media_Capture_Core'*"]
+#[doc = "*Required features: `\"Media_Capture_Core\"`*"]
 #[repr(transparent)]
 pub struct VariablePhotoSequenceCapture(::windows::core::IUnknown);
 impl VariablePhotoSequenceCapture {
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -201,7 +201,7 @@ impl VariablePhotoSequenceCapture {
             (::windows::core::Interface::vtable(this).StartAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StopAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -210,7 +210,7 @@ impl VariablePhotoSequenceCapture {
             (::windows::core::Interface::vtable(this).StopAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FinishAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -219,7 +219,7 @@ impl VariablePhotoSequenceCapture {
             (::windows::core::Interface::vtable(this).FinishAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PhotoCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -228,13 +228,13 @@ impl VariablePhotoSequenceCapture {
             (::windows::core::Interface::vtable(this).PhotoCaptured)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePhotoCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePhotoCaptured)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -243,13 +243,13 @@ impl VariablePhotoSequenceCapture {
             (::windows::core::Interface::vtable(this).Stopped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Capture_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Capture_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateSettingsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IVariablePhotoSequenceCapture2>(self)?;

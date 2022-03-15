@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccessibilityView(pub i32);
@@ -34,11 +34,11 @@ unsafe impl ::windows::core::RuntimeType for AccessibilityView {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct AppBarAutomationPeer(::windows::core::IUnknown);
 impl AppBarAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBar>>(owner: Param0) -> ::windows::core::Result<AppBarAutomationPeer> {
         Self::IAppBarAutomationPeerFactory(|this| unsafe {
@@ -46,7 +46,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBar>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<AppBarAutomationPeer> {
         Self::IAppBarAutomationPeerFactory(|this| unsafe {
@@ -55,7 +55,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AppBarAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -64,19 +64,19 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).ExpandCollapseState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Collapse)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Expand)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -85,13 +85,13 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).ToggleState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ToggleState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Toggle(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Toggle)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsModal(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -100,7 +100,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).IsModal)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsTopmost(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -109,7 +109,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).IsTopmost)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Maximizable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -118,7 +118,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).Maximizable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Minimizable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -127,7 +127,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).Minimizable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn InteractionState(&self) -> ::windows::core::Result<super::WindowInteractionState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -136,7 +136,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).InteractionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowInteractionState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VisualState(&self) -> ::windows::core::Result<super::WindowVisualState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -145,19 +145,19 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).VisualState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowVisualState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetVisualState(&self, state: super::WindowVisualState) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVisualState)(::core::mem::transmute_copy(this), state).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -382,11 +382,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
 }
 unsafe impl ::core::marker::Send for AppBarAutomationPeer {}
 unsafe impl ::core::marker::Sync for AppBarAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct AppBarButtonAutomationPeer(::windows::core::IUnknown);
 impl AppBarButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarButton>>(owner: Param0) -> ::windows::core::Result<AppBarButtonAutomationPeer> {
         Self::IAppBarButtonAutomationPeerFactory(|this| unsafe {
@@ -394,7 +394,7 @@ impl AppBarButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarButton>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<AppBarButtonAutomationPeer> {
         Self::IAppBarButtonAutomationPeerFactory(|this| unsafe {
@@ -403,7 +403,7 @@ impl AppBarButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AppBarButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -412,13 +412,13 @@ impl AppBarButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).ExpandCollapseState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Collapse)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -654,11 +654,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
 }
 unsafe impl ::core::marker::Send for AppBarButtonAutomationPeer {}
 unsafe impl ::core::marker::Sync for AppBarButtonAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct AppBarToggleButtonAutomationPeer(::windows::core::IUnknown);
 impl AppBarToggleButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarToggleButton>>(owner: Param0) -> ::windows::core::Result<AppBarToggleButtonAutomationPeer> {
         Self::IAppBarToggleButtonAutomationPeerFactory(|this| unsafe {
@@ -666,7 +666,7 @@ impl AppBarToggleButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarToggleButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarToggleButton>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<AppBarToggleButtonAutomationPeer> {
         Self::IAppBarToggleButtonAutomationPeerFactory(|this| unsafe {
@@ -879,11 +879,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
 }
 unsafe impl ::core::marker::Send for AppBarToggleButtonAutomationPeer {}
 unsafe impl ::core::marker::Sync for AppBarToggleButtonAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct AutoSuggestBoxAutomationPeer(::windows::core::IUnknown);
 impl AutoSuggestBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AutoSuggestBox>>(owner: Param0) -> ::windows::core::Result<AutoSuggestBoxAutomationPeer> {
         Self::IAutoSuggestBoxAutomationPeerFactory(|this| unsafe {
@@ -891,7 +891,7 @@ impl AutoSuggestBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), &mut result__).from_abi::<AutoSuggestBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
@@ -1061,7 +1061,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Aut
 }
 unsafe impl ::core::marker::Send for AutoSuggestBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for AutoSuggestBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationControlType(pub i32);
@@ -1134,7 +1134,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationControlType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationEvents(pub i32);
@@ -1196,7 +1196,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationEvents {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationHeadingLevel(pub i32);
@@ -1238,7 +1238,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationHeadingLevel {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationLandmarkType(pub i32);
@@ -1276,7 +1276,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationLandmarkType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationLiveSetting(pub i32);
@@ -1311,7 +1311,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationLiveSetting {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationNavigationDirection(pub i32);
@@ -1348,7 +1348,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationNavigationDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationNotificationKind(pub i32);
@@ -1385,7 +1385,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationNotificationKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationNotificationProcessing(pub i32);
@@ -1422,7 +1422,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationNotificationProcessing {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationOrientation(pub i32);
@@ -1457,11 +1457,11 @@ unsafe impl ::windows::core::RuntimeType for AutomationOrientation {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct AutomationPeer(::windows::core::IUnknown);
 impl AutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn EventsSource(&self) -> ::windows::core::Result<AutomationPeer> {
         let this = self;
         unsafe {
@@ -1469,12 +1469,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).EventsSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn SetEventsSource<'a, Param0: ::windows::core::IntoParam<'a, AutomationPeer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEventsSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetPattern(&self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1482,17 +1482,17 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetPattern)(::core::mem::transmute_copy(this), patterninterface, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn RaiseAutomationEvent(&self, eventid: AutomationEvents) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RaiseAutomationEvent)(::core::mem::transmute_copy(this), eventid).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn RaisePropertyChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, super::AutomationProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, automationproperty: Param0, oldvalue: Param1, newvalue: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RaisePropertyChangedEvent)(::core::mem::transmute_copy(this), automationproperty.into_param().abi(), oldvalue.into_param().abi(), newvalue.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetAcceleratorKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1500,7 +1500,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetAcceleratorKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetAccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1508,7 +1508,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetAccessKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetAutomationControlType(&self) -> ::windows::core::Result<AutomationControlType> {
         let this = self;
         unsafe {
@@ -1516,7 +1516,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetAutomationControlType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationControlType>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetAutomationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1524,7 +1524,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetAutomationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetBoundingRectangle(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
@@ -1533,7 +1533,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetBoundingRectangle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetChildren(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>> {
         let this = self;
@@ -1542,7 +1542,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetChildren)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetClassName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1550,7 +1550,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetClassName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetClickablePoint(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
@@ -1559,7 +1559,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetClickablePoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetHelpText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1567,7 +1567,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetHelpText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetItemStatus(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1575,7 +1575,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetItemStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetItemType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1583,7 +1583,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetItemType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetLabeledBy(&self) -> ::windows::core::Result<AutomationPeer> {
         let this = self;
         unsafe {
@@ -1591,7 +1591,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetLabeledBy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1599,7 +1599,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetLocalizedControlType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1607,7 +1607,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetOrientation(&self) -> ::windows::core::Result<AutomationOrientation> {
         let this = self;
         unsafe {
@@ -1615,7 +1615,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetOrientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationOrientation>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn HasKeyboardFocus(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1623,7 +1623,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).HasKeyboardFocus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsContentElement(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1631,7 +1631,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsContentElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsControlElement(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1639,7 +1639,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsControlElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1647,7 +1647,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsKeyboardFocusable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1655,7 +1655,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsKeyboardFocusable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsOffscreen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1663,7 +1663,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsOffscreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsPassword(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1671,7 +1671,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsPassword)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsRequiredForForm(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1679,12 +1679,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsRequiredForForm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn SetFocus(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFocus)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'deprecated'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn GetParent(&self) -> ::windows::core::Result<AutomationPeer> {
         let this = self;
@@ -1693,12 +1693,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetParent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn InvalidatePeer(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InvalidatePeer)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetPeerFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, point: Param0) -> ::windows::core::Result<AutomationPeer> {
         let this = self;
@@ -1707,7 +1707,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetPeerFromPoint)(::core::mem::transmute_copy(this), point.into_param().abi(), &mut result__).from_abi::<AutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetLiveSetting(&self) -> ::windows::core::Result<AutomationLiveSetting> {
         let this = self;
         unsafe {
@@ -1715,7 +1715,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetLiveSetting)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationLiveSetting>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn Navigate(&self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe {
@@ -1723,7 +1723,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).Navigate)(::core::mem::transmute_copy(this), direction, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetElementFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, pointinwindowcoordinates: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
@@ -1732,7 +1732,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetElementFromPoint)(::core::mem::transmute_copy(this), pointinwindowcoordinates.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetFocusedElement(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe {
@@ -1740,12 +1740,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetFocusedElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ShowContextMenu)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControlledPeers(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
@@ -1754,7 +1754,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetControlledPeers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAnnotations(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
@@ -1763,18 +1763,18 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetAnnotations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn SetParent<'a, Param0: ::windows::core::IntoParam<'a, AutomationPeer>>(&self, peer: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParent)(::core::mem::transmute_copy(this), peer.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RaiseTextEditTextChangedEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(&self, automationtexteditchangetype: super::AutomationTextEditChangeType, changeddata: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RaiseTextEditTextChangedEvent)(::core::mem::transmute_copy(this), automationtexteditchangetype, changeddata.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetPositionInSet(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe {
@@ -1782,7 +1782,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetPositionInSet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetSizeOfSet(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe {
@@ -1790,7 +1790,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetSizeOfSet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetLevel(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe {
@@ -1798,12 +1798,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn RaiseStructureChangedEvent<'a, Param1: ::windows::core::IntoParam<'a, AutomationPeer>>(&self, structurechangetype: AutomationStructureChangeType, child: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RaiseStructureChangedEvent)(::core::mem::transmute_copy(this), structurechangetype, child.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetLandmarkType(&self) -> ::windows::core::Result<AutomationLandmarkType> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer4>(self)?;
         unsafe {
@@ -1811,7 +1811,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetLandmarkType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationLandmarkType>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer4>(self)?;
         unsafe {
@@ -1819,7 +1819,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetLocalizedLandmarkType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsPeripheral(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer5>(self)?;
         unsafe {
@@ -1827,7 +1827,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsPeripheral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsDataValidForForm(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer5>(self)?;
         unsafe {
@@ -1835,7 +1835,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsDataValidForForm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetFullDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer5>(self)?;
         unsafe {
@@ -1843,7 +1843,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetFullDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetCulture(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer6>(self)?;
         unsafe {
@@ -1851,12 +1851,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetCulture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn RaiseNotificationEvent<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, notificationkind: AutomationNotificationKind, notificationprocessing: AutomationNotificationProcessing, displaystring: Param2, activityid: Param3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer7>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RaiseNotificationEvent)(::core::mem::transmute_copy(this), notificationkind, notificationprocessing, displaystring.into_param().abi(), activityid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GetHeadingLevel(&self) -> ::windows::core::Result<AutomationHeadingLevel> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer8>(self)?;
         unsafe {
@@ -1864,7 +1864,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).GetHeadingLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationHeadingLevel>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn IsDialog(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAutomationPeer9>(self)?;
         unsafe {
@@ -1872,7 +1872,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).IsDialog)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn PeerFromProvider<'a, Param0: ::windows::core::IntoParam<'a, super::Provider::IRawElementProviderSimple>>(&self, provider: Param0) -> ::windows::core::Result<AutomationPeer> {
         let this = &::windows::core::Interface::cast::<IAutomationPeerProtected>(self)?;
@@ -1881,7 +1881,7 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).PeerFromProvider)(::core::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<AutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ProviderFromPeer<'a, Param0: ::windows::core::IntoParam<'a, AutomationPeer>>(&self, peer: Param0) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<IAutomationPeerProtected>(self)?;
@@ -1890,14 +1890,14 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).ProviderFromPeer)(::core::mem::transmute_copy(this), peer.into_param().abi(), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn ListenerExists(eventid: AutomationEvents) -> ::windows::core::Result<bool> {
         Self::IAutomationPeerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ListenerExists)(::core::mem::transmute_copy(this), eventid, &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn GenerateRawElementProviderRuntimeId() -> ::windows::core::Result<RawElementProviderRuntimeId> {
         Self::IAutomationPeerStatics3(|this| unsafe {
             let mut result__: RawElementProviderRuntimeId = ::core::mem::zeroed();
@@ -2007,18 +2007,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Aut
 }
 unsafe impl ::core::marker::Send for AutomationPeer {}
 unsafe impl ::core::marker::Sync for AutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct AutomationPeerAnnotation(::windows::core::IUnknown);
 impl AutomationPeerAnnotation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutomationPeerAnnotation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<super::AnnotationType> {
         let this = self;
         unsafe {
@@ -2026,12 +2026,12 @@ impl AutomationPeerAnnotation {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::AnnotationType>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn SetType(&self, value: super::AnnotationType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetType)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn Peer(&self) -> ::windows::core::Result<AutomationPeer> {
         let this = self;
         unsafe {
@@ -2039,33 +2039,33 @@ impl AutomationPeerAnnotation {
             (::windows::core::Interface::vtable(this).Peer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn SetPeer<'a, Param0: ::windows::core::IntoParam<'a, AutomationPeer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPeer)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstance(r#type: super::AnnotationType) -> ::windows::core::Result<AutomationPeerAnnotation> {
         Self::IAutomationPeerAnnotationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<AutomationPeerAnnotation>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateWithPeerParameter<'a, Param1: ::windows::core::IntoParam<'a, AutomationPeer>>(r#type: super::AnnotationType, peer: Param1) -> ::windows::core::Result<AutomationPeerAnnotation> {
         Self::IAutomationPeerAnnotationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithPeerParameter)(::core::mem::transmute_copy(this), r#type, peer.into_param().abi(), &mut result__).from_abi::<AutomationPeerAnnotation>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn TypeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IAutomationPeerAnnotationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn PeerProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IAutomationPeerAnnotationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2175,7 +2175,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Aut
 }
 unsafe impl ::core::marker::Send for AutomationPeerAnnotation {}
 unsafe impl ::core::marker::Sync for AutomationPeerAnnotation {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationStructureChangeType(pub i32);
@@ -2213,11 +2213,11 @@ unsafe impl ::windows::core::RuntimeType for AutomationStructureChangeType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ButtonAutomationPeer(::windows::core::IUnknown);
 impl ButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Button>>(owner: Param0) -> ::windows::core::Result<ButtonAutomationPeer> {
         Self::IButtonAutomationPeerFactory(|this| unsafe {
@@ -2225,7 +2225,7 @@ impl ButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Button>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ButtonAutomationPeer> {
         Self::IButtonAutomationPeerFactory(|this| unsafe {
@@ -2234,7 +2234,7 @@ impl ButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
@@ -2424,7 +2424,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &But
 }
 unsafe impl ::core::marker::Send for ButtonAutomationPeer {}
 unsafe impl ::core::marker::Sync for ButtonAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ButtonBaseAutomationPeer(::windows::core::IUnknown);
 impl ButtonBaseAutomationPeer {}
@@ -2560,11 +2560,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &But
 }
 unsafe impl ::core::marker::Send for ButtonBaseAutomationPeer {}
 unsafe impl ::core::marker::Sync for ButtonBaseAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct CalendarDatePickerAutomationPeer(::windows::core::IUnknown);
 impl CalendarDatePickerAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CalendarDatePicker>>(owner: Param0) -> ::windows::core::Result<CalendarDatePickerAutomationPeer> {
         Self::ICalendarDatePickerAutomationPeerFactory(|this| unsafe {
@@ -2572,7 +2572,7 @@ impl CalendarDatePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CalendarDatePickerAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CalendarDatePicker>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<CalendarDatePickerAutomationPeer> {
         Self::ICalendarDatePickerAutomationPeerFactory(|this| unsafe {
@@ -2581,13 +2581,13 @@ impl CalendarDatePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CalendarDatePickerAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
@@ -2596,7 +2596,7 @@ impl CalendarDatePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
@@ -2605,7 +2605,7 @@ impl CalendarDatePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
@@ -2801,11 +2801,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cal
 }
 unsafe impl ::core::marker::Send for CalendarDatePickerAutomationPeer {}
 unsafe impl ::core::marker::Sync for CalendarDatePickerAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct CaptureElementAutomationPeer(::windows::core::IUnknown);
 impl CaptureElementAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CaptureElement>>(owner: Param0) -> ::windows::core::Result<CaptureElementAutomationPeer> {
         Self::ICaptureElementAutomationPeerFactory(|this| unsafe {
@@ -2813,7 +2813,7 @@ impl CaptureElementAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CaptureElementAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CaptureElement>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<CaptureElementAutomationPeer> {
         Self::ICaptureElementAutomationPeerFactory(|this| unsafe {
@@ -2960,11 +2960,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cap
 }
 unsafe impl ::core::marker::Send for CaptureElementAutomationPeer {}
 unsafe impl ::core::marker::Sync for CaptureElementAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct CheckBoxAutomationPeer(::windows::core::IUnknown);
 impl CheckBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CheckBox>>(owner: Param0) -> ::windows::core::Result<CheckBoxAutomationPeer> {
         Self::ICheckBoxAutomationPeerFactory(|this| unsafe {
@@ -2972,7 +2972,7 @@ impl CheckBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CheckBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CheckBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<CheckBoxAutomationPeer> {
         Self::ICheckBoxAutomationPeerFactory(|this| unsafe {
@@ -3185,11 +3185,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Che
 }
 unsafe impl ::core::marker::Send for CheckBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for CheckBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ColorPickerSliderAutomationPeer(::windows::core::IUnknown);
 impl ColorPickerSliderAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorPickerSlider>>(owner: Param0) -> ::windows::core::Result<ColorPickerSliderAutomationPeer> {
         Self::IColorPickerSliderAutomationPeerFactory(|this| unsafe {
@@ -3197,7 +3197,7 @@ impl ColorPickerSliderAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPickerSliderAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorPickerSlider>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ColorPickerSliderAutomationPeer> {
         Self::IColorPickerSliderAutomationPeerFactory(|this| unsafe {
@@ -3410,11 +3410,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorPickerSliderAutomationPeer {}
 unsafe impl ::core::marker::Sync for ColorPickerSliderAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ColorSpectrumAutomationPeer(::windows::core::IUnknown);
 impl ColorSpectrumAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorSpectrum>>(owner: Param0) -> ::windows::core::Result<ColorSpectrumAutomationPeer> {
         Self::IColorSpectrumAutomationPeerFactory(|this| unsafe {
@@ -3422,7 +3422,7 @@ impl ColorSpectrumAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorSpectrumAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorSpectrum>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ColorSpectrumAutomationPeer> {
         Self::IColorSpectrumAutomationPeerFactory(|this| unsafe {
@@ -3569,11 +3569,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorSpectrumAutomationPeer {}
 unsafe impl ::core::marker::Sync for ColorSpectrumAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ComboBoxAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBox>>(owner: Param0) -> ::windows::core::Result<ComboBoxAutomationPeer> {
         Self::IComboBoxAutomationPeerFactory(|this| unsafe {
@@ -3581,7 +3581,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ComboBoxAutomationPeer> {
         Self::IComboBoxAutomationPeerFactory(|this| unsafe {
@@ -3590,7 +3590,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ComboBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -3599,19 +3599,19 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).ExpandCollapseState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Collapse)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Expand)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
@@ -3620,7 +3620,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
@@ -3629,13 +3629,13 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsModal(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -3644,7 +3644,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).IsModal)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsTopmost(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -3653,7 +3653,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).IsTopmost)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Maximizable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -3662,7 +3662,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).Maximizable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Minimizable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -3671,7 +3671,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).Minimizable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn InteractionState(&self) -> ::windows::core::Result<super::WindowInteractionState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -3680,7 +3680,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).InteractionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowInteractionState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VisualState(&self) -> ::windows::core::Result<super::WindowVisualState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -3689,19 +3689,19 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).VisualState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowVisualState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetVisualState(&self, state: super::WindowVisualState) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVisualState)(::core::mem::transmute_copy(this), state).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IWindowProvider>(self)?;
@@ -4018,11 +4018,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for ComboBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for ComboBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ComboBoxItemAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBoxItem>>(owner: Param0) -> ::windows::core::Result<ComboBoxItemAutomationPeer> {
         Self::IComboBoxItemAutomationPeerFactory(|this| unsafe {
@@ -4030,7 +4030,7 @@ impl ComboBoxItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBoxItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ComboBoxItemAutomationPeer> {
         Self::IComboBoxItemAutomationPeerFactory(|this| unsafe {
@@ -4177,18 +4177,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for ComboBoxItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ComboBoxItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ComboBoxItemDataAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ComboBoxAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<ComboBoxItemDataAutomationPeer> {
         Self::IComboBoxItemDataAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ComboBoxAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<ComboBoxItemDataAutomationPeer> {
         Self::IComboBoxItemDataAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -4196,7 +4196,7 @@ impl ComboBoxItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ComboBoxItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
@@ -4438,11 +4438,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for ComboBoxItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for ComboBoxItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct DatePickerAutomationPeer(::windows::core::IUnknown);
 impl DatePickerAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::DatePicker>>(owner: Param0) -> ::windows::core::Result<DatePickerAutomationPeer> {
         Self::IDatePickerAutomationPeerFactory(|this| unsafe {
@@ -4450,7 +4450,7 @@ impl DatePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DatePickerAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::DatePicker>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<DatePickerAutomationPeer> {
         Self::IDatePickerAutomationPeerFactory(|this| unsafe {
@@ -4597,7 +4597,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dat
 }
 unsafe impl ::core::marker::Send for DatePickerAutomationPeer {}
 unsafe impl ::core::marker::Sync for DatePickerAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct DatePickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl DatePickerFlyoutPresenterAutomationPeer {}
@@ -4733,11 +4733,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dat
 }
 unsafe impl ::core::marker::Send for DatePickerFlyoutPresenterAutomationPeer {}
 unsafe impl ::core::marker::Sync for DatePickerFlyoutPresenterAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct FlipViewAutomationPeer(::windows::core::IUnknown);
 impl FlipViewAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipView>>(owner: Param0) -> ::windows::core::Result<FlipViewAutomationPeer> {
         Self::IFlipViewAutomationPeerFactory(|this| unsafe {
@@ -4745,7 +4745,7 @@ impl FlipViewAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipView>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<FlipViewAutomationPeer> {
         Self::IFlipViewAutomationPeerFactory(|this| unsafe {
@@ -4984,11 +4984,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fli
 }
 unsafe impl ::core::marker::Send for FlipViewAutomationPeer {}
 unsafe impl ::core::marker::Sync for FlipViewAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct FlipViewItemAutomationPeer(::windows::core::IUnknown);
 impl FlipViewItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipViewItem>>(owner: Param0) -> ::windows::core::Result<FlipViewItemAutomationPeer> {
         Self::IFlipViewItemAutomationPeerFactory(|this| unsafe {
@@ -4996,7 +4996,7 @@ impl FlipViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<FlipViewItemAutomationPeer> {
         Self::IFlipViewItemAutomationPeerFactory(|this| unsafe {
@@ -5143,18 +5143,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fli
 }
 unsafe impl ::core::marker::Send for FlipViewItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for FlipViewItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct FlipViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl FlipViewItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, FlipViewAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<FlipViewItemDataAutomationPeer> {
         Self::IFlipViewItemDataAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, FlipViewAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<FlipViewItemDataAutomationPeer> {
         Self::IFlipViewItemDataAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -5162,7 +5162,7 @@ impl FlipViewItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlipViewItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
@@ -5404,11 +5404,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fli
 }
 unsafe impl ::core::marker::Send for FlipViewItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for FlipViewItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct FlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl FlyoutPresenterAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlyoutPresenter>>(owner: Param0) -> ::windows::core::Result<FlyoutPresenterAutomationPeer> {
         Self::IFlyoutPresenterAutomationPeerFactory(|this| unsafe {
@@ -5416,7 +5416,7 @@ impl FlyoutPresenterAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutPresenterAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlyoutPresenter>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<FlyoutPresenterAutomationPeer> {
         Self::IFlyoutPresenterAutomationPeerFactory(|this| unsafe {
@@ -5563,11 +5563,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fly
 }
 unsafe impl ::core::marker::Send for FlyoutPresenterAutomationPeer {}
 unsafe impl ::core::marker::Sync for FlyoutPresenterAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct FrameworkElementAutomationPeer(::windows::core::IUnknown);
 impl FrameworkElementAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn Owner(&self) -> ::windows::core::Result<super::super::UIElement> {
         let this = self;
         unsafe {
@@ -5575,14 +5575,14 @@ impl FrameworkElementAutomationPeer {
             (::windows::core::Interface::vtable(this).Owner)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UIElement>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(owner: Param0) -> ::windows::core::Result<FrameworkElementAutomationPeer> {
         Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FrameworkElementAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<FrameworkElementAutomationPeer> {
         Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -5590,14 +5590,14 @@ impl FrameworkElementAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FrameworkElementAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn FromElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<AutomationPeer> {
         Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FromElement)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<AutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreatePeerForElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<AutomationPeer> {
         Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5727,11 +5727,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fra
 }
 unsafe impl ::core::marker::Send for FrameworkElementAutomationPeer {}
 unsafe impl ::core::marker::Sync for FrameworkElementAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct GridViewAutomationPeer(::windows::core::IUnknown);
 impl GridViewAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridView>>(owner: Param0) -> ::windows::core::Result<GridViewAutomationPeer> {
         Self::IGridViewAutomationPeerFactory(|this| unsafe {
@@ -5739,7 +5739,7 @@ impl GridViewAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridView>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<GridViewAutomationPeer> {
         Self::IGridViewAutomationPeerFactory(|this| unsafe {
@@ -6024,11 +6024,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
 }
 unsafe impl ::core::marker::Send for GridViewAutomationPeer {}
 unsafe impl ::core::marker::Sync for GridViewAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct GridViewHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl GridViewHeaderItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewHeaderItem>>(owner: Param0) -> ::windows::core::Result<GridViewHeaderItemAutomationPeer> {
         Self::IGridViewHeaderItemAutomationPeerFactory(|this| unsafe {
@@ -6036,7 +6036,7 @@ impl GridViewHeaderItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewHeaderItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewHeaderItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<GridViewHeaderItemAutomationPeer> {
         Self::IGridViewHeaderItemAutomationPeerFactory(|this| unsafe {
@@ -6203,11 +6203,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
 }
 unsafe impl ::core::marker::Send for GridViewHeaderItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for GridViewHeaderItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct GridViewItemAutomationPeer(::windows::core::IUnknown);
 impl GridViewItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewItem>>(owner: Param0) -> ::windows::core::Result<GridViewItemAutomationPeer> {
         Self::IGridViewItemAutomationPeerFactory(|this| unsafe {
@@ -6215,7 +6215,7 @@ impl GridViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<GridViewItemAutomationPeer> {
         Self::IGridViewItemAutomationPeerFactory(|this| unsafe {
@@ -6362,18 +6362,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
 }
 unsafe impl ::core::marker::Send for GridViewItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for GridViewItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct GridViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl GridViewItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, GridViewAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<GridViewItemDataAutomationPeer> {
         Self::IGridViewItemDataAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, GridViewAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<GridViewItemDataAutomationPeer> {
         Self::IGridViewItemDataAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -6381,7 +6381,7 @@ impl GridViewItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
@@ -6623,11 +6623,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
 }
 unsafe impl ::core::marker::Send for GridViewItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for GridViewItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct GroupItemAutomationPeer(::windows::core::IUnknown);
 impl GroupItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GroupItem>>(owner: Param0) -> ::windows::core::Result<GroupItemAutomationPeer> {
         Self::IGroupItemAutomationPeerFactory(|this| unsafe {
@@ -6635,7 +6635,7 @@ impl GroupItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GroupItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GroupItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<GroupItemAutomationPeer> {
         Self::IGroupItemAutomationPeerFactory(|this| unsafe {
@@ -6782,11 +6782,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gro
 }
 unsafe impl ::core::marker::Send for GroupItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for GroupItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct HubAutomationPeer(::windows::core::IUnknown);
 impl HubAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Hub>>(owner: Param0) -> ::windows::core::Result<HubAutomationPeer> {
         Self::IHubAutomationPeerFactory(|this| unsafe {
@@ -6794,7 +6794,7 @@ impl HubAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HubAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Hub>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<HubAutomationPeer> {
         Self::IHubAutomationPeerFactory(|this| unsafe {
@@ -6941,11 +6941,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Hub
 }
 unsafe impl ::core::marker::Send for HubAutomationPeer {}
 unsafe impl ::core::marker::Sync for HubAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct HubSectionAutomationPeer(::windows::core::IUnknown);
 impl HubSectionAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HubSection>>(owner: Param0) -> ::windows::core::Result<HubSectionAutomationPeer> {
         Self::IHubSectionAutomationPeerFactory(|this| unsafe {
@@ -6953,7 +6953,7 @@ impl HubSectionAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HubSectionAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HubSection>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<HubSectionAutomationPeer> {
         Self::IHubSectionAutomationPeerFactory(|this| unsafe {
@@ -6962,7 +6962,7 @@ impl HubSectionAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HubSectionAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
@@ -7132,11 +7132,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Hub
 }
 unsafe impl ::core::marker::Send for HubSectionAutomationPeer {}
 unsafe impl ::core::marker::Sync for HubSectionAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct HyperlinkButtonAutomationPeer(::windows::core::IUnknown);
 impl HyperlinkButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HyperlinkButton>>(owner: Param0) -> ::windows::core::Result<HyperlinkButtonAutomationPeer> {
         Self::IHyperlinkButtonAutomationPeerFactory(|this| unsafe {
@@ -7144,7 +7144,7 @@ impl HyperlinkButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HyperlinkButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HyperlinkButton>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<HyperlinkButtonAutomationPeer> {
         Self::IHyperlinkButtonAutomationPeerFactory(|this| unsafe {
@@ -7153,7 +7153,7 @@ impl HyperlinkButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HyperlinkButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
@@ -10144,11 +10144,11 @@ pub struct ITreeViewListAutomationPeerFactory_Vtbl {
     #[cfg(not(feature = "UI_Xaml_Controls"))]
     CreateInstanceWithOwner: usize,
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ImageAutomationPeer(::windows::core::IUnknown);
 impl ImageAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Image>>(owner: Param0) -> ::windows::core::Result<ImageAutomationPeer> {
         Self::IImageAutomationPeerFactory(|this| unsafe {
@@ -10156,7 +10156,7 @@ impl ImageAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ImageAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Image>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ImageAutomationPeer> {
         Self::IImageAutomationPeerFactory(|this| unsafe {
@@ -10303,7 +10303,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ima
 }
 unsafe impl ::core::marker::Send for ImageAutomationPeer {}
 unsafe impl ::core::marker::Sync for ImageAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct InkToolbarAutomationPeer(::windows::core::IUnknown);
 impl InkToolbarAutomationPeer {}
@@ -10439,11 +10439,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ink
 }
 unsafe impl ::core::marker::Send for InkToolbarAutomationPeer {}
 unsafe impl ::core::marker::Sync for InkToolbarAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ItemAutomationPeer(::windows::core::IUnknown);
 impl ItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn Item(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -10451,7 +10451,7 @@ impl ItemAutomationPeer {
             (::windows::core::Interface::vtable(this).Item)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn ItemsControlAutomationPeer(&self) -> ::windows::core::Result<ItemsControlAutomationPeer> {
         let this = self;
         unsafe {
@@ -10459,14 +10459,14 @@ impl ItemAutomationPeer {
             (::windows::core::Interface::vtable(this).ItemsControlAutomationPeer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ItemsControlAutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ItemsControlAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<ItemAutomationPeer> {
         Self::IItemAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ItemsControlAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<ItemAutomationPeer> {
         Self::IItemAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -10474,7 +10474,7 @@ impl ItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Realize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IVirtualizedItemProvider>(self)?;
@@ -10624,11 +10624,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ite
 }
 unsafe impl ::core::marker::Send for ItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ItemsControlAutomationPeer(::windows::core::IUnknown);
 impl ItemsControlAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn FindItemByProperty<'a, Param0: ::windows::core::IntoParam<'a, super::Provider::IRawElementProviderSimple>, Param1: ::windows::core::IntoParam<'a, super::AutomationProperty>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, startafter: Param0, automationproperty: Param1, value: Param2) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<super::Provider::IItemContainerProvider>(self)?;
@@ -10637,7 +10637,7 @@ impl ItemsControlAutomationPeer {
             (::windows::core::Interface::vtable(this).FindItemByProperty)(::core::mem::transmute_copy(this), startafter.into_param().abi(), automationproperty.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateItemAutomationPeer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, item: Param0) -> ::windows::core::Result<ItemAutomationPeer> {
         let this = &::windows::core::Interface::cast::<IItemsControlAutomationPeer2>(self)?;
         unsafe {
@@ -10645,7 +10645,7 @@ impl ItemsControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateItemAutomationPeer)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<ItemAutomationPeer>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ItemsControl>>(owner: Param0) -> ::windows::core::Result<ItemsControlAutomationPeer> {
         Self::IItemsControlAutomationPeerFactory(|this| unsafe {
@@ -10653,7 +10653,7 @@ impl ItemsControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ItemsControlAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ItemsControl>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ItemsControlAutomationPeer> {
         Self::IItemsControlAutomationPeerFactory(|this| unsafe {
@@ -10826,11 +10826,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ite
 }
 unsafe impl ::core::marker::Send for ItemsControlAutomationPeer {}
 unsafe impl ::core::marker::Sync for ItemsControlAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListBoxAutomationPeer(::windows::core::IUnknown);
 impl ListBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBox>>(owner: Param0) -> ::windows::core::Result<ListBoxAutomationPeer> {
         Self::IListBoxAutomationPeerFactory(|this| unsafe {
@@ -10838,7 +10838,7 @@ impl ListBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ListBoxAutomationPeer> {
         Self::IListBoxAutomationPeerFactory(|this| unsafe {
@@ -11077,11 +11077,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListBoxItemAutomationPeer(::windows::core::IUnknown);
 impl ListBoxItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBoxItem>>(owner: Param0) -> ::windows::core::Result<ListBoxItemAutomationPeer> {
         Self::IListBoxItemAutomationPeerFactory(|this| unsafe {
@@ -11089,7 +11089,7 @@ impl ListBoxItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBoxItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ListBoxItemAutomationPeer> {
         Self::IListBoxItemAutomationPeerFactory(|this| unsafe {
@@ -11236,18 +11236,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListBoxItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListBoxItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListBoxItemDataAutomationPeer(::windows::core::IUnknown);
 impl ListBoxItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListBoxAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<ListBoxItemDataAutomationPeer> {
         Self::IListBoxItemDataAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListBoxAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<ListBoxItemDataAutomationPeer> {
         Self::IListBoxItemDataAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -11255,7 +11255,7 @@ impl ListBoxItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListBoxItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
@@ -11497,7 +11497,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListBoxItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListBoxItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListPickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl ListPickerFlyoutPresenterAutomationPeer {}
@@ -11633,11 +11633,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListPickerFlyoutPresenterAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListPickerFlyoutPresenterAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListViewAutomationPeer(::windows::core::IUnknown);
 impl ListViewAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListView>>(owner: Param0) -> ::windows::core::Result<ListViewAutomationPeer> {
         Self::IListViewAutomationPeerFactory(|this| unsafe {
@@ -11645,7 +11645,7 @@ impl ListViewAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListView>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ListViewAutomationPeer> {
         Self::IListViewAutomationPeerFactory(|this| unsafe {
@@ -11930,11 +11930,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListViewAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListViewBaseAutomationPeer(::windows::core::IUnknown);
 impl ListViewBaseAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn DropEffect(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::Provider::IDropTargetProvider>(self)?;
@@ -11943,7 +11943,7 @@ impl ListViewBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).DropEffect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn DropEffects(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<super::Provider::IDropTargetProvider>(self)?;
@@ -11952,7 +11952,7 @@ impl ListViewBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).DropEffects)(::core::mem::transmute_copy(this), ::windows::core::Array::<::windows::core::HSTRING>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewBase>>(owner: Param0) -> ::windows::core::Result<ListViewBaseAutomationPeer> {
         Self::IListViewBaseAutomationPeerFactory(|this| unsafe {
@@ -11960,7 +11960,7 @@ impl ListViewBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewBaseAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewBase>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ListViewBaseAutomationPeer> {
         Self::IListViewBaseAutomationPeerFactory(|this| unsafe {
@@ -12225,7 +12225,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewBaseAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListViewBaseAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListViewBaseHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewBaseHeaderItemAutomationPeer {}
@@ -12361,11 +12361,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewBaseHeaderItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListViewBaseHeaderItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListViewHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewHeaderItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewHeaderItem>>(owner: Param0) -> ::windows::core::Result<ListViewHeaderItemAutomationPeer> {
         Self::IListViewHeaderItemAutomationPeerFactory(|this| unsafe {
@@ -12373,7 +12373,7 @@ impl ListViewHeaderItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewHeaderItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewHeaderItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ListViewHeaderItemAutomationPeer> {
         Self::IListViewHeaderItemAutomationPeerFactory(|this| unsafe {
@@ -12540,11 +12540,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewHeaderItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListViewHeaderItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListViewItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewItem>>(owner: Param0) -> ::windows::core::Result<ListViewItemAutomationPeer> {
         Self::IListViewItemAutomationPeerFactory(|this| unsafe {
@@ -12552,7 +12552,7 @@ impl ListViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ListViewItemAutomationPeer> {
         Self::IListViewItemAutomationPeerFactory(|this| unsafe {
@@ -12699,18 +12699,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListViewItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ListViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl ListViewItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListViewBaseAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<ListViewItemDataAutomationPeer> {
         Self::IListViewItemDataAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListViewBaseAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<ListViewItemDataAutomationPeer> {
         Self::IListViewItemDataAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -12718,7 +12718,7 @@ impl ListViewItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
@@ -12960,11 +12960,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for ListViewItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct LoopingSelectorAutomationPeer(::windows::core::IUnknown);
 impl LoopingSelectorAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -12973,19 +12973,19 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).ExpandCollapseState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Collapse)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Expand)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn FindItemByProperty<'a, Param0: ::windows::core::IntoParam<'a, super::Provider::IRawElementProviderSimple>, Param1: ::windows::core::IntoParam<'a, super::AutomationProperty>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, startafter: Param0, automationproperty: Param1, value: Param2) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<super::Provider::IItemContainerProvider>(self)?;
@@ -12994,7 +12994,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).FindItemByProperty)(::core::mem::transmute_copy(this), startafter.into_param().abi(), automationproperty.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13003,7 +13003,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13012,7 +13012,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13021,7 +13021,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13030,7 +13030,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13039,7 +13039,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13048,19 +13048,19 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Scroll(&self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Scroll)(::core::mem::transmute_copy(this), horizontalamount, verticalamount).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScrollPercent)(::core::mem::transmute_copy(this), horizontalpercent, verticalpercent).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanSelectMultiple(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -13069,7 +13069,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).CanSelectMultiple)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelectionRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -13078,7 +13078,7 @@ impl LoopingSelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelectionRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<super::Provider::IRawElementProviderSimple>> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -13324,17 +13324,17 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
 }
 unsafe impl ::core::marker::Send for LoopingSelectorAutomationPeer {}
 unsafe impl ::core::marker::Sync for LoopingSelectorAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct LoopingSelectorItemAutomationPeer(::windows::core::IUnknown);
 impl LoopingSelectorItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollIntoView)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -13343,7 +13343,7 @@ impl LoopingSelectorItemAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SelectionContainer(&self) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -13352,19 +13352,19 @@ impl LoopingSelectorItemAutomationPeer {
             (::windows::core::Interface::vtable(this).SelectionContainer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddToSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFromSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -13555,11 +13555,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
 }
 unsafe impl ::core::marker::Send for LoopingSelectorItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for LoopingSelectorItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct LoopingSelectorItemDataAutomationPeer(::windows::core::IUnknown);
 impl LoopingSelectorItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Realize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IVirtualizedItemProvider>(self)?;
@@ -13704,11 +13704,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
 }
 unsafe impl ::core::marker::Send for LoopingSelectorItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for LoopingSelectorItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MapControlAutomationPeer(::windows::core::IUnknown);
 impl MapControlAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13717,7 +13717,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13726,7 +13726,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13735,7 +13735,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13744,7 +13744,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13753,7 +13753,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -13762,19 +13762,19 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Scroll(&self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Scroll)(::core::mem::transmute_copy(this), horizontalamount, verticalamount).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScrollPercent)(::core::mem::transmute_copy(this), horizontalpercent, verticalpercent).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanMove(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider>(self)?;
@@ -13783,7 +13783,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CanMove)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanResize(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider>(self)?;
@@ -13792,7 +13792,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CanResize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanRotate(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider>(self)?;
@@ -13801,25 +13801,25 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CanRotate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Move)(::core::mem::transmute_copy(this), x, y).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Resize(&self, width: f64, height: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Resize)(::core::mem::transmute_copy(this), width, height).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Rotate(&self, degrees: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Rotate)(::core::mem::transmute_copy(this), degrees).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanZoom(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider2>(self)?;
@@ -13828,7 +13828,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CanZoom)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ZoomLevel(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider2>(self)?;
@@ -13837,7 +13837,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).ZoomLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn MaxZoom(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider2>(self)?;
@@ -13846,7 +13846,7 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).MaxZoom)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn MinZoom(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider2>(self)?;
@@ -13855,13 +13855,13 @@ impl MapControlAutomationPeer {
             (::windows::core::Interface::vtable(this).MinZoom)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Zoom(&self, zoom: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Zoom)(::core::mem::transmute_copy(this), zoom).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ZoomByUnit(&self, zoomunit: super::ZoomUnit) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ITransformProvider2>(self)?;
@@ -14078,11 +14078,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapControlAutomationPeer {}
 unsafe impl ::core::marker::Sync for MapControlAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MediaElementAutomationPeer(::windows::core::IUnknown);
 impl MediaElementAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaElement>>(owner: Param0) -> ::windows::core::Result<MediaElementAutomationPeer> {
         Self::IMediaElementAutomationPeerFactory(|this| unsafe {
@@ -14090,7 +14090,7 @@ impl MediaElementAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaElementAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaElement>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MediaElementAutomationPeer> {
         Self::IMediaElementAutomationPeerFactory(|this| unsafe {
@@ -14237,11 +14237,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Med
 }
 unsafe impl ::core::marker::Send for MediaElementAutomationPeer {}
 unsafe impl ::core::marker::Sync for MediaElementAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MediaPlayerElementAutomationPeer(::windows::core::IUnknown);
 impl MediaPlayerElementAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaPlayerElement>>(owner: Param0) -> ::windows::core::Result<MediaPlayerElementAutomationPeer> {
         Self::IMediaPlayerElementAutomationPeerFactory(|this| unsafe {
@@ -14249,7 +14249,7 @@ impl MediaPlayerElementAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaPlayerElementAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaPlayerElement>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MediaPlayerElementAutomationPeer> {
         Self::IMediaPlayerElementAutomationPeerFactory(|this| unsafe {
@@ -14396,11 +14396,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Med
 }
 unsafe impl ::core::marker::Send for MediaPlayerElementAutomationPeer {}
 unsafe impl ::core::marker::Sync for MediaPlayerElementAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MediaTransportControlsAutomationPeer(::windows::core::IUnknown);
 impl MediaTransportControlsAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaTransportControls>>(owner: Param0) -> ::windows::core::Result<MediaTransportControlsAutomationPeer> {
         Self::IMediaTransportControlsAutomationPeerFactory(|this| unsafe {
@@ -14408,7 +14408,7 @@ impl MediaTransportControlsAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaTransportControlsAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaTransportControls>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MediaTransportControlsAutomationPeer> {
         Self::IMediaTransportControlsAutomationPeerFactory(|this| unsafe {
@@ -14555,11 +14555,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Med
 }
 unsafe impl ::core::marker::Send for MediaTransportControlsAutomationPeer {}
 unsafe impl ::core::marker::Sync for MediaTransportControlsAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MenuBarAutomationPeer(::windows::core::IUnknown);
 impl MenuBarAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBar>>(owner: Param0) -> ::windows::core::Result<MenuBarAutomationPeer> {
         Self::IMenuBarAutomationPeerFactory(|this| unsafe {
@@ -14567,7 +14567,7 @@ impl MenuBarAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuBarAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstance_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBar>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MenuBarAutomationPeer> {
         Self::IMenuBarAutomationPeerFactory(|this| unsafe {
@@ -14714,11 +14714,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
 }
 unsafe impl ::core::marker::Send for MenuBarAutomationPeer {}
 unsafe impl ::core::marker::Sync for MenuBarAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MenuBarItemAutomationPeer(::windows::core::IUnknown);
 impl MenuBarItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -14727,25 +14727,25 @@ impl MenuBarItemAutomationPeer {
             (::windows::core::Interface::vtable(this).ExpandCollapseState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Collapse)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Expand)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBarItem>>(owner: Param0) -> ::windows::core::Result<MenuBarItemAutomationPeer> {
         Self::IMenuBarItemAutomationPeerFactory(|this| unsafe {
@@ -14753,7 +14753,7 @@ impl MenuBarItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuBarItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstance_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBarItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MenuBarItemAutomationPeer> {
         Self::IMenuBarItemAutomationPeerFactory(|this| unsafe {
@@ -14952,17 +14952,17 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
 }
 unsafe impl ::core::marker::Send for MenuBarItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for MenuBarItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MenuFlyoutItemAutomationPeer(::windows::core::IUnknown);
 impl MenuFlyoutItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutItem>>(owner: Param0) -> ::windows::core::Result<MenuFlyoutItemAutomationPeer> {
         Self::IMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
@@ -14970,7 +14970,7 @@ impl MenuFlyoutItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuFlyoutItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MenuFlyoutItemAutomationPeer> {
         Self::IMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
@@ -15143,11 +15143,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
 }
 unsafe impl ::core::marker::Send for MenuFlyoutItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for MenuFlyoutItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct MenuFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl MenuFlyoutPresenterAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutPresenter>>(owner: Param0) -> ::windows::core::Result<MenuFlyoutPresenterAutomationPeer> {
         Self::IMenuFlyoutPresenterAutomationPeerFactory(|this| unsafe {
@@ -15155,7 +15155,7 @@ impl MenuFlyoutPresenterAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuFlyoutPresenterAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutPresenter>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<MenuFlyoutPresenterAutomationPeer> {
         Self::IMenuFlyoutPresenterAutomationPeerFactory(|this| unsafe {
@@ -15348,11 +15348,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
 }
 unsafe impl ::core::marker::Send for MenuFlyoutPresenterAutomationPeer {}
 unsafe impl ::core::marker::Sync for MenuFlyoutPresenterAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct NavigationViewItemAutomationPeer(::windows::core::IUnknown);
 impl NavigationViewItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::NavigationViewItem>>(owner: Param0) -> ::windows::core::Result<NavigationViewItemAutomationPeer> {
         Self::INavigationViewItemAutomationPeerFactory(|this| unsafe {
@@ -15360,7 +15360,7 @@ impl NavigationViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NavigationViewItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::NavigationViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<NavigationViewItemAutomationPeer> {
         Self::INavigationViewItemAutomationPeerFactory(|this| unsafe {
@@ -15527,11 +15527,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
 }
 unsafe impl ::core::marker::Send for NavigationViewItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for NavigationViewItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct PasswordBoxAutomationPeer(::windows::core::IUnknown);
 impl PasswordBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PasswordBox>>(owner: Param0) -> ::windows::core::Result<PasswordBoxAutomationPeer> {
         Self::IPasswordBoxAutomationPeerFactory(|this| unsafe {
@@ -15539,7 +15539,7 @@ impl PasswordBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PasswordBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PasswordBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<PasswordBoxAutomationPeer> {
         Self::IPasswordBoxAutomationPeerFactory(|this| unsafe {
@@ -15686,7 +15686,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pas
 }
 unsafe impl ::core::marker::Send for PasswordBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for PasswordBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PatternInterface(pub i32);
@@ -15752,11 +15752,11 @@ unsafe impl ::windows::core::RuntimeType for PatternInterface {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct PersonPictureAutomationPeer(::windows::core::IUnknown);
 impl PersonPictureAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PersonPicture>>(owner: Param0) -> ::windows::core::Result<PersonPictureAutomationPeer> {
         Self::IPersonPictureAutomationPeerFactory(|this| unsafe {
@@ -15764,7 +15764,7 @@ impl PersonPictureAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PersonPictureAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PersonPicture>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<PersonPictureAutomationPeer> {
         Self::IPersonPictureAutomationPeerFactory(|this| unsafe {
@@ -15911,7 +15911,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Per
 }
 unsafe impl ::core::marker::Send for PersonPictureAutomationPeer {}
 unsafe impl ::core::marker::Sync for PersonPictureAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct PickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl PickerFlyoutPresenterAutomationPeer {}
@@ -16047,11 +16047,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pic
 }
 unsafe impl ::core::marker::Send for PickerFlyoutPresenterAutomationPeer {}
 unsafe impl ::core::marker::Sync for PickerFlyoutPresenterAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct PivotAutomationPeer(::windows::core::IUnknown);
 impl PivotAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Pivot>>(owner: Param0) -> ::windows::core::Result<PivotAutomationPeer> {
         Self::IPivotAutomationPeerFactory(|this| unsafe {
@@ -16059,7 +16059,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), &mut result__).from_abi::<PivotAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -16068,7 +16068,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -16077,7 +16077,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -16086,7 +16086,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -16095,7 +16095,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -16104,7 +16104,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -16113,19 +16113,19 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Scroll(&self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Scroll)(::core::mem::transmute_copy(this), horizontalamount, verticalamount).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScrollPercent)(::core::mem::transmute_copy(this), horizontalpercent, verticalpercent).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanSelectMultiple(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -16134,7 +16134,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).CanSelectMultiple)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelectionRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -16143,7 +16143,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelectionRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<super::Provider::IRawElementProviderSimple>> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -16388,11 +16388,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
 }
 unsafe impl ::core::marker::Send for PivotAutomationPeer {}
 unsafe impl ::core::marker::Sync for PivotAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct PivotItemAutomationPeer(::windows::core::IUnknown);
 impl PivotItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PivotItem>>(owner: Param0) -> ::windows::core::Result<PivotItemAutomationPeer> {
         Self::IPivotItemAutomationPeerFactory(|this| unsafe {
@@ -16538,24 +16538,24 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
 }
 unsafe impl ::core::marker::Send for PivotItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for PivotItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct PivotItemDataAutomationPeer(::windows::core::IUnknown);
 impl PivotItemDataAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PivotAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<PivotItemDataAutomationPeer> {
         Self::IPivotItemDataAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), &mut result__).from_abi::<PivotItemDataAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollIntoView)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -16564,7 +16564,7 @@ impl PivotItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SelectionContainer(&self) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -16573,25 +16573,25 @@ impl PivotItemDataAutomationPeer {
             (::windows::core::Interface::vtable(this).SelectionContainer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddToSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFromSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Select)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Realize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IVirtualizedItemProvider>(self)?;
@@ -16813,11 +16813,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
 }
 unsafe impl ::core::marker::Send for PivotItemDataAutomationPeer {}
 unsafe impl ::core::marker::Sync for PivotItemDataAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ProgressBarAutomationPeer(::windows::core::IUnknown);
 impl ProgressBarAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressBar>>(owner: Param0) -> ::windows::core::Result<ProgressBarAutomationPeer> {
         Self::IProgressBarAutomationPeerFactory(|this| unsafe {
@@ -16825,7 +16825,7 @@ impl ProgressBarAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ProgressBarAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressBar>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ProgressBarAutomationPeer> {
         Self::IProgressBarAutomationPeerFactory(|this| unsafe {
@@ -17018,11 +17018,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
 }
 unsafe impl ::core::marker::Send for ProgressBarAutomationPeer {}
 unsafe impl ::core::marker::Sync for ProgressBarAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ProgressRingAutomationPeer(::windows::core::IUnknown);
 impl ProgressRingAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressRing>>(owner: Param0) -> ::windows::core::Result<ProgressRingAutomationPeer> {
         Self::IProgressRingAutomationPeerFactory(|this| unsafe {
@@ -17030,7 +17030,7 @@ impl ProgressRingAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ProgressRingAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressRing>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ProgressRingAutomationPeer> {
         Self::IProgressRingAutomationPeerFactory(|this| unsafe {
@@ -17177,11 +17177,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
 }
 unsafe impl ::core::marker::Send for ProgressRingAutomationPeer {}
 unsafe impl ::core::marker::Sync for ProgressRingAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RadioButtonAutomationPeer(::windows::core::IUnknown);
 impl RadioButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RadioButton>>(owner: Param0) -> ::windows::core::Result<RadioButtonAutomationPeer> {
         Self::IRadioButtonAutomationPeerFactory(|this| unsafe {
@@ -17189,7 +17189,7 @@ impl RadioButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RadioButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RadioButton>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RadioButtonAutomationPeer> {
         Self::IRadioButtonAutomationPeerFactory(|this| unsafe {
@@ -17198,7 +17198,7 @@ impl RadioButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RadioButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -17207,7 +17207,7 @@ impl RadioButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SelectionContainer(&self) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -17216,19 +17216,19 @@ impl RadioButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).SelectionContainer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddToSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFromSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -17464,11 +17464,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rad
 }
 unsafe impl ::core::marker::Send for RadioButtonAutomationPeer {}
 unsafe impl ::core::marker::Sync for RadioButtonAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RangeBaseAutomationPeer(::windows::core::IUnknown);
 impl RangeBaseAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RangeBase>>(owner: Param0) -> ::windows::core::Result<RangeBaseAutomationPeer> {
         Self::IRangeBaseAutomationPeerFactory(|this| unsafe {
@@ -17476,7 +17476,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RangeBaseAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RangeBase>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RangeBaseAutomationPeer> {
         Self::IRangeBaseAutomationPeerFactory(|this| unsafe {
@@ -17485,7 +17485,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RangeBaseAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17494,7 +17494,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn LargeChange(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17503,7 +17503,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).LargeChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Maximum(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17512,7 +17512,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).Maximum)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Minimum(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17521,7 +17521,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).Minimum)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SmallChange(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17530,7 +17530,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).SmallChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17539,7 +17539,7 @@ impl RangeBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetValue(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
@@ -17709,11 +17709,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ran
 }
 unsafe impl ::core::marker::Send for RangeBaseAutomationPeer {}
 unsafe impl ::core::marker::Sync for RangeBaseAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RatingControlAutomationPeer(::windows::core::IUnknown);
 impl RatingControlAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RatingControl>>(owner: Param0) -> ::windows::core::Result<RatingControlAutomationPeer> {
         Self::IRatingControlAutomationPeerFactory(|this| unsafe {
@@ -17721,7 +17721,7 @@ impl RatingControlAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RatingControlAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RatingControl>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RatingControlAutomationPeer> {
         Self::IRatingControlAutomationPeerFactory(|this| unsafe {
@@ -17869,7 +17869,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rat
 unsafe impl ::core::marker::Send for RatingControlAutomationPeer {}
 unsafe impl ::core::marker::Sync for RatingControlAutomationPeer {}
 #[repr(C)]
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 pub struct RawElementProviderRuntimeId {
     pub Part1: u32,
     pub Part2: u32,
@@ -17906,17 +17906,17 @@ impl ::core::default::Default for RawElementProviderRuntimeId {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RepeatButtonAutomationPeer(::windows::core::IUnknown);
 impl RepeatButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RepeatButton>>(owner: Param0) -> ::windows::core::Result<RepeatButtonAutomationPeer> {
         Self::IRepeatButtonAutomationPeerFactory(|this| unsafe {
@@ -17924,7 +17924,7 @@ impl RepeatButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RepeatButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RepeatButton>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RepeatButtonAutomationPeer> {
         Self::IRepeatButtonAutomationPeerFactory(|this| unsafe {
@@ -18117,11 +18117,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
 }
 unsafe impl ::core::marker::Send for RepeatButtonAutomationPeer {}
 unsafe impl ::core::marker::Sync for RepeatButtonAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RichEditBoxAutomationPeer(::windows::core::IUnknown);
 impl RichEditBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichEditBox>>(owner: Param0) -> ::windows::core::Result<RichEditBoxAutomationPeer> {
         Self::IRichEditBoxAutomationPeerFactory(|this| unsafe {
@@ -18129,7 +18129,7 @@ impl RichEditBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichEditBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichEditBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RichEditBoxAutomationPeer> {
         Self::IRichEditBoxAutomationPeerFactory(|this| unsafe {
@@ -18276,11 +18276,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ric
 }
 unsafe impl ::core::marker::Send for RichEditBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for RichEditBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RichTextBlockAutomationPeer(::windows::core::IUnknown);
 impl RichTextBlockAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlock>>(owner: Param0) -> ::windows::core::Result<RichTextBlockAutomationPeer> {
         Self::IRichTextBlockAutomationPeerFactory(|this| unsafe {
@@ -18288,7 +18288,7 @@ impl RichTextBlockAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichTextBlockAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlock>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RichTextBlockAutomationPeer> {
         Self::IRichTextBlockAutomationPeerFactory(|this| unsafe {
@@ -18435,11 +18435,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ric
 }
 unsafe impl ::core::marker::Send for RichTextBlockAutomationPeer {}
 unsafe impl ::core::marker::Sync for RichTextBlockAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct RichTextBlockOverflowAutomationPeer(::windows::core::IUnknown);
 impl RichTextBlockOverflowAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlockOverflow>>(owner: Param0) -> ::windows::core::Result<RichTextBlockOverflowAutomationPeer> {
         Self::IRichTextBlockOverflowAutomationPeerFactory(|this| unsafe {
@@ -18447,7 +18447,7 @@ impl RichTextBlockOverflowAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichTextBlockOverflowAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlockOverflow>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<RichTextBlockOverflowAutomationPeer> {
         Self::IRichTextBlockOverflowAutomationPeerFactory(|this| unsafe {
@@ -18594,11 +18594,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ric
 }
 unsafe impl ::core::marker::Send for RichTextBlockOverflowAutomationPeer {}
 unsafe impl ::core::marker::Sync for RichTextBlockOverflowAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ScrollBarAutomationPeer(::windows::core::IUnknown);
 impl ScrollBarAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ScrollBar>>(owner: Param0) -> ::windows::core::Result<ScrollBarAutomationPeer> {
         Self::IScrollBarAutomationPeerFactory(|this| unsafe {
@@ -18606,7 +18606,7 @@ impl ScrollBarAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScrollBarAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ScrollBar>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ScrollBarAutomationPeer> {
         Self::IScrollBarAutomationPeerFactory(|this| unsafe {
@@ -18799,11 +18799,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Scr
 }
 unsafe impl ::core::marker::Send for ScrollBarAutomationPeer {}
 unsafe impl ::core::marker::Sync for ScrollBarAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ScrollViewerAutomationPeer(::windows::core::IUnknown);
 impl ScrollViewerAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -18812,7 +18812,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -18821,7 +18821,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn HorizontalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -18830,7 +18830,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).HorizontalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -18839,7 +18839,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticallyScrollable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -18848,7 +18848,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalScrollPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn VerticalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
@@ -18857,19 +18857,19 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).VerticalViewSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Scroll(&self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Scroll)(::core::mem::transmute_copy(this), horizontalamount, verticalamount).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScrollPercent)(::core::mem::transmute_copy(this), horizontalpercent, verticalpercent).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ScrollViewer>>(owner: Param0) -> ::windows::core::Result<ScrollViewerAutomationPeer> {
         Self::IScrollViewerAutomationPeerFactory(|this| unsafe {
@@ -18877,7 +18877,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScrollViewerAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ScrollViewer>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ScrollViewerAutomationPeer> {
         Self::IScrollViewerAutomationPeerFactory(|this| unsafe {
@@ -19050,11 +19050,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Scr
 }
 unsafe impl ::core::marker::Send for ScrollViewerAutomationPeer {}
 unsafe impl ::core::marker::Sync for ScrollViewerAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct SearchBoxAutomationPeer(::windows::core::IUnknown);
 impl SearchBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SearchBox>>(owner: Param0) -> ::windows::core::Result<SearchBoxAutomationPeer> {
         Self::ISearchBoxAutomationPeerFactory(|this| unsafe {
@@ -19062,7 +19062,7 @@ impl SearchBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SearchBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SearchBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<SearchBoxAutomationPeer> {
         Self::ISearchBoxAutomationPeerFactory(|this| unsafe {
@@ -19209,11 +19209,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sea
 }
 unsafe impl ::core::marker::Send for SearchBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for SearchBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct SelectorAutomationPeer(::windows::core::IUnknown);
 impl SelectorAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn CanSelectMultiple(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -19222,7 +19222,7 @@ impl SelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).CanSelectMultiple)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelectionRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -19231,7 +19231,7 @@ impl SelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelectionRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<super::Provider::IRawElementProviderSimple>> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionProvider>(self)?;
@@ -19240,7 +19240,7 @@ impl SelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).GetSelection)(::core::mem::transmute_copy(this), ::windows::core::Array::<super::Provider::IRawElementProviderSimple>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Selector>>(owner: Param0) -> ::windows::core::Result<SelectorAutomationPeer> {
         Self::ISelectorAutomationPeerFactory(|this| unsafe {
@@ -19248,7 +19248,7 @@ impl SelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SelectorAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Selector>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<SelectorAutomationPeer> {
         Self::ISelectorAutomationPeerFactory(|this| unsafe {
@@ -19467,11 +19467,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
 }
 unsafe impl ::core::marker::Send for SelectorAutomationPeer {}
 unsafe impl ::core::marker::Sync for SelectorAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct SelectorItemAutomationPeer(::windows::core::IUnknown);
 impl SelectorItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -19480,7 +19480,7 @@ impl SelectorItemAutomationPeer {
             (::windows::core::Interface::vtable(this).IsSelected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn SelectionContainer(&self) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
@@ -19489,32 +19489,32 @@ impl SelectorItemAutomationPeer {
             (::windows::core::Interface::vtable(this).SelectionContainer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Provider::IRawElementProviderSimple>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddToSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFromSelection)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Select)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, SelectorAutomationPeer>>(item: Param0, parent: Param1) -> ::windows::core::Result<SelectorItemAutomationPeer> {
         Self::ISelectorItemAutomationPeerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SelectorItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
     pub fn CreateInstanceWithParentAndItem_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, SelectorAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: T) -> ::windows::core::Result<SelectorItemAutomationPeer> {
         Self::ISelectorItemAutomationPeerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -19712,11 +19712,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
 }
 unsafe impl ::core::marker::Send for SelectorItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for SelectorItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct SemanticZoomAutomationPeer(::windows::core::IUnknown);
 impl SemanticZoomAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SemanticZoom>>(owner: Param0) -> ::windows::core::Result<SemanticZoomAutomationPeer> {
         Self::ISemanticZoomAutomationPeerFactory(|this| unsafe {
@@ -19724,7 +19724,7 @@ impl SemanticZoomAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SemanticZoomAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SemanticZoom>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<SemanticZoomAutomationPeer> {
         Self::ISemanticZoomAutomationPeerFactory(|this| unsafe {
@@ -19733,7 +19733,7 @@ impl SemanticZoomAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SemanticZoomAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -19742,7 +19742,7 @@ impl SemanticZoomAutomationPeer {
             (::windows::core::Interface::vtable(this).ToggleState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ToggleState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Toggle(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -19912,11 +19912,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sem
 }
 unsafe impl ::core::marker::Send for SemanticZoomAutomationPeer {}
 unsafe impl ::core::marker::Sync for SemanticZoomAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct SettingsFlyoutAutomationPeer(::windows::core::IUnknown);
 impl SettingsFlyoutAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SettingsFlyout>>(owner: Param0) -> ::windows::core::Result<SettingsFlyoutAutomationPeer> {
         Self::ISettingsFlyoutAutomationPeerFactory(|this| unsafe {
@@ -19924,7 +19924,7 @@ impl SettingsFlyoutAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SettingsFlyoutAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SettingsFlyout>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<SettingsFlyoutAutomationPeer> {
         Self::ISettingsFlyoutAutomationPeerFactory(|this| unsafe {
@@ -20071,11 +20071,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Set
 }
 unsafe impl ::core::marker::Send for SettingsFlyoutAutomationPeer {}
 unsafe impl ::core::marker::Sync for SettingsFlyoutAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct SliderAutomationPeer(::windows::core::IUnknown);
 impl SliderAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Slider>>(owner: Param0) -> ::windows::core::Result<SliderAutomationPeer> {
         Self::ISliderAutomationPeerFactory(|this| unsafe {
@@ -20083,7 +20083,7 @@ impl SliderAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SliderAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Slider>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<SliderAutomationPeer> {
         Self::ISliderAutomationPeerFactory(|this| unsafe {
@@ -20276,11 +20276,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sli
 }
 unsafe impl ::core::marker::Send for SliderAutomationPeer {}
 unsafe impl ::core::marker::Sync for SliderAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct TextBlockAutomationPeer(::windows::core::IUnknown);
 impl TextBlockAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBlock>>(owner: Param0) -> ::windows::core::Result<TextBlockAutomationPeer> {
         Self::ITextBlockAutomationPeerFactory(|this| unsafe {
@@ -20288,7 +20288,7 @@ impl TextBlockAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TextBlockAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBlock>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<TextBlockAutomationPeer> {
         Self::ITextBlockAutomationPeerFactory(|this| unsafe {
@@ -20435,11 +20435,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tex
 }
 unsafe impl ::core::marker::Send for TextBlockAutomationPeer {}
 unsafe impl ::core::marker::Sync for TextBlockAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct TextBoxAutomationPeer(::windows::core::IUnknown);
 impl TextBoxAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBox>>(owner: Param0) -> ::windows::core::Result<TextBoxAutomationPeer> {
         Self::ITextBoxAutomationPeerFactory(|this| unsafe {
@@ -20447,7 +20447,7 @@ impl TextBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TextBoxAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBox>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<TextBoxAutomationPeer> {
         Self::ITextBoxAutomationPeerFactory(|this| unsafe {
@@ -20594,11 +20594,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tex
 }
 unsafe impl ::core::marker::Send for TextBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for TextBoxAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ThumbAutomationPeer(::windows::core::IUnknown);
 impl ThumbAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Thumb>>(owner: Param0) -> ::windows::core::Result<ThumbAutomationPeer> {
         Self::IThumbAutomationPeerFactory(|this| unsafe {
@@ -20606,7 +20606,7 @@ impl ThumbAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ThumbAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Thumb>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ThumbAutomationPeer> {
         Self::IThumbAutomationPeerFactory(|this| unsafe {
@@ -20753,11 +20753,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Thu
 }
 unsafe impl ::core::marker::Send for ThumbAutomationPeer {}
 unsafe impl ::core::marker::Sync for ThumbAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct TimePickerAutomationPeer(::windows::core::IUnknown);
 impl TimePickerAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TimePicker>>(owner: Param0) -> ::windows::core::Result<TimePickerAutomationPeer> {
         Self::ITimePickerAutomationPeerFactory(|this| unsafe {
@@ -20765,7 +20765,7 @@ impl TimePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TimePickerAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TimePicker>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<TimePickerAutomationPeer> {
         Self::ITimePickerAutomationPeerFactory(|this| unsafe {
@@ -20912,7 +20912,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
 }
 unsafe impl ::core::marker::Send for TimePickerAutomationPeer {}
 unsafe impl ::core::marker::Sync for TimePickerAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct TimePickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl TimePickerFlyoutPresenterAutomationPeer {}
@@ -21048,11 +21048,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
 }
 unsafe impl ::core::marker::Send for TimePickerFlyoutPresenterAutomationPeer {}
 unsafe impl ::core::marker::Sync for TimePickerFlyoutPresenterAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ToggleButtonAutomationPeer(::windows::core::IUnknown);
 impl ToggleButtonAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ToggleButton>>(owner: Param0) -> ::windows::core::Result<ToggleButtonAutomationPeer> {
         Self::IToggleButtonAutomationPeerFactory(|this| unsafe {
@@ -21060,7 +21060,7 @@ impl ToggleButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ToggleButton>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ToggleButtonAutomationPeer> {
         Self::IToggleButtonAutomationPeerFactory(|this| unsafe {
@@ -21069,7 +21069,7 @@ impl ToggleButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleButtonAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -21078,7 +21078,7 @@ impl ToggleButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).ToggleState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ToggleState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Toggle(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -21268,11 +21268,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
 }
 unsafe impl ::core::marker::Send for ToggleButtonAutomationPeer {}
 unsafe impl ::core::marker::Sync for ToggleButtonAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ToggleMenuFlyoutItemAutomationPeer(::windows::core::IUnknown);
 impl ToggleMenuFlyoutItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleMenuFlyoutItem>>(owner: Param0) -> ::windows::core::Result<ToggleMenuFlyoutItemAutomationPeer> {
         Self::IToggleMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
@@ -21280,7 +21280,7 @@ impl ToggleMenuFlyoutItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleMenuFlyoutItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleMenuFlyoutItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ToggleMenuFlyoutItemAutomationPeer> {
         Self::IToggleMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
@@ -21289,7 +21289,7 @@ impl ToggleMenuFlyoutItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleMenuFlyoutItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -21298,7 +21298,7 @@ impl ToggleMenuFlyoutItemAutomationPeer {
             (::windows::core::Interface::vtable(this).ToggleState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ToggleState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Toggle(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -21468,11 +21468,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
 }
 unsafe impl ::core::marker::Send for ToggleMenuFlyoutItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for ToggleMenuFlyoutItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct ToggleSwitchAutomationPeer(::windows::core::IUnknown);
 impl ToggleSwitchAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
@@ -21481,13 +21481,13 @@ impl ToggleSwitchAutomationPeer {
             (::windows::core::Interface::vtable(this).ToggleState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ToggleState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Toggle(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Toggle)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleSwitch>>(owner: Param0) -> ::windows::core::Result<ToggleSwitchAutomationPeer> {
         Self::IToggleSwitchAutomationPeerFactory(|this| unsafe {
@@ -21495,7 +21495,7 @@ impl ToggleSwitchAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleSwitchAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleSwitch>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<ToggleSwitchAutomationPeer> {
         Self::IToggleSwitchAutomationPeerFactory(|this| unsafe {
@@ -21668,11 +21668,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
 }
 unsafe impl ::core::marker::Send for ToggleSwitchAutomationPeer {}
 unsafe impl ::core::marker::Sync for ToggleSwitchAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct TreeViewItemAutomationPeer(::windows::core::IUnknown);
 impl TreeViewItemAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
@@ -21681,19 +21681,19 @@ impl TreeViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).ExpandCollapseState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Collapse)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Automation_Provider\"`*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Expand)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewItem>>(owner: Param0) -> ::windows::core::Result<TreeViewItemAutomationPeer> {
         Self::ITreeViewItemAutomationPeerFactory(|this| unsafe {
@@ -21701,7 +21701,7 @@ impl TreeViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TreeViewItemAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<TreeViewItemAutomationPeer> {
         Self::ITreeViewItemAutomationPeerFactory(|this| unsafe {
@@ -21894,11 +21894,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tre
 }
 unsafe impl ::core::marker::Send for TreeViewItemAutomationPeer {}
 unsafe impl ::core::marker::Sync for TreeViewItemAutomationPeer {}
-#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
+#[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`*"]
 #[repr(transparent)]
 pub struct TreeViewListAutomationPeer(::windows::core::IUnknown);
 impl TreeViewListAutomationPeer {
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewList>>(owner: Param0) -> ::windows::core::Result<TreeViewListAutomationPeer> {
         Self::ITreeViewListAutomationPeerFactory(|this| unsafe {
@@ -21906,7 +21906,7 @@ impl TreeViewListAutomationPeer {
             (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TreeViewListAutomationPeer>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Automation_Peers\"`, `\"UI_Xaml_Controls\"`*"]
     #[cfg(feature = "UI_Xaml_Controls")]
     pub fn CreateInstanceWithOwner_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewList>, T: ::windows::core::Compose>(owner: Param0, compose: T) -> ::windows::core::Result<TreeViewListAutomationPeer> {
         Self::ITreeViewListAutomationPeerFactory(|this| unsafe {

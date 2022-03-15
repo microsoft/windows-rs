@@ -91,7 +91,7 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
     pub LinguisticDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(::windows::core::IUnknown);
 impl RequestingFocusOnKeyboardInputEventArgs {}
@@ -167,11 +167,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a R
 }
 unsafe impl ::core::marker::Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::core::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
-#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestion(::windows::core::IUnknown);
 impl SearchSuggestion {
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<SearchSuggestionKind> {
         let this = self;
         unsafe {
@@ -179,7 +179,7 @@ impl SearchSuggestion {
             (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SearchSuggestionKind>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -187,7 +187,7 @@ impl SearchSuggestion {
             (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -195,7 +195,7 @@ impl SearchSuggestion {
             (::windows::core::Interface::vtable(this).Tag)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn DetailText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -203,7 +203,7 @@ impl SearchSuggestion {
             (::windows::core::Interface::vtable(this).DetailText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Image(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -212,7 +212,7 @@ impl SearchSuggestion {
             (::windows::core::Interface::vtable(this).Image)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn ImageAlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -291,7 +291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SearchSuggestionKind(pub i32);
@@ -326,18 +326,18 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionManager(::windows::core::IUnknown);
 impl SearchSuggestionManager {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SearchSuggestionManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SearchHistoryEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -345,12 +345,12 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).SearchHistoryEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SetSearchHistoryEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSearchHistoryEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SearchHistoryContext(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -358,32 +358,32 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).SearchHistoryContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SetSearchHistoryContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSearchHistoryContext)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SetLocalContentSuggestionSettings<'a, Param0: ::windows::core::IntoParam<'a, super::LocalContentSuggestionSettings>>(&self, settings: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalContentSuggestionSettings)(::core::mem::transmute_copy(this), settings.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SetQuery<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, querytext: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQuery)(::core::mem::transmute_copy(this), querytext.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SetQueryWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, querytext: Param0, language: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQueryWithLanguage)(::core::mem::transmute_copy(this), querytext.into_param().abi(), language.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn SetQueryWithSearchQueryLinguisticDetails<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::SearchQueryLinguisticDetails>>(&self, querytext: Param0, language: Param1, linguisticdetails: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::core::mem::transmute_copy(this), querytext.into_param().abi(), language.into_param().abi(), linguisticdetails.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Suggestions(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
         let this = self;
@@ -392,22 +392,22 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).Suggestions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn AddToHistory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, querytext: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddToHistory)(::core::mem::transmute_copy(this), querytext.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn AddToHistoryWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, querytext: Param0, language: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddToHistoryWithLanguage)(::core::mem::transmute_copy(this), querytext.into_param().abi(), language.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn ClearHistory(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClearHistory)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SuggestionsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -416,13 +416,13 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).SuggestionsRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSuggestionsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSuggestionsRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestingFocusOnKeyboardInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -431,7 +431,7 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRequestingFocusOnKeyboardInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -508,11 +508,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 impl SearchSuggestionsRequestedEventArgs {
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -520,7 +520,7 @@ impl SearchSuggestionsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).QueryText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -528,7 +528,7 @@ impl SearchSuggestionsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn LinguisticDetails(&self) -> ::windows::core::Result<super::SearchQueryLinguisticDetails> {
         let this = self;
         unsafe {
@@ -536,7 +536,7 @@ impl SearchSuggestionsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).LinguisticDetails)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SearchQueryLinguisticDetails>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<super::SearchSuggestionsRequest> {
         let this = self;
         unsafe {

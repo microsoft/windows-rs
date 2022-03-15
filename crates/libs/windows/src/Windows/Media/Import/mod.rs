@@ -446,7 +446,7 @@ pub struct IPhotoImportVideoSegment_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Sidecars: usize,
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportAccessMode(pub i32);
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportConnectionTransport(pub i32);
@@ -517,7 +517,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportContentType(pub i32);
@@ -552,7 +552,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportContentTypeFilter(pub i32);
@@ -588,11 +588,11 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(::windows::core::IUnknown);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Session(&self) -> ::windows::core::Result<PhotoImportSession> {
         let this = self;
         unsafe {
@@ -600,7 +600,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSession>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn HasSucceeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -608,7 +608,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).HasSucceeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeletedItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>> {
         let this = self;
@@ -617,7 +617,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).DeletedItems)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PhotosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -625,7 +625,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).PhotosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PhotosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -633,7 +633,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).PhotosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn VideosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -641,7 +641,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).VideosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn VideosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -649,7 +649,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).VideosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SidecarsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -657,7 +657,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).SidecarsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SidecarsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -665,7 +665,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).SidecarsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SiblingsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -673,7 +673,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).SiblingsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SiblingsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -681,7 +681,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).SiblingsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn TotalCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -689,7 +689,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows::core::Interface::vtable(this).TotalCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -770,11 +770,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl ::core::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportFindItemsResult(::windows::core::IUnknown);
 impl PhotoImportFindItemsResult {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Session(&self) -> ::windows::core::Result<PhotoImportSession> {
         let this = self;
         unsafe {
@@ -782,7 +782,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSession>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn HasSucceeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -790,7 +790,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).HasSucceeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FoundItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>> {
         let this = self;
@@ -799,7 +799,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).FoundItems)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PhotosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -807,7 +807,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).PhotosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PhotosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -815,7 +815,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).PhotosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn VideosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -823,7 +823,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).VideosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn VideosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -831,7 +831,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).VideosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SidecarsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -839,7 +839,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SidecarsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SidecarsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -847,7 +847,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SidecarsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SiblingsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -855,7 +855,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SiblingsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SiblingsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -863,7 +863,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SiblingsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn TotalCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -871,7 +871,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).TotalCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -879,17 +879,17 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).TotalSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectAll(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SelectAll)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectNone(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SelectNone)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectNewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -898,12 +898,12 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectNewAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetImportMode(&self, value: PhotoImportImportMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetImportMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ImportMode(&self) -> ::windows::core::Result<PhotoImportImportMode> {
         let this = self;
         unsafe {
@@ -911,7 +911,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).ImportMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportImportMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedPhotosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -919,7 +919,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedPhotosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedPhotosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -927,7 +927,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedPhotosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedVideosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -935,7 +935,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedVideosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedVideosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -943,7 +943,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedVideosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedSidecarsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -951,7 +951,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedSidecarsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedSidecarsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -959,7 +959,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedSidecarsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedSiblingsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -967,7 +967,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedSiblingsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedSiblingsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -975,7 +975,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedSiblingsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedTotalCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -983,7 +983,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedTotalCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SelectedTotalSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -991,7 +991,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectedTotalSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1000,13 +1000,13 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).SelectionChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSelectionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ImportItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
@@ -1015,7 +1015,7 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).ImportItemsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemImported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1024,13 +1024,13 @@ impl PhotoImportFindItemsResult {
             (::windows::core::Interface::vtable(this).ItemImported)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemImported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveItemImported)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AddItemsInDateRangeToSelection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, rangestart: Param0, rangelength: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhotoImportFindItemsResult2>(self)?;
@@ -1109,11 +1109,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportFindItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportFindItemsResult {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportImportItemsResult(::windows::core::IUnknown);
 impl PhotoImportImportItemsResult {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Session(&self) -> ::windows::core::Result<PhotoImportSession> {
         let this = self;
         unsafe {
@@ -1121,7 +1121,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSession>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn HasSucceeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1129,7 +1129,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).HasSucceeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportedItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>> {
         let this = self;
@@ -1138,7 +1138,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).ImportedItems)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PhotosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1146,7 +1146,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).PhotosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PhotosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1154,7 +1154,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).PhotosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn VideosCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1162,7 +1162,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).VideosCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn VideosSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1170,7 +1170,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).VideosSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SidecarsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1178,7 +1178,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).SidecarsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SidecarsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1186,7 +1186,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).SidecarsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SiblingsCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1194,7 +1194,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).SiblingsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SiblingsSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1202,7 +1202,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).SiblingsSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn TotalCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1210,7 +1210,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).TotalCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1218,7 +1218,7 @@ impl PhotoImportImportItemsResult {
             (::windows::core::Interface::vtable(this).TotalSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteImportedItemsFromSourceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
@@ -1300,7 +1300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportImportMode(pub i32);
@@ -1336,11 +1336,11 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportImportMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportItem(::windows::core::IUnknown);
 impl PhotoImportItem {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1348,7 +1348,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ItemKey(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1356,7 +1356,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).ItemKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ContentType(&self) -> ::windows::core::Result<PhotoImportContentType> {
         let this = self;
         unsafe {
@@ -1364,7 +1364,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).ContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportContentType>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1372,7 +1372,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).SizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1381,7 +1381,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).Date)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Sibling(&self) -> ::windows::core::Result<PhotoImportSidecar> {
         let this = self;
         unsafe {
@@ -1389,7 +1389,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).Sibling)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSidecar>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sidecars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>> {
         let this = self;
@@ -1398,7 +1398,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).Sidecars)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn VideoSegments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportVideoSegment>> {
         let this = self;
@@ -1407,7 +1407,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).VideoSegments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportVideoSegment>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1415,12 +1415,12 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).IsSelected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetIsSelected(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsSelected)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Import', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1429,7 +1429,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportedFileNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1438,7 +1438,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).ImportedFileNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeletedFileNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1447,7 +1447,7 @@ impl PhotoImportItem {
             (::windows::core::Interface::vtable(this).DeletedFileNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPhotoImportItem2>(self)?;
         unsafe {
@@ -1528,11 +1528,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportItem {}
 unsafe impl ::core::marker::Sync for PhotoImportItem {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportItemImportedEventArgs(::windows::core::IUnknown);
 impl PhotoImportItemImportedEventArgs {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ImportedItem(&self) -> ::windows::core::Result<PhotoImportItem> {
         let this = self;
         unsafe {
@@ -1613,7 +1613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportItemSelectionMode(pub i32);
@@ -1648,10 +1648,10 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 pub struct PhotoImportManager {}
 impl PhotoImportManager {
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSupportedAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
@@ -1659,7 +1659,7 @@ impl PhotoImportManager {
             (::windows::core::Interface::vtable(this).IsSupportedAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllSourcesAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
@@ -1667,7 +1667,7 @@ impl PhotoImportManager {
             (::windows::core::Interface::vtable(this).FindAllSourcesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPendingOperations() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
@@ -1684,11 +1684,11 @@ impl PhotoImportManager {
 impl ::windows::core::RuntimeName for PhotoImportManager {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportManager";
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportOperation(::windows::core::IUnknown);
 impl PhotoImportOperation {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Stage(&self) -> ::windows::core::Result<PhotoImportStage> {
         let this = self;
         unsafe {
@@ -1696,7 +1696,7 @@ impl PhotoImportOperation {
             (::windows::core::Interface::vtable(this).Stage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportStage>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Session(&self) -> ::windows::core::Result<PhotoImportSession> {
         let this = self;
         unsafe {
@@ -1704,7 +1704,7 @@ impl PhotoImportOperation {
             (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSession>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContinueFindingItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
@@ -1713,7 +1713,7 @@ impl PhotoImportOperation {
             (::windows::core::Interface::vtable(this).ContinueFindingItemsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContinueImportingItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
@@ -1722,7 +1722,7 @@ impl PhotoImportOperation {
             (::windows::core::Interface::vtable(this).ContinueImportingItemsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
@@ -1804,7 +1804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportPowerSource(pub i32);
@@ -1840,7 +1840,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportPowerSource {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,
@@ -1880,11 +1880,11 @@ impl ::core::default::Default for PhotoImportProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportSelectionChangedEventArgs(::windows::core::IUnknown);
 impl PhotoImportSelectionChangedEventArgs {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn IsSelectionEmpty(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1965,17 +1965,17 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportSelectionChangedEventArgs {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportSession(::windows::core::IUnknown);
 impl PhotoImportSession {
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<PhotoImportSource> {
         let this = self;
         unsafe {
@@ -1983,7 +1983,7 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSource>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SessionId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -1991,13 +1991,13 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).SessionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn SetDestinationFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDestinationFolder)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Import', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn DestinationFolder(&self) -> ::windows::core::Result<super::super::Storage::IStorageFolder> {
         let this = self;
@@ -2006,12 +2006,12 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).DestinationFolder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::IStorageFolder>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetAppendSessionDateToDestinationFolder(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAppendSessionDateToDestinationFolder)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn AppendSessionDateToDestinationFolder(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2019,12 +2019,12 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).AppendSessionDateToDestinationFolder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetSubfolderCreationMode(&self, value: PhotoImportSubfolderCreationMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubfolderCreationMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SubfolderCreationMode(&self) -> ::windows::core::Result<PhotoImportSubfolderCreationMode> {
         let this = self;
         unsafe {
@@ -2032,12 +2032,12 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).SubfolderCreationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSubfolderCreationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetDestinationFileNamePrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDestinationFileNamePrefix)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn DestinationFileNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2045,7 +2045,7 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).DestinationFileNamePrefix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
@@ -2054,12 +2054,12 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).FindItemsAsync)(::core::mem::transmute_copy(this), contenttypefilter, itemselectionmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetSubfolderDateFormat(&self, value: PhotoImportSubfolderDateFormat) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSubfolderDateFormat)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SubfolderDateFormat(&self) -> ::windows::core::Result<PhotoImportSubfolderDateFormat> {
         let this = &::windows::core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe {
@@ -2067,12 +2067,12 @@ impl PhotoImportSession {
             (::windows::core::Interface::vtable(this).SubfolderDateFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSubfolderDateFormat>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SetRememberDeselectedItems(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRememberDeselectedItems)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn RememberDeselectedItems(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe {
@@ -2179,11 +2179,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PhotoImportSession {}
 unsafe impl ::core::marker::Sync for PhotoImportSession {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportSidecar(::windows::core::IUnknown);
 impl PhotoImportSidecar {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2191,7 +2191,7 @@ impl PhotoImportSidecar {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -2199,7 +2199,7 @@ impl PhotoImportSidecar {
             (::windows::core::Interface::vtable(this).SizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2281,11 +2281,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportSidecar {}
 unsafe impl ::core::marker::Sync for PhotoImportSidecar {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportSource(::windows::core::IUnknown);
 impl PhotoImportSource {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2293,7 +2293,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2301,7 +2301,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2309,7 +2309,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Manufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2317,7 +2317,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).Manufacturer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Model(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2325,7 +2325,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).Model)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2333,7 +2333,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).SerialNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ConnectionProtocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2341,7 +2341,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).ConnectionProtocol)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ConnectionTransport(&self) -> ::windows::core::Result<PhotoImportConnectionTransport> {
         let this = self;
         unsafe {
@@ -2349,7 +2349,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).ConnectionTransport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportConnectionTransport>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PhotoImportSourceType> {
         let this = self;
         unsafe {
@@ -2357,7 +2357,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSourceType>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn PowerSource(&self) -> ::windows::core::Result<PhotoImportPowerSource> {
         let this = self;
         unsafe {
@@ -2365,7 +2365,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).PowerSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportPowerSource>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BatteryLevelPercent(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -2374,7 +2374,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).BatteryLevelPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DateTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -2383,7 +2383,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).DateTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorageMedia(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportStorageMedium>> {
         let this = self;
@@ -2392,7 +2392,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).StorageMedia)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportStorageMedium>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsLocked(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -2401,7 +2401,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).IsLocked)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn IsMassStorage(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2409,7 +2409,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).IsMassStorage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -2418,7 +2418,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn CreateImportSession(&self) -> ::windows::core::Result<PhotoImportSession> {
         let this = self;
         unsafe {
@@ -2426,7 +2426,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).CreateImportSession)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSession>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>> {
         Self::IPhotoImportSourceStatics(|this| unsafe {
@@ -2434,7 +2434,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), sourceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhotoImportSource>>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn FromFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>>(sourcerootfolder: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>> {
         Self::IPhotoImportSourceStatics(|this| unsafe {
@@ -2520,7 +2520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportSourceType(pub i32);
@@ -2559,7 +2559,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportStage(pub i32);
@@ -2595,11 +2595,11 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportStage {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportStorageMedium(::windows::core::IUnknown);
 impl PhotoImportStorageMedium {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2607,7 +2607,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2615,7 +2615,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2623,7 +2623,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).SerialNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn StorageMediumType(&self) -> ::windows::core::Result<PhotoImportStorageMediumType> {
         let this = self;
         unsafe {
@@ -2631,7 +2631,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).StorageMediumType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportStorageMediumType>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SupportedAccessMode(&self) -> ::windows::core::Result<PhotoImportAccessMode> {
         let this = self;
         unsafe {
@@ -2639,7 +2639,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).SupportedAccessMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportAccessMode>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn CapacityInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -2647,7 +2647,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).CapacityInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn AvailableSpaceInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -2655,7 +2655,7 @@ impl PhotoImportStorageMedium {
             (::windows::core::Interface::vtable(this).AvailableSpaceInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Refresh(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Refresh)(::core::mem::transmute_copy(this)).ok() }
@@ -2733,7 +2733,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportStorageMediumType(pub i32);
@@ -2768,7 +2768,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
@@ -2804,7 +2804,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
@@ -2839,11 +2839,11 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Import'*"]
+#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportVideoSegment(::windows::core::IUnknown);
 impl PhotoImportVideoSegment {
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2851,7 +2851,7 @@ impl PhotoImportVideoSegment {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -2859,7 +2859,7 @@ impl PhotoImportVideoSegment {
             (::windows::core::Interface::vtable(this).SizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2868,7 +2868,7 @@ impl PhotoImportVideoSegment {
             (::windows::core::Interface::vtable(this).Date)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import'*"]
+    #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn Sibling(&self) -> ::windows::core::Result<PhotoImportSidecar> {
         let this = self;
         unsafe {
@@ -2876,7 +2876,7 @@ impl PhotoImportVideoSegment {
             (::windows::core::Interface::vtable(this).Sibling)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoImportSidecar>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Import', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sidecars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>> {
         let this = self;

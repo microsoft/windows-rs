@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Data_Text'*"]
+#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
@@ -23,7 +23,7 @@ pub type SemanticTextQuery = *mut ::core::ffi::c_void;
 pub type TextConversionGenerator = *mut ::core::ffi::c_void;
 pub type TextPhoneme = *mut ::core::ffi::c_void;
 pub type TextPredictionGenerator = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Data_Text'*"]
+#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
@@ -39,7 +39,7 @@ impl ::core::clone::Clone for TextPredictionOptions {
 }
 pub type TextReverseConversionGenerator = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Data_Text'*"]
+#[doc = "*Required features: `\"Data_Text\"`*"]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for TextSegment {
         *self
     }
 }
-#[doc = "*Required features: 'Data_Text'*"]
+#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
@@ -91,7 +91,7 @@ impl ::core::clone::Clone for UnicodeGeneralCategory {
         *self
     }
 }
-#[doc = "*Required features: 'Data_Text'*"]
+#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {

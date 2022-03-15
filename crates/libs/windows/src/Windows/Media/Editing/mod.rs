@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct BackgroundAudioTrack(::windows::core::IUnknown);
 impl BackgroundAudioTrack {
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -12,13 +12,13 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).TrimTimeFromStart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrimTimeFromStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimTimeFromEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -27,13 +27,13 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).TrimTimeFromEnd)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrimTimeFromEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OriginalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -42,7 +42,7 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).OriginalDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimmedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -51,7 +51,7 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).TrimmedDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -60,13 +60,13 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).UserData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -75,12 +75,12 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn SetVolume(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVolume)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Volume(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -88,7 +88,7 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).Volume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Clone(&self) -> ::windows::core::Result<BackgroundAudioTrack> {
         let this = self;
         unsafe {
@@ -96,7 +96,7 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).Clone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundAudioTrack>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_MediaProperties'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
@@ -105,7 +105,7 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).GetAudioEncodingProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections', 'Media_Effects'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`, `\"Media_Effects\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
@@ -114,14 +114,14 @@ impl BackgroundAudioTrack {
             (::windows::core::Interface::vtable(this).AudioEffectDefinitions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn CreateFromEmbeddedAudioTrack<'a, Param0: ::windows::core::IntoParam<'a, EmbeddedAudioTrack>>(embeddedaudiotrack: Param0) -> ::windows::core::Result<BackgroundAudioTrack> {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(::core::mem::transmute_copy(this), embeddedaudiotrack.into_param().abi(), &mut result__).from_abi::<BackgroundAudioTrack>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>> {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
@@ -207,11 +207,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 }
 unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
 unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct EmbeddedAudioTrack(::windows::core::IUnknown);
 impl EmbeddedAudioTrack {
-    #[doc = "*Required features: 'Media_Editing', 'Media_MediaProperties'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
@@ -683,11 +683,11 @@ pub struct IMediaOverlayLayerFactory_Vtbl {
     #[cfg(not(feature = "Media_Effects"))]
     CreateWithCompositorDefinition: usize,
 }
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct MediaClip(::windows::core::IUnknown);
 impl MediaClip {
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -696,13 +696,13 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).TrimTimeFromStart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrimTimeFromStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimTimeFromEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -711,13 +711,13 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).TrimTimeFromEnd)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrimTimeFromEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OriginalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -726,7 +726,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).OriginalDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimmedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -735,7 +735,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).TrimmedDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -744,7 +744,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).UserData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Clone(&self) -> ::windows::core::Result<MediaClip> {
         let this = self;
         unsafe {
@@ -752,7 +752,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).Clone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaClip>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartTimeInComposition(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -761,7 +761,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).StartTimeInComposition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndTimeInComposition(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -770,7 +770,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).EndTimeInComposition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EmbeddedAudioTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmbeddedAudioTrack>> {
         let this = self;
@@ -779,7 +779,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).EmbeddedAudioTracks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<EmbeddedAudioTrack>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn SelectedEmbeddedAudioTrackIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -787,17 +787,17 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).SelectedEmbeddedAudioTrackIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn SetSelectedEmbeddedAudioTrackIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectedEmbeddedAudioTrackIndex)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn SetVolume(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVolume)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Volume(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -805,7 +805,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).Volume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_MediaProperties'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetVideoEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = self;
@@ -814,7 +814,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).GetVideoEncodingProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections', 'Media_Effects'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`, `\"Media_Effects\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
@@ -823,7 +823,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).AudioEffectDefinitions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections', 'Media_Effects'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`, `\"Media_Effects\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn VideoEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>> {
         let this = self;
@@ -832,7 +832,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).VideoEffectDefinitions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'UI'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI"))]
     pub fn CreateFromColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(color: Param0, originalduration: Param1) -> ::windows::core::Result<MediaClip> {
         Self::IMediaClipStatics(|this| unsafe {
@@ -840,7 +840,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).CreateFromColor)(::core::mem::transmute_copy(this), color.into_param().abi(), originalduration.into_param().abi(), &mut result__).from_abi::<MediaClip>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>> {
         Self::IMediaClipStatics(|this| unsafe {
@@ -848,7 +848,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaClip>>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateFromImageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(file: Param0, originalduration: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>> {
         Self::IMediaClipStatics(|this| unsafe {
@@ -856,7 +856,7 @@ impl MediaClip {
             (::windows::core::Interface::vtable(this).CreateFromImageFileAsync)(::core::mem::transmute_copy(this), file.into_param().abi(), originalduration.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaClip>>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateFromSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(surface: Param0, originalduration: Param1) -> ::windows::core::Result<MediaClip> {
         Self::IMediaClipStatics2(|this| unsafe {
@@ -947,18 +947,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaClip {}
 unsafe impl ::core::marker::Sync for MediaClip {}
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct MediaComposition(::windows::core::IUnknown);
 impl MediaComposition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaComposition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -967,7 +967,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clips(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaClip>> {
         let this = self;
@@ -976,7 +976,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).Clips)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<MediaClip>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BackgroundAudioTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundAudioTrack>> {
         let this = self;
@@ -985,7 +985,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).BackgroundAudioTracks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<BackgroundAudioTrack>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -994,7 +994,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).UserData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Clone(&self) -> ::windows::core::Result<MediaComposition> {
         let this = self;
         unsafe {
@@ -1002,7 +1002,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).Clone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaComposition>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn SaveAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1011,7 +1011,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).SaveAsync)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Graphics_Imaging', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, timefromstart: Param0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
         let this = self;
@@ -1020,7 +1020,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::core::mem::transmute_copy(this), timefromstart.into_param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections', 'Graphics_Imaging', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
     pub fn GetThumbnailsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>>(&self, timesfromstart: Param0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>> {
         let this = self;
@@ -1029,7 +1029,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).GetThumbnailsAsync)(::core::mem::transmute_copy(this), timesfromstart.into_param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Media_Transcoding', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, destination: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
         let this = self;
@@ -1038,7 +1038,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).RenderToFileAsync)(::core::mem::transmute_copy(this), destination.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Media_Transcoding', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileWithTrimmingPreferenceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, destination: Param0, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
         let this = self;
@@ -1047,7 +1047,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(::core::mem::transmute_copy(this), destination.into_param().abi(), trimmingpreference, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Media_MediaProperties', 'Media_Transcoding', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileWithProfileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, destination: Param0, trimmingpreference: MediaTrimmingPreference, encodingprofile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
         let this = self;
@@ -1056,7 +1056,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).RenderToFileWithProfileAsync)(::core::mem::transmute_copy(this), destination.into_param().abi(), trimmingpreference, encodingprofile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_MediaProperties'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn CreateDefaultEncodingProfile(&self) -> ::windows::core::Result<super::MediaProperties::MediaEncodingProfile> {
         let this = self;
@@ -1065,7 +1065,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).CreateDefaultEncodingProfile)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::MediaEncodingProfile>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_Core'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
     pub fn GenerateMediaStreamSource(&self) -> ::windows::core::Result<super::Core::MediaStreamSource> {
         let this = self;
@@ -1074,7 +1074,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).GenerateMediaStreamSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Core::MediaStreamSource>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_Core', 'Media_MediaProperties'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Core\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
     pub fn GenerateMediaStreamSourceWithProfile<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, encodingprofile: Param0) -> ::windows::core::Result<super::Core::MediaStreamSource> {
         let this = self;
@@ -1083,7 +1083,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), &mut result__).from_abi::<super::Core::MediaStreamSource>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_Core'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
     pub fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> ::windows::core::Result<super::Core::MediaStreamSource> {
         let this = self;
@@ -1092,7 +1092,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).GeneratePreviewMediaStreamSource)(::core::mem::transmute_copy(this), scaledwidth, scaledheight, &mut result__).from_abi::<super::Core::MediaStreamSource>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn OverlayLayers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlayLayer>> {
         let this = &::windows::core::Interface::cast::<IMediaComposition2>(self)?;
@@ -1101,7 +1101,7 @@ impl MediaComposition {
             (::windows::core::Interface::vtable(this).OverlayLayers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<MediaOverlayLayer>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation', 'Storage'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>> {
         Self::IMediaCompositionStatics(|this| unsafe {
@@ -1187,11 +1187,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaComposition {}
 unsafe impl ::core::marker::Sync for MediaComposition {}
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct MediaOverlay(::windows::core::IUnknown);
 impl MediaOverlay {
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1200,19 +1200,19 @@ impl MediaOverlay {
             (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1221,7 +1221,7 @@ impl MediaOverlay {
             (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Opacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1229,12 +1229,12 @@ impl MediaOverlay {
             (::windows::core::Interface::vtable(this).Opacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Clone(&self) -> ::windows::core::Result<MediaOverlay> {
         let this = self;
         unsafe {
@@ -1242,7 +1242,7 @@ impl MediaOverlay {
             (::windows::core::Interface::vtable(this).Clone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaOverlay>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Clip(&self) -> ::windows::core::Result<MediaClip> {
         let this = self;
         unsafe {
@@ -1250,7 +1250,7 @@ impl MediaOverlay {
             (::windows::core::Interface::vtable(this).Clip)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaClip>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn AudioEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1258,19 +1258,19 @@ impl MediaOverlay {
             (::windows::core::Interface::vtable(this).AudioEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn SetAudioEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAudioEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, MediaClip>>(clip: Param0) -> ::windows::core::Result<MediaOverlay> {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), clip.into_param().abi(), &mut result__).from_abi::<MediaOverlay>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithPositionAndOpacity<'a, Param0: ::windows::core::IntoParam<'a, MediaClip>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(clip: Param0, position: Param1, opacity: f64) -> ::windows::core::Result<MediaOverlay> {
         Self::IMediaOverlayFactory(|this| unsafe {
@@ -1356,18 +1356,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaOverlay {}
 unsafe impl ::core::marker::Sync for MediaOverlay {}
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct MediaOverlayLayer(::windows::core::IUnknown);
 impl MediaOverlayLayer {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaOverlayLayer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Media_Editing'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`*"]
     pub fn Clone(&self) -> ::windows::core::Result<MediaOverlayLayer> {
         let this = self;
         unsafe {
@@ -1375,7 +1375,7 @@ impl MediaOverlayLayer {
             (::windows::core::Interface::vtable(this).Clone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaOverlayLayer>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Overlays(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlay>> {
         let this = self;
@@ -1384,7 +1384,7 @@ impl MediaOverlayLayer {
             (::windows::core::Interface::vtable(this).Overlays)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<MediaOverlay>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_Effects'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Effects\"`*"]
     #[cfg(feature = "Media_Effects")]
     pub fn CustomCompositorDefinition(&self) -> ::windows::core::Result<super::Effects::IVideoCompositorDefinition> {
         let this = self;
@@ -1393,7 +1393,7 @@ impl MediaOverlayLayer {
             (::windows::core::Interface::vtable(this).CustomCompositorDefinition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Effects::IVideoCompositorDefinition>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Editing', 'Media_Effects'*"]
+    #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Effects\"`*"]
     #[cfg(feature = "Media_Effects")]
     pub fn CreateWithCompositorDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::Effects::IVideoCompositorDefinition>>(compositordefinition: Param0) -> ::windows::core::Result<MediaOverlayLayer> {
         Self::IMediaOverlayLayerFactory(|this| unsafe {
@@ -1479,7 +1479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaOverlayLayer {}
 unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaTrimmingPreference(pub i32);
@@ -1513,7 +1513,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTrimmingPreference {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Media_Editing'*"]
+#[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoFramePrecision(pub i32);

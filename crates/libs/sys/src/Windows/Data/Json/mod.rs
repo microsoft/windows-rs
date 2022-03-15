@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type IJsonValue = *mut ::core::ffi::c_void;
 pub type JsonArray = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Data_Json'*"]
+#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for JsonErrorStatus {
 }
 pub type JsonObject = *mut ::core::ffi::c_void;
 pub type JsonValue = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Data_Json'*"]
+#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {

@@ -3,7 +3,7 @@ pub type BluetoothLEAdvertisement = *mut ::core::ffi::c_void;
 pub type BluetoothLEAdvertisementBytePattern = *mut ::core::ffi::c_void;
 pub type BluetoothLEAdvertisementDataSection = *mut ::core::ffi::c_void;
 pub type BluetoothLEAdvertisementFilter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
+#[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
@@ -21,7 +21,7 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementFlags {
     }
 }
 pub type BluetoothLEAdvertisementPublisher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
+#[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
@@ -40,7 +40,7 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatus {
 }
 pub type BluetoothLEAdvertisementPublisherStatusChangedEventArgs = *mut ::core::ffi::c_void;
 pub type BluetoothLEAdvertisementReceivedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
+#[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
@@ -58,7 +58,7 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementType {
     }
 }
 pub type BluetoothLEAdvertisementWatcher = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
+#[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
@@ -76,7 +76,7 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStatus {
 }
 pub type BluetoothLEAdvertisementWatcherStoppedEventArgs = *mut ::core::ffi::c_void;
 pub type BluetoothLEManufacturerData = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
+#[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {

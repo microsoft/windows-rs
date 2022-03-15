@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_PasswordManagement', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CYPHER_BLOCK {
     pub data: [super::super::Foundation::CHAR; 8],
@@ -38,7 +38,7 @@ impl ::core::default::Default for CYPHER_BLOCK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_PasswordManagement', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
@@ -76,7 +76,7 @@ impl ::core::default::Default for ENCRYPTED_LM_OWF_PASSWORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_PasswordManagement', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
@@ -113,7 +113,7 @@ impl ::core::default::Default for LM_OWF_PASSWORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_PasswordManagement', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(servername: Param0, username: Param1, lmoldpresent: Param2, lmoldowfpassword: *const LM_OWF_PASSWORD, lmnewowfpassword: *const LM_OWF_PASSWORD, ntoldowfpassword: *const LM_OWF_PASSWORD, ntnewowfpassword: *const LM_OWF_PASSWORD) -> u32 {
@@ -128,7 +128,7 @@ pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_PasswordManagement', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(servername: Param0, username: Param1, newpasswordencryptedwitholdnt: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldntowfpasswordencryptedwithnewnt: *const ENCRYPTED_LM_OWF_PASSWORD, lmpresent: Param4, newpasswordencryptedwitholdlm: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldlmowfpasswordencryptedwithnewlmornt: *const ENCRYPTED_LM_OWF_PASSWORD) -> u32 {
@@ -144,7 +144,7 @@ pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::core::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_PasswordManagement'*"]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct SAMPR_ENCRYPTED_USER_PASSWORD {
     pub Buffer: [u8; 516],
 }

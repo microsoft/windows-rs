@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
+#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
@@ -12,7 +12,7 @@ impl ::core::clone::Clone for SpeechAppendedSilence {
         *self
     }
 }
-#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
+#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
@@ -28,7 +28,7 @@ impl ::core::clone::Clone for SpeechPunctuationSilence {
 pub type SpeechSynthesisStream = *mut ::core::ffi::c_void;
 pub type SpeechSynthesizer = *mut ::core::ffi::c_void;
 pub type SpeechSynthesizerOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
+#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {

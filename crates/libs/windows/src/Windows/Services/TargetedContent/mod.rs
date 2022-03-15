@@ -333,11 +333,11 @@ pub struct ITargetedContentValue_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Actions: usize,
 }
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentAction(::windows::core::IUnknown);
 impl TargetedContentAction {
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InvokeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -419,7 +419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentAppInstallationState(pub i32);
@@ -454,7 +454,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentAvailability(pub i32);
@@ -489,11 +489,11 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAvailability {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentAvailabilityChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentAvailabilityChangedEventArgs {
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -575,11 +575,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentChangedEventArgs {
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -588,7 +588,7 @@ impl TargetedContentChangedEventArgs {
             (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn HasPreviousContentExpired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -669,11 +669,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentCollection(::windows::core::IUnknown);
 impl TargetedContentCollection {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -681,17 +681,17 @@ impl TargetedContentCollection {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::core::mem::transmute_copy(this), interaction).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportCustomInteraction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::core::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -699,7 +699,7 @@ impl TargetedContentCollection {
             (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>> {
         let this = self;
@@ -708,7 +708,7 @@ impl TargetedContentCollection {
             (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>> {
         let this = self;
@@ -717,7 +717,7 @@ impl TargetedContentCollection {
             (::windows::core::Interface::vtable(this).Collections)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentItem>> {
         let this = self;
@@ -799,11 +799,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentCollection {}
 unsafe impl ::core::marker::Sync for TargetedContentCollection {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentContainer(::windows::core::IUnknown);
 impl TargetedContentContainer {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -811,7 +811,7 @@ impl TargetedContentContainer {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -820,7 +820,7 @@ impl TargetedContentContainer {
             (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Availability(&self) -> ::windows::core::Result<TargetedContentAvailability> {
         let this = self;
         unsafe {
@@ -828,7 +828,7 @@ impl TargetedContentContainer {
             (::windows::core::Interface::vtable(this).Availability)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAvailability>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Content(&self) -> ::windows::core::Result<TargetedContentCollection> {
         let this = self;
         unsafe {
@@ -836,7 +836,7 @@ impl TargetedContentContainer {
             (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn SelectSingleObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, path: Param0) -> ::windows::core::Result<TargetedContentObject> {
         let this = self;
         unsafe {
@@ -844,7 +844,7 @@ impl TargetedContentContainer {
             (::windows::core::Interface::vtable(this).SelectSingleObject)(::core::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<TargetedContentObject>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         Self::ITargetedContentContainerStatics(|this| unsafe {
@@ -930,13 +930,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentContainer {}
 unsafe impl ::core::marker::Sync for TargetedContentContainer {}
-#[doc = "*Required features: 'Services_TargetedContent', 'Storage_Streams'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Storage_Streams\"`*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct TargetedContentFile(::windows::core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -1061,11 +1061,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 unsafe impl ::core::marker::Send for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::core::marker::Sync for TargetedContentFile {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentImage(::windows::core::IUnknown);
 impl TargetedContentImage {
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
@@ -1074,7 +1074,7 @@ impl TargetedContentImage {
             (::windows::core::Interface::vtable(this).OpenReadAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1082,7 +1082,7 @@ impl TargetedContentImage {
             (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1189,7 +1189,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 }
 unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentInteraction(pub i32);
@@ -1234,11 +1234,11 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentInteraction {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentItem(::windows::core::IUnknown);
 impl TargetedContentItem {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1246,17 +1246,17 @@ impl TargetedContentItem {
             (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::core::mem::transmute_copy(this), interaction).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportCustomInteraction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::core::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn State(&self) -> ::windows::core::Result<TargetedContentItemState> {
         let this = self;
         unsafe {
@@ -1264,7 +1264,7 @@ impl TargetedContentItem {
             (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItemState>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>> {
         let this = self;
@@ -1273,7 +1273,7 @@ impl TargetedContentItem {
             (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>> {
         let this = self;
@@ -1355,11 +1355,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentItem {}
 unsafe impl ::core::marker::Sync for TargetedContentItem {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentItemState(::windows::core::IUnknown);
 impl TargetedContentItemState {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ShouldDisplay(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1367,7 +1367,7 @@ impl TargetedContentItemState {
             (::windows::core::Interface::vtable(this).ShouldDisplay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn AppInstallationState(&self) -> ::windows::core::Result<TargetedContentAppInstallationState> {
         let this = self;
         unsafe {
@@ -1448,11 +1448,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentItemState {}
 unsafe impl ::core::marker::Sync for TargetedContentItemState {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentObject(::windows::core::IUnknown);
 impl TargetedContentObject {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ObjectKind(&self) -> ::windows::core::Result<TargetedContentObjectKind> {
         let this = self;
         unsafe {
@@ -1460,7 +1460,7 @@ impl TargetedContentObject {
             (::windows::core::Interface::vtable(this).ObjectKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentObjectKind>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Collection(&self) -> ::windows::core::Result<TargetedContentCollection> {
         let this = self;
         unsafe {
@@ -1468,7 +1468,7 @@ impl TargetedContentObject {
             (::windows::core::Interface::vtable(this).Collection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Item(&self) -> ::windows::core::Result<TargetedContentItem> {
         let this = self;
         unsafe {
@@ -1476,7 +1476,7 @@ impl TargetedContentObject {
             (::windows::core::Interface::vtable(this).Item)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItem>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<TargetedContentValue> {
         let this = self;
         unsafe {
@@ -1557,7 +1557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentObjectKind(pub i32);
@@ -1592,11 +1592,11 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentObjectKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentStateChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentStateChangedEventArgs {
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1678,11 +1678,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentSubscription(::windows::core::IUnknown);
 impl TargetedContentSubscription {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1690,7 +1690,7 @@ impl TargetedContentSubscription {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContentContainerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         let this = self;
@@ -1699,7 +1699,7 @@ impl TargetedContentSubscription {
             (::windows::core::Interface::vtable(this).GetContentContainerAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1708,13 +1708,13 @@ impl TargetedContentSubscription {
             (::windows::core::Interface::vtable(this).ContentChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1723,13 +1723,13 @@ impl TargetedContentSubscription {
             (::windows::core::Interface::vtable(this).AvailabilityChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1738,13 +1738,13 @@ impl TargetedContentSubscription {
             (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subscriptionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
@@ -1752,7 +1752,7 @@ impl TargetedContentSubscription {
             (::windows::core::Interface::vtable(this).GetAsync)(::core::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn GetOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subscriptionid: Param0) -> ::windows::core::Result<TargetedContentSubscriptionOptions> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1837,11 +1837,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentSubscription {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentSubscriptionOptions(::windows::core::IUnknown);
 impl TargetedContentSubscriptionOptions {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn SubscriptionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1849,7 +1849,7 @@ impl TargetedContentSubscriptionOptions {
             (::windows::core::Interface::vtable(this).SubscriptionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn AllowPartialContentAvailability(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1857,12 +1857,12 @@ impl TargetedContentSubscriptionOptions {
             (::windows::core::Interface::vtable(this).AllowPartialContentAvailability)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn SetAllowPartialContentAvailability(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowPartialContentAvailability)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CloudQueryParameters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -1871,7 +1871,7 @@ impl TargetedContentSubscriptionOptions {
             (::windows::core::Interface::vtable(this).CloudQueryParameters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1880,7 +1880,7 @@ impl TargetedContentSubscriptionOptions {
             (::windows::core::Interface::vtable(this).LocalFilters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Update(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Update)(::core::mem::transmute_copy(this)).ok() }
@@ -1958,11 +1958,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentValue(::windows::core::IUnknown);
 impl TargetedContentValue {
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ValueKind(&self) -> ::windows::core::Result<TargetedContentValueKind> {
         let this = self;
         unsafe {
@@ -1970,7 +1970,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).ValueKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValueKind>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1978,7 +1978,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn String(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1986,7 +1986,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).String)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1995,7 +1995,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Number(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2003,7 +2003,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Number)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Boolean(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2011,7 +2011,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Boolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> ::windows::core::Result<TargetedContentFile> {
         let this = self;
@@ -2020,7 +2020,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentFile>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ImageFile(&self) -> ::windows::core::Result<TargetedContentImage> {
         let this = self;
         unsafe {
@@ -2028,7 +2028,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).ImageFile)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentImage>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Action(&self) -> ::windows::core::Result<TargetedContentAction> {
         let this = self;
         unsafe {
@@ -2036,7 +2036,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Action)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Strings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -2045,7 +2045,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Strings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Uris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
         let this = self;
@@ -2054,7 +2054,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Uris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Numbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
@@ -2063,7 +2063,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Numbers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Booleans(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<bool>> {
         let this = self;
@@ -2072,7 +2072,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Booleans)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentFile>> {
         let this = self;
@@ -2081,7 +2081,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImageFiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentImage>> {
         let this = self;
@@ -2090,7 +2090,7 @@ impl TargetedContentValue {
             (::windows::core::Interface::vtable(this).ImageFiles)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_TargetedContent', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Actions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentAction>> {
         let this = self;
@@ -2172,7 +2172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
-#[doc = "*Required features: 'Services_TargetedContent'*"]
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentValueKind(pub i32);

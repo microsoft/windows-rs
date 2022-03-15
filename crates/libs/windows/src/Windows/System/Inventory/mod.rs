@@ -31,11 +31,11 @@ pub struct IInstalledDesktopAppStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetInventoryAsync: usize,
 }
-#[doc = "*Required features: 'System_Inventory'*"]
+#[doc = "*Required features: `\"System_Inventory\"`*"]
 #[repr(transparent)]
 pub struct InstalledDesktopApp(::windows::core::IUnknown);
 impl InstalledDesktopApp {
-    #[doc = "*Required features: 'System_Inventory'*"]
+    #[doc = "*Required features: `\"System_Inventory\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -43,7 +43,7 @@ impl InstalledDesktopApp {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Inventory'*"]
+    #[doc = "*Required features: `\"System_Inventory\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -51,7 +51,7 @@ impl InstalledDesktopApp {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Inventory'*"]
+    #[doc = "*Required features: `\"System_Inventory\"`*"]
     pub fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -59,7 +59,7 @@ impl InstalledDesktopApp {
             (::windows::core::Interface::vtable(this).Publisher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Inventory'*"]
+    #[doc = "*Required features: `\"System_Inventory\"`*"]
     pub fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -67,7 +67,7 @@ impl InstalledDesktopApp {
             (::windows::core::Interface::vtable(this).DisplayVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'System_Inventory', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"System_Inventory\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetInventoryAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>> {
         Self::IInstalledDesktopAppStatics(|this| unsafe {
@@ -75,7 +75,7 @@ impl InstalledDesktopApp {
             (::windows::core::Interface::vtable(this).GetInventoryAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System_Inventory', 'Foundation'*"]
+    #[doc = "*Required features: `\"System_Inventory\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;

@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_Notifications_Management")]
 pub mod Management;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for AdaptiveNotificationContentKind {
 }
 pub type AdaptiveNotificationText = *mut ::core::ffi::c_void;
 pub type BadgeNotification = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
@@ -34,7 +34,7 @@ pub type IAdaptiveNotificationContent = *mut ::core::ffi::c_void;
 pub type Notification = *mut ::core::ffi::c_void;
 pub type NotificationBinding = *mut ::core::ffi::c_void;
 pub type NotificationData = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for NotificationKinds {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
@@ -60,7 +60,7 @@ impl ::core::clone::Clone for NotificationMirroring {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
@@ -76,7 +76,7 @@ impl ::core::clone::Clone for NotificationSetting {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
@@ -91,7 +91,7 @@ impl ::core::clone::Clone for NotificationUpdateResult {
     }
 }
 pub type NotificationVisual = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
@@ -112,7 +112,7 @@ pub type ScheduledToastNotification = *mut ::core::ffi::c_void;
 pub type ScheduledToastNotificationShowingEventArgs = *mut ::core::ffi::c_void;
 pub type ShownTileNotification = *mut ::core::ffi::c_void;
 pub type TileFlyoutNotification = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
@@ -126,7 +126,7 @@ impl ::core::clone::Clone for TileFlyoutTemplateType {
 }
 pub type TileFlyoutUpdater = *mut ::core::ffi::c_void;
 pub type TileNotification = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
@@ -268,7 +268,7 @@ pub type TileUpdater = *mut ::core::ffi::c_void;
 pub type ToastActivatedEventArgs = *mut ::core::ffi::c_void;
 pub type ToastCollection = *mut ::core::ffi::c_void;
 pub type ToastCollectionManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
@@ -284,7 +284,7 @@ impl ::core::clone::Clone for ToastDismissalReason {
 }
 pub type ToastDismissedEventArgs = *mut ::core::ffi::c_void;
 pub type ToastFailedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
@@ -304,7 +304,7 @@ pub type ToastNotificationActionTriggerDetail = *mut ::core::ffi::c_void;
 pub type ToastNotificationHistory = *mut ::core::ffi::c_void;
 pub type ToastNotificationHistoryChangedTriggerDetail = *mut ::core::ffi::c_void;
 pub type ToastNotificationManagerForUser = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
@@ -318,7 +318,7 @@ impl ::core::clone::Clone for ToastNotificationPriority {
     }
 }
 pub type ToastNotifier = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
@@ -339,7 +339,7 @@ impl ::core::clone::Clone for ToastTemplateType {
 }
 pub type UserNotification = *mut ::core::ffi::c_void;
 pub type UserNotificationChangedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Notifications'*"]
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {

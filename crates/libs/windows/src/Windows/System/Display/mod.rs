@@ -1,21 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'System_Display'*"]
+#[doc = "*Required features: `\"System_Display\"`*"]
 #[repr(transparent)]
 pub struct DisplayRequest(::windows::core::IUnknown);
 impl DisplayRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'System_Display'*"]
+    #[doc = "*Required features: `\"System_Display\"`*"]
     pub fn RequestActive(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RequestActive)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'System_Display'*"]
+    #[doc = "*Required features: `\"System_Display\"`*"]
     pub fn RequestRelease(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RequestRelease)(::core::mem::transmute_copy(this)).ok() }

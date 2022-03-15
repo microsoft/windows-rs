@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccessCacheOptions(pub u32);
@@ -65,7 +65,7 @@ unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 pub struct AccessListEntry {
     pub Token: ::windows::core::HSTRING,
     pub Metadata: ::windows::core::HSTRING,
@@ -101,13 +101,13 @@ impl ::core::default::Default for AccessListEntry {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct AccessListEntryView(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<AccessListEntry>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
@@ -116,7 +116,7 @@ impl AccessListEntryView {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<AccessListEntry>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<AccessListEntry> {
         let this = self;
@@ -125,7 +125,7 @@ impl AccessListEntryView {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<AccessListEntry>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -134,7 +134,7 @@ impl AccessListEntryView {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, AccessListEntry>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -143,7 +143,7 @@ impl AccessListEntryView {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [AccessListEntry]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -353,11 +353,11 @@ pub struct IStorageApplicationPermissionsStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetMostRecentlyUsedListForUser: usize,
 }
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct IStorageItemAccessList(::windows::core::IUnknown);
 impl IStorageItemAccessList {
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOverloadDefaultMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, file: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -365,7 +365,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).AddOverloadDefaultMetadata)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, file: Param0, metadata: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -373,17 +373,17 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).Add)(::core::mem::transmute_copy(this), file.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplaceOverloadDefaultMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, token: Param0, file: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplaceOverloadDefaultMetadata)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, file: Param1, metadata: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplace)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi(), metadata.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -392,7 +392,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetItemAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -401,7 +401,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFileAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -410,7 +410,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFolderAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -419,7 +419,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -428,7 +428,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -437,12 +437,12 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn ContainsItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -450,12 +450,12 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).ContainsItem)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn CheckAccess<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, file: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -463,7 +463,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).CheckAccess)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> ::windows::core::Result<AccessListEntryView> {
         let this = self;
@@ -472,7 +472,7 @@ impl IStorageItemAccessList {
             (::windows::core::Interface::vtable(this).Entries)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessListEntryView>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn MaximumItemsAllowed(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -624,11 +624,11 @@ pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
     pub AddWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AddOrReplaceWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct ItemRemovedEventArgs(::windows::core::IUnknown);
 impl ItemRemovedEventArgs {
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn RemovedEntry(&self) -> ::windows::core::Result<AccessListEntry> {
         let this = self;
         unsafe {
@@ -707,7 +707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RecentStorageItemVisibility(pub i32);
@@ -741,24 +741,24 @@ unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 pub struct StorageApplicationPermissions {}
 impl StorageApplicationPermissions {
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn FutureAccessList() -> ::windows::core::Result<StorageItemAccessList> {
         Self::IStorageApplicationPermissionsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FutureAccessList)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageItemAccessList>(result__)
         })
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn MostRecentlyUsedList() -> ::windows::core::Result<StorageItemMostRecentlyUsedList> {
         Self::IStorageApplicationPermissionsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).MostRecentlyUsedList)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageItemMostRecentlyUsedList>(result__)
         })
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'System'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetFutureAccessListForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<StorageItemAccessList> {
         Self::IStorageApplicationPermissionsStatics2(|this| unsafe {
@@ -766,7 +766,7 @@ impl StorageApplicationPermissions {
             (::windows::core::Interface::vtable(this).GetFutureAccessListForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<StorageItemAccessList>(result__)
         })
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'System'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetMostRecentlyUsedListForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<StorageItemMostRecentlyUsedList> {
         Self::IStorageApplicationPermissionsStatics2(|this| unsafe {
@@ -788,11 +788,11 @@ impl StorageApplicationPermissions {
 impl ::windows::core::RuntimeName for StorageApplicationPermissions {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageApplicationPermissions";
 }
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct StorageItemAccessList(::windows::core::IUnknown);
 impl StorageItemAccessList {
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOverloadDefaultMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, file: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -800,7 +800,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).AddOverloadDefaultMetadata)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, file: Param0, metadata: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -808,17 +808,17 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).Add)(::core::mem::transmute_copy(this), file.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplaceOverloadDefaultMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, token: Param0, file: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplaceOverloadDefaultMetadata)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, file: Param1, metadata: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplace)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi(), metadata.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -827,7 +827,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetItemAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -836,7 +836,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFileAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -845,7 +845,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFolderAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
@@ -854,7 +854,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
@@ -863,7 +863,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
@@ -872,12 +872,12 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn ContainsItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -885,12 +885,12 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).ContainsItem)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn CheckAccess<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, file: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -898,7 +898,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).CheckAccess)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> ::windows::core::Result<AccessListEntryView> {
         let this = self;
@@ -907,7 +907,7 @@ impl StorageItemAccessList {
             (::windows::core::Interface::vtable(this).Entries)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessListEntryView>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn MaximumItemsAllowed(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1008,11 +1008,11 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemAccessList> for &StorageItem
         ::core::convert::TryInto::<IStorageItemAccessList>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct StorageItemMostRecentlyUsedList(::windows::core::IUnknown);
 impl StorageItemMostRecentlyUsedList {
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOverloadDefaultMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, file: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
@@ -1020,7 +1020,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).AddOverloadDefaultMetadata)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, file: Param0, metadata: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
@@ -1028,17 +1028,17 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).Add)(::core::mem::transmute_copy(this), file.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplaceOverloadDefaultMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, token: Param0, file: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplaceOverloadDefaultMetadata)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, file: Param1, metadata: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplace)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi(), metadata.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1047,7 +1047,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).GetItemAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1056,7 +1056,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).GetFileAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1065,7 +1065,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).GetFolderAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetItemWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1074,7 +1074,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFileWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1083,7 +1083,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFolderWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1092,12 +1092,12 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::core::mem::transmute_copy(this), token.into_param().abi(), options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn ContainsItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
@@ -1105,12 +1105,12 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).ContainsItem)(::core::mem::transmute_copy(this), token.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn CheckAccess<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>>(&self, file: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
@@ -1118,7 +1118,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).CheckAccess)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> ::windows::core::Result<AccessListEntryView> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
@@ -1127,7 +1127,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).Entries)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessListEntryView>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn MaximumItemsAllowed(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
@@ -1135,7 +1135,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).MaximumItemsAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1144,13 +1144,13 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).ItemRemoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache', 'Foundation'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveItemRemoved)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddWithMetadataAndVisibility<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, file: Param0, metadata: Param1, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
         unsafe {
@@ -1158,7 +1158,7 @@ impl StorageItemMostRecentlyUsedList {
             (::windows::core::Interface::vtable(this).AddWithMetadataAndVisibility)(::core::mem::transmute_copy(this), file.into_param().abi(), metadata.into_param().abi(), visibility, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Storage_AccessCache'*"]
+    #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn AddOrReplaceWithMetadataAndVisibility<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IStorageItem>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, token: Param0, file: Param1, metadata: Param2, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddOrReplaceWithMetadataAndVisibility)(::core::mem::transmute_copy(this), token.into_param().abi(), file.into_param().abi(), metadata.into_param().abi(), visibility).ok() }

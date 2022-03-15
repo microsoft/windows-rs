@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallItem(::windows::core::IUnknown);
 impl AppInstallItem {
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11,7 +11,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).ProductId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -19,7 +19,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).PackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallType(&self) -> ::windows::core::Result<AppInstallType> {
         let this = self;
         unsafe {
@@ -27,7 +27,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).InstallType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallType>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn IsUserInitiated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -35,7 +35,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).IsUserInitiated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn GetCurrentStatus(&self) -> ::windows::core::Result<AppInstallStatus> {
         let this = self;
         unsafe {
@@ -43,22 +43,22 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).GetCurrentStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Pause)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Restart(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Restart)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -67,13 +67,13 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).Completed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -82,28 +82,28 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).StatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CancelWithTelemetry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, correlationvector: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).CancelWithTelemetry)(::core::mem::transmute_copy(this), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PauseWithTelemetry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, correlationvector: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PauseWithTelemetry)(::core::mem::transmute_copy(this), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn RestartWithTelemetry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, correlationvector: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RestartWithTelemetry)(::core::mem::transmute_copy(this), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem3>(self)?;
@@ -112,7 +112,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn ItemOperationsMightAffectOtherItems(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem3>(self)?;
         unsafe {
@@ -120,7 +120,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).ItemOperationsMightAffectOtherItems)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn LaunchAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem4>(self)?;
         unsafe {
@@ -128,12 +128,12 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).LaunchAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetLaunchAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetLaunchAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PinToDesktopAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe {
@@ -141,12 +141,12 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).PinToDesktopAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetPinToDesktopAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPinToDesktopAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PinToStartAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe {
@@ -154,12 +154,12 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).PinToStartAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetPinToStartAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPinToStartAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PinToTaskbarAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe {
@@ -167,12 +167,12 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).PinToTaskbarAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetPinToTaskbarAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPinToTaskbarAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CompletedInstallToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe {
@@ -180,12 +180,12 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).CompletedInstallToastNotificationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallationToastNotificationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetCompletedInstallToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCompletedInstallToastNotificationMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallInProgressToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe {
@@ -193,7 +193,7 @@ impl AppInstallItem {
             (::windows::core::Interface::vtable(this).InstallInProgressToastNotificationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallationToastNotificationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetInstallInProgressToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInstallInProgressToastNotificationMode)(::core::mem::transmute_copy(this), value).ok() }
@@ -271,18 +271,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstallItem {}
 unsafe impl ::core::marker::Sync for AppInstallItem {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallManager(::windows::core::IUnknown);
 impl AppInstallManager {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppInstallManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppInstallItems(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>> {
         let this = self;
@@ -291,22 +291,22 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).AppInstallItems)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Cancel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this), productid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Pause<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Pause)(::core::mem::transmute_copy(this), productid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Restart<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Restart)(::core::mem::transmute_copy(this), productid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -315,13 +315,13 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).ItemCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveItemCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -330,13 +330,13 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).ItemStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveItemStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn AutoUpdateSetting(&self) -> ::windows::core::Result<AutoUpdateSetting> {
         let this = self;
         unsafe {
@@ -344,12 +344,12 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).AutoUpdateSetting)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutoUpdateSetting>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetAutoUpdateSetting(&self, value: AutoUpdateSetting) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSetting)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn AcquisitionIdentity(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -357,12 +357,12 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).AcquisitionIdentity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetAcquisitionIdentity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAcquisitionIdentity)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsApplicableAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, skuid: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -371,7 +371,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsApplicableAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAppInstallAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, skuid: Param1, repair: bool, forceuseofnonremovablestorage: bool) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = self;
@@ -380,7 +380,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).StartAppInstallAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), repair, forceuseofnonremovablestorage, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAppByPackageFamilyNameAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = self;
@@ -389,7 +389,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).UpdateAppByPackageFamilyNameAsync)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SearchForUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, skuid: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = self;
@@ -398,7 +398,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForUpdatesAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = self;
@@ -407,7 +407,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForAllUpdatesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsStoreBlockedByPolicyAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, storeclientname: Param0, storeclientpublisher: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -416,7 +416,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).IsStoreBlockedByPolicyAsync)(::core::mem::transmute_copy(this), storeclientname.into_param().abi(), storeclientpublisher.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsAppAllowedToInstallAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -425,7 +425,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsAppAllowedToInstallAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAppInstallWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, skuid: Param1, repair: bool, forceuseofnonremovablestorage: bool, catalogid: Param4, bundleid: Param5, correlationvector: Param6) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
@@ -434,7 +434,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).StartAppInstallWithTelemetryAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), repair, forceuseofnonremovablestorage, catalogid.into_param().abi(), bundleid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAppByPackageFamilyNameWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0, correlationvector: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
@@ -443,7 +443,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).UpdateAppByPackageFamilyNameWithTelemetryAsync)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SearchForUpdatesWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, skuid: Param1, catalogid: Param2, correlationvector: Param3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
@@ -452,7 +452,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForUpdatesWithTelemetryAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), catalogid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, correlationvector: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
@@ -461,7 +461,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForAllUpdatesWithTelemetryAsync)(::core::mem::transmute_copy(this), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsAppAllowedToInstallWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, skuid: Param1, catalogid: Param2, correlationvector: Param3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
@@ -470,22 +470,22 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsAppAllowedToInstallWithTelemetryAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), catalogid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CancelWithTelemetry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, correlationvector: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).CancelWithTelemetry)(::core::mem::transmute_copy(this), productid.into_param().abi(), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PauseWithTelemetry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, correlationvector: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PauseWithTelemetry)(::core::mem::transmute_copy(this), productid.into_param().abi(), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn RestartWithTelemetry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, correlationvector: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RestartWithTelemetry)(::core::mem::transmute_copy(this), productid.into_param().abi(), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections', 'Management_Deployment'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`, `\"Management_Deployment\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
     pub fn StartProductInstallAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, super::super::super::super::Management::Deployment::PackageVolume>>(
         &self,
@@ -504,7 +504,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).StartProductInstallAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), catalogid.into_param().abi(), flightid.into_param().abi(), clientid.into_param().abi(), repair, forceuseofnonremovablestorage, correlationvector.into_param().abi(), targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections', 'Management_Deployment', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`, `\"Management_Deployment\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System"))]
     pub fn StartProductInstallForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param8: ::windows::core::IntoParam<'a, super::super::super::super::Management::Deployment::PackageVolume>>(
         &self,
@@ -524,7 +524,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).StartProductInstallForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), productid.into_param().abi(), catalogid.into_param().abi(), flightid.into_param().abi(), clientid.into_param().abi(), repair, forceuseofnonremovablestorage, correlationvector.into_param().abi(), targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn UpdateAppByPackageFamilyNameForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, packagefamilyname: Param1, correlationvector: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager3>(self)?;
@@ -533,7 +533,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).UpdateAppByPackageFamilyNameForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), packagefamilyname.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn SearchForUpdatesForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, productid: Param1, skuid: Param2, catalogid: Param3, correlationvector: Param4) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager3>(self)?;
@@ -542,7 +542,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForUpdatesForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), productid.into_param().abi(), skuid.into_param().abi(), catalogid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn SearchForAllUpdatesForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, correlationvector: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager3>(self)?;
@@ -551,7 +551,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForAllUpdatesForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetIsAppAllowedToInstallForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, productid: Param1, skuid: Param2, catalogid: Param3, correlationvector: Param4) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager3>(self)?;
@@ -560,7 +560,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsAppAllowedToInstallForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), productid.into_param().abi(), skuid.into_param().abi(), catalogid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetIsApplicableForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, productid: Param1, skuid: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager3>(self)?;
@@ -569,12 +569,12 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsApplicableForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), productid.into_param().abi(), skuid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn MoveToFrontOfDownloadQueue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, productid: Param0, correlationvector: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).MoveToFrontOfDownloadQueue)(::core::mem::transmute_copy(this), productid.into_param().abi(), correlationvector.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFreeUserEntitlementAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, storeid: Param0, campaignid: Param1, correlationvector: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager4>(self)?;
@@ -583,7 +583,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetFreeUserEntitlementAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), campaignid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetFreeUserEntitlementForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, storeid: Param1, campaignid: Param2, correlationvector: Param3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager4>(self)?;
@@ -592,7 +592,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetFreeUserEntitlementForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), storeid.into_param().abi(), campaignid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFreeDeviceEntitlementAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, storeid: Param0, campaignid: Param1, correlationvector: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager4>(self)?;
@@ -601,7 +601,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetFreeDeviceEntitlementAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), campaignid.into_param().abi(), correlationvector.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppInstallItemsWithGroupSupport(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager5>(self)?;
@@ -610,7 +610,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).AppInstallItemsWithGroupSupport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesWithUpdateOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, AppUpdateOptions>>(&self, correlationvector: Param0, clientid: Param1, updateoptions: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -619,7 +619,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsAsync)(::core::mem::transmute_copy(this), correlationvector.into_param().abi(), clientid.into_param().abi(), updateoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn SearchForAllUpdatesWithUpdateOptionsForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, AppUpdateOptions>>(&self, user: Param0, correlationvector: Param1, clientid: Param2, updateoptions: Param3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -628,7 +628,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), correlationvector.into_param().abi(), clientid.into_param().abi(), updateoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SearchForUpdatesWithUpdateOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, AppUpdateOptions>>(&self, productid: Param0, skuid: Param1, correlationvector: Param2, clientid: Param3, updateoptions: Param4) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -637,7 +637,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), skuid.into_param().abi(), correlationvector.into_param().abi(), clientid.into_param().abi(), updateoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn SearchForUpdatesWithUpdateOptionsForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, AppUpdateOptions>>(&self, user: Param0, productid: Param1, skuid: Param2, correlationvector: Param3, clientid: Param4, updateoptions: Param5) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -646,7 +646,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), productid.into_param().abi(), skuid.into_param().abi(), correlationvector.into_param().abi(), clientid.into_param().abi(), updateoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartProductInstallWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, AppInstallOptions>>(&self, productid: Param0, flightid: Param1, clientid: Param2, correlationvector: Param3, installoptions: Param4) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -655,7 +655,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).StartProductInstallWithOptionsAsync)(::core::mem::transmute_copy(this), productid.into_param().abi(), flightid.into_param().abi(), clientid.into_param().abi(), correlationvector.into_param().abi(), installoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation_Collections', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn StartProductInstallWithOptionsForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, AppInstallOptions>>(&self, user: Param0, productid: Param1, flightid: Param2, clientid: Param3, correlationvector: Param4, installoptions: Param5) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -664,7 +664,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).StartProductInstallWithOptionsForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), productid.into_param().abi(), flightid.into_param().abi(), clientid.into_param().abi(), correlationvector.into_param().abi(), installoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsPackageIdentityAllowedToInstallAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, correlationvector: Param0, packageidentityname: Param1, publishercertificatename: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -673,7 +673,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsPackageIdentityAllowedToInstallAsync)(::core::mem::transmute_copy(this), correlationvector.into_param().abi(), packageidentityname.into_param().abi(), publishercertificatename.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Foundation', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetIsPackageIdentityAllowedToInstallForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, user: Param0, correlationvector: Param1, packageidentityname: Param2, publishercertificatename: Param3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager6>(self)?;
@@ -682,7 +682,7 @@ impl AppInstallManager {
             (::windows::core::Interface::vtable(this).GetIsPackageIdentityAllowedToInstallForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), correlationvector.into_param().abi(), packageidentityname.into_param().abi(), publishercertificatename.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CanInstallForAllUsers(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallManager7>(self)?;
         unsafe {
@@ -763,11 +763,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstallManager {}
 unsafe impl ::core::marker::Sync for AppInstallManager {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallManagerItemEventArgs(::windows::core::IUnknown);
 impl AppInstallManagerItemEventArgs {
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Item(&self) -> ::windows::core::Result<AppInstallItem> {
         let this = self;
         unsafe {
@@ -848,18 +848,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstallManagerItemEventArgs {}
 unsafe impl ::core::marker::Sync for AppInstallManagerItemEventArgs {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallOptions(::windows::core::IUnknown);
 impl AppInstallOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppInstallOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -867,12 +867,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).CatalogId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetCatalogId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCatalogId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn ForceUseOfNonRemovableStorage(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -880,12 +880,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).ForceUseOfNonRemovableStorage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetForceUseOfNonRemovableStorage(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetForceUseOfNonRemovableStorage)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -893,12 +893,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).AllowForcedAppRestart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowForcedAppRestart)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Repair(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -906,12 +906,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).Repair)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetRepair(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRepair)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Management_Deployment'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Management_Deployment\"`*"]
     #[cfg(feature = "Management_Deployment")]
     pub fn TargetVolume(&self) -> ::windows::core::Result<super::super::super::super::Management::Deployment::PackageVolume> {
         let this = self;
@@ -920,13 +920,13 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).TargetVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Management::Deployment::PackageVolume>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'Management_Deployment'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"Management_Deployment\"`*"]
     #[cfg(feature = "Management_Deployment")]
     pub fn SetTargetVolume<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Management::Deployment::PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn LaunchAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -934,12 +934,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).LaunchAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetLaunchAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLaunchAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PinToDesktopAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -947,12 +947,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).PinToDesktopAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetPinToDesktopAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPinToDesktopAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PinToStartAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -960,12 +960,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).PinToStartAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetPinToStartAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPinToStartAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PinToTaskbarAfterInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -973,12 +973,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).PinToTaskbarAfterInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetPinToTaskbarAfterInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPinToTaskbarAfterInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CompletedInstallToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -986,12 +986,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).CompletedInstallToastNotificationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallationToastNotificationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetCompletedInstallToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCompletedInstallToastNotificationMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallInProgressToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -999,12 +999,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).InstallInProgressToastNotificationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallationToastNotificationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetInstallInProgressToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInstallInProgressToastNotificationMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallForAllUsers(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -1012,12 +1012,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).InstallForAllUsers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetInstallForAllUsers(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInstallForAllUsers)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn StageButDoNotInstall(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -1025,12 +1025,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).StageButDoNotInstall)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetStageButDoNotInstall(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStageButDoNotInstall)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -1038,12 +1038,12 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).CampaignId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetCampaignId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCampaignId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn ExtendedCampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe {
@@ -1051,7 +1051,7 @@ impl AppInstallOptions {
             (::windows::core::Interface::vtable(this).ExtendedCampaignId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetExtendedCampaignId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetExtendedCampaignId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1129,7 +1129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstallOptions {}
 unsafe impl ::core::marker::Sync for AppInstallOptions {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallState(pub i32);
@@ -1175,11 +1175,11 @@ unsafe impl ::windows::core::RuntimeType for AppInstallState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallStatus(::windows::core::IUnknown);
 impl AppInstallStatus {
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallState(&self) -> ::windows::core::Result<AppInstallState> {
         let this = self;
         unsafe {
@@ -1187,7 +1187,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).InstallState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallState>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn DownloadSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1195,7 +1195,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).DownloadSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn BytesDownloaded(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1203,7 +1203,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).BytesDownloaded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn PercentComplete(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1211,7 +1211,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).PercentComplete)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1219,7 +1219,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IAppInstallStatus2>(self)?;
@@ -1228,7 +1228,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn ReadyForLaunch(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallStatus2>(self)?;
         unsafe {
@@ -1236,7 +1236,7 @@ impl AppInstallStatus {
             (::windows::core::Interface::vtable(this).ReadyForLaunch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn IsStaged(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallStatus3>(self)?;
         unsafe {
@@ -1317,7 +1317,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstallStatus {}
 unsafe impl ::core::marker::Sync for AppInstallStatus {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallType(pub i32);
@@ -1352,7 +1352,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallationToastNotificationMode(pub i32);
@@ -1388,18 +1388,18 @@ unsafe impl ::windows::core::RuntimeType for AppInstallationToastNotificationMod
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppUpdateOptions(::windows::core::IUnknown);
 impl AppUpdateOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppUpdateOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1407,12 +1407,12 @@ impl AppUpdateOptions {
             (::windows::core::Interface::vtable(this).CatalogId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetCatalogId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCatalogId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1420,12 +1420,12 @@ impl AppUpdateOptions {
             (::windows::core::Interface::vtable(this).AllowForcedAppRestart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowForcedAppRestart)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn AutomaticallyDownloadAndInstallUpdateIfFound(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppUpdateOptions2>(self)?;
         unsafe {
@@ -1433,7 +1433,7 @@ impl AppUpdateOptions {
             (::windows::core::Interface::vtable(this).AutomaticallyDownloadAndInstallUpdateIfFound)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn SetAutomaticallyDownloadAndInstallUpdateIfFound(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppUpdateOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutomaticallyDownloadAndInstallUpdateIfFound)(::core::mem::transmute_copy(this), value).ok() }
@@ -1511,7 +1511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppUpdateOptions {}
 unsafe impl ::core::marker::Sync for AppUpdateOptions {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutoUpdateSetting(pub i32);
@@ -1547,11 +1547,11 @@ unsafe impl ::windows::core::RuntimeType for AutoUpdateSetting {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct GetEntitlementResult(::windows::core::IUnknown);
 impl GetEntitlementResult {
-    #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GetEntitlementStatus> {
         let this = self;
         unsafe {
@@ -1632,7 +1632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GetEntitlementResult {}
 unsafe impl ::core::marker::Sync for GetEntitlementResult {}
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GetEntitlementStatus(pub i32);

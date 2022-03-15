@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Direct3DBindings(pub u32);
@@ -70,7 +70,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -108,7 +108,7 @@ impl ::core::default::Default for Direct3DMultisampleDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,
@@ -147,7 +147,7 @@ impl ::core::default::Default for Direct3DSurfaceDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Direct3DUsage(pub i32);
@@ -183,16 +183,16 @@ unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct IDirect3DDevice(::windows::core::IUnknown);
 impl IDirect3DDevice {
-    #[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     pub fn Trim(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Trim)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Graphics_DirectX_Direct3D11', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -298,11 +298,11 @@ pub struct IDirect3DDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct IDirect3DSurface(::windows::core::IUnknown);
 impl IDirect3DSurface {
-    #[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
@@ -310,7 +310,7 @@ impl IDirect3DSurface {
             (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_DirectX_Direct3D11', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;

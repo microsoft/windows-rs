@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
@@ -23,7 +23,7 @@ impl ::core::clone::Clone for AttributeTargets {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for CompositionType {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
@@ -49,7 +49,7 @@ impl ::core::clone::Clone for DeprecationType {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
@@ -64,7 +64,7 @@ impl ::core::clone::Clone for FeatureStage {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
@@ -78,7 +78,7 @@ impl ::core::clone::Clone for GCPressureAmount {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
@@ -93,7 +93,7 @@ impl ::core::clone::Clone for MarshalingType {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct Platform(pub i32);
 impl Platform {
@@ -106,7 +106,7 @@ impl ::core::clone::Clone for Platform {
         *self
     }
 }
-#[doc = "*Required features: 'Foundation_Metadata'*"]
+#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {

@@ -206,11 +206,11 @@ pub struct IUserActivityChannelStatics3_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct IUserActivityContentInfo(::windows::core::IUnknown);
 impl IUserActivityContentInfo {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -484,11 +484,11 @@ pub struct IUserActivityVisualElements2_Vtbl {
     pub AttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivity(::windows::core::IUnknown);
 impl UserActivity {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn State(&self) -> ::windows::core::Result<UserActivityState> {
         let this = self;
         unsafe {
@@ -496,7 +496,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityState>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -504,7 +504,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ActivityId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn VisualElements(&self) -> ::windows::core::Result<UserActivityVisualElements> {
         let this = self;
         unsafe {
@@ -512,7 +512,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).VisualElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityVisualElements>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -521,13 +521,13 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ContentUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetContentUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -535,12 +535,12 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetContentType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FallbackUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -549,13 +549,13 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).FallbackUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFallbackUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ActivationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -564,13 +564,13 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ActivationUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActivationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetActivationUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ContentInfo(&self) -> ::windows::core::Result<IUserActivityContentInfo> {
         let this = self;
         unsafe {
@@ -578,12 +578,12 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ContentInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IUserActivityContentInfo>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetContentInfo<'a, Param0: ::windows::core::IntoParam<'a, IUserActivityContentInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentInfo)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -592,7 +592,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).SaveAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn CreateSession(&self) -> ::windows::core::Result<UserActivitySession> {
         let this = self;
         unsafe {
@@ -600,7 +600,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).CreateSession)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivitySession>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUserActivity2>(self)?;
         unsafe {
@@ -608,7 +608,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ToJson)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn IsRoamable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IUserActivity3>(self)?;
         unsafe {
@@ -616,26 +616,26 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).IsRoamable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetIsRoamable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUserActivity3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsRoamable)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn CreateWithActivityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activityid: Param0) -> ::windows::core::Result<UserActivity> {
         Self::IUserActivityFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithActivityId)(::core::mem::transmute_copy(this), activityid.into_param().abi(), &mut result__).from_abi::<UserActivity>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn TryParseFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(json: Param0) -> ::windows::core::Result<UserActivity> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TryParseFromJson)(::core::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<UserActivity>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryParseFromJsonArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(json: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
@@ -643,7 +643,7 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).TryParseFromJsonArray)(::core::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<UserActivity>>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ToJsonArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<UserActivity>>>(activities: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUserActivityStatics(|this| unsafe {
@@ -734,18 +734,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserActivity {}
 unsafe impl ::core::marker::Sync for UserActivity {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityAttribution(::windows::core::IUnknown);
 impl UserActivityAttribution {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserActivityAttribution, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -754,13 +754,13 @@ impl UserActivityAttribution {
             (::windows::core::Interface::vtable(this).IconUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIconUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIconUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -768,12 +768,12 @@ impl UserActivityAttribution {
             (::windows::core::Interface::vtable(this).AlternateText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetAlternateText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlternateText)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn AddImageQuery(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -781,12 +781,12 @@ impl UserActivityAttribution {
             (::windows::core::Interface::vtable(this).AddImageQuery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetAddImageQuery(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAddImageQuery)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(iconuri: Param0) -> ::windows::core::Result<UserActivityAttribution> {
         Self::IUserActivityAttributionFactory(|this| unsafe {
@@ -872,11 +872,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserActivityAttribution {}
 unsafe impl ::core::marker::Sync for UserActivityAttribution {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityChannel(::windows::core::IUnknown);
 impl UserActivityChannel {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetOrCreateUserActivityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activityid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
         let this = self;
@@ -885,7 +885,7 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).GetOrCreateUserActivityAsync)(::core::mem::transmute_copy(this), activityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserActivity>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteActivityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activityid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -894,7 +894,7 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).DeleteActivityAsync)(::core::mem::transmute_copy(this), activityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAllActivitiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -903,7 +903,7 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).DeleteAllActivitiesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
@@ -912,7 +912,7 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).GetRecentUserActivitiesAsync)(::core::mem::transmute_copy(this), maxuniqueactivities, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSessionHistoryItemsForUserActivityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, activityid: Param0, starttime: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
@@ -921,18 +921,18 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(::core::mem::transmute_copy(this), activityid.into_param().abi(), starttime.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityChannel>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn DisableAutoSessionCreation() -> ::windows::core::Result<()> {
         Self::IUserActivityChannelStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableAutoSessionCreation)(::core::mem::transmute_copy(this)).ok() })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Security_Credentials'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn TryGetForWebAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(account: Param0) -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics2(|this| unsafe {
@@ -940,7 +940,7 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).TryGetForWebAccount)(::core::mem::transmute_copy(this), account.into_param().abi(), &mut result__).from_abi::<UserActivityChannel>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics3(|this| unsafe {
@@ -1036,11 +1036,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserActivityChannel {}
 unsafe impl ::core::marker::Sync for UserActivityChannel {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityContentInfo(::windows::core::IUnknown);
 impl UserActivityContentInfo {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1048,7 +1048,7 @@ impl UserActivityContentInfo {
             (::windows::core::Interface::vtable(this).ToJson)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn FromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<UserActivityContentInfo> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1155,11 +1155,11 @@ impl<'a> ::windows::core::IntoParam<'a, IUserActivityContentInfo> for &UserActiv
 }
 unsafe impl ::core::marker::Send for UserActivityContentInfo {}
 unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequest(::windows::core::IUnknown);
 impl UserActivityRequest {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetUserActivity<'a, Param0: ::windows::core::IntoParam<'a, UserActivity>>(&self, activity: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUserActivity)(::core::mem::transmute_copy(this), activity.into_param().abi()).ok() }
@@ -1237,11 +1237,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserActivityRequest {}
 unsafe impl ::core::marker::Sync for UserActivityRequest {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequestManager(::windows::core::IUnknown);
 impl UserActivityRequestManager {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UserActivityRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1250,13 +1250,13 @@ impl UserActivityRequestManager {
             (::windows::core::Interface::vtable(this).UserActivityRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserActivityRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveUserActivityRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<UserActivityRequestManager> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1339,11 +1339,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequestedEventArgs(::windows::core::IUnknown);
 impl UserActivityRequestedEventArgs {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<UserActivityRequest> {
         let this = self;
         unsafe {
@@ -1351,7 +1351,7 @@ impl UserActivityRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityRequest>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1433,17 +1433,17 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivitySession(::windows::core::IUnknown);
 impl UserActivitySession {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1550,11 +1550,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for UserActivitySession {}
 unsafe impl ::core::marker::Sync for UserActivitySession {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivitySessionHistoryItem(::windows::core::IUnknown);
 impl UserActivitySessionHistoryItem {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn UserActivity(&self) -> ::windows::core::Result<UserActivity> {
         let this = self;
         unsafe {
@@ -1562,7 +1562,7 @@ impl UserActivitySessionHistoryItem {
             (::windows::core::Interface::vtable(this).UserActivity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivity>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1571,7 +1571,7 @@ impl UserActivitySessionHistoryItem {
             (::windows::core::Interface::vtable(this).StartTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1653,7 +1653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserActivityState(pub i32);
@@ -1687,11 +1687,11 @@ unsafe impl ::windows::core::RuntimeType for UserActivityState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityVisualElements(::windows::core::IUnknown);
 impl UserActivityVisualElements {
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1699,12 +1699,12 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).DisplayText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetDisplayText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayText)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1712,12 +1712,12 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -1726,13 +1726,13 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).BackgroundColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn Attribution(&self) -> ::windows::core::Result<UserActivityAttribution> {
         let this = self;
         unsafe {
@@ -1740,18 +1740,18 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).Attribution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityAttribution>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetAttribution<'a, Param0: ::windows::core::IntoParam<'a, UserActivityAttribution>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAttribution)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'UI_Shell'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
     pub fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Shell::IAdaptiveCard>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities', 'UI_Shell'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
     pub fn Content(&self) -> ::windows::core::Result<super::super::UI::Shell::IAdaptiveCard> {
         let this = self;
@@ -1760,7 +1760,7 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Shell::IAdaptiveCard>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn AttributionDisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe {
@@ -1768,7 +1768,7 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).AttributionDisplayText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn SetAttributionDisplayText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAttributionDisplayText)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }

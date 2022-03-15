@@ -29,22 +29,22 @@ pub struct IVibrationDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Phone_Devices_Notification'*"]
+#[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
 #[repr(transparent)]
 pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {
-    #[doc = "*Required features: 'Phone_Devices_Notification', 'Foundation'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Notification\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Vibrate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, duration: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Vibrate)(::core::mem::transmute_copy(this), duration.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Phone_Devices_Notification'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Phone_Devices_Notification'*"]
+    #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

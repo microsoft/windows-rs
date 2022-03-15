@@ -392,18 +392,18 @@ pub struct IUserDataTaskStore_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     GetListAsync: usize,
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTask(::windows::core::IUnknown);
 impl UserDataTask {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTask, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -411,7 +411,7 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn ListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -419,7 +419,7 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).ListId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -427,12 +427,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).RemoteId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CompletedDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -441,13 +441,13 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).CompletedDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCompletedDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompletedDate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Details(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -455,12 +455,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Details)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetDetails<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDetails)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn DetailsKind(&self) -> ::windows::core::Result<UserDataTaskDetailsKind> {
         let this = self;
         unsafe {
@@ -468,12 +468,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).DetailsKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskDetailsKind>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetDetailsKind(&self, value: UserDataTaskDetailsKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDetailsKind)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DueDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -482,13 +482,13 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).DueDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDueDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDueDate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataTaskKind> {
         let this = self;
         unsafe {
@@ -496,7 +496,7 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskKind>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Priority(&self) -> ::windows::core::Result<UserDataTaskPriority> {
         let this = self;
         unsafe {
@@ -504,12 +504,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Priority)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskPriority>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetPriority(&self, value: UserDataTaskPriority) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn RecurrenceProperties(&self) -> ::windows::core::Result<UserDataTaskRecurrenceProperties> {
         let this = self;
         unsafe {
@@ -517,12 +517,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).RecurrenceProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskRecurrenceProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetRecurrenceProperties<'a, Param0: ::windows::core::IntoParam<'a, UserDataTaskRecurrenceProperties>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRecurrenceProperties)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn RegenerationProperties(&self) -> ::windows::core::Result<UserDataTaskRegenerationProperties> {
         let this = self;
         unsafe {
@@ -530,12 +530,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).RegenerationProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskRegenerationProperties>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetRegenerationProperties<'a, Param0: ::windows::core::IntoParam<'a, UserDataTaskRegenerationProperties>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRegenerationProperties)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Reminder(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -544,13 +544,13 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Reminder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetReminder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReminder)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Sensitivity(&self) -> ::windows::core::Result<UserDataTaskSensitivity> {
         let this = self;
         unsafe {
@@ -558,12 +558,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Sensitivity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskSensitivity>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetSensitivity(&self, value: UserDataTaskSensitivity) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSensitivity)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -571,12 +571,12 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).Subject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -585,7 +585,7 @@ impl UserDataTask {
             (::windows::core::Interface::vtable(this).StartDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -664,11 +664,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTask {}
 unsafe impl ::core::marker::Sync for UserDataTask {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskBatch(::windows::core::IUnknown);
 impl UserDataTaskBatch {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>> {
         let this = self;
@@ -750,7 +750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
@@ -818,7 +818,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskDetailsKind(pub i32);
@@ -852,7 +852,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskDetailsKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskKind(pub i32);
@@ -887,11 +887,11 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskList(::windows::core::IUnknown);
 impl UserDataTaskList {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -899,7 +899,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -907,7 +907,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).UserDataAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -915,12 +915,12 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -928,7 +928,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).SourceDisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::core::Result<UserDataTaskListOtherAppReadAccess> {
         let this = self;
         unsafe {
@@ -936,12 +936,12 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).OtherAppReadAccess)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskListOtherAppReadAccess>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetOtherAppReadAccess(&self, value: UserDataTaskListOtherAppReadAccess) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn OtherAppWriteAccess(&self) -> ::windows::core::Result<UserDataTaskListOtherAppWriteAccess> {
         let this = self;
         unsafe {
@@ -949,12 +949,12 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).OtherAppWriteAccess)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskListOtherAppWriteAccess>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetOtherAppWriteAccess(&self, value: UserDataTaskListOtherAppWriteAccess) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOtherAppWriteAccess)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn LimitedWriteOperations(&self) -> ::windows::core::Result<UserDataTaskListLimitedWriteOperations> {
         let this = self;
         unsafe {
@@ -962,7 +962,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).LimitedWriteOperations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskListLimitedWriteOperations>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SyncManager(&self) -> ::windows::core::Result<UserDataTaskListSyncManager> {
         let this = self;
         unsafe {
@@ -970,7 +970,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).SyncManager)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskListSyncManager>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -979,7 +979,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).RegisterSyncManagerAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn GetTaskReader(&self) -> ::windows::core::Result<UserDataTaskReader> {
         let this = self;
         unsafe {
@@ -987,7 +987,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).GetTaskReader)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskReader>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn GetTaskReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, UserDataTaskQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<UserDataTaskReader> {
         let this = self;
         unsafe {
@@ -995,7 +995,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).GetTaskReaderWithOptions)(::core::mem::transmute_copy(this), options.into_param().abi(), &mut result__).from_abi::<UserDataTaskReader>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetTaskAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdatatask: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTask>> {
         let this = self;
@@ -1004,7 +1004,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).GetTaskAsync)(::core::mem::transmute_copy(this), userdatatask.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataTask>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveTaskAsync<'a, Param0: ::windows::core::IntoParam<'a, UserDataTask>>(&self, userdatatask: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1013,7 +1013,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).SaveTaskAsync)(::core::mem::transmute_copy(this), userdatatask.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteTaskAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdatataskid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1022,7 +1022,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).DeleteTaskAsync)(::core::mem::transmute_copy(this), userdatataskid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1031,7 +1031,7 @@ impl UserDataTaskList {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1113,11 +1113,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskList {}
 unsafe impl ::core::marker::Sync for UserDataTaskList {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskListLimitedWriteOperations(::windows::core::IUnknown);
 impl UserDataTaskListLimitedWriteOperations {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryCompleteTaskAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdatataskid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1126,7 +1126,7 @@ impl UserDataTaskListLimitedWriteOperations {
             (::windows::core::Interface::vtable(this).TryCompleteTaskAsync)(::core::mem::transmute_copy(this), userdatataskid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateOrUpdateTaskAsync<'a, Param0: ::windows::core::IntoParam<'a, UserDataTask>>(&self, userdatatask: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1135,7 +1135,7 @@ impl UserDataTaskListLimitedWriteOperations {
             (::windows::core::Interface::vtable(this).TryCreateOrUpdateTaskAsync)(::core::mem::transmute_copy(this), userdatatask.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDeleteTaskAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdatataskid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1144,7 +1144,7 @@ impl UserDataTaskListLimitedWriteOperations {
             (::windows::core::Interface::vtable(this).TryDeleteTaskAsync)(::core::mem::transmute_copy(this), userdatataskid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySkipOccurrenceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdatataskid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1226,7 +1226,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
@@ -1261,7 +1261,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppReadAccess 
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
@@ -1295,11 +1295,11 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppWriteAccess
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManager(::windows::core::IUnknown);
 impl UserDataTaskListSyncManager {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1308,13 +1308,13 @@ impl UserDataTaskListSyncManager {
             (::windows::core::Interface::vtable(this).LastAttemptedSyncTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastAttemptedSyncTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLastAttemptedSyncTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1323,13 +1323,13 @@ impl UserDataTaskListSyncManager {
             (::windows::core::Interface::vtable(this).LastSuccessfulSyncTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastSuccessfulSyncTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<UserDataTaskListSyncStatus> {
         let this = self;
         unsafe {
@@ -1337,12 +1337,12 @@ impl UserDataTaskListSyncManager {
             (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskListSyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetStatus(&self, value: UserDataTaskListSyncStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1351,7 +1351,7 @@ impl UserDataTaskListSyncManager {
             (::windows::core::Interface::vtable(this).SyncAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1360,7 +1360,7 @@ impl UserDataTaskListSyncManager {
             (::windows::core::Interface::vtable(this).SyncStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -1439,7 +1439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskListSyncStatus(pub i32);
@@ -1477,11 +1477,11 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskManager(::windows::core::IUnknown);
 impl UserDataTaskManager {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>> {
         let this = self;
@@ -1490,7 +1490,7 @@ impl UserDataTaskManager {
             (::windows::core::Interface::vtable(this).RequestStoreAsync)(::core::mem::transmute_copy(this), accesstype, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -1499,14 +1499,14 @@ impl UserDataTaskManager {
             (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<UserDataTaskManager> {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskManager>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'System'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<UserDataTaskManager> {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
@@ -1592,7 +1592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskPriority(pub i32);
@@ -1627,7 +1627,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskPriority {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskQueryKind(pub i32);
@@ -1662,18 +1662,18 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskQueryOptions(::windows::core::IUnknown);
 impl UserDataTaskQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTaskQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SortProperty(&self) -> ::windows::core::Result<UserDataTaskQuerySortProperty> {
         let this = self;
         unsafe {
@@ -1681,12 +1681,12 @@ impl UserDataTaskQueryOptions {
             (::windows::core::Interface::vtable(this).SortProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskQuerySortProperty>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetSortProperty(&self, value: UserDataTaskQuerySortProperty) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSortProperty)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataTaskQueryKind> {
         let this = self;
         unsafe {
@@ -1694,7 +1694,7 @@ impl UserDataTaskQueryOptions {
             (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskQueryKind>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetKind(&self, value: UserDataTaskQueryKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKind)(::core::mem::transmute_copy(this), value).ok() }
@@ -1772,7 +1772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
@@ -1805,11 +1805,11 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskQuerySortProperty {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskReader(::windows::core::IUnknown);
 impl UserDataTaskReader {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>> {
         let this = self;
@@ -1891,18 +1891,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskReader {}
 unsafe impl ::core::marker::Sync for UserDataTaskReader {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceProperties(::windows::core::IUnknown);
 impl UserDataTaskRecurrenceProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTaskRecurrenceProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Unit(&self) -> ::windows::core::Result<UserDataTaskRecurrenceUnit> {
         let this = self;
         unsafe {
@@ -1910,12 +1910,12 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).Unit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskRecurrenceUnit>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetUnit(&self, value: UserDataTaskRecurrenceUnit) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Occurrences(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -1924,13 +1924,13 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).Occurrences)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetOccurrences<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOccurrences)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Until(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1939,13 +1939,13 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).Until)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUntil<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUntil)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Interval(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1953,12 +1953,12 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).Interval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetInterval(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DaysOfWeek(&self) -> ::windows::core::Result<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>> {
         let this = self;
@@ -1967,13 +1967,13 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).DaysOfWeek)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDaysOfWeek<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<UserDataTaskDaysOfWeek>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDaysOfWeek)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WeekOfMonth(&self) -> ::windows::core::Result<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>> {
         let this = self;
@@ -1982,13 +1982,13 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).WeekOfMonth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetWeekOfMonth<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<UserDataTaskWeekOfMonth>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWeekOfMonth)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Month(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -1997,13 +1997,13 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).Month)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMonth<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMonth)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Day(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2012,7 +2012,7 @@ impl UserDataTaskRecurrenceProperties {
             (::windows::core::Interface::vtable(this).Day)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -2091,7 +2091,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
@@ -2129,18 +2129,18 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationProperties(::windows::core::IUnknown);
 impl UserDataTaskRegenerationProperties {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataTaskRegenerationProperties, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Unit(&self) -> ::windows::core::Result<UserDataTaskRegenerationUnit> {
         let this = self;
         unsafe {
@@ -2148,12 +2148,12 @@ impl UserDataTaskRegenerationProperties {
             (::windows::core::Interface::vtable(this).Unit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataTaskRegenerationUnit>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetUnit(&self, value: UserDataTaskRegenerationUnit) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Occurrences(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2162,13 +2162,13 @@ impl UserDataTaskRegenerationProperties {
             (::windows::core::Interface::vtable(this).Occurrences)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetOccurrences<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOccurrences)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Until(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -2177,13 +2177,13 @@ impl UserDataTaskRegenerationProperties {
             (::windows::core::Interface::vtable(this).Until)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUntil<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUntil)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Interval(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2191,7 +2191,7 @@ impl UserDataTaskRegenerationProperties {
             (::windows::core::Interface::vtable(this).Interval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn SetInterval(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::core::mem::transmute_copy(this), value).ok() }
@@ -2269,7 +2269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
@@ -2305,7 +2305,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationUnit {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskSensitivity(pub i32);
@@ -2339,11 +2339,11 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskSensitivity {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 pub struct UserDataTaskStore(::windows::core::IUnknown);
 impl UserDataTaskStore {
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateListAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
@@ -2352,7 +2352,7 @@ impl UserDataTaskStore {
             (::windows::core::Interface::vtable(this).CreateListAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateListInAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, userdataaccountid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
@@ -2361,7 +2361,7 @@ impl UserDataTaskStore {
             (::windows::core::Interface::vtable(this).CreateListInAccountAsync)(::core::mem::transmute_copy(this), name.into_param().abi(), userdataaccountid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>> {
         let this = self;
@@ -2370,7 +2370,7 @@ impl UserDataTaskStore {
             (::windows::core::Interface::vtable(this).FindListsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataTasks', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetListAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tasklistid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
@@ -2452,7 +2452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 unsafe impl ::core::marker::Send for UserDataTaskStore {}
 unsafe impl ::core::marker::Sync for UserDataTaskStore {}
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskStoreAccessType(pub i32);
@@ -2486,7 +2486,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskStoreAccessType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
+#[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskWeekOfMonth(pub i32);

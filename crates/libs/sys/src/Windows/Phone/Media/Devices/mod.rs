@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Phone_Media_Devices'*"]
+#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for AudioRoutingEndpoint {
     }
 }
 pub type AudioRoutingManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Phone_Media_Devices'*"]
+#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {

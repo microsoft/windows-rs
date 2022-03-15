@@ -4,7 +4,7 @@ pub type HttpDiagnosticProviderRequestResponseCompletedEventArgs = *mut ::core::
 pub type HttpDiagnosticProviderRequestResponseTimestamps = *mut ::core::ffi::c_void;
 pub type HttpDiagnosticProviderRequestSentEventArgs = *mut ::core::ffi::c_void;
 pub type HttpDiagnosticProviderResponseReceivedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
+#[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {

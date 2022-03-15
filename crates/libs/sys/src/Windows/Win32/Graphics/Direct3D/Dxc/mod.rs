@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
     pub fn DxcCreateInstance(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn DxcCreateInstance2(pmalloc: super::super::super::System::Com::IMalloc, rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
@@ -18,86 +18,86 @@ pub const CLSID_DxcLinker: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const CLSID_DxcOptimizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2922174367, data2: 52258, data3: 17727, data4: [155, 107, 177, 36, 231, 165, 32, 76] };
 pub const CLSID_DxcPdbUtils: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1415716347, data2: 62158, data3: 17790, data4: [174, 140, 236, 53, 95, 174, 236, 124] };
 pub const CLSID_DxcValidator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2359550485, data2: 63272, data3: 19699, data4: [140, 221, 136, 175, 145, 117, 135, 161] };
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_ALL_RESOURCES_BOUND: &'static str = "-all_resources_bound";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_AVOID_FLOW_CONTROL: &'static str = "-Gfa";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_DEBUG: &'static str = "-Zi";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_DEBUG_NAME_FOR_BINARY: &'static str = "-Zsb";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_DEBUG_NAME_FOR_SOURCE: &'static str = "-Zss";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_ENABLE_BACKWARDS_COMPATIBILITY: &'static str = "-Gec";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_ENABLE_STRICTNESS: &'static str = "-Ges";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_IEEE_STRICTNESS: &'static str = "-Gis";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_OPTIMIZATION_LEVEL0: &'static str = "-O0";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_OPTIMIZATION_LEVEL1: &'static str = "-O1";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_OPTIMIZATION_LEVEL2: &'static str = "-O2";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_OPTIMIZATION_LEVEL3: &'static str = "-O3";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_PACK_MATRIX_COLUMN_MAJOR: &'static str = "-Zpc";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_PACK_MATRIX_ROW_MAJOR: &'static str = "-Zpr";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_PREFER_FLOW_CONTROL: &'static str = "-Gfp";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_RESOURCES_MAY_ALIAS: &'static str = "-res_may_alias";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_SKIP_OPTIMIZATIONS: &'static str = "-Od";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_SKIP_VALIDATION: &'static str = "-Vd";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_WARNINGS_ARE_ERRORS: &'static str = "-WX";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub type DXC_CP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_CP_ACP: DXC_CP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_CP_UTF16: DXC_CP = 1200u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_CP_UTF8: DXC_CP = 65001u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_EXTRA_OUTPUT_NAME_STDERR: &'static str = "*stderr*";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: &'static str = "*stdout*";
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub type DXC_OUT_KIND = i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_NONE: DXC_OUT_KIND = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_OBJECT: DXC_OUT_KIND = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_ERRORS: DXC_OUT_KIND = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_PDB: DXC_OUT_KIND = 3i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = 5i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_HLSL: DXC_OUT_KIND = 6i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_TEXT: DXC_OUT_KIND = 7i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = 8i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = 9i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = 10i32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = -1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub struct DxcArgPair {
     pub pName: ::windows_sys::core::PCWSTR,
     pub pValue: ::windows_sys::core::PCWSTR,
@@ -109,7 +109,7 @@ impl ::core::clone::Clone for DxcArgPair {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub struct DxcBuffer {
     pub Ptr: *const ::core::ffi::c_void,
     pub Size: usize,
@@ -121,13 +121,13 @@ impl ::core::clone::Clone for DxcBuffer {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" fn(pmalloc: super::super::super::System::Com::IMalloc, rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub struct DxcDefine {
     pub Name: ::windows_sys::core::PCWSTR,
     pub Value: ::windows_sys::core::PCWSTR,
@@ -139,7 +139,7 @@ impl ::core::clone::Clone for DxcDefine {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub struct DxcShaderHash {
     pub Flags: u32,
     pub HashDigest: [u8; 16],
@@ -150,21 +150,21 @@ impl ::core::clone::Clone for DxcShaderHash {
         *self
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcValidatorFlags_Default: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
 pub type IDxcAssembler = *mut ::core::ffi::c_void;
 pub type IDxcBlob = *mut ::core::ffi::c_void;

@@ -3,7 +3,7 @@ pub type AllJoynAboutData = *mut ::core::ffi::c_void;
 pub type AllJoynAboutDataView = *mut ::core::ffi::c_void;
 pub type AllJoynAcceptSessionJoinerEventArgs = *mut ::core::ffi::c_void;
 pub type AllJoynAuthenticationCompleteEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
@@ -26,7 +26,7 @@ impl ::core::clone::Clone for AllJoynAuthenticationMechanism {
     }
 }
 pub type AllJoynBusAttachment = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentState(pub i32);
@@ -58,7 +58,7 @@ pub type AllJoynServiceInfoRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type AllJoynSession = *mut ::core::ffi::c_void;
 pub type AllJoynSessionJoinedEventArgs = *mut ::core::ffi::c_void;
 pub type AllJoynSessionLostEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSessionLostReason(pub i32);
@@ -81,7 +81,7 @@ impl ::core::clone::Clone for AllJoynSessionLostReason {
 }
 pub type AllJoynSessionMemberAddedEventArgs = *mut ::core::ffi::c_void;
 pub type AllJoynSessionMemberRemovedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynTrafficType(pub i32);

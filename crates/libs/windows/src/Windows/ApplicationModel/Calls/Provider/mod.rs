@@ -95,18 +95,18 @@ pub struct IPhoneCallOriginManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallOrigin(::windows::core::IUnknown);
 impl PhoneCallOrigin {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallOrigin, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn Category(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -114,12 +114,12 @@ impl PhoneCallOrigin {
             (::windows::core::Interface::vtable(this).Category)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn SetCategory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCategory)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn CategoryDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -127,12 +127,12 @@ impl PhoneCallOrigin {
             (::windows::core::Interface::vtable(this).CategoryDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn SetCategoryDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCategoryDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn Location(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -140,12 +140,12 @@ impl PhoneCallOrigin {
             (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe {
@@ -153,12 +153,12 @@ impl PhoneCallOrigin {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider', 'Storage'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn DisplayPicture(&self) -> ::windows::core::Result<super::super::super::Storage::StorageFile> {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin3>(self)?;
@@ -167,7 +167,7 @@ impl PhoneCallOrigin {
             (::windows::core::Interface::vtable(this).DisplayPicture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::StorageFile>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider', 'Storage'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn SetDisplayPicture<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::StorageFile>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin3>(self)?;
@@ -246,25 +246,25 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallOrigin {}
 unsafe impl ::core::marker::Sync for PhoneCallOrigin {}
-#[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+#[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
 pub struct PhoneCallOriginManager {}
 impl PhoneCallOriginManager {
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn IsCurrentAppActiveCallOriginApp() -> ::windows::core::Result<bool> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsCurrentAppActiveCallOriginApp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn ShowPhoneCallOriginSettingsUI() -> ::windows::core::Result<()> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowPhoneCallOriginSettingsUI)(::core::mem::transmute_copy(this)).ok() })
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn SetCallOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, PhoneCallOrigin>>(requestid: Param0, callorigin: Param1) -> ::windows::core::Result<()> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetCallOrigin)(::core::mem::transmute_copy(this), requestid.into_param().abi(), callorigin.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetAsActiveCallOriginAppAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhoneCallOriginManagerStatics2(|this| unsafe {
@@ -272,7 +272,7 @@ impl PhoneCallOriginManager {
             (::windows::core::Interface::vtable(this).RequestSetAsActiveCallOriginAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IPhoneCallOriginManagerStatics3(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();

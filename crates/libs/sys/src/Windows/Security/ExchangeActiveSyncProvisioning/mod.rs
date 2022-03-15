@@ -2,7 +2,7 @@
 pub type EasClientDeviceInformation = *mut ::core::ffi::c_void;
 pub type EasClientSecurityPolicy = *mut ::core::ffi::c_void;
 pub type EasComplianceResults = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
@@ -17,7 +17,7 @@ impl ::core::clone::Clone for EasDisallowConvenienceLogonResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasEncryptionProviderType(pub i32);
 impl EasEncryptionProviderType {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for EasEncryptionProviderType {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
 impl EasMaxInactivityTimeLockResult {
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for EasMaxInactivityTimeLockResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
 impl EasMaxPasswordFailedAttemptsResult {
@@ -63,7 +63,7 @@ impl ::core::clone::Clone for EasMaxPasswordFailedAttemptsResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
 impl EasMinPasswordComplexCharactersResult {
@@ -89,7 +89,7 @@ impl ::core::clone::Clone for EasMinPasswordComplexCharactersResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasMinPasswordLengthResult(pub i32);
 impl EasMinPasswordLengthResult {
@@ -115,7 +115,7 @@ impl ::core::clone::Clone for EasMinPasswordLengthResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasPasswordExpirationResult(pub i32);
 impl EasPasswordExpirationResult {
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for EasPasswordExpirationResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasPasswordHistoryResult(pub i32);
 impl EasPasswordHistoryResult {
@@ -151,7 +151,7 @@ impl ::core::clone::Clone for EasPasswordHistoryResult {
         *self
     }
 }
-#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
+#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasRequireEncryptionResult(pub i32);
 impl EasRequireEncryptionResult {

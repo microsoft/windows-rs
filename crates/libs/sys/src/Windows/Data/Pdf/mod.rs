@@ -3,7 +3,7 @@ pub type PdfDocument = *mut ::core::ffi::c_void;
 pub type PdfPage = *mut ::core::ffi::c_void;
 pub type PdfPageDimensions = *mut ::core::ffi::c_void;
 pub type PdfPageRenderOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Data_Pdf'*"]
+#[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {

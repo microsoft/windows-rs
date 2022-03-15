@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub Length: usize,
@@ -30,7 +30,7 @@ impl ::core::default::Default for NV_MEMORY_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::core::ffi::c_void) -> u32 {
@@ -45,7 +45,7 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::core::ffi::c_void) -> u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
@@ -60,7 +60,7 @@ pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvde
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvbuffer: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32 {
@@ -75,7 +75,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvb
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
@@ -90,7 +90,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::core::ffi::c_void) -> u32 {
@@ -105,7 +105,7 @@ pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::core::ffi::c_void) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::core::ffi::c_void, size: usize, nvtoken: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -120,7 +120,7 @@ pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::core::ffi::c_void, size:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Memory_NonVolatile'*"]
+#[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, source: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32 {

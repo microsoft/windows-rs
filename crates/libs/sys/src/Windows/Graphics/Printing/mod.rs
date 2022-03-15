@@ -11,7 +11,7 @@ pub type IPrintDocumentSource = *mut ::core::ffi::c_void;
 pub type IPrintTaskOptionsCore = *mut ::core::ffi::c_void;
 pub type IPrintTaskOptionsCoreProperties = *mut ::core::ffi::c_void;
 pub type IPrintTaskOptionsCoreUIConfiguration = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
@@ -39,7 +39,7 @@ impl ::core::clone::Clone for PrintBinding {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for PrintBordering {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
@@ -71,7 +71,7 @@ impl ::core::clone::Clone for PrintCollation {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
@@ -88,7 +88,7 @@ impl ::core::clone::Clone for PrintColorMode {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
@@ -105,7 +105,7 @@ impl ::core::clone::Clone for PrintDuplex {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
@@ -125,7 +125,7 @@ impl ::core::clone::Clone for PrintHolePunch {
     }
 }
 pub type PrintManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
@@ -309,7 +309,7 @@ impl ::core::clone::Clone for PrintMediaSize {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
@@ -352,7 +352,7 @@ impl ::core::clone::Clone for PrintMediaType {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
@@ -371,7 +371,7 @@ impl ::core::clone::Clone for PrintOrientation {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Printing', 'Foundation'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 pub struct PrintPageDescription {
     pub PageSize: super::super::Foundation::Size,
@@ -390,7 +390,7 @@ impl ::core::clone::Clone for PrintPageDescription {
 pub type PrintPageInfo = *mut ::core::ffi::c_void;
 pub type PrintPageRange = *mut ::core::ffi::c_void;
 pub type PrintPageRangeOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
@@ -411,7 +411,7 @@ impl ::core::clone::Clone for PrintQuality {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
@@ -437,7 +437,7 @@ impl ::core::clone::Clone for PrintStaple {
 }
 pub type PrintTask = *mut ::core::ffi::c_void;
 pub type PrintTaskCompletedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Printing'*"]
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {

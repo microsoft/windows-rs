@@ -101,11 +101,11 @@ pub struct IResourceIndexerFactory2_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     CreateResourceIndexerWithExtension: usize,
 }
-#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+#[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
 #[repr(transparent)]
 pub struct IndexedResourceCandidate(::windows::core::IUnknown);
 impl IndexedResourceCandidate {
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<IndexedResourceType> {
         let this = self;
         unsafe {
@@ -113,7 +113,7 @@ impl IndexedResourceCandidate {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IndexedResourceType>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -122,7 +122,7 @@ impl IndexedResourceCandidate {
             (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Metadata(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -131,7 +131,7 @@ impl IndexedResourceCandidate {
             (::windows::core::Interface::vtable(this).Metadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Qualifiers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>> {
         let this = self;
@@ -140,7 +140,7 @@ impl IndexedResourceCandidate {
             (::windows::core::Interface::vtable(this).Qualifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
     pub fn ValueAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -148,7 +148,7 @@ impl IndexedResourceCandidate {
             (::windows::core::Interface::vtable(this).ValueAsString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
     pub fn GetQualifierValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, qualifiername: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -229,11 +229,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
 unsafe impl ::core::marker::Sync for IndexedResourceCandidate {}
-#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+#[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
 #[repr(transparent)]
 pub struct IndexedResourceQualifier(::windows::core::IUnknown);
 impl IndexedResourceQualifier {
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
     pub fn QualifierName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -241,7 +241,7 @@ impl IndexedResourceQualifier {
             (::windows::core::Interface::vtable(this).QualifierName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
     pub fn QualifierValue(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -322,7 +322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
-#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
+#[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IndexedResourceType(pub i32);
@@ -357,13 +357,13 @@ unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Resources_Management', 'deprecated'*"]
+#[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ResourceIndexer(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl ResourceIndexer {
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn IndexFilePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, filepath: Param0) -> ::windows::core::Result<IndexedResourceCandidate> {
         let this = self;
@@ -372,7 +372,7 @@ impl ResourceIndexer {
             (::windows::core::Interface::vtable(this).IndexFilePath)(::core::mem::transmute_copy(this), filepath.into_param().abi(), &mut result__).from_abi::<IndexedResourceCandidate>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation_Collections', 'deprecated'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn IndexFileContentsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
@@ -381,7 +381,7 @@ impl ResourceIndexer {
             (::windows::core::Interface::vtable(this).IndexFileContentsAsync)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateResourceIndexer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
@@ -389,7 +389,7 @@ impl ResourceIndexer {
             (::windows::core::Interface::vtable(this).CreateResourceIndexer)(::core::mem::transmute_copy(this), projectroot.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation', 'deprecated'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateResourceIndexerWithExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0, extensiondllpath: Param1) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {

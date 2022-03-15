@@ -1,16 +1,16 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPCODE_Failure: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPCODE_Request: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPCODE_Response: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPCODE_Success: u32 = 3u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
@@ -41,23 +41,23 @@ impl ::core::default::Default for EAPHOST_AUTH_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAPHOST_AUTH_STATUS(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostInvalidSession: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostAuthNotStarted: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostAuthIdentityExchange: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostAuthNegotiatingType: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostAuthInProgress: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostAuthSucceeded: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostAuthFailed: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(6i32);
 impl ::core::marker::Copy for EAPHOST_AUTH_STATUS {}
 impl ::core::clone::Clone for EAPHOST_AUTH_STATUS {
@@ -79,7 +79,7 @@ impl ::core::fmt::Debug for EAPHOST_AUTH_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -131,7 +131,7 @@ impl ::core::default::Default for EAPHOST_IDENTITY_UI_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -165,12 +165,12 @@ impl ::core::default::Default for EAPHOST_INTERACTIVE_UI_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPHOST_PEER_API_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
@@ -202,7 +202,7 @@ impl ::core::default::Default for EAP_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
@@ -232,205 +232,205 @@ impl ::core::default::Default for EAP_ATTRIBUTES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_ATTRIBUTE_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatMinimum: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatUserName: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatUserPassword: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatMD5CHAPPassword: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatNASIPAddress: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatNASPort: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatServiceType: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(6i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedProtocol: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(7i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedIPAddress: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedIPNetmask: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedRouting: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(10i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFilterId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(11i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedMTU: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(12i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedCompression: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(13i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginIPHost: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(14i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginService: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(15i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginTCPPort: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(16i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatUnassigned17: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(17i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatReplyMessage: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(18i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCallbackNumber: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(19i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCallbackId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(20i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatUnassigned21: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(21i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedRoute: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(22i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedIPXNetwork: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(23i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatState: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(24i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatClass: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(25i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatVendorSpecific: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(26i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatSessionTimeout: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(27i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatIdleTimeout: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(28i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatTerminationAction: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(29i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCalledStationId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(30i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCallingStationId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(31i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatNASIdentifier: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(32i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatProxyState: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(33i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginLATService: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(34i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginLATNode: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(35i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginLATGroup: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(36i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedAppleTalkLink: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(37i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedAppleTalkNetwork: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(38i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedAppleTalkZone: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(39i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctStatusType: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(40i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctDelayTime: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(41i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctInputOctets: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(42i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctOutputOctets: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(43i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctSessionId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(44i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctAuthentic: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(45i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctSessionTime: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(46i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctInputPackets: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(47i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctOutputPackets: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(48i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctTerminateCause: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(49i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctMultiSessionId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(50i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctLinkCount: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(51i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctEventTimeStamp: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(55i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatMD5CHAPChallenge: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(60i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatNASPortType: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(61i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatPortLimit: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(62i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginLATPort: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(63i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatTunnelType: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(64i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatTunnelMediumType: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(65i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatTunnelClientEndpoint: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(66i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatTunnelServerEndpoint: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(67i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPPassword: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(70i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPFeatures: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(71i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPZoneAccess: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(72i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPSecurity: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(73i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPSecurityData: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(74i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatPasswordRetry: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(75i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatPrompt: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(76i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatConnectInfo: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(77i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatConfigurationToken: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(78i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatEAPMessage: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(79i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatSignature: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(80i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPChallengeResponse: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(84i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatAcctInterimInterval: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(85i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatNASIPv6Address: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(95i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedInterfaceId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(96i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedIPv6Prefix: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(97i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatLoginIPv6Host: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(98i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedIPv6Route: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(99i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFramedIPv6Pool: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(100i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatARAPGuestLogon: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8096i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCertificateOID: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8097i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatEAPConfiguration: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8098i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatPEAPEmbeddedEAPTypeId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8099i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatPEAPFastRoamedSession: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8100i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatFastRoamedSession: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8100i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatEAPTLV: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8102i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCredentialsChanged: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8103i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatInnerEapMethodType: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8104i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatClearTextPassword: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8107i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatQuarantineSoH: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8150i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatCertificateThumbprint: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(8250i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatPeerId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9000i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatServerId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9001i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatMethodId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9002i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatEMSK: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9003i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatSessionId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9004i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eatReserved: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(-1i32);
 impl ::core::marker::Copy for EAP_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for EAP_ATTRIBUTE_TYPE {
@@ -452,7 +452,7 @@ impl ::core::fmt::Debug for EAP_ATTRIBUTE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
     pub pEapType: *mut EAP_METHOD_TYPE,
@@ -505,15 +505,15 @@ impl ::core::default::Default for EAP_AUTHENTICATOR_METHOD_ROUTINES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_NONE: EAP_AUTHENTICATOR_SEND_TIMEOUT = EAP_AUTHENTICATOR_SEND_TIMEOUT(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC: EAP_AUTHENTICATOR_SEND_TIMEOUT = EAP_AUTHENTICATOR_SEND_TIMEOUT(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE: EAP_AUTHENTICATOR_SEND_TIMEOUT = EAP_AUTHENTICATOR_SEND_TIMEOUT(2i32);
 impl ::core::marker::Copy for EAP_AUTHENTICATOR_SEND_TIMEOUT {}
 impl ::core::clone::Clone for EAP_AUTHENTICATOR_SEND_TIMEOUT {
@@ -534,16 +534,16 @@ impl ::core::fmt::Debug for EAP_AUTHENTICATOR_SEND_TIMEOUT {
         f.debug_tuple("EAP_AUTHENTICATOR_SEND_TIMEOUT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: &'static str = "AuthenticatorConfigUIPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: &'static str = "AuthenticatorDllPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: &'static str = "AuthenticatorFriendlyName";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: &'static str = "Properties";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
@@ -575,7 +575,7 @@ impl ::core::default::Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -610,33 +610,33 @@ impl ::core::default::Default for EAP_CONFIG_INPUT_FIELD_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputUsername: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputPassword: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputNetworkUsername: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputNetworkPassword: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputPin: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputPSK: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigInputEdit: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(6i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigSmartCardUsername: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(7i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapConfigSmartCardError: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(8i32);
 impl ::core::marker::Copy for EAP_CONFIG_INPUT_FIELD_TYPE {}
 impl ::core::clone::Clone for EAP_CONFIG_INPUT_FIELD_TYPE {
@@ -657,10 +657,10 @@ impl ::core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_TYPE {
         f.debug_tuple("EAP_CONFIG_INPUT_FIELD_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
@@ -691,7 +691,7 @@ impl ::core::default::Default for EAP_CRED_EXPIRY_REQ {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -727,142 +727,142 @@ impl ::core::default::Default for EAP_ERROR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_CERT_STORE_INACCESSIBLE: u32 = 2151809040u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_EAPQEC_INACCESSIBLE: u32 = 2151809043u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_FIRST: i32 = -2143158272i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_IDENTITY_UNKNOWN: u32 = 2151809044u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_LAST: i32 = -2143158017i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_METHOD_INVALID_PACKET: u32 = 2151809047u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_METHOD_NOT_INSTALLED: u32 = 2151809041u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_METHOD_OPERATION_NOT_SUPPORTED: u32 = 2151809056u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_REMOTE_INVALID_PACKET: u32 = 2151809048u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_THIRDPARTY_METHOD_HOST_RESET: u32 = 2151809042u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_EAPHOST_XML_MALFORMED: u32 = 2151809049u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_METHOD_CONFIG_DOES_NOT_SUPPORT_SSO: u32 = 2151809050u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_NO_SMART_CARD_READER: u32 = 2151809299u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_CERT_EXPIRED: u32 = 2151809538u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_CERT_INVALID: u32 = 2151809537u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_CERT_NOT_FOUND: u32 = 2151809536u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_CERT_OTHER_ERROR: u32 = 2151809540u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_CERT_REVOKED: u32 = 2151809539u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_FIRST: i32 = -2143157760i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_LAST: i32 = -2143157505i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_ROOT_CERT_FIRST: i32 = -2143157248i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_ROOT_CERT_INVALID: u32 = 2151810049u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_ROOT_CERT_LAST: i32 = -2143156993i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_ROOT_CERT_NAME_REQUIRED: u32 = 2151810054u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SERVER_ROOT_CERT_NOT_FOUND: u32 = 2151810048u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_SIM_NOT_VALID: u32 = 2151810304u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CERT_EXPIRED: u32 = 2151809282u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CERT_INVALID: u32 = 2151809281u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CERT_NOT_FOUND: u32 = 2151809280u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CERT_OTHER_ERROR: u32 = 2151809284u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CERT_REJECTED: u32 = 2151809285u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CERT_REVOKED: u32 = 2151809283u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_CREDENTIALS_REJECTED: u32 = 2151809297u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_FIRST: i32 = -2143158016i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_LAST: i32 = -2143157761i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_NAME_PASSWORD_REJECTED: u32 = 2151809298u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_ROOT_CERT_EXPIRED: u32 = 2151809794u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_ROOT_CERT_FIRST: i32 = -2143157504i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_ROOT_CERT_INVALID: u32 = 2151809793u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_ROOT_CERT_LAST: i32 = -2143157249i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_E_USER_ROOT_CERT_NOT_FOUND: u32 = 2151809792u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_CONFG_READONLY: u32 = 524288u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_FULL_AUTH: u32 = 4096u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_GUEST_ACCESS: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_LOGON: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_MACHINE_AUTH: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_NON_INTERACTIVE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_ONLY_EAP_TLS: u32 = 16777216u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_PREFER_ALT_CREDENTIALS: u32 = 8192u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_PREVIEW: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_PRE_LOGON: u32 = 131072u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved1: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved2: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved3: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved4: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved5: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved6: u32 = 2048u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved7: u32 = 16384u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved8: u32 = 1048576u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_Reserved9: u32 = 4194304u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_SUPRESS_UI: u32 = 65536u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_USER_AUTH: u32 = 262144u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_FLAG_VPN: u32 = 8388608u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_GROUP_MASK: i32 = 65280i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_INTERACTIVE_UI_DATA {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -890,21 +890,21 @@ impl ::core::default::Default for EAP_INTERACTIVE_UI_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCredReq: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCredResp: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCredExpiryReq: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCredExpiryResp: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCredLogonReq: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCredLogonResp: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(5i32);
 impl ::core::marker::Copy for EAP_INTERACTIVE_UI_DATA_TYPE {}
 impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA_TYPE {
@@ -925,39 +925,39 @@ impl ::core::fmt::Debug for EAP_INTERACTIVE_UI_DATA_TYPE {
         f.debug_tuple("EAP_INTERACTIVE_UI_DATA_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_INVALID_PACKET: u32 = 2151809048u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_I_EAPHOST_EAP_NEGOTIATION_FAILED: u32 = 1078067222u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_I_EAPHOST_FIRST: i32 = -2143158272i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_I_EAPHOST_LAST: i32 = -2143158017i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_I_USER_ACCOUNT_OTHER_ERROR: u32 = 1078067472u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_I_USER_FIRST: i32 = 1078067456i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_I_USER_LAST: i32 = 1078067711i32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_DISCARD: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_AUTHENTICATE: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_HANDLE_IDENTITY: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(5i32);
 impl ::core::marker::Copy for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {}
 impl ::core::clone::Clone for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
@@ -979,7 +979,7 @@ impl ::core::fmt::Debug for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub fIsSuccess: super::super::Foundation::BOOL,
@@ -1019,7 +1019,7 @@ impl ::core::default::Default for EAP_METHOD_AUTHENTICATOR_RESULT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: ::windows::core::PWSTR,
@@ -1053,7 +1053,7 @@ impl ::core::default::Default for EAP_METHOD_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
@@ -1084,7 +1084,7 @@ impl ::core::default::Default for EAP_METHOD_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
@@ -1115,7 +1115,7 @@ impl ::core::default::Default for EAP_METHOD_INFO_ARRAY_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: ::windows::core::PWSTR,
@@ -1148,10 +1148,10 @@ impl ::core::default::Default for EAP_METHOD_INFO_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
@@ -1185,7 +1185,7 @@ impl ::core::default::Default for EAP_METHOD_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
@@ -1223,71 +1223,71 @@ impl ::core::default::Default for EAP_METHOD_PROPERTY_ARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_METHOD_PROPERTY_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropCipherSuiteNegotiation: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropMutualAuth: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropIntegrity: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropReplayProtection: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropConfidentiality: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropKeyDerivation: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropKeyStrength64: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(6i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropKeyStrength128: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(7i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropKeyStrength256: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(8i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropKeyStrength512: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(9i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropKeyStrength1024: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(10i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropDictionaryAttackResistance: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(11i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropFastReconnect: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(12i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropCryptoBinding: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(13i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropSessionIndependence: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(14i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropFragmentation: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(15i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropChannelBinding: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(16i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropNap: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(17i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropStandalone: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(18i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropMppeEncryption: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(19i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropTunnelMethod: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(20i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropSupportsConfig: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(21i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropCertifiedMethod: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(22i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropHiddenMethod: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(23i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropMachineAuth: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(24i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropUserAuth: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(25i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropIdentityPrivacy: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(26i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropMethodChaining: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(27i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropSharedStateEquivalence: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(28i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptLegacyMethodPropertyFlag: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(31i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const emptPropVendorSpecific: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(255i32);
 impl ::core::marker::Copy for EAP_METHOD_PROPERTY_TYPE {}
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY_TYPE {
@@ -1309,7 +1309,7 @@ impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
@@ -1343,7 +1343,7 @@ impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
@@ -1382,7 +1382,7 @@ impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE_BOOL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
@@ -1413,7 +1413,7 @@ impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE_DWORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
@@ -1443,15 +1443,15 @@ impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE_STRING {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const empvtBool: EAP_METHOD_PROPERTY_VALUE_TYPE = EAP_METHOD_PROPERTY_VALUE_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const empvtDword: EAP_METHOD_PROPERTY_VALUE_TYPE = EAP_METHOD_PROPERTY_VALUE_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const empvtString: EAP_METHOD_PROPERTY_VALUE_TYPE = EAP_METHOD_PROPERTY_VALUE_TYPE(2i32);
 impl ::core::marker::Copy for EAP_METHOD_PROPERTY_VALUE_TYPE {}
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_TYPE {
@@ -1473,7 +1473,7 @@ impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
@@ -1503,12 +1503,12 @@ impl ::core::default::Default for EAP_METHOD_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_PEER_METHOD_ROUTINES {
     pub dwVersion: u32,
     pub pEapType: *mut EAP_TYPE,
@@ -1567,28 +1567,28 @@ impl ::core::default::Default for EAP_PEER_METHOD_ROUTINES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_CONFIGUI: &'static str = "PeerConfigUIPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_DLL_PATH: &'static str = "PeerDllPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: &'static str = "PeerFriendlyName";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_IDENTITY: &'static str = "PeerIdentityPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_INTERACTIVEUI: &'static str = "PeerInteractiveUIPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_INVOKE_NAMEDLG: &'static str = "PeerInvokeUsernameDialog";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_INVOKE_PWDDLG: &'static str = "PeerInvokePasswordDialog";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_PROPERTIES: &'static str = "Properties";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: &'static str = "PeerRequireConfigUI";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_REGISTRY_LOCATION: &'static str = "System\\CurrentControlSet\\Services\\EapHost\\Methods";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
@@ -1620,7 +1620,7 @@ impl ::core::default::Default for EAP_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
@@ -1646,18 +1646,18 @@ impl ::core::default::Default for EAP_UI_DATA_FORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_VALUENAME_PROPERTIES: &'static str = "Properties";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: ::windows::core::PWSTR,
@@ -1687,21 +1687,21 @@ impl ::core::default::Default for EapCertificateCredential {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapCode(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCodeMinimum: EapCode = EapCode(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCodeRequest: EapCode = EapCode(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCodeResponse: EapCode = EapCode(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCodeSuccess: EapCode = EapCode(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCodeFailure: EapCode = EapCode(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapCodeMaximum: EapCode = EapCode(4i32);
 impl ::core::marker::Copy for EapCode {}
 impl ::core::clone::Clone for EapCode {
@@ -1723,7 +1723,7 @@ impl ::core::fmt::Debug for EapCode {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
@@ -1748,19 +1748,19 @@ impl ::core::default::Default for EapCredential {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapCredentialType(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_EMPTY_CREDENTIAL: EapCredentialType = EapCredentialType(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = EapCredentialType(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = EapCredentialType(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = EapCredentialType(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = EapCredentialType(4i32);
 impl ::core::marker::Copy for EapCredentialType {}
 impl ::core::clone::Clone for EapCredentialType {
@@ -1782,7 +1782,7 @@ impl ::core::fmt::Debug for EapCredentialType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
@@ -1808,17 +1808,17 @@ impl ::core::default::Default for EapCredentialTypeData {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapHostPeerAuthParams(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerAuthStatus: EapHostPeerAuthParams = EapHostPeerAuthParams(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerIdentity: EapHostPeerAuthParams = EapHostPeerAuthParams(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerIdentityExtendedInfo: EapHostPeerAuthParams = EapHostPeerAuthParams(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostNapInfo: EapHostPeerAuthParams = EapHostPeerAuthParams(4i32);
 impl ::core::marker::Copy for EapHostPeerAuthParams {}
 impl ::core::clone::Clone for EapHostPeerAuthParams {
@@ -1839,7 +1839,7 @@ impl ::core::fmt::Debug for EapHostPeerAuthParams {
         f.debug_tuple("EapHostPeerAuthParams").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerBeginSession<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, eaptype: Param1, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: Param3, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const ::windows::core::GUID, func: NotificationHandler, pcontextdata: *mut ::core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1869,7 +1869,7 @@ pub unsafe fn EapHostPeerBeginSession<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -1883,7 +1883,7 @@ pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(dwflags: u32, eapmethodtype: Param1, pconfigin: &[u8], ppconfigdoc: *mut ::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1898,7 +1898,7 @@ pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigXml2Blob<'a, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>(dwflags: u32, pconfigdoc: Param1, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1913,7 +1913,7 @@ pub unsafe fn EapHostPeerConfigXml2Blob<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>(dwflags: u32, pcredentialsdoc: Param1, pconfigin: &[u8], pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1928,7 +1928,7 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -1942,7 +1942,7 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     #[cfg(windows)]
@@ -1956,7 +1956,7 @@ pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg(windows)]
@@ -1970,7 +1970,7 @@ pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(windows)]
@@ -1984,7 +1984,7 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg(windows)]
@@ -1998,7 +1998,7 @@ pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPeerAuthParams, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2012,7 +2012,7 @@ pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPee
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: *mut ::windows::core::GUID, phcredentialimpersonationtoken: *mut isize, sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR, fsavetocredman: *mut super::super::Foundation::BOOL) -> u32 {
@@ -2027,7 +2027,7 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerGetEncryptedPassword<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwsizeofpassword: u32, szpassword: Param1, ppszencpassword: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -2041,7 +2041,7 @@ pub unsafe fn EapHostPeerGetEncryptedPassword<'a, Param1: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwversion: u32, dwflags: u32, eapmethodtype: Param2, pconnectiondata: &[u8], puserdata: &[u8], htokenimpersonateuser: Param7, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
@@ -2071,7 +2071,7 @@ pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetMethodProperties<'a, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwversion: u32, dwflags: u32, eapmethodtype: Param2, huserimpersonationtoken: Param3, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2086,7 +2086,7 @@ pub unsafe fn EapHostPeerGetMethodProperties<'a, Param2: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2100,7 +2100,7 @@ pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_AR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mut EAP_ATTRIBUTES, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2114,7 +2114,7 @@ pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethodResultReason, ppresult: *mut EapHostPeerMethodResult, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2129,7 +2129,7 @@ pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerGetSendPacket(sessionhandle: u32, pcbsendpacket: *mut u32, ppsendpacket: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2143,7 +2143,7 @@ pub unsafe fn EapHostPeerGetSendPacket(sessionhandle: u32, pcbsendpacket: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerGetUIContext(sessionhandle: u32, pdwsizeofuicontextdata: *mut u32, ppuicontextdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2157,7 +2157,7 @@ pub unsafe fn EapHostPeerGetUIContext(sessionhandle: u32, pdwsizeofuicontextdata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg(windows)]
@@ -2171,7 +2171,7 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(hwndparent: Param0, dwflags: u32, eapmethodtype: Param2, pconfigin: &[u8], pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2186,7 +2186,7 @@ pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwversion: u32, eapmethodtype: Param1, dwflags: u32, hwndparent: Param3, pconnectiondata: &[u8], puserdata: &[u8], pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -2215,7 +2215,7 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, puicontextdata: &[u8], pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2231,7 +2231,7 @@ pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, Param0: ::windows::core::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EapHostPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
@@ -2292,15 +2292,15 @@ impl ::core::default::Default for EapHostPeerMethodResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapHostPeerMethodResultReason(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerMethodResultAltSuccessReceived: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerMethodResultTimeout: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerMethodResultFromMethod: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(3i32);
 impl ::core::marker::Copy for EapHostPeerMethodResultReason {}
 impl ::core::clone::Clone for EapHostPeerMethodResultReason {
@@ -2321,7 +2321,7 @@ impl ::core::fmt::Debug for EapHostPeerMethodResultReason {
         f.debug_tuple("EapHostPeerMethodResultReason").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepacket: u32, preceivepacket: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2335,7 +2335,7 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepack
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerQueryCredentialInputFields<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(huserimpersonationtoken: Param0, eapmethodtype: Param1, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2350,7 +2350,7 @@ pub unsafe fn EapHostPeerQueryCredentialInputFields<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: u32, puicontextdata: &[u8], peapinteractiveuidata: *mut EAP_INTERACTIVE_UI_DATA, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2364,7 +2364,7 @@ pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32, dwflags: u32, puicontextdata: &[u8], peapinteractiveuidata: *const EAP_INTERACTIVE_UI_DATA, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2378,7 +2378,7 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(huserimpersonationtoken: Param0, eapmethodtype: Param1, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2393,23 +2393,23 @@ pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapHostPeerResponseAction(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseDiscard: EapHostPeerResponseAction = EapHostPeerResponseAction(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseSend: EapHostPeerResponseAction = EapHostPeerResponseAction(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseResult: EapHostPeerResponseAction = EapHostPeerResponseAction(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseInvokeUi: EapHostPeerResponseAction = EapHostPeerResponseAction(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseRespond: EapHostPeerResponseAction = EapHostPeerResponseAction(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseStartAuthentication: EapHostPeerResponseAction = EapHostPeerResponseAction(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapHostPeerResponseNone: EapHostPeerResponseAction = EapHostPeerResponseAction(6i32);
 impl ::core::marker::Copy for EapHostPeerResponseAction {}
 impl ::core::clone::Clone for EapHostPeerResponseAction {
@@ -2430,7 +2430,7 @@ impl ::core::fmt::Debug for EapHostPeerResponseAction {
         f.debug_tuple("EapHostPeerResponseAction").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *const EAP_ATTRIBUTES, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2444,7 +2444,7 @@ pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
@@ -2458,7 +2458,7 @@ pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerUninitialize() {
     #[cfg(windows)]
@@ -2473,7 +2473,7 @@ pub unsafe fn EapHostPeerUninitialize() {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EapPacket {
     pub Code: u8,
     pub Id: u8,
@@ -2506,7 +2506,7 @@ impl ::core::default::Default for EapPacket {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
@@ -2544,21 +2544,21 @@ impl ::core::default::Default for EapPeerMethodOutput {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapPeerMethodResponseAction(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResponseActionDiscard: EapPeerMethodResponseAction = EapPeerMethodResponseAction(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResponseActionSend: EapPeerMethodResponseAction = EapPeerMethodResponseAction(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResponseActionResult: EapPeerMethodResponseAction = EapPeerMethodResponseAction(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResponseActionInvokeUI: EapPeerMethodResponseAction = EapPeerMethodResponseAction(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResponseActionRespond: EapPeerMethodResponseAction = EapPeerMethodResponseAction(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResponseActionNone: EapPeerMethodResponseAction = EapPeerMethodResponseAction(5i32);
 impl ::core::marker::Copy for EapPeerMethodResponseAction {}
 impl ::core::clone::Clone for EapPeerMethodResponseAction {
@@ -2580,7 +2580,7 @@ impl ::core::fmt::Debug for EapPeerMethodResponseAction {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
@@ -2641,15 +2641,15 @@ impl ::core::default::Default for EapPeerMethodResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EapPeerMethodResultReason(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResultUnknown: EapPeerMethodResultReason = EapPeerMethodResultReason(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResultSuccess: EapPeerMethodResultReason = EapPeerMethodResultReason(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EapPeerMethodResultFailure: EapPeerMethodResultReason = EapPeerMethodResultReason(3i32);
 impl ::core::marker::Copy for EapPeerMethodResultReason {}
 impl ::core::clone::Clone for EapPeerMethodResultReason {
@@ -2671,7 +2671,7 @@ impl ::core::fmt::Debug for EapPeerMethodResultReason {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EapSimCredential {
     pub iccID: ::windows::core::PWSTR,
 }
@@ -2701,7 +2701,7 @@ impl ::core::default::Default for EapSimCredential {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EapUsernamePasswordCredential {
     pub username: ::windows::core::PWSTR,
     pub password: ::windows::core::PWSTR,
@@ -2731,7 +2731,7 @@ impl ::core::default::Default for EapUsernamePasswordCredential {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 pub const GUID_EapHost_Cause_CertStoreInaccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004);
 pub const GUID_EapHost_Cause_EapNegotiationFailed: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001c);
@@ -2787,29 +2787,29 @@ pub const GUID_EapHost_Repair_Server_ClientSelectServerCert: ::windows::core::GU
 pub const GUID_EapHost_Repair_User_AuthFailure: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000019);
 pub const GUID_EapHost_Repair_User_GetNewCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001a);
 pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001b);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 pub struct IAccountingProviderConfig(::windows::core::IUnknown);
 impl IAccountingProviderConfig {
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszmachinename: Param0) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configure<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, uconnectionparam: usize, hwnd: Param1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Configure)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deactivate)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
@@ -2867,29 +2867,29 @@ pub struct IAccountingProviderConfig_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 pub struct IAuthenticationProviderConfig(::windows::core::IUnknown);
 impl IAuthenticationProviderConfig {
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszmachinename: Param0) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configure<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, uconnectionparam: usize, hwnd: Param1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Configure)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deactivate)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
@@ -2947,30 +2947,30 @@ pub struct IAuthenticationProviderConfig_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 pub struct IEAPProviderConfig(::windows::core::IUnknown);
 impl IEAPProviderConfig {
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszmachinename: Param0, dweaptypeid: u32) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ServerInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
@@ -3035,40 +3035,40 @@ pub struct IEAPProviderConfig_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RouterInvokeCredentialsUI: usize,
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 pub struct IEAPProviderConfig2(::windows::core::IUnknown);
 impl IEAPProviderConfig2 {
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszmachinename: Param0, dweaptypeid: u32) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Uninitialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ServerInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ServerInvokeConfigUI2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(pconfigdatain), ::core::mem::transmute(dwsizeofconfigdatain), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGlobalConfig)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
@@ -3143,44 +3143,44 @@ pub struct IEAPProviderConfig2_Vtbl {
     ServerInvokeConfigUI2: usize,
     pub GetGlobalConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 pub struct IEAPProviderConfig3(::windows::core::IUnknown);
 impl IEAPProviderConfig3 {
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszmachinename: Param0, dweaptypeid: u32) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Initialize)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Uninitialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.ServerInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ServerInvokeConfigUI2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(pconfigdatain), ::core::mem::transmute(dwsizeofconfigdatain), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetGlobalConfig)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeCertificateConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ServerInvokeCertificateConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(pconfigdatain), ::core::mem::transmute(dwsizeofconfigdatain), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout), ::core::mem::transmute(ureserved)).ok()
@@ -3275,16 +3275,16 @@ pub struct IEAPProviderConfig3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ServerInvokeCertificateConfigUI: usize,
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 pub struct IRouterProtocolConfig(::windows::core::IUnknown);
 impl IRouterProtocolConfig {
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddProtocol<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pszmachinename: Param0, dwtransportid: u32, dwprotocolid: u32, hwnd: Param3, dwflags: u32, prouter: Param5, ureserved1: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddProtocol)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(dwprotocolid), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), prouter.into_param().abi(), ::core::mem::transmute(ureserved1)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveProtocol<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pszmachinename: Param0, dwtransportid: u32, dwprotocolid: u32, hwnd: Param3, dwflags: u32, prouter: Param5, ureserved1: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveProtocol)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(dwprotocolid), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), prouter.into_param().abi(), ::core::mem::transmute(ureserved1)).ok()
@@ -3343,17 +3343,17 @@ pub struct IRouterProtocolConfig_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RemoveProtocol: usize,
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ISOLATION_STATE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const ISOLATION_STATE_UNKNOWN: ISOLATION_STATE = ISOLATION_STATE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const ISOLATION_STATE_NOT_RESTRICTED: ISOLATION_STATE = ISOLATION_STATE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const ISOLATION_STATE_IN_PROBATION: ISOLATION_STATE = ISOLATION_STATE(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const ISOLATION_STATE_RESTRICTED_ACCESS: ISOLATION_STATE = ISOLATION_STATE(3i32);
 impl ::core::marker::Copy for ISOLATION_STATE {}
 impl ::core::clone::Clone for ISOLATION_STATE {
@@ -3375,7 +3375,7 @@ impl ::core::fmt::Debug for ISOLATION_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub eapType: u32,
     pub dwFlags: u32,
@@ -3425,7 +3425,7 @@ impl ::core::default::Default for LEGACY_IDENTITY_UI_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub eapType: u32,
     pub dwSizeofContextData: u32,
@@ -3459,16 +3459,16 @@ impl ::core::default::Default for LEGACY_INTERACTIVE_UI_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const MAXEAPCODE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
@@ -3507,29 +3507,29 @@ impl ::core::default::Default for NgcTicketContext {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub type NotificationHandler = ::core::option::Option<unsafe extern "system" fn(connectionid: ::windows::core::GUID, pcontextdata: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PPP_EAP_ACTION(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_NoAction: PPP_EAP_ACTION = PPP_EAP_ACTION(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_Authenticate: PPP_EAP_ACTION = PPP_EAP_ACTION(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_Done: PPP_EAP_ACTION = PPP_EAP_ACTION(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_SendAndDone: PPP_EAP_ACTION = PPP_EAP_ACTION(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_Send: PPP_EAP_ACTION = PPP_EAP_ACTION(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_SendWithTimeout: PPP_EAP_ACTION = PPP_EAP_ACTION(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_SendWithTimeoutInteractive: PPP_EAP_ACTION = PPP_EAP_ACTION(6i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_IndicateTLV: PPP_EAP_ACTION = PPP_EAP_ACTION(7i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPACTION_IndicateIdentity: PPP_EAP_ACTION = PPP_EAP_ACTION(8i32);
 impl ::core::marker::Copy for PPP_EAP_ACTION {}
 impl ::core::clone::Clone for PPP_EAP_ACTION {
@@ -3551,7 +3551,7 @@ impl ::core::fmt::Debug for PPP_EAP_ACTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -3586,7 +3586,7 @@ impl ::core::default::Default for PPP_EAP_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
@@ -3666,7 +3666,7 @@ impl ::core::default::Default for PPP_EAP_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,
@@ -3734,7 +3734,7 @@ impl ::core::default::Default for PPP_EAP_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct PPP_EAP_PACKET {
     pub Code: u8,
     pub Id: u8,
@@ -3767,7 +3767,7 @@ impl ::core::default::Default for PPP_EAP_PACKET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,
@@ -3798,201 +3798,201 @@ impl ::core::default::Default for RAS_AUTH_ATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RAS_AUTH_ATTRIBUTE_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatMinimum: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatUserName: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatUserPassword: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(2i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatMD5CHAPPassword: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(3i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatNASIPAddress: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(4i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatNASPort: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(5i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatServiceType: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(6i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedProtocol: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(7i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedIPAddress: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedIPNetmask: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedRouting: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(10i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFilterId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(11i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedMTU: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(12i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedCompression: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(13i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginIPHost: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(14i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginService: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(15i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginTCPPort: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(16i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatUnassigned17: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(17i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatReplyMessage: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(18i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCallbackNumber: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(19i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCallbackId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(20i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatUnassigned21: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(21i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedRoute: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(22i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedIPXNetwork: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(23i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatState: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(24i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatClass: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(25i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatVendorSpecific: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(26i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatSessionTimeout: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(27i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatIdleTimeout: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(28i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatTerminationAction: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(29i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCalledStationId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(30i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCallingStationId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(31i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatNASIdentifier: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(32i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatProxyState: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(33i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginLATService: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(34i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginLATNode: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(35i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginLATGroup: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(36i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedAppleTalkLink: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(37i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedAppleTalkNetwork: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(38i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedAppleTalkZone: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(39i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctStatusType: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(40i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctDelayTime: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(41i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctInputOctets: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(42i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctOutputOctets: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(43i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctSessionId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(44i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctAuthentic: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(45i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctSessionTime: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(46i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctInputPackets: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(47i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctOutputPackets: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(48i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctTerminateCause: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(49i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctMultiSessionId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(50i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctLinkCount: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(51i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctEventTimeStamp: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(55i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatMD5CHAPChallenge: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(60i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatNASPortType: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(61i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatPortLimit: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(62i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginLATPort: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(63i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatTunnelType: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(64i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatTunnelMediumType: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(65i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatTunnelClientEndpoint: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(66i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatTunnelServerEndpoint: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(67i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPPassword: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(70i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPFeatures: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(71i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPZoneAccess: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(72i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPSecurity: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(73i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPSecurityData: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(74i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatPasswordRetry: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(75i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatPrompt: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(76i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatConnectInfo: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(77i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatConfigurationToken: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(78i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatEAPMessage: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(79i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatSignature: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(80i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPChallengeResponse: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(84i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatAcctInterimInterval: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(85i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatNASIPv6Address: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(95i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedInterfaceId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(96i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedIPv6Prefix: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(97i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatLoginIPv6Host: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(98i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedIPv6Route: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(99i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFramedIPv6Pool: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(100i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPGuestLogon: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8096i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCertificateOID: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8097i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatEAPConfiguration: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8098i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatPEAPEmbeddedEAPTypeId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8099i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatInnerEAPTypeId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8099i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatPEAPFastRoamedSession: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8100i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatFastRoamedSession: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8100i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatEAPTLV: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8102i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCredentialsChanged: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8103i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatCertificateThumbprint: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(8250i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatPeerId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9000i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatServerId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9001i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatMethodId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9002i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatEMSK: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9003i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatSessionId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9004i32);
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatReserved: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(-1i32);
 impl ::core::marker::Copy for RAS_AUTH_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for RAS_AUTH_ATTRIBUTE_TYPE {
@@ -4013,153 +4013,153 @@ impl ::core::fmt::Debug for RAS_AUTH_ATTRIBUTE_TYPE {
         f.debug_tuple("RAS_AUTH_ATTRIBUTE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_8021X_AUTH: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_ALTERNATIVE_USER_DB: u32 = 2048u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_CONFG_READONLY: u32 = 524288u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_FIRST_LINK: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_GUEST_ACCESS: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_HOSTED_IN_PEAP: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_LOGON: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_MACHINE_AUTH: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_NON_INTERACTIVE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_PEAP_FORCE_FULL_AUTH: u32 = 4096u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_PEAP_UPFRONT: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_PREVIEW: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_PRE_LOGON: u32 = 131072u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_RESERVED: u32 = 1048576u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_ROUTER: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_SAVE_CREDMAN: u32 = 2097152u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_REGISTRY_LOCATION: &'static str = "System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_AUTHENTICATEE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_AUTHENTICATOR: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_EAP: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_PEAP: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_VPN: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_CONFIGUI: &'static str = "ConfigUIPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_CONFIG_CLSID: &'static str = "ConfigCLSID";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_DEFAULT_DATA: &'static str = "ConfigData";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_ENCRYPTION: &'static str = "MPPEEncryptionSupported";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_FILTER_INNERMETHODS: &'static str = "FilterInnerMethods";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_FRIENDLY_NAME: &'static str = "FriendlyName";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_IDENTITY: &'static str = "IdentityPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_INTERACTIVEUI: &'static str = "InteractiveUIPath";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_INVOKE_NAMEDLG: &'static str = "InvokeUsernameDialog";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_INVOKE_PWDDLG: &'static str = "InvokePasswordDialog";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_ISTUNNEL_METHOD: &'static str = "IsTunnelMethod";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_PATH: &'static str = "Path";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_PER_POLICY_CONFIG: &'static str = "PerPolicyConfig";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: &'static str = "RequireConfigUI";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_ROLES_SUPPORTED: &'static str = "RolesSupported";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: &'static str = "StandaloneSupported";
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropCertifiedMethod: u32 = 4194304u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropChannelBinding: u32 = 65536u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropCipherSuiteNegotiation: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropConfidentiality: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropCryptoBinding: u32 = 8192u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropDictionaryAttackResistance: u32 = 2048u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropFastReconnect: u32 = 4096u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropFragmentation: u32 = 32768u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropHiddenMethod: u32 = 8388608u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropIdentityPrivacy: u32 = 67108864u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropIntegrity: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropKeyDerivation: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropKeyStrength1024: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropKeyStrength128: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropKeyStrength256: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropKeyStrength512: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropKeyStrength64: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropMachineAuth: u32 = 16777216u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropMethodChaining: u32 = 134217728u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropMppeEncryption: u32 = 524288u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropMutualAuth: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropNap: u32 = 131072u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropReplayProtection: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropReserved: u32 = 2147483648u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropSessionIndependence: u32 = 16384u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropSharedStateEquivalence: u32 = 268435456u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropStandalone: u32 = 262144u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropSupportsConfig: u32 = 2097152u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropTunnelMethod: u32 = 1048576u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropUserAuth: u32 = 33554432u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPChallenge: u32 = 33u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPNewPassword: u32 = 20u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPOldPassword: u32 = 19u32;
-#[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
+#[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const raatARAPPasswordChangeReason: u32 = 21u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

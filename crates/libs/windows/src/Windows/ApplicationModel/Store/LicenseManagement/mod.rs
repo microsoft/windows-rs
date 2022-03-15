@@ -71,10 +71,10 @@ pub struct ILicenseSatisfactionResult_Vtbl {
     LicenseSatisfactionInfos: usize,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 pub struct LicenseManager {}
 impl LicenseManager {
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn AddLicenseAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(license: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics(|this| unsafe {
@@ -82,7 +82,7 @@ impl LicenseManager {
             (::windows::core::Interface::vtable(this).AddLicenseAsync)(::core::mem::transmute_copy(this), license.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSatisfactionInfosAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(contentids: Param0, keyids: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>> {
         Self::ILicenseManagerStatics(|this| unsafe {
@@ -90,7 +90,7 @@ impl LicenseManager {
             (::windows::core::Interface::vtable(this).GetSatisfactionInfosAsync)(::core::mem::transmute_copy(this), contentids.into_param().abi(), keyids.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
@@ -112,7 +112,7 @@ impl LicenseManager {
 impl ::windows::core::RuntimeName for LicenseManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseManager";
 }
-#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LicenseRefreshOption(pub i32);
@@ -146,11 +146,11 @@ unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
 pub struct LicenseSatisfactionInfo(::windows::core::IUnknown);
 impl LicenseSatisfactionInfo {
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn SatisfiedByDevice(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -158,7 +158,7 @@ impl LicenseSatisfactionInfo {
             (::windows::core::Interface::vtable(this).SatisfiedByDevice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn SatisfiedByOpenLicense(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -166,7 +166,7 @@ impl LicenseSatisfactionInfo {
             (::windows::core::Interface::vtable(this).SatisfiedByOpenLicense)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn SatisfiedByTrial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -174,7 +174,7 @@ impl LicenseSatisfactionInfo {
             (::windows::core::Interface::vtable(this).SatisfiedByTrial)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn SatisfiedByPass(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -182,7 +182,7 @@ impl LicenseSatisfactionInfo {
             (::windows::core::Interface::vtable(this).SatisfiedByPass)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn SatisfiedByInstallMedia(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -190,7 +190,7 @@ impl LicenseSatisfactionInfo {
             (::windows::core::Interface::vtable(this).SatisfiedByInstallMedia)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn SatisfiedBySignedInUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -198,7 +198,7 @@ impl LicenseSatisfactionInfo {
             (::windows::core::Interface::vtable(this).SatisfiedBySignedInUser)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn IsSatisfied(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -279,11 +279,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
-#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
 pub struct LicenseSatisfactionResult(::windows::core::IUnknown);
 impl LicenseSatisfactionResult {
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LicenseSatisfactionInfos(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, LicenseSatisfactionInfo>> {
         let this = self;
@@ -292,7 +292,7 @@ impl LicenseSatisfactionResult {
             (::windows::core::Interface::vtable(this).LicenseSatisfactionInfos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, LicenseSatisfactionInfo>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {

@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct CollectionChange(pub i32);
 impl CollectionChange {

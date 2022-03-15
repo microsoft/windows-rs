@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -13,7 +13,7 @@ pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_Foundation', 'Win32_UI_Input_Pointer', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> ::windows::core::Result<()> {
@@ -28,19 +28,19 @@ pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CROSS_SLIDE_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_NONE: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(0u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_SELECT: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_SPEED_BUMP: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_REARRANGE: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_MAX: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(4294967295u32);
 impl ::core::marker::Copy for CROSS_SLIDE_FLAGS {}
 impl ::core::clone::Clone for CROSS_SLIDE_FLAGS {
@@ -90,7 +90,7 @@ impl ::core::ops::Not for CROSS_SLIDE_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct CROSS_SLIDE_PARAMETER {
     pub threshold: CROSS_SLIDE_THRESHOLD,
     pub distance: f32,
@@ -120,21 +120,21 @@ impl ::core::default::Default for CROSS_SLIDE_PARAMETER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_SELECT_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_END: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_REARRANGE_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(3i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_COUNT: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(4i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_MAX: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(-1i32);
 impl ::core::marker::Copy for CROSS_SLIDE_THRESHOLD {}
 impl ::core::clone::Clone for CROSS_SLIDE_THRESHOLD {
@@ -155,7 +155,7 @@ impl ::core::fmt::Debug for CROSS_SLIDE_THRESHOLD {
         f.debug_tuple("CROSS_SLIDE_THRESHOLD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTIONCONTEXT> {
     #[cfg(windows)]
@@ -170,7 +170,7 @@ pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTION
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -184,7 +184,7 @@ pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, threshold: CROSS_SLIDE_THRESHOLD) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
@@ -199,7 +199,7 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
@@ -214,7 +214,7 @@ pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
@@ -229,7 +229,7 @@ pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -243,7 +243,7 @@ pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
@@ -258,7 +258,7 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -273,7 +273,7 @@ pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_Foundation', 'Win32_UI_Input_Pointer', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<INTERACTION_STATE> {
@@ -289,7 +289,7 @@ pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
@@ -304,7 +304,7 @@ pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
@@ -353,19 +353,19 @@ impl ::core::fmt::Debug for HINTERACTIONCONTEXT {
 unsafe impl ::windows::core::Abi for HINTERACTIONCONTEXT {
     type Abi = Self;
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HOLD_PARAMETER(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const HOLD_PARAMETER_MIN_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const HOLD_PARAMETER_MAX_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const HOLD_PARAMETER_THRESHOLD_RADIUS: HOLD_PARAMETER = HOLD_PARAMETER(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const HOLD_PARAMETER_THRESHOLD_START_DELAY: HOLD_PARAMETER = HOLD_PARAMETER(3i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const HOLD_PARAMETER_MAX: HOLD_PARAMETER = HOLD_PARAMETER(-1i32);
 impl ::core::marker::Copy for HOLD_PARAMETER {}
 impl ::core::clone::Clone for HOLD_PARAMETER {
@@ -386,23 +386,23 @@ impl ::core::fmt::Debug for HOLD_PARAMETER {
         f.debug_tuple("HOLD_PARAMETER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct INERTIA_PARAMETER(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_TRANSLATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_TRANSLATION_DISPLACEMENT: INERTIA_PARAMETER = INERTIA_PARAMETER(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_ROTATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(3i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_ROTATION_ANGLE: INERTIA_PARAMETER = INERTIA_PARAMETER(4i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_EXPANSION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(5i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_EXPANSION_EXPANSION: INERTIA_PARAMETER = INERTIA_PARAMETER(6i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_MAX: INERTIA_PARAMETER = INERTIA_PARAMETER(-1i32);
 impl ::core::marker::Copy for INERTIA_PARAMETER {}
 impl ::core::clone::Clone for INERTIA_PARAMETER {
@@ -424,7 +424,7 @@ impl ::core::fmt::Debug for INERTIA_PARAMETER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE {
     pub flags: CROSS_SLIDE_FLAGS,
 }
@@ -454,7 +454,7 @@ impl ::core::default::Default for INTERACTION_ARGUMENTS_CROSS_SLIDE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct INTERACTION_ARGUMENTS_MANIPULATION {
     pub delta: MANIPULATION_TRANSFORM,
     pub cumulative: MANIPULATION_TRANSFORM,
@@ -487,7 +487,7 @@ impl ::core::default::Default for INTERACTION_ARGUMENTS_MANIPULATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct INTERACTION_ARGUMENTS_TAP {
     pub count: u32,
 }
@@ -516,65 +516,65 @@ impl ::core::default::Default for INTERACTION_ARGUMENTS_TAP {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_NONE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(0u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_X: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_Y: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(8u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(16u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(32u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(64u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(128u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_X: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(256u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_Y: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(512u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_EXACT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1024u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_MULTIPLE_FINGER_PANNING: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2048u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_HORIZONTAL: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SELECT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SPEED_BUMP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(8u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_REARRANGE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(16u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_EXACT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(32u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_TAP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_TAP_DOUBLE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_TAP_MULTIPLE_FINGER: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_SECONDARY_TAP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_HOLD: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_HOLD_MOUSE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_HOLD_MULTIPLE_FINGER: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_DRAG: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_MAX: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4294967295u32);
 impl ::core::marker::Copy for INTERACTION_CONFIGURATION_FLAGS {}
 impl ::core::clone::Clone for INTERACTION_CONFIGURATION_FLAGS {
@@ -624,7 +624,7 @@ impl ::core::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct INTERACTION_CONTEXT_CONFIGURATION {
     pub interactionId: INTERACTION_ID,
     pub enable: INTERACTION_CONFIGURATION_FLAGS,
@@ -655,7 +655,7 @@ impl ::core::default::Default for INTERACTION_CONTEXT_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT {
     pub interactionId: INTERACTION_ID,
@@ -692,7 +692,7 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
@@ -726,7 +726,7 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
@@ -765,7 +765,7 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
@@ -798,23 +798,23 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(3i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONTEXT_PROPERTY_MAX: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(-1i32);
 impl ::core::marker::Copy for INTERACTION_CONTEXT_PROPERTY {}
 impl ::core::clone::Clone for INTERACTION_CONTEXT_PROPERTY {
@@ -835,21 +835,21 @@ impl ::core::fmt::Debug for INTERACTION_CONTEXT_PROPERTY {
         f.debug_tuple("INTERACTION_CONTEXT_PROPERTY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct INTERACTION_FLAGS(pub u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_NONE: INTERACTION_FLAGS = INTERACTION_FLAGS(0u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_BEGIN: INTERACTION_FLAGS = INTERACTION_FLAGS(1u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_END: INTERACTION_FLAGS = INTERACTION_FLAGS(2u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_CANCEL: INTERACTION_FLAGS = INTERACTION_FLAGS(4u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_INERTIA: INTERACTION_FLAGS = INTERACTION_FLAGS(8u32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_MAX: INTERACTION_FLAGS = INTERACTION_FLAGS(4294967295u32);
 impl ::core::marker::Copy for INTERACTION_FLAGS {}
 impl ::core::clone::Clone for INTERACTION_FLAGS {
@@ -898,25 +898,25 @@ impl ::core::ops::Not for INTERACTION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct INTERACTION_ID(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_NONE: INTERACTION_ID = INTERACTION_ID(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_MANIPULATION: INTERACTION_ID = INTERACTION_ID(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_TAP: INTERACTION_ID = INTERACTION_ID(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_SECONDARY_TAP: INTERACTION_ID = INTERACTION_ID(3i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_HOLD: INTERACTION_ID = INTERACTION_ID(4i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_DRAG: INTERACTION_ID = INTERACTION_ID(5i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_CROSS_SLIDE: INTERACTION_ID = INTERACTION_ID(6i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_MAX: INTERACTION_ID = INTERACTION_ID(-1i32);
 impl ::core::marker::Copy for INTERACTION_ID {}
 impl ::core::clone::Clone for INTERACTION_ID {
@@ -937,17 +937,17 @@ impl ::core::fmt::Debug for INTERACTION_ID {
         f.debug_tuple("INTERACTION_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct INTERACTION_STATE(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_STATE_IDLE: INTERACTION_STATE = INTERACTION_STATE(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_STATE_IN_INTERACTION: INTERACTION_STATE = INTERACTION_STATE(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_STATE_POSSIBLE_DOUBLE_TAP: INTERACTION_STATE = INTERACTION_STATE(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_STATE_MAX: INTERACTION_STATE = INTERACTION_STATE(-1i32);
 impl ::core::marker::Copy for INTERACTION_STATE {}
 impl ::core::clone::Clone for INTERACTION_STATE {
@@ -968,17 +968,17 @@ impl ::core::fmt::Debug for INTERACTION_STATE {
         f.debug_tuple("INTERACTION_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MANIPULATION_RAILS_STATE_UNDECIDED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MANIPULATION_RAILS_STATE_FREE: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MANIPULATION_RAILS_STATE_RAILED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MANIPULATION_RAILS_STATE_MAX: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(-1i32);
 impl ::core::marker::Copy for MANIPULATION_RAILS_STATE {}
 impl ::core::clone::Clone for MANIPULATION_RAILS_STATE {
@@ -1000,7 +1000,7 @@ impl ::core::fmt::Debug for MANIPULATION_RAILS_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct MANIPULATION_TRANSFORM {
     pub translationX: f32,
     pub translationY: f32,
@@ -1034,7 +1034,7 @@ impl ::core::default::Default for MANIPULATION_TRANSFORM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub struct MANIPULATION_VELOCITY {
     pub velocityX: f32,
     pub velocityY: f32,
@@ -1066,23 +1066,23 @@ impl ::core::default::Default for MANIPULATION_VELOCITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_Y: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(2i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_DELTA_SCALE: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(3i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_DELTA_ROTATION: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(4i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(5i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_Y: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(6i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_MAX: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(-1i32);
 impl ::core::marker::Copy for MOUSE_WHEEL_PARAMETER {}
 impl ::core::clone::Clone for MOUSE_WHEEL_PARAMETER {
@@ -1103,7 +1103,7 @@ impl ::core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
         f.debug_tuple("MOUSE_WHEEL_PARAMETER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1117,7 +1117,7 @@ pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1131,7 +1131,7 @@ pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_Foundation', 'Win32_UI_Input_Pointer', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
@@ -1146,7 +1146,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1161,7 +1161,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1176,7 +1176,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1190,7 +1190,7 @@ pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1204,7 +1204,7 @@ pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, crossslideparameters: &[CROSS_SLIDE_PARAMETER]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1218,7 +1218,7 @@ pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1232,7 +1232,7 @@ pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1246,7 +1246,7 @@ pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configuration: &[INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1260,7 +1260,7 @@ pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1274,7 +1274,7 @@ pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, x: f32, y: f32, radius: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1288,7 +1288,7 @@ pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1302,7 +1302,7 @@ pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1316,7 +1316,7 @@ pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1330,7 +1330,7 @@ pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn StopInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1344,15 +1344,15 @@ pub unsafe fn StopInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TAP_PARAMETER(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TAP_PARAMETER_MIN_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TAP_PARAMETER_MAX_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TAP_PARAMETER_MAX: TAP_PARAMETER = TAP_PARAMETER(-1i32);
 impl ::core::marker::Copy for TAP_PARAMETER {}
 impl ::core::clone::Clone for TAP_PARAMETER {
@@ -1373,15 +1373,15 @@ impl ::core::fmt::Debug for TAP_PARAMETER {
         f.debug_tuple("TAP_PARAMETER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TRANSLATION_PARAMETER(pub i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(0i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TRANSLATION_PARAMETER_MAX_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(1i32);
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TRANSLATION_PARAMETER_MAX: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(-1i32);
 impl ::core::marker::Copy for TRANSLATION_PARAMETER {}
 impl ::core::clone::Clone for TRANSLATION_PARAMETER {

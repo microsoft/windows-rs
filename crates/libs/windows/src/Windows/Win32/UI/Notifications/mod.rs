@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_UI_Notifications'*"]
+#[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
-    #[doc = "*Required features: 'Win32_UI_Notifications'*"]
+    #[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
@@ -55,7 +55,7 @@ pub struct INotificationActivationCallback_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::windows::core::PCWSTR, invokedargs: ::windows::core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Notifications'*"]
+#[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: ::windows::core::PCWSTR,
     pub Value: ::windows::core::PCWSTR,

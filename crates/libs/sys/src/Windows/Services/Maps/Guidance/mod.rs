@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Services_Maps_Guidance'*"]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
 impl GuidanceAudioMeasurementSystem {
@@ -13,7 +13,7 @@ impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
         *self
     }
 }
-#[doc = "*Required features: 'Services_Maps_Guidance'*"]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for GuidanceAudioNotificationKind {
     }
 }
 pub type GuidanceAudioNotificationRequestedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Services_Maps_Guidance'*"]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for GuidanceAudioNotifications {
     }
 }
 pub type GuidanceLaneInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Services_Maps_Guidance'*"]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
@@ -73,7 +73,7 @@ impl ::core::clone::Clone for GuidanceLaneMarkers {
     }
 }
 pub type GuidanceManeuver = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Services_Maps_Guidance'*"]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
@@ -133,7 +133,7 @@ impl ::core::clone::Clone for GuidanceManeuverKind {
     }
 }
 pub type GuidanceMapMatchedCoordinate = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Services_Maps_Guidance'*"]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {

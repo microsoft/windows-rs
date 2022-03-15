@@ -5,7 +5,7 @@ pub type ThreadPoolTimer = *mut ::core::ffi::c_void;
 pub type TimerDestroyedHandler = *mut ::core::ffi::c_void;
 pub type TimerElapsedHandler = *mut ::core::ffi::c_void;
 pub type WorkItemHandler = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'System_Threading'*"]
+#[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {
@@ -18,7 +18,7 @@ impl ::core::clone::Clone for WorkItemOptions {
         *self
     }
 }
-#[doc = "*Required features: 'System_Threading'*"]
+#[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
 pub struct WorkItemPriority(pub i32);
 impl WorkItemPriority {

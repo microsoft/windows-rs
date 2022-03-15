@@ -3,7 +3,7 @@ pub type AppInstallItem = *mut ::core::ffi::c_void;
 pub type AppInstallManager = *mut ::core::ffi::c_void;
 pub type AppInstallManagerItemEventArgs = *mut ::core::ffi::c_void;
 pub type AppInstallOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallState(pub i32);
 impl AppInstallState {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for AppInstallState {
     }
 }
 pub type AppInstallStatus = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallType(pub i32);
 impl AppInstallType {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for AppInstallType {
         *self
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AppInstallationToastNotificationMode(pub i32);
 impl AppInstallationToastNotificationMode {
@@ -59,7 +59,7 @@ impl ::core::clone::Clone for AppInstallationToastNotificationMode {
     }
 }
 pub type AppUpdateOptions = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct AutoUpdateSetting(pub i32);
 impl AutoUpdateSetting {
@@ -75,7 +75,7 @@ impl ::core::clone::Clone for AutoUpdateSetting {
     }
 }
 pub type GetEntitlementResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
 pub struct GetEntitlementStatus(pub i32);
 impl GetEntitlementStatus {

@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Devices_Background'*"]
+#[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
 pub struct DeviceServicingDetails(::windows::core::IUnknown);
 impl DeviceServicingDetails {
-    #[doc = "*Required features: 'Devices_Background'*"]
+    #[doc = "*Required features: `\"Devices_Background\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11,7 +11,7 @@ impl DeviceServicingDetails {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Background'*"]
+    #[doc = "*Required features: `\"Devices_Background\"`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -19,7 +19,7 @@ impl DeviceServicingDetails {
             (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Background', 'Foundation'*"]
+    #[doc = "*Required features: `\"Devices_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpectedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -101,11 +101,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
 }
 unsafe impl ::core::marker::Send for DeviceServicingDetails {}
 unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
-#[doc = "*Required features: 'Devices_Background'*"]
+#[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
 pub struct DeviceUseDetails(::windows::core::IUnknown);
 impl DeviceUseDetails {
-    #[doc = "*Required features: 'Devices_Background'*"]
+    #[doc = "*Required features: `\"Devices_Background\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -113,7 +113,7 @@ impl DeviceUseDetails {
             (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Background'*"]
+    #[doc = "*Required features: `\"Devices_Background\"`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {

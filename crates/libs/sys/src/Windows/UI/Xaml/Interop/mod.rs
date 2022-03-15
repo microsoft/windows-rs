@@ -6,7 +6,7 @@ pub type IBindableObservableVector = *mut ::core::ffi::c_void;
 pub type IBindableVector = *mut ::core::ffi::c_void;
 pub type IBindableVectorView = *mut ::core::ffi::c_void;
 pub type INotifyCollectionChanged = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Interop'*"]
+#[doc = "*Required features: `\"UI_Xaml_Interop\"`*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedAction(pub i32);
 impl NotifyCollectionChangedAction {
@@ -24,7 +24,7 @@ impl ::core::clone::Clone for NotifyCollectionChangedAction {
 }
 pub type NotifyCollectionChangedEventArgs = *mut ::core::ffi::c_void;
 pub type NotifyCollectionChangedEventHandler = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Xaml_Interop'*"]
+#[doc = "*Required features: `\"UI_Xaml_Interop\"`*"]
 #[repr(transparent)]
 pub struct TypeKind(pub i32);
 impl TypeKind {
@@ -39,7 +39,7 @@ impl ::core::clone::Clone for TypeKind {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Xaml_Interop'*"]
+#[doc = "*Required features: `\"UI_Xaml_Interop\"`*"]
 pub struct TypeName {
     pub Name: ::windows_sys::core::HSTRING,
     pub Kind: TypeKind,

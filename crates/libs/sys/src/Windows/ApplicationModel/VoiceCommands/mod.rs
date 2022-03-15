@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type VoiceCommand = *mut ::core::ffi::c_void;
 pub type VoiceCommandCompletedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
+#[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
@@ -21,7 +21,7 @@ impl ::core::clone::Clone for VoiceCommandCompletionReason {
 }
 pub type VoiceCommandConfirmationResult = *mut ::core::ffi::c_void;
 pub type VoiceCommandContentTile = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
+#[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {

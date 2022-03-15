@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type CompositeTransform3D = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media_Media3D\"`*"]
 pub struct Matrix3D {
     pub M11: f64,
     pub M12: f64,

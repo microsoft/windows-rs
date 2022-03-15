@@ -11,6 +11,7 @@ pub struct Gen<'a> {
     pub min_inherit: bool,
     pub min_xaml: bool,
     pub windows_extern: bool,
+    pub component: bool,
 }
 
 impl Gen<'_> {
@@ -54,14 +55,14 @@ impl Gen<'_> {
         if !self.doc {
             quote! {}
         } else {
-            let mut tokens = format!("'{}'", to_feature(self.namespace));
+            let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
 
             let mut features = cfg.features(self.namespace);
             if self.windows_extern {
                 features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
             }
             for features in features {
-                tokens.push_str(&format!(", '{}'", to_feature(features)));
+                tokens.push_str(&format!(r#", `\"{}\"`"#, to_feature(features)));
             }
 
             format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()

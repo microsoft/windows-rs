@@ -4,7 +4,7 @@ pub mod Preview;
 pub type KeyboardCapabilities = *mut ::core::ffi::c_void;
 pub type MouseCapabilities = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Devices_Input'*"]
+#[doc = "*Required features: `\"Devices_Input\"`*"]
 pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,
@@ -26,7 +26,7 @@ pub type PenTailButtonDoubleClickedEventArgs = *mut ::core::ffi::c_void;
 pub type PenTailButtonLongPressedEventArgs = *mut ::core::ffi::c_void;
 pub type PenUndockedEventArgs = *mut ::core::ffi::c_void;
 pub type PointerDevice = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Devices_Input'*"]
+#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
@@ -41,7 +41,7 @@ impl ::core::clone::Clone for PointerDeviceType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Devices_Input'*"]
+#[doc = "*Required features: `\"Devices_Input\"`*"]
 pub struct PointerDeviceUsage {
     pub UsagePage: u32,
     pub Usage: u32,

@@ -5,7 +5,7 @@ pub mod Analysis;
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
 pub mod Preview;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct HandwritingLineHeight(pub i32);
 impl HandwritingLineHeight {
@@ -25,7 +25,7 @@ pub type IInkPresenterStencil = *mut ::core::ffi::c_void;
 pub type IInkRecognizerContainer = *mut ::core::ffi::c_void;
 pub type IInkStrokeContainer = *mut ::core::ffi::c_void;
 pub type InkDrawingAttributes = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
@@ -39,7 +39,7 @@ impl ::core::clone::Clone for InkDrawingAttributesKind {
     }
 }
 pub type InkDrawingAttributesPencilProperties = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for InkHighContrastAdjustment {
 }
 pub type InkInputConfiguration = *mut ::core::ffi::c_void;
 pub type InkInputProcessingConfiguration = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
@@ -69,7 +69,7 @@ impl ::core::clone::Clone for InkInputProcessingMode {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
@@ -83,7 +83,7 @@ impl ::core::clone::Clone for InkInputRightDragAction {
     }
 }
 pub type InkManager = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkManipulationMode(pub i32);
 impl InkManipulationMode {
@@ -98,7 +98,7 @@ impl ::core::clone::Clone for InkManipulationMode {
     }
 }
 pub type InkModelerAttributes = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
@@ -113,7 +113,7 @@ impl ::core::clone::Clone for InkPersistenceFormat {
 }
 pub type InkPoint = *mut ::core::ffi::c_void;
 pub type InkPresenter = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
@@ -128,7 +128,7 @@ impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
 }
 pub type InkPresenterProtractor = *mut ::core::ffi::c_void;
 pub type InkPresenterRuler = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
@@ -143,7 +143,7 @@ impl ::core::clone::Clone for InkPresenterStencilKind {
     }
 }
 pub type InkRecognitionResult = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
@@ -169,7 +169,7 @@ pub type InkStrokesErasedEventArgs = *mut ::core::ffi::c_void;
 pub type InkSynchronizer = *mut ::core::ffi::c_void;
 pub type InkUnprocessedInput = *mut ::core::ffi::c_void;
 pub type PenAndInkSettings = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {
@@ -182,7 +182,7 @@ impl ::core::clone::Clone for PenHandedness {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Input_Inking'*"]
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {

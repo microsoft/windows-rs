@@ -1,18 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
 pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339c9bf4_bcfe_4ed8_94df_eaf8c26ab61b);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IComponentAuthenticate(::windows::core::IUnknown);
 impl IComponentAuthenticate {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: &[u8], ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SACAuth)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwpass), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdatain)), pbdatain.len() as _, ::core::mem::transmute(ppbdataout), ::core::mem::transmute(pdwdataoutlen)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SACGetProtocols)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdwprotocols), ::core::mem::transmute(pdwprotocolcount)).ok()
     }
@@ -64,56 +64,56 @@ pub struct IComponentAuthenticate_Vtbl {
     pub SACAuth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::HRESULT,
     pub SACGetProtocols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPDevice(::windows::core::IUnknown);
 impl IMDSPDevice {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnumber), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPowerSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwpowersource), ::core::mem::transmute(pdwpercentremaining)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDeviceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
@@ -174,75 +174,75 @@ pub struct IMDSPDevice_Vtbl {
     pub GetFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPDevice2(::windows::core::IUnknown);
 impl IMDSPDevice2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnumber), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPowerSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwpowersource), ::core::mem::transmute(pdwpercentremaining)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDeviceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetFormatSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSpecifyPropertyPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppspecifyproppages), ::core::mem::transmute(pppunknowns), ::core::mem::transmute(pcunks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCanonicalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszpnpname)), pwszpnpname.len() as _).ok()
     }
@@ -322,100 +322,100 @@ pub struct IMDSPDevice2_Vtbl {
     GetSpecifyPropertyPages: usize,
     pub GetCanonicalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpnpname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPDevice3(::windows::core::IUnknown);
 impl IMDSPDevice3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnumber), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetPowerSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwpowersource), ::core::mem::transmute(pdwpercentremaining)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDeviceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetFormatSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetFormatSupport2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSpecifyPropertyPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppspecifyproppages), ::core::mem::transmute(pppunknowns), ::core::mem::transmute(pcunks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetCanonicalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszpnpname)), pwszpnpname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pwszpropname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), pwszpropname.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__: WMDM_FORMAT_CAPABILITY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFormatCapability)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(&mut result__)).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _, ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(pnoutbuffersize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FindStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
@@ -520,41 +520,41 @@ pub struct IMDSPDevice3_Vtbl {
     pub DeviceIoControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: ::windows::core::PCWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPDeviceControl(::windows::core::IUnknown);
 impl IMDSPDeviceControl {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDCStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDCStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Play)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Record)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ::core::mem::transmute(noffset)).ok()
     }
@@ -612,11 +612,11 @@ pub struct IMDSPDeviceControl_Vtbl {
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, noffset: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPDirectTransfer(::windows::core::IUnknown);
 impl IMDSPDirectTransfer {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferToDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwszsourcefilepath: Param0, psourceoperation: Param1, fuflags: u32, pwszdestinationname: Param3, psourcemetadata: Param4, ptransferprogress: Param5) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TransferToDevice)(::core::mem::transmute_copy(self), pwszsourcefilepath.into_param().abi(), psourceoperation.into_param().abi(), ::core::mem::transmute(fuflags), pwszdestinationname.into_param().abi(), psourcemetadata.into_param().abi(), ptransferprogress.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
@@ -668,24 +668,24 @@ pub struct IMDSPDirectTransfer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub TransferToDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsourcefilepath: ::windows::core::PCWSTR, psourceoperation: ::windows::core::RawPtr, fuflags: u32, pwszdestinationname: ::windows::core::PCWSTR, psourcemetadata: ::windows::core::RawPtr, ptransferprogress: ::windows::core::RawPtr, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPEnumDevice(::windows::core::IUnknown);
 impl IMDSPEnumDevice {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppdevice: *mut ::core::option::Option<IMDSPDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(ppdevice), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IMDSPEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumDevice>(result__)
@@ -740,24 +740,24 @@ pub struct IMDSPEnumDevice_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPEnumStorage(::windows::core::IUnknown);
 impl IMDSPEnumStorage {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppstorage: *mut ::core::option::Option<IMDSPStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(ppstorage), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
@@ -812,39 +812,39 @@ pub struct IMDSPEnumStorage_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPObject(::windows::core::IUnknown);
 impl IMDSPObject {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Open(&self, fumode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(dwoffset)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwsznewname: Param0, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Rename)(::core::mem::transmute_copy(self), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>, Param2: ::windows::core::IntoParam<'a, IMDSPStorage>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi(), ptarget.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
     }
@@ -902,47 +902,47 @@ pub struct IMDSPObject_Vtbl {
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pprogress: ::windows::core::RawPtr, ptarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPObject2(::windows::core::IUnknown);
 impl IMDSPObject2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Open(&self, fumode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(dwoffset)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwsznewname: Param0, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Rename)(::core::mem::transmute_copy(self), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>, Param2: ::windows::core::IntoParam<'a, IMDSPStorage>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi(), ptarget.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Close)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadOnClearChannel)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteOnClearChannel)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
@@ -1014,39 +1014,39 @@ pub struct IMDSPObject2_Vtbl {
     pub ReadOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     pub WriteOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPObjectInfo(::windows::core::IUnknown);
 impl IMDSPObjectInfo {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPlayLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPlayLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetPlayLength(&self, dwlength: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPlayLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlength)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPlayOffset(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPlayOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPlayOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoffset)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTotalLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetLastPlayPosition(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLastPlayPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetLongestPlayPosition(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLongestPlayPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -1104,11 +1104,11 @@ pub struct IMDSPObjectInfo_Vtbl {
     pub GetLastPlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlastpos: *mut u32) -> ::windows::core::HRESULT,
     pub GetLongestPlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlongestpos: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPRevoked(::windows::core::IUnknown);
 impl IMDSPRevoked {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut ::windows::core::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRevocationURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszrevocationurl), ::core::mem::transmute(pdwbufferlen)).ok()
     }
@@ -1159,51 +1159,51 @@ pub struct IMDSPRevoked_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRevocationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut ::windows::core::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPStorage(::windows::core::IUnknown);
 impl IMDSPStorage {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IMDSPStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
@@ -1263,71 +1263,71 @@ pub struct IMDSPStorage_Vtbl {
     pub EnumStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPStorage2(::windows::core::IUnknown);
 impl IMDSPStorage2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IMDSPStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateStorage2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
@@ -1411,80 +1411,80 @@ pub struct IMDSPStorage2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetAttributes2: usize,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPStorage3(::windows::core::IUnknown);
 impl IMDSPStorage3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IMDSPStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateStorage2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetMetadata)(::core::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMetadata)(::core::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
@@ -1576,106 +1576,106 @@ pub struct IMDSPStorage3_Vtbl {
     pub GetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPStorage4(::windows::core::IUnknown);
 impl IMDSPStorage4 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IMDSPStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateStorage2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetMetadata)(::core::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetMetadata)(::core::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetReferences(&self, ppispstorage: &[::core::option::Option<IMDSPStorage>]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetReferences)(::core::mem::transmute_copy(self), ppispstorage.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppispstorage))).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetReferences)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwrefs), ::core::mem::transmute(pppispstorage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateStorageWithMetadata<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, dwattributes: u32, pwszname: Param1, pmetadata: Param2, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateStorageWithMetadata)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), pwszname.into_param().abi(), pmetadata.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSpecifiedMetadata<'a, Param2: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, ppwszpropnames: &[::windows::core::PWSTR], pmetadata: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::core::mem::transmute_copy(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), pmetadata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FindStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetParent(&self) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
@@ -1792,46 +1792,46 @@ pub struct IMDSPStorage4_Vtbl {
     pub FindStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: ::windows::core::PCWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPStorageGlobals(::windows::core::IUnknown);
 impl IMDSPStorageGlobals {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnum), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwtotalsizelow), ::core::mem::transmute(pdwtotalsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTotalFree)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwfreelow), ::core::mem::transmute(pdwfreehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTotalBad)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwbadlow), ::core::mem::transmute(pdwbadhigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Initialize<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IMDSPDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRootStorage(&self) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRootStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPStorage>(result__)
@@ -1891,16 +1891,16 @@ pub struct IMDSPStorageGlobals_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRootStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDServiceProvider(::windows::core::IUnknown);
 impl IMDServiceProvider {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDeviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices(&self) -> ::windows::core::Result<IMDSPEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumDevice>(result__)
@@ -1953,21 +1953,21 @@ pub struct IMDServiceProvider_Vtbl {
     pub GetDeviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDServiceProvider2(::windows::core::IUnknown);
 impl IMDServiceProvider2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDeviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices(&self) -> ::windows::core::Result<IMDSPEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicepath: Param0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), pwszdevicepath.into_param().abi(), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
     }
@@ -2038,25 +2038,25 @@ pub struct IMDServiceProvider2_Vtbl {
     pub base: IMDServiceProvider_Vtbl,
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdevicepath: ::windows::core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDServiceProvider3(::windows::core::IUnknown);
 impl IMDServiceProvider3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDeviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices(&self) -> ::windows::core::Result<IMDSPEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMDSPEnumDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicepath: Param0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), pwszdevicepath.into_param().abi(), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDeviceEnumPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenumpref)).ok()
     }
@@ -2147,13 +2147,13 @@ pub struct IMDServiceProvider3_Vtbl {
     pub base: IMDServiceProvider2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate(::windows::core::IUnknown);
 impl ISCPSecureAuthenticate {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSecureQuery(&self) -> ::windows::core::Result<ISCPSecureQuery> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSecureQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISCPSecureQuery>(result__)
@@ -2205,16 +2205,16 @@ pub struct ISCPSecureAuthenticate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSecureQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate2(::windows::core::IUnknown);
 impl ISCPSecureAuthenticate2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSecureQuery(&self) -> ::windows::core::Result<ISCPSecureQuery> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetSecureQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISCPSecureQuery>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSCPSession(&self) -> ::windows::core::Result<ISCPSession> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSCPSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISCPSession>(result__)
@@ -2286,19 +2286,19 @@ pub struct ISCPSecureAuthenticate2_Vtbl {
     pub base: ISCPSecureAuthenticate_Vtbl,
     pub GetSCPSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscpsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureExchange(::windows::core::IUnknown);
 impl ISCPSecureExchange {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferContainerData)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ObjectData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferComplete)(::core::mem::transmute_copy(self)).ok()
     }
@@ -2351,23 +2351,23 @@ pub struct ISCPSecureExchange_Vtbl {
     pub ObjectData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub TransferComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureExchange2(::windows::core::IUnknown);
 impl ISCPSecureExchange2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.TransferContainerData)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ObjectData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.TransferComplete)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferContainerData2<'a, Param2: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: &[u8], pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferContainerData2)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into_param().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
@@ -2438,36 +2438,36 @@ pub struct ISCPSecureExchange2_Vtbl {
     pub base: ISCPSecureExchange_Vtbl,
     pub TransferContainerData2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::core::RawPtr, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureExchange3(::windows::core::IUnknown);
 impl ISCPSecureExchange3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.TransferContainerData)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.ObjectData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.TransferComplete)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferContainerData2<'a, Param2: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: &[u8], pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.TransferContainerData2)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into_param().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferContainerDataOnClearChannel<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdevice: Param0, pdata: &[u8], pprogresscallback: Param3) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).TransferContainerDataOnClearChannel)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectDataOnClearChannel<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>>(&self, pdevice: Param0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectDataOnClearChannel)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferCompleteForDevice<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>>(&self, pdevice: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferCompleteForDevice)(::core::mem::transmute_copy(self), pdevice.into_param().abi()).ok()
     }
@@ -2560,23 +2560,23 @@ pub struct ISCPSecureExchange3_Vtbl {
     pub GetObjectDataOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     pub TransferCompleteForDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureQuery(::windows::core::IUnknown);
 impl ISCPSecureQuery {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDataDemands)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuflags), ::core::mem::transmute(pdwminrightsdata), ::core::mem::transmute(pdwminexaminedata), ::core::mem::transmute(pdwmindecidedata), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ExamineData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExamineData)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MakeDecision)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
@@ -2630,27 +2630,27 @@ pub struct ISCPSecureQuery_Vtbl {
     pub MakeDecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub GetRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureQuery2(::windows::core::IUnknown);
 impl ISCPSecureQuery2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetDataDemands)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuflags), ::core::mem::transmute(pdwminrightsdata), ::core::mem::transmute(pdwminexaminedata), ::core::mem::transmute(pdwmindecidedata), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ExamineData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ExamineData)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.MakeDecision)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MakeDecision2)(
             ::core::mem::transmute_copy(self),
@@ -2742,27 +2742,27 @@ pub struct ISCPSecureQuery2_Vtbl {
     pub base: ISCPSecureQuery_Vtbl,
     pub MakeDecision2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut ::core::ffi::c_void, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureQuery3(::windows::core::IUnknown);
 impl ISCPSecureQuery3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetDataDemands)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuflags), ::core::mem::transmute(pdwminrightsdata), ::core::mem::transmute(pdwminexaminedata), ::core::mem::transmute(pdwmindecidedata), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn ExamineData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.ExamineData)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.MakeDecision)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.MakeDecision2)(
             ::core::mem::transmute_copy(self),
@@ -2787,11 +2787,11 @@ impl ISCPSecureQuery3 {
         )
         .ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRightsOnClearChannel<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprogresscallback: Param5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRightsOnClearChannel)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), pprogresscallback.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn MakeDecisionOnClearChannel<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param7: ::windows::core::IntoParam<'a, IWMDMProgress3>, Param16: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pprogresscallback: Param7, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param16, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MakeDecisionOnClearChannel)(
             ::core::mem::transmute_copy(self),
@@ -2904,19 +2904,19 @@ pub struct ISCPSecureQuery3_Vtbl {
     pub GetRightsOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::HRESULT,
     pub MakeDecisionOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut ::core::ffi::c_void, ppexchange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSession(::windows::core::IUnknown);
 impl ISCPSession {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginSession<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>>(&self, pidevice: Param0, pctx: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginSession)(::core::mem::transmute_copy(self), pidevice.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EndSession(&self, pctx: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSecureQuery(&self) -> ::windows::core::Result<ISCPSecureQuery> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSecureQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISCPSecureQuery>(result__)
@@ -2970,56 +2970,56 @@ pub struct ISCPSession_Vtbl {
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub GetSecureQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMDevice(::windows::core::IUnknown);
 impl IWMDMDevice {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnumber), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPowerSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwpowersource), ::core::mem::transmute(pdwpercentremaining)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDeviceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
@@ -3080,75 +3080,75 @@ pub struct IWMDMDevice_Vtbl {
     pub GetFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMDevice2(::windows::core::IUnknown);
 impl IWMDMDevice2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnumber), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPowerSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwpowersource), ::core::mem::transmute(pdwpercentremaining)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDeviceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetFormatSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSpecifyPropertyPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppspecifyproppages), ::core::mem::transmute(pppunknowns), ::core::mem::transmute(pcunks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCanonicalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszpnpname)), pwszpnpname.len() as _).ok()
     }
@@ -3228,100 +3228,100 @@ pub struct IWMDMDevice2_Vtbl {
     GetSpecifyPropertyPages: usize,
     pub GetCanonicalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpnpname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMDevice3(::windows::core::IUnknown);
 impl IWMDMDevice3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnumber), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetPowerSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwpowersource), ::core::mem::transmute(pdwpercentremaining)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDeviceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetFormatSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetFormatSupport2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSpecifyPropertyPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppspecifyproppages), ::core::mem::transmute(pppunknowns), ::core::mem::transmute(pcunks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetCanonicalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszpnpname)), pwszpnpname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pwszpropname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), pwszpropname.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__: WMDM_FORMAT_CAPABILITY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFormatCapability)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(&mut result__)).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _, ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(pnoutbuffersize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FindStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
@@ -3426,41 +3426,41 @@ pub struct IWMDMDevice3_Vtbl {
     pub DeviceIoControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: ::windows::core::PCWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMDeviceControl(::windows::core::IUnknown);
 impl IWMDMDeviceControl {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Play)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Record)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ::core::mem::transmute(noffset)).ok()
     }
@@ -3518,15 +3518,15 @@ pub struct IWMDMDeviceControl_Vtbl {
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, noffset: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMDeviceSession(::windows::core::IUnknown);
 impl IWMDMDeviceSession {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndSession)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
@@ -3578,24 +3578,24 @@ pub struct IWMDMDeviceSession_Vtbl {
     pub BeginSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMEnumDevice(::windows::core::IUnknown);
 impl IWMDMEnumDevice {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppdevice: *mut ::core::option::Option<IWMDMDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(ppdevice), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumDevice>(result__)
@@ -3650,24 +3650,24 @@ pub struct IWMDMEnumDevice_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMEnumStorage(::windows::core::IUnknown);
 impl IWMDMEnumStorage {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppstorage: *mut ::core::option::Option<IWMDMStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(ppstorage), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
@@ -3722,46 +3722,46 @@ pub struct IWMDMEnumStorage_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMLogger(::windows::core::IUnknown);
 impl IWMDMLogger {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Enable)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetLogFileName(&self, pszfilename: ::windows::core::PSTR, nmaxchars: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLogFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszfilename), ::core::mem::transmute(nmaxchars)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetLogFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, pszfilename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLogFileName)(::core::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn LogString<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, dwflags: u32, pszsrcname: Param1, pszlog: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LogString)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszsrcname.into_param().abi(), pszlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn LogDword<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, dwflags: u32, pszsrcname: Param1, pszlogformat: Param2, dwlog: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LogDword)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszsrcname.into_param().abi(), pszlogformat.into_param().abi(), ::core::mem::transmute(dwlog)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSizeParams)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwmaxsize), ::core::mem::transmute(pdwshrinktosize)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSizeParams)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmaxsize), ::core::mem::transmute(dwshrinktosize)).ok()
     }
@@ -3826,23 +3826,23 @@ pub struct IWMDMLogger_Vtbl {
     pub GetSizeParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::core::HRESULT,
     pub SetSizeParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMMetaData(::windows::core::IUnknown);
 impl IWMDMMetaData {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn AddItem<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: Param1, pvalue: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), pwsztagname.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalue)), pvalue.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn QueryByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztagname: Param0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryByName)(::core::mem::transmute_copy(self), pwsztagname.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(iindex), ::core::mem::transmute(ppwszname), ::core::mem::transmute(ptype), ::core::mem::transmute(ppvalue), ::core::mem::transmute(pcblength)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -3897,11 +3897,11 @@ pub struct IWMDMMetaData_Vtbl {
     pub QueryByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::HRESULT,
     pub GetItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMNotification(::windows::core::IUnknown);
 impl IWMDMNotification {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn WMDMMessage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwmessagetype: u32, pwszcanonicalname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WMDMMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmessagetype), pwszcanonicalname.into_param().abi()).ok()
     }
@@ -3952,39 +3952,39 @@ pub struct IWMDMNotification_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub WMDMMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pwszcanonicalname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMObjectInfo(::windows::core::IUnknown);
 impl IWMDMObjectInfo {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPlayLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPlayLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetPlayLength(&self, dwlength: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPlayLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlength)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetPlayOffset(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetPlayOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPlayOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoffset)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTotalLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetLastPlayPosition(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLastPlayPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetLongestPlayPosition(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLongestPlayPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -4042,47 +4042,47 @@ pub struct IWMDMObjectInfo_Vtbl {
     pub GetLastPlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlastpos: *mut u32) -> ::windows::core::HRESULT,
     pub GetLongestPlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlongestpos: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMOperation(::windows::core::IUnknown);
 impl IWMDMOperation {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginRead(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginRead)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginWrite(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginWrite)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferObjectData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).End)(::core::mem::transmute_copy(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
@@ -4142,56 +4142,56 @@ pub struct IWMDMOperation_Vtbl {
     pub TransferObjectData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMOperation2(::windows::core::IUnknown);
 impl IWMDMOperation2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginRead(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginRead)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginWrite(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginWrite)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetObjectTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.TransferObjectData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.End)(::core::mem::transmute_copy(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
@@ -4270,51 +4270,51 @@ pub struct IWMDMOperation2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetObjectAttributes2: usize,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMOperation3(::windows::core::IUnknown);
 impl IWMDMOperation3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginRead(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginRead)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn BeginWrite(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.BeginWrite)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetObjectTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetObjectTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.TransferObjectData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.End)(::core::mem::transmute_copy(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferObjectDataOnClearChannel)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
@@ -4385,19 +4385,19 @@ pub struct IWMDMOperation3_Vtbl {
     pub base: IWMDMOperation_Vtbl,
     pub TransferObjectDataOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMProgress(::windows::core::IUnknown);
 impl IWMDMProgress {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Begin(&self, dwestimatedticks: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwestimatedticks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtranspiredticks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).End)(::core::mem::transmute_copy(self)).ok()
     }
@@ -4450,23 +4450,23 @@ pub struct IWMDMProgress_Vtbl {
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtranspiredticks: u32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMProgress2(::windows::core::IUnknown);
 impl IWMDMProgress2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Begin(&self, dwestimatedticks: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Begin)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwestimatedticks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtranspiredticks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.End)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End2(&self, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).End2)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrcompletioncode)).ok()
     }
@@ -4537,35 +4537,35 @@ pub struct IWMDMProgress2_Vtbl {
     pub base: IWMDMProgress_Vtbl,
     pub End2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMProgress3(::windows::core::IUnknown);
 impl IWMDMProgress3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Begin(&self, dwestimatedticks: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Begin)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwestimatedticks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtranspiredticks)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.End)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End2(&self, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.End2)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrcompletioncode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Begin3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, eventid: Param0, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin3)(::core::mem::transmute_copy(self), eventid.into_param().abi(), ::core::mem::transmute(dwestimatedticks), ::core::mem::transmute(pcontext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Progress3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, eventid: Param0, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Progress3)(::core::mem::transmute_copy(self), eventid.into_param().abi(), ::core::mem::transmute(dwtranspiredticks), ::core::mem::transmute(pcontext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn End3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, eventid: Param0, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).End3)(::core::mem::transmute_copy(self), eventid.into_param().abi(), ::core::mem::transmute(hrcompletioncode), ::core::mem::transmute(pcontext)).ok()
     }
@@ -4658,11 +4658,11 @@ pub struct IWMDMProgress3_Vtbl {
     pub Progress3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
     pub End3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMRevoked(::windows::core::IUnknown);
 impl IWMDMRevoked {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut ::windows::core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRevocationURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszrevocationurl), ::core::mem::transmute(pdwbufferlen), ::core::mem::transmute(pdwrevokedbitflag)).ok()
     }
@@ -4713,46 +4713,46 @@ pub struct IWMDMRevoked_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRevocationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut ::windows::core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorage(::windows::core::IUnknown);
 impl IWMDMStorage {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IWMDMStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
@@ -4811,60 +4811,60 @@ pub struct IWMDMStorage_Vtbl {
     pub EnumStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorage2(::windows::core::IUnknown);
 impl IWMDMStorage2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IWMDMStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
@@ -4944,79 +4944,79 @@ pub struct IWMDMStorage2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetAttributes2: usize,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorage3(::windows::core::IUnknown);
 impl IWMDMStorage3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IWMDMStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetMetadata(&self) -> ::windows::core::Result<IWMDMMetaData> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMetadata)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMMetaData>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMetadata)(::core::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateEmptyMetadataObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMMetaData>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: &[WMDMMetadataView]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnumPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmode), pviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pviews))).ok()
     }
@@ -5110,105 +5110,105 @@ pub struct IWMDMStorage3_Vtbl {
     pub CreateEmptyMetadataObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorage4(::windows::core::IUnknown);
 impl IWMDMStorage4 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::core::Result<IWMDMStorageGlobals> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetStorageGlobals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME> {
         let mut result__: WMDMDATETIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMDMDATETIME>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwsizelow), ::core::mem::transmute(pdwsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.EnumStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SendOpaqueCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommand)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetStorage)(::core::mem::transmute_copy(self), pszstoragename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetAttributes2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetMetadata(&self) -> ::windows::core::Result<IWMDMMetaData> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetMetadata)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMMetaData>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetMetadata)(::core::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateEmptyMetadataObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMMetaData>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: &[WMDMMetadataView]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetEnumPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmode), pviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pviews))).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetReferences(&self, ppiwmdmstorage: &[::core::option::Option<IWMDMStorage>]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetReferences)(::core::mem::transmute_copy(self), ppiwmdmstorage.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppiwmdmstorage))).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetReferences)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwrefs), ::core::mem::transmute(pppiwmdmstorage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRightsWithProgress<'a, Param0: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, piprogresscallback: Param0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRightsWithProgress)(::core::mem::transmute_copy(self), piprogresscallback.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[::windows::core::PWSTR]) -> ::windows::core::Result<IWMDMMetaData> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::core::mem::transmute_copy(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMMetaData>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FindStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetParent(&self) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
@@ -5325,28 +5325,28 @@ pub struct IWMDMStorage4_Vtbl {
     pub FindStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: ::windows::core::PCWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorageControl(::windows::core::IUnknown);
 impl IWMDMStorageControl {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Insert)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Rename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Rename)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Read<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMStorage>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
@@ -5401,32 +5401,32 @@ pub struct IWMDMStorageControl_Vtbl {
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwszfile: ::windows::core::PCWSTR, pprogress: ::windows::core::RawPtr, poperation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, ptargetobject: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorageControl2(::windows::core::IUnknown);
 impl IWMDMStorageControl2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Insert)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Rename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Rename)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Read<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMStorage>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, pwszfilesource: Param1, pwszfiledest: Param2, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Insert2)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
@@ -5497,36 +5497,36 @@ pub struct IWMDMStorageControl2_Vtbl {
     pub base: IWMDMStorageControl_Vtbl,
     pub Insert2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwszfilesource: ::windows::core::PCWSTR, pwszfiledest: ::windows::core::PCWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, punknown: *mut ::core::ffi::c_void, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorageControl3(::windows::core::IUnknown);
 impl IWMDMStorageControl3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.Insert)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Rename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Rename)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Read<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMStorage>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, pwszfilesource: Param1, pwszfiledest: Param2, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Insert2)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Insert3<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMOperation>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>, Param6: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, futype: u32, pwszfilesource: Param2, pwszfiledest: Param3, poperation: Param4, pprogress: Param5, pmetadata: Param6, punknown: Param7, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Insert3)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ::core::mem::transmute(futype), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), pmetadata.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
@@ -5617,37 +5617,37 @@ pub struct IWMDMStorageControl3_Vtbl {
     pub base: IWMDMStorageControl2_Vtbl,
     pub Insert3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, futype: u32, pwszfilesource: ::windows::core::PCWSTR, pwszfiledest: ::windows::core::PCWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, pmetadata: ::windows::core::RawPtr, punknown: *mut ::core::ffi::c_void, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorageGlobals(::windows::core::IUnknown);
 impl IWMDMStorageGlobals {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(pserialnum), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwtotalsizelow), ::core::mem::transmute(pdwtotalsizehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTotalFree)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwfreelow), ::core::mem::transmute(pdwfreehigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTotalBad)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwbadlow), ::core::mem::transmute(pdwbadhigh)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Initialize<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
@@ -5704,21 +5704,21 @@ pub struct IWMDMStorageGlobals_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pprogress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDeviceManager(::windows::core::IUnknown);
 impl IWMDeviceManager {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRevision(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRevision)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDeviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumDevice>(result__)
@@ -5772,36 +5772,36 @@ pub struct IWMDeviceManager_Vtbl {
     pub GetDeviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDeviceManager2(::windows::core::IUnknown);
 impl IWMDeviceManager2 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRevision(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetRevision)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDeviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceFromCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcanonicalname: Param0) -> ::windows::core::Result<IWMDMDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDeviceFromCanonicalName)(::core::mem::transmute_copy(self), pwszcanonicalname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices2(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumDevices2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reinitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reinitialize)(::core::mem::transmute_copy(self)).ok()
     }
@@ -5874,40 +5874,40 @@ pub struct IWMDeviceManager2_Vtbl {
     pub EnumDevices2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Reinitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDeviceManager3(::windows::core::IUnknown);
 impl IWMDeviceManager3 {
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetRevision(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetRevision)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDeviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.EnumDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDeviceFromCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcanonicalname: Param0) -> ::windows::core::Result<IWMDMDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDeviceFromCanonicalName)(::core::mem::transmute_copy(self), pwszcanonicalname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices2(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.EnumDevices2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMDMEnumDevice>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reinitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Reinitialize)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDeviceEnumPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenumpref)).ok()
     }
@@ -5998,18 +5998,18 @@ pub struct IWMDeviceManager3_Vtbl {
     pub base: IWMDeviceManager2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_READ: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_SEEK_BOF: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_SEEK_CUR: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_SEEK_EOF: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_WRITE: u32 = 2u32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct MTP_COMMAND_DATA_IN {
     pub OpCode: u16,
     pub NumParams: u32,
@@ -6039,7 +6039,7 @@ impl ::core::default::Default for MTP_COMMAND_DATA_IN {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct MTP_COMMAND_DATA_OUT {
     pub ResponseCode: u16,
     pub NumParams: u32,
@@ -6067,22 +6067,22 @@ impl ::core::default::Default for MTP_COMMAND_DATA_OUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_NEXTPHASE_NO_DATA: u32 = 3u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
 pub const MediaDevMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
 pub const MediaDevMgrClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct OPAQUECOMMAND {
     pub guidCommand: ::windows::core::GUID,
     pub dwDataLen: u32,
@@ -6114,26 +6114,26 @@ impl ::core::default::Default for OPAQUECOMMAND {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const RSA_KEY_LEN: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const SAC_CERT_V1: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const SAC_CERT_X509: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const SAC_MAC_LEN: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const SAC_PROTOCOL_V1: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const SAC_PROTOCOL_WMDM: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const SAC_SESSION_KEYLEN: u32 = 8u32;
 pub const SCP_EVENTID_ACQSECURECLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86248cc9_4a59_43e2_9146_48a7f3f4140c);
 pub const SCP_EVENTID_DRMINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x213dd287_41d2_432b_9e3f_3b4f7b3581dd);
 pub const SCP_EVENTID_NEEDTOINDIV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f);
 pub const SCP_PARAMID_DRMVERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct WMDMDATETIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -6168,7 +6168,7 @@ impl ::core::default::Default for WMDMDATETIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub union WMDMDetermineMaxPropStringLen {
     pub sz001: [u16; 27],
     pub sz002: [u16; 31],
@@ -6276,7 +6276,7 @@ impl ::core::default::Default for WMDMDetermineMaxPropStringLen {
 pub const WMDMDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMDeviceEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct WMDMID {
     pub cbSize: u32,
     pub dwVendorID: u32,
@@ -6308,20 +6308,20 @@ impl ::core::default::Default for WMDMID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDMMessage(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = WMDMMessage(1i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = WMDMMessage(2i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
 impl ::core::marker::Copy for WMDMMessage {}
 impl ::core::clone::Clone for WMDMMessage {
@@ -6343,7 +6343,7 @@ impl ::core::fmt::Debug for WMDMMessage {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct WMDMMetadataView {
     pub pwszViewName: ::windows::core::PWSTR,
     pub nDepth: u32,
@@ -6375,7 +6375,7 @@ impl ::core::default::Default for WMDMMetadataView {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct WMDMRIGHTS {
     pub cbSize: u32,
     pub dwContentType: u32,
@@ -6413,66 +6413,66 @@ impl ::core::default::Default for WMDMRIGHTS {
 pub const WMDMStorage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3ce0_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMStorageEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
 pub const WMDMStorageGlobal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_APP_REVOKED: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_CONTENT_OPERATIONINTERFACE: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANPAUSE: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANPLAY: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANRECORD: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANRESUME: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANSEEK: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANSTOP: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANSTREAMPLAY: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_CANSTREAMRECORD: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICECAP_HASSECURECLOCK: u32 = 256u32;
 pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4d2c26c_a881_44bb_bd5d_1f703c71f7a9);
 pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x979e54e5_0afc_4604_8d93_dc798a4bcf45);
 pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a11ed91_8c8f_41e4_82d1_8386e003561c);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_DECODE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_ENCODE: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_FILELISTRESYNC: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_NONREENTRANT: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_NONSDMI: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_PLAYBACK: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_RECORD: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_SDMI: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
 impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
 impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
@@ -6493,89 +6493,89 @@ impl ::core::fmt::Debug for WMDM_ENUM_PROP_VALID_VALUES_FORM {
         f.debug_tuple("WMDM_ENUM_PROP_VALID_VALUES_FORM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_CALL_OUT_OF_SEQUENCE: i32 = -2147201017i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_CANTOPEN_PMSN_SERVICE_PIPE: i32 = -2147201005i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_INCORRECT_APPSEC: i32 = -2147201008i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_INCORRECT_RIGHTS: i32 = -2147201007i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_INTERFACEDEAD: i32 = -2147201023i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_INVALIDTYPE: i32 = -2147201022i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_LICENSE_EXPIRED: i32 = -2147201006i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_LICENSE_NOTEXIST: i32 = -2147201009i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_MAC_CHECK_FAILED: i32 = -2147201014i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_MOREDATA: i32 = -2147201015i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_NORIGHTS: i32 = -2147201018i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_NOTCERTIFIED: i32 = -2147201019i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_NOTSUPPORTED: i32 = -2147201020i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_PROCESSFAILED: i32 = -2147201021i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_REVOKED: i32 = -2147201010i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_SDMI_NOMORECOPIES: i32 = -2147201011i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_SDMI_TRIGGER: i32 = -2147201012i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_TOO_MANY_SESSIONS: i32 = -2147201005i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_USER_CANCELLED: i32 = -2147201013i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_AUDIO: u32 = 4096u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_AUDIOBOOK: u32 = 2097152u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_CANDELETE: u32 = 32768u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_CANMOVE: u32 = 65536u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_CANPLAY: u32 = 16384u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_CANREAD: u32 = 262144u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_CANRENAME: u32 = 131072u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_DATA: u32 = 8192u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_FILE: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_FOLDER: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_HIDDEN: u32 = 4194304u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_LINK: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_MUSIC: u32 = 524288u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_READONLY: u32 = 16777216u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDM_FIND_SCOPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(1i32);
 impl ::core::marker::Copy for WMDM_FIND_SCOPE {}
 impl ::core::clone::Clone for WMDM_FIND_SCOPE {
@@ -6596,199 +6596,199 @@ impl ::core::fmt::Debug for WMDM_FIND_SCOPE {
         f.debug_tuple("WMDM_FIND_SCOPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDM_FORMATCODE(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = WMDM_FORMATCODE(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ALLIMAGES: WMDM_FORMATCODE = WMDM_FORMATCODE(-1i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINED: WMDM_FORMATCODE = WMDM_FORMATCODE(12288i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ASSOCIATION: WMDM_FORMATCODE = WMDM_FORMATCODE(12289i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_SCRIPT: WMDM_FORMATCODE = WMDM_FORMATCODE(12290i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_EXECUTABLE: WMDM_FORMATCODE = WMDM_FORMATCODE(12291i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_TEXT: WMDM_FORMATCODE = WMDM_FORMATCODE(12292i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_HTML: WMDM_FORMATCODE = WMDM_FORMATCODE(12293i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_DPOF: WMDM_FORMATCODE = WMDM_FORMATCODE(12294i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_AIFF: WMDM_FORMATCODE = WMDM_FORMATCODE(12295i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_WAVE: WMDM_FORMATCODE = WMDM_FORMATCODE(12296i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MP3: WMDM_FORMATCODE = WMDM_FORMATCODE(12297i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_AVI: WMDM_FORMATCODE = WMDM_FORMATCODE(12298i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MPEG: WMDM_FORMATCODE = WMDM_FORMATCODE(12299i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ASF: WMDM_FORMATCODE = WMDM_FORMATCODE(12300i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_RESERVED_FIRST: WMDM_FORMATCODE = WMDM_FORMATCODE(12301i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_RESERVED_LAST: WMDM_FORMATCODE = WMDM_FORMATCODE(14335i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_UNDEFINED: WMDM_FORMATCODE = WMDM_FORMATCODE(14336i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_EXIF: WMDM_FORMATCODE = WMDM_FORMATCODE(14337i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFFEP: WMDM_FORMATCODE = WMDM_FORMATCODE(14338i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_FLASHPIX: WMDM_FORMATCODE = WMDM_FORMATCODE(14339i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_BMP: WMDM_FORMATCODE = WMDM_FORMATCODE(14340i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_CIFF: WMDM_FORMATCODE = WMDM_FORMATCODE(14341i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_GIF: WMDM_FORMATCODE = WMDM_FORMATCODE(14343i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_JFIF: WMDM_FORMATCODE = WMDM_FORMATCODE(14344i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_PCD: WMDM_FORMATCODE = WMDM_FORMATCODE(14345i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_PICT: WMDM_FORMATCODE = WMDM_FORMATCODE(14346i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_PNG: WMDM_FORMATCODE = WMDM_FORMATCODE(14347i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFF: WMDM_FORMATCODE = WMDM_FORMATCODE(14349i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFFIT: WMDM_FORMATCODE = WMDM_FORMATCODE(14350i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_JP2: WMDM_FORMATCODE = WMDM_FORMATCODE(14351i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_JPX: WMDM_FORMATCODE = WMDM_FORMATCODE(14352i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_RESERVED_FIRST: WMDM_FORMATCODE = WMDM_FORMATCODE(14353i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_IMAGE_RESERVED_LAST: WMDM_FORMATCODE = WMDM_FORMATCODE(16383i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDFIRMWARE: WMDM_FORMATCODE = WMDM_FORMATCODE(47106i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_WBMP: WMDM_FORMATCODE = WMDM_FORMATCODE(47107i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_JPEGXR: WMDM_FORMATCODE = WMDM_FORMATCODE(47108i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_WINDOWSIMAGEFORMAT: WMDM_FORMATCODE = WMDM_FORMATCODE(47233i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDAUDIO: WMDM_FORMATCODE = WMDM_FORMATCODE(47360i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_WMA: WMDM_FORMATCODE = WMDM_FORMATCODE(47361i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_OGG: WMDM_FORMATCODE = WMDM_FORMATCODE(47362i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_AAC: WMDM_FORMATCODE = WMDM_FORMATCODE(47363i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_AUDIBLE: WMDM_FORMATCODE = WMDM_FORMATCODE(47364i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_FLAC: WMDM_FORMATCODE = WMDM_FORMATCODE(47366i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_QCELP: WMDM_FORMATCODE = WMDM_FORMATCODE(47367i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_AMR: WMDM_FORMATCODE = WMDM_FORMATCODE(47368i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDVIDEO: WMDM_FORMATCODE = WMDM_FORMATCODE(47488i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_WMV: WMDM_FORMATCODE = WMDM_FORMATCODE(47489i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MP4: WMDM_FORMATCODE = WMDM_FORMATCODE(47490i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MP2: WMDM_FORMATCODE = WMDM_FORMATCODE(47491i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_3GP: WMDM_FORMATCODE = WMDM_FORMATCODE(47492i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_3G2: WMDM_FORMATCODE = WMDM_FORMATCODE(47493i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_AVCHD: WMDM_FORMATCODE = WMDM_FORMATCODE(47494i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ATSCTS: WMDM_FORMATCODE = WMDM_FORMATCODE(47495i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_DVBTS: WMDM_FORMATCODE = WMDM_FORMATCODE(47496i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MKV: WMDM_FORMATCODE = WMDM_FORMATCODE(47497i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MKA: WMDM_FORMATCODE = WMDM_FORMATCODE(47498i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MK3D: WMDM_FORMATCODE = WMDM_FORMATCODE(47499i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCOLLECTION: WMDM_FORMATCODE = WMDM_FORMATCODE(47616i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTMULTIMEDIAALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47617i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTIMAGEALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47618i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTAUDIOALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47619i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTVIDEOALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47620i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTAUDIOVIDEOPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47621i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTCONTACTGROUP: WMDM_FORMATCODE = WMDM_FORMATCODE(47622i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTMESSAGEFOLDER: WMDM_FORMATCODE = WMDM_FORMATCODE(47623i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTCHAPTEREDPRODUCTION: WMDM_FORMATCODE = WMDM_FORMATCODE(47624i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MEDIA_CAST: WMDM_FORMATCODE = WMDM_FORMATCODE(47627i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_WPLPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47632i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_M3UPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47633i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MPLPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47634i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ASXPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47635i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_PLSPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47636i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47744i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47745i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_XMLDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47746i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MICROSOFTWORDDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47747i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MHTCOMPILEDHTMLDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47748i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MICROSOFTEXCELSPREADSHEET: WMDM_FORMATCODE = WMDM_FORMATCODE(47749i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_MICROSOFTPOWERPOINTDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47750i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDMESSAGE: WMDM_FORMATCODE = WMDM_FORMATCODE(47872i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTMESSAGE: WMDM_FORMATCODE = WMDM_FORMATCODE(47873i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCONTACT: WMDM_FORMATCODE = WMDM_FORMATCODE(48000i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTCONTACT: WMDM_FORMATCODE = WMDM_FORMATCODE(48001i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_VCARD2: WMDM_FORMATCODE = WMDM_FORMATCODE(48002i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_VCARD3: WMDM_FORMATCODE = WMDM_FORMATCODE(48003i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCALENDARITEM: WMDM_FORMATCODE = WMDM_FORMATCODE(48640i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_ABSTRACTCALENDARITEM: WMDM_FORMATCODE = WMDM_FORMATCODE(48641i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_VCALENDAR1: WMDM_FORMATCODE = WMDM_FORMATCODE(48642i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_VCALENDAR2: WMDM_FORMATCODE = WMDM_FORMATCODE(48643i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_UNDEFINEDWINDOWSEXECUTABLE: WMDM_FORMATCODE = WMDM_FORMATCODE(48768i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = WMDM_FORMATCODE(1297101889i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = WMDM_FORMATCODE(860311617i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = WMDM_FORMATCODE(860303937i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = WMDM_FORMATCODE(48770i32);
 impl ::core::marker::Copy for WMDM_FORMATCODE {}
 impl ::core::clone::Clone for WMDM_FORMATCODE {
@@ -6810,7 +6810,7 @@ impl ::core::fmt::Debug for WMDM_FORMATCODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
@@ -6848,48 +6848,48 @@ impl ::core::default::Default for WMDM_FORMAT_CAPABILITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_GET_FORMAT_SUPPORT_FILE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_GET_FORMAT_SUPPORT_VIDEO: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_LOG_NOTIMESTAMP: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_LOG_SEV_ERROR: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_LOG_SEV_INFO: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_LOG_SEV_WARN: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MAC_LENGTH: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_BLOCK: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_PROGRESS: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_QUERY: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_RECURSIVE: u32 = 4096u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_THREAD: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_TRANSFER_PROTECTED: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MODE_TRANSFER_UNPROTECTED: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_POWER_CAP_BATTERY: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_POWER_CAP_EXTERNAL: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
@@ -6929,7 +6929,7 @@ impl ::core::default::Default for WMDM_PROP_CONFIG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: ::windows::core::PWSTR,
@@ -6961,7 +6961,7 @@ impl ::core::default::Default for WMDM_PROP_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: ::core::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
@@ -6992,7 +6992,7 @@ impl ::core::default::Default for WMDM_PROP_DESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
@@ -7031,7 +7031,7 @@ impl ::core::default::Default for WMDM_PROP_VALUES_ENUM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
@@ -7062,72 +7062,72 @@ impl ::core::default::Default for WMDM_PROP_VALUES_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_COPY_TO_NON_SDMI_DEVICE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_COPY_TO_SDMI_DEVICE: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_EXPIRATIONDATE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_FREESERIALIDS: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_GROUPID: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_NAMEDSERIALIDS: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_PLAYBACKCOUNT: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_RIGHTS_PLAY_ON_PC: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_DECIDE_DATA: i32 = 8i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_DRMINFO_NOT_DRMPROTECTED: i32 = 0i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_DRMINFO_V1HEADER: i32 = 1i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_DRMINFO_V2HEADER: i32 = 2i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_EXAMINE_DATA: i32 = 2i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_EXAMINE_EXTENSION: i32 = 1i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_NO_MORE_CHANGES: i32 = 64i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_PROTECTED_OUTPUT: i32 = 16i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_REVOKED: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_RIGHTS_DATA: i32 = 64i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_TRANSFER_OBJECTDATA: i32 = 32i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SCP_UNPROTECTED_OUTPUT: i32 = 32i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SEEK_BEGIN: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SEEK_CURRENT: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SEEK_END: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
 pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDM_SESSION_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(16i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(256i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(4096i32);
 impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
 impl ::core::clone::Clone for WMDM_SESSION_TYPE {
@@ -7148,91 +7148,91 @@ impl ::core::fmt::Debug for WMDM_SESSION_TYPE {
         f.debug_tuple("WMDM_SESSION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SP_REVOKED: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_DEVICECONTROL_PAUSED: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_DEVICECONTROL_PLAYING: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_DEVICECONTROL_RECORDING: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_DEVICECONTROL_REMOTE: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_DEVICECONTROL_STREAM: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_DEVICE_NOTPRESENT: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_READY: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGECONTROL_APPENDING: u32 = 32768u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGECONTROL_DELETING: u32 = 16384u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGECONTROL_INSERTING: u32 = 8192u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGECONTROL_MOVING: u32 = 65536u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGECONTROL_READING: u32 = 131072u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGE_BROKEN: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGE_INITIALIZING: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGE_NOTPRESENT: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGE_NOTSUPPORTED: u32 = 2048u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STATUS_STORAGE_UNFORMATTED: u32 = 4096u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_FILELIMITEXISTS: u32 = 32u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_FILESINFOLDERS: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_FILESINROOT: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_FOLDERLIMITEXISTS: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_FOLDERSINFOLDERS: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_FOLDERSINROOT: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECAP_NOT_INITIALIZABLE: u32 = 64u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECONTROL_INSERTAFTER: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECONTROL_INSERTBEFORE: u32 = 512u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGECONTROL_INSERTINTO: u32 = 2048u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_CANEDITMETADATA: u32 = 128u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_FILESYSTEM: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_FOLDERS: u32 = 256u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_HAS_FILES: u32 = 67108864u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_HAS_FOLDERS: u32 = 33554432u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(1i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(2i32);
 impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
 impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
@@ -7253,31 +7253,31 @@ impl ::core::fmt::Debug for WMDM_STORAGE_ENUM_MODE {
         f.debug_tuple("WMDM_STORAGE_ENUM_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WMDM_TAG_DATATYPE(pub i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(0i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(1i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(2i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(3i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(4i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(6i32);
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(7i32);
 impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
 impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
@@ -7298,10 +7298,10 @@ impl ::core::fmt::Debug for WMDM_TAG_DATATYPE {
         f.debug_tuple("WMDM_TAG_DATATYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct WMFILECAPABILITIES {
     pub pwszMimeType: ::windows::core::PWSTR,
     pub dwReserved: u32,
@@ -7332,7 +7332,7 @@ impl ::core::default::Default for WMFILECAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct _BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -7372,7 +7372,7 @@ impl ::core::default::Default for _BITMAPINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -7415,7 +7415,7 @@ impl ::core::default::Default for _VIDEOINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct _WAVEFORMATEX {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -7451,7 +7451,7 @@ impl ::core::default::Default for _WAVEFORMATEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct __MACINFO {
     pub fUsed: super::super::Foundation::BOOL,
@@ -7489,197 +7489,197 @@ impl ::core::default::Default for __MACINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszAudioWAVECodec: &'static str = "WMDM/AudioWAVECodec";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszVideoFourCCCodec: &'static str = "WMDM/VideoFourCCCodec";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumArt: &'static str = "WMDM/AlbumArt";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumArtist: &'static str = "WMDM/AlbumArtist";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumCoverData: &'static str = "WMDM/AlbumCoverData";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumCoverDuration: &'static str = "WMDM/AlbumCoverDuration";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumCoverFormat: &'static str = "WMDM/AlbumCoverFormat";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumCoverHeight: &'static str = "WMDM/AlbumCoverHeight";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumCoverSize: &'static str = "WMDM/AlbumCoverSize";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumCoverWidth: &'static str = "WMDM/AlbumCoverWidth";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAlbumTitle: &'static str = "WMDM/AlbumTitle";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAudioBitDepth: &'static str = "WMDM/AudioBitDepth";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAuthor: &'static str = "WMDM/Author";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMAuthorDate: &'static str = "WMDM/AuthorDate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMBitRateType: &'static str = "WMDM/BitRateType";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMBitrate: &'static str = "WMDM/Bitrate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMBlockAlignment: &'static str = "WMDM/BlockAlignment";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMBufferSize: &'static str = "WMDM/BufferSize";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMBuyNow: &'static str = "WMDM/BuyNow";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMByteBookmark: &'static str = "WMDM/ByteBookmark";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMCategory: &'static str = "WMDM/Category";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMCodec: &'static str = "WMDM/Codec";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMCollectionID: &'static str = "WMDM/CollectionID";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMComposer: &'static str = "WMDM/Composer";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDRMId: &'static str = "WMDM/DRMId";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDataLength: &'static str = "WMDM/DataLength";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDataOffset: &'static str = "WMDM/DataOffset";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDataUnits: &'static str = "WMDM/DataUnits";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDescription: &'static str = "WMDM/Description";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDestinationURL: &'static str = "WMDM/DestinationURL";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceFirmwareVersion: &'static str = "WMDM/DeviceFirmwareVersion";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceFriendlyName: &'static str = "WMDM/DeviceFriendlyName";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceModelName: &'static str = "WMDM/DeviceModelName";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDevicePlayCount: &'static str = "WMDM/DevicePlayCount";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceProtocol: &'static str = "WMDM/DeviceProtocol";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceRevocationInfo: &'static str = "WMDM/DeviceRevocationInfo";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceServiceProviderVendor: &'static str = "WMDM/DeviceServiceProviderVendor";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDeviceVendorExtension: &'static str = "WMDM/DeviceVendorExtension";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMDuration: &'static str = "WMDM/Duration";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMEditor: &'static str = "WMDM/Editor";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMEncodingProfile: &'static str = "WMDM/EncodingProfile";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFileAttributes: &'static str = "WMDM/FileAttributes";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFileCreationDate: &'static str = "WMDM/FileCreationDate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFileName: &'static str = "WMDM/FileName";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFileSize: &'static str = "WMDM/FileSize";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFormatCode: &'static str = "WMDM/FormatCode";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFormatsSupported: &'static str = "WMDM/FormatsSupported";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFormatsSupportedAreOrdered: &'static str = "WMDM/FormatsSupportedAreOrdered";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMFrameRate: &'static str = "WMDM/FrameRate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMGenre: &'static str = "WMDM/Genre";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMHeight: &'static str = "WMDM/Height";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMIsProtected: &'static str = "WMDM/IsProtected";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMIsRepeat: &'static str = "WMDM/IsRepeat";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMKeyFrameDistance: &'static str = "WMDM/KeyFrameDistance";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMLastModifiedDate: &'static str = "WMDM/LastModifiedDate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMediaClassSecondaryID: &'static str = "WMDM/MediaClassSecondaryID";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMediaCredits: &'static str = "WMDM/MediaCredits";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMediaGuid: &'static str = "WMDM/MediaGuid";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMediaOriginalBroadcastDateTime: &'static str = "WMDM/MediaOriginalBroadcastDateTime";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMediaOriginalChannel: &'static str = "WMDM/MediaOriginalChannel";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMediaStationName: &'static str = "WMDM/MediaStationName";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMMetaGenre: &'static str = "WMDM/MetaGenre";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMNonConsumable: &'static str = "WMDM/NonConsumable";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMNumChannels: &'static str = "WMDM/NumChannels";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMObjectBookmark: &'static str = "WMDM/ObjectBookmark";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMOwner: &'static str = "WMDM/Owner";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMParentalRating: &'static str = "WMDM/ParentalRating";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMPersistentUniqueID: &'static str = "WMDM/PersistentUniqueID";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMPlayCount: &'static str = "WMDM/PlayCount";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMProviderCopyright: &'static str = "WMDM/ProviderCopyright";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMQualitySetting: &'static str = "WMDM/QualitySetting";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSampleRate: &'static str = "WMDM/SampleRate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMScanType: &'static str = "WMDM/ScanType";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSourceURL: &'static str = "WMDM/SourceURL";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSubTitle: &'static str = "WMDM/SubTitle";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSubTitleDescription: &'static str = "WMDM/SubTitleDescription";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSupportedDeviceProperties: &'static str = "WMDM/SupportedDeviceProperties";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSyncID: &'static str = "WMDM/SyncID";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSyncRelationshipID: &'static str = "WMDM/SyncRelationshipID";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMSyncTime: &'static str = "WMDM/SyncTime";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMTimeBookmark: &'static str = "WMDM/TimeBookmark";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMTimeToLive: &'static str = "WMDM/TimeToLive";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMTitle: &'static str = "WMDM/Title";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMTotalBitrate: &'static str = "WMDM/TotalBitrate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMTrack: &'static str = "WMDM/Track";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMTrackMood: &'static str = "WMDM/TrackMood";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMUserEffectiveRating: &'static str = "WMDM/UserEffectiveRating";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMUserLastPlayTime: &'static str = "WMDM/UserLastPlayTime";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMUserRating: &'static str = "WMDM/UserRating";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMUserRatingOnDevice: &'static str = "WMDM/UserRatingOnDevice";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMVideoBitrate: &'static str = "WMDM/VideoBitrate";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMWebmaster: &'static str = "WMDM/Webmaster";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMWidth: &'static str = "WMDM/Width";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMYear: &'static str = "WMDM/Year";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWMDMediaClassPrimaryID: &'static str = "WMDM/MediaClassPrimaryID";
-#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const g_wszWPDPassthroughPropertyValues: &'static str = "WPD/PassthroughPropertyValues";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

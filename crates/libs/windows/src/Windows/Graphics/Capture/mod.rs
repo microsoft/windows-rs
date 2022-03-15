@@ -1,15 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct Direct3D11CaptureFrame(::windows::core::IUnknown);
 impl Direct3D11CaptureFrame {
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Surface(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
@@ -18,7 +18,7 @@ impl Direct3D11CaptureFrame {
             (::windows::core::Interface::vtable(this).Surface)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DirectX::Direct3D11::IDirect3DSurface>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -27,7 +27,7 @@ impl Direct3D11CaptureFrame {
             (::windows::core::Interface::vtable(this).SystemRelativeTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn ContentSize(&self) -> ::windows::core::Result<super::SizeInt32> {
         let this = self;
         unsafe {
@@ -134,23 +134,23 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for Direct3D11CaptureFrame {}
 unsafe impl ::core::marker::Sync for Direct3D11CaptureFrame {}
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct Direct3D11CaptureFramePool(::windows::core::IUnknown);
 impl Direct3D11CaptureFramePool {
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Recreate<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Param3: ::windows::core::IntoParam<'a, super::SizeInt32>>(&self, device: Param0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: Param3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Recreate)(::core::mem::transmute_copy(this), device.into_param().abi(), pixelformat, numberofbuffers, size.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn TryGetNextFrame(&self) -> ::windows::core::Result<Direct3D11CaptureFrame> {
         let this = self;
         unsafe {
@@ -158,7 +158,7 @@ impl Direct3D11CaptureFramePool {
             (::windows::core::Interface::vtable(this).TryGetNextFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Direct3D11CaptureFrame>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -167,13 +167,13 @@ impl Direct3D11CaptureFramePool {
             (::windows::core::Interface::vtable(this).FrameArrived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFrameArrived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn CreateCaptureSession<'a, Param0: ::windows::core::IntoParam<'a, GraphicsCaptureItem>>(&self, item: Param0) -> ::windows::core::Result<GraphicsCaptureSession> {
         let this = self;
         unsafe {
@@ -181,7 +181,7 @@ impl Direct3D11CaptureFramePool {
             (::windows::core::Interface::vtable(this).CreateCaptureSession)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<GraphicsCaptureSession>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'System'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = self;
@@ -190,7 +190,7 @@ impl Direct3D11CaptureFramePool {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Param3: ::windows::core::IntoParam<'a, super::SizeInt32>>(device: Param0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: Param3) -> ::windows::core::Result<Direct3D11CaptureFramePool> {
         Self::IDirect3D11CaptureFramePoolStatics(|this| unsafe {
@@ -198,7 +198,7 @@ impl Direct3D11CaptureFramePool {
             (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), device.into_param().abi(), pixelformat, numberofbuffers, size.into_param().abi(), &mut result__).from_abi::<Direct3D11CaptureFramePool>(result__)
         })
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Graphics_DirectX_Direct3D11'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateFreeThreaded<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Param3: ::windows::core::IntoParam<'a, super::SizeInt32>>(device: Param0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: Param3) -> ::windows::core::Result<Direct3D11CaptureFramePool> {
         Self::IDirect3D11CaptureFramePoolStatics2(|this| unsafe {
@@ -315,10 +315,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for Direct3D11CaptureFramePool {}
 unsafe impl ::core::marker::Sync for Direct3D11CaptureFramePool {}
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 pub struct GraphicsCaptureAccess {}
 impl GraphicsCaptureAccess {
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation', 'Security_Authorization_AppCapabilityAccess'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`, `\"Security_Authorization_AppCapabilityAccess\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]
     pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
@@ -335,7 +335,7 @@ impl GraphicsCaptureAccess {
 impl ::windows::core::RuntimeName for GraphicsCaptureAccess {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureAccess";
 }
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GraphicsCaptureAccessKind(pub i32);
@@ -369,11 +369,11 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCaptureAccessKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct GraphicsCaptureItem(::windows::core::IUnknown);
 impl GraphicsCaptureItem {
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -381,7 +381,7 @@ impl GraphicsCaptureItem {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<super::SizeInt32> {
         let this = self;
         unsafe {
@@ -389,7 +389,7 @@ impl GraphicsCaptureItem {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SizeInt32>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -398,13 +398,13 @@ impl GraphicsCaptureItem {
             (::windows::core::Interface::vtable(this).Closed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateFromVisual<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Composition::Visual>>(visual: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics(|this| unsafe {
@@ -412,7 +412,7 @@ impl GraphicsCaptureItem {
             (::windows::core::Interface::vtable(this).CreateFromVisual)(::core::mem::transmute_copy(this), visual.into_param().abi(), &mut result__).from_abi::<GraphicsCaptureItem>(result__)
         })
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'UI'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn TryCreateFromWindowId<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowId>>(windowid: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
@@ -420,7 +420,7 @@ impl GraphicsCaptureItem {
             (::windows::core::Interface::vtable(this).TryCreateFromWindowId)(::core::mem::transmute_copy(this), windowid.into_param().abi(), &mut result__).from_abi::<GraphicsCaptureItem>(result__)
         })
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn TryCreateFromDisplayId<'a, Param0: ::windows::core::IntoParam<'a, super::DisplayId>>(displayid: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -510,18 +510,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::core::marker::Sync for GraphicsCaptureItem {}
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct GraphicsCapturePicker(::windows::core::IUnknown);
 impl GraphicsCapturePicker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GraphicsCapturePicker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PickSingleItemAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GraphicsCaptureItem>> {
         let this = self;
@@ -603,22 +603,22 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::core::marker::Sync for GraphicsCapturePicker {}
-#[doc = "*Required features: 'Graphics_Capture'*"]
+#[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct GraphicsCaptureSession(::windows::core::IUnknown);
 impl GraphicsCaptureSession {
-    #[doc = "*Required features: 'Graphics_Capture', 'Foundation'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn StartCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartCapture)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn IsCursorCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IGraphicsCaptureSession2>(self)?;
         unsafe {
@@ -626,12 +626,12 @@ impl GraphicsCaptureSession {
             (::windows::core::Interface::vtable(this).IsCursorCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn SetIsCursorCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGraphicsCaptureSession2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsCursorCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn IsBorderRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IGraphicsCaptureSession3>(self)?;
         unsafe {
@@ -639,12 +639,12 @@ impl GraphicsCaptureSession {
             (::windows::core::Interface::vtable(this).IsBorderRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn SetIsBorderRequired(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGraphicsCaptureSession3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsBorderRequired)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'Graphics_Capture'*"]
+    #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IGraphicsCaptureSessionStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();

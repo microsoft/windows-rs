@@ -9,7 +9,7 @@ pub type FrameExposureCompensationControl = *mut ::core::ffi::c_void;
 pub type FrameExposureControl = *mut ::core::ffi::c_void;
 pub type FrameFlashCapabilities = *mut ::core::ffi::c_void;
 pub type FrameFlashControl = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Media_Devices_Core'*"]
+#[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {

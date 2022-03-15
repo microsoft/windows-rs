@@ -1,15 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMFLIP3D_EXCLUDEBELOW: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(2i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMFLIP3D_LAST: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(3i32);
 impl ::core::marker::Copy for DWMFLIP3DWINDOWPOLICY {}
 impl ::core::clone::Clone for DWMFLIP3DWINDOWPOLICY {
@@ -30,17 +30,17 @@ impl ::core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
         f.debug_tuple("DWMFLIP3DWINDOWPOLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWMNCRENDERINGPOLICY(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMNCRP_USEWINDOWSTYLE: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMNCRP_DISABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMNCRP_ENABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(2i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMNCRP_LAST: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(3i32);
 impl ::core::marker::Copy for DWMNCRENDERINGPOLICY {}
 impl ::core::clone::Clone for DWMNCRENDERINGPOLICY {
@@ -61,13 +61,13 @@ impl ::core::fmt::Debug for DWMNCRENDERINGPOLICY {
         f.debug_tuple("DWMNCRENDERINGPOLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(-1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(0i32);
 impl ::core::marker::Copy for DWMTRANSITION_OWNEDWINDOW_TARGET {}
 impl ::core::clone::Clone for DWMTRANSITION_OWNEDWINDOW_TARGET {
@@ -88,61 +88,61 @@ impl ::core::fmt::Debug for DWMTRANSITION_OWNEDWINDOW_TARGET {
         f.debug_tuple("DWMTRANSITION_OWNEDWINDOW_TARGET").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWMWINDOWATTRIBUTE(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_NCRENDERING_ENABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_NCRENDERING_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(2i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_TRANSITIONS_FORCEDISABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(3i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_ALLOW_NCPAINT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(4i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_CAPTION_BUTTON_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(5i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_NONCLIENT_RTL_LAYOUT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(6i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_FORCE_ICONIC_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(7i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_FLIP3D_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(8i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_EXTENDED_FRAME_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(9i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_HAS_ICONIC_BITMAP: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(10i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_DISALLOW_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(11i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_EXCLUDED_FROM_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(12i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_CLOAK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(13i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_CLOAKED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(14i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_FREEZE_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(15i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_PASSIVE_UPDATE_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(16i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_USE_HOSTBACKDROPBRUSH: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(17i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_USE_IMMERSIVE_DARK_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(20i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_WINDOW_CORNER_PREFERENCE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(33i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_BORDER_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(34i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_CAPTION_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(35i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(36i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(37i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
 impl ::core::marker::Copy for DWMWINDOWATTRIBUTE {}
 impl ::core::clone::Clone for DWMWINDOWATTRIBUTE {
@@ -163,14 +163,14 @@ impl ::core::fmt::Debug for DWMWINDOWATTRIBUTE {
         f.debug_tuple("DWMWINDOWATTRIBUTE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_BB_BLURREGION: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_BB_ENABLE: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
@@ -204,20 +204,20 @@ impl ::core::default::Default for DWM_BLURBEHIND {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_CLOAKED_APP: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_CLOAKED_SHELL: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
@@ -255,23 +255,23 @@ impl ::core::default::Default for DWM_PRESENT_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWM_SHOWCONTACT(pub u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_DOWN: DWM_SHOWCONTACT = DWM_SHOWCONTACT(1u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_UP: DWM_SHOWCONTACT = DWM_SHOWCONTACT(2u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_DRAG: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_HOLD: DWM_SHOWCONTACT = DWM_SHOWCONTACT(8u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(16u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_NONE: DWM_SHOWCONTACT = DWM_SHOWCONTACT(0u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_ALL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4294967295u32);
 impl ::core::marker::Copy for DWM_SHOWCONTACT {}
 impl ::core::clone::Clone for DWM_SHOWCONTACT {
@@ -320,17 +320,17 @@ impl ::core::ops::Not for DWM_SHOWCONTACT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(2i32);
 impl ::core::marker::Copy for DWM_SOURCE_FRAME_SAMPLING {}
 impl ::core::clone::Clone for DWM_SOURCE_FRAME_SAMPLING {
@@ -351,31 +351,31 @@ impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
         f.debug_tuple("DWM_SOURCE_FRAME_SAMPLING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_NONE: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(0u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_IMPLEMENTED_BY_SYSTEM: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(1u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_WINDOW_RELATIONSHIP: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(2u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_WINDOW_STYLES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(4u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_WINDOW_REGION: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(8u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_WINDOW_DWM_ATTRIBUTES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(16u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_WINDOW_MARGINS: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(32u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_TABBING_ENABLED: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(64u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_USER_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(128u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(256u32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(512u32);
 impl ::core::marker::Copy for DWM_TAB_WINDOW_REQUIREMENTS {}
 impl ::core::clone::Clone for DWM_TAB_WINDOW_REQUIREMENTS {
@@ -425,7 +425,7 @@ impl ::core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
@@ -462,7 +462,7 @@ impl ::core::default::Default for DWM_THUMBNAIL_PROPERTIES {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -525,27 +525,27 @@ impl ::core::default::Default for DWM_TIMING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_OPACITY: u32 = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_VISIBLE: u32 = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(2i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(3i32);
 impl ::core::marker::Copy for DWM_WINDOW_CORNER_PREFERENCE {}
 impl ::core::clone::Clone for DWM_WINDOW_CORNER_PREFERENCE {
@@ -566,7 +566,7 @@ impl ::core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
         f.debug_tuple("DWM_WINDOW_CORNER_PREFERENCE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
@@ -581,7 +581,7 @@ pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL {
@@ -596,7 +596,7 @@ pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
@@ -611,7 +611,7 @@ pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::Result<()> {
@@ -626,7 +626,7 @@ pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -640,7 +640,7 @@ pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenablemmcss: Param0) -> ::windows::core::Result<()> {
@@ -655,7 +655,7 @@ pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation', 'Win32_UI_Controls'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::Result<()> {
@@ -670,7 +670,7 @@ pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmFlush() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -684,7 +684,7 @@ pub unsafe fn DwmFlush() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -699,7 +699,7 @@ pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<DWM_TIMING_INFO> {
@@ -715,7 +715,7 @@ pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
@@ -730,7 +730,7 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core::Result<MilMatrix3x2D> {
     #[cfg(windows)]
@@ -745,7 +745,7 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::Result<()> {
@@ -760,7 +760,7 @@ pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(appwindow: Param0) -> ::windows::core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
@@ -776,7 +776,7 @@ pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
@@ -791,7 +791,7 @@ pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
@@ -806,7 +806,7 @@ pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -822,7 +822,7 @@ pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, crefreshes: i32, frelative: Param2) -> ::windows::core::Result<()> {
@@ -837,7 +837,7 @@ pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core::Result<super::super::Foundation::SIZE> {
@@ -853,7 +853,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddestination: Param0, hwndsource: Param1) -> ::windows::core::Result<isize> {
@@ -869,7 +869,7 @@ pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmRenderGesture<'a, const PARAM1: usize>(gt: GESTURE_TYPE, pdwpointerid: &[u32; PARAM1], ppoints: &[super::super::Foundation::POINT; PARAM1]) -> ::windows::core::Result<()> {
@@ -884,7 +884,7 @@ pub unsafe fn DwmRenderGesture<'a, const PARAM1: usize>(gt: GESTURE_TYPE, pdwpoi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, crefreshes: i32) -> ::windows::core::Result<()> {
@@ -899,7 +899,7 @@ pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::Result<()> {
@@ -914,7 +914,7 @@ pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, dwsitflags: u32) -> ::windows::core::Result<()> {
@@ -929,7 +929,7 @@ pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
@@ -944,7 +944,7 @@ pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
@@ -959,7 +959,7 @@ pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -973,7 +973,7 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmTetherContact<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(dwpointerid: u32, fenable: Param1, pttether: Param2) -> ::windows::core::Result<()> {
@@ -988,7 +988,7 @@ pub unsafe fn DwmTetherContact<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::Result<()> {
@@ -1003,7 +1003,7 @@ pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1017,7 +1017,7 @@ pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::Result<()> {
@@ -1032,31 +1032,31 @@ pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GESTURE_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_PEN_TAP: GESTURE_TYPE = GESTURE_TYPE(0i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(1i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(2i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(3i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(4i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_TOUCH_TAP: GESTURE_TYPE = GESTURE_TYPE(5i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(6i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(8i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(9i32);
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
 impl ::core::marker::Copy for GESTURE_TYPE {}
 impl ::core::clone::Clone for GESTURE_TYPE {
@@ -1078,7 +1078,7 @@ impl ::core::fmt::Debug for GESTURE_TYPE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -1108,7 +1108,7 @@ impl ::core::default::Default for MilMatrix3x2D {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,
@@ -1133,11 +1133,11 @@ impl ::core::default::Default for UNSIGNED_RATIO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const c_DwmMaxAdapters: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const c_DwmMaxMonitors: u32 = 16u32;
-#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

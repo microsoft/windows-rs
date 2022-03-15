@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct AccessCacheOptions(pub u32);
 impl AccessCacheOptions {
@@ -16,7 +16,7 @@ impl ::core::clone::Clone for AccessCacheOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 pub struct AccessListEntry {
     pub Token: ::windows_sys::core::HSTRING,
     pub Metadata: ::windows_sys::core::HSTRING,
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for AccessListEntry {
 pub type AccessListEntryView = *mut ::core::ffi::c_void;
 pub type IStorageItemAccessList = *mut ::core::ffi::c_void;
 pub type ItemRemovedEventArgs = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Storage_AccessCache'*"]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {

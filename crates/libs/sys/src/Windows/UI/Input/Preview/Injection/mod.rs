@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
@@ -22,7 +22,7 @@ impl ::core::clone::Clone for InjectedInputButtonChangeKind {
     }
 }
 pub type InjectedInputGamepadInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
@@ -40,7 +40,7 @@ impl ::core::clone::Clone for InjectedInputKeyOptions {
 }
 pub type InjectedInputKeyboardInfo = *mut ::core::ffi::c_void;
 pub type InjectedInputMouseInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
@@ -66,7 +66,7 @@ impl ::core::clone::Clone for InjectedInputMouseOptions {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputPenButtons(pub u32);
 impl InjectedInputPenButtons {
@@ -82,7 +82,7 @@ impl ::core::clone::Clone for InjectedInputPenButtons {
     }
 }
 pub type InjectedInputPenInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
@@ -99,7 +99,7 @@ impl ::core::clone::Clone for InjectedInputPenParameters {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -111,7 +111,7 @@ impl ::core::clone::Clone for InjectedInputPoint {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -125,7 +125,7 @@ impl ::core::clone::Clone for InjectedInputPointerInfo {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
@@ -150,7 +150,7 @@ impl ::core::clone::Clone for InjectedInputPointerOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
@@ -163,7 +163,7 @@ impl ::core::clone::Clone for InjectedInputRectangle {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {
@@ -178,7 +178,7 @@ impl ::core::clone::Clone for InjectedInputShortcut {
     }
 }
 pub type InjectedInputTouchInfo = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for InjectedInputTouchParameters {
         *self
     }
 }
-#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputVisualizationMode(pub i32);
 impl InjectedInputVisualizationMode {

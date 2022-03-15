@@ -1,6 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: ::windows::core::PCWSTR,
     pub pszSpec: ::windows::core::PCWSTR,
@@ -30,43 +30,43 @@ impl ::core::default::Default for COMDLG_FILTERSPEC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(0i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_100_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(100i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_120_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(120i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_125_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(125i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_140_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(140i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_150_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(150i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_160_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(160i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_175_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(175i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_180_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(180i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_200_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(200i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_225_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(225i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_250_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(250i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_300_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(300i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_350_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(350i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(400i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(450i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(500i32);
 impl ::core::marker::Copy for DEVICE_SCALE_FACTOR {}
 impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
@@ -87,16 +87,16 @@ impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
         f.debug_tuple("DEVICE_SCALE_FACTOR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 pub struct IObjectArray(::windows::core::IUnknown);
 impl IObjectArray {
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetAt<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -149,33 +149,33 @@ pub struct IObjectArray_Vtbl {
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcobjects: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 pub struct IObjectCollection(::windows::core::IUnknown);
 impl IObjectCollection {
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetAt<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base.GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddObject)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddFromArray<'a, Param0: ::windows::core::IntoParam<'a, IObjectArray>>(&self, poasource: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddFromArray)(::core::mem::transmute_copy(self), poasource.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveObjectAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
     }
@@ -250,7 +250,7 @@ pub struct IObjectCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
@@ -274,41 +274,41 @@ impl ::core::default::Default for ITEMIDLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PERCEIVED(pub i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_FIRST: PERCEIVED = PERCEIVED(-3i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_CUSTOM: PERCEIVED = PERCEIVED(-3i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_UNSPECIFIED: PERCEIVED = PERCEIVED(-2i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_FOLDER: PERCEIVED = PERCEIVED(-1i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_UNKNOWN: PERCEIVED = PERCEIVED(0i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_TEXT: PERCEIVED = PERCEIVED(1i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_IMAGE: PERCEIVED = PERCEIVED(2i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_AUDIO: PERCEIVED = PERCEIVED(3i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_VIDEO: PERCEIVED = PERCEIVED(4i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_COMPRESSED: PERCEIVED = PERCEIVED(5i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_DOCUMENT: PERCEIVED = PERCEIVED(6i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_SYSTEM: PERCEIVED = PERCEIVED(7i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_APPLICATION: PERCEIVED = PERCEIVED(8i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_GAMEMEDIA: PERCEIVED = PERCEIVED(9i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_CONTACTS: PERCEIVED = PERCEIVED(10i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_LAST: PERCEIVED = PERCEIVED(10i32);
 impl ::core::marker::Copy for PERCEIVED {}
 impl ::core::clone::Clone for PERCEIVED {
@@ -329,63 +329,63 @@ impl ::core::fmt::Debug for PERCEIVED {
         f.debug_tuple("PERCEIVED").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_SOFTCODED: u32 = 1u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_WMSDK: u32 = 32u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64u32;
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SHCOLSTATE(pub i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_DEFAULT: SHCOLSTATE = SHCOLSTATE(0i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_TYPE_STR: SHCOLSTATE = SHCOLSTATE(1i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_TYPE_INT: SHCOLSTATE = SHCOLSTATE(2i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_TYPE_DATE: SHCOLSTATE = SHCOLSTATE(3i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_TYPEMASK: SHCOLSTATE = SHCOLSTATE(15i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_ONBYDEFAULT: SHCOLSTATE = SHCOLSTATE(16i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_SLOW: SHCOLSTATE = SHCOLSTATE(32i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_EXTENDED: SHCOLSTATE = SHCOLSTATE(64i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_SECONDARYUI: SHCOLSTATE = SHCOLSTATE(128i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_HIDDEN: SHCOLSTATE = SHCOLSTATE(256i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_PREFER_VARCMP: SHCOLSTATE = SHCOLSTATE(512i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_PREFER_FMTCMP: SHCOLSTATE = SHCOLSTATE(1024i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_NOSORTBYFOLDERNESS: SHCOLSTATE = SHCOLSTATE(2048i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_VIEWONLY: SHCOLSTATE = SHCOLSTATE(65536i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_BATCHREAD: SHCOLSTATE = SHCOLSTATE(131072i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_NO_GROUPBY: SHCOLSTATE = SHCOLSTATE(262144i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_FIXED_WIDTH: SHCOLSTATE = SHCOLSTATE(4096i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_NODPISCALE: SHCOLSTATE = SHCOLSTATE(8192i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_FIXED_RATIO: SHCOLSTATE = SHCOLSTATE(16384i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_DISPLAYMASK: SHCOLSTATE = SHCOLSTATE(61440i32);
 impl ::core::marker::Copy for SHCOLSTATE {}
 impl ::core::clone::Clone for SHCOLSTATE {
@@ -407,7 +407,7 @@ impl ::core::fmt::Debug for SHCOLSTATE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
@@ -434,7 +434,7 @@ impl ::core::default::Default for SHELLDETAILS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
@@ -460,7 +460,7 @@ impl ::core::default::Default for SHITEMID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
@@ -486,7 +486,7 @@ impl ::core::default::Default for STRRET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub union STRRET_0 {
     pub pOleStr: ::windows::core::PWSTR,
     pub uOffset: u32,
@@ -512,15 +512,15 @@ impl ::core::default::Default for STRRET_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct STRRET_TYPE(pub i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
-#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
 impl ::core::marker::Copy for STRRET_TYPE {}
 impl ::core::clone::Clone for STRRET_TYPE {

@@ -81,18 +81,18 @@ pub struct IShareOperation3_Vtbl {
     #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
     Contacts: usize,
 }
-#[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+#[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
 pub struct QuickLink(::windows::core::IUnknown);
 impl QuickLink {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QuickLink, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -100,12 +100,12 @@ impl QuickLink {
             (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -114,13 +114,13 @@ impl QuickLink {
             (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::RandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -128,12 +128,12 @@ impl QuickLink {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDataFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -142,7 +142,7 @@ impl QuickLink {
             (::windows::core::Interface::vtable(this).SupportedDataFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -222,11 +222,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Q
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+#[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
 pub struct ShareOperation(::windows::core::IUnknown);
 impl ShareOperation {
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn Data(&self) -> ::windows::core::Result<super::DataPackageView> {
         let this = self;
         unsafe {
@@ -234,7 +234,7 @@ impl ShareOperation {
             (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DataPackageView>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn QuickLinkId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -242,47 +242,47 @@ impl ShareOperation {
             (::windows::core::Interface::vtable(this).QuickLinkId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn RemoveThisQuickLink(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveThisQuickLink)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn ReportStarted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportStarted)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn ReportDataRetrieved(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportDataRetrieved)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn ReportSubmittedBackgroundTask(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportSubmittedBackgroundTask)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn ReportCompletedWithQuickLink<'a, Param0: ::windows::core::IntoParam<'a, QuickLink>>(&self, quicklink: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCompletedWithQuickLink)(::core::mem::transmute_copy(this), quicklink.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IShareOperation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).DismissUI)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget', 'ApplicationModel_Contacts', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`, `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn Contacts(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
         let this = &::windows::core::Interface::cast::<IShareOperation3>(self)?;

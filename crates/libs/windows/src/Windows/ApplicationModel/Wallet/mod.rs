@@ -411,7 +411,7 @@ pub struct IWalletVerbFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWalletVerb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletActionKind(pub i32);
@@ -448,11 +448,11 @@ unsafe impl ::windows::core::RuntimeType for WalletActionKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletBarcode(::windows::core::IUnknown);
 impl WalletBarcode {
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Symbology(&self) -> ::windows::core::Result<WalletBarcodeSymbology> {
         let this = self;
         unsafe {
@@ -460,7 +460,7 @@ impl WalletBarcode {
             (::windows::core::Interface::vtable(this).Symbology)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WalletBarcodeSymbology>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -468,7 +468,7 @@ impl WalletBarcode {
             (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetImageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
@@ -477,14 +477,14 @@ impl WalletBarcode {
             (::windows::core::Interface::vtable(this).GetImageAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn CreateWalletBarcode<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(symbology: WalletBarcodeSymbology, value: Param1) -> ::windows::core::Result<WalletBarcode> {
         Self::IWalletBarcodeFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateWalletBarcode)(::core::mem::transmute_copy(this), symbology, value.into_param().abi(), &mut result__).from_abi::<WalletBarcode>(result__)
         })
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCustomWalletBarcode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(streamtobarcodeimage: Param0) -> ::windows::core::Result<WalletBarcode> {
         Self::IWalletBarcodeFactory(|this| unsafe {
@@ -570,7 +570,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 unsafe impl ::core::marker::Send for WalletBarcode {}
 unsafe impl ::core::marker::Sync for WalletBarcode {}
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletBarcodeSymbology(pub i32);
@@ -614,7 +614,7 @@ unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletDetailViewPosition(pub i32);
@@ -661,11 +661,11 @@ unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletItem(::windows::core::IUnknown);
 impl WalletItem {
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -673,12 +673,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -686,7 +686,7 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn IsAcknowledged(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -694,12 +694,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).IsAcknowledged)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetIsAcknowledged(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsAcknowledged)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn IssuerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -707,12 +707,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).IssuerDisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetIssuerDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIssuerDisplayName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastUpdated(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -721,13 +721,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).LastUpdated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLastUpdated)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<WalletItemKind> {
         let this = self;
         unsafe {
@@ -735,7 +735,7 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WalletItemKind>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Barcode(&self) -> ::windows::core::Result<WalletBarcode> {
         let this = self;
         unsafe {
@@ -743,12 +743,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Barcode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WalletBarcode>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetBarcode<'a, Param0: ::windows::core::IntoParam<'a, WalletBarcode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBarcode)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -757,13 +757,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).ExpirationDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExpirationDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationDate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Logo159x159(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -772,13 +772,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Logo159x159)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogo159x159<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogo159x159)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Logo336x336(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -787,13 +787,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Logo336x336)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogo336x336<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogo336x336)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Logo99x99(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -802,13 +802,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Logo99x99)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogo99x99<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogo99x99)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -816,12 +816,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).DisplayMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDisplayMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayMessage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn IsDisplayMessageLaunchable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -829,12 +829,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).IsDisplayMessageLaunchable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetIsDisplayMessageLaunchable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsDisplayMessageLaunchable)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn LogoText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -842,12 +842,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).LogoText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetLogoText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogoText)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn HeaderColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -856,13 +856,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).HeaderColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetHeaderColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHeaderColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn BodyColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -871,13 +871,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).BodyColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBodyColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBodyColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn HeaderFontColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -886,13 +886,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).HeaderFontColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetHeaderFontColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHeaderFontColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn BodyFontColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -901,13 +901,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).BodyFontColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'UI'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBodyFontColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBodyFontColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn HeaderBackgroundImage(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -916,13 +916,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).HeaderBackgroundImage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetHeaderBackgroundImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHeaderBackgroundImage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BodyBackgroundImage(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -931,13 +931,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).BodyBackgroundImage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetBodyBackgroundImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBodyBackgroundImage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LogoImage(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -946,13 +946,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).LogoImage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogoImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogoImage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PromotionalImage(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -961,13 +961,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).PromotionalImage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPromotionalImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPromotionalImage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RelevantDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -976,13 +976,13 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).RelevantDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRelevantDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRelevantDate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn RelevantDateDisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -990,12 +990,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).RelevantDateDisplayMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetRelevantDateDisplayMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRelevantDateDisplayMessage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TransactionHistory(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletTransaction>> {
         let this = self;
@@ -1004,7 +1004,7 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).TransactionHistory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletTransaction>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RelevantLocations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletRelevantLocation>> {
         let this = self;
@@ -1013,7 +1013,7 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).RelevantLocations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletRelevantLocation>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn IsMoreTransactionHistoryLaunchable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1021,12 +1021,12 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).IsMoreTransactionHistoryLaunchable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetIsMoreTransactionHistoryLaunchable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsMoreTransactionHistoryLaunchable)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletItemCustomProperty>> {
         let this = self;
@@ -1035,7 +1035,7 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).DisplayProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletItemCustomProperty>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Verbs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletVerb>> {
         let this = self;
@@ -1044,7 +1044,7 @@ impl WalletItem {
             (::windows::core::Interface::vtable(this).Verbs)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, WalletVerb>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn CreateWalletItem<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(kind: WalletItemKind, displayname: Param1) -> ::windows::core::Result<WalletItem> {
         Self::IWalletItemFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1129,11 +1129,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 unsafe impl ::core::marker::Send for WalletItem {}
 unsafe impl ::core::marker::Sync for WalletItem {}
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletItemCustomProperty(::windows::core::IUnknown);
 impl WalletItemCustomProperty {
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1141,12 +1141,12 @@ impl WalletItemCustomProperty {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1154,12 +1154,12 @@ impl WalletItemCustomProperty {
             (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn AutoDetectLinks(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1167,12 +1167,12 @@ impl WalletItemCustomProperty {
             (::windows::core::Interface::vtable(this).AutoDetectLinks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetAutoDetectLinks(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoDetectLinks)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn DetailViewPosition(&self) -> ::windows::core::Result<WalletDetailViewPosition> {
         let this = self;
         unsafe {
@@ -1180,12 +1180,12 @@ impl WalletItemCustomProperty {
             (::windows::core::Interface::vtable(this).DetailViewPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WalletDetailViewPosition>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDetailViewPosition(&self, value: WalletDetailViewPosition) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDetailViewPosition)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SummaryViewPosition(&self) -> ::windows::core::Result<WalletSummaryViewPosition> {
         let this = self;
         unsafe {
@@ -1193,12 +1193,12 @@ impl WalletItemCustomProperty {
             (::windows::core::Interface::vtable(this).SummaryViewPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WalletSummaryViewPosition>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSummaryViewPosition)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn CreateWalletItemCustomProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0, value: Param1) -> ::windows::core::Result<WalletItemCustomProperty> {
         Self::IWalletItemCustomPropertyFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1283,7 +1283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
 unsafe impl ::core::marker::Sync for WalletItemCustomProperty {}
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletItemKind(pub i32);
@@ -1322,11 +1322,11 @@ unsafe impl ::windows::core::RuntimeType for WalletItemKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletItemStore(::windows::core::IUnknown);
 impl WalletItemStore {
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AddAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, WalletItem>>(&self, id: Param0, item: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1335,7 +1335,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).AddAsync)(::core::mem::transmute_copy(this), id.into_param().abi(), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClearAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1344,7 +1344,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).ClearAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetWalletItemAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WalletItem>> {
         let this = self;
@@ -1353,7 +1353,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).GetWalletItemAsync)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WalletItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
         let this = self;
@@ -1362,7 +1362,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).GetItemsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
         let this = self;
@@ -1371,7 +1371,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).GetItemsWithKindAsync)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ImportItemAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WalletItem>> {
         let this = self;
@@ -1380,7 +1380,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).ImportItemAsync)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WalletItem>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1389,7 +1389,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1398,7 +1398,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).ShowAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowItemAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1407,7 +1407,7 @@ impl WalletItemStore {
             (::windows::core::Interface::vtable(this).ShowItemAsync)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAsync<'a, Param0: ::windows::core::IntoParam<'a, WalletItem>>(&self, item: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1489,10 +1489,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 unsafe impl ::core::marker::Send for WalletItemStore {}
 unsafe impl ::core::marker::Sync for WalletItemStore {}
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 pub struct WalletManager {}
 impl WalletManager {
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WalletItemStore>> {
         Self::IWalletManagerStatics(|this| unsafe {
@@ -1509,18 +1509,18 @@ impl WalletManager {
 impl ::windows::core::RuntimeName for WalletManager {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletManager";
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletRelevantLocation(::windows::core::IUnknown);
 impl WalletRelevantLocation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WalletRelevantLocation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Devices_Geolocation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::BasicGeoposition> {
         let this = self;
@@ -1529,13 +1529,13 @@ impl WalletRelevantLocation {
             (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Geolocation::BasicGeoposition>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Devices_Geolocation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::BasicGeoposition>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1543,7 +1543,7 @@ impl WalletRelevantLocation {
             (::windows::core::Interface::vtable(this).DisplayMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDisplayMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayMessage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1621,7 +1621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 unsafe impl ::core::marker::Send for WalletRelevantLocation {}
 unsafe impl ::core::marker::Sync for WalletRelevantLocation {}
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletSummaryViewPosition(pub i32);
@@ -1656,18 +1656,18 @@ unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletTransaction(::windows::core::IUnknown);
 impl WalletTransaction {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WalletTransaction, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1675,12 +1675,12 @@ impl WalletTransaction {
             (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn DisplayAmount(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1688,12 +1688,12 @@ impl WalletTransaction {
             (::windows::core::Interface::vtable(this).DisplayAmount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDisplayAmount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayAmount)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn IgnoreTimeOfDay(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1701,12 +1701,12 @@ impl WalletTransaction {
             (::windows::core::Interface::vtable(this).IgnoreTimeOfDay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetIgnoreTimeOfDay(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIgnoreTimeOfDay)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn DisplayLocation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1714,12 +1714,12 @@ impl WalletTransaction {
             (::windows::core::Interface::vtable(this).DisplayLocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetDisplayLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayLocation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TransactionDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1728,13 +1728,13 @@ impl WalletTransaction {
             (::windows::core::Interface::vtable(this).TransactionDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet', 'Foundation'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTransactionDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTransactionDate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn IsLaunchable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1742,7 +1742,7 @@ impl WalletTransaction {
             (::windows::core::Interface::vtable(this).IsLaunchable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetIsLaunchable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsLaunchable)(::core::mem::transmute_copy(this), value).ok() }
@@ -1820,11 +1820,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 unsafe impl ::core::marker::Send for WalletTransaction {}
 unsafe impl ::core::marker::Sync for WalletTransaction {}
-#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletVerb(::windows::core::IUnknown);
 impl WalletVerb {
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1832,12 +1832,12 @@ impl WalletVerb {
             (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn CreateWalletVerb<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<WalletVerb> {
         Self::IWalletVerbFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

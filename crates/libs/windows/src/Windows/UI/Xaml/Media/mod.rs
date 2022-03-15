@@ -5,7 +5,7 @@ pub mod Animation;
 pub mod Imaging;
 #[cfg(feature = "UI_Xaml_Media_Media3D")]
 pub mod Media3D;
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AcrylicBackgroundSource(pub i32);
@@ -39,11 +39,11 @@ unsafe impl ::windows::core::RuntimeType for AcrylicBackgroundSource {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct AcrylicBrush(::windows::core::IUnknown);
 impl AcrylicBrush {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn BackgroundSource(&self) -> ::windows::core::Result<AcrylicBackgroundSource> {
         let this = self;
         unsafe {
@@ -51,12 +51,12 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).BackgroundSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AcrylicBackgroundSource>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetBackgroundSource(&self, value: AcrylicBackgroundSource) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBackgroundSource)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TintColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -64,12 +64,12 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).TintColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTintColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTintColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TintOpacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -77,12 +77,12 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).TintOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTintOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTintOpacity)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TintTransitionDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -91,13 +91,13 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).TintTransitionDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTintTransitionDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTintTransitionDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlwaysUseFallback(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -105,12 +105,12 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).AlwaysUseFallback)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAlwaysUseFallback(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlwaysUseFallback)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TintLuminosityOpacity(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = &::windows::core::Interface::cast::<IAcrylicBrush2>(self)?;
@@ -119,20 +119,20 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).TintLuminosityOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTintLuminosityOpacity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAcrylicBrush2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTintLuminosityOpacity)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn new() -> ::windows::core::Result<AcrylicBrush> {
         Self::IAcrylicBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<AcrylicBrush> {
         Self::IAcrylicBrushFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -140,42 +140,42 @@ impl AcrylicBrush {
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn BackgroundSourceProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAcrylicBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).BackgroundSourceProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TintColorProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAcrylicBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TintColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TintOpacityProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAcrylicBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TintOpacityProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TintTransitionDurationProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAcrylicBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TintTransitionDurationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlwaysUseFallbackProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAcrylicBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).AlwaysUseFallbackProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TintLuminosityOpacityProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IAcrylicBrushStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -356,7 +356,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &AcrylicBru
 }
 unsafe impl ::core::marker::Send for AcrylicBrush {}
 unsafe impl ::core::marker::Sync for AcrylicBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AlignmentX(pub i32);
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::RuntimeType for AlignmentX {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AlignmentY(pub i32);
@@ -426,18 +426,18 @@ unsafe impl ::windows::core::RuntimeType for AlignmentY {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct ArcSegment(::windows::core::IUnknown);
 impl ArcSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ArcSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -446,13 +446,13 @@ impl ArcSegment {
             (::windows::core::Interface::vtable(this).Point)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -461,13 +461,13 @@ impl ArcSegment {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationAngle(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -475,12 +475,12 @@ impl ArcSegment {
             (::windows::core::Interface::vtable(this).RotationAngle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRotationAngle(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngle)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn IsLargeArc(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -488,12 +488,12 @@ impl ArcSegment {
             (::windows::core::Interface::vtable(this).IsLargeArc)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetIsLargeArc(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsLargeArc)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SweepDirection(&self) -> ::windows::core::Result<SweepDirection> {
         let this = self;
         unsafe {
@@ -501,40 +501,40 @@ impl ArcSegment {
             (::windows::core::Interface::vtable(this).SweepDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SweepDirection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetSweepDirection(&self, value: SweepDirection) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSweepDirection)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn PointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IArcSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).PointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SizeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IArcSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).SizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationAngleProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IArcSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RotationAngleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn IsLargeArcProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IArcSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsLargeArcProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SweepDirectionProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IArcSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -659,7 +659,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ArcSegment
 }
 unsafe impl ::core::marker::Send for ArcSegment {}
 unsafe impl ::core::marker::Sync for ArcSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioCategory(pub i32);
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::RuntimeType for AudioCategory {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioDeviceType(pub i32);
@@ -738,18 +738,18 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct BezierSegment(::windows::core::IUnknown);
 impl BezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -758,13 +758,13 @@ impl BezierSegment {
             (::windows::core::Interface::vtable(this).Point1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint1)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -773,13 +773,13 @@ impl BezierSegment {
             (::windows::core::Interface::vtable(this).Point2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint2)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point3(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -788,27 +788,27 @@ impl BezierSegment {
             (::windows::core::Interface::vtable(this).Point3)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint3<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint3)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Point1Property() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Point1Property)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Point2Property() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Point2Property)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Point3Property() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -933,12 +933,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BezierSegm
 }
 unsafe impl ::core::marker::Send for BezierSegment {}
 unsafe impl ::core::marker::Sync for BezierSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct BitmapCache(::windows::core::IUnknown);
 impl BitmapCache {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapCache, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1057,17 +1057,17 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BitmapCach
 }
 unsafe impl ::core::marker::Send for BitmapCache {}
 unsafe impl ::core::marker::Sync for BitmapCache {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct Brush(::windows::core::IUnknown);
 impl Brush {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::core::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Opacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1075,12 +1075,12 @@ impl Brush {
             (::windows::core::Interface::vtable(this).Opacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Transform(&self) -> ::windows::core::Result<Transform> {
         let this = self;
         unsafe {
@@ -1088,12 +1088,12 @@ impl Brush {
             (::windows::core::Interface::vtable(this).Transform)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Transform>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTransform<'a, Param0: ::windows::core::IntoParam<'a, Transform>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTransform)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RelativeTransform(&self) -> ::windows::core::Result<Transform> {
         let this = self;
         unsafe {
@@ -1101,26 +1101,26 @@ impl Brush {
             (::windows::core::Interface::vtable(this).RelativeTransform)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Transform>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRelativeTransform<'a, Param0: ::windows::core::IntoParam<'a, Transform>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeTransform)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn OpacityProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).OpacityProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TransformProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TransformProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RelativeTransformProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1251,20 +1251,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Brush {
 }
 unsafe impl ::core::marker::Send for Brush {}
 unsafe impl ::core::marker::Sync for Brush {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BrushCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl BrushCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BrushCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<Brush>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<Brush>>(self)?;
@@ -1273,7 +1273,7 @@ impl BrushCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<Brush>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<Brush> {
         let this = self;
@@ -1282,7 +1282,7 @@ impl BrushCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<Brush>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -1291,7 +1291,7 @@ impl BrushCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Brush>> {
         let this = self;
@@ -1300,7 +1300,7 @@ impl BrushCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Brush>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, Brush>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -1309,43 +1309,43 @@ impl BrushCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, Brush>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, Brush>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Brush>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -1354,7 +1354,7 @@ impl BrushCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<Brush>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -1518,7 +1518,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for BrushCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for BrushCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BrushMappingMode(pub i32);
@@ -1552,7 +1552,7 @@ unsafe impl ::windows::core::RuntimeType for BrushMappingMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct CacheMode(::windows::core::IUnknown);
 impl CacheMode {}
@@ -1648,7 +1648,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &CacheMode 
 }
 unsafe impl ::core::marker::Send for CacheMode {}
 unsafe impl ::core::marker::Sync for CacheMode {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ColorInterpolationMode(pub i32);
@@ -1682,18 +1682,18 @@ unsafe impl ::windows::core::RuntimeType for ColorInterpolationMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct CompositeTransform(::windows::core::IUnknown);
 impl CompositeTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositeTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1701,12 +1701,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).CenterX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1714,12 +1714,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).CenterY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1727,12 +1727,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).ScaleX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetScaleX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaleX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1740,12 +1740,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).ScaleY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetScaleY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaleY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SkewX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1753,12 +1753,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).SkewX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetSkewX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSkewX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SkewY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1766,12 +1766,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).SkewY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetSkewY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSkewY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Rotation(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1779,12 +1779,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).Rotation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRotation(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TranslateX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1792,12 +1792,12 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).TranslateX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTranslateX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTranslateX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TranslateY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1805,68 +1805,68 @@ impl CompositeTransform {
             (::windows::core::Interface::vtable(this).TranslateY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTranslateY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTranslateY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ScaleXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ScaleYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SkewXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).SkewXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SkewYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).SkewYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RotationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TranslateXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TranslateXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TranslateYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICompositeTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2011,11 +2011,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &CompositeT
 }
 unsafe impl ::core::marker::Send for CompositeTransform {}
 unsafe impl ::core::marker::Sync for CompositeTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Rendering<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ICompositionTargetStatics(|this| unsafe {
@@ -2023,12 +2023,12 @@ impl CompositionTarget {
             (::windows::core::Interface::vtable(this).Rendering)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRendering<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ICompositionTargetStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRendering)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SurfaceContentsLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ICompositionTargetStatics(|this| unsafe {
@@ -2036,12 +2036,12 @@ impl CompositionTarget {
             (::windows::core::Interface::vtable(this).SurfaceContentsLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSurfaceContentsLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ICompositionTargetStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSurfaceContentsLost)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Rendered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<RenderedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ICompositionTargetStatics3(|this| unsafe {
@@ -2049,7 +2049,7 @@ impl CompositionTarget {
             (::windows::core::Interface::vtable(this).Rendered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRendered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ICompositionTargetStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRendered)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
@@ -2137,20 +2137,20 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CompositionTarget {}
 unsafe impl ::core::marker::Sync for CompositionTarget {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DoubleCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl DoubleCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DoubleCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<f64>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<f64>>(self)?;
@@ -2159,7 +2159,7 @@ impl DoubleCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<f64> {
         let this = self;
@@ -2168,7 +2168,7 @@ impl DoubleCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -2177,7 +2177,7 @@ impl DoubleCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
@@ -2186,7 +2186,7 @@ impl DoubleCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<f64>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf(&self, value: f64, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2195,43 +2195,43 @@ impl DoubleCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value, index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt(&self, index: u32, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt(&self, index: u32, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [f64]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -2240,7 +2240,7 @@ impl DoubleCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[f64]) -> ::windows::core::Result<()> {
         let this = self;
@@ -2404,7 +2404,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for DoubleCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DoubleCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementCompositeMode(pub i32);
@@ -2439,18 +2439,18 @@ unsafe impl ::windows::core::RuntimeType for ElementCompositeMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct EllipseGeometry(::windows::core::IUnknown);
 impl EllipseGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EllipseGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Center(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -2459,13 +2459,13 @@ impl EllipseGeometry {
             (::windows::core::Interface::vtable(this).Center)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCenter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenter)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RadiusX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2473,12 +2473,12 @@ impl EllipseGeometry {
             (::windows::core::Interface::vtable(this).RadiusX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRadiusX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRadiusX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RadiusY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2486,26 +2486,26 @@ impl EllipseGeometry {
             (::windows::core::Interface::vtable(this).RadiusY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRadiusY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRadiusY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IEllipseGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RadiusXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IEllipseGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RadiusXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RadiusYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IEllipseGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2630,7 +2630,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &EllipseGeo
 }
 unsafe impl ::core::marker::Send for EllipseGeometry {}
 unsafe impl ::core::marker::Sync for EllipseGeometry {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FastPlayFallbackBehaviour(pub i32);
@@ -2665,7 +2665,7 @@ unsafe impl ::windows::core::RuntimeType for FastPlayFallbackBehaviour {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FillRule(pub i32);
@@ -2699,11 +2699,11 @@ unsafe impl ::windows::core::RuntimeType for FillRule {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct FontFamily(::windows::core::IUnknown);
 impl FontFamily {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2711,14 +2711,14 @@ impl FontFamily {
             (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CreateInstanceWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(familyname: Param0) -> ::windows::core::Result<FontFamily> {
         Self::IFontFamilyFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CreateInstanceWithName_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Compose>(familyname: Param0, compose: T) -> ::windows::core::Result<FontFamily> {
         Self::IFontFamilyFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -2726,7 +2726,7 @@ impl FontFamily {
             (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn XamlAutoFontFamily() -> ::windows::core::Result<FontFamily> {
         Self::IFontFamilyStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2816,11 +2816,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 }
 unsafe impl ::core::marker::Send for FontFamily {}
 unsafe impl ::core::marker::Sync for FontFamily {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct GeneralTransform(::windows::core::IUnknown);
 impl GeneralTransform {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Inverse(&self) -> ::windows::core::Result<GeneralTransform> {
         let this = self;
         unsafe {
@@ -2828,7 +2828,7 @@ impl GeneralTransform {
             (::windows::core::Interface::vtable(this).Inverse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TransformPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, point: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -2837,7 +2837,7 @@ impl GeneralTransform {
             (::windows::core::Interface::vtable(this).TransformPoint)(::core::mem::transmute_copy(this), point.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2846,7 +2846,7 @@ impl GeneralTransform {
             (::windows::core::Interface::vtable(this).TryTransform)(::core::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TransformBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2948,11 +2948,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GeneralTra
 }
 unsafe impl ::core::marker::Send for GeneralTransform {}
 unsafe impl ::core::marker::Sync for GeneralTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct Geometry(::windows::core::IUnknown);
 impl Geometry {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Transform(&self) -> ::windows::core::Result<Transform> {
         let this = self;
         unsafe {
@@ -2960,12 +2960,12 @@ impl Geometry {
             (::windows::core::Interface::vtable(this).Transform)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Transform>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTransform<'a, Param0: ::windows::core::IntoParam<'a, Transform>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTransform)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Bounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2974,21 +2974,21 @@ impl Geometry {
             (::windows::core::Interface::vtable(this).Bounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Empty() -> ::windows::core::Result<Geometry> {
         Self::IGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Empty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Geometry>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn StandardFlatteningTolerance() -> ::windows::core::Result<f64> {
         Self::IGeometryStatics(|this| unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).StandardFlatteningTolerance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TransformProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3093,20 +3093,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Geometry {
 }
 unsafe impl ::core::marker::Send for Geometry {}
 unsafe impl ::core::marker::Sync for Geometry {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct GeometryCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl GeometryCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeometryCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<Geometry>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<Geometry>>(self)?;
@@ -3115,7 +3115,7 @@ impl GeometryCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<Geometry>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<Geometry> {
         let this = self;
@@ -3124,7 +3124,7 @@ impl GeometryCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<Geometry>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -3133,7 +3133,7 @@ impl GeometryCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Geometry>> {
         let this = self;
@@ -3142,7 +3142,7 @@ impl GeometryCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Geometry>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, Geometry>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -3151,43 +3151,43 @@ impl GeometryCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, Geometry>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, Geometry>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, Geometry>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Geometry>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -3196,7 +3196,7 @@ impl GeometryCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<Geometry>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -3360,18 +3360,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for GeometryCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for GeometryCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct GeometryGroup(::windows::core::IUnknown);
 impl GeometryGroup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeometryGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FillRule(&self) -> ::windows::core::Result<FillRule> {
         let this = self;
         unsafe {
@@ -3379,12 +3379,12 @@ impl GeometryGroup {
             (::windows::core::Interface::vtable(this).FillRule)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillRule>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetFillRule(&self, value: FillRule) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFillRule)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows::core::Result<GeometryCollection> {
         let this = self;
@@ -3393,20 +3393,20 @@ impl GeometryGroup {
             (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeometryCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetChildren<'a, Param0: ::windows::core::IntoParam<'a, GeometryCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChildren)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FillRuleProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGeometryGroupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FillRuleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ChildrenProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGeometryGroupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3531,11 +3531,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GeometryGr
 }
 unsafe impl ::core::marker::Send for GeometryGroup {}
 unsafe impl ::core::marker::Sync for GeometryGroup {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct GradientBrush(::windows::core::IUnknown);
 impl GradientBrush {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SpreadMethod(&self) -> ::windows::core::Result<GradientSpreadMethod> {
         let this = self;
         unsafe {
@@ -3543,12 +3543,12 @@ impl GradientBrush {
             (::windows::core::Interface::vtable(this).SpreadMethod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GradientSpreadMethod>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetSpreadMethod(&self, value: GradientSpreadMethod) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSpreadMethod)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn MappingMode(&self) -> ::windows::core::Result<BrushMappingMode> {
         let this = self;
         unsafe {
@@ -3556,12 +3556,12 @@ impl GradientBrush {
             (::windows::core::Interface::vtable(this).MappingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BrushMappingMode>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetMappingMode(&self, value: BrushMappingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ColorInterpolationMode(&self) -> ::windows::core::Result<ColorInterpolationMode> {
         let this = self;
         unsafe {
@@ -3569,12 +3569,12 @@ impl GradientBrush {
             (::windows::core::Interface::vtable(this).ColorInterpolationMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ColorInterpolationMode>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetColorInterpolationMode(&self, value: ColorInterpolationMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorInterpolationMode)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GradientStops(&self) -> ::windows::core::Result<GradientStopCollection> {
         let this = self;
@@ -3583,34 +3583,34 @@ impl GradientBrush {
             (::windows::core::Interface::vtable(this).GradientStops)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GradientStopCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetGradientStops<'a, Param0: ::windows::core::IntoParam<'a, GradientStopCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGradientStops)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SpreadMethodProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGradientBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).SpreadMethodProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn MappingModeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGradientBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).MappingModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ColorInterpolationModeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGradientBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ColorInterpolationModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GradientStopsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGradientBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3761,7 +3761,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GradientBr
 }
 unsafe impl ::core::marker::Send for GradientBrush {}
 unsafe impl ::core::marker::Sync for GradientBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GradientSpreadMethod(pub i32);
@@ -3796,18 +3796,18 @@ unsafe impl ::windows::core::RuntimeType for GradientSpreadMethod {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct GradientStop(::windows::core::IUnknown);
 impl GradientStop {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GradientStop, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Color(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -3815,12 +3815,12 @@ impl GradientStop {
             (::windows::core::Interface::vtable(this).Color)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Offset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3828,19 +3828,19 @@ impl GradientStop {
             (::windows::core::Interface::vtable(this).Offset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOffset)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ColorProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGradientStopStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn OffsetProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IGradientStopStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3945,20 +3945,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GradientSt
 }
 unsafe impl ::core::marker::Send for GradientStop {}
 unsafe impl ::core::marker::Sync for GradientStop {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct GradientStopCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl GradientStopCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GradientStopCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<GradientStop>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<GradientStop>>(self)?;
@@ -3967,7 +3967,7 @@ impl GradientStopCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<GradientStop>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<GradientStop> {
         let this = self;
@@ -3976,7 +3976,7 @@ impl GradientStopCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<GradientStop>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -3985,7 +3985,7 @@ impl GradientStopCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GradientStop>> {
         let this = self;
@@ -3994,7 +3994,7 @@ impl GradientStopCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GradientStop>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, GradientStop>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -4003,43 +4003,43 @@ impl GradientStopCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, GradientStop>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, GradientStop>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, GradientStop>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<GradientStop>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -4048,7 +4048,7 @@ impl GradientStopCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<GradientStop>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -6454,18 +6454,18 @@ pub struct IXamlLightStatics_Vtbl {
     pub AddTargetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brush: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveTargetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brush: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct ImageBrush(::windows::core::IUnknown);
 impl ImageBrush {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ImageBrush, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ImageSource(&self) -> ::windows::core::Result<ImageSource> {
         let this = self;
         unsafe {
@@ -6473,12 +6473,12 @@ impl ImageBrush {
             (::windows::core::Interface::vtable(this).ImageSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ImageSource>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetImageSource<'a, Param0: ::windows::core::IntoParam<'a, ImageSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetImageSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ImageFailed<'a, Param0: ::windows::core::IntoParam<'a, super::ExceptionRoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -6487,13 +6487,13 @@ impl ImageBrush {
             (::windows::core::Interface::vtable(this).ImageFailed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImageFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveImageFailed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ImageOpened<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -6502,13 +6502,13 @@ impl ImageBrush {
             (::windows::core::Interface::vtable(this).ImageOpened)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImageOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveImageOpened)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ImageSourceProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IImageBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6679,7 +6679,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ImageBrush
 }
 unsafe impl ::core::marker::Send for ImageBrush {}
 unsafe impl ::core::marker::Sync for ImageBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct ImageSource(::windows::core::IUnknown);
 impl ImageSource {}
@@ -6775,18 +6775,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ImageSourc
 }
 unsafe impl ::core::marker::Send for ImageSource {}
 unsafe impl ::core::marker::Sync for ImageSource {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct LineGeometry(::windows::core::IUnknown);
 impl LineGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -6795,13 +6795,13 @@ impl LineGeometry {
             (::windows::core::Interface::vtable(this).StartPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStartPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -6810,20 +6810,20 @@ impl LineGeometry {
             (::windows::core::Interface::vtable(this).EndPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetEndPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEndPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn StartPointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ILineGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).StartPointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn EndPointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ILineGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6948,18 +6948,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineGeomet
 }
 unsafe impl ::core::marker::Send for LineGeometry {}
 unsafe impl ::core::marker::Sync for LineGeometry {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct LineSegment(::windows::core::IUnknown);
 impl LineSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -6968,13 +6968,13 @@ impl LineSegment {
             (::windows::core::Interface::vtable(this).Point)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn PointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ILineSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7099,18 +7099,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineSegmen
 }
 unsafe impl ::core::marker::Send for LineSegment {}
 unsafe impl ::core::marker::Sync for LineSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct LinearGradientBrush(::windows::core::IUnknown);
 impl LinearGradientBrush {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LinearGradientBrush, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -7119,13 +7119,13 @@ impl LinearGradientBrush {
             (::windows::core::Interface::vtable(this).StartPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStartPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -7134,13 +7134,13 @@ impl LinearGradientBrush {
             (::windows::core::Interface::vtable(this).EndPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetEndPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEndPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstanceWithGradientStopCollectionAndAngle<'a, Param0: ::windows::core::IntoParam<'a, GradientStopCollection>>(gradientstopcollection: Param0, angle: f64) -> ::windows::core::Result<LinearGradientBrush> {
         Self::ILinearGradientBrushFactory(|this| unsafe {
@@ -7148,14 +7148,14 @@ impl LinearGradientBrush {
             (::windows::core::Interface::vtable(this).CreateInstanceWithGradientStopCollectionAndAngle)(::core::mem::transmute_copy(this), gradientstopcollection.into_param().abi(), angle, &mut result__).from_abi::<LinearGradientBrush>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn StartPointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ILinearGradientBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).StartPointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn EndPointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ILinearGradientBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7331,11 +7331,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LinearGrad
 }
 unsafe impl ::core::marker::Send for LinearGradientBrush {}
 unsafe impl ::core::marker::Sync for LinearGradientBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadCompletedEventArgs(::windows::core::IUnknown);
 impl LoadedImageSourceLoadCompletedEventArgs {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<LoadedImageSourceLoadStatus> {
         let this = self;
         unsafe {
@@ -7416,7 +7416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LoadedImageSourceLoadCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for LoadedImageSourceLoadCompletedEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LoadedImageSourceLoadStatus(pub i32);
@@ -7452,17 +7452,17 @@ unsafe impl ::windows::core::RuntimeType for LoadedImageSourceLoadStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct LoadedImageSurface(::windows::core::IUnknown);
 impl LoadedImageSurface {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DecodedPhysicalSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -7471,7 +7471,7 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).DecodedPhysicalSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DecodedSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -7480,7 +7480,7 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).DecodedSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NaturalSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -7489,7 +7489,7 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).NaturalSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<LoadedImageSurface, LoadedImageSourceLoadCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -7498,13 +7498,13 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).LoadCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLoadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveLoadCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartLoadFromUriWithSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(uri: Param0, desiredmaxsize: Param1) -> ::windows::core::Result<LoadedImageSurface> {
         Self::ILoadedImageSurfaceStatics(|this| unsafe {
@@ -7512,7 +7512,7 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).StartLoadFromUriWithSize)(::core::mem::transmute_copy(this), uri.into_param().abi(), desiredmaxsize.into_param().abi(), &mut result__).from_abi::<LoadedImageSurface>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartLoadFromUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<LoadedImageSurface> {
         Self::ILoadedImageSurfaceStatics(|this| unsafe {
@@ -7520,7 +7520,7 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).StartLoadFromUri)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<LoadedImageSurface>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn StartLoadFromStreamWithSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(stream: Param0, desiredmaxsize: Param1) -> ::windows::core::Result<LoadedImageSurface> {
         Self::ILoadedImageSurfaceStatics(|this| unsafe {
@@ -7528,7 +7528,7 @@ impl LoadedImageSurface {
             (::windows::core::Interface::vtable(this).StartLoadFromStreamWithSize)(::core::mem::transmute_copy(this), stream.into_param().abi(), desiredmaxsize.into_param().abi(), &mut result__).from_abi::<LoadedImageSurface>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StartLoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStream>>(stream: Param0) -> ::windows::core::Result<LoadedImageSurface> {
         Self::ILoadedImageSurfaceStatics(|this| unsafe {
@@ -7667,7 +7667,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::ICompositionS
 unsafe impl ::core::marker::Send for LoadedImageSurface {}
 unsafe impl ::core::marker::Sync for LoadedImageSurface {}
 #[repr(C)]
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 pub struct Matrix {
     pub M11: f64,
     pub M12: f64,
@@ -7708,18 +7708,18 @@ impl ::core::default::Default for Matrix {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct Matrix3DProjection(::windows::core::IUnknown);
 impl Matrix3DProjection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Matrix3DProjection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Xaml_Media_Media3D'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Xaml_Media_Media3D\"`*"]
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
     pub fn ProjectionMatrix(&self) -> ::windows::core::Result<Media3D::Matrix3D> {
         let this = self;
@@ -7728,13 +7728,13 @@ impl Matrix3DProjection {
             (::windows::core::Interface::vtable(this).ProjectionMatrix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Media3D::Matrix3D>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Xaml_Media_Media3D'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Xaml_Media_Media3D\"`*"]
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
     pub fn SetProjectionMatrix<'a, Param0: ::windows::core::IntoParam<'a, Media3D::Matrix3D>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProjectionMatrix)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ProjectionMatrixProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IMatrix3DProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7859,32 +7859,32 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Matrix3DPr
 }
 unsafe impl ::core::marker::Send for Matrix3DProjection {}
 unsafe impl ::core::marker::Sync for Matrix3DProjection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct MatrixHelper(::windows::core::IUnknown);
 impl MatrixHelper {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Identity() -> ::windows::core::Result<Matrix> {
         Self::IMatrixHelperStatics(|this| unsafe {
             let mut result__: Matrix = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Identity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Matrix>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FromElements(m11: f64, m12: f64, m21: f64, m22: f64, offsetx: f64, offsety: f64) -> ::windows::core::Result<Matrix> {
         Self::IMatrixHelperStatics(|this| unsafe {
             let mut result__: Matrix = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FromElements)(::core::mem::transmute_copy(this), m11, m12, m21, m22, offsetx, offsety, &mut result__).from_abi::<Matrix>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GetIsIdentity<'a, Param0: ::windows::core::IntoParam<'a, Matrix>>(target: Param0) -> ::windows::core::Result<bool> {
         Self::IMatrixHelperStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetIsIdentity)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Transform<'a, Param0: ::windows::core::IntoParam<'a, Matrix>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(target: Param0, point: Param1) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         Self::IMatrixHelperStatics(|this| unsafe {
@@ -7970,18 +7970,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MatrixHelper {}
 unsafe impl ::core::marker::Sync for MatrixHelper {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct MatrixTransform(::windows::core::IUnknown);
 impl MatrixTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MatrixTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Matrix(&self) -> ::windows::core::Result<Matrix> {
         let this = self;
         unsafe {
@@ -7989,12 +7989,12 @@ impl MatrixTransform {
             (::windows::core::Interface::vtable(this).Matrix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Matrix>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetMatrix<'a, Param0: ::windows::core::IntoParam<'a, Matrix>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn MatrixProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IMatrixTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8139,7 +8139,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &MatrixTran
 }
 unsafe impl ::core::marker::Send for MatrixTransform {}
 unsafe impl ::core::marker::Sync for MatrixTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCanPlayResponse(pub i32);
@@ -8174,7 +8174,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCanPlayResponse {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaElementState(pub i32);
@@ -8212,17 +8212,17 @@ unsafe impl ::windows::core::RuntimeType for MediaElementState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct MediaTransportControlsThumbnailRequestedEventArgs(::windows::core::IUnknown);
 impl MediaTransportControlsThumbnailRequestedEventArgs {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Storage_Streams'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnailImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbnailImage)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -8304,18 +8304,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaTransportControlsThumbnailRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTransportControlsThumbnailRequestedEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PartialMediaFailureDetectedEventArgs(::windows::core::IUnknown);
 impl PartialMediaFailureDetectedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PartialMediaFailureDetectedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Media_Playback'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Media_Playback\"`*"]
     #[cfg(feature = "Media_Playback")]
     pub fn StreamKind(&self) -> ::windows::core::Result<super::super::super::Media::Playback::FailedMediaStreamKind> {
         let this = self;
@@ -8324,7 +8324,7 @@ impl PartialMediaFailureDetectedEventArgs {
             (::windows::core::Interface::vtable(this).StreamKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Media::Playback::FailedMediaStreamKind>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IPartialMediaFailureDetectedEventArgs2>(self)?;
         unsafe {
@@ -8405,18 +8405,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PartialMediaFailureDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for PartialMediaFailureDetectedEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PathFigure(::windows::core::IUnknown);
 impl PathFigure {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathFigure, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Segments(&self) -> ::windows::core::Result<PathSegmentCollection> {
         let this = self;
@@ -8425,13 +8425,13 @@ impl PathFigure {
             (::windows::core::Interface::vtable(this).Segments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PathSegmentCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetSegments<'a, Param0: ::windows::core::IntoParam<'a, PathSegmentCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSegments)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -8440,13 +8440,13 @@ impl PathFigure {
             (::windows::core::Interface::vtable(this).StartPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStartPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn IsClosed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -8454,12 +8454,12 @@ impl PathFigure {
             (::windows::core::Interface::vtable(this).IsClosed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetIsClosed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsClosed)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn IsFilled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -8467,33 +8467,33 @@ impl PathFigure {
             (::windows::core::Interface::vtable(this).IsFilled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetIsFilled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsFilled)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SegmentsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPathFigureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).SegmentsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn StartPointProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPathFigureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).StartPointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn IsClosedProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPathFigureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).IsClosedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn IsFilledProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPathFigureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8598,20 +8598,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathFigure
 }
 unsafe impl ::core::marker::Send for PathFigure {}
 unsafe impl ::core::marker::Sync for PathFigure {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PathFigureCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PathFigureCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathFigureCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<PathFigure>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<PathFigure>>(self)?;
@@ -8620,7 +8620,7 @@ impl PathFigureCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<PathFigure>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<PathFigure> {
         let this = self;
@@ -8629,7 +8629,7 @@ impl PathFigureCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<PathFigure>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -8638,7 +8638,7 @@ impl PathFigureCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PathFigure>> {
         let this = self;
@@ -8647,7 +8647,7 @@ impl PathFigureCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<PathFigure>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, PathFigure>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -8656,43 +8656,43 @@ impl PathFigureCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, PathFigure>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, PathFigure>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, PathFigure>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<PathFigure>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -8701,7 +8701,7 @@ impl PathFigureCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<PathFigure>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -8865,18 +8865,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PathFigureCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PathFigureCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PathGeometry(::windows::core::IUnknown);
 impl PathGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FillRule(&self) -> ::windows::core::Result<FillRule> {
         let this = self;
         unsafe {
@@ -8884,12 +8884,12 @@ impl PathGeometry {
             (::windows::core::Interface::vtable(this).FillRule)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillRule>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetFillRule(&self, value: FillRule) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFillRule)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Figures(&self) -> ::windows::core::Result<PathFigureCollection> {
         let this = self;
@@ -8898,20 +8898,20 @@ impl PathGeometry {
             (::windows::core::Interface::vtable(this).Figures)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PathFigureCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetFigures<'a, Param0: ::windows::core::IntoParam<'a, PathFigureCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFigures)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FillRuleProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPathGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FillRuleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FiguresProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPathGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -9036,7 +9036,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathGeomet
 }
 unsafe impl ::core::marker::Send for PathGeometry {}
 unsafe impl ::core::marker::Sync for PathGeometry {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PathSegment(::windows::core::IUnknown);
 impl PathSegment {}
@@ -9132,20 +9132,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathSegmen
 }
 unsafe impl ::core::marker::Send for PathSegment {}
 unsafe impl ::core::marker::Sync for PathSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PathSegmentCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PathSegmentCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PathSegmentCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<PathSegment>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<PathSegment>>(self)?;
@@ -9154,7 +9154,7 @@ impl PathSegmentCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<PathSegment>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<PathSegment> {
         let this = self;
@@ -9163,7 +9163,7 @@ impl PathSegmentCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<PathSegment>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -9172,7 +9172,7 @@ impl PathSegmentCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PathSegment>> {
         let this = self;
@@ -9181,7 +9181,7 @@ impl PathSegmentCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<PathSegment>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, PathSegment>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -9190,43 +9190,43 @@ impl PathSegmentCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, PathSegment>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, PathSegment>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, PathSegment>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<PathSegment>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -9235,7 +9235,7 @@ impl PathSegmentCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<PathSegment>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -9399,7 +9399,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PathSegmentCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PathSegmentCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PenLineCap(pub i32);
@@ -9435,7 +9435,7 @@ unsafe impl ::windows::core::RuntimeType for PenLineCap {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PenLineJoin(pub i32);
@@ -9470,18 +9470,18 @@ unsafe impl ::windows::core::RuntimeType for PenLineJoin {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PlaneProjection(::windows::core::IUnknown);
 impl PlaneProjection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlaneProjection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn LocalOffsetX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9489,12 +9489,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).LocalOffsetX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetLocalOffsetX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalOffsetX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn LocalOffsetY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9502,12 +9502,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).LocalOffsetY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetLocalOffsetY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalOffsetY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn LocalOffsetZ(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9515,12 +9515,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).LocalOffsetZ)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetLocalOffsetZ(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalOffsetZ)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9528,12 +9528,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).RotationX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRotationX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9541,12 +9541,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).RotationY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRotationY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationZ(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9554,12 +9554,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).RotationZ)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetRotationZ(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationZ)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterOfRotationX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9567,12 +9567,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).CenterOfRotationX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterOfRotationX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterOfRotationX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterOfRotationY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9580,12 +9580,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).CenterOfRotationY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterOfRotationY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterOfRotationY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterOfRotationZ(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9593,12 +9593,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).CenterOfRotationZ)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterOfRotationZ(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterOfRotationZ)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GlobalOffsetX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9606,12 +9606,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).GlobalOffsetX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetGlobalOffsetX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGlobalOffsetX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GlobalOffsetY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9619,12 +9619,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).GlobalOffsetY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetGlobalOffsetY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGlobalOffsetY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GlobalOffsetZ(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -9632,12 +9632,12 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).GlobalOffsetZ)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetGlobalOffsetZ(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGlobalOffsetZ)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Xaml_Media_Media3D'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Xaml_Media_Media3D\"`*"]
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
     pub fn ProjectionMatrix(&self) -> ::windows::core::Result<Media3D::Matrix3D> {
         let this = self;
@@ -9646,91 +9646,91 @@ impl PlaneProjection {
             (::windows::core::Interface::vtable(this).ProjectionMatrix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Media3D::Matrix3D>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn LocalOffsetXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).LocalOffsetXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn LocalOffsetYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).LocalOffsetYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn LocalOffsetZProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).LocalOffsetZProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RotationXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RotationYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RotationZProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RotationZProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterOfRotationXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterOfRotationXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterOfRotationYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterOfRotationYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterOfRotationZProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterOfRotationZProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GlobalOffsetXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GlobalOffsetXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GlobalOffsetYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GlobalOffsetYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GlobalOffsetZProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GlobalOffsetZProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ProjectionMatrixProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPlaneProjectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -9855,20 +9855,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PlaneProje
 }
 unsafe impl ::core::marker::Send for PlaneProjection {}
 unsafe impl ::core::marker::Sync for PlaneProjection {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PointCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PointCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Point>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>(self)?;
@@ -9877,7 +9877,7 @@ impl PointCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Point>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -9886,7 +9886,7 @@ impl PointCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -9895,7 +9895,7 @@ impl PointCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Point>> {
         let this = self;
@@ -9904,7 +9904,7 @@ impl PointCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Point>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -9913,43 +9913,43 @@ impl PointCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [super::super::super::Foundation::Point]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -9958,7 +9958,7 @@ impl PointCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[super::super::super::Foundation::Point]) -> ::windows::core::Result<()> {
         let this = self;
@@ -10122,18 +10122,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PointCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PointCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PolyBezierSegment(::windows::core::IUnknown);
 impl PolyBezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PolyBezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Points(&self) -> ::windows::core::Result<PointCollection> {
         let this = self;
@@ -10142,13 +10142,13 @@ impl PolyBezierSegment {
             (::windows::core::Interface::vtable(this).Points)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPoints<'a, Param0: ::windows::core::IntoParam<'a, PointCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoints)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn PointsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPolyBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10273,18 +10273,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyBezier
 }
 unsafe impl ::core::marker::Send for PolyBezierSegment {}
 unsafe impl ::core::marker::Sync for PolyBezierSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PolyLineSegment(::windows::core::IUnknown);
 impl PolyLineSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PolyLineSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Points(&self) -> ::windows::core::Result<PointCollection> {
         let this = self;
@@ -10293,13 +10293,13 @@ impl PolyLineSegment {
             (::windows::core::Interface::vtable(this).Points)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPoints<'a, Param0: ::windows::core::IntoParam<'a, PointCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoints)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn PointsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPolyLineSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10424,18 +10424,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyLineSe
 }
 unsafe impl ::core::marker::Send for PolyLineSegment {}
 unsafe impl ::core::marker::Sync for PolyLineSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct PolyQuadraticBezierSegment(::windows::core::IUnknown);
 impl PolyQuadraticBezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PolyQuadraticBezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Points(&self) -> ::windows::core::Result<PointCollection> {
         let this = self;
@@ -10444,13 +10444,13 @@ impl PolyQuadraticBezierSegment {
             (::windows::core::Interface::vtable(this).Points)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPoints<'a, Param0: ::windows::core::IntoParam<'a, PointCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoints)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn PointsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPolyQuadraticBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10575,7 +10575,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyQuadra
 }
 unsafe impl ::core::marker::Send for PolyQuadraticBezierSegment {}
 unsafe impl ::core::marker::Sync for PolyQuadraticBezierSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct Projection(::windows::core::IUnknown);
 impl Projection {}
@@ -10671,18 +10671,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Projection
 }
 unsafe impl ::core::marker::Send for Projection {}
 unsafe impl ::core::marker::Sync for Projection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct QuadraticBezierSegment(::windows::core::IUnknown);
 impl QuadraticBezierSegment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QuadraticBezierSegment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -10691,13 +10691,13 @@ impl QuadraticBezierSegment {
             (::windows::core::Interface::vtable(this).Point1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint1)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Point2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -10706,20 +10706,20 @@ impl QuadraticBezierSegment {
             (::windows::core::Interface::vtable(this).Point2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint2)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Point1Property() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IQuadraticBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).Point1Property)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Point2Property() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IQuadraticBezierSegmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10844,12 +10844,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &QuadraticB
 }
 unsafe impl ::core::marker::Send for QuadraticBezierSegment {}
 unsafe impl ::core::marker::Sync for QuadraticBezierSegment {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RateChangedRoutedEventArgs(::windows::core::IUnknown);
 impl RateChangedRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RateChangedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10948,7 +10948,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &RateChanged
 }
 unsafe impl ::core::marker::Send for RateChangedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for RateChangedRoutedEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RateChangedRoutedEventHandler(pub ::windows::core::IUnknown);
 impl RateChangedRoutedEventHandler {
@@ -10956,7 +10956,7 @@ impl RateChangedRoutedEventHandler {
         let com = RateChangedRoutedEventHandlerBox::<F> { vtable: &RateChangedRoutedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, RateChangedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -11030,18 +11030,18 @@ pub struct RateChangedRoutedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RectangleGeometry(::windows::core::IUnknown);
 impl RectangleGeometry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RectangleGeometry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Rect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -11050,13 +11050,13 @@ impl RectangleGeometry {
             (::windows::core::Interface::vtable(this).Rect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRect)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RectProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRectangleGeometryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -11181,11 +11181,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RectangleG
 }
 unsafe impl ::core::marker::Send for RectangleGeometry {}
 unsafe impl ::core::marker::Sync for RectangleGeometry {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RenderedEventArgs(::windows::core::IUnknown);
 impl RenderedEventArgs {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FrameDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -11267,11 +11267,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a R
 }
 unsafe impl ::core::marker::Send for RenderedEventArgs {}
 unsafe impl ::core::marker::Sync for RenderedEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RenderingEventArgs(::windows::core::IUnknown);
 impl RenderingEventArgs {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RenderingTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -11353,18 +11353,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a R
 }
 unsafe impl ::core::marker::Send for RenderingEventArgs {}
 unsafe impl ::core::marker::Sync for RenderingEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RevealBackgroundBrush(::windows::core::IUnknown);
 impl RevealBackgroundBrush {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn new() -> ::windows::core::Result<RevealBackgroundBrush> {
         Self::IRevealBackgroundBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RevealBackgroundBrush>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RevealBackgroundBrush> {
         Self::IRevealBackgroundBrushFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -11556,18 +11556,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBack
 }
 unsafe impl ::core::marker::Send for RevealBackgroundBrush {}
 unsafe impl ::core::marker::Sync for RevealBackgroundBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RevealBorderBrush(::windows::core::IUnknown);
 impl RevealBorderBrush {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn new() -> ::windows::core::Result<RevealBorderBrush> {
         Self::IRevealBorderBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RevealBorderBrush>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RevealBorderBrush> {
         Self::IRevealBorderBrushFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -11759,11 +11759,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBord
 }
 unsafe impl ::core::marker::Send for RevealBorderBrush {}
 unsafe impl ::core::marker::Sync for RevealBorderBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RevealBrush(::windows::core::IUnknown);
 impl RevealBrush {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Color(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -11771,12 +11771,12 @@ impl RevealBrush {
             (::windows::core::Interface::vtable(this).Color)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TargetTheme(&self) -> ::windows::core::Result<super::ApplicationTheme> {
         let this = self;
         unsafe {
@@ -11784,12 +11784,12 @@ impl RevealBrush {
             (::windows::core::Interface::vtable(this).TargetTheme)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ApplicationTheme>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetTargetTheme(&self, value: super::ApplicationTheme) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTargetTheme)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlwaysUseFallback(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11797,44 +11797,44 @@ impl RevealBrush {
             (::windows::core::Interface::vtable(this).AlwaysUseFallback)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAlwaysUseFallback(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlwaysUseFallback)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ColorProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRevealBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TargetThemeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRevealBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TargetThemeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlwaysUseFallbackProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRevealBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).AlwaysUseFallbackProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn StateProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRevealBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).StateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetState<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0, value: RevealBrushState) -> ::windows::core::Result<()> {
         Self::IRevealBrushStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetState)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GetState<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<RevealBrushState> {
         Self::IRevealBrushStatics(|this| unsafe {
             let mut result__: RevealBrushState = ::core::mem::zeroed();
@@ -12005,7 +12005,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBrus
 }
 unsafe impl ::core::marker::Send for RevealBrush {}
 unsafe impl ::core::marker::Sync for RevealBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RevealBrushState(pub i32);
@@ -12040,18 +12040,18 @@ unsafe impl ::windows::core::RuntimeType for RevealBrushState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct RotateTransform(::windows::core::IUnknown);
 impl RotateTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RotateTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12059,12 +12059,12 @@ impl RotateTransform {
             (::windows::core::Interface::vtable(this).CenterX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12072,12 +12072,12 @@ impl RotateTransform {
             (::windows::core::Interface::vtable(this).CenterY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Angle(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12085,26 +12085,26 @@ impl RotateTransform {
             (::windows::core::Interface::vtable(this).Angle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAngle(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAngle)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRotateTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRotateTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AngleProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IRotateTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12249,18 +12249,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RotateTran
 }
 unsafe impl ::core::marker::Send for RotateTransform {}
 unsafe impl ::core::marker::Sync for RotateTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct ScaleTransform(::windows::core::IUnknown);
 impl ScaleTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScaleTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12268,12 +12268,12 @@ impl ScaleTransform {
             (::windows::core::Interface::vtable(this).CenterX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12281,12 +12281,12 @@ impl ScaleTransform {
             (::windows::core::Interface::vtable(this).CenterY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12294,12 +12294,12 @@ impl ScaleTransform {
             (::windows::core::Interface::vtable(this).ScaleX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetScaleX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaleX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12307,33 +12307,33 @@ impl ScaleTransform {
             (::windows::core::Interface::vtable(this).ScaleY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetScaleY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaleY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IScaleTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IScaleTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IScaleTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).ScaleXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ScaleYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IScaleTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12478,7 +12478,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ScaleTrans
 }
 unsafe impl ::core::marker::Send for ScaleTransform {}
 unsafe impl ::core::marker::Sync for ScaleTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct Shadow(::windows::core::IUnknown);
 impl Shadow {}
@@ -12574,18 +12574,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Shadow {
 }
 unsafe impl ::core::marker::Send for Shadow {}
 unsafe impl ::core::marker::Sync for Shadow {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct SkewTransform(::windows::core::IUnknown);
 impl SkewTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SkewTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12593,12 +12593,12 @@ impl SkewTransform {
             (::windows::core::Interface::vtable(this).CenterX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12606,12 +12606,12 @@ impl SkewTransform {
             (::windows::core::Interface::vtable(this).CenterY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetCenterY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AngleX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12619,12 +12619,12 @@ impl SkewTransform {
             (::windows::core::Interface::vtable(this).AngleX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAngleX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAngleX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AngleY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -12632,33 +12632,33 @@ impl SkewTransform {
             (::windows::core::Interface::vtable(this).AngleY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAngleY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAngleY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ISkewTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CenterYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ISkewTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CenterYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AngleXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ISkewTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).AngleXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AngleYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ISkewTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12803,18 +12803,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &SkewTransf
 }
 unsafe impl ::core::marker::Send for SkewTransform {}
 unsafe impl ::core::marker::Sync for SkewTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct SolidColorBrush(::windows::core::IUnknown);
 impl SolidColorBrush {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SolidColorBrush, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Color(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -12822,19 +12822,19 @@ impl SolidColorBrush {
             (::windows::core::Interface::vtable(this).Color)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn CreateInstanceWithColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Color>>(color: Param0) -> ::windows::core::Result<SolidColorBrush> {
         Self::ISolidColorBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithColor)(::core::mem::transmute_copy(this), color.into_param().abi(), &mut result__).from_abi::<SolidColorBrush>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ColorProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ISolidColorBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12990,7 +12990,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &SolidColor
 }
 unsafe impl ::core::marker::Send for SolidColorBrush {}
 unsafe impl ::core::marker::Sync for SolidColorBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Stereo3DVideoPackingMode(pub i32);
@@ -13025,7 +13025,7 @@ unsafe impl ::windows::core::RuntimeType for Stereo3DVideoPackingMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Stereo3DVideoRenderMode(pub i32);
@@ -13059,7 +13059,7 @@ unsafe impl ::windows::core::RuntimeType for Stereo3DVideoRenderMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Stretch(pub i32);
@@ -13095,7 +13095,7 @@ unsafe impl ::windows::core::RuntimeType for Stretch {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StyleSimulations(pub i32);
@@ -13131,7 +13131,7 @@ unsafe impl ::windows::core::RuntimeType for StyleSimulations {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SweepDirection(pub i32);
@@ -13165,11 +13165,11 @@ unsafe impl ::windows::core::RuntimeType for SweepDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct ThemeShadow(::windows::core::IUnknown);
 impl ThemeShadow {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Receivers(&self) -> ::windows::core::Result<super::UIElementWeakCollection> {
         let this = self;
         unsafe {
@@ -13177,14 +13177,14 @@ impl ThemeShadow {
             (::windows::core::Interface::vtable(this).Receivers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElementWeakCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn new() -> ::windows::core::Result<ThemeShadow> {
         Self::IThemeShadowFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ThemeShadow>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ThemeShadow> {
         Self::IThemeShadowFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -13310,11 +13310,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ThemeShado
 }
 unsafe impl ::core::marker::Send for ThemeShadow {}
 unsafe impl ::core::marker::Sync for ThemeShadow {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct TileBrush(::windows::core::IUnknown);
 impl TileBrush {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlignmentX(&self) -> ::windows::core::Result<AlignmentX> {
         let this = self;
         unsafe {
@@ -13322,12 +13322,12 @@ impl TileBrush {
             (::windows::core::Interface::vtable(this).AlignmentX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AlignmentX>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAlignmentX(&self, value: AlignmentX) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlignmentX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlignmentY(&self) -> ::windows::core::Result<AlignmentY> {
         let this = self;
         unsafe {
@@ -13335,12 +13335,12 @@ impl TileBrush {
             (::windows::core::Interface::vtable(this).AlignmentY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AlignmentY>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetAlignmentY(&self, value: AlignmentY) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlignmentY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Stretch(&self) -> ::windows::core::Result<Stretch> {
         let this = self;
         unsafe {
@@ -13348,26 +13348,26 @@ impl TileBrush {
             (::windows::core::Interface::vtable(this).Stretch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Stretch>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetStretch(&self, value: Stretch) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStretch)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlignmentXProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITileBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).AlignmentXProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AlignmentYProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITileBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).AlignmentYProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn StretchProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITileBrushStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -13518,18 +13518,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TileBrush 
 }
 unsafe impl ::core::marker::Send for TileBrush {}
 unsafe impl ::core::marker::Sync for TileBrush {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct TimelineMarker(::windows::core::IUnknown);
 impl TimelineMarker {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineMarker, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Time(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -13538,13 +13538,13 @@ impl TimelineMarker {
             (::windows::core::Interface::vtable(this).Time)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTime)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -13552,12 +13552,12 @@ impl TimelineMarker {
             (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -13565,26 +13565,26 @@ impl TimelineMarker {
             (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TimeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITimelineMarkerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TimeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITimelineMarkerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).TypeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn TextProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITimelineMarkerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -13689,20 +13689,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TimelineMa
 }
 unsafe impl ::core::marker::Send for TimelineMarker {}
 unsafe impl ::core::marker::Sync for TimelineMarker {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TimelineMarkerCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TimelineMarkerCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineMarkerCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<TimelineMarker>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<TimelineMarker>>(self)?;
@@ -13711,7 +13711,7 @@ impl TimelineMarkerCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<TimelineMarker>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<TimelineMarker> {
         let this = self;
@@ -13720,7 +13720,7 @@ impl TimelineMarkerCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<TimelineMarker>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -13729,7 +13729,7 @@ impl TimelineMarkerCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<TimelineMarker>> {
         let this = self;
@@ -13738,7 +13738,7 @@ impl TimelineMarkerCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<TimelineMarker>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, TimelineMarker>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -13747,43 +13747,43 @@ impl TimelineMarkerCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, TimelineMarker>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, TimelineMarker>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, TimelineMarker>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<TimelineMarker>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -13792,7 +13792,7 @@ impl TimelineMarkerCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<TimelineMarker>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -13956,18 +13956,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for TimelineMarkerCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TimelineMarkerCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct TimelineMarkerRoutedEventArgs(::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineMarkerRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Marker(&self) -> ::windows::core::Result<TimelineMarker> {
         let this = self;
         unsafe {
@@ -13975,7 +13975,7 @@ impl TimelineMarkerRoutedEventArgs {
             (::windows::core::Interface::vtable(this).Marker)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimelineMarker>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetMarker<'a, Param0: ::windows::core::IntoParam<'a, TimelineMarker>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMarker)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -14073,7 +14073,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &TimelineMar
 }
 unsafe impl ::core::marker::Send for TimelineMarkerRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for TimelineMarkerRoutedEventArgs {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct TimelineMarkerRoutedEventHandler(pub ::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventHandler {
@@ -14081,7 +14081,7 @@ impl TimelineMarkerRoutedEventHandler {
         let com = TimelineMarkerRoutedEventHandlerBox::<F> { vtable: &TimelineMarkerRoutedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, TimelineMarkerRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -14155,7 +14155,7 @@ pub struct TimelineMarkerRoutedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct Transform(::windows::core::IUnknown);
 impl Transform {}
@@ -14271,20 +14271,20 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Transform 
 }
 unsafe impl ::core::marker::Send for Transform {}
 unsafe impl ::core::marker::Sync for Transform {}
-#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TransformCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TransformCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TransformCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<Transform>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<Transform>>(self)?;
@@ -14293,7 +14293,7 @@ impl TransformCollection {
             (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<Transform>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<Transform> {
         let this = self;
@@ -14302,7 +14302,7 @@ impl TransformCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<Transform>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -14311,7 +14311,7 @@ impl TransformCollection {
             (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Transform>> {
         let this = self;
@@ -14320,7 +14320,7 @@ impl TransformCollection {
             (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Transform>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, Transform>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -14329,43 +14329,43 @@ impl TransformCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, Transform>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, Transform>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, Transform>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Transform>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -14374,7 +14374,7 @@ impl TransformCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<Transform>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -14538,18 +14538,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for TransformCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TransformCollection {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct TransformGroup(::windows::core::IUnknown);
 impl TransformGroup {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TransformGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows::core::Result<TransformCollection> {
         let this = self;
@@ -14558,13 +14558,13 @@ impl TransformGroup {
             (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TransformCollection>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetChildren<'a, Param0: ::windows::core::IntoParam<'a, TransformCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChildren)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<Matrix> {
         let this = self;
         unsafe {
@@ -14572,7 +14572,7 @@ impl TransformGroup {
             (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Matrix>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn ChildrenProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITransformGroupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -14717,18 +14717,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TransformG
 }
 unsafe impl ::core::marker::Send for TransformGroup {}
 unsafe impl ::core::marker::Sync for TransformGroup {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct TranslateTransform(::windows::core::IUnknown);
 impl TranslateTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TranslateTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn X(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -14736,12 +14736,12 @@ impl TranslateTransform {
             (::windows::core::Interface::vtable(this).X)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetX)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn Y(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -14749,19 +14749,19 @@ impl TranslateTransform {
             (::windows::core::Interface::vtable(this).Y)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetY)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn XProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITranslateTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).XProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn YProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ITranslateTransformStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -14906,11 +14906,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TranslateT
 }
 unsafe impl ::core::marker::Send for TranslateTransform {}
 unsafe impl ::core::marker::Sync for TranslateTransform {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct VisualTreeHelper(::windows::core::IUnknown);
 impl VisualTreeHelper {
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindElementsInHostCoordinatesPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(intersectingpoint: Param0, subtree: Param1) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::UIElement>> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
@@ -14918,7 +14918,7 @@ impl VisualTreeHelper {
             (::windows::core::Interface::vtable(this).FindElementsInHostCoordinatesPoint)(::core::mem::transmute_copy(this), intersectingpoint.into_param().abi(), subtree.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::UIElement>>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindElementsInHostCoordinatesRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(intersectingrect: Param0, subtree: Param1) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::UIElement>> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
@@ -14926,7 +14926,7 @@ impl VisualTreeHelper {
             (::windows::core::Interface::vtable(this).FindElementsInHostCoordinatesRect)(::core::mem::transmute_copy(this), intersectingrect.into_param().abi(), subtree.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::UIElement>>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllElementsInHostCoordinatesPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(intersectingpoint: Param0, subtree: Param1, includeallelements: bool) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::UIElement>> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
@@ -14934,7 +14934,7 @@ impl VisualTreeHelper {
             (::windows::core::Interface::vtable(this).FindAllElementsInHostCoordinatesPoint)(::core::mem::transmute_copy(this), intersectingpoint.into_param().abi(), subtree.into_param().abi(), includeallelements, &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::UIElement>>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllElementsInHostCoordinatesRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(intersectingrect: Param0, subtree: Param1, includeallelements: bool) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::UIElement>> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
@@ -14942,32 +14942,32 @@ impl VisualTreeHelper {
             (::windows::core::Interface::vtable(this).FindAllElementsInHostCoordinatesRect)(::core::mem::transmute_copy(this), intersectingrect.into_param().abi(), subtree.into_param().abi(), includeallelements, &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::UIElement>>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GetChild<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(reference: Param0, childindex: i32) -> ::windows::core::Result<super::DependencyObject> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetChild)(::core::mem::transmute_copy(this), reference.into_param().abi(), childindex, &mut result__).from_abi::<super::DependencyObject>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GetChildrenCount<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(reference: Param0) -> ::windows::core::Result<i32> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetChildrenCount)(::core::mem::transmute_copy(this), reference.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn GetParent<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(reference: Param0) -> ::windows::core::Result<super::DependencyObject> {
         Self::IVisualTreeHelperStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetParent)(::core::mem::transmute_copy(this), reference.into_param().abi(), &mut result__).from_abi::<super::DependencyObject>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn DisconnectChildrenRecursive<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<()> {
         Self::IVisualTreeHelperStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DisconnectChildrenRecursive)(::core::mem::transmute_copy(this), element.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Controls_Primitives"))]
     pub fn GetOpenPopups<'a, Param0: ::windows::core::IntoParam<'a, super::Window>>(window: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>> {
         Self::IVisualTreeHelperStatics2(|this| unsafe {
@@ -14975,7 +14975,7 @@ impl VisualTreeHelper {
             (::windows::core::Interface::vtable(this).GetOpenPopups)(::core::mem::transmute_copy(this), window.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections', 'UI_Xaml_Controls_Primitives'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"Foundation_Collections\"`, `\"UI_Xaml_Controls_Primitives\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Controls_Primitives"))]
     pub fn GetOpenPopupsForXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(xamlroot: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>> {
         Self::IVisualTreeHelperStatics3(|this| unsafe {
@@ -15071,11 +15071,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 }
 unsafe impl ::core::marker::Send for VisualTreeHelper {}
 unsafe impl ::core::marker::Sync for VisualTreeHelper {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct XamlCompositionBrushBase(::windows::core::IUnknown);
 impl XamlCompositionBrushBase {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FallbackColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -15083,12 +15083,12 @@ impl XamlCompositionBrushBase {
             (::windows::core::Interface::vtable(this).FallbackColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn SetFallbackColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFallbackColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn CompositionBrush(&self) -> ::windows::core::Result<super::super::Composition::CompositionBrush> {
         let this = &::windows::core::Interface::cast::<IXamlCompositionBrushBaseProtected>(self)?;
@@ -15097,13 +15097,13 @@ impl XamlCompositionBrushBase {
             (::windows::core::Interface::vtable(this).CompositionBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Composition::CompositionBrush>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn SetCompositionBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Composition::CompositionBrush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXamlCompositionBrushBaseProtected>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCompositionBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn FallbackColorProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlCompositionBrushBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -15254,18 +15254,18 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlCompos
 }
 unsafe impl ::core::marker::Send for XamlCompositionBrushBase {}
 unsafe impl ::core::marker::Sync for XamlCompositionBrushBase {}
-#[doc = "*Required features: 'UI_Xaml_Media'*"]
+#[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
 #[repr(transparent)]
 pub struct XamlLight(::windows::core::IUnknown);
 impl XamlLight {
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn new() -> ::windows::core::Result<XamlLight> {
         Self::IXamlLightFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlLight> {
         Self::IXamlLightFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -15273,7 +15273,7 @@ impl XamlLight {
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
         })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn CompositionLight(&self) -> ::windows::core::Result<super::super::Composition::CompositionLight> {
         let this = &::windows::core::Interface::cast::<IXamlLightProtected>(self)?;
@@ -15282,25 +15282,25 @@ impl XamlLight {
             (::windows::core::Interface::vtable(this).CompositionLight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Composition::CompositionLight>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
     pub fn SetCompositionLight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Composition::CompositionLight>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXamlLightProtected>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCompositionLight)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AddTargetElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(lightid: Param0, element: Param1) -> ::windows::core::Result<()> {
         Self::IXamlLightStatics(|this| unsafe { (::windows::core::Interface::vtable(this).AddTargetElement)(::core::mem::transmute_copy(this), lightid.into_param().abi(), element.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RemoveTargetElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(lightid: Param0, element: Param1) -> ::windows::core::Result<()> {
         Self::IXamlLightStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTargetElement)(::core::mem::transmute_copy(this), lightid.into_param().abi(), element.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn AddTargetBrush<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, Brush>>(lightid: Param0, brush: Param1) -> ::windows::core::Result<()> {
         Self::IXamlLightStatics(|this| unsafe { (::windows::core::Interface::vtable(this).AddTargetBrush)(::core::mem::transmute_copy(this), lightid.into_param().abi(), brush.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: 'UI_Xaml_Media'*"]
+    #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
     pub fn RemoveTargetBrush<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, Brush>>(lightid: Param0, brush: Param1) -> ::windows::core::Result<()> {
         Self::IXamlLightStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTargetBrush)(::core::mem::transmute_copy(this), lightid.into_param().abi(), brush.into_param().abi()).ok() })
     }

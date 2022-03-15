@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Management_Deployment_Preview'*"]
+#[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
 pub struct ClassicAppManager {}
 impl ClassicAppManager {
-    #[doc = "*Required features: 'Management_Deployment_Preview'*"]
+    #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn FindInstalledApp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appuninstallkey: Param0) -> ::windows::core::Result<InstalledClassicAppInfo> {
         Self::IClassicAppManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -45,11 +45,11 @@ pub struct IInstalledClassicAppInfo_Vtbl {
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: 'Management_Deployment_Preview'*"]
+#[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
 #[repr(transparent)]
 pub struct InstalledClassicAppInfo(::windows::core::IUnknown);
 impl InstalledClassicAppInfo {
-    #[doc = "*Required features: 'Management_Deployment_Preview'*"]
+    #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -57,7 +57,7 @@ impl InstalledClassicAppInfo {
             (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: 'Management_Deployment_Preview'*"]
+    #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {

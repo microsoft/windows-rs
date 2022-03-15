@@ -37,11 +37,11 @@ pub struct IScreenReaderService_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveScreenReaderPositionChanged: usize,
 }
-#[doc = "*Required features: 'UI_Accessibility'*"]
+#[doc = "*Required features: `\"UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct ScreenReaderPositionChangedEventArgs(::windows::core::IUnknown);
 impl ScreenReaderPositionChangedEventArgs {
-    #[doc = "*Required features: 'UI_Accessibility', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Accessibility\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenPositionInRawPixels(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -50,7 +50,7 @@ impl ScreenReaderPositionChangedEventArgs {
             (::windows::core::Interface::vtable(this).ScreenPositionInRawPixels)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Accessibility'*"]
+    #[doc = "*Required features: `\"UI_Accessibility\"`*"]
     pub fn IsReadingText(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -131,18 +131,18 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for ScreenReaderPositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ScreenReaderPositionChangedEventArgs {}
-#[doc = "*Required features: 'UI_Accessibility'*"]
+#[doc = "*Required features: `\"UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct ScreenReaderService(::windows::core::IUnknown);
 impl ScreenReaderService {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScreenReaderService, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'UI_Accessibility'*"]
+    #[doc = "*Required features: `\"UI_Accessibility\"`*"]
     pub fn CurrentScreenReaderPosition(&self) -> ::windows::core::Result<ScreenReaderPositionChangedEventArgs> {
         let this = self;
         unsafe {
@@ -150,7 +150,7 @@ impl ScreenReaderService {
             (::windows::core::Interface::vtable(this).CurrentScreenReaderPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ScreenReaderPositionChangedEventArgs>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Accessibility', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Accessibility\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenReaderPositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ScreenReaderService, ScreenReaderPositionChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -159,7 +159,7 @@ impl ScreenReaderService {
             (::windows::core::Interface::vtable(this).ScreenReaderPositionChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Accessibility', 'Foundation'*"]
+    #[doc = "*Required features: `\"UI_Accessibility\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenReaderPositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;

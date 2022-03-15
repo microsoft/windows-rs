@@ -2,7 +2,7 @@
 pub type CoreDragDropManager = *mut ::core::ffi::c_void;
 pub type CoreDragInfo = *mut ::core::ffi::c_void;
 pub type CoreDragOperation = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
+#[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {

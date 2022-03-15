@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
@@ -21,7 +21,7 @@ impl ::core::clone::Clone for Direct3DBindings {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for Direct3DMultisampleDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,
@@ -46,7 +46,7 @@ impl ::core::clone::Clone for Direct3DSurfaceDescription {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
+#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {

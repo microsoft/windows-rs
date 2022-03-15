@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
@@ -14,7 +14,7 @@ impl ::core::clone::Clone for BitmapAlphaMode {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
@@ -28,7 +28,7 @@ impl ::core::clone::Clone for BitmapBounds {
     }
 }
 pub type BitmapBuffer = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for BitmapBufferAccessMode {
 pub type BitmapCodecInformation = *mut ::core::ffi::c_void;
 pub type BitmapDecoder = *mut ::core::ffi::c_void;
 pub type BitmapEncoder = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
@@ -60,7 +60,7 @@ impl ::core::clone::Clone for BitmapFlip {
     }
 }
 pub type BitmapFrame = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
@@ -75,7 +75,7 @@ impl ::core::clone::Clone for BitmapInterpolationMode {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for BitmapPixelFormat {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
@@ -112,7 +112,7 @@ impl ::core::clone::Clone for BitmapPlaneDescription {
 pub type BitmapProperties = *mut ::core::ffi::c_void;
 pub type BitmapPropertiesView = *mut ::core::ffi::c_void;
 pub type BitmapPropertySet = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
@@ -128,7 +128,7 @@ impl ::core::clone::Clone for BitmapRotation {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,
@@ -141,7 +141,7 @@ impl ::core::clone::Clone for BitmapSize {
 }
 pub type BitmapTransform = *mut ::core::ffi::c_void;
 pub type BitmapTypedValue = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
@@ -154,7 +154,7 @@ impl ::core::clone::Clone for ColorManagementMode {
         *self
     }
 }
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
@@ -171,7 +171,7 @@ pub type IBitmapFrame = *mut ::core::ffi::c_void;
 pub type IBitmapFrameWithSoftwareBitmap = *mut ::core::ffi::c_void;
 pub type IBitmapPropertiesView = *mut ::core::ffi::c_void;
 pub type ImageStream = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
@@ -187,7 +187,7 @@ impl ::core::clone::Clone for JpegSubsamplingMode {
     }
 }
 pub type PixelDataProvider = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
@@ -206,7 +206,7 @@ impl ::core::clone::Clone for PngFilterMode {
     }
 }
 pub type SoftwareBitmap = *mut ::core::ffi::c_void;
-#[doc = "*Required features: 'Graphics_Imaging'*"]
+#[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
