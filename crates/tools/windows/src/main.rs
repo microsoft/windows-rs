@@ -94,6 +94,9 @@ interface = ["windows-interface"]
             file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
         }
     }
+
+    std::fs::copy(".github/license-mit", "crates/libs/windows/license-mit").unwrap();
+    std::fs::copy(".github/license-apache", "crates/libs/windows/license-apache").unwrap();
 }
 
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
