@@ -13,15 +13,15 @@ extern "system" {
     pub fn NetDfsEnum(dfsname: ::windows_sys::core::PCWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsGetClientInfo(dfsentrypath: ::windows_sys::core::PCWSTR, servername: ::windows_sys::core::PCWSTR, sharename: ::windows_sys::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsGetFtContainerSecurity(domainname: ::windows_sys::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsGetInfo(dfsentrypath: ::windows_sys::core::PCWSTR, servername: ::windows_sys::core::PCWSTR, sharename: ::windows_sys::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsGetSecurity(dfsentrypath: ::windows_sys::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsGetStdContainerSecurity(machinename: ::windows_sys::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: ::windows_sys::core::PCWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
     #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsMove(olddfsentrypath: ::windows_sys::core::PCWSTR, newdfsentrypath: ::windows_sys::core::PCWSTR, flags: u32) -> u32;
@@ -37,13 +37,13 @@ extern "system" {
     pub fn NetDfsRemoveStdRoot(servername: ::windows_sys::core::PCWSTR, rootshare: ::windows_sys::core::PCWSTR, flags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsSetClientInfo(dfsentrypath: ::windows_sys::core::PCWSTR, servername: ::windows_sys::core::PCWSTR, sharename: ::windows_sys::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsSetFtContainerSecurity(domainname: ::windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsSetInfo(dfsentrypath: ::windows_sys::core::PCWSTR, servername: ::windows_sys::core::PCWSTR, sharename: ::windows_sys::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsSetSecurity(dfsentrypath: ::windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+    #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
     pub fn NetDfsSetStdContainerSecurity(machinename: ::windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -160,7 +160,7 @@ impl ::core::clone::Clone for DFS_INFO_106 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_107 {
     pub Comment: ::windows_sys::core::PWSTR,
     pub State: u32,
@@ -177,7 +177,7 @@ impl ::core::clone::Clone for DFS_INFO_107 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: *mut ::core::ffi::c_void,
@@ -388,7 +388,7 @@ impl ::core::clone::Clone for DFS_INFO_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_8 {
     pub EntryPath: ::windows_sys::core::PWSTR,
     pub Comment: ::windows_sys::core::PWSTR,
@@ -408,7 +408,7 @@ impl ::core::clone::Clone for DFS_INFO_8 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub struct DFS_INFO_9 {
     pub EntryPath: ::windows_sys::core::PWSTR,
     pub Comment: ::windows_sys::core::PWSTR,

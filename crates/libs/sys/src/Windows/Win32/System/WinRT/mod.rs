@@ -33,11 +33,11 @@ pub mod Xaml;
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64, pserverinformation: *mut ServerInformation) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub fn CreateControlInput(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_WinRT'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub fn CreateControlInputEx(pcorewindow: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_WinRT', 'System'*"]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherqueuecontroller: *mut super::super::super::System::DispatcherQueueController) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]

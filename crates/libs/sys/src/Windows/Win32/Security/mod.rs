@@ -36,37 +36,37 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheck(psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckAndAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckAndAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByType(psecuritydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeAndAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeAndAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultList(psecuritydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessAllowedAce(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -138,19 +138,19 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: *const ::core::ffi::c_void, currentsecuritydescriptor: *const ::core::ffi::c_void, newsecuritydescriptor: *mut *mut ::core::ffi::c_void, objecttype: *const ::windows_sys::core::GUID, isdirectoryobject: super::Foundation::BOOLEAN, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CopySid(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: super::Foundation::PSID) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePrivateObjectSecurity(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, isdirectoryobject: super::Foundation::BOOL, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePrivateObjectSecurityEx(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, objecttype: *const ::windows_sys::core::GUID, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, objecttypes: *const *const ::windows_sys::core::GUID, guidcount: u32, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateRestrictedToken(existingtokenhandle: super::Foundation::HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: u32, sidstodisable: *const SID_AND_ATTRIBUTES, deleteprivilegecount: u32, privilegestodelete: *const LUID_AND_ATTRIBUTES, restrictedsidcount: u32, sidstorestrict: *const SID_AND_ATTRIBUTES, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -165,7 +165,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const ::core::ffi::c_void) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DuplicateToken(existingtokenhandle: super::Foundation::HANDLE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -201,38 +201,38 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFileSecurityA(lpfilename: ::windows_sys::core::PCSTR, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFileSecurityW(lpfilename: ::windows_sys::core::PCWSTR, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetLengthSid(psid: super::Foundation::PSID) -> u32;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetPrivateObjectSecurity(objectdescriptor: *const ::core::ffi::c_void, securityinformation: u32, resultantdescriptor: *mut ::core::ffi::c_void, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorControl(psecuritydescriptor: *const ::core::ffi::c_void, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorDacl(psecuritydescriptor: *const ::core::ffi::c_void, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorGroup(psecuritydescriptor: *const ::core::ffi::c_void, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn GetSecurityDescriptorLength(psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorOwner(psecuritydescriptor: *const ::core::ffi::c_void, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn GetSecurityDescriptorRMControl(securitydescriptor: *const ::core::ffi::c_void, rmcontrol: *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorSacl(psecuritydescriptor: *const ::core::ffi::c_void, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSidIdentifierAuthority(psid: super::Foundation::PSID) -> *mut SID_IDENTIFIER_AUTHORITY;
     #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -249,7 +249,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const u32, psid: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowsAccountDomainSid(psid: super::Foundation::PSID, pdomainsid: super::Foundation::PSID, cbdomainsid: *mut u32) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -267,7 +267,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeSecurityDescriptor(psecuritydescriptor: *mut ::core::ffi::c_void, dwrevision: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -279,7 +279,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsValidSecurityDescriptor(psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsValidSid(psid: super::Foundation::PSID) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -330,10 +330,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const ::core::ffi::c_void, pabsolutesecuritydescriptor: *mut ::core::ffi::c_void, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const ::core::ffi::c_void, pselfrelativesecuritydescriptor: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING);
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -350,10 +350,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectOpenAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectOpenAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectPrivilegeAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -379,7 +379,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut ::core::ffi::c_void, newsecuritydescriptorlength: *mut u32, checkonly: super::Foundation::BOOLEAN) -> super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -388,38 +388,38 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetFileSecurityA(lpfilename: ::windows_sys::core::PCSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetFileSecurityW(lpfilename: ::windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetKernelObjectSecurity(handle: super::Foundation::HANDLE, securityinformation: u32, securitydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetPrivateObjectSecurity(securityinformation: u32, modificationdescriptor: *const ::core::ffi::c_void, objectssecuritydescriptor: *mut *mut ::core::ffi::c_void, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetPrivateObjectSecurityEx(securityinformation: u32, modificationdescriptor: *const ::core::ffi::c_void, objectssecuritydescriptor: *mut *mut ::core::ffi::c_void, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorControl(psecuritydescriptor: *const ::core::ffi::c_void, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorDacl(psecuritydescriptor: *mut ::core::ffi::c_void, bdaclpresent: super::Foundation::BOOL, pdacl: *const ACL, bdacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorGroup(psecuritydescriptor: *mut ::core::ffi::c_void, pgroup: super::Foundation::PSID, bgroupdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorOwner(psecuritydescriptor: *mut ::core::ffi::c_void, powner: super::Foundation::PSID, bownerdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn SetSecurityDescriptorRMControl(securitydescriptor: *mut ::core::ffi::c_void, rmcontrol: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorSacl(psecuritydescriptor: *mut ::core::ffi::c_void, bsaclpresent: super::Foundation::BOOL, psacl: *const ACL, bsacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
@@ -1170,7 +1170,7 @@ impl ::core::clone::Clone for SE_IMPERSONATION_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security'*"]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,

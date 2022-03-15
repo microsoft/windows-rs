@@ -262,7 +262,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: ICM_MODE) -> i32;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -968,15 +968,15 @@ pub const ICM_REGISTERICMATCHER: ICM_COMMAND = 5u32;
 pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = 6u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_QUERYMATCH: ICM_COMMAND = 7u32;
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub type ICM_MODE = i32;
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_OFF: ICM_MODE = 1i32;
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_ON: ICM_MODE = 2i32;
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_QUERY: ICM_MODE = 3i32;
-#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_DONE_OUTSIDEDC: ICM_MODE = 4i32;
 pub type IDeviceModelPlugIn = *mut ::core::ffi::c_void;
 pub type IGamutMapModelPlugIn = *mut ::core::ffi::c_void;

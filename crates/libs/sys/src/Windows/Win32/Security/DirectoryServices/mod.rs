@@ -43,6 +43,6 @@ pub type PFNDSEDITSECURITY = ::core::option::Option<unsafe extern "system" fn(pa
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNREADOBJECTSECURITY = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut *mut ::core::ffi::c_void, param3: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Security_DirectoryServices', 'Win32_Foundation'*"]
+#[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNWRITEOBJECTSECURITY = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut ::core::ffi::c_void, param3: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;

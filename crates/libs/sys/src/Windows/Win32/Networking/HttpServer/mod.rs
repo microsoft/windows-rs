@@ -676,7 +676,7 @@ pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: u32,

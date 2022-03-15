@@ -97,9 +97,9 @@ extern "system" {
     pub fn CoGetObjectContext(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoGetPSClsid(riid: *const ::windows_sys::core::GUID, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoGetTreatAsClass(clsidold: *const ::windows_sys::core::GUID, pclsidnew: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoImpersonateClient() -> ::windows_sys::core::HRESULT;
@@ -109,9 +109,9 @@ extern "system" {
     pub fn CoInitialize(pvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: COINIT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoInitializeSecurity(psecdesc: *const ::core::ffi::c_void, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoInstall(pbc: IBindCtx, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoInvalidateRemoteMachineBindings(pszmachinename: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
@@ -137,9 +137,9 @@ extern "system" {
     pub fn CoRegisterActivationFilter(pactivationfilter: IActivationFilter) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoRegisterChannelHook(extensionuuid: *const ::windows_sys::core::GUID, pchannelhook: IChannelHook) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoRegisterClassObject(rclsid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown, dwclscontext: CLSCTX, flags: REGCLS, lpdwregister: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com'*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoRegisterDeviceCatalog(deviceinstanceid: ::windows_sys::core::PCWSTR, cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoRegisterInitializeSpy(pspy: IInitializeSpy, pulicookie: *mut u64) -> ::windows_sys::core::HRESULT;

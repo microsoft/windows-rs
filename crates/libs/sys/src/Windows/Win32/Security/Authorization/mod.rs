@@ -6,7 +6,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AuthzAccessCheck(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: *const ::core::ffi::c_void, optionalsecuritydescriptorarray: *const *const ::core::ffi::c_void, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sids: *const super::SID_AND_ATTRIBUTES, sidcount: u32, restrictedsids: *const super::SID_AND_ATTRIBUTES, restrictedsidcount: u32, phnewauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -78,7 +78,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: *const ::core::ffi::c_void, optionalsecuritydescriptorarray: *const *const ::core::ffi::c_void, optionalsecuritydescriptorcount: u32, preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation', 'Win32_System_Threading'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
     pub fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -114,11 +114,11 @@ extern "system" {
     pub fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *const TRUSTEE_A);
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *const TRUSTEE_W);
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn BuildTrusteeWithNameA(ptrustee: *mut TRUSTEE_A, pname: ::windows_sys::core::PCSTR);
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn BuildTrusteeWithNameW(ptrustee: *mut TRUSTEE_W, pname: ::windows_sys::core::PCWSTR);
@@ -141,10 +141,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: *const ::core::ffi::c_void, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows_sys::core::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: *const ::core::ffi::c_void, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows_sys::core::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertSidToStringSidA(sid: super::super::Foundation::PSID, stringsid: *mut ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -153,10 +153,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: ::windows_sys::core::PCSTR, stringsdrevision: u32, securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: ::windows_sys::core::PCWSTR, stringsdrevision: u32, securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertStringSidToSidA(stringsid: ::windows_sys::core::PCSTR, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -193,13 +193,13 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNamedSecurityInfoA(pobjectname: ::windows_sys::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNamedSecurityInfoW(pobjectname: ::windows_sys::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM;
@@ -211,11 +211,11 @@ extern "system" {
     pub fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE;
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Security_Authorization'*"]
+    #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;

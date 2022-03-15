@@ -59,10 +59,10 @@ extern "system" {
     pub fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void;
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub fn AllocADsStr(pstr: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR;
-    #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub fn BinarySDToSecurityDescriptor(psecuritydescriptor: *mut ::core::ffi::c_void, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, password: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DsAddSidHistoryA(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: ::windows_sys::core::PCSTR, srcprincipal: ::windows_sys::core::PCSTR, srcdomaincontroller: ::windows_sys::core::PCSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows_sys::core::PCSTR, dstprincipal: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -415,7 +415,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReallocADsStr(ppstr: *mut ::windows_sys::core::PWSTR, pstr: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub fn SecurityDescriptorToBinarySD(vvarsecdes: super::super::System::Com::VARIANT, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, pdwsdlength: *mut u32, pszservername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, password: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
 }

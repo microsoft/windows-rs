@@ -65,9 +65,9 @@ extern "system" {
     pub fn StgCreatePropSetStg(pstorage: IStorage, dwreserved: u32, pppropsetstg: *mut IPropertySetStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgCreatePropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, pclsid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgCreateStorageEx(pwcsname: ::windows_sys::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -86,9 +86,9 @@ extern "system" {
     pub fn StgOpenPropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenStorage(pwcsname: ::windows_sys::core::PCWSTR, pstgpriority: IStorage, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenStorageEx(pwcsname: ::windows_sys::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, pstgpriority: IStorage, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
