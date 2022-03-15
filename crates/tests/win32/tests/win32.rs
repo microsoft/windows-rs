@@ -126,28 +126,31 @@ fn com() -> windows::core::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
-        let copied = stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32)?;
 
+        let mut copied = 0;
+        let hr = stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied);
+        assert!(hr.is_ok());
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
 
-        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32)?;
-
+        let mut copied = 0;
+        let hr = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied);
+        assert!(hr.is_ok());
         assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
-        let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
+        let position = stream.Seek(0, STREAM_SEEK_SET)?;
         assert!(position == 0);
+
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
-
-        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied)?;
-
+        let hr = stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied);
+        assert!(hr.is_ok());
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
+
         let mut value: windows::core::GUID = windows::core::GUID::default();
         let mut copied = 0;
-
-        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied)?;
-
+        let hr = stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied);
+        assert!(hr.is_ok());
         assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
