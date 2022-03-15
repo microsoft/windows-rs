@@ -2292,6 +2292,37 @@ impl ::core::fmt::Debug for ICM_COMMAND {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ICM_MODE(pub i32);
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+pub const ICM_OFF: ICM_MODE = ICM_MODE(1i32);
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+pub const ICM_ON: ICM_MODE = ICM_MODE(2i32);
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+pub const ICM_QUERY: ICM_MODE = ICM_MODE(3i32);
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+pub const ICM_DONE_OUTSIDEDC: ICM_MODE = ICM_MODE(4i32);
+impl ::core::marker::Copy for ICM_MODE {}
+impl ::core::clone::Clone for ICM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ICM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ICM_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ICM_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICM_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
+#[repr(transparent)]
 pub struct IDeviceModelPlugIn(::windows::core::IUnknown);
 impl IDeviceModelPlugIn {
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3201,12 +3232,12 @@ pub unsafe fn SetDeviceGammaRamp<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetICMMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, mode: i32) -> i32 {
+pub unsafe fn SetICMMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, mode: ICM_MODE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: i32) -> i32;
+            fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: ICM_MODE) -> i32;
         }
         ::core::mem::transmute(SetICMMode(hdc.into_param().abi(), ::core::mem::transmute(mode)))
     }

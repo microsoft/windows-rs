@@ -17918,8 +17918,8 @@ impl ::core::default::Default for JOB_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
     pub pPrinterName: ::windows::core::PSTR,
@@ -17933,7 +17933,7 @@ pub struct JOB_INFO_2A {
     pub pDriverName: ::windows::core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pStatus: ::windows::core::PSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -17945,15 +17945,15 @@ pub struct JOB_INFO_2A {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for JOB_INFO_2A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("JOB_INFO_2A")
@@ -17983,27 +17983,27 @@ impl ::core::fmt::Debug for JOB_INFO_2A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for JOB_INFO_2A {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for JOB_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOB_INFO_2A>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for JOB_INFO_2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for JOB_INFO_2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
     pub pPrinterName: ::windows::core::PWSTR,
@@ -18017,7 +18017,7 @@ pub struct JOB_INFO_2W {
     pub pDriverName: ::windows::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub pStatus: ::windows::core::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -18029,15 +18029,15 @@ pub struct JOB_INFO_2W {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_2W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for JOB_INFO_2W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("JOB_INFO_2W")
@@ -18067,19 +18067,19 @@ impl ::core::fmt::Debug for JOB_INFO_2W {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for JOB_INFO_2W {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for JOB_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOB_INFO_2W>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for JOB_INFO_2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for JOB_INFO_2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18118,8 +18118,8 @@ impl ::core::default::Default for JOB_INFO_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
     pub pPrinterName: ::windows::core::PSTR,
@@ -18133,7 +18133,7 @@ pub struct JOB_INFO_4A {
     pub pDriverName: ::windows::core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pStatus: ::windows::core::PSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -18146,15 +18146,15 @@ pub struct JOB_INFO_4A {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_4A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_4A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for JOB_INFO_4A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("JOB_INFO_4A")
@@ -18185,27 +18185,27 @@ impl ::core::fmt::Debug for JOB_INFO_4A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for JOB_INFO_4A {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for JOB_INFO_4A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOB_INFO_4A>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for JOB_INFO_4A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for JOB_INFO_4A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
     pub pPrinterName: ::windows::core::PWSTR,
@@ -18219,7 +18219,7 @@ pub struct JOB_INFO_4W {
     pub pDriverName: ::windows::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub pStatus: ::windows::core::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -18232,15 +18232,15 @@ pub struct JOB_INFO_4W {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_4W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_4W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for JOB_INFO_4W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("JOB_INFO_4W")
@@ -18271,19 +18271,19 @@ impl ::core::fmt::Debug for JOB_INFO_4W {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for JOB_INFO_4W {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for JOB_INFO_4W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOB_INFO_4W>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for JOB_INFO_4W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for JOB_INFO_4W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -21262,8 +21262,8 @@ impl ::core::default::Default for PRINTER_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTER_INFO_2A {
     pub pServerName: ::windows::core::PSTR,
     pub pPrinterName: ::windows::core::PSTR,
@@ -21277,7 +21277,7 @@ pub struct PRINTER_INFO_2A {
     pub pPrintProcessor: ::windows::core::PSTR,
     pub pDatatype: ::windows::core::PSTR,
     pub pParameters: ::windows::core::PSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Attributes: u32,
     pub Priority: u32,
     pub DefaultPriority: u32,
@@ -21287,15 +21287,15 @@ pub struct PRINTER_INFO_2A {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTER_INFO_2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTER_INFO_2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for PRINTER_INFO_2A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PRINTER_INFO_2A")
@@ -21323,27 +21323,27 @@ impl ::core::fmt::Debug for PRINTER_INFO_2A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_2A {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTER_INFO_2A>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTER_INFO_2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTER_INFO_2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTER_INFO_2W {
     pub pServerName: ::windows::core::PWSTR,
     pub pPrinterName: ::windows::core::PWSTR,
@@ -21357,7 +21357,7 @@ pub struct PRINTER_INFO_2W {
     pub pPrintProcessor: ::windows::core::PWSTR,
     pub pDatatype: ::windows::core::PWSTR,
     pub pParameters: ::windows::core::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Attributes: u32,
     pub Priority: u32,
     pub DefaultPriority: u32,
@@ -21367,15 +21367,15 @@ pub struct PRINTER_INFO_2W {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTER_INFO_2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTER_INFO_2W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for PRINTER_INFO_2W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PRINTER_INFO_2W")
@@ -21403,57 +21403,49 @@ impl ::core::fmt::Debug for PRINTER_INFO_2W {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_2W {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTER_INFO_2W>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTER_INFO_2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTER_INFO_2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct PRINTER_INFO_3 {
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for PRINTER_INFO_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for PRINTER_INFO_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for PRINTER_INFO_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PRINTER_INFO_3").field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_3 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTER_INFO_3>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for PRINTER_INFO_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for PRINTER_INFO_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

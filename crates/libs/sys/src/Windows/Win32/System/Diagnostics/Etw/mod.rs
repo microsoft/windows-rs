@@ -28,10 +28,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventAccessControl(guid: *const ::windows_sys::core::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn EventAccessQuery(guid: *const ::windows_sys::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn EventAccessQuery(guid: *const ::windows_sys::core::GUID, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventAccessRemove(guid: *const ::windows_sys::core::GUID) -> u32;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows_sys::core::GUID) -> u32;

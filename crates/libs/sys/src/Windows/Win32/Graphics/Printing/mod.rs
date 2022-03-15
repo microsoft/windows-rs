@@ -3862,8 +3862,8 @@ impl ::core::clone::Clone for JOB_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
     pub pPrinterName: ::windows_sys::core::PSTR,
@@ -3877,7 +3877,7 @@ pub struct JOB_INFO_2A {
     pub pDriverName: ::windows_sys::core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pStatus: ::windows_sys::core::PSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -3889,17 +3889,17 @@ pub struct JOB_INFO_2A {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_2A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
     pub pPrinterName: ::windows_sys::core::PWSTR,
@@ -3913,7 +3913,7 @@ pub struct JOB_INFO_2W {
     pub pDriverName: ::windows_sys::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub pStatus: ::windows_sys::core::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -3925,9 +3925,9 @@ pub struct JOB_INFO_2W {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_2W {
     fn clone(&self) -> Self {
         *self
@@ -3947,8 +3947,8 @@ impl ::core::clone::Clone for JOB_INFO_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
     pub pPrinterName: ::windows_sys::core::PSTR,
@@ -3962,7 +3962,7 @@ pub struct JOB_INFO_4A {
     pub pDriverName: ::windows_sys::core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pStatus: ::windows_sys::core::PSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -3975,17 +3975,17 @@ pub struct JOB_INFO_4A {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_4A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_4A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
     pub pPrinterName: ::windows_sys::core::PWSTR,
@@ -3999,7 +3999,7 @@ pub struct JOB_INFO_4W {
     pub pDriverName: ::windows_sys::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub pStatus: ::windows_sys::core::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Status: u32,
     pub Priority: u32,
     pub Position: u32,
@@ -4012,9 +4012,9 @@ pub struct JOB_INFO_4W {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for JOB_INFO_4W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for JOB_INFO_4W {
     fn clone(&self) -> Self {
         *self
@@ -5633,8 +5633,8 @@ impl ::core::clone::Clone for PRINTER_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTER_INFO_2A {
     pub pServerName: ::windows_sys::core::PSTR,
     pub pPrinterName: ::windows_sys::core::PSTR,
@@ -5648,7 +5648,7 @@ pub struct PRINTER_INFO_2A {
     pub pPrintProcessor: ::windows_sys::core::PSTR,
     pub pDatatype: ::windows_sys::core::PSTR,
     pub pParameters: ::windows_sys::core::PSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Attributes: u32,
     pub Priority: u32,
     pub DefaultPriority: u32,
@@ -5658,17 +5658,17 @@ pub struct PRINTER_INFO_2A {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTER_INFO_2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTER_INFO_2A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTER_INFO_2W {
     pub pServerName: ::windows_sys::core::PWSTR,
     pub pPrinterName: ::windows_sys::core::PWSTR,
@@ -5682,7 +5682,7 @@ pub struct PRINTER_INFO_2W {
     pub pPrintProcessor: ::windows_sys::core::PWSTR,
     pub pDatatype: ::windows_sys::core::PWSTR,
     pub pParameters: ::windows_sys::core::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
     pub Attributes: u32,
     pub Priority: u32,
     pub DefaultPriority: u32,
@@ -5692,23 +5692,20 @@ pub struct PRINTER_INFO_2W {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTER_INFO_2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTER_INFO_2W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct PRINTER_INFO_3 {
-    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for PRINTER_INFO_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for PRINTER_INFO_3 {
     fn clone(&self) -> Self {
         *self

@@ -265,9 +265,9 @@ extern "system" {
     pub fn OutputDebugStringA(lpoutputstring: ::windows_sys::core::PCSTR);
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn OutputDebugStringW(lpoutputstring: ::windows_sys::core::PCWSTR);
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-    pub fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumberofarguments: u32, lparguments: *const usize) -> !;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+    pub fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumberofarguments: u32, lparguments: *const usize);
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, pcontextrecord: *const CONTEXT, dwflags: u32);
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -358,8 +358,8 @@ extern "system" {
     pub fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage: *mut *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) -> !;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+    pub fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD);
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: *const EXCEPTION_RECORD);
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]

@@ -4,11 +4,11 @@ dependent crate or workspace has an empty or non-existent `.windows/winmd` direc
 
 ## Windows.Win32.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/
-- Version: 17.0.9-preview
+- Version: 18.0.1-preview
 
 ## Windows.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts
-- Version: 10.0.22000.194
+- Version: 10.0.22000.196
 
 The Windows.winmd was created by merging the .winmd files from the second nuget package as follows
 
