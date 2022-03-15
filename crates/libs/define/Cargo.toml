@@ -1,6 +1,6 @@
 [package]
 name = "windows-define"
-version = "0.33.0"
+version = "0.34.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
