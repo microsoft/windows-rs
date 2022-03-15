@@ -12,7 +12,7 @@ fn main() {
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();
-    collect_trees(&output, root.namespace, root, &mut trees);
+    collect_trees(&output, root, &mut trees);
     trees.par_iter().for_each(|tree| gen_tree(&output, root.namespace, tree));
 
     output.pop();
@@ -92,13 +92,13 @@ deprecated = []
     std::fs::copy(".github/license-apache", "crates/libs/sys/license-apache").unwrap();
 }
 
-fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
+fn collect_trees<'a>(output: &std::path::Path, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
     if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
         return;
     }
 
     trees.push(tree);
-    tree.namespaces.values().for_each(|tree| collect_trees(output, root, tree, trees));
+    tree.namespaces.values().for_each(|tree| collect_trees(output, tree, trees));
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
