@@ -38,84 +38,13 @@ pub fn test() {
 }
 
 trait Write {
-    fn write<T: Sized>(&mut self, value: &T);    
+    fn write<T: Sized>(&mut self, value: &T); 
 }
 
 impl Write for Vec::<u8> {
     fn write<T: Sized>(&mut self, value: &T) {
         unsafe {
             self.extend_from_slice(from_raw_parts(value as *const _ as _, size_of::<T>()));
-        }
-    }
-}
-
-impl DosHeader {
-    fn new() -> Self {
-        Self {
-            magic: 0x5A4D,                  // MZ
-            lfarlc: 0x40,                   // file address of relocation table
-            lfanew: size_of::<Self>() as _, // file address of next header
-            ..Default::default()
-        }
-    }
-}
-
-impl PeHeader {
-    fn new() -> Self {
-        Self {
-            signature: 0x4550, // PE\0\0
-            machine: 0x14C,    // x86
-            number_of_sections: 1,
-            size_of_optional_header: size_of::<OptionalHeader>() as _,
-            characteristics: 0x2102, // DLL
-            ..Default::default()
-        }
-    }
-}
-
-impl OptionalHeader {
-    fn new() -> Self {
-        Self {
-            magic: 0x10B, // PE32
-            major_linker_version: 0xB,
-            size_of_initialized_data: 0x400,
-            image_base: 0x400000,
-            section_alignment: 0x200,
-            file_alignment: 0x200,
-            major_operating_system_version: 6,
-            minor_operating_system_version: 2,
-            major_subsystem_version: 6,
-            minor_subsystem_version: 2,
-            size_of_headers: 0x200,
-            subsystem: 3, // console
-            dll_characteristics: 0x540,
-            size_of_stack_reserve: 0x100000,
-            size_of_heap_reserve: 0x1000,
-            loader_flags: 0x100000,
-            number_of_rva_and_sizes: 0x10,
-            ..Default::default()
-        }
-    }
-}
-
-impl SectionHeader {
-    fn new() -> Self {
-        Self { 
-            name: *b".text\0\0\0",
-            characteristics: 0x4000_0020,
-            virtual_address: 0x1000,
-            ..Default::default() }
-    }
-}
-
-impl ClrHeader {
-    fn new() -> Self {
-        Self { 
-            cb: size_of::<Self>() as _, 
-            major_runtime_version: 2,
-            minor_runtime_version: 5,
-            flags: 0x1,
-            ..Default::default() 
         }
     }
 }
@@ -144,6 +73,17 @@ struct DosHeader {
     lfanew: i32,
 }
 
+impl DosHeader {
+    fn new() -> Self {
+        Self {
+            magic: 0x5A4D,                  // MZ
+            lfarlc: 0x40,                   // file address of relocation table
+            lfanew: size_of::<Self>() as _, // file address of next header
+            ..Default::default()
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Default)]
 struct PeHeader {
@@ -155,6 +95,19 @@ struct PeHeader {
     number_of_symbols: u32,
     size_of_optional_header: u16,
     characteristics: u16,
+}
+
+impl PeHeader {
+    fn new() -> Self {
+        Self {
+            signature: 0x4550, // PE\0\0
+            machine: 0x14C,    // x86
+            number_of_sections: 1,
+            size_of_optional_header: size_of::<OptionalHeader>() as _,
+            characteristics: 0x2102, // DLL
+            ..Default::default()
+        }
+    }
 }
 
 #[repr(C)]
@@ -193,6 +146,31 @@ struct OptionalHeader {
     data_directory: [DataDirectory; 16],
 }
 
+impl OptionalHeader {
+    fn new() -> Self {
+        Self {
+            magic: 0x10B, // PE32
+            major_linker_version: 0xB,
+            size_of_initialized_data: 0x400,
+            image_base: 0x400000,
+            section_alignment: 0x200,
+            file_alignment: 0x200,
+            major_operating_system_version: 6,
+            minor_operating_system_version: 2,
+            major_subsystem_version: 6,
+            minor_subsystem_version: 2,
+            size_of_headers: 0x200,
+            subsystem: 3, // console
+            dll_characteristics: 0x540,
+            size_of_stack_reserve: 0x100000,
+            size_of_heap_reserve: 0x1000,
+            loader_flags: 0x100000,
+            number_of_rva_and_sizes: 0x10,
+            ..Default::default()
+        }
+    }
+}
+
 #[repr(C)]
 #[derive(Default)]
 struct DataDirectory {
@@ -215,6 +193,17 @@ struct SectionHeader {
     characteristics: u32,
 }
 
+impl SectionHeader {
+    fn new() -> Self {
+        Self { 
+            name: *b".text\0\0\0",
+            characteristics: 0x4000_0020,
+            virtual_address: 0x1000,
+            ..Default::default() }
+    }
+}
+
+
 #[repr(C)]
 #[derive(Default)]
 struct ClrHeader {
@@ -230,4 +219,16 @@ struct ClrHeader {
     vtable_fixups: DataDirectory,
     export_address_table_jumps: DataDirectory,
     managed_native_header: DataDirectory,
+}
+
+impl ClrHeader {
+    fn new() -> Self {
+        Self { 
+            cb: size_of::<Self>() as _, 
+            major_runtime_version: 2,
+            minor_runtime_version: 5,
+            flags: 0x1,
+            ..Default::default() 
+        }
+    }
 }
