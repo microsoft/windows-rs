@@ -8,24 +8,31 @@ use std::mem::*;
 use std::slice::*;
 
 pub fn test() {
-    let mut buffer = Vec::<u8>::new();
     let dos = DosHeader::new();
-    write(&mut buffer, &dos);
     let pe = PeHeader::new();
-    write(&mut buffer, &pe);
-    let optional = OptionalHeader::new();
-    write(&mut buffer, &optional);
-    let sections = SectionHeader::new();
-    write(&mut buffer, &sections);
+    let optional = OptionalHeader::new(0); // TODO: set to overall image size (e.g. including CLR metadata)
+    let section = SectionHeader::new();
     let clr = ClrHeader::new();
-    write(&mut buffer, &clr);
+
+    let mut buffer = Vec::<u8>::new();
+    buffer.write(&dos);
+    buffer.write(&pe);
+    buffer.write(&optional);
+    buffer.write(&section);
+    buffer.write(&clr);
 
     std::fs::write("/git/test.winmd", buffer).unwrap();
 }
 
-fn write<T: Sized>(buffer: &mut Vec<u8>, value: &T) {
-    unsafe {
-        buffer.extend_from_slice(from_raw_parts(value as *const _ as _, size_of::<T>()));
+trait Write {
+    fn write<T: Sized>(&mut self, value: &T);    
+}
+
+impl Write for Vec::<u8> {
+    fn write<T: Sized>(&mut self, value: &T) {
+        unsafe {
+            self.extend_from_slice(from_raw_parts(value as *const _ as _, size_of::<T>()));
+        }
     }
 }
 
@@ -45,7 +52,7 @@ impl PeHeader {
         Self {
             signature: 0x4550, // PE\0\0
             machine: 0x14C,    // x86
-            number_of_sections: 2,
+            number_of_sections: 1,
             size_of_optional_header: size_of::<OptionalHeader>() as _,
             characteristics: 0x2102, // DLL
             ..Default::default()
@@ -54,7 +61,7 @@ impl PeHeader {
 }
 
 impl OptionalHeader {
-    fn new() -> Self {
+    fn new(size_of_image: u32) -> Self {
         Self {
             magic: 0x10B, // PE32
             major_linker_version: 0xB,
@@ -66,6 +73,7 @@ impl OptionalHeader {
             minor_operating_system_version: 2,
             major_subsystem_version: 6,
             minor_subsystem_version: 2,
+            size_of_image,
             size_of_headers: 0x200,
             subsystem: 3, // console
             dll_characteristics: 0x540,
@@ -80,7 +88,10 @@ impl OptionalHeader {
 
 impl SectionHeader {
     fn new() -> Self {
-        Self { ..Default::default() }
+        Self { 
+            name: *b".text\0\0\0",
+            characteristics: 0x4000_0020,
+            ..Default::default() }
     }
 }
 
