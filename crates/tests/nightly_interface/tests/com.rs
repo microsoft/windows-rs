@@ -19,7 +19,7 @@ pub unsafe trait ICustomUri: IUnknown {
 #[implement(ICustomUri)]
 struct CustomUri;
 
-impl ICustomUri_Impl for CustomUri {
+impl ICustomUriImpl for CustomUri {
     unsafe fn GetPropertyBSTR(&self, property: Uri_PROPERTY, value: *mut BSTR, flags: u32) -> HRESULT {
         assert!(flags == 0);
         assert!(property == Uri_PROPERTY_DOMAIN);
@@ -138,19 +138,19 @@ impl HouseCat {
     }
 }
 
-impl ICat_Impl for HouseCat {
+impl ICatImpl for HouseCat {
     unsafe fn IgnoreHumans(&self) -> HRESULT {
         S_OK
     }
 }
 
-impl IDomesticAnimal_Impl for HouseCat {
+impl IDomesticAnimalImpl for HouseCat {
     unsafe fn Train(&self) -> HRESULT {
         S_OK
     }
 }
 
-impl IAnimal_Impl for HouseCat {
+impl IAnimalImpl for HouseCat {
     unsafe fn Eat(&self, food: *const Food) -> HRESULT {
         let h = self.0.get();
         let h = h + (*food).deliciousness;
