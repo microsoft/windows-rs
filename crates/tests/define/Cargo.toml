@@ -12,3 +12,6 @@ features = [
 
 [dependencies.windows-metagen]
 path = "../../libs/metagen"
+
+[dependencies.windows-metadata]
+path = "../../libs/metadata"

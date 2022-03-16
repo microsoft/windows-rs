@@ -12,7 +12,8 @@ pub fn test() {
     let pe = PeHeader::new();
     let mut optional = OptionalHeader::new();
     let mut section = SectionHeader::new();
-    let clr = ClrHeader::new();
+    let mut clr = ClrHeader::new();
+    let metadata = MetadataHeader::new();
 
     optional.size_of_image = 0xAABBCCDD;
 
@@ -21,9 +22,14 @@ pub fn test() {
         size: size_of::<ClrHeader>() as _,
     };
 
-    section.virtual_size = size_of::<ClrHeader>() as _;
-    section.size_of_raw_data = size_of::<ClrHeader>() as _;
+    section.virtual_size = 0xAABBCCDD;
+    section.size_of_raw_data = 0xAABBCCDD;
     section.pointer_to_raw_data = 0x200;
+
+    clr.meta_data = DataDirectory {
+        virtual_address: 0x1000 + size_of::<ClrHeader>() as u32,
+        size: 0,
+    };
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
@@ -33,6 +39,7 @@ pub fn test() {
     debug_assert!(buffer.len() < 0x200);
     buffer.resize(0x200, 0);
     buffer.write(&clr);
+    buffer.write(&metadata);
 
     std::fs::write("/git/test.winmd", buffer).unwrap();
 }
@@ -153,7 +160,7 @@ impl OptionalHeader {
             major_linker_version: 0xB,
             size_of_initialized_data: 0x400,
             image_base: 0x400000,
-            section_alignment: 0x200,
+            section_alignment: 0x1000,
             file_alignment: 0x200,
             major_operating_system_version: 6,
             minor_operating_system_version: 2,
@@ -228,6 +235,33 @@ impl ClrHeader {
             major_runtime_version: 2,
             minor_runtime_version: 5,
             flags: 0x1,
+            ..Default::default() 
+        }
+    }
+}
+
+#[repr(C)]
+#[derive(Default)]
+struct MetadataHeader {
+    signature: u32, 
+    major_version: u16,
+    minor_version: u16,
+    reserved: u32,
+    length: u32,
+    version: [u8;15],
+    flags: u16,
+    streams: u16,
+}
+
+impl MetadataHeader {
+    fn new() -> Self {
+        Self { 
+            signature: 0x424A_5342,
+            major_version: 1,
+            minor_version: 1,
+            length: 15,
+            version: *b"WindowsRuntime\0",
+            streams: 0,//3,
             ..Default::default() 
         }
     }

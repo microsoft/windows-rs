@@ -215,7 +215,7 @@ impl File {
         (first, last)
     }
 
-    pub(crate) fn from_bytes(name: String, bytes: Vec<u8>) -> Self {
+    pub fn from_bytes(name: String, bytes: Vec<u8>) -> Self {
         let mut file = Self { name, bytes, ..Default::default() };
 
         let dos = file.bytes.view_as::<ImageDosHeader>(0);
@@ -474,7 +474,7 @@ impl File {
         file
     }
 
-    pub(crate) fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
+    pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
         let filename = filename.as_ref();
         let bytes = std::fs::read(filename).unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename, e));
 

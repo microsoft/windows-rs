@@ -18,4 +18,5 @@ fn define() {
 #[test]
 fn metagen() {
     windows_metagen::test();
+    windows_metadata::File::new("/git/test.winmd");
 }
