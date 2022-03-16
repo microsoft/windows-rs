@@ -22,7 +22,7 @@ pub unsafe trait Interface: Sized {
     #[doc(hidden)]
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
         let this: RawPtr = core::mem::transmute_copy(self);
-        &(*(*(this as *mut *mut _) as *mut _))
+        &**(this as *mut *mut T::Vtable)
     }
 
     #[doc(hidden)]

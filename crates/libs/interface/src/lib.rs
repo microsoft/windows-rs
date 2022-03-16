@@ -143,9 +143,11 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
+        let parent = self.parent_trait();
+
         quote! {
             #[allow(non_camel_case_types)]
-            #vis trait #name: Sized {
+            #vis trait #name: #parent Sized {
                 #(#methods)*
             }
         }
@@ -155,6 +157,7 @@ impl Interface {
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let name = &self.name;
         let parent_vtable = self.parent_vtable();
+        let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
         let vtable_entries = self
             .methods
             .iter()
@@ -213,7 +216,7 @@ impl Interface {
             impl #vtable_name {
                 pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>() -> Self {
                     #(#functions)*
-                    Self { base: #parent_vtable::new::<Identity, OFFSET>(), #(#entries),* }
+                    Self { base: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                 }
 
                 pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -230,8 +233,7 @@ impl Interface {
         quote! {
             impl ::core::convert::From<#name> for ::windows::core::IUnknown {
                 fn from(value: #name) -> Self {
-                    // TODO: handle when direct parent is not IUnknown
-                    value.0
+                    unsafe { ::core::mem::transmute(value) }
                 }
             }
             impl ::core::convert::From<&#name> for ::windows::core::IUnknown {
@@ -246,8 +248,7 @@ impl Interface {
             }
             impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a #name {
                 fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-                    // TODO: handle when direct parent is not IUnknown
-                    ::windows::core::Param::Borrowed(&self.0)
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                 }
             }
             impl ::core::clone::Clone for #name {
@@ -274,11 +275,31 @@ impl Interface {
     }
 
     fn parent_vtable(&self) -> proc_macro2::TokenStream {
-        self.parent.as_ref().map(|p| {
-            let ident = p.segments.last().expect("segements should never be empty").ident.to_string();
-            let i = quote::format_ident!("{}Vtbl", ident);
-            quote!(#i)
-        }).unwrap_or_else(|| quote!(::windows::core::IUnknownVTable))
+        self.parent_ident()
+            .map(|i| {
+                let i = quote::format_ident!("{}Vtbl", i);
+                quote!(#i)
+            })
+            .unwrap_or_else(|| quote!(::windows::core::IUnknownVTable))
+    }
+
+    fn parent_is_iunknown(&self) -> bool {
+        self.parent.as_ref().map(|p| p.is_ident("IUnknown")).unwrap_or(true)
+    }
+
+    fn parent_ident(&self) -> Option<&syn::Ident> {
+        self.parent.as_ref().map(|p| &p.segments.last().as_ref().expect("segements should never be empty").ident)
+    }
+
+    fn parent_trait(&self) -> proc_macro2::TokenStream {
+        // TODO: remove the ugly filter
+        self.parent_ident()
+            .filter(|i| i.clone().to_string() != "IUnknown")
+            .map(|i| {
+                let i = quote::format_ident!("{}_Impl", i);
+                quote!(#i +)
+            })
+            .unwrap_or_else(|| quote!())
     }
 }
 

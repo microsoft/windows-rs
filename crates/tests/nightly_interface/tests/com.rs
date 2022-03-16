@@ -107,3 +107,69 @@ fn test_custom_interface() -> windows::core::Result<()> {
         Ok(())
     }
 }
+
+#[repr(C)]
+pub struct Food {
+    deliciousness: usize,
+}
+
+#[interface("EFF8970E-C50F-45E0-9284-291CE5A6F771")]
+pub unsafe trait IAnimal: IUnknown {
+    unsafe fn Eat(&self, food: *const Food) -> HRESULT;
+    unsafe fn Happiness(&self) -> usize;
+}
+
+#[interface("F5353C58-CFD9-4204-8D92-D274C7578B53")]
+pub unsafe trait ICat: IAnimal {
+    unsafe fn IgnoreHumans(&self) -> HRESULT;
+}
+
+#[interface("C22425DF-EFB2-4B85-933E-9CF7B23459E8")]
+pub unsafe trait IDomesticAnimal: IAnimal {
+    unsafe fn Train(&self) -> HRESULT;
+}
+
+#[implement(ICat, IDomesticAnimal, IAnimal)]
+struct HouseCat(std::cell::Cell<usize>);
+
+impl HouseCat {
+    fn new() -> Self {
+        Self(std::cell::Cell::new(0))
+    }
+}
+
+impl ICat_Impl for HouseCat {
+    unsafe fn IgnoreHumans(&self) -> HRESULT {
+        S_OK
+    }
+}
+
+impl IDomesticAnimal_Impl for HouseCat {
+    unsafe fn Train(&self) -> HRESULT {
+        S_OK
+    }
+}
+
+impl IAnimal_Impl for HouseCat {
+    unsafe fn Eat(&self, food: *const Food) -> HRESULT {
+        let h = self.0.get();
+        let h = h + (*food).deliciousness;
+        self.0.set(h);
+
+        S_OK
+    }
+
+    unsafe fn Happiness(&self) -> usize {
+        self.0.get()
+    }
+}
+
+#[test]
+fn test_rich_interface_hierarchy() -> windows::core::Result<()> {
+    let animal: IAnimal = HouseCat::new().into();
+    assert_eq!(unsafe { animal.Happiness() }, 0);
+    unsafe { animal.Eat(&Food { deliciousness: 10 }).ok()? };
+    assert_eq!(unsafe { animal.Happiness() }, 10);
+
+    Ok(())
+}
