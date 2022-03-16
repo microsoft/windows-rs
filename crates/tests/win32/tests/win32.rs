@@ -128,13 +128,11 @@ fn com() -> windows::core::Result<()> {
         let values = vec![1, 20, 300, 4000];
 
         let mut copied = 0;
-        let hr = stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied);
-        assert!(hr.is_ok());
+        stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied).ok()?;
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
 
         let mut copied = 0;
-        let hr = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied);
-        assert!(hr.is_ok());
+        stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied).ok()?;
         assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
 
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
@@ -142,15 +140,13 @@ fn com() -> windows::core::Result<()> {
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
-        let hr = stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied);
-        assert!(hr.is_ok());
+        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied).ok()?;
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
 
         let mut value: windows::core::GUID = windows::core::GUID::default();
         let mut copied = 0;
-        let hr = stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied);
-        assert!(hr.is_ok());
+        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied).ok()?;
         assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
