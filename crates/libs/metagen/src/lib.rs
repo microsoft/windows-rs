@@ -6,6 +6,7 @@
 
 use std::mem::*;
 use std::slice::*;
+use std::collections::*;
 
 pub fn test() {
     let dos = DosHeader::new();
@@ -16,6 +17,8 @@ pub fn test() {
     let metadata = MetadataHeader::new();
     // let string_stream = 
 
+    // TODO: these should all be at fixed offsets so we could just rewrite them in the buffer later on
+    // provided we keep track of the offsets.
     optional.size_of_image = 0xCCCC; // TODO: calc size
 
     optional.data_directory[14] = DataDirectory {
@@ -289,4 +292,18 @@ impl MetadataHeader {
             ..Default::default() 
         }
     }
+}
+
+struct Strings(BTreeSet<String>);
+
+impl Strings {
+    fn write(buffer: &mut Vec::<u8>) {
+
+    }
+}
+
+struct Blobs(BTreeSet<Vec<u8>>);
+
+struct Tables {
+ // TODO: just use fixed 4 byte index sizes
 }

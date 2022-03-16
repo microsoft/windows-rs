@@ -269,6 +269,9 @@ impl File {
         let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
         let guid_index_size = if (heap_sizes >> 1 & 1) == 1 { 4 } else { 2 };
         let blob_index_size = if (heap_sizes >> 2 & 1) == 1 { 4 } else { 2 };
+        println!("string_index_size {}", string_index_size);
+        println!("guid_index_size {}", guid_index_size);
+        println!("blob_index_size {}", blob_index_size);
         let valid_bits = file.bytes.copy_as::<u64>(tables_data.0 + 8);
         view = tables_data.0 + 24;
 
