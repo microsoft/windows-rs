@@ -12276,14 +12276,6 @@ unsafe impl ::windows::core::Abi for HdcMetdataFileHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ICM_DONE_OUTSIDEDC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ICM_OFF: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ICM_ON: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ICM_QUERY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_A: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_B: u32 = 2u32;
@@ -14454,54 +14446,6 @@ impl ::core::ops::Not for PEN_STYLE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_DEPTH_DONTCARE: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_DIRECT3D_ACCELERATED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_DOUBLEBUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_DOUBLEBUFFER_DONTCARE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_DRAW_TO_BITMAP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_DRAW_TO_WINDOW: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_GENERIC_ACCELERATED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_GENERIC_FORMAT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_MAIN_PLANE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_NEED_PALETTE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_NEED_SYSTEM_PALETTE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_OVERLAY_PLANE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_STEREO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_STEREO_DONTCARE: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SUPPORT_COMPOSITION: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SUPPORT_DIRECTDRAW: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SUPPORT_GDI: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SUPPORT_OPENGL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SWAP_COPY: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SWAP_EXCHANGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_SWAP_LAYER_BUFFERS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_TYPE_COLORINDEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_TYPE_RGBA: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PFD_UNDERLAY_PLANE: i32 = -1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct POINTFX {

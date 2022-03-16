@@ -1158,7 +1158,7 @@ impl ::core::clone::Clone for BY_HANDLE_FILE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL>;
+pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: *mut ::core::ffi::c_void, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -5564,15 +5564,12 @@ impl ::core::clone::Clone for SHARE_INFO_1006 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
-    pub shi1501_security_descriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub shi1501_security_descriptor: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for SHARE_INFO_1501 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SHARE_INFO_1501 {
     fn clone(&self) -> Self {
         *self
@@ -5622,8 +5619,7 @@ impl ::core::clone::Clone for SHARE_INFO_501 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: ::windows_sys::core::PWSTR,
     pub shi502_type: SHARE_TYPE,
@@ -5634,19 +5630,16 @@ pub struct SHARE_INFO_502 {
     pub shi502_path: ::windows_sys::core::PWSTR,
     pub shi502_passwd: ::windows_sys::core::PWSTR,
     pub shi502_reserved: u32,
-    pub shi502_security_descriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub shi502_security_descriptor: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for SHARE_INFO_502 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SHARE_INFO_502 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: ::windows_sys::core::PWSTR,
     pub shi503_type: SHARE_TYPE,
@@ -5658,11 +5651,9 @@ pub struct SHARE_INFO_503 {
     pub shi503_passwd: ::windows_sys::core::PWSTR,
     pub shi503_servername: ::windows_sys::core::PWSTR,
     pub shi503_reserved: u32,
-    pub shi503_security_descriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub shi503_security_descriptor: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for SHARE_INFO_503 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SHARE_INFO_503 {
     fn clone(&self) -> Self {
         *self

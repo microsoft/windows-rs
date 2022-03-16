@@ -17,12 +17,12 @@ pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32 {
+pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
+            fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
         }
         ::core::mem::transmute(DescribePixelFormat(hdc.into_param().abi(), ::core::mem::transmute(ipixelformat), ::core::mem::transmute(nbytes), ::core::mem::transmute(ppfd)))
     }
@@ -1685,6 +1685,151 @@ impl ::core::default::Default for LAYERPLANEDESCRIPTOR {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PFD_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_DOUBLEBUFFER: PFD_FLAGS = PFD_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_STEREO: PFD_FLAGS = PFD_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_DRAW_TO_WINDOW: PFD_FLAGS = PFD_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_DRAW_TO_BITMAP: PFD_FLAGS = PFD_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SUPPORT_GDI: PFD_FLAGS = PFD_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SUPPORT_OPENGL: PFD_FLAGS = PFD_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_GENERIC_FORMAT: PFD_FLAGS = PFD_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_NEED_PALETTE: PFD_FLAGS = PFD_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_NEED_SYSTEM_PALETTE: PFD_FLAGS = PFD_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SWAP_EXCHANGE: PFD_FLAGS = PFD_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SWAP_COPY: PFD_FLAGS = PFD_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SWAP_LAYER_BUFFERS: PFD_FLAGS = PFD_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_GENERIC_ACCELERATED: PFD_FLAGS = PFD_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SUPPORT_DIRECTDRAW: PFD_FLAGS = PFD_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = PFD_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_SUPPORT_COMPOSITION: PFD_FLAGS = PFD_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_DEPTH_DONTCARE: PFD_FLAGS = PFD_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_DOUBLEBUFFER_DONTCARE: PFD_FLAGS = PFD_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_STEREO_DONTCARE: PFD_FLAGS = PFD_FLAGS(2147483648u32);
+impl ::core::marker::Copy for PFD_FLAGS {}
+impl ::core::clone::Clone for PFD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PFD_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PFD_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PFD_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PFD_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PFD_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PFD_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PFD_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PFD_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PFD_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PFD_LAYER_TYPE(pub i8);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_MAIN_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(0i8);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_OVERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(1i8);
+impl ::core::marker::Copy for PFD_LAYER_TYPE {}
+impl ::core::clone::Clone for PFD_LAYER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PFD_LAYER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PFD_LAYER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PFD_LAYER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PFD_LAYER_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PFD_PIXEL_TYPE(pub i8);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(0i8);
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(1i8);
+impl ::core::marker::Copy for PFD_PIXEL_TYPE {}
+impl ::core::clone::Clone for PFD_PIXEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PFD_PIXEL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PFD_PIXEL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PFD_PIXEL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PFD_PIXEL_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub type PFNGLADDSWAPHINTRECTWINPROC = ::core::option::Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub type PFNGLARRAYELEMENTARRAYEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void)>;
@@ -1723,8 +1868,8 @@ pub type PFNGLVERTEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "syste
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
-    pub dwFlags: u32,
-    pub iPixelType: u8,
+    pub dwFlags: PFD_FLAGS,
+    pub iPixelType: PFD_PIXEL_TYPE,
     pub cColorBits: u8,
     pub cRedBits: u8,
     pub cRedShift: u8,
@@ -1742,7 +1887,7 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub cDepthBits: u8,
     pub cStencilBits: u8,
     pub cAuxBuffers: u8,
-    pub iLayerType: u8,
+    pub iLayerType: PFD_LAYER_TYPE,
     pub bReserved: u8,
     pub dwLayerMask: u32,
     pub dwVisibleMask: u32,
