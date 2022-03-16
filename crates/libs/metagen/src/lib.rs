@@ -14,16 +14,17 @@ pub fn test() {
     let mut section = SectionHeader::new();
     let mut clr = ClrHeader::new();
     let metadata = MetadataHeader::new();
+    // let string_stream = 
 
-    optional.size_of_image = 0xAABBCCDD;
+    optional.size_of_image = 0xCCCC; // TODO: calc size
 
     optional.data_directory[14] = DataDirectory {
         virtual_address: 0x1000,
         size: size_of::<ClrHeader>() as _,
     };
 
-    section.virtual_size = 0xAABBCCDD;
-    section.size_of_raw_data = 0xAABBCCDD;
+    section.virtual_size = 0xCCCC; // TODO: calc size
+    section.size_of_raw_data = 0xCCCC; // TODO: calc size
     section.pointer_to_raw_data = 0x200;
 
     clr.meta_data = DataDirectory {
@@ -39,8 +40,31 @@ pub fn test() {
     debug_assert!(buffer.len() < 0x200);
     buffer.resize(0x200, 0);
     buffer.write(&clr);
+    let metadata_offset = buffer.len();
     buffer.write(&metadata);
+    
+    // String stream
+    buffer.write(&DataDirectory {
+        virtual_address: (buffer.len() - metadata_offset) as u32,
+        size: 4,
+    });
+    buffer.write(b"#Strings\0\0\0\0");
 
+    // Blob stream
+    buffer.write(&DataDirectory {
+        virtual_address: (buffer.len() - metadata_offset) as u32,
+        size: 4,
+    });
+    buffer.write(b"#Blob\0\0\0");
+
+    // Table stream
+    buffer.write(&DataDirectory {
+        virtual_address: (buffer.len() - metadata_offset) as u32,
+        size: 4,
+    });
+    buffer.write(b"#~\0\0");
+
+    buffer.resize(0xCF00, 0); // TODO: calc alignment?
     std::fs::write("/git/test.winmd", buffer).unwrap();
 }
 
@@ -248,7 +272,7 @@ struct MetadataHeader {
     minor_version: u16,
     reserved: u32,
     length: u32,
-    version: [u8;15],
+    version: [u8;20],
     flags: u16,
     streams: u16,
 }
@@ -259,9 +283,9 @@ impl MetadataHeader {
             signature: 0x424A_5342,
             major_version: 1,
             minor_version: 1,
-            length: 15,
-            version: *b"WindowsRuntime\0",
-            streams: 0,//3,
+            length: 20,
+            version: *b"WindowsRuntime\0\0\0\0\0\0",
+            streams: 3,
             ..Default::default() 
         }
     }
