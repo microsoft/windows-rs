@@ -4,7 +4,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
 /// A custom declaration of implementation of `IUri`
 #[interface("a39ee748-6a27-4817-a6f2-13914bef5890")]
-pub unsafe trait ICustomUri: IUnknown {
+unsafe trait ICustomUri: IUnknown {
     unsafe fn GetPropertyBSTR(&self, property: Uri_PROPERTY, value: *mut BSTR, flags: u32) -> HRESULT;
     unsafe fn GetPropertyLength(&self) -> HRESULT;
     unsafe fn GetPropertyDWORD(&self, property: Uri_PROPERTY, value: *mut u32, flags: u32) -> HRESULT;
@@ -18,13 +18,13 @@ pub unsafe trait ICustomUri: IUnknown {
 
 /// A custom declaration of implementation of `IPersist`
 #[interface("0000010c-0000-0000-C000-000000000046")]
-pub unsafe trait ICustomPersist: IUnknown {
+unsafe trait ICustomPersist: IUnknown {
     unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT;
 }
 
 /// A custom declaration of implementation of `IPersistMemory`
 #[interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
-pub unsafe trait ICustomPersistMemory: ICustomPersist {
+unsafe trait ICustomPersistMemory: ICustomPersist {
     unsafe fn IsDirty(&self) -> HRESULT;
     unsafe fn Load(&self, input: *const core::ffi::c_void, size: u32) -> HRESULT;
     unsafe fn Save(&self, output: *mut core::ffi::c_void, clear_dirty: BOOL, size: u32) -> HRESULT;

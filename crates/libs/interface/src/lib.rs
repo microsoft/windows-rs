@@ -155,6 +155,7 @@ impl Interface {
 
     /// Generates the vtable for a COM interface
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
+        let vis = &self.visibility;
         let name = &self.name;
         let parent_vtable = self.parent_vtable();
         let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
@@ -208,7 +209,7 @@ impl Interface {
         quote! {
             #[repr(C)]
             #[doc(hidden)]
-            pub struct #vtable_name {
+            #vis struct #vtable_name {
                 pub base: #parent_vtable,
                 #(#vtable_entries)*
             }
