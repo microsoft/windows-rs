@@ -292,7 +292,7 @@ impl Interface {
     /// Gets the parent trait constrait which is nothing if the parent is IUnknown
     fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
         let i = self.parent_ident();
-        if i.clone().to_string() == "IUnknown" {
+        if i == "IUnknown" {
             return quote!();
         }
         let i = quote::format_ident!("{}Impl", i);
