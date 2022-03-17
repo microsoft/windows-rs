@@ -20,7 +20,7 @@ pub fn test() {
     let mut blobs = blobs.buffer();
     let mut tables = tables.buffer();
 
-    let size_of_image = optional.file_alignment as usize + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + 48 + strings.len() + blobs.len() + tables.len();
+    let size_of_image = optional.file_alignment as usize + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + size_of::<StreamHeader>() + strings.len() + blobs.len() + tables.len();
 
     optional.size_of_image = round(size_of_image, optional.section_alignment as _) as _;
     section.virtual_size = size_of_image as u32 - optional.file_alignment;
@@ -36,29 +36,21 @@ pub fn test() {
     buffer.write(&optional);
     buffer.write(&section);
     debug_assert!(buffer.len() < optional.file_alignment as _);
-    println!("header: {}", buffer.len());
     buffer.resize(optional.file_alignment as _, 0);
     buffer.write(&clr);
     let metadata_offset = buffer.len();
     buffer.write(&metadata);
 
-    let stream_offset = buffer.len() - metadata_offset
-        + size_of::<DataDirectory>() + 12 // #Strings
-        + size_of::<DataDirectory>() + 8  // #Blob
-        + size_of::<DataDirectory>() + 4; // #~
+    let stream_offset = buffer.len() - metadata_offset + size_of::<StreamHeader>();
+    let mut streams = StreamHeader::new();
+    streams.strings_offset = stream_offset as u32;
+    streams.strings_size = strings.len() as _;
+    streams.blobs_offset = (stream_offset + strings.len()) as u32;
+    streams.blobs_size = blobs.len() as _;
+    streams.tables_offset = (stream_offset + strings.len() + blobs.len()) as u32;
+    streams.tables_size = tables.len() as _;
 
-    // String stream header
-    buffer.write(&DataDirectory { virtual_address: stream_offset as u32, size: strings.len() as _ });
-    buffer.write(b"#Strings\0\0\0\0");
-
-    // Blob stream header
-    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len()) as u32, size: blobs.len() as _ });
-    buffer.write(b"#Blob\0\0\0");
-
-    // Table stream header
-    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len() + blobs.len()) as u32, size: tables.len() as _ });
-    buffer.write(b"#~\0\0");
-
+    buffer.write(&streams);
     buffer.append(&mut strings);
     buffer.append(&mut blobs);
     buffer.append(&mut tables);
@@ -286,6 +278,49 @@ impl MetadataHeader {
     }
 }
 
+#[repr(C)]
+#[derive(Default)]
+struct StreamHeader {
+    strings_offset: u32,
+    strings_size: u32,
+    strings_name: [u8; 12],
+    blobs_offset: u32,
+    blobs_size: u32,
+    blobs_name: [u8; 8],
+    tables_offset: u32,
+    tables_size: u32,
+    tables_name: [u8; 4],
+}
+
+impl StreamHeader {
+    fn new() -> Self {
+        Self {
+            strings_name: *b"#Strings\0\0\0\0",
+            blobs_name: *b"#Blob\0\0\0",
+            tables_name: *b"#~\0\0",
+            ..Default::default()
+        }
+    }
+}
+
+#[repr(C)]
+#[derive(Default)]
+struct TableStreamHeader {
+    reserved1: u32,
+    major_version: u8,
+    minor_version: u8,
+    heap_sizes: u8,
+    reserved2: u8,
+    valid: u64,
+    sorted: u64,
+}
+
+impl TableStreamHeader {
+    fn new() -> Self {
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, ..Default::default() }
+    }
+}
+
 #[derive(Default)]
 struct Strings(BTreeSet<String>);
 
@@ -319,23 +354,5 @@ impl Tables {
         let header = TableStreamHeader::new();
         buffer.write(&header);
         buffer
-    }
-}
-
-#[repr(C)]
-#[derive(Default)]
-struct TableStreamHeader {
-    reserved1: u32,
-    major_version: u8,
-    minor_version: u8,
-    heap_sizes: u8,
-    reserved2: u8,
-    valid: u64,
-    sorted: u64,
-}
-
-impl TableStreamHeader {
-    fn new() -> Self {
-        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, ..Default::default() }
     }
 }
