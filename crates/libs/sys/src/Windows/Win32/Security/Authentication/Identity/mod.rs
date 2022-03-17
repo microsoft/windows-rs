@@ -71,7 +71,7 @@ extern "system" {
     pub fn AuditQueryPerUserPolicy(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows_sys::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
+    pub fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows_sys::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
@@ -86,7 +86,7 @@ extern "system" {
     pub fn AuditSetPerUserPolicy(psid: super::super::super::Foundation::PSID, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
+    pub fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
@@ -831,9 +831,9 @@ pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub LengthAppliesTo: u32,
     pub AppliesTo: *mut u8,
     pub LengthSD: u32,
-    pub SD: *mut ::core::ffi::c_void,
+    pub SD: super::super::PSECURITY_DESCRIPTOR,
     pub LengthStagedSD: u32,
-    pub StagedSD: *mut ::core::ffi::c_void,
+    pub StagedSD: super::super::PSECURITY_DESCRIPTOR,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7220,7 +7220,7 @@ pub struct SE_ADT_ACCESS_REASON {
     pub AccessReasons: [u32; 32],
     pub ObjectTypeIndex: u32,
     pub AccessGranted: u32,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub SecurityDescriptor: super::super::PSECURITY_DESCRIPTOR,
 }
 impl ::core::marker::Copy for SE_ADT_ACCESS_REASON {}
 impl ::core::clone::Clone for SE_ADT_ACCESS_REASON {

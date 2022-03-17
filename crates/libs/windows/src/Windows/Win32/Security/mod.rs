@@ -620,14 +620,14 @@ impl ::core::fmt::Debug for AUDIT_EVENT_TYPE {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheck<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: Param1, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheck<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: Param0, clienttoken: Param1, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheck(psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheck(psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheck(::core::mem::transmute(psecuritydescriptor), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus)))
+        ::core::mem::transmute(AccessCheck(psecuritydescriptor.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -635,14 +635,14 @@ pub unsafe fn AccessCheck<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, securitydescriptor: *const ::core::ffi::c_void, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: Param7, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, securitydescriptor: Param4, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: Param7, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckAndAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckAndAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheckAndAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(genericmapping), objectcreation.into_param().abi(), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus), ::core::mem::transmute(pfgenerateonclose)))
+        ::core::mem::transmute(AccessCheckAndAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), securitydescriptor.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(genericmapping), objectcreation.into_param().abi(), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus), ::core::mem::transmute(pfgenerateonclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -650,14 +650,14 @@ pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, securitydescriptor: *const ::core::ffi::c_void, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: Param7, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, securitydescriptor: Param4, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: Param7, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckAndAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckAndAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheckAndAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(genericmapping), objectcreation.into_param().abi(), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus), ::core::mem::transmute(pfgenerateonclose)))
+        ::core::mem::transmute(AccessCheckAndAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), securitydescriptor.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(genericmapping), objectcreation.into_param().abi(), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus), ::core::mem::transmute(pfgenerateonclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -665,14 +665,14 @@ pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const ::core::ffi::c_void, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: &mut [OBJECT_TYPE_LIST], genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheckByType<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: Param0, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: &mut [OBJECT_TYPE_LIST], genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByType(psecuritydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheckByType(::core::mem::transmute(psecuritydescriptor), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(objecttypelist)), objecttypelist.len() as _, ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus)))
+        ::core::mem::transmute(AccessCheckByType(psecuritydescriptor.into_param().abi(), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(objecttypelist)), objecttypelist.len() as _, ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -680,12 +680,12 @@ pub unsafe fn AccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
-    securitydescriptor: *const ::core::ffi::c_void,
+    securitydescriptor: Param4,
     principalselfsid: Param5,
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
@@ -701,14 +701,14 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoP
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeAndAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeAndAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(AccessCheckByTypeAndAuditAlarmA(
             subsystemname.into_param().abi(),
             ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::core::mem::transmute(securitydescriptor),
+            securitydescriptor.into_param().abi(),
             principalselfsid.into_param().abi(),
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
@@ -728,12 +728,12 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoP
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
-    securitydescriptor: *const ::core::ffi::c_void,
+    securitydescriptor: Param4,
     principalselfsid: Param5,
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
@@ -749,14 +749,14 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoP
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeAndAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeAndAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(AccessCheckByTypeAndAuditAlarmW(
             subsystemname.into_param().abi(),
             ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::core::mem::transmute(securitydescriptor),
+            securitydescriptor.into_param().abi(),
             principalselfsid.into_param().abi(),
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
@@ -776,14 +776,14 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoP
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const ::core::ffi::c_void, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheckByTypeResultList<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: Param0, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeResultList(psecuritydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheckByTypeResultList(::core::mem::transmute(psecuritydescriptor), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objecttypelist), ::core::mem::transmute(objecttypelistlength), ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccesslist), ::core::mem::transmute(accessstatuslist)))
+        ::core::mem::transmute(AccessCheckByTypeResultList(psecuritydescriptor.into_param().abi(), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objecttypelist), ::core::mem::transmute(objecttypelistlength), ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccesslist), ::core::mem::transmute(accessstatuslist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -791,12 +791,12 @@ pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
-    securitydescriptor: *const ::core::ffi::c_void,
+    securitydescriptor: Param4,
     principalselfsid: Param5,
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
@@ -813,14 +813,14 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmA(
             subsystemname.into_param().abi(),
             ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::core::mem::transmute(securitydescriptor),
+            securitydescriptor.into_param().abi(),
             principalselfsid.into_param().abi(),
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
@@ -840,13 +840,13 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::c
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     clienttoken: Param2,
     objecttypename: Param3,
     objectname: Param4,
-    securitydescriptor: *const ::core::ffi::c_void,
+    securitydescriptor: Param5,
     principalselfsid: Param6,
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
@@ -863,7 +863,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmByHandleA(
             subsystemname.into_param().abi(),
@@ -871,7 +871,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
             clienttoken.into_param().abi(),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::core::mem::transmute(securitydescriptor),
+            securitydescriptor.into_param().abi(),
             principalselfsid.into_param().abi(),
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
@@ -891,13 +891,13 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     clienttoken: Param2,
     objecttypename: Param3,
     objectname: Param4,
-    securitydescriptor: *const ::core::ffi::c_void,
+    securitydescriptor: Param5,
     principalselfsid: Param6,
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
@@ -914,7 +914,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmByHandleW(
             subsystemname.into_param().abi(),
@@ -922,7 +922,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
             clienttoken.into_param().abi(),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::core::mem::transmute(securitydescriptor),
+            securitydescriptor.into_param().abi(),
             principalselfsid.into_param().abi(),
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
@@ -942,12 +942,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
-    securitydescriptor: *const ::core::ffi::c_void,
+    securitydescriptor: Param4,
     principalselfsid: Param5,
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
@@ -964,14 +964,14 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: *const ::core::ffi::c_void, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmW(
             subsystemname.into_param().abi(),
             ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::core::mem::transmute(securitydescriptor),
+            securitydescriptor.into_param().abi(),
             principalselfsid.into_param().abi(),
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
@@ -1730,14 +1730,14 @@ pub unsafe fn CheckTokenMembershipEx<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(parentdescriptor: *const ::core::ffi::c_void, currentsecuritydescriptor: *const ::core::ffi::c_void, newsecuritydescriptor: *mut *mut ::core::ffi::c_void, objecttype: *const ::windows::core::GUID, isdirectoryobject: Param4, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
+pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(parentdescriptor: Param0, currentsecuritydescriptor: Param1, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: *const ::windows::core::GUID, isdirectoryobject: Param4, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: *const ::core::ffi::c_void, currentsecuritydescriptor: *const ::core::ffi::c_void, newsecuritydescriptor: *mut *mut ::core::ffi::c_void, objecttype: *const ::windows::core::GUID, isdirectoryobject: super::Foundation::BOOLEAN, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
+            fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, currentsecuritydescriptor: PSECURITY_DESCRIPTOR, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: *const ::windows::core::GUID, isdirectoryobject: super::Foundation::BOOLEAN, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ConvertToAutoInheritPrivateObjectSecurity(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(currentsecuritydescriptor), ::core::mem::transmute(newsecuritydescriptor), ::core::mem::transmute(objecttype), isdirectoryobject.into_param().abi(), ::core::mem::transmute(genericmapping)))
+        ::core::mem::transmute(ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor.into_param().abi(), currentsecuritydescriptor.into_param().abi(), ::core::mem::transmute(newsecuritydescriptor), ::core::mem::transmute(objecttype), isdirectoryobject.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1760,14 +1760,14 @@ pub unsafe fn CopySid<'a, Param2: ::windows::core::IntoParam<'a, super::Foundati
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurity<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, isdirectoryobject: Param3, token: Param4, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
+pub unsafe fn CreatePrivateObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: Param0, creatordescriptor: Param1, newdescriptor: *mut PSECURITY_DESCRIPTOR, isdirectoryobject: Param3, token: Param4, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePrivateObjectSecurity(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, isdirectoryobject: super::Foundation::BOOL, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
+            fn CreatePrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: *mut PSECURITY_DESCRIPTOR, isdirectoryobject: super::Foundation::BOOL, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePrivateObjectSecurity(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(creatordescriptor), ::core::mem::transmute(newdescriptor), isdirectoryobject.into_param().abi(), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
+        ::core::mem::transmute(CreatePrivateObjectSecurity(parentdescriptor.into_param().abi(), creatordescriptor.into_param().abi(), ::core::mem::transmute(newdescriptor), isdirectoryobject.into_param().abi(), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1775,14 +1775,14 @@ pub unsafe fn CreatePrivateObjectSecurity<'a, Param3: ::windows::core::IntoParam
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, objecttype: *const ::windows::core::GUID, iscontainerobject: Param4, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param6, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
+pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: Param0, creatordescriptor: Param1, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: *const ::windows::core::GUID, iscontainerobject: Param4, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param6, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePrivateObjectSecurityEx(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, objecttype: *const ::windows::core::GUID, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
+            fn CreatePrivateObjectSecurityEx(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: *const ::windows::core::GUID, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePrivateObjectSecurityEx(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(creatordescriptor), ::core::mem::transmute(newdescriptor), ::core::mem::transmute(objecttype), iscontainerobject.into_param().abi(), ::core::mem::transmute(autoinheritflags), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
+        ::core::mem::transmute(CreatePrivateObjectSecurityEx(parentdescriptor.into_param().abi(), creatordescriptor.into_param().abi(), ::core::mem::transmute(newdescriptor), ::core::mem::transmute(objecttype), iscontainerobject.into_param().abi(), ::core::mem::transmute(autoinheritflags), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1790,14 +1790,14 @@ pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param4: ::windows::core::IntoPar
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, objecttypes: &[*const ::windows::core::GUID], iscontainerobject: Param5, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param7, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
+pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: Param0, creatordescriptor: Param1, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttypes: &[*const ::windows::core::GUID], iscontainerobject: Param5, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param7, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: *const ::core::ffi::c_void, creatordescriptor: *const ::core::ffi::c_void, newdescriptor: *mut *mut ::core::ffi::c_void, objecttypes: *const *const ::windows::core::GUID, guidcount: u32, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
+            fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttypes: *const *const ::windows::core::GUID, guidcount: u32, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePrivateObjectSecurityWithMultipleInheritance(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(creatordescriptor), ::core::mem::transmute(newdescriptor), ::core::mem::transmute(::windows::core::as_ptr_or_null(objecttypes)), objecttypes.len() as _, iscontainerobject.into_param().abi(), ::core::mem::transmute(autoinheritflags), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
+        ::core::mem::transmute(CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.into_param().abi(), creatordescriptor.into_param().abi(), ::core::mem::transmute(newdescriptor), ::core::mem::transmute(::windows::core::as_ptr_or_null(objecttypes)), objecttypes.len() as _, iscontainerobject.into_param().abi(), ::core::mem::transmute(autoinheritflags), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1865,12 +1865,12 @@ pub unsafe fn DeriveCapabilitySidsFromName<'a, Param0: ::windows::core::IntoPara
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+            fn DestroyPrivateObjectSecurity(objectdescriptor: *const PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(DestroyPrivateObjectSecurity(::core::mem::transmute(objectdescriptor)))
     }
@@ -2117,12 +2117,12 @@ pub unsafe fn GetCachedSigningLevel<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpfilename: Param0, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpfilename: Param0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileSecurityA(lpfilename: ::windows::core::PCSTR, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
+            fn GetFileSecurityA(lpfilename: ::windows::core::PCSTR, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetFileSecurityA(lpfilename.into_param().abi(), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
@@ -2132,12 +2132,12 @@ pub unsafe fn GetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpfilename: Param0, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpfilename: Param0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileSecurityW(lpfilename: ::windows::core::PCWSTR, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
+            fn GetFileSecurityW(lpfilename: ::windows::core::PCWSTR, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetFileSecurityW(lpfilename.into_param().abi(), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
@@ -2147,12 +2147,12 @@ pub unsafe fn GetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(handle: Param0, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(handle: Param0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
+            fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetKernelObjectSecurity(handle.into_param().abi(), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
@@ -2177,14 +2177,14 @@ pub unsafe fn GetLengthSid<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrivateObjectSecurity(objectdescriptor: *const ::core::ffi::c_void, securityinformation: u32, resultantdescriptor: *mut ::core::ffi::c_void, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetPrivateObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(objectdescriptor: Param0, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPrivateObjectSecurity(objectdescriptor: *const ::core::ffi::c_void, securityinformation: u32, resultantdescriptor: *mut ::core::ffi::c_void, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
+            fn GetPrivateObjectSecurity(objectdescriptor: PSECURITY_DESCRIPTOR, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetPrivateObjectSecurity(::core::mem::transmute(objectdescriptor), ::core::mem::transmute(securityinformation), ::core::mem::transmute(resultantdescriptor), ::core::mem::transmute(descriptorlength), ::core::mem::transmute(returnlength)))
+        ::core::mem::transmute(GetPrivateObjectSecurity(objectdescriptor.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(resultantdescriptor), ::core::mem::transmute(descriptorlength), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2192,14 +2192,14 @@ pub unsafe fn GetPrivateObjectSecurity(objectdescriptor: *const ::core::ffi::c_v
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorControl(psecuritydescriptor: *const ::core::ffi::c_void, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetSecurityDescriptorControl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorControl(psecuritydescriptor: *const ::core::ffi::c_void, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL;
+            fn GetSecurityDescriptorControl(psecuritydescriptor: PSECURITY_DESCRIPTOR, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetSecurityDescriptorControl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(pcontrol), ::core::mem::transmute(lpdwrevision)))
+        ::core::mem::transmute(GetSecurityDescriptorControl(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(pcontrol), ::core::mem::transmute(lpdwrevision)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2207,14 +2207,14 @@ pub unsafe fn GetSecurityDescriptorControl(psecuritydescriptor: *const ::core::f
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorDacl(psecuritydescriptor: *const ::core::ffi::c_void, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn GetSecurityDescriptorDacl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorDacl(psecuritydescriptor: *const ::core::ffi::c_void, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL;
+            fn GetSecurityDescriptorDacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetSecurityDescriptorDacl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(lpbdaclpresent), ::core::mem::transmute(pdacl), ::core::mem::transmute(lpbdacldefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorDacl(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(lpbdaclpresent), ::core::mem::transmute(pdacl), ::core::mem::transmute(lpbdacldefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2222,28 +2222,28 @@ pub unsafe fn GetSecurityDescriptorDacl(psecuritydescriptor: *const ::core::ffi:
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorGroup(psecuritydescriptor: *const ::core::ffi::c_void, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn GetSecurityDescriptorGroup<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorGroup(psecuritydescriptor: *const ::core::ffi::c_void, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL;
+            fn GetSecurityDescriptorGroup(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetSecurityDescriptorGroup(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(pgroup), ::core::mem::transmute(lpbgroupdefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorGroup(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(pgroup), ::core::mem::transmute(lpbgroupdefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetSecurityDescriptorLength<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorLength(psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
+            fn GetSecurityDescriptorLength(psecuritydescriptor: PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(GetSecurityDescriptorLength(::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(GetSecurityDescriptorLength(psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2251,28 +2251,28 @@ pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const ::core::ff
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorOwner(psecuritydescriptor: *const ::core::ffi::c_void, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn GetSecurityDescriptorOwner<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorOwner(psecuritydescriptor: *const ::core::ffi::c_void, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL;
+            fn GetSecurityDescriptorOwner(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetSecurityDescriptorOwner(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(powner), ::core::mem::transmute(lpbownerdefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorOwner(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(powner), ::core::mem::transmute(lpbownerdefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: *const ::core::ffi::c_void, rmcontrol: *mut u8) -> u32 {
+pub unsafe fn GetSecurityDescriptorRMControl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(securitydescriptor: Param0, rmcontrol: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorRMControl(securitydescriptor: *const ::core::ffi::c_void, rmcontrol: *mut u8) -> u32;
+            fn GetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: *mut u8) -> u32;
         }
-        ::core::mem::transmute(GetSecurityDescriptorRMControl(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(rmcontrol)))
+        ::core::mem::transmute(GetSecurityDescriptorRMControl(securitydescriptor.into_param().abi(), ::core::mem::transmute(rmcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2280,14 +2280,14 @@ pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: *const ::core::
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityDescriptorSacl(psecuritydescriptor: *const ::core::ffi::c_void, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn GetSecurityDescriptorSacl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityDescriptorSacl(psecuritydescriptor: *const ::core::ffi::c_void, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL;
+            fn GetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetSecurityDescriptorSacl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(lpbsaclpresent), ::core::mem::transmute(psacl), ::core::mem::transmute(lpbsacldefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorSacl(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(lpbsaclpresent), ::core::mem::transmute(psacl), ::core::mem::transmute(lpbsacldefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2369,12 +2369,12 @@ pub unsafe fn GetTokenInformation<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(hobj: Param0, psirequested: *const u32, psid: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(hobj: Param0, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const u32, psid: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
+            fn GetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetUserObjectSecurity(hobj.into_param().abi(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
@@ -2663,12 +2663,12 @@ pub unsafe fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32)
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: *mut ::core::ffi::c_void, dwrevision: u32) -> super::Foundation::BOOL {
+pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, dwrevision: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InitializeSecurityDescriptor(psecuritydescriptor: *mut ::core::ffi::c_void, dwrevision: u32) -> super::Foundation::BOOL;
+            fn InitializeSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, dwrevision: u32) -> super::Foundation::BOOL;
         }
         ::core::mem::transmute(InitializeSecurityDescriptor(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(dwrevision)))
     }
@@ -2723,14 +2723,14 @@ pub unsafe fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsValidSecurityDescriptor(psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn IsValidSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsValidSecurityDescriptor(psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+            fn IsValidSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(IsValidSecurityDescriptor(::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(IsValidSecurityDescriptor(psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3185,14 +3185,14 @@ impl ::core::fmt::Debug for MANDATORY_LEVEL {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const ::core::ffi::c_void, pabsolutesecuritydescriptor: *mut ::core::ffi::c_void, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn MakeAbsoluteSD<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(pselfrelativesecuritydescriptor: Param0, pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const ::core::ffi::c_void, pabsolutesecuritydescriptor: *mut ::core::ffi::c_void, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL;
+            fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(MakeAbsoluteSD(::core::mem::transmute(pselfrelativesecuritydescriptor), ::core::mem::transmute(pabsolutesecuritydescriptor), ::core::mem::transmute(lpdwabsolutesecuritydescriptorsize), ::core::mem::transmute(pdacl), ::core::mem::transmute(lpdwdaclsize), ::core::mem::transmute(psacl), ::core::mem::transmute(lpdwsaclsize), ::core::mem::transmute(powner), ::core::mem::transmute(lpdwownersize), ::core::mem::transmute(pprimarygroup), ::core::mem::transmute(lpdwprimarygroupsize)))
+        ::core::mem::transmute(MakeAbsoluteSD(pselfrelativesecuritydescriptor.into_param().abi(), ::core::mem::transmute(pabsolutesecuritydescriptor), ::core::mem::transmute(lpdwabsolutesecuritydescriptorsize), ::core::mem::transmute(pdacl), ::core::mem::transmute(lpdwdaclsize), ::core::mem::transmute(psacl), ::core::mem::transmute(lpdwsaclsize), ::core::mem::transmute(powner), ::core::mem::transmute(lpdwownersize), ::core::mem::transmute(pprimarygroup), ::core::mem::transmute(lpdwprimarygroupsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3200,14 +3200,14 @@ pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const ::core::ffi
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const ::core::ffi::c_void, pselfrelativesecuritydescriptor: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn MakeSelfRelativeSD<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(pabsolutesecuritydescriptor: Param0, pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const ::core::ffi::c_void, pselfrelativesecuritydescriptor: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL;
+            fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(MakeSelfRelativeSD(::core::mem::transmute(pabsolutesecuritydescriptor), ::core::mem::transmute(pselfrelativesecuritydescriptor), ::core::mem::transmute(lpdwbufferlength)))
+        ::core::mem::transmute(MakeSelfRelativeSD(pabsolutesecuritydescriptor.into_param().abi(), ::core::mem::transmute(pselfrelativesecuritydescriptor), ::core::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3464,14 +3464,27 @@ pub unsafe fn ObjectDeleteAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: Param5, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: Param9, accessgranted: Param10, generateonclose: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+    subsystemname: Param0,
+    handleid: *const ::core::ffi::c_void,
+    objecttypename: Param2,
+    objectname: Param3,
+    psecuritydescriptor: Param4,
+    clienttoken: Param5,
+    desiredaccess: u32,
+    grantedaccess: u32,
+    privileges: *const PRIVILEGE_SET,
+    objectcreation: Param9,
+    accessgranted: Param10,
+    generateonclose: *mut i32,
+) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectOpenAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn ObjectOpenAuditAlarmA(subsystemname: ::windows::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCSTR, objectname: ::windows::core::PCSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ObjectOpenAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), ::core::mem::transmute(psecuritydescriptor), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(privileges), objectcreation.into_param().abi(), accessgranted.into_param().abi(), ::core::mem::transmute(generateonclose)))
+        ::core::mem::transmute(ObjectOpenAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), psecuritydescriptor.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(privileges), objectcreation.into_param().abi(), accessgranted.into_param().abi(), ::core::mem::transmute(generateonclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3479,14 +3492,27 @@ pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, :
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: Param5, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: Param9, accessgranted: Param10, generateonclose: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+    subsystemname: Param0,
+    handleid: *const ::core::ffi::c_void,
+    objecttypename: Param2,
+    objectname: Param3,
+    psecuritydescriptor: Param4,
+    clienttoken: Param5,
+    desiredaccess: u32,
+    grantedaccess: u32,
+    privileges: *const PRIVILEGE_SET,
+    objectcreation: Param9,
+    accessgranted: Param10,
+    generateonclose: *mut i32,
+) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectOpenAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, psecuritydescriptor: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn ObjectOpenAuditAlarmW(subsystemname: ::windows::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows::core::PCWSTR, objectname: ::windows::core::PCWSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ObjectOpenAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), ::core::mem::transmute(psecuritydescriptor), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(privileges), objectcreation.into_param().abi(), accessgranted.into_param().abi(), ::core::mem::transmute(generateonclose)))
+        ::core::mem::transmute(ObjectOpenAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), objecttypename.into_param().abi(), objectname.into_param().abi(), psecuritydescriptor.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(privileges), objectcreation.into_param().abi(), accessgranted.into_param().abi(), ::core::mem::transmute(generateonclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3563,6 +3589,40 @@ impl ::core::default::Default for PRIVILEGE_SET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PSECURITY_DESCRIPTOR(pub *mut ::core::ffi::c_void);
+impl PSECURITY_DESCRIPTOR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PSECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PSECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSECURITY_DESCRIPTOR {}
+impl ::core::fmt::Debug for PSECURITY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSECURITY_DESCRIPTOR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PSECURITY_DESCRIPTOR {
+    type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3691,12 +3751,12 @@ pub unsafe fn RtlConvertSidToUnicodeString<'a, Param1: ::windows::core::IntoPara
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut ::core::ffi::c_void, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::Foundation::BOOLEAN {
+pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut ::core::ffi::c_void, newsecuritydescriptorlength: *mut u32, checkonly: super::Foundation::BOOLEAN) -> super::Foundation::BOOLEAN;
+            fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: super::Foundation::BOOLEAN) -> super::Foundation::BOOLEAN;
         }
         ::core::mem::transmute(RtlNormalizeSecurityDescriptor(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorlength), ::core::mem::transmute(newsecuritydescriptor), ::core::mem::transmute(newsecuritydescriptorlength), checkonly.into_param().abi()))
     }
@@ -4177,7 +4237,7 @@ impl ::core::default::Default for SE_IMPERSONATION_STATE {
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
 impl ::core::marker::Copy for SE_SECURITY_DESCRIPTOR {}
 impl ::core::clone::Clone for SE_SECURITY_DESCRIPTOR {
@@ -4933,14 +4993,14 @@ pub unsafe fn SetCachedSigningLevel<'a, Param3: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpfilename: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn SetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(lpfilename: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetFileSecurityA(lpfilename: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+            fn SetFileSecurityA(lpfilename: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetFileSecurityA(lpfilename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(SetFileSecurityA(lpfilename.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4948,14 +5008,14 @@ pub unsafe fn SetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpfilename: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn SetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(lpfilename: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetFileSecurityW(lpfilename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+            fn SetFileSecurityW(lpfilename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetFileSecurityW(lpfilename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(SetFileSecurityW(lpfilename.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4963,14 +5023,14 @@ pub unsafe fn SetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(handle: Param0, securityinformation: u32, securitydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn SetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(handle: Param0, securityinformation: u32, securitydescriptor: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetKernelObjectSecurity(handle: super::Foundation::HANDLE, securityinformation: u32, securitydescriptor: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+            fn SetKernelObjectSecurity(handle: super::Foundation::HANDLE, securityinformation: u32, securitydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetKernelObjectSecurity(handle.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(SetKernelObjectSecurity(handle.into_param().abi(), ::core::mem::transmute(securityinformation), securitydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4978,14 +5038,14 @@ pub unsafe fn SetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrivateObjectSecurity<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(securityinformation: u32, modificationdescriptor: *const ::core::ffi::c_void, objectssecuritydescriptor: *mut *mut ::core::ffi::c_void, genericmapping: *const GENERIC_MAPPING, token: Param4) -> super::Foundation::BOOL {
+pub unsafe fn SetPrivateObjectSecurity<'a, Param1: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(securityinformation: u32, modificationdescriptor: Param1, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: Param4) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetPrivateObjectSecurity(securityinformation: u32, modificationdescriptor: *const ::core::ffi::c_void, objectssecuritydescriptor: *mut *mut ::core::ffi::c_void, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
+            fn SetPrivateObjectSecurity(securityinformation: u32, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetPrivateObjectSecurity(::core::mem::transmute(securityinformation), ::core::mem::transmute(modificationdescriptor), ::core::mem::transmute(objectssecuritydescriptor), ::core::mem::transmute(genericmapping), token.into_param().abi()))
+        ::core::mem::transmute(SetPrivateObjectSecurity(::core::mem::transmute(securityinformation), modificationdescriptor.into_param().abi(), ::core::mem::transmute(objectssecuritydescriptor), ::core::mem::transmute(genericmapping), token.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4993,14 +5053,14 @@ pub unsafe fn SetPrivateObjectSecurity<'a, Param4: ::windows::core::IntoParam<'a
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrivateObjectSecurityEx<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(securityinformation: u32, modificationdescriptor: *const ::core::ffi::c_void, objectssecuritydescriptor: *mut *mut ::core::ffi::c_void, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: Param5) -> super::Foundation::BOOL {
+pub unsafe fn SetPrivateObjectSecurityEx<'a, Param1: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(securityinformation: u32, modificationdescriptor: Param1, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: Param5) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetPrivateObjectSecurityEx(securityinformation: u32, modificationdescriptor: *const ::core::ffi::c_void, objectssecuritydescriptor: *mut *mut ::core::ffi::c_void, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
+            fn SetPrivateObjectSecurityEx(securityinformation: u32, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetPrivateObjectSecurityEx(::core::mem::transmute(securityinformation), ::core::mem::transmute(modificationdescriptor), ::core::mem::transmute(objectssecuritydescriptor), ::core::mem::transmute(autoinheritflags), ::core::mem::transmute(genericmapping), token.into_param().abi()))
+        ::core::mem::transmute(SetPrivateObjectSecurityEx(::core::mem::transmute(securityinformation), modificationdescriptor.into_param().abi(), ::core::mem::transmute(objectssecuritydescriptor), ::core::mem::transmute(autoinheritflags), ::core::mem::transmute(genericmapping), token.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5022,14 +5082,14 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mu
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorControl(psecuritydescriptor: *const ::core::ffi::c_void, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL {
+pub unsafe fn SetSecurityDescriptorControl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSecurityDescriptorControl(psecuritydescriptor: *const ::core::ffi::c_void, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL;
+            fn SetSecurityDescriptorControl(psecuritydescriptor: PSECURITY_DESCRIPTOR, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSecurityDescriptorControl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(controlbitsofinterest), ::core::mem::transmute(controlbitstoset)))
+        ::core::mem::transmute(SetSecurityDescriptorControl(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(controlbitsofinterest), ::core::mem::transmute(controlbitstoset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5037,14 +5097,14 @@ pub unsafe fn SetSecurityDescriptorControl(psecuritydescriptor: *const ::core::f
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorDacl<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut ::core::ffi::c_void, bdaclpresent: Param1, pdacl: *const ACL, bdacldefaulted: Param3) -> super::Foundation::BOOL {
+pub unsafe fn SetSecurityDescriptorDacl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: Param0, bdaclpresent: Param1, pdacl: *const ACL, bdacldefaulted: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSecurityDescriptorDacl(psecuritydescriptor: *mut ::core::ffi::c_void, bdaclpresent: super::Foundation::BOOL, pdacl: *const ACL, bdacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn SetSecurityDescriptorDacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, bdaclpresent: super::Foundation::BOOL, pdacl: *const ACL, bdacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSecurityDescriptorDacl(::core::mem::transmute(psecuritydescriptor), bdaclpresent.into_param().abi(), ::core::mem::transmute(pdacl), bdacldefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorDacl(psecuritydescriptor.into_param().abi(), bdaclpresent.into_param().abi(), ::core::mem::transmute(pdacl), bdacldefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5052,14 +5112,14 @@ pub unsafe fn SetSecurityDescriptorDacl<'a, Param1: ::windows::core::IntoParam<'
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorGroup<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut ::core::ffi::c_void, pgroup: Param1, bgroupdefaulted: Param2) -> super::Foundation::BOOL {
+pub unsafe fn SetSecurityDescriptorGroup<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: Param0, pgroup: Param1, bgroupdefaulted: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSecurityDescriptorGroup(psecuritydescriptor: *mut ::core::ffi::c_void, pgroup: super::Foundation::PSID, bgroupdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn SetSecurityDescriptorGroup(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: super::Foundation::PSID, bgroupdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSecurityDescriptorGroup(::core::mem::transmute(psecuritydescriptor), pgroup.into_param().abi(), bgroupdefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorGroup(psecuritydescriptor.into_param().abi(), pgroup.into_param().abi(), bgroupdefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5067,28 +5127,28 @@ pub unsafe fn SetSecurityDescriptorGroup<'a, Param1: ::windows::core::IntoParam<
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorOwner<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut ::core::ffi::c_void, powner: Param1, bownerdefaulted: Param2) -> super::Foundation::BOOL {
+pub unsafe fn SetSecurityDescriptorOwner<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: Param0, powner: Param1, bownerdefaulted: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSecurityDescriptorOwner(psecuritydescriptor: *mut ::core::ffi::c_void, powner: super::Foundation::PSID, bownerdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn SetSecurityDescriptorOwner(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: super::Foundation::PSID, bownerdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSecurityDescriptorOwner(::core::mem::transmute(psecuritydescriptor), powner.into_param().abi(), bownerdefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorOwner(psecuritydescriptor.into_param().abi(), powner.into_param().abi(), bownerdefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: *mut ::core::ffi::c_void, rmcontrol: *const u8) -> u32 {
+pub unsafe fn SetSecurityDescriptorRMControl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(securitydescriptor: Param0, rmcontrol: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSecurityDescriptorRMControl(securitydescriptor: *mut ::core::ffi::c_void, rmcontrol: *const u8) -> u32;
+            fn SetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: *const u8) -> u32;
         }
-        ::core::mem::transmute(SetSecurityDescriptorRMControl(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(rmcontrol)))
+        ::core::mem::transmute(SetSecurityDescriptorRMControl(securitydescriptor.into_param().abi(), ::core::mem::transmute(rmcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5096,14 +5156,14 @@ pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: *mut ::core::ff
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorSacl<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut ::core::ffi::c_void, bsaclpresent: Param1, psacl: *const ACL, bsacldefaulted: Param3) -> super::Foundation::BOOL {
+pub unsafe fn SetSecurityDescriptorSacl<'a, Param0: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: Param0, bsaclpresent: Param1, psacl: *const ACL, bsacldefaulted: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSecurityDescriptorSacl(psecuritydescriptor: *mut ::core::ffi::c_void, bsaclpresent: super::Foundation::BOOL, psacl: *const ACL, bsacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn SetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, bsaclpresent: super::Foundation::BOOL, psacl: *const ACL, bsacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSecurityDescriptorSacl(::core::mem::transmute(psecuritydescriptor), bsaclpresent.into_param().abi(), ::core::mem::transmute(psacl), bsacldefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorSacl(psecuritydescriptor.into_param().abi(), bsaclpresent.into_param().abi(), ::core::mem::transmute(psacl), bsacldefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5126,14 +5186,14 @@ pub unsafe fn SetTokenInformation<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(hobj: Param0, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn SetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, PSECURITY_DESCRIPTOR>>(hobj: Param0, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+            fn SetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetUserObjectSecurity(hobj.into_param().abi(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid)))
+        ::core::mem::transmute(SetUserObjectSecurity(hobj.into_param().abi(), ::core::mem::transmute(psirequested), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

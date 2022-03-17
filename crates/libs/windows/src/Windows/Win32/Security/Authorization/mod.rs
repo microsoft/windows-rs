@@ -2348,14 +2348,14 @@ impl ::core::fmt::Debug for AZ_PROP_CONSTANTS {
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzAccessCheck<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>>(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, psecuritydescriptor: *const ::core::ffi::c_void, optionalsecuritydescriptorarray: &[*const ::core::ffi::c_void], preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzAccessCheck<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, psecuritydescriptor: Param4, optionalsecuritydescriptorarray: &[super::PSECURITY_DESCRIPTOR], preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AuthzAccessCheck(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: *const ::core::ffi::c_void, optionalsecuritydescriptorarray: *const *const ::core::ffi::c_void, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL;
+            fn AuthzAccessCheck(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AuthzAccessCheck(::core::mem::transmute(flags), hauthzclientcontext.into_param().abi(), ::core::mem::transmute(prequest), hauditevent.into_param().abi(), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(::windows::core::as_ptr_or_null(optionalsecuritydescriptorarray)), optionalsecuritydescriptorarray.len() as _, ::core::mem::transmute(preply), ::core::mem::transmute(phaccesscheckresults)))
+        ::core::mem::transmute(AuthzAccessCheck(::core::mem::transmute(flags), hauthzclientcontext.into_param().abi(), ::core::mem::transmute(prequest), hauditevent.into_param().abi(), psecuritydescriptor.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(optionalsecuritydescriptorarray)), optionalsecuritydescriptorarray.len() as _, ::core::mem::transmute(preply), ::core::mem::transmute(phaccesscheckresults)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2708,14 +2708,14 @@ pub unsafe fn AuthzModifySids<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_C
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzOpenObjectAudit<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>>(flags: u32, hauthzclientcontext: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, psecuritydescriptor: *const ::core::ffi::c_void, optionalsecuritydescriptorarray: &[*const ::core::ffi::c_void], preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzOpenObjectAudit<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(flags: u32, hauthzclientcontext: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, psecuritydescriptor: Param4, optionalsecuritydescriptorarray: &[super::PSECURITY_DESCRIPTOR], preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: *const ::core::ffi::c_void, optionalsecuritydescriptorarray: *const *const ::core::ffi::c_void, optionalsecuritydescriptorcount: u32, preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL;
+            fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AuthzOpenObjectAudit(::core::mem::transmute(flags), hauthzclientcontext.into_param().abi(), ::core::mem::transmute(prequest), hauditevent.into_param().abi(), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(::windows::core::as_ptr_or_null(optionalsecuritydescriptorarray)), optionalsecuritydescriptorarray.len() as _, ::core::mem::transmute(preply)))
+        ::core::mem::transmute(AuthzOpenObjectAudit(::core::mem::transmute(flags), hauthzclientcontext.into_param().abi(), ::core::mem::transmute(prequest), hauditevent.into_param().abi(), psecuritydescriptor.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(optionalsecuritydescriptorarray)), optionalsecuritydescriptorarray.len() as _, ::core::mem::transmute(preply)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2929,28 +2929,28 @@ pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetru
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, plistofaccessentries: &[EXPLICIT_ACCESS_A], plistofauditentries: &[EXPLICIT_ACCESS_A], poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn BuildSecurityDescriptorA<'a, Param6: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, plistofaccessentries: &[EXPLICIT_ACCESS_A], plistofauditentries: &[EXPLICIT_ACCESS_A], poldsd: Param6, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32;
+            fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(BuildSecurityDescriptorA(::core::mem::transmute(powner), ::core::mem::transmute(pgroup), plistofaccessentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofaccessentries)), plistofauditentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofauditentries)), ::core::mem::transmute(poldsd), ::core::mem::transmute(psizenewsd), ::core::mem::transmute(pnewsd)))
+        ::core::mem::transmute(BuildSecurityDescriptorA(::core::mem::transmute(powner), ::core::mem::transmute(pgroup), plistofaccessentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofaccessentries)), plistofauditentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofauditentries)), poldsd.into_param().abi(), ::core::mem::transmute(psizenewsd), ::core::mem::transmute(pnewsd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, plistofaccessentries: &[EXPLICIT_ACCESS_W], plistofauditentries: &[EXPLICIT_ACCESS_W], poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn BuildSecurityDescriptorW<'a, Param6: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, plistofaccessentries: &[EXPLICIT_ACCESS_W], plistofauditentries: &[EXPLICIT_ACCESS_W], poldsd: Param6, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: *const ::core::ffi::c_void, psizenewsd: *mut u32, pnewsd: *mut *mut ::core::ffi::c_void) -> u32;
+            fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(BuildSecurityDescriptorW(::core::mem::transmute(powner), ::core::mem::transmute(pgroup), plistofaccessentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofaccessentries)), plistofauditentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofauditentries)), ::core::mem::transmute(poldsd), ::core::mem::transmute(psizenewsd), ::core::mem::transmute(pnewsd)))
+        ::core::mem::transmute(BuildSecurityDescriptorW(::core::mem::transmute(powner), ::core::mem::transmute(pgroup), plistofaccessentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofaccessentries)), plistofauditentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plistofauditentries)), poldsd.into_param().abi(), ::core::mem::transmute(psizenewsd), ::core::mem::transmute(pnewsd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3074,14 +3074,14 @@ pub unsafe fn BuildTrusteeWithSidW<'a, Param1: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: *const ::core::ffi::c_void, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<'a, Param0: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(securitydescriptor: Param0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: *const ::core::ffi::c_void, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
+            fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ConvertSecurityDescriptorToStringSecurityDescriptorA(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(requestedstringsdrevision), ::core::mem::transmute(securityinformation), ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen)))
+        ::core::mem::transmute(ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.into_param().abi(), ::core::mem::transmute(requestedstringsdrevision), ::core::mem::transmute(securityinformation), ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3089,14 +3089,14 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescr
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: *const ::core::ffi::c_void, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<'a, Param0: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(securitydescriptor: Param0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: *const ::core::ffi::c_void, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
+            fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ConvertSecurityDescriptorToStringSecurityDescriptorW(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(requestedstringsdrevision), ::core::mem::transmute(securityinformation), ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen)))
+        ::core::mem::transmute(ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.into_param().abi(), ::core::mem::transmute(requestedstringsdrevision), ::core::mem::transmute(securityinformation), ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3134,12 +3134,12 @@ pub unsafe fn ConvertSidToStringSidW<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(stringsecuritydescriptor: Param0, stringsdrevision: u32, securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(stringsecuritydescriptor: Param0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: ::windows::core::PCSTR, stringsdrevision: u32, securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
+            fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: ::windows::core::PCSTR, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.into_param().abi(), ::core::mem::transmute(stringsdrevision), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorsize)))
     }
@@ -3149,12 +3149,12 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, Param0: :
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(stringsecuritydescriptor: Param0, stringsdrevision: u32, securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(stringsecuritydescriptor: Param0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: ::windows::core::PCWSTR, stringsdrevision: u32, securitydescriptor: *mut *mut ::core::ffi::c_void, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
+            fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: ::windows::core::PCWSTR, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.into_param().abi(), ::core::mem::transmute(stringsdrevision), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorsize)))
     }
@@ -3477,12 +3477,12 @@ pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W 
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32;
+            fn GetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> u32;
         }
         ::core::mem::transmute(GetNamedSecurityInfoA(pobjectname.into_param().abi(), ::core::mem::transmute(objecttype), ::core::mem::transmute(securityinfo), ::core::mem::transmute(ppsidowner), ::core::mem::transmute(ppsidgroup), ::core::mem::transmute(ppdacl), ::core::mem::transmute(ppsacl), ::core::mem::transmute(ppsecuritydescriptor)))
     }
@@ -3492,12 +3492,12 @@ pub unsafe fn GetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, :
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32;
+            fn GetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> u32;
         }
         ::core::mem::transmute(GetNamedSecurityInfoW(pobjectname.into_param().abi(), ::core::mem::transmute(objecttype), ::core::mem::transmute(securityinfo), ::core::mem::transmute(ppsidowner), ::core::mem::transmute(ppsidgroup), ::core::mem::transmute(ppdacl), ::core::mem::transmute(ppsacl), ::core::mem::transmute(ppsecuritydescriptor)))
     }
@@ -3507,12 +3507,12 @@ pub unsafe fn GetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, :
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> u32;
+            fn GetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> u32;
         }
         ::core::mem::transmute(GetSecurityInfo(handle.into_param().abi(), ::core::mem::transmute(objecttype), ::core::mem::transmute(securityinfo), ::core::mem::transmute(ppsidowner), ::core::mem::transmute(ppsidgroup), ::core::mem::transmute(ppdacl), ::core::mem::transmute(ppsacl), ::core::mem::transmute(ppsecuritydescriptor)))
     }
@@ -12649,28 +12649,28 @@ pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 pub const INHERITED_PARENT: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn LookupSecurityDescriptorPartsA<'a, Param6: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: Param6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: *const ::core::ffi::c_void) -> u32;
+            fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: super::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), ::core::mem::transmute(psd)))
+        ::core::mem::transmute(LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn LookupSecurityDescriptorPartsW<'a, Param6: ::windows::core::IntoParam<'a, super::PSECURITY_DESCRIPTOR>>(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: Param6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: *const ::core::ffi::c_void) -> u32;
+            fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: super::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), ::core::mem::transmute(psd)))
+        ::core::mem::transmute(LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -2533,14 +2533,15 @@ pub unsafe fn CoGetPSClsid(riid: *const ::windows::core::GUID) -> ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> ::windows::core::HRESULT;
         }
         CoGetSystemSecurityPermissions(::core::mem::transmute(comsdtype), ::core::mem::transmute(ppsd)).ok()
     }
@@ -2619,16 +2620,17 @@ pub unsafe fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CoInitializeSecurity(psecdesc: *const ::core::ffi::c_void, asauthsvc: &[SOLE_AUTHENTICATION_SERVICE], preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CoInitializeSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(psecdesc: Param0, asauthsvc: &[SOLE_AUTHENTICATION_SERVICE], preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInitializeSecurity(psecdesc: *const ::core::ffi::c_void, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn CoInitializeSecurity(psecdesc: super::super::Security::PSECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        CoInitializeSecurity(::core::mem::transmute(psecdesc), asauthsvc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(asauthsvc)), ::core::mem::transmute(preserved1), ::core::mem::transmute(dwauthnlevel), ::core::mem::transmute(dwimplevel), ::core::mem::transmute(pauthlist), ::core::mem::transmute(dwcapabilities), ::core::mem::transmute(preserved3)).ok()
+        CoInitializeSecurity(psecdesc.into_param().abi(), asauthsvc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(asauthsvc)), ::core::mem::transmute(preserved1), ::core::mem::transmute(dwauthnlevel), ::core::mem::transmute(dwimplevel), ::core::mem::transmute(pauthlist), ::core::mem::transmute(dwcapabilities), ::core::mem::transmute(preserved3)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8284,8 +8286,8 @@ impl IMoniker {
         (::windows::core::Interface::vtable(self).base.base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsDirty)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
@@ -8838,8 +8840,8 @@ impl IPersistFile {
         (::windows::core::Interface::vtable(self).base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfilename: Param0, dwmode: u32) -> ::windows::core::Result<()> {
@@ -8943,8 +8945,8 @@ impl IPersistMemory {
         (::windows::core::Interface::vtable(self).base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Load(&self, pmem: &[u8]) -> ::windows::core::Result<()> {
@@ -9048,8 +9050,8 @@ impl IPersistStream {
         (::windows::core::Interface::vtable(self).base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
@@ -9148,8 +9150,8 @@ impl IPersistStreamInit {
         (::windows::core::Interface::vtable(self).base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {

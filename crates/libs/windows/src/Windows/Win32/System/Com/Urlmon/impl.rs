@@ -1099,7 +1099,7 @@ impl IMonikerProp_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistMoniker_Impl: Sized {
     fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
     fn Load(&self, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>, grfmode: u32) -> ::windows::core::Result<()>;
     fn Save(&self, pimkname: &::core::option::Option<super::IMoniker>, pbc: &::core::option::Option<super::IBindCtx>, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SaveCompleted(&self, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<()>;
@@ -1122,7 +1122,7 @@ impl IPersistMoniker_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: ::windows::core::RawPtr, pibc: ::windows::core::RawPtr, grfmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

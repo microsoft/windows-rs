@@ -3748,14 +3748,15 @@ pub unsafe fn EventAccessControl<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32) -> u32 {
+pub unsafe fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: super::super::super::Security::PSECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32) -> u32;
+            fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: super::super::super::Security::PSECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(EventAccessQuery(::core::mem::transmute(guid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }

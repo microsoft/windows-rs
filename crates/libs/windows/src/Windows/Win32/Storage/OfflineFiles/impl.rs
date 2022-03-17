@@ -273,7 +273,7 @@ impl IOfflineFilesCache2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesChangeInfo_Impl: Sized {
-    fn IsDirty(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsDirty(&self, pbdirty: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     fn IsDeletedOffline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsCreatedOffline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsLocallyModifiedData(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -286,13 +286,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdirty: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsDirty() {
-                ::core::result::Result::Ok(ok__) => {
-                    *pbdirty = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).IsDirty(::core::mem::transmute_copy(&pbdirty))
         }
         unsafe extern "system" fn IsDeletedOffline<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdeletedoffline: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
