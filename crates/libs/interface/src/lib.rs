@@ -127,7 +127,7 @@ impl Interface {
     }
 
     fn get_com_trait(&self) -> proc_macro2::TokenStream {
-        let name = quote::format_ident!("{}Impl", self.name);
+        let name = quote::format_ident!("{}_Impl", self.name);
         let vis = &self.visibility;
         let methods = self
             .methods
@@ -170,7 +170,7 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
-        let trait_name = quote::format_ident!("{}Impl", name);
+        let trait_name = quote::format_ident!("{}_Impl", name);
         let functions = self
             .methods
             .iter()
@@ -295,7 +295,7 @@ impl Interface {
         if i == "IUnknown" {
             return quote!();
         }
-        let i = quote::format_ident!("{}Impl", i);
+        let i = quote::format_ident!("{}_Impl", i);
         quote!(#i +)
     }
 }
