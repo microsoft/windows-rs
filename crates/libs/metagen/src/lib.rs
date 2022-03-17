@@ -1,22 +1,10 @@
-// Bootstrap the winmd generation here...
-// https://en.wikipedia.org/wiki/Portable_Executable
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
-// https://docs.microsoft.com/en-us/archive/msdn-magazine/2002/february/inside-windows-win32-portable-executable-file-format-in-detail
-// https://github.com/dotnet/runtime/blob/94c0a7c13d158eb79d27223f474ec8f8db747f11/src/coreclr/dlls/mscorpe/pewriter.cpp
 
 use std::collections::*;
 use std::mem::*;
 use std::slice::*;
 
-fn round(size: usize, page: usize) -> usize {
-    let page = page - 1;
-    (size + page) & !page
-}
-
 pub fn test() {
-    assert!(round(5, 4096) == 4096);
-    assert!(round(4096 + 5, 4096) == 8192);
-
     let dos = DosHeader::new();
     let pe = PeHeader::new();
     let mut optional = OptionalHeader::new();
@@ -27,7 +15,7 @@ pub fn test() {
     let strings = Strings::default();
     let blobs = Blobs::default();
     let tables = Tables::default();
-    // TODO: populate metadata
+    // TODO: populate CLI metadata
     let mut strings = strings.buffer();
     let mut blobs = blobs.buffer();
     let mut tables = tables.buffer();
@@ -40,7 +28,7 @@ pub fn test() {
 
     optional.data_directory[14] = DataDirectory { virtual_address: 4096, size: size_of::<ClrHeader>() as _ };
     section.pointer_to_raw_data = optional.file_alignment;
-    clr.meta_data = DataDirectory { virtual_address: 4096 + size_of::<ClrHeader>() as u32, size: 0 };
+    clr.meta_data = DataDirectory { virtual_address: 4096 + size_of::<ClrHeader>() as u32, size: section.virtual_size - size_of::<ClrHeader>() as u32 };
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
@@ -54,9 +42,9 @@ pub fn test() {
     let metadata_offset = buffer.len();
     buffer.write(&metadata);
 
-    let stream_offset = buffer.len() - metadata_offset 
+    let stream_offset = buffer.len() - metadata_offset
         + size_of::<DataDirectory>() + 12 // #Strings
-        + size_of::<DataDirectory>() + 8 // #Blob
+        + size_of::<DataDirectory>() + 8  // #Blob
         + size_of::<DataDirectory>() + 4; // #~
 
     // String stream header
@@ -75,9 +63,15 @@ pub fn test() {
     buffer.append(&mut blobs);
     buffer.append(&mut tables);
 
+    assert_eq!(clr.meta_data.size as usize, buffer.len() - metadata_offset);
     assert_eq!(size_of_image, buffer.len());
 
     std::fs::write("/git/test.winmd", buffer).unwrap();
+}
+
+fn round(size: usize, page: usize) -> usize {
+    let page = page - 1;
+    (size + page) & !page
 }
 
 trait Write {
@@ -120,7 +114,7 @@ impl DosHeader {
     fn new() -> Self {
         Self {
             magic: 0x5A4D,                  // MZ
-            lfarlc: 64,                   // file address of relocation table
+            lfarlc: 64,                     // file address of relocation table
             lfanew: size_of::<Self>() as _, // file address of next header
             ..Default::default()
         }
@@ -342,11 +336,6 @@ struct TableStreamHeader {
 
 impl TableStreamHeader {
     fn new() -> Self {
-        Self {
-            major_version: 2,
-            reserved2: 1,
-            heap_sizes: 0b101,
-            ..Default::default()
-        }
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, ..Default::default() }
     }
 }
