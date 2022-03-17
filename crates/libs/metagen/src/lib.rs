@@ -32,14 +32,14 @@ pub fn test() {
     let mut blobs = blobs.buffer();
     let mut tables = tables.buffer();
 
-    let size_of_image = 512 + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + 48 + strings.len() + blobs.len() + tables.len();
+    let size_of_image = optional.file_alignment as usize + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + 48 + strings.len() + blobs.len() + tables.len();
 
-    optional.size_of_image = round(size_of_image, 4096) as _;
-    section.virtual_size = 0xCCCC; // TODO: calc size
-    section.size_of_raw_data = 0xCCCC; // TODO: calc size
+    optional.size_of_image = round(size_of_image, optional.section_alignment as _) as _;
+    section.virtual_size = size_of_image as u32 - optional.file_alignment;
+    section.size_of_raw_data = round(section.virtual_size as _, optional.file_alignment as _) as _;
 
     optional.data_directory[14] = DataDirectory { virtual_address: 4096, size: size_of::<ClrHeader>() as _ };
-    section.pointer_to_raw_data = 512;
+    section.pointer_to_raw_data = optional.file_alignment;
     clr.meta_data = DataDirectory { virtual_address: 4096 + size_of::<ClrHeader>() as u32, size: 0 };
 
     let mut buffer = Vec::<u8>::new();
@@ -47,9 +47,9 @@ pub fn test() {
     buffer.write(&pe);
     buffer.write(&optional);
     buffer.write(&section);
-    debug_assert!(buffer.len() < 512);
+    debug_assert!(buffer.len() < optional.file_alignment as _);
     println!("header: {}", buffer.len());
-    buffer.resize(512, 0);
+    buffer.resize(optional.file_alignment as _, 0);
     buffer.write(&clr);
     let metadata_offset = buffer.len();
     buffer.write(&metadata);
