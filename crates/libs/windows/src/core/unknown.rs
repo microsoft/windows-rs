@@ -66,7 +66,7 @@ pub trait IUnknownImpl {
     fn Release(&mut self) -> u32;
 }
 
-#[cfg(feature = "implement")]
+#[cfg(any(feature = "interface", feature = "implement"))]
 impl IUnknownVtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
