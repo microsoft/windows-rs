@@ -53,15 +53,15 @@ pub fn test() {
         + size_of::<DataDirectory>() + 4; // #~
 
     // String stream header
-    buffer.write(&DataDirectory { virtual_address: stream_offset as u32, size: 4 });
+    buffer.write(&DataDirectory { virtual_address: stream_offset as u32, size: strings.len() as _ });
     buffer.write(b"#Strings\0\0\0\0");
 
     // Blob stream header
-    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len()) as u32, size: 4 });
+    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len()) as u32, size: blobs.len() as _ });
     buffer.write(b"#Blob\0\0\0");
 
     // Table stream header
-    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len() + blobs.len()) as u32, size: 4 });
+    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len() + blobs.len()) as u32, size: tables.len() as _ });
     buffer.write(b"#~\0\0");
 
     buffer.append(&mut strings);
