@@ -408,17 +408,17 @@ pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, securitydescriptor: *const ::core::ffi::c_void, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(virtualdiskhandle: Param0, securitydescriptor: Param1, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: *const ::core::ffi::c_void, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+            fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::core::mem::transmute(AttachVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+        ::core::mem::transmute(AttachVirtualDisk(virtualdiskhandle.into_param().abi(), securitydescriptor.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1002,17 +1002,17 @@ pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: *const ::core::ffi::c_void, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: Param3, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: *const ::core::ffi::c_void, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+            fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
+        ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), securitydescriptor.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -597,12 +597,12 @@ pub unsafe fn AuditQueryPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN {
+pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
+            fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
         }
         ::core::mem::transmute(AuditQuerySecurity(::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor)))
     }
@@ -672,14 +672,14 @@ pub unsafe fn AuditSetPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN {
+pub unsafe fn AuditSetSecurity<'a, Param1: ::windows::core::IntoParam<'a, super::super::PSECURITY_DESCRIPTOR>>(securityinformation: u32, psecuritydescriptor: Param1) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
+            fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditSetSecurity(::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(AuditSetSecurity(::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -821,9 +821,9 @@ pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub LengthAppliesTo: u32,
     pub AppliesTo: *mut u8,
     pub LengthSD: u32,
-    pub SD: *mut ::core::ffi::c_void,
+    pub SD: super::super::PSECURITY_DESCRIPTOR,
     pub LengthStagedSD: u32,
-    pub StagedSD: *mut ::core::ffi::c_void,
+    pub StagedSD: super::super::PSECURITY_DESCRIPTOR,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14985,7 +14985,7 @@ pub struct SE_ADT_ACCESS_REASON {
     pub AccessReasons: [u32; 32],
     pub ObjectTypeIndex: u32,
     pub AccessGranted: u32,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub SecurityDescriptor: super::super::PSECURITY_DESCRIPTOR,
 }
 impl ::core::marker::Copy for SE_ADT_ACCESS_REASON {}
 impl ::core::clone::Clone for SE_ADT_ACCESS_REASON {

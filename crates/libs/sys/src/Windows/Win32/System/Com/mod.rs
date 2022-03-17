@@ -97,8 +97,9 @@ extern "system" {
     pub fn CoGetObjectContext(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoGetPSClsid(riid: *const ::windows_sys::core::GUID, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Security\"`*"]
+    #[cfg(feature = "Win32_Security")]
+    pub fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoGetTreatAsClass(clsidold: *const ::windows_sys::core::GUID, pclsidnew: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -109,8 +110,9 @@ extern "system" {
     pub fn CoInitialize(pvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: COINIT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    pub fn CoInitializeSecurity(psecdesc: *const ::core::ffi::c_void, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Security\"`*"]
+    #[cfg(feature = "Win32_Security")]
+    pub fn CoInitializeSecurity(psecdesc: super::super::Security::PSECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     pub fn CoInstall(pbc: IBindCtx, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]

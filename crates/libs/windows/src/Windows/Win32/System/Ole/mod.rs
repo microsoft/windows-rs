@@ -8572,8 +8572,8 @@ impl IPersistPropertyBag2 {
         (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)))
     }
 }
 #[cfg(feature = "Win32_System_Com")]

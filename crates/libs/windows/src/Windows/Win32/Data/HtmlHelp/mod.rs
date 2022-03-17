@@ -1151,8 +1151,8 @@ impl IITPropList {
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsDirty)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsDirty)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

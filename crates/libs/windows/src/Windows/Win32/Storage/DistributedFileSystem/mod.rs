@@ -284,7 +284,8 @@ impl ::core::default::Default for DFS_INFO_106 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_107 {
     pub Comment: ::windows::core::PWSTR,
     pub State: u32,
@@ -292,59 +293,74 @@ pub struct DFS_INFO_107 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
     pub SdLengthReserved: u32,
-    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for DFS_INFO_107 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for DFS_INFO_107 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::fmt::Debug for DFS_INFO_107 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DFS_INFO_107").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for DFS_INFO_107 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_107 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_107>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for DFS_INFO_107 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for DFS_INFO_107 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
-    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for DFS_INFO_150 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for DFS_INFO_150 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::fmt::Debug for DFS_INFO_150 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DFS_INFO_150").field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for DFS_INFO_150 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_150 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_150>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for DFS_INFO_150 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for DFS_INFO_150 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -817,7 +833,8 @@ impl ::core::default::Default for DFS_INFO_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_8 {
     pub EntryPath: ::windows::core::PWSTR,
     pub Comment: ::windows::core::PWSTR,
@@ -827,36 +844,44 @@ pub struct DFS_INFO_8 {
     pub PropertyFlags: u32,
     pub MetadataSize: u32,
     pub SdLengthReserved: u32,
-    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
     pub NumberOfStorages: u32,
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for DFS_INFO_8 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for DFS_INFO_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::fmt::Debug for DFS_INFO_8 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DFS_INFO_8").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for DFS_INFO_8 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_8 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_8>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for DFS_INFO_8 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for DFS_INFO_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_9 {
     pub EntryPath: ::windows::core::PWSTR,
     pub Comment: ::windows::core::PWSTR,
@@ -866,30 +891,37 @@ pub struct DFS_INFO_9 {
     pub PropertyFlags: u32,
     pub MetadataSize: u32,
     pub SdLengthReserved: u32,
-    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
     pub NumberOfStorages: u32,
     pub Storage: *mut DFS_STORAGE_INFO_1,
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for DFS_INFO_9 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for DFS_INFO_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::fmt::Debug for DFS_INFO_9 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DFS_INFO_9").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for DFS_INFO_9 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_9 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_9>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for DFS_INFO_9 {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for DFS_INFO_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1339,14 +1371,15 @@ pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32 {
+pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32;
+            fn NetDfsGetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
         }
         ::core::mem::transmute(NetDfsGetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
     }
@@ -1367,28 +1400,30 @@ pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32 {
+pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32;
+            fn NetDfsGetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
         }
         ::core::mem::transmute(NetDfsGetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32 {
+pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> u32;
+            fn NetDfsGetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
         }
         ::core::mem::transmute(NetDfsGetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
     }
@@ -1507,16 +1542,17 @@ pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
+            fn NetDfsSetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1535,30 +1571,32 @@ pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
+            fn NetDfsSetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(NetDfsSetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(NetDfsSetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> u32;
+            fn NetDfsSetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

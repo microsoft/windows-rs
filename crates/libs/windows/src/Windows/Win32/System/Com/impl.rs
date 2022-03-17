@@ -2754,7 +2754,7 @@ impl IPersist_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistFile_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
     fn Load(&self, pszfilename: &::windows::core::PCWSTR, dwmode: u32) -> ::windows::core::Result<()>;
     fn Save(&self, pszfilename: &::windows::core::PCWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SaveCompleted(&self, pszfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -2766,7 +2766,7 @@ impl IPersistFile_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IPersistFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, dwmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2809,7 +2809,7 @@ impl IPersistFile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistMemory_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
     fn Load(&self, pmem: *const ::core::ffi::c_void, cbsize: u32) -> ::windows::core::Result<()>;
     fn Save(&self, pmem: *mut ::core::ffi::c_void, fcleardirty: super::super::Foundation::BOOL, cbsize: u32) -> ::windows::core::Result<()>;
     fn GetSizeMax(&self) -> ::windows::core::Result<u32>;
@@ -2821,7 +2821,7 @@ impl IPersistMemory_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IPersistMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmem: *const ::core::ffi::c_void, cbsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2864,7 +2864,7 @@ impl IPersistMemory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStream_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
     fn Load(&self, pstm: &::core::option::Option<IStream>) -> ::windows::core::Result<()>;
     fn Save(&self, pstm: &::core::option::Option<IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetSizeMax(&self) -> ::windows::core::Result<u64>;
@@ -2875,7 +2875,7 @@ impl IPersistStream_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2912,7 +2912,7 @@ impl IPersistStream_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStreamInit_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
     fn Load(&self, pstm: &::core::option::Option<IStream>) -> ::windows::core::Result<()>;
     fn Save(&self, pstm: &::core::option::Option<IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetSizeMax(&self) -> ::windows::core::Result<u64>;
@@ -2924,7 +2924,7 @@ impl IPersistStreamInit_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStreamInit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStreamInit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

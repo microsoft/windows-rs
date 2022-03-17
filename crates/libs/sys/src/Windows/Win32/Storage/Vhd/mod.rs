@@ -7,9 +7,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ApplySnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
-    #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: *const ::core::ffi::c_void, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
+    pub fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BreakMirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
@@ -19,9 +19,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CompleteForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
-    #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows_sys::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: *const ::core::ffi::c_void, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
+    pub fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows_sys::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DeleteSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
