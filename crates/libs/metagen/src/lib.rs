@@ -8,7 +8,15 @@ use std::collections::*;
 use std::mem::*;
 use std::slice::*;
 
+fn round(size: usize, page: usize) -> usize {
+    let page = page - 1;
+    (size + page) & !page
+}
+
 pub fn test() {
+    assert!(round(5, 4096) == 4096);
+    assert!(round(4096 + 5, 4096) == 8192);
+
     let dos = DosHeader::new();
     let pe = PeHeader::new();
     let mut optional = OptionalHeader::new();
@@ -24,25 +32,24 @@ pub fn test() {
     let mut blobs = blobs.buffer();
     let mut tables = tables.buffer();
 
-    // TODO: these should all be at fixed offsets so we could just rewrite them in the buffer later on
-    // provided we keep track of the offsets.
-    optional.size_of_image = 0xCCCC; // TODO: calc size
+    let size_of_image = 512 + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + 48 + strings.len() + blobs.len() + tables.len();
 
-    optional.data_directory[14] = DataDirectory { virtual_address: 0x1000, size: size_of::<ClrHeader>() as _ };
-
+    optional.size_of_image = round(size_of_image, 4096) as _;
     section.virtual_size = 0xCCCC; // TODO: calc size
     section.size_of_raw_data = 0xCCCC; // TODO: calc size
-    section.pointer_to_raw_data = 0x200;
 
-    clr.meta_data = DataDirectory { virtual_address: 0x1000 + size_of::<ClrHeader>() as u32, size: 0 };
+    optional.data_directory[14] = DataDirectory { virtual_address: 4096, size: size_of::<ClrHeader>() as _ };
+    section.pointer_to_raw_data = 512;
+    clr.meta_data = DataDirectory { virtual_address: 4096 + size_of::<ClrHeader>() as u32, size: 0 };
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
     buffer.write(&pe);
     buffer.write(&optional);
     buffer.write(&section);
-    debug_assert!(buffer.len() < 0x200);
-    buffer.resize(0x200, 0);
+    debug_assert!(buffer.len() < 512);
+    println!("header: {}", buffer.len());
+    buffer.resize(512, 0);
     buffer.write(&clr);
     let metadata_offset = buffer.len();
     buffer.write(&metadata);
@@ -68,7 +75,8 @@ pub fn test() {
     buffer.append(&mut blobs);
     buffer.append(&mut tables);
 
-    buffer.resize(0xCF00, 0); // TODO: calc alignment?
+    assert_eq!(size_of_image, buffer.len());
+
     std::fs::write("/git/test.winmd", buffer).unwrap();
 }
 
@@ -112,7 +120,7 @@ impl DosHeader {
     fn new() -> Self {
         Self {
             magic: 0x5A4D,                  // MZ
-            lfarlc: 0x40,                   // file address of relocation table
+            lfarlc: 64,                   // file address of relocation table
             lfanew: size_of::<Self>() as _, // file address of next header
             ..Default::default()
         }
@@ -185,22 +193,22 @@ impl OptionalHeader {
     fn new() -> Self {
         Self {
             magic: 0x10B, // PE32
-            major_linker_version: 0xB,
-            size_of_initialized_data: 0x400,
+            major_linker_version: 11,
+            size_of_initialized_data: 1024,
             image_base: 0x400000,
-            section_alignment: 0x1000,
-            file_alignment: 0x200,
+            section_alignment: 4096,
+            file_alignment: 512,
             major_operating_system_version: 6,
             minor_operating_system_version: 2,
             major_subsystem_version: 6,
             minor_subsystem_version: 2,
-            size_of_headers: 0x200,
+            size_of_headers: 512,
             subsystem: 3, // console
             dll_characteristics: 0x540,
             size_of_stack_reserve: 0x100000,
-            size_of_heap_reserve: 0x1000,
+            size_of_heap_reserve: 4096,
             loader_flags: 0x100000,
-            number_of_rva_and_sizes: 0x10,
+            number_of_rva_and_sizes: 16,
             ..Default::default()
         }
     }
@@ -230,7 +238,7 @@ struct SectionHeader {
 
 impl SectionHeader {
     fn new() -> Self {
-        Self { name: *b".text\0\0\0", characteristics: 0x4000_0020, virtual_address: 0x1000, ..Default::default() }
+        Self { name: *b".text\0\0\0", characteristics: 0x4000_0020, virtual_address: 4096, ..Default::default() }
     }
 }
 
@@ -337,7 +345,7 @@ impl TableStreamHeader {
         Self {
             major_version: 2,
             reserved2: 1,
-            heap_sizes: 0b111,
+            heap_sizes: 0b101,
             ..Default::default()
         }
     }
