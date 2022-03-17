@@ -2230,14 +2230,6 @@ pub const WB_MOVEWORDPREV: u32 = 4u32;
 pub const WB_NEXTBREAK: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WB_PREVBREAK: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const WM_CONTEXTMENU: u32 = 123u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const WM_NOTIFY: u32 = 78u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const WM_PRINTCLIENT: u32 = 792u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const WM_UNICHAR: u32 = 265u32;
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

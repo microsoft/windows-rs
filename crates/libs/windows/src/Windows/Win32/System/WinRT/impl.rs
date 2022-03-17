@@ -257,6 +257,213 @@ impl ICastingSourceInfo_Vtbl {
         iid == &<ICastingSourceInfo as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreInputInterop_Impl: Sized {
+    fn SetInputSource(&self, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetMessageHandled(&self, value: u8) -> ::windows::core::Result<()>;
+}
+impl ICoreInputInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputInterop_Impl, const OFFSET: isize>() -> ICoreInputInterop_Vtbl {
+        unsafe extern "system" fn SetInputSource<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            (*this).SetInputSource(::core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn SetMessageHandled<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            (*this).SetMessageHandled(::core::mem::transmute_copy(&value)).into()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            SetInputSource: SetInputSource::<Identity, Impl, OFFSET>,
+            SetMessageHandled: SetMessageHandled::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreInputInterop as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWindowAdapterInterop_Impl: Sized {
+    fn AppActivationClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn ApplicationViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CoreApplicationViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn HoloViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn PositionerClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn SystemNavigationClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn TitleBarClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn SetWindowClientAdapter(&self, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWindowAdapterInterop {
+    const NAME: &'static str = "";
+}
+impl ICoreWindowAdapterInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>() -> ICoreWindowAdapterInterop_Vtbl {
+        unsafe extern "system" fn AppActivationClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).AppActivationClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ApplicationViewClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).ApplicationViewClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CoreApplicationViewClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).CoreApplicationViewClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HoloViewClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).HoloViewClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PositionerClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).PositionerClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SystemNavigationClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).SystemNavigationClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TitleBarClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).TitleBarClientAdapter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetWindowClientAdapter<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            (*this).SetWindowClientAdapter(::core::mem::transmute(&value)).into()
+        }
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWindowAdapterInterop, OFFSET>(),
+            AppActivationClientAdapter: AppActivationClientAdapter::<Identity, Impl, OFFSET>,
+            ApplicationViewClientAdapter: ApplicationViewClientAdapter::<Identity, Impl, OFFSET>,
+            CoreApplicationViewClientAdapter: CoreApplicationViewClientAdapter::<Identity, Impl, OFFSET>,
+            HoloViewClientAdapter: HoloViewClientAdapter::<Identity, Impl, OFFSET>,
+            PositionerClientAdapter: PositionerClientAdapter::<Identity, Impl, OFFSET>,
+            SystemNavigationClientAdapter: SystemNavigationClientAdapter::<Identity, Impl, OFFSET>,
+            TitleBarClientAdapter: TitleBarClientAdapter::<Identity, Impl, OFFSET>,
+            SetWindowClientAdapter: SetWindowClientAdapter::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWindowAdapterInterop as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICoreWindowComponentInterop_Impl: Sized {
+    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetViewInstanceId(&self) -> ::windows::core::Result<u32>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICoreWindowComponentInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowComponentInterop_Impl, const OFFSET: isize>() -> ICoreWindowComponentInterop_Vtbl {
+        unsafe extern "system" fn ConfigureComponentInput<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            (*this).ConfigureComponentInput(::core::mem::transmute_copy(&hostviewinstanceid), ::core::mem::transmute_copy(&hwndhost), ::core::mem::transmute(&inputsourcevisual)).into()
+        }
+        unsafe extern "system" fn GetViewInstanceId<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, componentviewinstanceid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).GetViewInstanceId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *componentviewinstanceid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            ConfigureComponentInput: ConfigureComponentInput::<Identity, Impl, OFFSET>,
+            GetViewInstanceId: GetViewInstanceId::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWindowComponentInterop as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICoreWindowInterop_Impl: Sized {
+    fn WindowHandle(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
+    fn SetMessageHandled(&self, value: u8) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICoreWindowInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowInterop_Impl, const OFFSET: isize>() -> ICoreWindowInterop_Vtbl {
+        unsafe extern "system" fn WindowHandle<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            match (*this).WindowHandle() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hwnd = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetMessageHandled<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindowInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
+            (*this).SetMessageHandled(::core::mem::transmute_copy(&value)).into()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            WindowHandle: WindowHandle::<Identity, Impl, OFFSET>,
+            SetMessageHandled: SetMessageHandled::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWindowInterop as ::windows::core::Interface>::IID
+    }
+}
 pub trait ICorrelationVectorInformation_Impl: Sized {
     fn LastCorrelationVectorForThread(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NextCorrelationVectorForThread(&self) -> ::windows::core::Result<::windows::core::HSTRING>;

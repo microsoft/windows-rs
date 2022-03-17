@@ -125,8 +125,6 @@ pub mod SetupAndMigration;
 pub mod Shutdown;
 #[cfg(feature = "Win32_System_SideShow")]
 pub mod SideShow;
-#[cfg(feature = "Win32_System_SqlLite")]
-pub mod SqlLite;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
 pub mod StationsAndDesktops;
 #[cfg(feature = "Win32_System_SubsystemForLinux")]

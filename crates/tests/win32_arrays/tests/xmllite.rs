@@ -27,23 +27,27 @@ fn test() -> Result<()> {
         let reader = reader.unwrap();
         reader.SetInput(&stream)?;
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_XmlDeclaration);
 
         let mut name = PWSTR::default();
         let mut name_len = 0;
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, &mut name_len)?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, &mut name_len)?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "head");
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Text);
 
         let mut message = Vec::new();
@@ -60,16 +64,19 @@ fn test() -> Result<()> {
         assert_eq!(read_count, 5);
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(message.as_ptr(), message.len())), "The quick brown fox jumps over the lazy dog");
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_EndElement);
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Text);
 
-        reader.ReadValueChunk(&mut chunk, &mut chars_read)?;
+        reader.ReadValueChunk(&mut chunk, &mut chars_read).ok()?;
         assert_eq!(chars_read, 4);
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(chunk.as_ptr(), chars_read as _)), "Rust");
 
@@ -104,13 +111,14 @@ fn lite() -> Result<()> {
         let mut name = PWSTR::default();
         let mut name_len = 0;
 
-        let node_type = reader.Read()?;
+        let mut node_type = XmlNodeType_None;
+        reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, &mut name_len)?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
         assert_eq!(reader.GetAttributeCount()?, 2);
-        reader.MoveToFirstAttribute()?;
+        reader.MoveToFirstAttribute().ok()?;
 
         reader.GetLocalName(&mut name, &mut name_len)?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "no-value");
@@ -118,7 +126,7 @@ fn lite() -> Result<()> {
         reader.GetValue(&mut name, &mut name_len)?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "");
 
-        reader.MoveToNextAttribute()?;
+        reader.MoveToNextAttribute().ok()?;
 
         reader.GetLocalName(&mut name, &mut name_len)?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "with-value");

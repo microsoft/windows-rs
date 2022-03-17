@@ -110,9 +110,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegFlushKey(hkey: HKEY) -> super::super::Foundation::WIN32_ERROR;
-    #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn RegGetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegGetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: *mut ::core::ffi::c_void, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegGetValueA(hkey: HKEY, lpsubkey: ::windows_sys::core::PCSTR, lpvalue: ::windows_sys::core::PCSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
@@ -221,9 +221,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn RegSaveKeyW(hkey: HKEY, lpfile: ::windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR;
-    #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn RegSetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegSetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegSetKeyValueA(hkey: HKEY, lpsubkey: ::windows_sys::core::PCSTR, lpvaluename: ::windows_sys::core::PCSTR, dwtype: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
