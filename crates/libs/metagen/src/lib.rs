@@ -317,7 +317,7 @@ struct TableStreamHeader {
 
 impl TableStreamHeader {
     fn new() -> Self {
-        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, ..Default::default() }
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b111, ..Default::default() }
     }
 }
 
