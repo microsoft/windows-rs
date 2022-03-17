@@ -4,9 +4,9 @@
 // https://docs.microsoft.com/en-us/archive/msdn-magazine/2002/february/inside-windows-win32-portable-executable-file-format-in-detail
 // https://github.com/dotnet/runtime/blob/94c0a7c13d158eb79d27223f474ec8f8db747f11/src/coreclr/dlls/mscorpe/pewriter.cpp
 
+use std::collections::*;
 use std::mem::*;
 use std::slice::*;
-use std::collections::*;
 
 pub fn test() {
     let dos = DosHeader::new();
@@ -15,25 +15,26 @@ pub fn test() {
     let mut section = SectionHeader::new();
     let mut clr = ClrHeader::new();
     let metadata = MetadataHeader::new();
-    // let string_stream = 
+
+    let strings = Strings::default();
+    let blobs = Blobs::default();
+    let tables = Tables::default();
+    // TODO: populate metadata
+    let mut strings = strings.buffer();
+    let mut blobs = blobs.buffer();
+    let mut tables = tables.buffer();
 
     // TODO: these should all be at fixed offsets so we could just rewrite them in the buffer later on
     // provided we keep track of the offsets.
     optional.size_of_image = 0xCCCC; // TODO: calc size
 
-    optional.data_directory[14] = DataDirectory {
-        virtual_address: 0x1000,
-        size: size_of::<ClrHeader>() as _,
-    };
+    optional.data_directory[14] = DataDirectory { virtual_address: 0x1000, size: size_of::<ClrHeader>() as _ };
 
     section.virtual_size = 0xCCCC; // TODO: calc size
     section.size_of_raw_data = 0xCCCC; // TODO: calc size
     section.pointer_to_raw_data = 0x200;
 
-    clr.meta_data = DataDirectory {
-        virtual_address: 0x1000 + size_of::<ClrHeader>() as u32,
-        size: 0,
-    };
+    clr.meta_data = DataDirectory { virtual_address: 0x1000 + size_of::<ClrHeader>() as u32, size: 0 };
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
@@ -45,37 +46,37 @@ pub fn test() {
     buffer.write(&clr);
     let metadata_offset = buffer.len();
     buffer.write(&metadata);
-    
-    // String stream
-    buffer.write(&DataDirectory {
-        virtual_address: (buffer.len() - metadata_offset) as u32,
-        size: 4,
-    });
+
+    let stream_offset = buffer.len() - metadata_offset 
+        + size_of::<DataDirectory>() + 12 // #Strings
+        + size_of::<DataDirectory>() + 8 // #Blob
+        + size_of::<DataDirectory>() + 4; // #~
+
+    // String stream header
+    buffer.write(&DataDirectory { virtual_address: stream_offset as u32, size: 4 });
     buffer.write(b"#Strings\0\0\0\0");
 
-    // Blob stream
-    buffer.write(&DataDirectory {
-        virtual_address: (buffer.len() - metadata_offset) as u32,
-        size: 4,
-    });
+    // Blob stream header
+    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len()) as u32, size: 4 });
     buffer.write(b"#Blob\0\0\0");
 
-    // Table stream
-    buffer.write(&DataDirectory {
-        virtual_address: (buffer.len() - metadata_offset) as u32,
-        size: 4,
-    });
+    // Table stream header
+    buffer.write(&DataDirectory { virtual_address: (stream_offset + strings.len() + blobs.len()) as u32, size: 4 });
     buffer.write(b"#~\0\0");
+
+    buffer.append(&mut strings);
+    buffer.append(&mut blobs);
+    buffer.append(&mut tables);
 
     buffer.resize(0xCF00, 0); // TODO: calc alignment?
     std::fs::write("/git/test.winmd", buffer).unwrap();
 }
 
 trait Write {
-    fn write<T: Sized>(&mut self, value: &T); 
+    fn write<T: Sized>(&mut self, value: &T);
 }
 
-impl Write for Vec::<u8> {
+impl Write for Vec<u8> {
     fn write<T: Sized>(&mut self, value: &T) {
         unsafe {
             self.extend_from_slice(from_raw_parts(value as *const _ as _, size_of::<T>()));
@@ -229,14 +230,9 @@ struct SectionHeader {
 
 impl SectionHeader {
     fn new() -> Self {
-        Self { 
-            name: *b".text\0\0\0",
-            characteristics: 0x4000_0020,
-            virtual_address: 0x1000,
-            ..Default::default() }
+        Self { name: *b".text\0\0\0", characteristics: 0x4000_0020, virtual_address: 0x1000, ..Default::default() }
     }
 }
-
 
 #[repr(C)]
 #[derive(Default)]
@@ -257,53 +253,92 @@ struct ClrHeader {
 
 impl ClrHeader {
     fn new() -> Self {
-        Self { 
-            cb: size_of::<Self>() as _, 
-            major_runtime_version: 2,
-            minor_runtime_version: 5,
-            flags: 0x1,
-            ..Default::default() 
-        }
+        Self { cb: size_of::<Self>() as _, major_runtime_version: 2, minor_runtime_version: 5, flags: 0x1, ..Default::default() }
     }
 }
 
 #[repr(C)]
 #[derive(Default)]
 struct MetadataHeader {
-    signature: u32, 
+    signature: u32,
     major_version: u16,
     minor_version: u16,
     reserved: u32,
     length: u32,
-    version: [u8;20],
+    version: [u8; 20],
     flags: u16,
     streams: u16,
 }
 
 impl MetadataHeader {
     fn new() -> Self {
-        Self { 
+        Self {
             signature: 0x424A_5342,
             major_version: 1,
             minor_version: 1,
             length: 20,
             version: *b"WindowsRuntime\0\0\0\0\0\0",
             streams: 3,
-            ..Default::default() 
+            ..Default::default()
         }
     }
 }
 
+#[derive(Default)]
 struct Strings(BTreeSet<String>);
 
 impl Strings {
-    fn write(buffer: &mut Vec::<u8>) {
-
+    fn buffer(&self) -> Vec<u8> {
+        let mut buffer = Vec::new();
+        buffer.push(0);
+        buffer
     }
 }
 
+#[derive(Default)]
 struct Blobs(BTreeSet<Vec<u8>>);
 
+impl Blobs {
+    fn buffer(&self) -> Vec<u8> {
+        let mut buffer = Vec::new();
+        buffer.push(0);
+        buffer
+    }
+}
+
+#[derive(Default)]
 struct Tables {
- // TODO: just use fixed 4 byte index sizes
+    // TODO: just use fixed 4 byte index sizes
+}
+
+impl Tables {
+    fn buffer(&self) -> Vec<u8> {
+        let mut buffer = Vec::new();
+        let header = TableStreamHeader::new();
+        buffer.write(&header);
+        buffer
+    }
+}
+
+#[repr(C)]
+#[derive(Default)]
+struct TableStreamHeader {
+    reserved1: u32,
+    major_version: u8,
+    minor_version: u8,
+    heap_sizes: u8,
+    reserved2: u8,
+    valid: u64,
+    sorted: u64,
+}
+
+impl TableStreamHeader {
+    fn new() -> Self {
+        Self {
+            major_version: 2,
+            reserved2: 1,
+            heap_sizes: 0b111,
+            ..Default::default()
+        }
+    }
 }
