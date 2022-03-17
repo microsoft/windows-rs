@@ -54,10 +54,10 @@ macro_rules! expected_token {
 /// }
 /// ```
 struct Interface {
-    pub visibility: syn::Visibility,
-    pub name: syn::Ident,
-    pub parent: Option<syn::Path>,
-    pub methods: Vec<InterfaceMethod>,
+    visibility: syn::Visibility,
+    name: syn::Ident,
+    parent: syn::Path,
+    methods: Vec<InterfaceMethod>,
     docs: Vec<syn::Attribute>,
 }
 
@@ -67,8 +67,8 @@ impl Interface {
         let vis = &self.visibility;
         let name = &self.name;
         let docs = &self.docs;
-        let parent = self.parent.as_ref().map(|p| quote!(#p)).unwrap_or_else(|| quote!(::windows::core::IUnknown));
-        let vtable_name = quote::format_ident!("{}_Vtbl", name);
+        let parent = self.parent();
+        let vtable_name = quote::format_ident!("{}Vtbl", name);
         let guid = guid.to_tokens()?;
         let implementation = self.gen_implementation();
         let com_trait = self.get_com_trait();
@@ -143,9 +143,11 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
+        let parent = self.parent_trait_constraint();
+
         quote! {
             #[allow(non_camel_case_types)]
-            #vis trait #name: Sized {
+            #vis trait #name: #parent Sized {
                 #(#methods)*
             }
         }
@@ -154,8 +156,8 @@ impl Interface {
     /// Generates the vtable for a COM interface
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let name = &self.name;
-        // TODO
-        let parent_vtable = quote!(::windows::core::IUnknownVtbl);
+        let parent_vtable = self.parent_vtable();
+        let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
         let vtable_entries = self
             .methods
             .iter()
@@ -207,15 +209,14 @@ impl Interface {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #vtable_name {
-                // TODO: handle non-IUnknown parents
-                pub base: ::windows::core::IUnknownVtbl,
+                pub base: #parent_vtable,
                 #(#vtable_entries)*
             }
 
             impl #vtable_name {
                 pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>() -> Self {
                     #(#functions)*
-                    Self { base: #parent_vtable::new::<Identity, OFFSET>(), #(#entries),* }
+                    Self { base: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                 }
 
                 pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -232,8 +233,7 @@ impl Interface {
         quote! {
             impl ::core::convert::From<#name> for ::windows::core::IUnknown {
                 fn from(value: #name) -> Self {
-                    // TODO: handle when direct parent is not IUnknown
-                    value.0
+                    unsafe { ::core::mem::transmute(value) }
                 }
             }
             impl ::core::convert::From<&#name> for ::windows::core::IUnknown {
@@ -248,8 +248,7 @@ impl Interface {
             }
             impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a #name {
                 fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-                    // TODO: handle when direct parent is not IUnknown
-                    ::windows::core::Param::Borrowed(&self.0)
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                 }
             }
             impl ::core::clone::Clone for #name {
@@ -270,6 +269,35 @@ impl Interface {
             }
         }
     }
+
+    fn parent(&self) -> proc_macro2::TokenStream {
+        let p = &self.parent;
+        quote!(#p)
+    }
+
+    fn parent_vtable(&self) -> proc_macro2::TokenStream {
+        let i = self.parent_ident();
+        let i = quote::format_ident!("{}Vtbl", i);
+        quote!(#i)
+    }
+
+    fn parent_is_iunknown(&self) -> bool {
+        self.parent.is_ident("IUnknown")
+    }
+
+    fn parent_ident(&self) -> &syn::Ident {
+        &self.parent.segments.last().as_ref().expect("segements should never be empty").ident
+    }
+
+    /// Gets the parent trait constrait which is nothing if the parent is IUnknown
+    fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
+        let i = self.parent_ident();
+        if i == "IUnknown" {
+            return quote!();
+        }
+        let i = quote::format_ident!("{}_Impl", i);
+        quote!(#i +)
+    }
 }
 
 impl Parse for Interface {
@@ -289,11 +317,8 @@ impl Parse for Interface {
         let _ = input.parse::<syn::Token![unsafe]>()?;
         let _ = input.parse::<syn::Token![trait]>()?;
         let name = input.parse::<syn::Ident>()?;
-        let mut parent = None;
-        if name != "IUnknown" {
-            let _ = input.parse::<syn::Token![:]>().map_err(|_| syn::Error::new(name.span(), format!("Interfaces must inherit from another interface like so: `interface {}: IParentInterface`", name)))?;
-            parent = Some(input.parse::<syn::Path>()?);
-        }
+        let _ = input.parse::<syn::Token![:]>().map_err(|_| syn::Error::new(name.span(), format!("Interfaces must inherit from another interface like so: `interface {}: IParentInterface`", name)))?;
+        let parent = input.parse::<syn::Path>()?;
         let content;
         syn::braced!(content in input);
         let mut methods = Vec::new();

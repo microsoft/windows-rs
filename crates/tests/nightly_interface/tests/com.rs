@@ -16,39 +16,90 @@ pub unsafe trait ICustomUri: IUnknown {
     // etc
 }
 
-#[implement(ICustomUri)]
-struct CustomUri;
+/// A custom declaration of implementation of `IPersist`
+#[interface("0000010c-0000-0000-C000-000000000046")]
+pub unsafe trait ICustomPersist: IUnknown {
+    unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT;
+}
 
-impl ICustomUri_Impl for CustomUri {
-    unsafe fn GetPropertyBSTR(&self, property: Uri_PROPERTY, value: *mut BSTR, flags: u32) -> HRESULT {
-        assert!(flags == 0);
-        assert!(property == Uri_PROPERTY_DOMAIN);
-        *value = "property".into();
+/// A custom declaration of implementation of `IPersistMemory`
+#[interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
+pub unsafe trait ICustomPersistMemory: ICustomPersist {
+    unsafe fn IsDirty(&self) -> HRESULT;
+    unsafe fn Load(&self, input: *const core::ffi::c_void, size: u32) -> HRESULT;
+    unsafe fn Save(&self, output: *mut core::ffi::c_void, clear_dirty: BOOL, size: u32) -> HRESULT;
+    unsafe fn GetSizeMax(&self, len: *mut u32) -> HRESULT;
+    unsafe fn InitNew(&self) -> HRESULT;
+}
+
+/// A custom in-memory store
+#[implement(ICustomPersistMemory, ICustomPersist)]
+#[derive(Default)]
+struct Persist(std::sync::RwLock<PersistState>);
+
+impl Persist {
+    fn new() -> Self {
+        Self(std::sync::RwLock::new(PersistState::default()))
+    }
+}
+
+#[derive(Default)]
+struct PersistState {
+    memory: [u8; 10],
+    dirty: bool,
+}
+
+impl ICustomPersist_Impl for Persist {
+    unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT {
+        *clsid = "117fb826-2155-483a-b50d-bc99a2c7cca3".into();
         S_OK
     }
-    unsafe fn GetPropertyLength(&self) -> HRESULT {
-        todo!()
+}
+
+impl ICustomPersistMemory_Impl for Persist {
+    unsafe fn IsDirty(&self) -> HRESULT {
+        let reader = self.0.read().unwrap();
+        if reader.dirty {
+            S_OK
+        } else {
+            S_FALSE
+        }
     }
-    unsafe fn GetPropertyDWORD(&self, property: Uri_PROPERTY, value: *mut u32, flags: u32) -> HRESULT {
-        assert!(flags == 0);
-        assert!(property == Uri_PROPERTY_PORT);
-        *value = 123;
+
+    unsafe fn Load(&self, input: *const core::ffi::c_void, size: u32) -> HRESULT {
+        let mut writer = self.0.write().unwrap();
+        if size <= writer.memory.len() as _ {
+            std::ptr::copy(input, writer.memory.as_mut_ptr() as _, size as _);
+            writer.dirty = true;
+            S_OK
+        } else {
+            E_OUTOFMEMORY
+        }
+    }
+
+    unsafe fn Save(&self, output: *mut core::ffi::c_void, clear_dirty: BOOL, size: u32) -> HRESULT {
+        let mut writer = self.0.write().unwrap();
+        if size <= writer.memory.len() as _ {
+            std::ptr::copy(writer.memory.as_mut_ptr() as _, output, size as _);
+            if clear_dirty.as_bool() {
+                writer.dirty = false;
+            }
+            S_OK
+        } else {
+            E_OUTOFMEMORY
+        }
+    }
+
+    unsafe fn GetSizeMax(&self, len: *mut u32) -> HRESULT {
+        let reader = self.0.read().unwrap();
+        *len = reader.memory.len() as _;
         S_OK
     }
-    unsafe fn HasProperty(&self) {
-        todo!()
-    }
-    unsafe fn GetAbsoluteUri(&self) -> HRESULT {
-        todo!()
-    }
-    unsafe fn GetAuthority(&self) -> HRESULT {
-        todo!()
-    }
-    unsafe fn GetDisplayUri(&self) -> i32 {
-        todo!()
-    }
-    unsafe fn GetDomain(&self, value: *mut BSTR) -> HRESULT {
-        *value = "kennykerr.ca".into();
+
+    unsafe fn InitNew(&self) -> HRESULT {
+        let mut writer = self.0.write().unwrap();
+        writer.memory = Default::default();
+        writer.dirty = false;
         S_OK
     }
 }
@@ -56,18 +107,8 @@ impl ICustomUri_Impl for CustomUri {
 #[test]
 fn test_custom_interface() -> windows::core::Result<()> {
     unsafe {
-        // Use the OS implementation through the OS interface
+        // Use the OS implementation of Uri through the custom `ICustomUri` interface
         let a: IUri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
-        let domain = a.GetDomain()?;
-        assert_eq!(domain, "kennykerr.ca");
-        let mut property = BSTR::new();
-        a.GetPropertyBSTR(Uri_PROPERTY_DOMAIN, &mut property, 0)?;
-        assert_eq!(property, "kennykerr.ca");
-        let mut property = 0;
-        a.GetPropertyDWORD(Uri_PROPERTY_PORT, &mut property, 0)?;
-        assert_eq!(property, 80);
-
-        // Call the OS implementation through the custom interface
         let b: ICustomUri = a.cast()?;
         let mut domain = BSTR::new();
         b.GetDomain(&mut domain).ok()?;
@@ -79,30 +120,35 @@ fn test_custom_interface() -> windows::core::Result<()> {
         a.GetPropertyDWORD(Uri_PROPERTY_PORT, &mut property, 0)?;
         assert_eq!(property, 80);
 
-        // Use the custom implementation through the OS interface
-        let c: ICustomUri = CustomUri.into();
-        // This works because `ICustomUri` and `IUri` share the same guid
-        let c: IUri = c.cast()?;
-        let domain = c.GetDomain()?;
-        assert_eq!(domain, "kennykerr.ca");
-        let mut property = BSTR::new();
-        c.GetPropertyBSTR(Uri_PROPERTY_DOMAIN, &mut property, 0)?;
-        assert_eq!(property, "property");
-        let mut property = 0;
-        c.GetPropertyDWORD(Uri_PROPERTY_PORT, &mut property, 0)?;
-        assert_eq!(property, 123);
+        // Use the custom implementation of `Persist` through the OS `IPersistMemory` interface
+        let p: ICustomPersistMemory = Persist::new().into();
+        // This works because `ICustomPersistMemory` and `IPersistMemory` share the same guid
+        let p: IPersistMemory = p.cast()?;
+        assert_eq!(p.GetClassID()?, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
+        // TODO: can't test IsDirty until this is fixed: https://github.com/microsoft/win32metadata/issues/838
+        assert_eq!(p.GetSizeMax()?, 10);
+        p.Load(&[0xAAu8, 0xBB, 0xCC])?;
+        let mut memory = [0x00u8, 0x00, 0x00, 0x00];
+        p.Save(&mut memory, true)?;
+        assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
 
-        // Call the custom implementation through the custom interface
-        let d: ICustomUri = c.cast()?;
-        let mut domain = BSTR::new();
-        d.GetDomain(&mut domain).ok()?;
-        assert_eq!(domain, "kennykerr.ca");
-        let mut property = BSTR::new();
-        d.GetPropertyBSTR(Uri_PROPERTY_DOMAIN, &mut property, 0).ok()?;
-        assert_eq!(property, "property");
-        let mut property = 0;
-        d.GetPropertyDWORD(Uri_PROPERTY_PORT, &mut property, 0).ok()?;
-        assert_eq!(property, 123);
+        // Use the custom implementation of `Persist` through the custom interface of `ICustomPersist`
+        let p: ICustomPersistMemory = p.cast()?;
+        let mut size = 0;
+        p.GetSizeMax(&mut size).ok()?;
+        assert_eq!(size, 10);
+        assert_eq!(p.IsDirty(), S_FALSE);
+        p.Load(&[0xAAu8, 0xBB, 0xCC] as *const _ as *const _, 3).ok()?;
+        assert_eq!(p.IsDirty(), S_OK);
+        let mut memory = [0x00u8, 0x00, 0x00, 0x00];
+        p.Save(&mut memory as *mut _ as *mut _, true.into(), 4).ok()?;
+        assert_eq!(p.IsDirty(), S_FALSE);
+        assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
+
+        let p: ICustomPersist = p.cast()?;
+        let mut b = GUID::default();
+        p.GetClassID(&mut b).ok()?;
+        assert_eq!(b, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
 
         Ok(())
     }
