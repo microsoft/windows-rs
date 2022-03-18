@@ -34,9 +34,9 @@ pub fn test() {
     section.virtual_size = size_of_image as u32 - optional.file_alignment;
     section.size_of_raw_data = round(section.virtual_size as _, optional.file_alignment as _) as _;
 
-    optional.data_directory[14] = DataDirectory { virtual_address: 4096, size: size_of::<ClrHeader>() as _ };
+    optional.data_directory[14] = DataDirectory { virtual_address: SECTION_ALIGNMENT, size: size_of::<ClrHeader>() as _ };
     section.pointer_to_raw_data = optional.file_alignment;
-    clr.meta_data = DataDirectory { virtual_address: 4096 + size_of::<ClrHeader>() as u32, size: section.virtual_size - size_of::<ClrHeader>() as u32 };
+    clr.meta_data = DataDirectory { virtual_address: SECTION_ALIGNMENT + size_of::<ClrHeader>() as u32, size: section.virtual_size - size_of::<ClrHeader>() as u32 };
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
@@ -87,6 +87,8 @@ impl Write for Vec<u8> {
         }
     }
 }
+
+const SECTION_ALIGNMENT: u32 = 4096;
 
 #[repr(C)]
 #[derive(Default)]
@@ -192,7 +194,7 @@ impl OptionalHeader {
             major_linker_version: 11,
             size_of_initialized_data: 1024,
             image_base: 0x400000,
-            section_alignment: 4096,
+            section_alignment: SECTION_ALIGNMENT,
             file_alignment: 512,
             major_operating_system_version: 6,
             minor_operating_system_version: 2,
@@ -234,7 +236,7 @@ struct SectionHeader {
 
 impl SectionHeader {
     fn new() -> Self {
-        Self { name: *b".text\0\0\0", characteristics: 0x4000_0020, virtual_address: 4096, ..Default::default() }
+        Self { name: *b".text\0\0\0", characteristics: 0x4000_0020, virtual_address: SECTION_ALIGNMENT, ..Default::default() }
     }
 }
 
