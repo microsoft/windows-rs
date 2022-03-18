@@ -10,17 +10,25 @@ pub fn test() {
     let mut optional = OptionalHeader::new();
     let mut section = SectionHeader::new();
     let mut clr = ClrHeader::new();
-    let metadata = MetadataHeader::new();
+    let metadata = MetadataHeader::new(4);
 
+    let guids = Guids::default();
     let strings = Strings::default();
     let blobs = Blobs::default();
     let tables = Tables::default();
     // TODO: populate CLI metadata
-    let mut strings = strings.buffer();
-    let mut blobs = blobs.buffer();
-    let mut tables = tables.buffer();
+    let mut guids = guids.stream();
+    let mut strings = strings.stream();
+    let mut blobs = blobs.stream();
+    let mut tables = tables.stream();
 
-    let size_of_image = optional.file_alignment as usize + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + size_of::<StreamHeader>() + strings.len() + blobs.len() + tables.len();
+    type TablesHeader = StreamHeader<4>;
+    type StringsHeader = StreamHeader<12>;
+    type GuidsHeader = StreamHeader<8>;
+    type BlobsHeader = StreamHeader<8>;
+
+    let size_of_stream_headers = size_of::<TablesHeader>() + size_of::<StringsHeader>() + size_of::<GuidsHeader>() + size_of::<BlobsHeader>();
+    let size_of_image = optional.file_alignment as usize + size_of::<ClrHeader>() + size_of::<MetadataHeader>() + size_of_stream_headers + guids.len() + strings.len() + blobs.len() + tables.len();
 
     optional.size_of_image = round(size_of_image, optional.section_alignment as _) as _;
     section.virtual_size = size_of_image as u32 - optional.file_alignment;
@@ -41,19 +49,21 @@ pub fn test() {
     let metadata_offset = buffer.len();
     buffer.write(&metadata);
 
-    let stream_offset = buffer.len() - metadata_offset + size_of::<StreamHeader>();
-    let mut streams = StreamHeader::new();
-    streams.strings_offset = stream_offset as u32;
-    streams.strings_size = strings.len() as _;
-    streams.blobs_offset = (stream_offset + strings.len()) as u32;
-    streams.blobs_size = blobs.len() as _;
-    streams.tables_offset = (stream_offset + strings.len() + blobs.len()) as u32;
-    streams.tables_size = tables.len() as _;
+    let stream_offset = buffer.len() - metadata_offset + size_of_stream_headers;
+    let tables_header = TablesHeader::new(stream_offset as _, tables.len() as _, b"#~\0\0");
+    let strings_header = StringsHeader::new(tables_header.next_offset(), strings.len() as _, b"#Strings\0\0\0\0");
+    let guids_header = GuidsHeader::new(strings_header.next_offset(), guids.len() as _, b"#GUID\0\0\0");
+    let blobs_header = BlobsHeader::new(guids_header.next_offset(), blobs.len() as _, b"#Blob\0\0\0");
 
-    buffer.write(&streams);
-    buffer.append(&mut strings);
-    buffer.append(&mut blobs);
+    buffer.write(&tables_header);
+    buffer.write(&strings_header);
+    buffer.write(&guids_header);
+    buffer.write(&blobs_header);
+
     buffer.append(&mut tables);
+    buffer.append(&mut strings);
+    buffer.append(&mut guids);
+    buffer.append(&mut blobs);
 
     assert_eq!(clr.meta_data.size as usize, buffer.len() - metadata_offset);
     assert_eq!(size_of_image, buffer.len());
@@ -265,41 +275,34 @@ struct MetadataHeader {
 }
 
 impl MetadataHeader {
-    fn new() -> Self {
+    fn new(streams: u16) -> Self {
         Self {
             signature: 0x424A_5342,
             major_version: 1,
             minor_version: 1,
             length: 20,
             version: *b"WindowsRuntime\0\0\0\0\0\0",
-            streams: 3,
+            streams,
             ..Default::default()
         }
     }
 }
 
 #[repr(C)]
-#[derive(Default)]
-struct StreamHeader {
-    strings_offset: u32,
-    strings_size: u32,
-    strings_name: [u8; 12],
-    blobs_offset: u32,
-    blobs_size: u32,
-    blobs_name: [u8; 8],
-    tables_offset: u32,
-    tables_size: u32,
-    tables_name: [u8; 4],
+struct StreamHeader<const LEN: usize> {
+    offset: u32,
+    size: u32,
+    name: [u8; LEN],
 }
 
-impl StreamHeader {
-    fn new() -> Self {
+impl<const LEN: usize> StreamHeader<LEN> {
+    fn new(offset: u32, size: u32, name: &[u8; LEN]) -> Self {
         Self {
-            strings_name: *b"#Strings\0\0\0\0",
-            blobs_name: *b"#Blob\0\0\0",
-            tables_name: *b"#~\0\0",
-            ..Default::default()
+            offset, size, name: *name
         }
+    }
+    fn next_offset(&self) -> u32 {
+        self.offset + self.size
     }
 }
 
@@ -317,7 +320,18 @@ struct TableStreamHeader {
 
 impl TableStreamHeader {
     fn new() -> Self {
-        Self { major_version: 2, reserved2: 1, heap_sizes: 0b111, ..Default::default() }
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, ..Default::default() }
+    }
+}
+
+#[derive(Default)]
+struct Guids();
+
+impl Guids {
+    fn stream(&self) -> Vec<u8> {
+        let mut buffer = Vec::new();
+        buffer.resize(16,0); // null guid
+        buffer
     }
 }
 
@@ -325,9 +339,11 @@ impl TableStreamHeader {
 struct Strings(BTreeSet<String>);
 
 impl Strings {
-    fn buffer(&self) -> Vec<u8> {
+    fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
-        buffer.push(0);
+        buffer.push(0); // start with empty striong
+
+        buffer.resize(round(buffer.len(), 4), 0);
         buffer
     }
 }
@@ -336,9 +352,11 @@ impl Strings {
 struct Blobs(BTreeSet<Vec<u8>>);
 
 impl Blobs {
-    fn buffer(&self) -> Vec<u8> {
+    fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
-        buffer.push(0);
+        buffer.push(0); // start with empty blob
+
+        buffer.resize(round(buffer.len(), 4), 0);
         buffer
     }
 }
@@ -349,10 +367,11 @@ struct Tables {
 }
 
 impl Tables {
-    fn buffer(&self) -> Vec<u8> {
+    fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
         let header = TableStreamHeader::new();
         buffer.write(&header);
+        buffer.resize(round(buffer.len(), 4), 0);
         buffer
     }
 }
