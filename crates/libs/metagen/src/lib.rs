@@ -6,10 +6,10 @@ use std::mem::*;
 use std::slice::*;
 
 pub fn test() {
-    let mut strings = Strings::default();
-    strings.0.insert("hello".to_string());
-    strings.0.insert("world".to_string());
-    let blobs = Blobs::default();
+    let mut strings = BTreeSet::<String>::new();
+    strings.insert("hello".to_string());
+    strings.insert("world".to_string());
+    let blobs = BTreeSet::<Vec<u8>>::new();
     let tables = Tables::default();
 
     pe::write("/git/test.winmd", &strings, &blobs, &tables);
@@ -29,37 +29,6 @@ impl Write for Vec<u8> {
         unsafe {
             self.extend_from_slice(from_raw_parts(value as *const _ as _, size_of::<T>()));
         }
-    }
-}
-
-#[derive(Default)]
-struct Strings(BTreeSet<String>);
-
-impl Strings {
-    fn stream(&self) -> Vec<u8> {
-        let mut buffer = Vec::new();
-        buffer.push(0); // start with empty string
-
-        for value in &self.0 { 
-            buffer.extend_from_slice(value.as_bytes());
-            buffer.push(0); // terminator
-        }
-
-        buffer.resize(round(buffer.len(), 4), 0);
-        buffer
-    }
-}
-
-#[derive(Default)]
-struct Blobs(BTreeSet<Vec<u8>>);
-
-impl Blobs {
-    fn stream(&self) -> Vec<u8> {
-        let mut buffer = Vec::new();
-        buffer.push(0); // start with zero byte
-
-        buffer.resize(round(buffer.len(), 4), 0);
-        buffer
     }
 }
 
