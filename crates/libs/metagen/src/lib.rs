@@ -6,7 +6,9 @@ use std::mem::*;
 use std::slice::*;
 
 pub fn test() {
-    let strings = Strings::default();
+    let mut strings = Strings::default();
+    strings.0.insert("hello".to_string());
+    strings.0.insert("world".to_string());
     let blobs = Blobs::default();
     let tables = Tables::default();
 
@@ -37,6 +39,11 @@ impl Strings {
     fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
         buffer.push(0); // start with empty string
+
+        for value in &self.0 { 
+            buffer.extend_from_slice(value.as_bytes());
+            buffer.push(0); // terminator
+        }
 
         buffer.resize(round(buffer.len(), 4), 0);
         buffer
@@ -96,6 +103,6 @@ struct TableStreamHeader {
 
 impl TableStreamHeader {
     fn new() -> Self {
-        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, valid: 0b1, ..Default::default() }
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b111, valid: 0b1, ..Default::default() }
     }
 }
