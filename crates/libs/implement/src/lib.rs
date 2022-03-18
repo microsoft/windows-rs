@@ -43,17 +43,15 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     let conversions = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let interface_ident = implement.to_ident();
-        let offset: TokenStream = format!("{}", enumerate).into();
+        let offset: TokenStream = enumerate.to_string().into();
         quote! {
             impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident {
                 fn from(this: #original_ident::<#(#generics,)*>) -> Self {
-                    unsafe {
-                        let this = #impl_ident::<#(#generics,)*>::new(this);
-                        let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
-                        ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
-                            &mut (*ptr).vtables.#offset as *mut _ as _,
-                        ))
-                    }
+                    let this = #impl_ident::<#(#generics,)*>::new(this);
+                    let mut this = ::std::boxed::Box::new(this);
+                    let vtable_ptr = &mut this.vtables.#offset as *mut *const <#interface_ident as ::windows::core::Interface>::Vtable;
+                    let _ = ::std::boxed::Box::leak(this);
+                    unsafe { ::core::mem::transmute_copy(&vtable_ptr) }
                 }
             }
             impl <#constraints> ::windows::core::ToImpl<#interface_ident> for #original_ident::<#(#generics,)*> {
