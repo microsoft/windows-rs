@@ -150,6 +150,14 @@ fn test_custom_interface() -> windows::core::Result<()> {
         p.GetClassID(&mut b).ok()?;
         assert_eq!(b, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
 
+        CheckConversionWorks(p);
+
         Ok(())
     }
+}
+
+pub fn CheckConversionWorks<'a, P>(_p: P)
+where
+    P: windows::core::IntoParam<'a, windows::core::IUnknown>,
+{
 }
