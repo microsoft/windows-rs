@@ -1,5 +1,8 @@
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 
+// TODO: maybe used sqlite as an intermediate format for collecting the metadata?
+// Using the rusqlite crate?
+
 use std::collections::*;
 use std::mem::*;
 use std::slice::*;
@@ -320,7 +323,7 @@ struct TableStreamHeader {
 
 impl TableStreamHeader {
     fn new() -> Self {
-        Self { major_version: 2, reserved2: 1, heap_sizes: 0b111, ..Default::default() }
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, valid: 0b1, ..Default::default() }
     }
 }
 
@@ -371,6 +374,17 @@ impl Tables {
         let mut buffer = Vec::new();
         let header = TableStreamHeader::new();
         buffer.write(&header);
+
+        // row sizes
+        buffer.write(&1u32); // Module
+
+        // Module table
+        buffer.write(&0u16); // Generation
+        buffer.write(&0u32); // Name
+        buffer.write(&0u32); // Mvid
+        buffer.write(&0u32); // EncId
+        buffer.write(&0u32); // EncBaseId
+
         buffer.resize(round(buffer.len(), 4), 0);
         buffer
     }
