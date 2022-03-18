@@ -251,10 +251,10 @@ impl File {
             let stream_size = file.bytes.copy_as::<u32>(view + 4);
             let stream_name = file.bytes.view_as_str(view + 8);
             match stream_name {
-                b"#Strings" =>{ println!("#Strings"); file.strings = cli_offset + stream_offset; }
-                b"#Blob" => { println!("#Blob"); file.blobs = cli_offset + stream_offset; }
-                b"#~" =>  { println!("#~"); tables_data = (cli_offset + stream_offset, stream_size); }
-                b"#GUID" => { println!("#GUID"); }
+                b"#Strings" => file.strings = cli_offset + stream_offset,
+                b"#Blob" => file.blobs = cli_offset + stream_offset,
+                b"#~" => tables_data = (cli_offset + stream_offset, stream_size),
+                b"#GUID" => {}
                 b"#US" => {}
                 _ => unimplemented!(),
             }

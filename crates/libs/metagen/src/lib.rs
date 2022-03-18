@@ -320,7 +320,7 @@ struct TableStreamHeader {
 
 impl TableStreamHeader {
     fn new() -> Self {
-        Self { major_version: 2, reserved2: 1, heap_sizes: 0b101, ..Default::default() }
+        Self { major_version: 2, reserved2: 1, heap_sizes: 0b111, ..Default::default() }
     }
 }
 
@@ -330,7 +330,7 @@ struct Guids();
 impl Guids {
     fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
-        buffer.resize(16,0); // null guid
+        buffer.resize(16,0); // zero guid
         buffer
     }
 }
@@ -341,7 +341,7 @@ struct Strings(BTreeSet<String>);
 impl Strings {
     fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
-        buffer.push(0); // start with empty striong
+        buffer.push(0); // start with empty string
 
         buffer.resize(round(buffer.len(), 4), 0);
         buffer
@@ -354,7 +354,7 @@ struct Blobs(BTreeSet<Vec<u8>>);
 impl Blobs {
     fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
-        buffer.push(0); // start with empty blob
+        buffer.push(0); // start with zero byte
 
         buffer.resize(round(buffer.len(), 4), 0);
         buffer
