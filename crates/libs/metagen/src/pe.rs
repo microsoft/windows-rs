@@ -285,7 +285,7 @@ fn string_stream(strings: &BTreeSet<String>) -> Vec<u8> {
     let mut buffer = Vec::new();
     buffer.push(0); // start with empty string
 
-    for value in strings { 
+    for value in strings {
         buffer.extend_from_slice(value.as_bytes());
         buffer.push(0); // terminator
     }
@@ -298,7 +298,7 @@ fn blob_stream(blobs: &BTreeSet<Vec<u8>>) -> Vec<u8> {
     let mut buffer = Vec::new();
     buffer.push(0); // start with zero byte
 
-    for value in blobs { 
+    for value in blobs {
         buffer.extend_from_slice(value);
     }
 
