@@ -1,8 +1,5 @@
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 
-// TODO: maybe used sqlite as an intermediate format for collecting the metadata?
-// Using the rusqlite crate?
-
 use std::collections::*;
 use std::mem::*;
 use std::slice::*;
@@ -279,15 +276,7 @@ struct MetadataHeader {
 
 impl MetadataHeader {
     fn new(streams: u16) -> Self {
-        Self {
-            signature: 0x424A_5342,
-            major_version: 1,
-            minor_version: 1,
-            length: 20,
-            version: *b"WindowsRuntime\0\0\0\0\0\0",
-            streams,
-            ..Default::default()
-        }
+        Self { signature: 0x424A_5342, major_version: 1, minor_version: 1, length: 20, version: *b"WindowsRuntime\0\0\0\0\0\0", streams, ..Default::default() }
     }
 }
 
@@ -300,9 +289,7 @@ struct StreamHeader<const LEN: usize> {
 
 impl<const LEN: usize> StreamHeader<LEN> {
     fn new(offset: u32, size: u32, name: &[u8; LEN]) -> Self {
-        Self {
-            offset, size, name: *name
-        }
+        Self { offset, size, name: *name }
     }
     fn next_offset(&self) -> u32 {
         self.offset + self.size
@@ -333,7 +320,7 @@ struct Guids();
 impl Guids {
     fn stream(&self) -> Vec<u8> {
         let mut buffer = Vec::new();
-        buffer.resize(16,0); // zero guid
+        buffer.resize(16, 0); // zero guid
         buffer
     }
 }
@@ -379,11 +366,11 @@ impl Tables {
         buffer.write(&1u32); // Module
 
         // Module table
-        buffer.write(&0u16); // Generation
+        buffer.write(&0u16); // Generation (reserved)
         buffer.write(&0u32); // Name
-        buffer.write(&0u32); // Mvid
-        buffer.write(&0u32); // EncId
-        buffer.write(&0u32); // EncBaseId
+        buffer.write(&1u32); // Mvid
+        buffer.write(&0u32); // EncId (reserved)
+        buffer.write(&0u32); // EncBaseId (reserved)
 
         buffer.resize(round(buffer.len(), 4), 0);
         buffer
