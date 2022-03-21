@@ -4,9 +4,7 @@ pub(crate) struct Tables {}
 
 impl Tables {
     pub fn new() -> Self {
-        Self {
-
-        }
+        Self {}
     }
 
     pub fn into_stream(&self, strings: &mut Strings) -> Vec<u8> {
@@ -73,4 +71,3 @@ enum TableId {
     Module = 1 << 0,
     AssemblyRef = 1 << 0x23,
 }
-

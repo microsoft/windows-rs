@@ -1,27 +1,26 @@
 use crate::*;
 
-pub(crate) struct Strings {
-    set: BTreeMap<String, usize>,
+pub(crate) struct Blobs {
+    set: BTreeMap<Vec<u8>, usize>,
     stream: Vec<u8>,
 }
 
-impl Strings {
+impl Blobs {
     pub fn new() -> Self {
         Self { set: BTreeMap::new(), stream: vec![0] }
     }
 
-    pub fn insert(&mut self, value: &str) -> u32 {
+    pub fn insert(&mut self, value: &[u8]) -> u32 {
         let pos = self.stream.len();
         let mut insert = false;
 
-        self.set.entry(value.to_string()).or_insert_with(|| {
+        self.set.entry(value.to_vec()).or_insert_with(|| {
             insert = true;
             pos
         });
 
         if insert {
-            self.stream.extend_from_slice(value.as_bytes());
-            self.stream.push(0); // terminator
+            self.stream.extend_from_slice(value);
         }
 
         pos as _

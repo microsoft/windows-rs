@@ -1,13 +1,15 @@
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 
+mod blobs;
 mod pe;
 mod strings;
 mod tables;
-use strings::*;
-use tables::*;
+use blobs::*;
 use std::collections::*;
 use std::mem::*;
 use std::slice::*;
+use strings::*;
+use tables::*;
 
 pub fn test() {
     let tables = Tables::new();

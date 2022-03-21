@@ -12,12 +12,12 @@ pub(crate) fn write(filename: &str, tables: Tables) {
     let metadata = MetadataHeader::new(4);
 
     let mut strings = Strings::new();
-    let blobs = BTreeSet::<Vec<u8>>::new();
-    
+    let blobs = Blobs::new();
+
     let mut tables = tables.into_stream(&mut strings);
     let mut guids = guid_stream();
     let mut strings = strings.into_stream();
-    let mut blobs = blob_stream(&blobs);
+    let mut blobs = blobs.into_stream();
 
     type TablesHeader = StreamHeader<4>;
     type StringsHeader = StreamHeader<12>;
@@ -283,16 +283,3 @@ fn guid_stream() -> Vec<u8> {
     buffer.resize(16, 0); // zero guid
     buffer
 }
-
-fn blob_stream(blobs: &BTreeSet<Vec<u8>>) -> Vec<u8> {
-    let mut buffer = Vec::new();
-    buffer.push(0); // start with zero byte
-
-    for value in blobs {
-        buffer.extend_from_slice(value);
-    }
-
-    buffer.resize(round(buffer.len(), 4), 0);
-    buffer
-}
-
