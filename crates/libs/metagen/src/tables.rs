@@ -1,10 +1,15 @@
 use crate::*;
 
-pub(crate) struct Tables {}
+pub(crate) struct Tables {
+    // TODO: probably need a map or tree
+    TypeDef: Vec<TypeDef>,
+}
 
 impl Tables {
     pub fn new() -> Self {
-        Self {}
+        Self {
+            TypeDef: vec![TypeDef { namespace: "Windows.Foundation".to_string(), name: "IStringable".to_string()}]
+        }
     }
 
     pub fn into_stream(&self, strings: &mut Strings) -> Vec<u8> {
@@ -12,11 +17,15 @@ impl Tables {
         let header = Header::new();
         buffer.write(&header);
 
-        // row sizes
+        // Row sizes (ordered by table ID)
         buffer.write(&1u32); // Module
+        buffer.write(&(self.TypeDef.len() as u32));
         buffer.write(&1u32); // AssemblyRef
 
         Module::write(&mut buffer);
+        for row in &self.TypeDef {
+            row.write(&mut buffer, strings);
+        }
         AssemblyRef::write(&mut buffer, strings);
 
         buffer.resize(round(buffer.len(), 4), 0);
@@ -42,7 +51,7 @@ impl Header {
             major_version: 2,
             reserved2: 1,
             heap_sizes: 0b111, // 4 byte indexes
-            valid: Module::ID | AssemblyRef::ID,
+            valid: Module::ID | TypeDef::ID | AssemblyRef::ID,
             ..Default::default()
         }
     }
@@ -78,5 +87,23 @@ impl AssemblyRef {
         buffer.write(&strings.insert("mscorlib"));
         buffer.write(&0u32); // Culture (none)
         buffer.write(&0u32); // HashValue (none)
+    }
+}
+
+struct TypeDef {
+    name: String,
+    namespace: String,
+}
+
+impl TypeDef {
+    const ID: u64 = 1 << 0x02;
+
+    fn write(&self, buffer: &mut Vec<u8>, strings: &mut Strings) {
+        buffer.write(&0u32); // Flags
+        buffer.write(&strings.insert(&self.name));
+        buffer.write(&strings.insert(&self.namespace));
+        buffer.write(&0u32); // Extends
+        buffer.write(&0u32); // FieldList
+        buffer.write(&0u32); // MethodList
     }
 }
