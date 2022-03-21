@@ -3,7 +3,7 @@
 use crate::*;
 use std::mem::*;
 
-pub(crate) fn write(filename: &str, strings: &BTreeSet<String>, blobs: &BTreeSet<Vec<u8>>, tables: &Tables) {
+pub(crate) fn write(filename: &str, strings: Strings, blobs: &BTreeSet<Vec<u8>>, tables: &Tables) {
     let dos = DosHeader::new();
     let pe = PeHeader::new();
     let mut optional = OptionalHeader::new();
@@ -12,7 +12,7 @@ pub(crate) fn write(filename: &str, strings: &BTreeSet<String>, blobs: &BTreeSet
     let metadata = MetadataHeader::new(4);
 
     let mut guids = guid_stream();
-    let mut strings = string_stream(strings);
+    let mut strings = strings.into_stream();
     let mut blobs = blob_stream(blobs);
     let mut tables = tables.stream();
 
@@ -281,19 +281,6 @@ fn guid_stream() -> Vec<u8> {
     buffer
 }
 
-fn string_stream(strings: &BTreeSet<String>) -> Vec<u8> {
-    let mut buffer = Vec::new();
-    buffer.push(0); // start with empty string
-
-    for value in strings {
-        buffer.extend_from_slice(value.as_bytes());
-        buffer.push(0); // terminator
-    }
-
-    buffer.resize(round(buffer.len(), 4), 0);
-    buffer
-}
-
 fn blob_stream(blobs: &BTreeSet<Vec<u8>>) -> Vec<u8> {
     let mut buffer = Vec::new();
     buffer.push(0); // start with zero byte
@@ -305,3 +292,4 @@ fn blob_stream(blobs: &BTreeSet<Vec<u8>>) -> Vec<u8> {
     buffer.resize(round(buffer.len(), 4), 0);
     buffer
 }
+

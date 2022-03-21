@@ -1,17 +1,19 @@
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 
 mod pe;
+mod strings;
+use strings::*;
 use std::collections::*;
 use std::mem::*;
 use std::slice::*;
 
 pub fn test() {
-    let mut strings = BTreeSet::<String>::new();
+    let mut strings = Strings::new();
     strings.insert("mscorlib".to_string());
     let blobs = BTreeSet::<Vec<u8>>::new();
     let tables = Tables::default();
 
-    pe::write("/git/test.winmd", &strings, &blobs, &tables);
+    pe::write("/git/test.winmd", strings, &blobs, &tables);
 }
 
 fn round(size: usize, round: usize) -> usize {
