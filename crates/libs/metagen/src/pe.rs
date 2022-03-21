@@ -3,7 +3,7 @@
 use crate::*;
 use std::mem::*;
 
-pub(crate) fn write(filename: &str, strings: Strings, blobs: &BTreeSet<Vec<u8>>, tables: &Tables) {
+pub(crate) fn write(filename: &str, tables: Tables) {
     let dos = DosHeader::new();
     let pe = PeHeader::new();
     let mut optional = OptionalHeader::new();
@@ -11,10 +11,13 @@ pub(crate) fn write(filename: &str, strings: Strings, blobs: &BTreeSet<Vec<u8>>,
     let mut clr = ClrHeader::new();
     let metadata = MetadataHeader::new(4);
 
+    let mut strings = Strings::new();
+    let blobs = BTreeSet::<Vec<u8>>::new();
+    
+    let mut tables = tables.into_stream(&mut strings);
     let mut guids = guid_stream();
     let mut strings = strings.into_stream();
-    let mut blobs = blob_stream(blobs);
-    let mut tables = tables.stream();
+    let mut blobs = blob_stream(&blobs);
 
     type TablesHeader = StreamHeader<4>;
     type StringsHeader = StreamHeader<12>;

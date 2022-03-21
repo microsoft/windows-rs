@@ -1,6 +1,6 @@
 use crate::*;
 
-pub struct Strings {
+pub(crate) struct Strings {
     set: BTreeMap<String, usize>,
     stream: Vec<u8>,
 }
@@ -13,7 +13,7 @@ impl Strings {
         }
     }
 
-    pub fn insert(&mut self, value: String) -> u32 {
+    pub fn insert(&mut self, value: &str) -> u32 {
         let pos = self.stream.len();
         let mut insert = false;
 
