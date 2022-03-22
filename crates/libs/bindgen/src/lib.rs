@@ -53,8 +53,14 @@ pub fn gen_namespace(gen: &Gen) -> String {
 
         let name = gen_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
-        quote! {
-            #[cfg(feature = #namespace)] pub mod #name;
+        if gen.cfg {
+            quote! {
+                #[cfg(feature = #namespace)] pub mod #name;
+            }
+        } else {
+            quote! {
+                pub mod #name;
+            }
         }
     });
 
