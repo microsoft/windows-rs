@@ -12,7 +12,8 @@ use strings::*;
 use tables::*;
 
 pub fn test() {
-    let tables = Tables::new();
+    let mut tables = Tables::new();
+    tables.add_type_def(TypeDef::new("Hello", "World"));
 
     pe::write("/git/test.winmd", tables);
 }

@@ -1,8 +1,9 @@
 use super::*;
 
+#[derive(Default)]
 pub struct TypeDef {
-    name: String,
-    namespace: String,
+    pub name: String,
+    pub namespace: String,
 }
 
 impl TypeDef {

@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Default)]
 struct MethodDef {
 }
 

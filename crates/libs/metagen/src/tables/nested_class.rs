@@ -1,6 +1,9 @@
 use super::*;
 
-struct NestedClass;
+#[derive(Default)]
+struct NestedClass{
+    
+}
 
 impl NestedClass {
     pub const ID: u64 = 1 << 0x29;
