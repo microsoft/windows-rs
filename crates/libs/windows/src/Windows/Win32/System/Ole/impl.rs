@@ -3568,7 +3568,7 @@ pub trait IPersistPropertyBag2_Impl: Sized + super::Com::IPersist_Impl {
     fn InitNew(&self) -> ::windows::core::Result<()>;
     fn Load(&self, ppropbag: &::core::option::Option<super::Com::StructuredStorage::IPropertyBag2>, perrlog: &::core::option::Option<super::Com::IErrorLog>) -> ::windows::core::Result<()>;
     fn Save(&self, ppropbag: &::core::option::Option<super::Com::StructuredStorage::IPropertyBag2>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPersistPropertyBag2_Vtbl {
@@ -3591,7 +3591,7 @@ impl IPersistPropertyBag2_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         Self {
             base: super::Com::IPersist_Vtbl::new::<Identity, Impl, OFFSET>(),

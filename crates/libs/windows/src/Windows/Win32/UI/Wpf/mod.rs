@@ -1288,9 +1288,8 @@ pub struct IMILBitmapEffectPrimitive_Vtbl {
 pub struct IMILBitmapEffectPrimitiveImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn IsDirty(&self, uioutputindex: u32) -> ::windows::core::Result<i16> {
-        let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(uioutputindex), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+    pub unsafe fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(uioutputindex), ::core::mem::transmute(pfdirty)))
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn IsVolatile(&self, uioutputindex: u32) -> ::windows::core::Result<i16> {

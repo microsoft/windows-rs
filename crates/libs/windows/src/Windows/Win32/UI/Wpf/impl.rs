@@ -708,7 +708,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
     }
 }
 pub trait IMILBitmapEffectPrimitiveImpl_Impl: Sized {
-    fn IsDirty(&self, uioutputindex: u32) -> ::windows::core::Result<i16>;
+    fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT;
     fn IsVolatile(&self, uioutputindex: u32) -> ::windows::core::Result<i16>;
 }
 impl IMILBitmapEffectPrimitiveImpl_Vtbl {
@@ -716,13 +716,7 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsDirty(::core::mem::transmute_copy(&uioutputindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *pfdirty = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).IsDirty(::core::mem::transmute_copy(&uioutputindex), ::core::mem::transmute_copy(&pfdirty))
         }
         unsafe extern "system" fn IsVolatile<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

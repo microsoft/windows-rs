@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use windows::core::*;
-use windows::Win32::Foundation::BOOL;
+use windows::Win32::Foundation::{BOOL, S_OK};
 use windows::Win32::System::Com::*;
 
 #[implement(IPersistStream)]
@@ -14,8 +14,8 @@ impl IPersist_Impl for Test {
 }
 
 impl IPersistStream_Impl for Test {
-    fn IsDirty(&self) -> Result<()> {
-        Ok(())
+    fn IsDirty(&self) -> HRESULT {
+        S_OK
     }
 
     fn Load(&self, _: &Option<IStream>) -> Result<()> {
@@ -36,7 +36,7 @@ fn test() -> Result<()> {
     unsafe {
         let stream: IPersistStream = Test().into();
         stream.GetClassID()?; // IPersist
-        stream.IsDirty()?; // IPersistStream
+        stream.IsDirty().ok()?; // IPersistStream
         stream.cast::<IPersistStream>()?;
         stream.cast::<IPersist>()?;
 

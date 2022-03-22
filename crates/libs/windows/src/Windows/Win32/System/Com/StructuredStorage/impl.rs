@@ -345,7 +345,7 @@ impl ILockBytes_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
-    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::HRESULT;
     fn InitNew(&self, pstg: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
     fn Load(&self, pstg: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
     fn Save(&self, pstgsave: &::core::option::Option<IStorage>, fsameasload: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -358,7 +358,7 @@ impl IPersistStorage_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty().into()
+            (*this).IsDirty()
         }
         unsafe extern "system" fn InitNew<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

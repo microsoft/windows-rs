@@ -41,7 +41,7 @@ impl ISceSvcAttachmentData_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISceSvcAttachmentPersistInfo_Impl: Sized {
     fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::core::Result<()>;
+    fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::core::HRESULT;
     fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -55,7 +55,7 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lptemplatename: *mut i8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty(::core::mem::transmute_copy(&lptemplatename)).into()
+            (*this).IsDirty(::core::mem::transmute_copy(&lptemplatename))
         }
         unsafe extern "system" fn FreeBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

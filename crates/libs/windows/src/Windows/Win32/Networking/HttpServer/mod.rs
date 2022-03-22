@@ -1287,7 +1287,8 @@ pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: u32,
@@ -1302,14 +1303,17 @@ pub struct HTTP_LOGGING_INFO {
     pub MaxRecordSize: u16,
     pub RolloverType: HTTP_LOGGING_ROLLOVER_TYPE,
     pub RolloverSize: u32,
-    pub pSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for HTTP_LOGGING_INFO {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for HTTP_LOGGING_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::fmt::Debug for HTTP_LOGGING_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_LOGGING_INFO")
@@ -1330,15 +1334,19 @@ impl ::core::fmt::Debug for HTTP_LOGGING_INFO {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for HTTP_LOGGING_INFO {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for HTTP_LOGGING_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_LOGGING_INFO>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for HTTP_LOGGING_INFO {}
+#[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for HTTP_LOGGING_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

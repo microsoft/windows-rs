@@ -1,0 +1,13 @@
+[package]
+name = "sample_data_protection"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "Foundation",
+    "Storage_Streams",
+    "Security_Cryptography_DataProtection",
+]
