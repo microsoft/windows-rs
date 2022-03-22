@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(crate) struct Strings {
+pub struct Strings {
     set: BTreeMap<String, usize>,
     stream: Vec<u8>,
 }
