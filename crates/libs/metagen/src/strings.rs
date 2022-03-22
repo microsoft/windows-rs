@@ -14,7 +14,7 @@ impl Strings {
         let pos = self.stream.len();
         let mut insert = false;
 
-        self.set.entry(value.to_string()).or_insert_with(|| {
+        let pos = *self.set.entry(value.to_string()).or_insert_with(|| {
             insert = true;
             pos
         });
