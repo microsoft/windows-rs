@@ -82,6 +82,7 @@ jobs:
         cargo clippy -p sample_core_app &&
         cargo clippy -p sample_create_window &&
         cargo clippy -p sample_create_window_sys &&
+        cargo clippy -p sample_data_protection &&
         cargo clippy -p sample_direct2d &&
         cargo clippy -p sample_direct3d12 &&
         cargo clippy -p sample_enum_windows &&
