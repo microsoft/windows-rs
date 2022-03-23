@@ -67,6 +67,11 @@ impl Tables {
             self.method_def.append(&mut type_def.method_list);
         }
 
+        for method_def in &mut self.method_def {
+            method_def.param_index = self.param.len();
+            self.param.append(&mut method_def.param_list);
+        }
+
         let mut buffer = Vec::new();
         let header = Header::new();
         buffer.write(&header);
@@ -112,6 +117,12 @@ impl Tables {
             buffer.write(&strings.insert(&method_def.name));
             buffer.write(&0u32); // Signature
             buffer.write(&1u16); // ParamList
+        }
+
+        for param in &self.param {
+            buffer.write(&param.flags);
+            buffer.write(&param.sequence);
+            buffer.write(&strings.insert(&param.name));
         }
 
         buffer.resize(round(buffer.len(), 4), 0);
