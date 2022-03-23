@@ -15,7 +15,7 @@ fn main() {
 
         for method in def.methods() {
             let name = method.name();
-            println!("field: {}", name);
+            println!("method: {}", name);
         }
     }
 

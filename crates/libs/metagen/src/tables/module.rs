@@ -1,5 +1,3 @@
-
-
 #[derive(Default)]
 pub struct Module {
     pub name: String,
@@ -7,8 +5,6 @@ pub struct Module {
 
 impl Module {
     pub fn new(name: &str) -> Self {
-        Self {
-            name: name.to_string(),
-        }
+        Self { name: name.to_string() }
     }
 }

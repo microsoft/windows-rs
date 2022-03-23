@@ -50,8 +50,8 @@ pub struct Tables {
     pub module_ref: Vec<ModuleRef>,
     pub type_spec: Vec<TypeSpec>,
     pub impl_map: Vec<ImplMap>,
-    pub nested_class:Vec<NestedClass>,
-    pub generic_param:Vec<GenericParam>,
+    pub nested_class: Vec<NestedClass>,
+    pub generic_param: Vec<GenericParam>,
 }
 
 impl Tables {
@@ -59,12 +59,18 @@ impl Tables {
         Self::default()
     }
 
-    pub fn into_stream(&self, strings: &mut Strings) -> Vec<u8> {
+    pub fn into_stream(mut self, strings: &mut Strings) -> Vec<u8> {
+        for type_def in &mut self.type_def {
+            type_def.field_index = self.field.len();
+            type_def.method_index = self.method_def.len();
+            self.field.append(&mut type_def.field_list);
+            self.method_def.append(&mut type_def.method_list);
+        }
+
         let mut buffer = Vec::new();
         let header = Header::new();
         buffer.write(&header);
 
-        // Row sizes (ordered by table ID)
         buffer.write(&(self.module.len() as u32));
         buffer.write(&(self.type_ref.len() as u32));
         buffer.write(&(self.type_def.len() as u32));
@@ -95,8 +101,17 @@ impl Tables {
             buffer.write(&strings.insert(&type_def.name));
             buffer.write(&strings.insert(&type_def.namespace));
             buffer.write(&0u16); // Extends // TODO: use composite_index_size to work out size of TypeDefOrRef
-            buffer.write(&1u16); // FieldList // TODO: use Field->TableData::index_size to work this out
-            buffer.write(&1u16); // MethodList // TODO: use MethodDef->TableData::index_size to work this out
+            write_index(&mut buffer, type_def.field_index, self.field.len());
+            write_index(&mut buffer, type_def.method_index, self.method_def.len());
+        }
+
+        for method_def in &self.method_def {
+            buffer.write(&0u32); // RVA
+            buffer.write(&0u16); // ImplFlags
+            buffer.write(&0u16); // Flags
+            buffer.write(&strings.insert(&method_def.name));
+            buffer.write(&0u32); // Signature
+            buffer.write(&1u16); // ParamList
         }
 
         buffer.resize(round(buffer.len(), 4), 0);
@@ -144,37 +159,14 @@ impl Header {
     }
 }
 
-fn index_size(len: usize) -> u32 {
+fn write_index(buffer: &mut Vec<u8>, index: usize, len: usize) {
     if len < (1 << 16) {
-        2
+        buffer.write(&(index as u16 + 1))
     } else {
-        4
+        buffer.write(&(index as u32 + 1))
     }
 }
 
-enum Index {
-    U16(u16),
-    U32(u32),
-}
-
-impl Index {
-    fn new(index: usize, len: usize) -> Self {
-        if len < (1 << 16) {
-            Self::U16(index as _)
-        } else {
-            Self::U32(index as _)
-        }
-    }
-
-    fn write(&self, buffer: &mut Vec<u8>) {
-        match self {
-            Self::U16(index) => buffer.write(&index),
-            Self::U32(index) => buffer.write(&index),
-        }
-    }
-}
-
-// TODO: use CodedIndex enum?
 fn coded_index_size(tables: &[usize]) -> u32 {
     fn small(row_count: usize, bits: u8) -> bool {
         (row_count as u64) < (1u64 << (16 - bits))
