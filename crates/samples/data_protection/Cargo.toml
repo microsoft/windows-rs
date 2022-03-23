@@ -10,4 +10,5 @@ features = [
     "Foundation",
     "Storage_Streams",
     "Security_Cryptography_DataProtection",
+    "Win32_System_WinRT",
 ]
