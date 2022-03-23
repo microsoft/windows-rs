@@ -100,7 +100,7 @@ impl Tables {
             buffer.write(&type_def.flags);
             buffer.write(&strings.insert(&type_def.name));
             buffer.write(&strings.insert(&type_def.namespace));
-            buffer.write(&0u16); // Extends // TODO: use composite_index_size to work out size of TypeDefOrRef
+            buffer.write(&0u16); // Extends
             write_index(&mut buffer, type_def.field_index, self.field.len());
             write_index(&mut buffer, type_def.method_index, self.method_def.len());
         }

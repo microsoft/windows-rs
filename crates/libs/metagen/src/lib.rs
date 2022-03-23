@@ -2,9 +2,11 @@
 
 mod blobs;
 mod pe;
+mod signature;
 mod strings;
 mod tables;
 use blobs::*;
+use signature::*;
 use std::collections::*;
 use std::mem::*;
 use std::slice::*;
