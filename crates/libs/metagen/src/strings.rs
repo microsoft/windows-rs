@@ -11,6 +11,10 @@ impl Strings {
     }
 
     pub fn insert(&mut self, value: &str) -> u32 {
+        if value.is_empty() {
+            return 0;
+        }
+
         let pos = self.stream.len();
         let mut insert = false;
 

@@ -90,16 +90,8 @@ impl Tables {
             buffer.write(&0u32); // EncBaseId (reserved)
         }
 
-        // ILDASM needs <Module> to be present and the first TypeDef row.
-        buffer.write(&0u32);
-        buffer.write(&strings.insert("<Module>"));
-        buffer.write(&0u32);
-        buffer.write(&0u16);
-        buffer.write(&1u16);
-        buffer.write(&1u16);
-
         for type_def in &self.type_def {
-            buffer.write(&0x40A1u32); // Flags
+            buffer.write(&type_def.flags);
             buffer.write(&strings.insert(&type_def.name));
             buffer.write(&strings.insert(&type_def.namespace));
             buffer.write(&0u16); // Extends // TODO: use composite_index_size to work out size of TypeDefOrRef
@@ -166,7 +158,7 @@ enum Index {
 }
 
 impl Index {
-    fn index(index: usize, len: usize) -> Self {
+    fn new(index: usize, len: usize) -> Self {
         if len < (1 << 16) {
             Self::U16(index as _)
         } else {

@@ -14,9 +14,7 @@ use tables::*;
 pub fn test() {
     let mut tables = Tables::new();
     tables.module.push(Module::new("test.winmd"));
-    // tables.add_type_def(TypeDef::new("IFirst", "Windows.Foundation"));
-    // tables.add_type_def(TypeDef::new("ISecond", "Windows.Foundation"));
-    // tables.add_type_def(TypeDef::new("IThird", "Windows.Foundation"));
+    tables.type_def.push(TypeDef::module());
 
     pe::write("/git/test.winmd", tables);
 }
