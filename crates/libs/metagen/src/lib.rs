@@ -13,8 +13,10 @@ use tables::*;
 
 pub fn test() {
     let mut tables = Tables::new();
-    tables.add_type_def(TypeDef::new("IStringable", "Windows.Foundation"));
-    tables.add_type_def(TypeDef::new("IClosable", "Windows.Foundation"));
+    tables.module.push(Module::new("test.winmd"));
+    // tables.add_type_def(TypeDef::new("IFirst", "Windows.Foundation"));
+    // tables.add_type_def(TypeDef::new("ISecond", "Windows.Foundation"));
+    // tables.add_type_def(TypeDef::new("IThird", "Windows.Foundation"));
 
     pe::write("/git/test.winmd", tables);
 }
