@@ -1,10 +1,6 @@
-use super::*;
-
-// TODO: should be able to write a trivial CLI for this, call it ridl. :)
-
 #[derive(Default)]
 pub struct Gen {
-    // Source files to include
+    // Source files to include.
     pub sources: Vec<String>,
 
     // Winmd files to include.
@@ -23,6 +19,6 @@ impl Gen {
     }
 }
 
-pub fn gen(gen: &Gen) -> std::io::Result<()> {
+pub fn gen(_gen: &Gen) -> std::io::Result<()> {
     Ok(())
 }

@@ -2,13 +2,12 @@
 
 mod blobs;
 mod pe;
-mod signature;
 mod strings;
 mod tables;
 mod gen;
 mod helpers;
 use blobs::*;
-use signature::*;
+
 use std::collections::*;
 use strings::*;
 use tables::*;

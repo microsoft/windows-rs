@@ -1,4 +1,3 @@
-use metagen::*;
 use std::env::*;
 
 fn main() {

@@ -11,10 +11,14 @@ impl Blobs {
     }
 
     pub fn insert(&mut self, value: &[u8]) -> u32 {
+        if value.is_empty() {
+            return 0;
+        }
+
         let pos = self.stream.len();
         let mut insert = false;
 
-        self.set.entry(value.to_vec()).or_insert_with(|| {
+        let pos = *self.set.entry(value.to_vec()).or_insert_with(|| {
             insert = true;
             pos
         });

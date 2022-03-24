@@ -59,7 +59,7 @@ impl Tables {
         Self::default()
     }
 
-    pub fn into_stream(mut self, strings: &mut Strings) -> Vec<u8> {
+    pub(crate) fn into_stream(mut self, strings: &mut Strings, blobs: &mut Blobs) -> Vec<u8> {
         self.normalize();
 
         let mut buffer = Vec::new();
@@ -105,7 +105,7 @@ impl Tables {
             buffer.write(&0u16); // ImplFlags
             buffer.write(&0u16); // Flags
             buffer.write(&strings.insert(&method_def.name));
-            buffer.write(&0u32); // Signature
+            buffer.write(&blobs.insert(&method_def.signature));
             buffer.write(&1u16); // ParamList
         }
 
@@ -184,29 +184,29 @@ fn write_index(buffer: &mut Vec<u8>, index: usize, len: usize) {
     }
 }
 
-fn coded_index_size(tables: &[usize]) -> u32 {
-    fn small(row_count: usize, bits: u8) -> bool {
-        (row_count as u64) < (1u64 << (16 - bits))
-    }
+// fn coded_index_size(tables: &[usize]) -> u32 {
+//     fn small(row_count: usize, bits: u8) -> bool {
+//         (row_count as u64) < (1u64 << (16 - bits))
+//     }
 
-    fn bits_needed(value: usize) -> u8 {
-        let mut value = value - 1;
-        let mut bits: u8 = 1;
-        loop {
-            value >>= 1;
-            if value == 0 {
-                break;
-            }
-            bits += 1;
-        }
-        bits
-    }
+//     fn bits_needed(value: usize) -> u8 {
+//         let mut value = value - 1;
+//         let mut bits: u8 = 1;
+//         loop {
+//             value >>= 1;
+//             if value == 0 {
+//                 break;
+//             }
+//             bits += 1;
+//         }
+//         bits
+//     }
 
-    let bits_needed = bits_needed(tables.len());
+//     let bits_needed = bits_needed(tables.len());
 
-    if tables.iter().all(|len| small(*len, bits_needed)) {
-        2
-    } else {
-        4
-    }
-}
+//     if tables.iter().all(|len| small(*len, bits_needed)) {
+//         2
+//     } else {
+//         4
+//     }
+// }

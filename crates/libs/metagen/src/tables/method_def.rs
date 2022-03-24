@@ -3,6 +3,7 @@ use super::*;
 #[derive(Default)]
 pub struct MethodDef {
     pub name: String,
+    pub signature: Vec<u8>,
     pub param_list: Vec<Param>,
     pub(crate) param_index: usize,
 }

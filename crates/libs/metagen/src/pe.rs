@@ -12,9 +12,9 @@ pub(crate) fn write(filename: &str, tables: Tables) {
     let metadata = MetadataHeader::new(4);
 
     let mut strings = Strings::new();
-    let blobs = Blobs::new();
+    let mut blobs = Blobs::new();
 
-    let mut tables = tables.into_stream(&mut strings);
+    let mut tables = tables.into_stream(&mut strings, &mut blobs);
     let mut guids = guid_stream();
     let mut strings = strings.into_stream();
     let mut blobs = blobs.into_stream();
