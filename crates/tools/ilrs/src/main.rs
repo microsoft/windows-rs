@@ -6,15 +6,13 @@ fn main() {
 
     for arg in args() {
         match kind {
-            ArgKind::None => {
-                match arg.as_str() {
-                    "-s" => kind = ArgKind::Source,
-                    "-i" => kind = ArgKind::Input,
-                    "-r" => kind = ArgKind::Reference,
-                    "-o" => kind = ArgKind::Output,
-                    _ => return print_help(),
-                }
-            }
+            ArgKind::None => match arg.as_str() {
+                "-s" => kind = ArgKind::Source,
+                "-i" => kind = ArgKind::Input,
+                "-r" => kind = ArgKind::Reference,
+                "-o" => kind = ArgKind::Output,
+                _ => return print_help(),
+            },
             ArgKind::Source => gen.sources.push(arg),
             ArgKind::Input => gen.inputs.push(arg),
             ArgKind::Reference => gen.references.push(arg),
@@ -33,7 +31,7 @@ fn main() {
     }
 
     let _ = metagen::gen(&gen);
-    // TODO: print error report    
+    // TODO: print error report
 }
 
 fn print_help() {
@@ -45,5 +43,5 @@ enum ArgKind {
     Source,
     Input,
     Reference,
-    Output
+    Output,
 }

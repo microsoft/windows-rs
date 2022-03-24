@@ -1,5 +1,5 @@
-use std::slice::*;
 use std::mem::*;
+use std::slice::*;
 
 pub fn round(size: usize, round: usize) -> usize {
     let round = round - 1;

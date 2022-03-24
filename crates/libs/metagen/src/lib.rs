@@ -1,18 +1,18 @@
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 
 mod blobs;
+mod gen;
+mod helpers;
 mod pe;
 mod strings;
 mod tables;
-mod gen;
-mod helpers;
 use blobs::*;
 
+pub use gen::*;
+use helpers::*;
 use std::collections::*;
 use strings::*;
 use tables::*;
-use helpers::*;
-pub use gen::*;
 
 pub fn test() {
     let mut tables = Tables::new();
