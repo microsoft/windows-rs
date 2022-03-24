@@ -60,17 +60,7 @@ impl Tables {
     }
 
     pub fn into_stream(mut self, strings: &mut Strings) -> Vec<u8> {
-        for type_def in &mut self.type_def {
-            type_def.field_index = self.field.len();
-            type_def.method_index = self.method_def.len();
-            self.field.append(&mut type_def.field_list);
-            self.method_def.append(&mut type_def.method_list);
-        }
-
-        for method_def in &mut self.method_def {
-            method_def.param_index = self.param.len();
-            self.param.append(&mut method_def.param_list);
-        }
+        self.normalize();
 
         let mut buffer = Vec::new();
         let header = Header::new();
@@ -127,6 +117,22 @@ impl Tables {
 
         buffer.resize(round(buffer.len(), 4), 0);
         buffer
+    }
+
+    // Once all of the type information has been added, normalization is the process of packing
+    // the various relational records into their respective tables and leaving only index behind.
+    fn normalize(&mut self) {
+        for type_def in &mut self.type_def {
+            type_def.field_index = self.field.len();
+            type_def.method_index = self.method_def.len();
+            self.field.append(&mut type_def.field_list);
+            self.method_def.append(&mut type_def.method_list);
+        }
+
+        for method_def in &mut self.method_def {
+            method_def.param_index = self.param.len();
+            self.param.append(&mut method_def.param_list);
+        }
     }
 }
 
