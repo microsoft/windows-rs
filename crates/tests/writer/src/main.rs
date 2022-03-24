@@ -1,3 +1,3 @@
 fn main() {
-    windows_metagen::writer::test();
+    windows_metadata::writer::test();
 }

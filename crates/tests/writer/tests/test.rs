@@ -1,4 +1,4 @@
 #[test]
 fn metagen() {
-    windows_metagen::writer::test();
+    windows_metadata::writer::test();
 }
