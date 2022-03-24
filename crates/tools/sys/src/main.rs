@@ -1,6 +1,6 @@
+use metadata::reader::*;
 use rayon::prelude::*;
 use std::io::prelude::*;
-use metadata::reader::*;
 
 const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
