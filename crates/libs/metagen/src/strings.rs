@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 pub struct Strings {
     set: BTreeMap<String, usize>,

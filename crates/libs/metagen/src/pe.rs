@@ -1,6 +1,6 @@
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 
-use crate::*;
+use super::*;
 use std::mem::*;
 
 pub(crate) fn write(filename: &str, tables: Tables) {

@@ -5,13 +5,15 @@ mod pe;
 mod signature;
 mod strings;
 mod tables;
+mod gen;
+mod helpers;
 use blobs::*;
 use signature::*;
 use std::collections::*;
-use std::mem::*;
-use std::slice::*;
 use strings::*;
 use tables::*;
+use helpers::*;
+pub use gen::*;
 
 pub fn test() {
     let mut tables = Tables::new();
@@ -27,21 +29,4 @@ pub fn test() {
     tables.type_def.push(closable);
 
     pe::write("/git/test.winmd", tables);
-}
-
-fn round(size: usize, round: usize) -> usize {
-    let round = round - 1;
-    (size + round) & !round
-}
-
-trait Write {
-    fn write<T: Sized>(&mut self, value: &T);
-}
-
-impl Write for Vec<u8> {
-    fn write<T: Sized>(&mut self, value: &T) {
-        unsafe {
-            self.extend_from_slice(from_raw_parts(value as *const _ as _, size_of::<T>()));
-        }
-    }
 }
