@@ -1,5 +1,3 @@
-// https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
-
 use super::*;
 use std::mem::*;
 
