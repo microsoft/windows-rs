@@ -1,7 +1,7 @@
 use std::env::*;
 
 fn main() {
-    let mut gen = metagen::Gen::new();
+    let mut gen = metadata::writer::Gen::new();
     let mut kind = ArgKind::None;
 
     for arg in args() {
@@ -30,7 +30,7 @@ fn main() {
         return print_help();
     }
 
-    let _ = metagen::gen(&gen);
+    let _ = metadata::writer::gen(&gen);
     // TODO: print error report
 }
 

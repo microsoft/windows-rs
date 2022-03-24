@@ -1,4 +1,4 @@
-use metadata::*;
+use metadata::reader::*;
 use std::collections::BTreeMap;
 use std::io::prelude::*;
 

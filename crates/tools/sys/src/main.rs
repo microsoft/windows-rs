@@ -1,5 +1,6 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
+use metadata::reader::*;
 
 const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
@@ -8,7 +9,7 @@ fn main() {
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let reader = metadata::TypeReader::get();
+    let reader = TypeReader::get();
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();
@@ -92,7 +93,7 @@ deprecated = []
     std::fs::copy(".github/license-apache", "crates/libs/sys/license-apache").unwrap();
 }
 
-fn collect_trees<'a>(output: &std::path::Path, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
+fn collect_trees<'a>(output: &std::path::Path, tree: &'a TypeTree, trees: &mut Vec<&'a TypeTree>) {
     if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
         return;
     }
@@ -104,7 +105,7 @@ fn collect_trees<'a>(output: &std::path::Path, tree: &'a metadata::TypeTree, tre
     std::fs::create_dir_all(&path).unwrap();
 }
 
-fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &metadata::TypeTree) {
+fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &TypeTree) {
     let mut path = std::path::PathBuf::from(output);
 
     path.push(tree.namespace.replace('.', "/"));

@@ -4,7 +4,7 @@ fn main() {
 }
 
 fn test_yml() {
-    let root = std::path::PathBuf::from(metadata::workspace_dir());
+    let root = std::path::PathBuf::from(metadata::reader::workspace_dir());
     let mut yml = r#"name: Test
 
 on:
@@ -124,7 +124,7 @@ jobs:
 }
 
 fn build_yml() {
-    let root = std::path::PathBuf::from(metadata::workspace_dir());
+    let root = std::path::PathBuf::from(metadata::reader::workspace_dir());
     let mut yml = r#"name: Build
 
 on:

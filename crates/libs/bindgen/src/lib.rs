@@ -23,7 +23,7 @@ use functions::*;
 pub use gen::*;
 use helpers::*;
 use iterator::*;
-use metadata::*;
+use metadata::reader::*;
 use method_names::*;
 use methods::*;
 use names::*;

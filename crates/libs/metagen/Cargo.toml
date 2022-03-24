@@ -1,8 +1,0 @@
-[package]
-name = "windows-metagen"
-version = "0.34.0"
-authors = ["Microsoft"]
-edition = "2021"
-license = "MIT OR Apache-2.0"
-description = "Metadata generation support for the windows crate"
-repository = "https://github.com/microsoft/windows-rs"
