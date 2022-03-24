@@ -3,20 +3,26 @@ use super::*;
 // TODO: should be able to write a trivial CLI for this, call it ridl. :)
 
 #[derive(Default)]
-pub struct Gen<'a> {
+pub struct Gen {
     // Source files to include
-    pub source: Vec<&'a str>,
+    pub sources: Vec<String>,
 
     // Winmd files to include.
-    pub input: Vec<&'a str>,
+    pub inputs: Vec<String>,
 
     // Winmd files to reference.
-    pub reference: Vec<&'a str>,
+    pub references: Vec<String>,
 
     // Name of resulting winmd file.
-    pub output: &'a str,
+    pub output: String,
 }
 
-pub fn gen(gen: &Gen) {
+impl Gen {
+    pub fn new() -> Self {
+        Self::default()
+    }
+}
 
+pub fn gen(gen: &Gen) -> std::io::Result<()> {
+    Ok(())
 }
