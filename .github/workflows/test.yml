@@ -100,8 +100,10 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_weak_ref &&
         cargo test --target ${{ matrix.target }} -p test_win32 &&
         cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
+        cargo test --target ${{ matrix.target }} -p test_writer &&
         cargo test --target ${{ matrix.target }} -p tool_bindings &&
         cargo test --target ${{ matrix.target }} -p tool_gnu &&
+        cargo test --target ${{ matrix.target }} -p tool_ilrs &&
         cargo test --target ${{ matrix.target }} -p tool_msvc &&
         cargo test --target ${{ matrix.target }} -p tool_sys &&
         cargo test --target ${{ matrix.target }} -p tool_windows &&
