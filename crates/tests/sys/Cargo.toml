@@ -2,7 +2,7 @@
 name = "test_sys"
 version = "0.0.0"
 authors = ["Microsoft"]
-edition = "2018"
+edition = "2021"
 
 [dependencies.windows-sys]
 path = "../../libs/sys"
