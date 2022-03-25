@@ -1,7 +1,8 @@
 mod file;
 mod scope;
-mod row;
+mod name;
 
 use super::*;
 pub use file::*;
 pub use scope::*;
+use name::*;

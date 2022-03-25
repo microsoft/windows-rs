@@ -5,7 +5,7 @@ pub struct Name<'a> {
 }
 
 #[allow(non_upper_case_globals)]
-impl Name {
+impl<'a> Name<'a> {
     pub const None: Self = Self::from_const("", "");
     pub const Enum: Self = Self::from_const("System", "Enum");
     pub const Delegate: Self = Self::from_const("System", "MulticastDelegate");
@@ -55,7 +55,7 @@ impl Name {
         Self { namespace, name }
     }
 
-    pub fn new(namespace: &'static str, name: &'static str) -> Self {
+    pub fn new(namespace: &'a str, name: &'a str) -> Self {
         Self { namespace, name: trim_tick(name) }
     }
 
@@ -65,16 +65,16 @@ impl Name {
     }
 }
 
-pub fn trim_tick(name: &str) -> &str {
+impl<'a> std::fmt::Display for Name<'a> {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(fmt, "{}.{}", self.namespace, self.name)
+    }
+}
+
+fn trim_tick(name: &str) -> &str {
     if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
         &name[..name.len() - 2]
     } else {
         name
-    }
-}
-
-impl Display for Name {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(fmt, "{}.{}", self.namespace, self.name)
     }
 }
