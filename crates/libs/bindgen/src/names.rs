@@ -295,7 +295,7 @@ where
             };
 
             let generics = def.generics.iter().map(|g| gen_element_name(g, gen));
-            quote! { #namespace#name#colon_separated<#(#generics),*> }
+            quote! { #namespace #name #colon_separated<#(#generics),*> }
         }
     }
 }
