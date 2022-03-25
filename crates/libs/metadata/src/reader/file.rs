@@ -474,14 +474,14 @@ impl File {
         file
     }
 
-    pub(crate) fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
+    pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
         let filename = filename.as_ref();
         let bytes = std::fs::read(filename).unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename, e));
 
         Self::from_bytes(filename.file_name().expect("Invalid .winmd path").to_string_lossy().to_string(), bytes)
     }
 
-    pub(crate) fn type_def_table(&self) -> &TableData {
+    pub fn type_def_table(&self) -> &TableData {
         &self.tables[TableIndex::TypeDef as usize]
     }
 

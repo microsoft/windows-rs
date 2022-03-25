@@ -69,9 +69,9 @@ fn get_workspace_winmds() -> Vec<File> {
     push_dir(&mut result, &dir);
 
     if !result.iter().any(|file| file.name.starts_with("Windows.")) {
-        result.push(File::from_bytes("Windows.winmd".to_string(), include_bytes!("../default/Windows.winmd").to_vec()));
-        result.push(File::from_bytes("Windows.Win32.winmd".to_string(), include_bytes!("../default/Windows.Win32.winmd").to_vec()));
-        result.push(File::from_bytes("Windows.Win32.Interop.winmd".to_string(), include_bytes!("../default/Windows.Win32.Interop.winmd").to_vec()));
+        result.push(File::from_bytes("Windows.winmd".to_string(), include_bytes!("../../default/Windows.winmd").to_vec()));
+        result.push(File::from_bytes("Windows.Win32.winmd".to_string(), include_bytes!("../../default/Windows.Win32.winmd").to_vec()));
+        result.push(File::from_bytes("Windows.Win32.Interop.winmd".to_string(), include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec()));
     }
 
     result

@@ -1,0 +1,8 @@
+[package]
+name = "tool_ilrs"
+version = "0.0.0"
+edition = "2018"
+publish = false
+
+[dependencies]
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.34.0" }
