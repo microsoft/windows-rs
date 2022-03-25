@@ -185,7 +185,7 @@ jobs:
     - name: Run cargo check
       run: cargo check -p windows-sys --all-features
 
-  cargo_sys:
+  cargo_windows:
     name: Check windows
     runs-on: windows-2019
     strategy:
