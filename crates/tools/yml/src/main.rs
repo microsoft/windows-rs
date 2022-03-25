@@ -4,7 +4,6 @@ fn main() {
 }
 
 fn test_yml() {
-    let root = std::path::PathBuf::from(metadata::reader::workspace_dir());
     let mut yml = r#"name: Test
 
 on:
@@ -68,7 +67,7 @@ jobs:
       run: |"#
         .to_string();
 
-    for name in crates(&root) {
+    for name in crates() {
         if !requires_nightly(&name) {
             yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
         }
@@ -84,7 +83,7 @@ jobs:
       run: |"#,
     );
 
-    for name in crates(&root) {
+    for name in crates() {
         if requires_nightly(&name) {
             yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
         }
@@ -120,11 +119,10 @@ jobs:
     "#,
     );
 
-    std::fs::write(root.join(".github/workflows/test.yml"), yml.as_bytes()).unwrap();
+    std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
 }
 
 fn build_yml() {
-    let root = std::path::PathBuf::from(metadata::reader::workspace_dir());
     let mut yml = r#"name: Build
 
 on:
@@ -199,19 +197,19 @@ jobs:
       run: |"#
         .to_string();
 
-    for name in crates(&root) {
+    for name in crates() {
         yml.push_str(&format!("\n        cargo clippy -p {} &&", name));
     }
 
     yml.truncate(yml.len() - 2);
 
-    std::fs::write(root.join(".github/workflows/build.yml"), yml.as_bytes()).unwrap();
+    std::fs::write(".github/workflows/build.yml", yml.as_bytes()).unwrap();
 }
 
-fn crates(root: &std::path::Path) -> Vec<String> {
+fn crates() -> Vec<String> {
     let mut crates = vec![];
 
-    for dir in dirs(root, "crates/libs") {
+    for dir in dirs("crates/libs") {
         if dir == "windows" {
             crates.push("windows".to_string());
         } else {
@@ -219,19 +217,19 @@ fn crates(root: &std::path::Path) -> Vec<String> {
         }
     }
 
-    for dir in dirs(root, "crates/samples") {
+    for dir in dirs("crates/samples") {
         crates.push(format!("sample_{}", dir));
     }
 
-    for dir in dirs(root, "crates/targets") {
+    for dir in dirs("crates/targets") {
         crates.push(format!("windows_{}", dir));
     }
 
-    for dir in dirs(root, "crates/tests") {
+    for dir in dirs("crates/tests") {
         crates.push(format!("test_{}", dir));
     }
 
-    for dir in dirs(root, "crates/tools") {
+    for dir in dirs("crates/tools") {
         crates.push(format!("tool_{}", dir));
     }
 
@@ -242,10 +240,10 @@ fn requires_nightly(name: &str) -> bool {
     name.contains("implement") || name.contains("nightly") || name.starts_with("sample")
 }
 
-fn dirs(root: &std::path::Path, path: &str) -> Vec<String> {
+fn dirs(path: &str) -> Vec<String> {
     let mut dirs = vec![];
 
-    if let Ok(files) = std::fs::read_dir(root.join(path)) {
+    if let Ok(files) = std::fs::read_dir(path) {
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_dir() {

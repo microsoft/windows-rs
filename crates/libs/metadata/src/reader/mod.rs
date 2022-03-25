@@ -40,4 +40,4 @@ pub use type_kind::*;
 pub use type_name::*;
 pub use type_reader::*;
 pub use type_tree::*;
-pub use workspace::*;
+use workspace::*;

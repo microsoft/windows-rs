@@ -120,7 +120,7 @@ impl Tables {
     }
 
     // Once all of the type information has been added, normalization is the process of packing
-    // the various relational records into their respective tables and leaving only index behind.
+    // the various relational records into their respective tables and leaving only offsets behind.
     fn normalize(&mut self) {
         for type_def in &mut self.type_def {
             type_def.field_index = self.field.len();
