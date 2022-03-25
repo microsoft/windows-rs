@@ -32,6 +32,7 @@ license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "../../../.github/readme.md"
+rust-version = "1.56"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
