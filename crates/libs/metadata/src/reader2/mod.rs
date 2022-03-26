@@ -1,8 +1,12 @@
 mod file;
-mod scope;
 mod name;
+mod scope;
+mod tables;
+mod r#type;
 
 use super::*;
 pub use file::*;
+pub use name::*;
+pub use r#type::*;
 pub use scope::*;
-use name::*;
+use tables::*;
