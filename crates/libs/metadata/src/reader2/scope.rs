@@ -3,9 +3,9 @@ use super::*;
 pub struct Scope<'a> {
     files: &'a [File],
     // TODO: when inserting, need to ensure that all parent namespaces exist
-    types: BTreeMap<&'a str, BTreeMap<&'a str, Key>>,
+    types: BTreeMap<&'a str, BTreeMap<&'a str, Vec<Type<'a>>>>,
     // Nested type values must be sorted by name.
-    nested: BTreeMap<Key, Vec<Key>>,
+    nested: BTreeMap<TypeDef<'a>, Vec<TypeDef<'a>>>,
 }
 
 impl<'a> Scope<'a> {
@@ -19,6 +19,18 @@ impl<'a> Scope<'a> {
 
     pub fn nested_namespaces(&self, parent: &'a str) -> impl Iterator<Item = &&str> {
         self.types.range(parent..).take_while(move |(namespace, _)| namespace.starts_with(parent)).filter_map(|(namespace, _)| namespace.as_bytes().get(parent.len()).and_then(|_| Some(namespace)))
+    }
+
+    pub fn types(&self, namespace: &str) ->  impl Iterator<Item = &Type> {
+        self.types[namespace].values().flatten()
+    }
+
+    pub fn nested_types(&self, type_def: &TypeDef) ->  impl Iterator<Item = &TypeDef> {
+        self.nested[type_def].iter()
+    }
+
+    pub fn get(&self, name: Name) -> Option<Type> {
+        None
     }
 }
 
