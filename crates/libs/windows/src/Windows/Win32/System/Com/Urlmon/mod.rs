@@ -6069,28 +6069,28 @@ pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, const PARAM1: usize>(pbc: Param0, rgsztypes: &[::windows::core::PSTR; PARAM1], rgclsid: &[::windows::core::GUID; PARAM1], reserved: u32) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterMediaTypeClass(pbc: ::windows::core::RawPtr, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
         }
-        RegisterMediaTypeClass(pbc.into_param().abi(), PARAM1 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztypes)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgclsid)), ::core::mem::transmute(reserved)).ok()
+        RegisterMediaTypeClass(pbc.into_param().abi(), ::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgclsid), ::core::mem::transmute(reserved)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterMediaTypes<'a, const PARAM0: usize>(rgsztypes: &[::windows::core::PSTR; PARAM0], rgcftypes: &mut [u16; PARAM0]) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
         }
-        RegisterMediaTypes(PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztypes)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgcftypes))).ok()
+        RegisterMediaTypes(::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

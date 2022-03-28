@@ -283,22 +283,13 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             }
         }
 
-        if let Some(ArrayInfo::RelativeLen(len)) = param.array_info {
+        if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
             let ty = param.ty.deref();
             let ty = gen_default_type(&ty, gen);
-            let ty = if let Some(ArrayInfo::RelativePtr(Some(_))) = params[len].array_info {
-                if param.def.flags().output() {
-                    quote! { &mut [#ty] }
-                } else {
-                    quote! { &[#ty] }
-                }
+            let ty = if param.def.flags().output() {
+                quote! { &mut [#ty] }
             } else {
-                let len: TokenStream = format!("PARAM{}", len).into();
-                if param.def.flags().output() {
-                    quote! { &mut [#ty; #len] }
-                } else {
-                    quote! { &[#ty; #len] }
-                }
+                quote! { &[#ty] }
             };
 
             tokens.combine(&quote! { #name: #ty, });
@@ -325,7 +316,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut tokens = quote! {};
 
-    for (position, param) in params.iter().enumerate() {
+    for param in params {
         let name = gen_param_name(&param.def);
 
         if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
@@ -353,13 +344,8 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
         }
 
         if let Some(ArrayInfo::RelativePtr(relative)) = param.array_info {
-            if let Some(relative) = relative {
-                let name = gen_param_name(&params[relative].def);
-                tokens.combine(&quote! { #name.len() as _, });
-            } else {
-                let len: TokenStream = format!("PARAM{}", position).into();
-                tokens.combine(&quote! { #len as _, });
-            }
+            let name = gen_param_name(&params[relative].def);
+            tokens.combine(&quote! { #name.len() as _, });
             continue;
         }
 

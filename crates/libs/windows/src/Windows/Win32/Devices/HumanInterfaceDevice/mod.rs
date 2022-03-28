@@ -8820,14 +8820,14 @@ pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UsageListDifference<'a, const PARAM4: usize>(previoususagelist: &[u16; PARAM4], currentusagelist: &[u16; PARAM4], breakusagelist: &mut [u16; PARAM4], makeusagelist: &mut [u16; PARAM4]) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_UsageListDifference(::core::mem::transmute(::windows::core::as_ptr_or_null(previoususagelist)), ::core::mem::transmute(::windows::core::as_ptr_or_null(currentusagelist)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(breakusagelist)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(makeusagelist)), PARAM4 as _).ok()
+        HidP_UsageListDifference(::core::mem::transmute(previoususagelist), ::core::mem::transmute(currentusagelist), ::core::mem::transmute(breakusagelist), ::core::mem::transmute(makeusagelist), ::core::mem::transmute(usagelistlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

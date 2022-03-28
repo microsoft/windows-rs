@@ -13634,14 +13634,14 @@ pub unsafe fn SetPropW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSysColors<'a, const PARAM0: usize>(lpaelements: &[i32; PARAM0], lpargbvalues: &[u32; PARAM0]) -> super::super::Foundation::BOOL {
+pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSysColors(PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpaelements)), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbvalues))))
+        ::core::mem::transmute(SetSysColors(::core::mem::transmute(celements), ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

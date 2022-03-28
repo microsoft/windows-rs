@@ -6207,8 +6207,8 @@ pub struct IWbemEventSink_Vtbl {
 pub struct IWbemHiPerfEnum(::windows::core::IUnknown);
 impl IWbemHiPerfEnum {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn AddObjects<'a, const PARAM1: usize>(&self, lflags: i32, apids: &[i32; PARAM1], apobj: &[::core::option::Option<IWbemObjectAccess>; PARAM1]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(lflags), PARAM1 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apids)), ::core::mem::transmute(::windows::core::as_ptr_or_null(apobj))).ok()
+    pub unsafe fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const ::core::option::Option<IWbemObjectAccess>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(lflags), ::core::mem::transmute(unumobjects), ::core::mem::transmute(apids), ::core::mem::transmute(apobj)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn RemoveObjects(&self, lflags: i32, apids: &[i32]) -> ::windows::core::Result<()> {

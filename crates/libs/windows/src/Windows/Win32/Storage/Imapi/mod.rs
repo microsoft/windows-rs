@@ -10518,8 +10518,8 @@ impl IStreamInterleave {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, const PARAM2: usize>(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>; PARAM2], interleavesizes: &[u32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(streams)), ::core::mem::transmute(::windows::core::as_ptr_or_null(interleavesizes)), PARAM2 as _).ok()
+    pub unsafe fn Initialize(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(streams), ::core::mem::transmute(interleavesizes), ::core::mem::transmute(streamcount)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
