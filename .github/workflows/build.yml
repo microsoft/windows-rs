@@ -127,6 +127,7 @@ jobs:
         cargo clippy -p test_core &&
         cargo clippy -p test_debug &&
         cargo clippy -p test_deprecated &&
+        cargo clippy -p test_dispatch &&
         cargo clippy -p test_does_not_return &&
         cargo clippy -p test_enums &&
         cargo clippy -p test_error &&
