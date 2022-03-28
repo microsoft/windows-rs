@@ -286,19 +286,10 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
         if let Some(ArrayInfo::RelativeLen(len)) = param.array_info {
             let ty = param.ty.deref();
             let ty = gen_default_type(&ty, gen);
-            let ty = if let Some(ArrayInfo::RelativePtr(Some(_))) = params[len].array_info {
-                if param.def.flags().output() {
-                    quote! { &mut [#ty] }
-                } else {
-                    quote! { &[#ty] }
-                }
+            let ty = if param.def.flags().output() {
+                quote! { &mut [#ty] }
             } else {
-                let len: TokenStream = format!("PARAM{}", len).into();
-                if param.def.flags().output() {
-                    quote! { &mut [#ty; #len] }
-                } else {
-                    quote! { &[#ty; #len] }
-                }
+                quote! { &[#ty] }
             };
 
             tokens.combine(&quote! { #name: #ty, });
