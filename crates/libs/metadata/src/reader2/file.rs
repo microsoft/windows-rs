@@ -1,5 +1,3 @@
-use super::*;
-
 #[derive(Default)]
 pub struct File {
     name: String,

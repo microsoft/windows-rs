@@ -25,7 +25,7 @@ impl<'a> Scope<'a> {
         self.types[namespace].values().flatten()
     }
 
-    pub fn nested_types(&self, type_def: &TypeDef) ->  impl Iterator<Item = &TypeDef> {
+    pub fn nested_types(&self, type_def: &'a TypeDef) ->  impl Iterator<Item = &TypeDef> {
         self.nested[type_def].iter()
     }
 
@@ -34,11 +34,33 @@ impl<'a> Scope<'a> {
     }
 }
 
+#[derive(Clone)]
 pub(crate) struct Row<'a> {
     scope: &'a Scope<'a>,
     key: Key,
 }
 
+impl<'a> PartialEq for Row<'a> {
+    fn eq(&self, other: &Self) -> bool {
+        self.key.eq(&other.key)
+    }
+}
+
+impl<'a> PartialOrd for Row<'a> {
+    fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
+        self.key.partial_cmp(&other.key)
+    }
+}
+
+impl<'a> Ord for Row<'a> {
+    fn cmp(&self, other: &Self) -> core::cmp::Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+impl<'a> Eq for Row<'a> {}
+
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 struct Key {
     pub row: u32,
     pub table: u32,
