@@ -81,9 +81,8 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         match def {
             Type::IUnknown | Type::IInspectable => {}
             Type::TypeDef(def) => {
-                if def.type_name() != TypeName::IDispatch {
-                    methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, bases, gen));
-                }
+                let kind = if def.type_name() == TypeName::IDispatch { InterfaceKind::NonDefault } else { InterfaceKind::Default };
+                methods.combine(&gen_methods_impl(&def, kind, &mut method_names, &mut virtual_names, bases, gen));
             }
             _ => unimplemented!(),
         }
@@ -116,7 +115,7 @@ fn gen_methods_impl(def: &TypeDef, kind: InterfaceKind, method_names: &mut Metho
         if is_winrt {
             methods.combine(&gen_winrt_method(def, kind, &method, method_names, virtual_names, gen));
         } else {
-            methods.combine(&gen_com_method(def, &method, method_names, virtual_names, bases, gen));
+            methods.combine(&gen_com_method(def, kind, &method, method_names, virtual_names, bases, gen));
         }
     }
 

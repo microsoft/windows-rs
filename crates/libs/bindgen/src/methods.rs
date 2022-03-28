@@ -140,7 +140,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     }
 }
 
-pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize, gen: &Gen) -> TokenStream {
+pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
     let name = method_names.add(method);
     let vname = virtual_names.add(method);
@@ -149,6 +149,10 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     cfg.add_feature(def.namespace());
     let doc = gen.doc(&cfg);
     let features = gen.cfg(&cfg);
+
+    if kind == InterfaceKind::NonDefault {
+        return quote! {};
+    }
 
     let mut bases = quote! {};
 
