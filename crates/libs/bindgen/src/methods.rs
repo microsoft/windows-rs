@@ -283,7 +283,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             }
         }
 
-        if let Some(ArrayInfo::RelativeLen(len)) = param.array_info {
+        if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
             let ty = param.ty.deref();
             let ty = gen_default_type(&ty, gen);
             let ty = if param.def.flags().output() {
@@ -316,7 +316,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut tokens = quote! {};
 
-    for (position, param) in params.iter().enumerate() {
+    for param in params {
         let name = gen_param_name(&param.def);
 
         if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
