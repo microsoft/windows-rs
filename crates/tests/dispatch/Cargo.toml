@@ -1,0 +1,14 @@
+[package]
+name = "test_dispatch"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2021"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_Ole",
+    "Win32_System_RemoteManagement",
+]

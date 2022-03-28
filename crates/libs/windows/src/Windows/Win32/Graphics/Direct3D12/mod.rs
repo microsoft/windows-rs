@@ -20319,12 +20319,12 @@ impl ID3D12Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
 }
 impl ::core::convert::From<ID3D12Device1> for ::windows::core::IUnknown {
@@ -20624,12 +20624,12 @@ impl ID3D12Device2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -20949,12 +20949,12 @@ impl ID3D12Device3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -21314,12 +21314,12 @@ impl ID3D12Device4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -21739,12 +21739,12 @@ impl ID3D12Device5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -22216,12 +22216,12 @@ impl ID3D12Device6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -22712,12 +22712,12 @@ impl ID3D12Device7 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -23236,12 +23236,12 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -23821,12 +23821,12 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, const PARAM2: usize, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: &[::core::option::Option<ID3D12Fence>; PARAM2], pfencevalues: &[u64; PARAM2], flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfencevalues)), PARAM2 as _, ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
+    pub unsafe fn SetEventOnMultipleFenceCompletion<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, ppfences: *const ::core::option::Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetEventOnMultipleFenceCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppfences), ::core::mem::transmute(pfencevalues), ::core::mem::transmute(numfences), ::core::mem::transmute(flags), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetResidencyPriority<'a, const PARAM0: usize>(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>; PARAM0], ppriorities: &[D3D12_RESIDENCY_PRIORITY; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppriorities))).ok()
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetResidencyPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(numobjects), ::core::mem::transmute(ppobjects), ::core::mem::transmute(ppriorities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn CreatePipelineState<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
@@ -25854,12 +25854,12 @@ impl ID3D12GraphicsCommandList1 {
         (::windows::core::Interface::vtable(self).base.ExecuteIndirect)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
@@ -26258,12 +26258,12 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Interface::vtable(self).base.base.ExecuteIndirect)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
@@ -26678,12 +26678,12 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Interface::vtable(self).base.base.base.ExecuteIndirect)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
@@ -27122,12 +27122,12 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.ExecuteIndirect)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
@@ -27638,12 +27638,12 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.ExecuteIndirect)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
@@ -28169,12 +28169,12 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.ExecuteIndirect)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.AtomicCopyBufferUINT)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM4: usize>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, ppdependentresources: &[::core::option::Option<ID3D12Resource>; PARAM4], pdependentsubresourceranges: &[D3D12_SUBRESOURCE_RANGE_UINT64; PARAM4]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppdependentresources)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdependentsubresourceranges)))
+    pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.AtomicCopyBufferUINT64)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {

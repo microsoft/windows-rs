@@ -403,8 +403,8 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
 pub struct IEnumDMO(::windows::core::IUnknown);
 impl IEnumDMO {
     #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub unsafe fn Next<'a, const PARAM0: usize>(&self, pclsid: &mut [::windows::core::GUID; PARAM0], names: &mut [::windows::core::PWSTR; PARAM0], pcitemsfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pclsid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(names)), ::core::mem::transmute(pcitemsfetched)).ok()
+    pub unsafe fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut ::windows::core::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(citemstofetch), ::core::mem::transmute(pclsid), ::core::mem::transmute(names), ::core::mem::transmute(pcitemsfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
     pub unsafe fn Skip(&self, citemstoskip: u32) -> ::windows::core::Result<()> {

@@ -247,8 +247,8 @@ impl ID3D11On12Device2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
-    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::core::IntoParam<'a, super::Direct3D11::ID3D11Resource>, const PARAM1: usize>(&self, presource11: Param0, psignalvalues: &[u64; PARAM1], ppfences: &[::core::option::Option<super::Direct3D12::ID3D12Fence>; PARAM1]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::core::mem::transmute_copy(self), presource11.into_param().abi(), PARAM1 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psignalvalues)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfences))).ok()
+    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::core::IntoParam<'a, super::Direct3D11::ID3D11Resource>>(&self, presource11: Param0, numsync: u32, psignalvalues: *const u64, ppfences: *const ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::core::mem::transmute_copy(self), presource11.into_param().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
     }
 }
 impl ::core::convert::From<ID3D11On12Device2> for ::windows::core::IUnknown {
