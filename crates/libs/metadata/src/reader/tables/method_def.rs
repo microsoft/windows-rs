@@ -140,7 +140,7 @@ impl MethodDef {
             }
         }
 
-        // Remove any sets that have optional ptr params.
+        // Remove all sets.
         for (len, ptrs) in sets {
             if ptrs.len() > 1 {
                 params[len].array_info = None;
