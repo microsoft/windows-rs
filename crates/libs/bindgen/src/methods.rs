@@ -344,13 +344,8 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
         }
 
         if let Some(ArrayInfo::RelativePtr(relative)) = param.array_info {
-            if let Some(relative) = relative {
-                let name = gen_param_name(&params[relative].def);
-                tokens.combine(&quote! { #name.len() as _, });
-            } else {
-                let len: TokenStream = format!("PARAM{}", position).into();
-                tokens.combine(&quote! { #len as _, });
-            }
+            let name = gen_param_name(&params[relative].def);
+            tokens.combine(&quote! { #name.len() as _, });
             continue;
         }
 

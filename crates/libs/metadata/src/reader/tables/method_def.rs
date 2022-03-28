@@ -124,11 +124,7 @@ impl MethodDef {
                 // The len params must be input only.
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
                 if !params[relative].def.flags().output() && position != relative {
-                    if params[relative].array_info.is_none() {
-                        params[relative].array_info = Some(ArrayInfo::RelativePtr(Some(position)));
-                    } else {
-                        params[relative].array_info = Some(ArrayInfo::RelativePtr(None));
-                    }
+                    params[relative].array_info = Some(ArrayInfo::RelativePtr(position));
                 } else {
                     params[position].array_info = None;
                 }
