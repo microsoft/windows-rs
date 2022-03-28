@@ -922,7 +922,7 @@ impl ::core::fmt::Debug for DVASPECT2 {
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn DispCallFunc<'a, const PARAM4: usize>(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, prgvt: &[u16; PARAM4], prgpvarg: &[*const super::Com::VARIANT; PARAM4]) -> ::windows::core::Result<super::Com::VARIANT> {
+pub unsafe fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -930,7 +930,7 @@ pub unsafe fn DispCallFunc<'a, const PARAM4: usize>(pvinstance: *const ::core::f
             fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT, pvargresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgvt)), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgpvarg)), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -938,14 +938,14 @@ pub unsafe fn DispCallFunc<'a, const PARAM4: usize>(pvinstance: *const ::core::f
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>, const PARAM2: usize>(ptinfo: Param0, rgsznames: &[::windows::core::PWSTR; PARAM2], rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(ptinfo: Param0, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DispGetIDsOfNames(ptinfo: ::windows::core::RawPtr, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT;
         }
-        DispGetIDsOfNames(ptinfo.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+        DispGetIDsOfNames(ptinfo.into_param().abi(), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

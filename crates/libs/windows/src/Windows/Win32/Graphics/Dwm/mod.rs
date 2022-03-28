@@ -872,14 +872,14 @@ pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmRenderGesture<'a, const PARAM1: usize>(gt: GESTURE_TYPE, pdwpointerid: &[u32; PARAM1], ppoints: &[super::super::Foundation::POINT; PARAM1]) -> ::windows::core::Result<()> {
+pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
-        DwmRenderGesture(::core::mem::transmute(gt), PARAM1 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdwpointerid)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppoints))).ok()
+        DwmRenderGesture(::core::mem::transmute(gt), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

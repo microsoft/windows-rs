@@ -10707,28 +10707,28 @@ pub unsafe fn GetFontUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HD
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, lpstr: &[u8; PARAM2], pgi: &mut [u16; PARAM2], fl: u32) -> u32 {
+pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpstr: ::windows::core::PCSTR, c: i32, pgi: *mut u16, fl: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetGlyphIndicesA(hdc: HDC, lpstr: ::windows::core::PCSTR, c: i32, pgi: *mut u16, fl: u32) -> u32;
         }
-        ::core::mem::transmute(GetGlyphIndicesA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstr)), PARAM2 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgi)), ::core::mem::transmute(fl)))
+        ::core::mem::transmute(GetGlyphIndicesA(hdc.into_param().abi(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), ::core::mem::transmute(fl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, lpstr: &[u16; PARAM2], pgi: &mut [u16; PARAM2], fl: u32) -> u32 {
+pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpstr: ::windows::core::PCWSTR, c: i32, pgi: *mut u16, fl: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetGlyphIndicesW(hdc: HDC, lpstr: ::windows::core::PCWSTR, c: i32, pgi: *mut u16, fl: u32) -> u32;
         }
-        ::core::mem::transmute(GetGlyphIndicesW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstr)), PARAM2 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgi)), ::core::mem::transmute(fl)))
+        ::core::mem::transmute(GetGlyphIndicesW(hdc.into_param().abi(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), ::core::mem::transmute(fl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14791,14 +14791,14 @@ pub unsafe fn PolyBezierTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PolyDraw<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM3: usize>(hdc: Param0, apt: &[super::super::Foundation::POINT; PARAM3], aj: &[u8; PARAM3]) -> super::super::Foundation::BOOL {
+pub unsafe fn PolyDraw<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PolyDraw(hdc: HDC, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyDraw(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), ::core::mem::transmute(::windows::core::as_ptr_or_null(aj)), PARAM3 as _))
+        ::core::mem::transmute(PolyDraw(hdc.into_param().abi(), ::core::mem::transmute(apt), ::core::mem::transmute(aj), ::core::mem::transmute(cpt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

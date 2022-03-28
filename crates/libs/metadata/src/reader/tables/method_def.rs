@@ -146,7 +146,7 @@ impl MethodDef {
 
         // Remove any sets that have optional ptr params.
         for (len, ptrs) in sets {
-            if ptrs.len() > 1 && ptrs.iter().any(|ptr| params[*ptr].def.flags().optional()) {
+            if ptrs.len() > 1 {
                 params[len].array_info = None;
                 for ptr in ptrs {
                     params[ptr].array_info = None;
