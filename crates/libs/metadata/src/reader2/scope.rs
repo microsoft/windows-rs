@@ -21,7 +21,7 @@ impl<'a> Scope<'a> {
         self.types.range(parent..).take_while(move |(namespace, _)| namespace.starts_with(parent)).filter_map(|(namespace, _)| namespace.as_bytes().get(parent.len()).and_then(|_| Some(namespace)))
     }
 
-    pub fn types(&self, namespace: &str) ->  impl Iterator<Item = &Type> {
+    pub fn namespace_types(&self, namespace: &str) ->  impl Iterator<Item = &Type> {
         self.types[namespace].values().flatten()
     }
 
@@ -29,8 +29,12 @@ impl<'a> Scope<'a> {
         self.nested[type_def].iter()
     }
 
-    pub fn get(&self, name: Name) -> Option<Type> {
-        None
+    pub fn get_type(&self, name: &TypeName) -> impl Iterator<Item = &Type> {
+        if let Some(types) = self.types.get(name.namespace).and_then(|types|types.get(name.name)) {
+            types.iter()
+        } else {
+            [].iter()
+        }
     }
 }
 

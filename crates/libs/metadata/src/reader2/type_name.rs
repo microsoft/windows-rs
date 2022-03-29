@@ -1,11 +1,11 @@
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Name<'a> {
+pub struct TypeName<'a> {
     pub namespace: &'a str,
     pub name: &'a str,
 }
 
 #[allow(non_upper_case_globals)]
-impl<'a> Name<'a> {
+impl<'a> TypeName<'a> {
     pub const None: Self = Self::from_const("", "");
     pub const Enum: Self = Self::from_const("System", "Enum");
     pub const Delegate: Self = Self::from_const("System", "MulticastDelegate");
@@ -65,7 +65,7 @@ impl<'a> Name<'a> {
     }
 }
 
-impl<'a> std::fmt::Display for Name<'a> {
+impl<'a> std::fmt::Display for TypeName<'a> {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
     }
