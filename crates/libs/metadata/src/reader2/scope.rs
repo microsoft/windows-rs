@@ -10,7 +10,14 @@ pub struct Scope<'a> {
 
 impl<'a> Scope<'a> {
     pub fn new(files: &'a [File]) -> Self {
-        Self { files, types: BTreeMap::new(), nested: BTreeMap::new() }
+        let mut types = BTreeMap::new();
+        let mut nested = BTreeMap::new();
+
+        for file in files {
+            
+        }
+
+        Self { files, types, nested }
     }
 
     pub fn namespaces(&self) -> impl Iterator<Item = &&str> {
