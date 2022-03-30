@@ -18091,12 +18091,12 @@ impl ID3D12VideoEncoder {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCodec)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCodecProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(dstprofile)).ok()
+    pub unsafe fn GetCodecProfile<'a, Param0: ::windows::core::IntoParam<'a, D3D12_VIDEO_ENCODER_PROFILE_DESC>>(&self, dstprofile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCodecProfile)(::core::mem::transmute_copy(self), dstprofile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCodecConfiguration)(::core::mem::transmute_copy(self), ::core::mem::transmute(dstcodecconfig)).ok()
+    pub unsafe fn GetCodecConfiguration<'a, Param0: ::windows::core::IntoParam<'a, D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION>>(&self, dstcodecconfig: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCodecConfiguration)(::core::mem::transmute_copy(self), dstcodecconfig.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -18289,12 +18289,12 @@ impl ID3D12VideoEncoderHeap {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCodec)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCodecProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(dstprofile)).ok()
+    pub unsafe fn GetCodecProfile<'a, Param0: ::windows::core::IntoParam<'a, D3D12_VIDEO_ENCODER_PROFILE_DESC>>(&self, dstprofile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCodecProfile)(::core::mem::transmute_copy(self), dstprofile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn GetCodecLevel(&self, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCodecLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(dstlevel)).ok()
+    pub unsafe fn GetCodecLevel<'a, Param0: ::windows::core::IntoParam<'a, D3D12_VIDEO_ENCODER_LEVEL_SETTING>>(&self, dstlevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCodecLevel)(::core::mem::transmute_copy(self), dstlevel.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub unsafe fn GetResolutionListCount(&self) -> u32 {
@@ -22080,8 +22080,9 @@ impl IMFASFContentInfo {
         (::windows::core::Interface::vtable(self).ParseHeader)(::core::mem::transmute_copy(self), piheaderbuffer.into_param().abi(), ::core::mem::transmute(cboffsetwithinheader)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn GenerateHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(&self, piheader: Param0, pcbheader: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateHeader)(::core::mem::transmute_copy(self), piheader.into_param().abi(), ::core::mem::transmute(pcbheader)).ok()
+    pub unsafe fn GenerateHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(&self, piheader: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GenerateHeader)(::core::mem::transmute_copy(self), piheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub unsafe fn GetProfile(&self) -> ::windows::core::Result<IMFASFProfile> {
@@ -54327,14 +54328,15 @@ pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::core::R
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
-pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmft: Param0, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmft: Param0, cbverifier: u32, verifier: *const u8) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MFGetMFTMerit(pmft: *mut ::core::ffi::c_void, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::HRESULT;
         }
-        MFGetMFTMerit(pmft.into_param().abi(), ::core::mem::transmute(cbverifier), ::core::mem::transmute(verifier), ::core::mem::transmute(merit)).ok()
+        let mut result__: u32 = ::core::mem::zeroed();
+        MFGetMFTMerit(pmft.into_param().abi(), ::core::mem::transmute(cbverifier), ::core::mem::transmute(verifier), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

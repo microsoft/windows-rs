@@ -130,7 +130,7 @@ extern "system" {
     pub fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn GetAdaptersAddresses(family: ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32;
+    pub fn GetAdaptersAddresses(family: super::super::Networking::WinSock::ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32;
@@ -246,8 +246,9 @@ extern "system" {
     pub fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS_FAMILY) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE) -> u32;
@@ -302,10 +303,12 @@ extern "system" {
     pub fn GetTcp6Table2(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRESS_FAMILY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRESS_FAMILY) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetTcpTable(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
@@ -320,10 +323,12 @@ extern "system" {
     pub fn GetUdp6Table(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_FAMILY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRESS_FAMILY) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetUdpTable(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
@@ -512,14 +517,6 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn if_nametoindex(interfacename: ::windows_sys::core::PCSTR) -> u32;
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub type ADDRESS_FAMILY = u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const AF_INET: ADDRESS_FAMILY = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const AF_INET6: ADDRESS_FAMILY = 23u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const AF_UNSPEC: ADDRESS_FAMILY = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ANY_SIZE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
