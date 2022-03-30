@@ -1,5 +1,8 @@
 use super::*;
 
+// TODO: now that we just have a large batch code generator, should we just load up all 
+// type information in memory and avoid hitting the files repeatedly? Could be faster...
+
 pub struct Scope<'a> {
     files: &'a [File],
     // TODO: when inserting, need to ensure that all parent namespaces exist

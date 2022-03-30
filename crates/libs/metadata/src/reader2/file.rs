@@ -1,3 +1,5 @@
+use super::*;
+
 #[derive(Default)]
 pub struct File {
     name: String,
@@ -46,9 +48,6 @@ impl File {
         let bytes = std::fs::read(&path)?;
 
         // TODO: share structs with writer!
-
-        // TODO: now that we just have a large batch code generator, should we just load up all 
-        // type information in memory and avoid hitting the files repeatedly? Could be faster...
 
         // Since the file was read successfully, we just assume it has a valid file name.
         let name = path.file_name().unwrap().to_string_lossy().to_string();
@@ -104,3 +103,55 @@ impl Column {
         Self{ offset, width }
     }
 }
+
+macro_rules! assert_proper_length {
+    ($self:expr, $t:ty, $offset:expr, $size:expr) => {
+        let enough_room = $offset + $size <= $self.len() ;
+        assert!(enough_room, "Invalid file: not enough bytes at offset {} to represent T", $offset);
+    };
+}
+
+macro_rules! assert_proper_length_and_alignment {
+    ($self:expr, $t:ty, $offset:expr, $size:expr) => {{
+        assert_proper_length!($self, $t, $offset, $size);
+        let ptr = &$self[$offset ] as *const u8 as *const $t;
+        let properly_aligned = ptr.align_offset(align_of::<$t>()) == 0;
+        assert!(properly_aligned, "Invalid file: offset {} is not properly aligned to T", $offset);
+        ptr
+    }};
+}
+
+trait View {
+    fn view_as<T>(&self, offset: usize) -> &T;
+    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> &[T];
+    fn copy_as<T: Copy>(&self, offset: usize) -> T;
+    fn view_as_str(&self, offset: usize) -> &[u8];
+}
+
+impl View for [u8] {
+    fn view_as<T>(&self, offset: usize) -> &T {
+        let ptr = assert_proper_length_and_alignment!(self, T, offset, size_of::<T>());
+        unsafe { &*ptr }
+    }
+
+    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> &[T] {
+        let ptr = assert_proper_length_and_alignment!(self, T, offset, size_of::<T>() * len);
+        unsafe { from_raw_parts(ptr, len ) }
+    }
+
+    fn copy_as<T>(&self, offset: usize) -> T {
+        assert_proper_length!(self, T, offset, size_of::<T>());
+        unsafe {
+            let mut data = MaybeUninit::zeroed().assume_init();
+            copy_nonoverlapping(self[offset ..].as_ptr(), &mut data as *mut T as *mut u8, size_of::<T>());
+            data
+        }
+    }
+
+    fn view_as_str(&self, offset: usize) -> &[u8] {
+        let buffer = &self[offset ..];
+        let index = buffer.iter().position(|c| *c == b'\0').expect("Invalid file");
+        &self[offset ..offset  + index]
+    }
+}
+
