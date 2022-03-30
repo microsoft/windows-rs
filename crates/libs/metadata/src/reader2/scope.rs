@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: now that we just have a large batch code generator, should we just load up all 
+// TODO: now that we just have a large batch code generator, should we just load up all
 // type information in memory and avoid hitting the files repeatedly? Could be faster...
 
 pub struct Scope<'a> {
@@ -16,9 +16,7 @@ impl<'a> Scope<'a> {
         let mut types = BTreeMap::new();
         let mut nested = BTreeMap::new();
 
-        for file in files {
-            
-        }
+        for file in files {}
 
         Self { files, types, nested }
     }
@@ -31,16 +29,16 @@ impl<'a> Scope<'a> {
         self.types.range(parent..).take_while(move |(namespace, _)| namespace.starts_with(parent)).filter_map(|(namespace, _)| namespace.as_bytes().get(parent.len()).and_then(|_| Some(namespace)))
     }
 
-    pub fn namespace_types(&self, namespace: &str) ->  impl Iterator<Item = &Type> {
+    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = &Type> {
         self.types[namespace].values().flatten()
     }
 
-    pub fn nested_types(&self, type_def: &'a TypeDef) ->  impl Iterator<Item = &TypeDef> {
+    pub fn nested_types(&self, type_def: &'a TypeDef) -> impl Iterator<Item = &TypeDef> {
         self.nested[type_def].iter()
     }
 
     pub fn get_type(&self, name: &TypeName) -> impl Iterator<Item = &Type> {
-        if let Some(types) = self.types.get(name.namespace).and_then(|types|types.get(name.name)) {
+        if let Some(types) = self.types.get(name.namespace).and_then(|types| types.get(name.name)) {
             types.iter()
         } else {
             [].iter()

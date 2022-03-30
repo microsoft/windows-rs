@@ -6,3 +6,15 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Code gen support for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+
+[dependencies.windows-sys]
+path = "../sys"
+version = "0.34.0"
+features = [
+    "Win32_System_SystemServices",
+    "Win32_System_Diagnostics_Debug",
+]
