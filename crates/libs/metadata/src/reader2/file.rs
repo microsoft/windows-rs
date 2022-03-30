@@ -47,6 +47,9 @@ impl File {
 
         // TODO: share structs with writer!
 
+        // TODO: now that we just have a large batch code generator, should we just load up all 
+        // type information in memory and avoid hitting the files repeatedly? Could be faster...
+
         // Since the file was read successfully, we just assume it has a valid file name.
         let name = path.file_name().unwrap().to_string_lossy().to_string();
 
