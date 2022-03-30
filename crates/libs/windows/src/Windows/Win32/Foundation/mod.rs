@@ -5853,7 +5853,7 @@ pub const PRESENTATION_ERROR_LOST: ::windows::core::HRESULT = ::windows::core::H
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct PSID(pub isize);
+pub struct PSID(pub *mut ::core::ffi::c_void);
 impl PSID {
     pub fn is_invalid(&self) -> bool {
         *self == unsafe { ::core::mem::zeroed() }

@@ -42,6 +42,44 @@ extern "system" {
     pub fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTAbortReliableWrite(hdevice: super::super::Foundation::HANDLE, reliablewritecontext: u64, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTBeginReliableWrite(hdevice: super::super::Foundation::HANDLE, reliablewritecontext: *mut u64, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTEndReliableWrite(hdevice: super::super::Foundation::HANDLE, reliablewritecontext: u64, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTGetCharacteristicValue(hdevice: super::super::Foundation::HANDLE, characteristic: *const BTH_LE_GATT_CHARACTERISTIC, characteristicvaluedatasize: u32, characteristicvalue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE, characteristicvaluesizerequired: *mut u16, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTGetCharacteristics(hdevice: super::super::Foundation::HANDLE, service: *const BTH_LE_GATT_SERVICE, characteristicsbuffercount: u16, characteristicsbuffer: *mut BTH_LE_GATT_CHARACTERISTIC, characteristicsbufferactual: *mut u16, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTGetDescriptorValue(hdevice: super::super::Foundation::HANDLE, descriptor: *const BTH_LE_GATT_DESCRIPTOR, descriptorvaluedatasize: u32, descriptorvalue: *mut BTH_LE_GATT_DESCRIPTOR_VALUE, descriptorvaluesizerequired: *mut u16, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTGetDescriptors(hdevice: super::super::Foundation::HANDLE, characteristic: *const BTH_LE_GATT_CHARACTERISTIC, descriptorsbuffercount: u16, descriptorsbuffer: *mut BTH_LE_GATT_DESCRIPTOR, descriptorsbufferactual: *mut u16, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTGetIncludedServices(hdevice: super::super::Foundation::HANDLE, parentservice: *const BTH_LE_GATT_SERVICE, includedservicesbuffercount: u16, includedservicesbuffer: *mut BTH_LE_GATT_SERVICE, includedservicesbufferactual: *mut u16, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTGetServices(hdevice: super::super::Foundation::HANDLE, servicesbuffercount: u16, servicesbuffer: *mut BTH_LE_GATT_SERVICE, servicesbufferactual: *mut u16, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTRegisterEvent(hservice: super::super::Foundation::HANDLE, eventtype: BTH_LE_GATT_EVENT_TYPE, eventparameterin: *const ::core::ffi::c_void, callback: PFNBLUETOOTH_GATT_EVENT_CALLBACK, callbackcontext: *const ::core::ffi::c_void, peventhandle: *mut isize, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTSetCharacteristicValue(hdevice: super::super::Foundation::HANDLE, characteristic: *const BTH_LE_GATT_CHARACTERISTIC, characteristicvalue: *const BTH_LE_GATT_CHARACTERISTIC_VALUE, reliablewritecontext: u64, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothGATTSetDescriptorValue(hdevice: super::super::Foundation::HANDLE, descriptor: *const BTH_LE_GATT_DESCRIPTOR, descriptorvalue: *const BTH_LE_GATT_DESCRIPTOR_VALUE, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+    pub fn BluetoothGATTUnregisterEvent(eventhandle: isize, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothGetDeviceInfo(hradio: super::super::Foundation::HANDLE, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -446,6 +484,34 @@ pub const BLUETOOTH_GATT_FLAG_RETURN_ALL: u32 = 64u32;
 pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
+    pub ChangedAttributeHandle: u16,
+    pub CharacteristicValueDataSize: usize,
+    pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
+}
+impl ::core::marker::Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
+impl ::core::clone::Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
+    pub NumCharacteristics: u16,
+    pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub type BLUETOOTH_IO_CAPABILITY = i32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -1027,6 +1093,31 @@ pub const BTH_LE_GATT_ATTRIBUTE_TYPE_INCLUDE: u32 = 10242u32;
 pub const BTH_LE_GATT_ATTRIBUTE_TYPE_PRIMARY_SERVICE: u32 = 10240u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LE_GATT_ATTRIBUTE_TYPE_SECONDARY_SERVICE: u32 = 10241u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_CHARACTERISTIC {
+    pub ServiceHandle: u16,
+    pub CharacteristicUuid: BTH_LE_UUID,
+    pub AttributeHandle: u16,
+    pub CharacteristicValueHandle: u16,
+    pub IsBroadcastable: super::super::Foundation::BOOLEAN,
+    pub IsReadable: super::super::Foundation::BOOLEAN,
+    pub IsWritable: super::super::Foundation::BOOLEAN,
+    pub IsWritableWithoutResponse: super::super::Foundation::BOOLEAN,
+    pub IsSignedWritable: super::super::Foundation::BOOLEAN,
+    pub IsNotifiable: super::super::Foundation::BOOLEAN,
+    pub IsIndicatable: super::super::Foundation::BOOLEAN,
+    pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_CHARACTERISTIC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_CHARACTERISTIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_AGGREGATE_FORMAT: u32 = 10501u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -1051,12 +1142,204 @@ pub const BTH_LE_GATT_CHARACTERISTIC_TYPE_PERIPHERAL_PRIVACY_FLAG: u32 = 10754u3
 pub const BTH_LE_GATT_CHARACTERISTIC_TYPE_RECONNECTION_ADDRESS: u32 = 10755u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LE_GATT_CHARACTERISTIC_TYPE_SERVICE_CHANGED: u32 = 10757u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
+    pub DataSize: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
+impl ::core::clone::Clone for BTH_LE_GATT_CHARACTERISTIC_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LE_GATT_DEFAULT_MAX_INCLUDED_SERVICES_DEPTH: u32 = 3u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_DESCRIPTOR {
+    pub ServiceHandle: u16,
+    pub CharacteristicHandle: u16,
+    pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
+    pub DescriptorUuid: BTH_LE_UUID,
+    pub AttributeHandle: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub type BTH_LE_GATT_DESCRIPTOR_TYPE = i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicUserDescription: BTH_LE_GATT_DESCRIPTOR_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicAggregateFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CustomDescriptor: BTH_LE_GATT_DESCRIPTOR_TYPE = 6i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
+    pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
+    pub DescriptorUuid: BTH_LE_UUID,
+    pub Anonymous: BTH_LE_GATT_DESCRIPTOR_VALUE_0,
+    pub DataSize: u32,
+    pub Data: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
+    pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
+    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
+    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
+    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
+    pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
+    pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+    pub Format: u8,
+    pub Exponent: u8,
+    pub Unit: BTH_LE_UUID,
+    pub NameSpace: u8,
+    pub Description: BTH_LE_UUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
+    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    pub IsBroadcast: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub type BTH_LE_GATT_EVENT_TYPE = i32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicValueChangedEvent: BTH_LE_GATT_EVENT_TYPE = 0i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_GATT_SERVICE {
+    pub ServiceUuid: BTH_LE_UUID,
+    pub AttributeHandle: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_GATT_SERVICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_GATT_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LE_SERVICE_GAP: u32 = 6144u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LE_SERVICE_GATT: u32 = 6145u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_LE_UUID {
+    pub IsShortUuid: super::super::Foundation::BOOLEAN,
+    pub Value: BTH_LE_UUID_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_UUID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_UUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union BTH_LE_UUID_0 {
+    pub ShortUuid: u16,
+    pub LongUuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_LE_UUID_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_LE_UUID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BTH_LINK_KEY_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -1696,6 +1979,8 @@ pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_AUTHENTICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;

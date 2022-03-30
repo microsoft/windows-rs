@@ -817,8 +817,8 @@ pub trait ID3D12VideoEncoder_Impl: Sized + super::super::Graphics::Direct3D12::I
     fn GetNodeMask(&self) -> u32;
     fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS;
     fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
-    fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()>;
-    fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> ::windows::core::Result<()>;
+    fn GetCodecProfile(&self, dstprofile: &D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()>;
+    fn GetCodecConfiguration(&self, dstcodecconfig: &D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> ::windows::core::Result<()>;
     fn GetInputFormat(&self) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT;
     fn GetMaxMotionEstimationPrecision(&self) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE;
 }
@@ -843,12 +843,12 @@ impl ID3D12VideoEncoder_Vtbl {
         unsafe extern "system" fn GetCodecProfile<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCodecProfile(::core::mem::transmute_copy(&dstprofile)).into()
+            (*this).GetCodecProfile(::core::mem::transmute(&dstprofile)).into()
         }
         unsafe extern "system" fn GetCodecConfiguration<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCodecConfiguration(::core::mem::transmute_copy(&dstcodecconfig)).into()
+            (*this).GetCodecConfiguration(::core::mem::transmute(&dstcodecconfig)).into()
         }
         unsafe extern "system" fn GetInputFormat<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -880,8 +880,8 @@ pub trait ID3D12VideoEncoderHeap_Impl: Sized + super::super::Graphics::Direct3D1
     fn GetNodeMask(&self) -> u32;
     fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS;
     fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
-    fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()>;
-    fn GetCodecLevel(&self, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> ::windows::core::Result<()>;
+    fn GetCodecProfile(&self, dstprofile: &D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()>;
+    fn GetCodecLevel(&self, dstlevel: &D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> ::windows::core::Result<()>;
     fn GetResolutionListCount(&self) -> u32;
     fn GetResolutionList(&self, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> ::windows::core::Result<()>;
 }
@@ -906,12 +906,12 @@ impl ID3D12VideoEncoderHeap_Vtbl {
         unsafe extern "system" fn GetCodecProfile<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCodecProfile(::core::mem::transmute_copy(&dstprofile)).into()
+            (*this).GetCodecProfile(::core::mem::transmute(&dstprofile)).into()
         }
         unsafe extern "system" fn GetCodecLevel<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCodecLevel(::core::mem::transmute_copy(&dstlevel)).into()
+            (*this).GetCodecLevel(::core::mem::transmute(&dstlevel)).into()
         }
         unsafe extern "system" fn GetResolutionListCount<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2352,7 +2352,7 @@ impl IMF2DBuffer2_Vtbl {
 pub trait IMFASFContentInfo_Impl: Sized {
     fn GetHeaderSize(&self, pistartofcontent: &::core::option::Option<IMFMediaBuffer>) -> ::windows::core::Result<u64>;
     fn ParseHeader(&self, piheaderbuffer: &::core::option::Option<IMFMediaBuffer>, cboffsetwithinheader: u64) -> ::windows::core::Result<()>;
-    fn GenerateHeader(&self, piheader: &::core::option::Option<IMFMediaBuffer>, pcbheader: *mut u32) -> ::windows::core::Result<()>;
+    fn GenerateHeader(&self, piheader: &::core::option::Option<IMFMediaBuffer>) -> ::windows::core::Result<u32>;
     fn GetProfile(&self) -> ::windows::core::Result<IMFASFProfile>;
     fn SetProfile(&self, piprofile: &::core::option::Option<IMFASFProfile>) -> ::windows::core::Result<()>;
     fn GeneratePresentationDescriptor(&self) -> ::windows::core::Result<IMFPresentationDescriptor>;
@@ -2380,7 +2380,13 @@ impl IMFASFContentInfo_Vtbl {
         unsafe extern "system" fn GenerateHeader<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFContentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piheader: ::windows::core::RawPtr, pcbheader: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GenerateHeader(::core::mem::transmute(&piheader), ::core::mem::transmute_copy(&pcbheader)).into()
+            match (*this).GenerateHeader(::core::mem::transmute(&piheader)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcbheader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFContentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

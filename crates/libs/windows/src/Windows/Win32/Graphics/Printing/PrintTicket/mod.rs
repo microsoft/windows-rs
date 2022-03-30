@@ -113,14 +113,15 @@ pub unsafe fn PTConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoPar
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pcapabilities: Param2, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pcapabilities: Param2) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PTGetPrintCapabilities(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pprintticket: ::windows::core::RawPtr, pcapabilities: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
-        PTGetPrintCapabilities(hprovider.into_param().abi(), pprintticket.into_param().abi(), pcapabilities.into_param().abi(), ::core::mem::transmute(pbstrerrormessage)).ok()
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        PTGetPrintCapabilities(hprovider.into_param().abi(), pprintticket.into_param().abi(), pcapabilities.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -128,14 +129,15 @@ pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pdevicecapabilities: Param2, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pdevicecapabilities: Param2) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PTGetPrintDeviceCapabilities(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pprintticket: ::windows::core::RawPtr, pdevicecapabilities: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
-        PTGetPrintDeviceCapabilities(hprovider.into_param().abi(), pprintticket.into_param().abi(), pdevicecapabilities.into_param().abi(), ::core::mem::transmute(pbstrerrormessage)).ok()
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        PTGetPrintDeviceCapabilities(hprovider.into_param().abi(), pprintticket.into_param().abi(), pdevicecapabilities.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -143,14 +145,15 @@ pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoPara
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pszlocalename: Param1, pprintticket: Param2, pdeviceresources: Param3, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pszlocalename: Param1, pprintticket: Param2, pdeviceresources: Param3) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PTGetPrintDeviceResources(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pszlocalename: ::windows::core::PCWSTR, pprintticket: ::windows::core::RawPtr, pdeviceresources: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
-        PTGetPrintDeviceResources(hprovider.into_param().abi(), pszlocalename.into_param().abi(), pprintticket.into_param().abi(), pdeviceresources.into_param().abi(), ::core::mem::transmute(pbstrerrormessage)).ok()
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        PTGetPrintDeviceResources(hprovider.into_param().abi(), pszlocalename.into_param().abi(), pprintticket.into_param().abi(), pdeviceresources.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -158,14 +161,15 @@ pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTMergeAndValidatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pbaseticket: Param1, pdeltaticket: Param2, scope: EPrintTicketScope, presultticket: Param4, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PTMergeAndValidatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pbaseticket: Param1, pdeltaticket: Param2, scope: EPrintTicketScope, presultticket: Param4) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PTMergeAndValidatePrintTicket(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pbaseticket: ::windows::core::RawPtr, pdeltaticket: ::windows::core::RawPtr, scope: EPrintTicketScope, presultticket: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
-        PTMergeAndValidatePrintTicket(hprovider.into_param().abi(), pbaseticket.into_param().abi(), pdeltaticket.into_param().abi(), ::core::mem::transmute(scope), presultticket.into_param().abi(), ::core::mem::transmute(pbstrerrormessage)).ok()
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        PTMergeAndValidatePrintTicket(hprovider.into_param().abi(), pbaseticket.into_param().abi(), pdeltaticket.into_param().abi(), ::core::mem::transmute(scope), presultticket.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

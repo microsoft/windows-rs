@@ -3641,7 +3641,7 @@ impl IWbemHiPerfEnum_Vtbl {
     }
 }
 pub trait IWbemHiPerfProvider_Impl: Sized {
-    fn QueryInstances(&self, pnamespace: &::core::option::Option<IWbemServices>, wszclass: &::windows::core::PCWSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, psink: ::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
+    fn QueryInstances(&self, pnamespace: &::core::option::Option<IWbemServices>, wszclass: &::windows::core::PCWSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, psink: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
     fn CreateRefresher(&self, pnamespace: &::core::option::Option<IWbemServices>, lflags: i32) -> ::windows::core::Result<IWbemRefresher>;
     fn CreateRefreshableObject(&self, pnamespace: &::core::option::Option<IWbemServices>, ptemplate: &::core::option::Option<IWbemObjectAccess>, prefresher: &::core::option::Option<IWbemRefresher>, lflags: i32, pcontext: &::core::option::Option<IWbemContext>, pprefreshable: *mut ::core::option::Option<IWbemObjectAccess>, plid: *mut i32) -> ::windows::core::Result<()>;
     fn StopRefreshing(&self, prefresher: &::core::option::Option<IWbemRefresher>, lid: i32, lflags: i32) -> ::windows::core::Result<()>;
