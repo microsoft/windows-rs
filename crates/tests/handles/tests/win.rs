@@ -22,7 +22,7 @@ fn handle() {
 fn psid() {
     let underlying: *mut std::ffi::c_void = std::ptr::null_mut();
     let handle: PSID = PSID(underlying);
-    assert!(handle.is_null());
+    assert!(handle.is_invalid());
 
     let copy = handle;
     assert!(copy == handle);
@@ -31,7 +31,7 @@ fn psid() {
     assert!(clone == handle);
 
     let default = PSID::default();
-    assert!(default.is_null());
+    assert!(default.is_invalid());
 
     assert_eq!(format!("{:?}", handle), "PSID(0x0)");
 }
