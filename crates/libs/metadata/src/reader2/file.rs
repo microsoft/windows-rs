@@ -81,7 +81,7 @@ impl File {
             _ => return error_invalid_winmd(),
         };
 
-        // let cli = result.bytes.view_as::<ImageCorHeader>(offset_from_rva(section_from_rva(sections, com_virtual_address), com_virtual_address));
+        let cli = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address), com_virtual_address));
 
         // if cli.cb != size_of::<ImageCorHeader>() {
         //     unimplemented!();
