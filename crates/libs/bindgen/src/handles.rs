@@ -25,7 +25,7 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     let check = if underlying_type.is_pointer() {
         quote! {
             impl #ident {
-                pub fn is_null(&self) -> bool {
+                pub fn is_invalid(&self) -> bool {
                     self.0.is_null()
                 }
             }

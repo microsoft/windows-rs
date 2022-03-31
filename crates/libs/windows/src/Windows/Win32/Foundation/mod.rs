@@ -5752,7 +5752,7 @@ pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PSID(pub *mut ::core::ffi::c_void);
 impl PSID {
-    pub fn is_null(&self) -> bool {
+    pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }

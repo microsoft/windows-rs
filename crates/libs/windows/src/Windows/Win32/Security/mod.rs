@@ -3538,7 +3538,7 @@ impl ::core::default::Default for PRIVILEGE_SET {
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PSECURITY_DESCRIPTOR(pub *mut ::core::ffi::c_void);
 impl PSECURITY_DESCRIPTOR {
-    pub fn is_null(&self) -> bool {
+    pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
