@@ -6209,14 +6209,7 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
 pub struct FindChangeNotificationHandle(pub isize);
 impl FindChangeNotificationHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for FindChangeNotificationHandle {
@@ -6273,14 +6266,7 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam
 pub struct FindFileHandle(pub isize);
 impl FindFileHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for FindFileHandle {
@@ -6307,14 +6293,7 @@ unsafe impl ::windows::core::Abi for FindFileHandle {
 pub struct FindFileNameHandle(pub isize);
 impl FindFileNameHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for FindFileNameHandle {
@@ -6723,14 +6702,7 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVol
 pub struct FindStreamHandle(pub isize);
 impl FindStreamHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for FindStreamHandle {
@@ -6772,14 +6744,7 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVol
 pub struct FindVolumeHandle(pub isize);
 impl FindVolumeHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for FindVolumeHandle {
@@ -6806,14 +6771,7 @@ unsafe impl ::windows::core::Abi for FindVolumeHandle {
 pub struct FindVolumeMointPointHandle(pub isize);
 impl FindVolumeMointPointHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for FindVolumeMointPointHandle {

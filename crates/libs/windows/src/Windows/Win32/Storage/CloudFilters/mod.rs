@@ -1361,14 +1361,7 @@ impl ::core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
 pub struct CF_CONNECTION_KEY(pub isize);
 impl CF_CONNECTION_KEY {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for CF_CONNECTION_KEY {

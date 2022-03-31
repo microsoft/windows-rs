@@ -367,14 +367,7 @@ pub const BCRYPT_ALGORITHM_NAME: &'static str = "AlgorithmName";
 pub struct BCRYPT_ALG_HANDLE(pub isize);
 impl BCRYPT_ALG_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for BCRYPT_ALG_HANDLE {
@@ -1306,14 +1299,7 @@ pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 pub struct BCRYPT_KEY_HANDLE(pub isize);
 impl BCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for BCRYPT_KEY_HANDLE {
@@ -23512,14 +23498,7 @@ impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
 pub struct HCERTCHAINENGINE(pub isize);
 impl HCERTCHAINENGINE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HCERTCHAINENGINE {
@@ -23545,15 +23524,8 @@ unsafe impl ::windows::core::Abi for HCERTCHAINENGINE {
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HCERTSTORE(pub *mut ::core::ffi::c_void);
 impl HCERTSTORE {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+    pub fn is_null(&self) -> bool {
+        self.0.is_null()
     }
 }
 impl ::core::default::Default for HCERTSTORE {
@@ -23579,15 +23551,8 @@ unsafe impl ::windows::core::Abi for HCERTSTORE {
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HCERTSTOREPROV(pub *mut ::core::ffi::c_void);
 impl HCERTSTOREPROV {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+    pub fn is_null(&self) -> bool {
+        self.0.is_null()
     }
 }
 impl ::core::default::Default for HCERTSTOREPROV {
@@ -23614,14 +23579,7 @@ unsafe impl ::windows::core::Abi for HCERTSTOREPROV {
 pub struct HCRYPTASYNC(pub isize);
 impl HCRYPTASYNC {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HCRYPTASYNC {
@@ -23648,14 +23606,7 @@ unsafe impl ::windows::core::Abi for HCRYPTASYNC {
 pub struct HCRYPTPROV_LEGACY(pub usize);
 impl HCRYPTPROV_LEGACY {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HCRYPTPROV_LEGACY {
@@ -23682,14 +23633,7 @@ unsafe impl ::windows::core::Abi for HCRYPTPROV_LEGACY {
 pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
 impl HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
@@ -25884,14 +25828,7 @@ impl ::core::ops::Not for NCRYPT_FLAGS {
 pub struct NCRYPT_HANDLE(pub usize);
 impl NCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for NCRYPT_HANDLE {
@@ -25918,14 +25855,7 @@ unsafe impl ::windows::core::Abi for NCRYPT_HANDLE {
 pub struct NCRYPT_HASH_HANDLE(pub usize);
 impl NCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for NCRYPT_HASH_HANDLE {
@@ -26130,14 +26060,7 @@ pub const NCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 pub struct NCRYPT_KEY_HANDLE(pub usize);
 impl NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for NCRYPT_KEY_HANDLE {
@@ -26693,14 +26616,7 @@ pub const NCRYPT_PROVIDER_HANDLE_PROPERTY: &'static str = "Provider Handle";
 pub struct NCRYPT_PROV_HANDLE(pub usize);
 impl NCRYPT_PROV_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for NCRYPT_PROV_HANDLE {
@@ -26753,14 +26669,7 @@ pub const NCRYPT_SEALING_FLAG: u32 = 256u32;
 pub struct NCRYPT_SECRET_HANDLE(pub usize);
 impl NCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for NCRYPT_SECRET_HANDLE {

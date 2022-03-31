@@ -4,14 +4,7 @@
 pub struct HPSS(pub isize);
 impl HPSS {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HPSS {
@@ -38,14 +31,7 @@ unsafe impl ::windows::core::Abi for HPSS {
 pub struct HPSSWALK(pub isize);
 impl HPSSWALK {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HPSSWALK {

@@ -1276,14 +1276,7 @@ pub const EVT_WRITE_ACCESS: u32 = 2u32;
 pub struct EventLogHandle(pub isize);
 impl EventLogHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for EventLogHandle {
@@ -1310,14 +1303,7 @@ unsafe impl ::windows::core::Abi for EventLogHandle {
 pub struct EventSourceHandle(pub isize);
 impl EventSourceHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for EventSourceHandle {

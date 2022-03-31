@@ -450,6 +450,19 @@ impl TypeDef {
         })
     }
 
+    pub fn invalid_values(&self) -> Vec<i64> {
+        self.attributes()
+            .filter_map(|attribute| {
+                if attribute.name() == "InvalidHandleValueAttribute" {
+                    if let Some((_, ConstantValue::I64(value))) = attribute.args().get(0) {
+                        return Some(*value);
+                    }
+                }
+                None
+            })
+            .collect()
+    }
+
     pub fn is_convertible_to(&self) -> Option<&Type> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {

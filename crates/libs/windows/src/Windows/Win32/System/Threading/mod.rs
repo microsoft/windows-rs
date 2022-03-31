@@ -353,14 +353,7 @@ pub unsafe fn AvSetMmThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, s
 pub struct BoundaryDescriptorHandle(pub isize);
 impl BoundaryDescriptorHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for BoundaryDescriptorHandle {
@@ -2942,15 +2935,8 @@ pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" f
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
 impl LPPROC_THREAD_ATTRIBUTE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+    pub fn is_null(&self) -> bool {
+        self.0.is_null()
     }
 }
 impl ::core::default::Default for LPPROC_THREAD_ATTRIBUTE_LIST {
@@ -3131,14 +3117,7 @@ pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 pub struct NamespaceHandle(pub isize);
 impl NamespaceHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for NamespaceHandle {
@@ -4622,18 +4601,6 @@ pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe exter
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PTP_POOL(pub isize);
-impl PTP_POOL {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for PTP_POOL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6928,14 +6895,7 @@ pub unsafe fn TerminateThread<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub struct TimerQueueHandle(pub isize);
 impl TimerQueueHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for TimerQueueHandle {

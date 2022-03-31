@@ -2670,14 +2670,7 @@ impl ::core::default::Default for JET_LOGTIME_1_0 {
 pub struct JET_LS(pub usize);
 impl JET_LS {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for JET_LS {
@@ -2978,14 +2971,7 @@ impl ::core::default::Default for JET_OPERATIONCONTEXT {
 pub struct JET_OSSNAPID(pub usize);
 impl JET_OSSNAPID {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0 as _
     }
 }
 impl ::core::default::Default for JET_OSSNAPID {

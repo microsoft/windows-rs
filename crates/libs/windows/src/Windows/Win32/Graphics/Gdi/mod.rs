@@ -2229,14 +2229,7 @@ pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
 pub struct CreatedHDC(pub isize);
 impl CreatedHDC {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for CreatedHDC {
@@ -11765,14 +11758,7 @@ impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
 pub struct HBITMAP(pub isize);
 impl HBITMAP {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HBITMAP {
@@ -11804,14 +11790,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HBITMAP {
 pub struct HBRUSH(pub isize);
 impl HBRUSH {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HBRUSH {
@@ -11843,14 +11822,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HBRUSH {
 pub struct HDC(pub isize);
 impl HDC {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HDC {
@@ -11918,14 +11890,7 @@ pub const HEBREW_CHARSET: u32 = 177u32;
 pub struct HENHMETAFILE(pub isize);
 impl HENHMETAFILE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HENHMETAFILE {
@@ -11952,14 +11917,7 @@ unsafe impl ::windows::core::Abi for HENHMETAFILE {
 pub struct HFONT(pub isize);
 impl HFONT {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HFONT {
@@ -11991,14 +11949,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HFONT {
 pub struct HGDIOBJ(pub isize);
 impl HGDIOBJ {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HGDIOBJ {
@@ -12025,14 +11976,7 @@ unsafe impl ::windows::core::Abi for HGDIOBJ {
 pub struct HMETAFILE(pub isize);
 impl HMETAFILE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMETAFILE {
@@ -12059,14 +12003,7 @@ unsafe impl ::windows::core::Abi for HMETAFILE {
 pub struct HMONITOR(pub isize);
 impl HMONITOR {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMONITOR {
@@ -12093,14 +12030,7 @@ unsafe impl ::windows::core::Abi for HMONITOR {
 pub struct HPALETTE(pub isize);
 impl HPALETTE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HPALETTE {
@@ -12132,14 +12062,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HPALETTE {
 pub struct HPEN(pub isize);
 impl HPEN {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HPEN {
@@ -12171,14 +12094,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HPEN {
 pub struct HRGN(pub isize);
 impl HRGN {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HRGN {
@@ -12212,14 +12128,7 @@ pub const HS_API_MAX: u32 = 12u32;
 pub struct HdcMetdataEnhFileHandle(pub isize);
 impl HdcMetdataEnhFileHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HdcMetdataEnhFileHandle {
@@ -12246,14 +12155,7 @@ unsafe impl ::windows::core::Abi for HdcMetdataEnhFileHandle {
 pub struct HdcMetdataFileHandle(pub isize);
 impl HdcMetdataFileHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HdcMetdataFileHandle {

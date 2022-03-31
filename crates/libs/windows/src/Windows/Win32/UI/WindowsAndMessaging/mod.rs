@@ -5374,14 +5374,7 @@ pub unsafe fn GetWindowWord<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub struct HACCEL(pub isize);
 impl HACCEL {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HACCEL {
@@ -5533,14 +5526,7 @@ pub const HCF_LOGONDESKTOP: u32 = 256u32;
 pub struct HCURSOR(pub isize);
 impl HCURSOR {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HCURSOR {
@@ -5632,14 +5618,7 @@ pub const HELP_WM_HELP: u32 = 12u32;
 pub struct HHOOK(pub isize);
 impl HHOOK {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HHOOK {
@@ -5666,14 +5645,7 @@ unsafe impl ::windows::core::Abi for HHOOK {
 pub struct HICON(pub isize);
 impl HICON {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HICON {
@@ -5706,14 +5678,7 @@ pub const HKL_PREV: u32 = 0u32;
 pub struct HMENU(pub isize);
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMENU {

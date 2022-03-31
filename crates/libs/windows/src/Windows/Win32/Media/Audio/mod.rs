@@ -2581,14 +2581,7 @@ pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
 pub struct HACMDRIVER(pub isize);
 impl HACMDRIVER {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HACMDRIVER {
@@ -2615,14 +2608,7 @@ unsafe impl ::windows::core::Abi for HACMDRIVER {
 pub struct HACMDRIVERID(pub isize);
 impl HACMDRIVERID {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HACMDRIVERID {
@@ -2649,14 +2635,7 @@ unsafe impl ::windows::core::Abi for HACMDRIVERID {
 pub struct HACMOBJ(pub isize);
 impl HACMOBJ {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HACMOBJ {
@@ -2683,14 +2662,7 @@ unsafe impl ::windows::core::Abi for HACMOBJ {
 pub struct HACMSTREAM(pub isize);
 impl HACMSTREAM {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HACMSTREAM {
@@ -2717,14 +2689,7 @@ unsafe impl ::windows::core::Abi for HACMSTREAM {
 pub struct HMIDI(pub isize);
 impl HMIDI {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMIDI {
@@ -2751,14 +2716,7 @@ unsafe impl ::windows::core::Abi for HMIDI {
 pub struct HMIDIIN(pub isize);
 impl HMIDIIN {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMIDIIN {
@@ -2785,14 +2743,7 @@ unsafe impl ::windows::core::Abi for HMIDIIN {
 pub struct HMIDIOUT(pub isize);
 impl HMIDIOUT {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMIDIOUT {
@@ -2819,14 +2770,7 @@ unsafe impl ::windows::core::Abi for HMIDIOUT {
 pub struct HMIDISTRM(pub isize);
 impl HMIDISTRM {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMIDISTRM {
@@ -2853,14 +2797,7 @@ unsafe impl ::windows::core::Abi for HMIDISTRM {
 pub struct HMIXER(pub isize);
 impl HMIXER {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMIXER {
@@ -2887,14 +2824,7 @@ unsafe impl ::windows::core::Abi for HMIXER {
 pub struct HMIXEROBJ(pub isize);
 impl HMIXEROBJ {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HMIXEROBJ {
@@ -2921,14 +2851,7 @@ unsafe impl ::windows::core::Abi for HMIXEROBJ {
 pub struct HWAVE(pub isize);
 impl HWAVE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HWAVE {
@@ -2955,14 +2878,7 @@ unsafe impl ::windows::core::Abi for HWAVE {
 pub struct HWAVEIN(pub isize);
 impl HWAVEIN {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HWAVEIN {
@@ -2989,14 +2905,7 @@ unsafe impl ::windows::core::Abi for HWAVEIN {
 pub struct HWAVEOUT(pub isize);
 impl HWAVEOUT {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HWAVEOUT {

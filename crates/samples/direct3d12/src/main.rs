@@ -45,7 +45,6 @@ where
     S: DXSample,
 {
     let instance = unsafe { GetModuleHandleA(None) };
-    debug_assert!(!instance.is_invalid());
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
@@ -90,10 +89,8 @@ where
             &mut sample as *mut _ as _,
         )
     };
-    debug_assert!(!hwnd.is_invalid());
 
     sample.bind_to_window(&hwnd)?;
-
     unsafe { ShowWindow(hwnd, SW_SHOW) };
 
     loop {

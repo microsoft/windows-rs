@@ -670,14 +670,7 @@ pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 pub struct HwtsVirtualChannelHandle(pub isize);
 impl HwtsVirtualChannelHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl ::core::default::Default for HwtsVirtualChannelHandle {
