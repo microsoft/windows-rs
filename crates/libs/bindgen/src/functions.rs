@@ -202,80 +202,78 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 }
             }
         }
-        SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
-            match HandleLastErorr::new(def, &signature) {
-                HandleLastErorr::None => {
-                    let args = gen_win32_args(&signature.params);
-                    let params = gen_win32_params(&signature.params, gen);
+        SignatureKind::ReturnStruct | SignatureKind::PreserveSig => match HandleLastErorr::new(def, &signature) {
+            HandleLastErorr::None => {
+                let args = gen_win32_args(&signature.params);
+                let params = gen_win32_params(&signature.params, gen);
 
-                    quote! {
-                        #doc
-                        #features
-                        #[inline]
-                        pub unsafe fn #name<#constraints>(#params) #abi_return_type {
-                            #[cfg(windows)]
-                            {
-                                #link_attr
-                                extern "system" {
-                                    fn #name(#(#abi_params),*) #abi_return_type;
-                                }
-                                ::core::mem::transmute(#name(#args))
+                quote! {
+                    #doc
+                    #features
+                    #[inline]
+                    pub unsafe fn #name<#constraints>(#params) #abi_return_type {
+                        #[cfg(windows)]
+                        {
+                            #link_attr
+                            extern "system" {
+                                fn #name(#(#abi_params),*) #abi_return_type;
                             }
-                            #[cfg(not(windows))]
-                            unimplemented!("Unsupported target OS");
+                            ::core::mem::transmute(#name(#args))
                         }
-                    }
-                }
-                HandleLastErorr::Pointer => {
-                    let args = gen_win32_args(&signature.params);
-                    let params = gen_win32_params(&signature.params, gen);
-                    let return_type = gen_element_name(&signature.return_type.unwrap(), gen);
-
-                    quote! {
-                        #doc
-                        #features
-                        #[inline]
-                        pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type> {
-                            #[cfg(windows)]
-                            {
-                                #link_attr
-                                extern "system" {
-                                    fn #name(#(#abi_params),*) -> #return_type;
-                                }
-                                let result__ = #name(#args);
-                                (!result__.is_null()).then(||result__).ok_or_else(||::windows::core::Error::from_win32())
-                            }
-                            #[cfg(not(windows))]
-                            unimplemented!("Unsupported target OS");
-                        }
-                    }
-                }
-                HandleLastErorr::Integer => {
-                    let args = gen_win32_args(&signature.params);
-                    let params = gen_win32_params(&signature.params, gen);
-                    let return_type = gen_element_name(&signature.return_type.unwrap(), gen);
-
-                    quote! {
-                        #doc
-                        #features
-                        #[inline]
-                        pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type> {
-                            #[cfg(windows)]
-                            {
-                                #link_attr
-                                extern "system" {
-                                    fn #name(#(#abi_params),*) -> #return_type;
-                                }
-                                let result__ = #name(#args);
-                                (!result__.is_invalid()).then(||result__).ok_or_else(||::windows::core::Error::from_win32())
-                            }
-                            #[cfg(not(windows))]
-                            unimplemented!("Unsupported target OS");
-                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
                     }
                 }
             }
-        }
+            HandleLastErorr::Pointer => {
+                let args = gen_win32_args(&signature.params);
+                let params = gen_win32_params(&signature.params, gen);
+                let return_type = gen_element_name(&signature.return_type.unwrap(), gen);
+
+                quote! {
+                    #doc
+                    #features
+                    #[inline]
+                    pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type> {
+                        #[cfg(windows)]
+                        {
+                            #link_attr
+                            extern "system" {
+                                fn #name(#(#abi_params),*) -> #return_type;
+                            }
+                            let result__ = #name(#args);
+                            (!result__.is_null()).then(||result__).ok_or_else(||::windows::core::Error::from_win32())
+                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+            }
+            HandleLastErorr::Integer => {
+                let args = gen_win32_args(&signature.params);
+                let params = gen_win32_params(&signature.params, gen);
+                let return_type = gen_element_name(&signature.return_type.unwrap(), gen);
+
+                quote! {
+                    #doc
+                    #features
+                    #[inline]
+                    pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type> {
+                        #[cfg(windows)]
+                        {
+                            #link_attr
+                            extern "system" {
+                                fn #name(#(#abi_params),*) -> #return_type;
+                            }
+                            let result__ = #name(#args);
+                            (!result__.is_invalid()).then(||result__).ok_or_else(||::windows::core::Error::from_win32())
+                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+            }
+        },
         SignatureKind::ReturnVoid => {
             let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
