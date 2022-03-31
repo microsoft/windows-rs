@@ -210,14 +210,14 @@ impl Interface {
             #[repr(C)]
             #[doc(hidden)]
             #vis struct #vtable_name {
-                pub base: #parent_vtable,
+                pub base__: #parent_vtable,
                 #(#vtable_entries)*
             }
 
             impl #vtable_name {
                 pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>() -> Self {
                     #(#functions)*
-                    Self { base: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
+                    Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                 }
 
                 pub fn matches(iid: &windows::core::GUID) -> bool {
