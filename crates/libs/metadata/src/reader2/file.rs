@@ -43,11 +43,11 @@ const TABLE_ASSEMBLYREF: usize = 15;
 const TABLE_CLASSLAYOUT: usize = 16;
 const TABLE_LEN: usize = 17;
 
-fn error(message: &str) -> Result<File> {
-    Err(Error::new(ErrorKind::Other, message))
+fn error(message: &str) -> Error {
+    Error::new(ErrorKind::Other, message)
 }
 
-fn error_invalid_winmd() -> Result<File> {
+fn error_invalid_winmd() -> Error {
     error("File is not a valid `winmd` file")
 }
 
@@ -61,7 +61,7 @@ impl File {
 
         if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || 
         result.bytes.copy_as::<u32>(dos.e_lfanew as _) != IMAGE_NT_SIGNATURE {
-            return error_invalid_winmd();
+            return Err(error_invalid_winmd());
         }
 
         let file_offset = dos.e_lfanew as usize + size_of::<u32>();
@@ -78,20 +78,54 @@ impl File {
                 let optional = result.bytes.view_as::< IMAGE_OPTIONAL_HEADER64>(optional_offset);   
                  (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize))
             }
-            _ => return error_invalid_winmd(),
+            _ => return Err(error_invalid_winmd()),
         };
 
-        let cli = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address), com_virtual_address));
+        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address) as _);
 
-        // if cli.cb != size_of::<ImageCorHeader>() {
-        //     unimplemented!();
-        // }
+        if clr.cb != size_of::<IMAGE_COR20_HEADER>() as _ {
+            return Err(error_invalid_winmd());
+        }
 
-        // let cli_offset = offset_from_rva(section_from_rva(sections, cli.meta_data.virtual_address), cli.meta_data.virtual_address);
+        let metadata_offset = offset_from_rva(section_from_rva(sections, clr.MetaData.VirtualAddress)?, clr.MetaData.VirtualAddress);
+        let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset as _);
 
-        // if result.bytes.copy_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
-        //     unimplemented!();
-        // }
+        if metadata.signature != METADATA_SIGNATURE {
+            return Err(error_invalid_winmd());
+        }
+
+        // The METADATA_HEADER struct is not a fixed size so have to offset a little more carefully.
+        // TODO: check that this still applies... non-winrt winmd?
+        let mut view = metadata_offset + metadata.length as usize + 20;
+        let mut tables_data: (usize, usize) = (0, 0);
+
+        for _ in 0..result.bytes.copy_as::<u16>(metadata_offset + metadata.length as usize + 18) {
+            let stream_offset = result.bytes.copy_as::<u32>(view) as usize;
+            let stream_len = result.bytes.copy_as::<u32>(view + 4) as usize;
+            let stream_name = result.bytes.view_as_str(view + 8);
+            match stream_name {
+                b"#Strings" => result.strings = metadata_offset + stream_offset,
+                b"#Blob" => result.blobs = metadata_offset + stream_offset,
+                b"#~" => tables_data = (metadata_offset + stream_offset, stream_len),
+                b"#GUID" => {}
+                b"#US" => {}
+                _ => unimplemented!(),
+            }
+            let mut padding = 4 - stream_name.len() % 4;
+            if padding == 0 {
+                padding = 4;
+            }
+            view += (8 + stream_name.len() + padding);
+        }
+
+        let heap_sizes = result.bytes.copy_as::<u8>(tables_data.0 + 6);
+        let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
+        let guid_index_size = if (heap_sizes >> 1 & 1) == 1 { 4 } else { 2 };
+        let blob_index_size = if (heap_sizes >> 2 & 1) == 1 { 4 } else { 2 };
+        let valid_bits = result.bytes.copy_as::<u64>(tables_data.0 + 8);
+        view = tables_data.0 + 24;
+
+        
 
         // Since the file was read successfully, we just assume it has a valid file name.
         result.name = path.file_name().unwrap().to_string_lossy().to_string();
@@ -196,4 +230,12 @@ impl View for [u8] {
         let index = buffer.iter().position(|c| *c == b'\0').expect("Invalid file");
         &self[offset..offset + index]
     }
+}
+
+fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Result<&IMAGE_SECTION_HEADER> {
+    sections.iter().find(|&s| rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe {s.Misc.VirtualSize}).ok_or_else(error_invalid_winmd)
+}
+
+fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
+    (rva - section.VirtualAddress + section.PointerToRawData) as usize
 }

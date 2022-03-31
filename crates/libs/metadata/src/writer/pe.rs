@@ -43,7 +43,14 @@ pub(crate) fn write(filename: &str, tables: Tables) {
     clr.MinorRuntimeVersion = 5;
     clr.Flags = 1;
 
-    let metadata = MetadataHeader::new(4);
+    let metadata = METADATA_HEADER {
+        signature: METADATA_SIGNATURE, 
+        major_version: 1,
+         minor_version: 1,
+          length: 20,
+        version: *b"WindowsRuntime\0\0\0\0\0\0", 
+        streams: 4, 
+        ..Default::default() };
 
     let mut strings = Strings::new();
     let mut blobs = Blobs::new();
@@ -59,7 +66,7 @@ pub(crate) fn write(filename: &str, tables: Tables) {
     type BlobsHeader = StreamHeader<8>;
 
     let size_of_stream_headers = size_of::<TablesHeader>() + size_of::<StringsHeader>() + size_of::<GuidsHeader>() + size_of::<BlobsHeader>();
-    let size_of_image = optional.FileAlignment as usize + size_of::<IMAGE_COR20_HEADER>() + size_of::<MetadataHeader>() + size_of_stream_headers + guids.len() + strings.len() + blobs.len() + tables.len();
+    let size_of_image = optional.FileAlignment as usize + size_of::<IMAGE_COR20_HEADER>() + size_of::<METADATA_HEADER>() + size_of_stream_headers + guids.len() + strings.len() + blobs.len() + tables.len();
 
     optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as _) as _;
     section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
@@ -105,25 +112,6 @@ pub(crate) fn write(filename: &str, tables: Tables) {
 }
 
 const SECTION_ALIGNMENT: u32 = 4096;
-
-#[repr(C)]
-#[derive(Default)]
-struct MetadataHeader {
-    signature: u32,
-    major_version: u16,
-    minor_version: u16,
-    reserved: u32,
-    length: u32,
-    version: [u8; 20],
-    flags: u16,
-    streams: u16,
-}
-
-impl MetadataHeader {
-    fn new(streams: u16) -> Self {
-        Self { signature: 0x424A_5342, major_version: 1, minor_version: 1, length: 20, version: *b"WindowsRuntime\0\0\0\0\0\0", streams, ..Default::default() }
-    }
-}
 
 #[repr(C)]
 struct StreamHeader<const LEN: usize> {
