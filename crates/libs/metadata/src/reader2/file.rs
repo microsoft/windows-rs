@@ -200,6 +200,8 @@ impl File {
             };
         }
 
+        
+
         // Since the file was read successfully, we just assume it has a valid file name.
         result.name = path.file_name().unwrap().to_string_lossy().to_string();
         Ok(result)
