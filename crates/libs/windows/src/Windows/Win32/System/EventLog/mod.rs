@@ -1276,7 +1276,7 @@ pub const EVT_WRITE_ACCESS: u32 = 2u32;
 pub struct EventLogHandle(pub isize);
 impl EventLogHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for EventLogHandle {
@@ -1303,7 +1303,7 @@ unsafe impl ::windows::core::Abi for EventLogHandle {
 pub struct EventSourceHandle(pub isize);
 impl EventSourceHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for EventSourceHandle {
@@ -1908,7 +1908,7 @@ pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn OpenBackupEventLogA(lpuncservername: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> EventLogHandle;
         }
         let result__ = OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1923,7 +1923,7 @@ pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn OpenBackupEventLogW(lpuncservername: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> EventLogHandle;
         }
         let result__ = OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1938,7 +1938,7 @@ pub unsafe fn OpenEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows
             fn OpenEventLogA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> EventLogHandle;
         }
         let result__ = OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1953,7 +1953,7 @@ pub unsafe fn OpenEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows
             fn OpenEventLogW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> EventLogHandle;
         }
         let result__ = OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2060,7 +2060,7 @@ pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::core::IntoParam<'a, ::
             fn RegisterEventSourceA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> EventSourceHandle;
         }
         let result__ = RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2075,7 +2075,7 @@ pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::core::IntoParam<'a, ::
             fn RegisterEventSourceW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> EventSourceHandle;
         }
         let result__ = RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

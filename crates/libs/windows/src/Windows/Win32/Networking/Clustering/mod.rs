@@ -11146,7 +11146,7 @@ pub unsafe fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> ::w
             fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterGroupKey(::core::mem::transmute(hgroup), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11190,7 +11190,7 @@ pub unsafe fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> ::wi
             fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterKey(::core::mem::transmute(hcluster), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11220,7 +11220,7 @@ pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: *const _HNETINTERFACE, sa
             fn GetClusterNetInterfaceKey(hnetinterface: *const _HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterNetInterfaceKey(::core::mem::transmute(hnetinterface), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11264,7 +11264,7 @@ pub unsafe fn GetClusterNetworkKey(hnetwork: *const _HNETWORK, samdesired: u32) 
             fn GetClusterNetworkKey(hnetwork: *const _HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterNetworkKey(::core::mem::transmute(hnetwork), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11308,7 +11308,7 @@ pub unsafe fn GetClusterNodeKey(hnode: *const _HNODE, samdesired: u32) -> ::wind
             fn GetClusterNodeKey(hnode: *const _HNODE, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterNodeKey(::core::mem::transmute(hnode), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11409,7 +11409,7 @@ pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u3
             fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterResourceKey(::core::mem::transmute(hresource), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11454,7 +11454,7 @@ pub unsafe fn GetClusterResourceTypeKey<'a, Param1: ::windows::core::IntoParam<'
             fn GetClusterResourceTypeKey(hcluster: *const _HCLUSTER, lpsztypename: ::windows::core::PCWSTR, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = GetClusterResourceTypeKey(::core::mem::transmute(hcluster), lpsztypename.into_param().abi(), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

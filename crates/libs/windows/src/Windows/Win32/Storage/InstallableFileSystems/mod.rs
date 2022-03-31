@@ -695,7 +695,7 @@ pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbu
 pub struct FilterFindHandle(pub isize);
 impl FilterFindHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FilterFindHandle {
@@ -838,7 +838,7 @@ pub unsafe fn FilterInstanceFindFirst<'a, Param0: ::windows::core::IntoParam<'a,
 pub struct FilterInstanceFindHandle(pub isize);
 impl FilterInstanceFindHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FilterInstanceFindHandle {
@@ -981,7 +981,7 @@ pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATIO
 pub struct FilterVolumeFindHandle(pub isize);
 impl FilterVolumeFindHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FilterVolumeFindHandle {
@@ -1052,7 +1052,7 @@ pub unsafe fn FilterVolumeInstanceFindFirst<'a, Param0: ::windows::core::IntoPar
 pub struct FilterVolumeInstanceFindHandle(pub isize);
 impl FilterVolumeInstanceFindHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FilterVolumeInstanceFindHandle {
@@ -1094,7 +1094,7 @@ pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::core::IntoPara
 pub struct HFILTER(pub isize);
 impl HFILTER {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HFILTER {
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::Abi for HFILTER {
 pub struct HFILTER_INSTANCE(pub isize);
 impl HFILTER_INSTANCE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HFILTER_INSTANCE {

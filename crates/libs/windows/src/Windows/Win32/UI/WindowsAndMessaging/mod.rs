@@ -1848,7 +1848,7 @@ pub unsafe fn CopyIcon<'a, Param0: ::windows::core::IntoParam<'a, HICON>>(hicon:
             fn CopyIcon(hicon: HICON) -> HICON;
         }
         let result__ = CopyIcon(hicon.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1864,7 +1864,7 @@ pub unsafe fn CopyImage<'a, Param0: ::windows::core::IntoParam<'a, super::super:
             fn CopyImage(h: super::super::Foundation::HANDLE, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, flags: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
         }
         let result__ = CopyImage(h.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1879,7 +1879,7 @@ pub unsafe fn CreateAcceleratorTableA(paccel: &[ACCEL]) -> ::windows::core::Resu
             fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACCEL;
         }
         let result__ = CreateAcceleratorTableA(::core::mem::transmute(::windows::core::as_ptr_or_null(paccel)), paccel.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1894,7 +1894,7 @@ pub unsafe fn CreateAcceleratorTableW(paccel: &[ACCEL]) -> ::windows::core::Resu
             fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACCEL;
         }
         let result__ = CreateAcceleratorTableW(::core::mem::transmute(::windows::core::as_ptr_or_null(paccel)), paccel.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1925,7 +1925,7 @@ pub unsafe fn CreateCursor<'a, Param0: ::windows::core::IntoParam<'a, super::sup
             fn CreateCursor(hinst: super::super::Foundation::HINSTANCE, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::core::ffi::c_void, pvxorplane: *const ::core::ffi::c_void) -> HCURSOR;
         }
         let result__ = CreateCursor(hinst.into_param().abi(), ::core::mem::transmute(xhotspot), ::core::mem::transmute(yhotspot), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), ::core::mem::transmute(pvandplane), ::core::mem::transmute(pvxorplane));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2001,7 +2001,7 @@ pub unsafe fn CreateIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super
             fn CreateIcon(hinstance: super::super::Foundation::HINSTANCE, nwidth: i32, nheight: i32, cplanes: u8, cbitspixel: u8, lpbandbits: *const u8, lpbxorbits: *const u8) -> HICON;
         }
         let result__ = CreateIcon(hinstance.into_param().abi(), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), ::core::mem::transmute(cplanes), ::core::mem::transmute(cbitspixel), ::core::mem::transmute(lpbandbits), ::core::mem::transmute(lpbxorbits));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2017,7 +2017,7 @@ pub unsafe fn CreateIconFromResource<'a, Param2: ::windows::core::IntoParam<'a, 
             fn CreateIconFromResource(presbits: *const u8, dwressize: u32, ficon: super::super::Foundation::BOOL, dwver: u32) -> HICON;
         }
         let result__ = CreateIconFromResource(::core::mem::transmute(presbits), ::core::mem::transmute(dwressize), ficon.into_param().abi(), ::core::mem::transmute(dwver));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2033,7 +2033,7 @@ pub unsafe fn CreateIconFromResourceEx<'a, Param2: ::windows::core::IntoParam<'a
             fn CreateIconFromResourceEx(presbits: *const u8, dwressize: u32, ficon: super::super::Foundation::BOOL, dwver: u32, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> HICON;
         }
         let result__ = CreateIconFromResourceEx(::core::mem::transmute(presbits), ::core::mem::transmute(dwressize), ficon.into_param().abi(), ::core::mem::transmute(dwver), ::core::mem::transmute(cxdesired), ::core::mem::transmute(cydesired), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2049,7 +2049,7 @@ pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> ::windows::core:
             fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON;
         }
         let result__ = CreateIconIndirect(::core::mem::transmute(piconinfo));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2094,7 +2094,7 @@ pub unsafe fn CreateMenu() -> ::windows::core::Result<HMENU> {
             fn CreateMenu() -> HMENU;
         }
         let result__ = CreateMenu();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2109,7 +2109,7 @@ pub unsafe fn CreatePopupMenu() -> ::windows::core::Result<HMENU> {
             fn CreatePopupMenu() -> HMENU;
         }
         let result__ = CreatePopupMenu();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5385,7 +5385,7 @@ pub unsafe fn GetWindowWord<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub struct HACCEL(pub isize);
 impl HACCEL {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HACCEL {
@@ -5537,7 +5537,7 @@ pub const HCF_LOGONDESKTOP: u32 = 256u32;
 pub struct HCURSOR(pub isize);
 impl HCURSOR {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCURSOR {
@@ -5629,7 +5629,7 @@ pub const HELP_WM_HELP: u32 = 12u32;
 pub struct HHOOK(pub isize);
 impl HHOOK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HHOOK {
@@ -5656,7 +5656,7 @@ unsafe impl ::windows::core::Abi for HHOOK {
 pub struct HICON(pub isize);
 impl HICON {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HICON {
@@ -5689,7 +5689,7 @@ pub const HKL_PREV: u32 = 0u32;
 pub struct HMENU(pub isize);
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HMENU {
@@ -7057,7 +7057,7 @@ pub unsafe fn LoadAcceleratorsA<'a, Param0: ::windows::core::IntoParam<'a, super
             fn LoadAcceleratorsA(hinstance: super::super::Foundation::HINSTANCE, lptablename: ::windows::core::PCSTR) -> HACCEL;
         }
         let result__ = LoadAcceleratorsA(hinstance.into_param().abi(), lptablename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7073,7 +7073,7 @@ pub unsafe fn LoadAcceleratorsW<'a, Param0: ::windows::core::IntoParam<'a, super
             fn LoadAcceleratorsW(hinstance: super::super::Foundation::HINSTANCE, lptablename: ::windows::core::PCWSTR) -> HACCEL;
         }
         let result__ = LoadAcceleratorsW(hinstance.into_param().abi(), lptablename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7089,7 +7089,7 @@ pub unsafe fn LoadCursorA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
             fn LoadCursorA(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: ::windows::core::PCSTR) -> HCURSOR;
         }
         let result__ = LoadCursorA(hinstance.into_param().abi(), lpcursorname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7104,7 +7104,7 @@ pub unsafe fn LoadCursorFromFileA<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn LoadCursorFromFileA(lpfilename: ::windows::core::PCSTR) -> HCURSOR;
         }
         let result__ = LoadCursorFromFileA(lpfilename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7119,7 +7119,7 @@ pub unsafe fn LoadCursorFromFileW<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn LoadCursorFromFileW(lpfilename: ::windows::core::PCWSTR) -> HCURSOR;
         }
         let result__ = LoadCursorFromFileW(lpfilename.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7135,7 +7135,7 @@ pub unsafe fn LoadCursorW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
             fn LoadCursorW(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: ::windows::core::PCWSTR) -> HCURSOR;
         }
         let result__ = LoadCursorW(hinstance.into_param().abi(), lpcursorname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7151,7 +7151,7 @@ pub unsafe fn LoadIconA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
             fn LoadIconA(hinstance: super::super::Foundation::HINSTANCE, lpiconname: ::windows::core::PCSTR) -> HICON;
         }
         let result__ = LoadIconA(hinstance.into_param().abi(), lpiconname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7167,7 +7167,7 @@ pub unsafe fn LoadIconW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
             fn LoadIconW(hinstance: super::super::Foundation::HINSTANCE, lpiconname: ::windows::core::PCWSTR) -> HICON;
         }
         let result__ = LoadIconW(hinstance.into_param().abi(), lpiconname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7183,7 +7183,7 @@ pub unsafe fn LoadImageA<'a, Param0: ::windows::core::IntoParam<'a, super::super
             fn LoadImageA(hinst: super::super::Foundation::HINSTANCE, name: ::windows::core::PCSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
         }
         let result__ = LoadImageA(hinst.into_param().abi(), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(fuload));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7199,7 +7199,7 @@ pub unsafe fn LoadImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super
             fn LoadImageW(hinst: super::super::Foundation::HINSTANCE, name: ::windows::core::PCWSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
         }
         let result__ = LoadImageW(hinst.into_param().abi(), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(fuload));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7215,7 +7215,7 @@ pub unsafe fn LoadMenuA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
             fn LoadMenuA(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: ::windows::core::PCSTR) -> HMENU;
         }
         let result__ = LoadMenuA(hinstance.into_param().abi(), lpmenuname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7230,7 +7230,7 @@ pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::core::ffi::c_void) -> :
             fn LoadMenuIndirectA(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU;
         }
         let result__ = LoadMenuIndirectA(::core::mem::transmute(lpmenutemplate));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7245,7 +7245,7 @@ pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::core::ffi::c_void) -> :
             fn LoadMenuIndirectW(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU;
         }
         let result__ = LoadMenuIndirectW(::core::mem::transmute(lpmenutemplate));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7261,7 +7261,7 @@ pub unsafe fn LoadMenuW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
             fn LoadMenuW(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: ::windows::core::PCWSTR) -> HMENU;
         }
         let result__ = LoadMenuW(hinstance.into_param().abi(), lpmenuname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11135,7 +11135,7 @@ pub unsafe fn RemovePropA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
             fn RemovePropA(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = RemovePropA(hwnd.into_param().abi(), lpstring.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11151,7 +11151,7 @@ pub unsafe fn RemovePropW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
             fn RemovePropW(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = RemovePropW(hwnd.into_param().abi(), lpstring.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13846,7 +13846,7 @@ pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::core::IntoParam<'a, super
             fn SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: ::windows::core::RawPtr, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
         }
         let result__ = SetWindowsHookExA(::core::mem::transmute(idhook), ::core::mem::transmute(lpfn), hmod.into_param().abi(), ::core::mem::transmute(dwthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13862,7 +13862,7 @@ pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::core::IntoParam<'a, super
             fn SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: ::windows::core::RawPtr, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
         }
         let result__ = SetWindowsHookExW(::core::mem::transmute(idhook), ::core::mem::transmute(lpfn), hmod.into_param().abi(), ::core::mem::transmute(dwthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

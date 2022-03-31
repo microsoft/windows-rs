@@ -298,7 +298,7 @@ impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
 pub struct HCS_OPERATION(pub isize);
 impl HCS_OPERATION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCS_OPERATION {
@@ -384,7 +384,7 @@ impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
 pub struct HCS_PROCESS(pub isize);
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCS_PROCESS {
@@ -453,7 +453,7 @@ impl ::core::default::Default for HCS_PROCESS_INFORMATION {
 pub struct HCS_SYSTEM(pub isize);
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCS_SYSTEM {

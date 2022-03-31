@@ -111,7 +111,7 @@ pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCO
 pub struct HCOMDB(pub isize);
 impl HCOMDB {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCOMDB {

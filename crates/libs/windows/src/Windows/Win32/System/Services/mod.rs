@@ -169,7 +169,7 @@ pub unsafe fn CreateServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::s
             fn CreateServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR) -> super::super::Security::SC_HANDLE;
         }
         let result__ = CreateServiceA(hscmanager.into_param().abi(), lpservicename.into_param().abi(), lpdisplayname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -199,7 +199,7 @@ pub unsafe fn CreateServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::s
             fn CreateServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR) -> super::super::Security::SC_HANDLE;
         }
         let result__ = CreateServiceW(hscmanager.into_param().abi(), lpservicename.into_param().abi(), lpdisplayname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -751,7 +751,7 @@ pub unsafe fn OpenSCManagerA<'a, Param0: ::windows::core::IntoParam<'a, ::window
             fn OpenSCManagerA(lpmachinename: ::windows::core::PCSTR, lpdatabasename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
         let result__ = OpenSCManagerA(lpmachinename.into_param().abi(), lpdatabasename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -767,7 +767,7 @@ pub unsafe fn OpenSCManagerW<'a, Param0: ::windows::core::IntoParam<'a, ::window
             fn OpenSCManagerW(lpmachinename: ::windows::core::PCWSTR, lpdatabasename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
         let result__ = OpenSCManagerW(lpmachinename.into_param().abi(), lpdatabasename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -783,7 +783,7 @@ pub unsafe fn OpenServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
             fn OpenServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
         let result__ = OpenServiceA(hscmanager.into_param().abi(), lpservicename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -799,7 +799,7 @@ pub unsafe fn OpenServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
             fn OpenServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
         let result__ = OpenServiceW(hscmanager.into_param().abi(), lpservicename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1109,7 +1109,7 @@ pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::windows::core::IntoParam
             fn RegisterServiceCtrlHandlerA(lpservicename: ::windows::core::PCSTR, lphandlerproc: ::windows::core::RawPtr) -> SERVICE_STATUS_HANDLE;
         }
         let result__ = RegisterServiceCtrlHandlerA(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1124,7 +1124,7 @@ pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::windows::core::IntoPar
             fn RegisterServiceCtrlHandlerExA(lpservicename: ::windows::core::PCSTR, lphandlerproc: ::windows::core::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
         }
         let result__ = RegisterServiceCtrlHandlerExA(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1139,7 +1139,7 @@ pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::windows::core::IntoPar
             fn RegisterServiceCtrlHandlerExW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: ::windows::core::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
         }
         let result__ = RegisterServiceCtrlHandlerExW(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1154,7 +1154,7 @@ pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::windows::core::IntoParam
             fn RegisterServiceCtrlHandlerW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: ::windows::core::RawPtr) -> SERVICE_STATUS_HANDLE;
         }
         let result__ = RegisterServiceCtrlHandlerW(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2514,7 +2514,7 @@ impl ::core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
 pub struct SERVICE_STATUS_HANDLE(pub isize);
 impl SERVICE_STATUS_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for SERVICE_STATUS_HANDLE {

@@ -103,7 +103,7 @@ pub unsafe fn CreateFileMapping2<'a, Param0: ::windows::core::IntoParam<'a, supe
             fn CreateFileMapping2(file: super::super::Foundation::HANDLE, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: ::windows::core::PCWSTR, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileMapping2(file.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(pageprotection), ::core::mem::transmute(allocationattributes), ::core::mem::transmute(maximumsize), name.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -119,7 +119,7 @@ pub unsafe fn CreateFileMappingA<'a, Param0: ::windows::core::IntoParam<'a, supe
             fn CreateFileMappingA(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileMappingA(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes), ::core::mem::transmute(flprotect), ::core::mem::transmute(dwmaximumsizehigh), ::core::mem::transmute(dwmaximumsizelow), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -135,7 +135,7 @@ pub unsafe fn CreateFileMappingFromApp<'a, Param0: ::windows::core::IntoParam<'a
             fn CreateFileMappingFromApp(hfile: super::super::Foundation::HANDLE, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileMappingFromApp(hfile.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(pageprotection), ::core::mem::transmute(maximumsize), name.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -151,7 +151,7 @@ pub unsafe fn CreateFileMappingNumaA<'a, Param0: ::windows::core::IntoParam<'a, 
             fn CreateFileMappingNumaA(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: ::windows::core::PCSTR, nndpreferred: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileMappingNumaA(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes), ::core::mem::transmute(flprotect), ::core::mem::transmute(dwmaximumsizehigh), ::core::mem::transmute(dwmaximumsizelow), lpname.into_param().abi(), ::core::mem::transmute(nndpreferred));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -167,7 +167,7 @@ pub unsafe fn CreateFileMappingNumaW<'a, Param0: ::windows::core::IntoParam<'a, 
             fn CreateFileMappingNumaW(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: ::windows::core::PCWSTR, nndpreferred: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileMappingNumaW(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes), ::core::mem::transmute(flprotect), ::core::mem::transmute(dwmaximumsizehigh), ::core::mem::transmute(dwmaximumsizelow), lpname.into_param().abi(), ::core::mem::transmute(nndpreferred));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -183,7 +183,7 @@ pub unsafe fn CreateFileMappingW<'a, Param0: ::windows::core::IntoParam<'a, supe
             fn CreateFileMappingW(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileMappingW(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes), ::core::mem::transmute(flprotect), ::core::mem::transmute(dwmaximumsizehigh), ::core::mem::transmute(dwmaximumsizelow), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -199,7 +199,7 @@ pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE
             fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMemoryResourceNotification(::core::mem::transmute(notificationtype));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -423,7 +423,7 @@ pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
             fn GetProcessHeap() -> HeapHandle;
         }
         let result__ = GetProcessHeap();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -787,7 +787,7 @@ pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximums
             fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximumsize: usize) -> HeapHandle;
         }
         let result__ = HeapCreate(::core::mem::transmute(floptions), ::core::mem::transmute(dwinitialsize), ::core::mem::transmute(dwmaximumsize));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -827,7 +827,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
 pub struct HeapHandle(pub isize);
 impl HeapHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HeapHandle {
@@ -1811,7 +1811,7 @@ pub unsafe fn OpenFileMappingA<'a, Param1: ::windows::core::IntoParam<'a, super:
             fn OpenFileMappingA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenFileMappingA(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1827,7 +1827,7 @@ pub unsafe fn OpenFileMappingFromApp<'a, Param1: ::windows::core::IntoParam<'a, 
             fn OpenFileMappingFromApp(desiredaccess: u32, inherithandle: super::super::Foundation::BOOL, name: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenFileMappingFromApp(::core::mem::transmute(desiredaccess), inherithandle.into_param().abi(), name.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1843,7 +1843,7 @@ pub unsafe fn OpenFileMappingW<'a, Param1: ::windows::core::IntoParam<'a, super:
             fn OpenFileMappingW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenFileMappingW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

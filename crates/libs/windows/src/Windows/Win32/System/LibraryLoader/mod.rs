@@ -24,7 +24,7 @@ pub unsafe fn BeginUpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, ::
             fn BeginUpdateResourceA(pfilename: ::windows::core::PCSTR, bdeleteexistingresources: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
         }
         let result__ = BeginUpdateResourceA(pfilename.into_param().abi(), bdeleteexistingresources.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -40,7 +40,7 @@ pub unsafe fn BeginUpdateResourceW<'a, Param0: ::windows::core::IntoParam<'a, ::
             fn BeginUpdateResourceW(pfilename: ::windows::core::PCWSTR, bdeleteexistingresources: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
         }
         let result__ = BeginUpdateResourceW(pfilename.into_param().abi(), bdeleteexistingresources.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -339,7 +339,7 @@ pub unsafe fn FindResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::su
             fn FindResourceA(hmodule: super::super::Foundation::HINSTANCE, lpname: ::windows::core::PCSTR, lptype: ::windows::core::PCSTR) -> super::super::Foundation::HRSRC;
         }
         let result__ = FindResourceA(hmodule.into_param().abi(), lpname.into_param().abi(), lptype.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -355,7 +355,7 @@ pub unsafe fn FindResourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::
             fn FindResourceExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
         }
         let result__ = FindResourceExA(hmodule.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(wlanguage));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

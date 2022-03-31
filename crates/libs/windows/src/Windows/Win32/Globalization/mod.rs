@@ -2630,7 +2630,7 @@ pub const HIGH_SURROGATE_START: u32 = 55296u32;
 pub struct HIMC(pub isize);
 impl HIMC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HIMC {
@@ -2657,7 +2657,7 @@ unsafe impl ::windows::core::Abi for HIMC {
 pub struct HIMCC(pub isize);
 impl HIMCC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HIMCC {
@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::Abi for HIMCC {
 pub struct HSAVEDUILANGUAGES(pub isize);
 impl HSAVEDUILANGUAGES {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HSAVEDUILANGUAGES {

@@ -10,7 +10,7 @@ pub unsafe fn CreateMailslotA<'a, Param0: ::windows::core::IntoParam<'a, ::windo
             fn CreateMailslotA(lpname: ::windows::core::PCSTR, nmaxmessagesize: u32, lreadtimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMailslotA(lpname.into_param().abi(), ::core::mem::transmute(nmaxmessagesize), ::core::mem::transmute(lreadtimeout), ::core::mem::transmute(lpsecurityattributes));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -26,7 +26,7 @@ pub unsafe fn CreateMailslotW<'a, Param0: ::windows::core::IntoParam<'a, ::windo
             fn CreateMailslotW(lpname: ::windows::core::PCWSTR, nmaxmessagesize: u32, lreadtimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMailslotW(lpname.into_param().abi(), ::core::mem::transmute(nmaxmessagesize), ::core::mem::transmute(lreadtimeout), ::core::mem::transmute(lpsecurityattributes));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

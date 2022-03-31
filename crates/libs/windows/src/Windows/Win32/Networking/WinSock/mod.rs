@@ -1698,7 +1698,7 @@ pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub struct HWSAEVENT(pub isize);
 impl HWSAEVENT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HWSAEVENT {

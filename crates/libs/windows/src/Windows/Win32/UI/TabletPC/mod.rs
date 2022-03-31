@@ -3014,7 +3014,7 @@ pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOG
 pub struct HRECOALT(pub isize);
 impl HRECOALT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HRECOALT {
@@ -3041,7 +3041,7 @@ unsafe impl ::windows::core::Abi for HRECOALT {
 pub struct HRECOCONTEXT(pub isize);
 impl HRECOCONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HRECOCONTEXT {
@@ -3068,7 +3068,7 @@ unsafe impl ::windows::core::Abi for HRECOCONTEXT {
 pub struct HRECOGNIZER(pub isize);
 impl HRECOGNIZER {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HRECOGNIZER {
@@ -3095,7 +3095,7 @@ unsafe impl ::windows::core::Abi for HRECOGNIZER {
 pub struct HRECOLATTICE(pub isize);
 impl HRECOLATTICE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HRECOLATTICE {
@@ -3122,7 +3122,7 @@ unsafe impl ::windows::core::Abi for HRECOLATTICE {
 pub struct HRECOWORDLIST(pub isize);
 impl HRECOWORDLIST {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HRECOWORDLIST {

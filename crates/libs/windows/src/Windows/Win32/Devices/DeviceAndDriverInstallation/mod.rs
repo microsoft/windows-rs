@@ -6562,7 +6562,7 @@ pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows::core::GUID = ::windows::core
 pub struct HCMNOTIFICATION(pub isize);
 impl HCMNOTIFICATION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCMNOTIFICATION {
@@ -13451,7 +13451,7 @@ pub unsafe fn SetupDiCreateDevRegKeyA<'a, Param6: ::windows::core::IntoParam<'a,
             fn SetupDiCreateDevRegKeyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows::core::PCSTR) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiCreateDevRegKeyA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(scope), ::core::mem::transmute(hwprofile), ::core::mem::transmute(keytype), ::core::mem::transmute(infhandle), infsectionname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13467,7 +13467,7 @@ pub unsafe fn SetupDiCreateDevRegKeyW<'a, Param6: ::windows::core::IntoParam<'a,
             fn SetupDiCreateDevRegKeyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows::core::PCWSTR) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiCreateDevRegKeyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(scope), ::core::mem::transmute(hwprofile), ::core::mem::transmute(keytype), ::core::mem::transmute(infhandle), infsectionname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13573,7 +13573,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<'a, Param5: ::windows::core::I
             fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows::core::PCSTR) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiCreateDeviceInterfaceRegKeyA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(reserved), ::core::mem::transmute(samdesired), ::core::mem::transmute(infhandle), infsectionname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13589,7 +13589,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<'a, Param5: ::windows::core::I
             fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows::core::PCWSTR) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiCreateDeviceInterfaceRegKeyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(reserved), ::core::mem::transmute(samdesired), ::core::mem::transmute(infhandle), infsectionname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14895,7 +14895,7 @@ pub unsafe fn SetupDiOpenClassRegKey(classguid: *const ::windows::core::GUID, sa
             fn SetupDiOpenClassRegKey(classguid: *const ::windows::core::GUID, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiOpenClassRegKey(::core::mem::transmute(classguid), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14911,7 +14911,7 @@ pub unsafe fn SetupDiOpenClassRegKeyExA<'a, Param3: ::windows::core::IntoParam<'
             fn SetupDiOpenClassRegKeyExA(classguid: *const ::windows::core::GUID, samdesired: u32, flags: u32, machinename: ::windows::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiOpenClassRegKeyExA(::core::mem::transmute(classguid), ::core::mem::transmute(samdesired), ::core::mem::transmute(flags), machinename.into_param().abi(), ::core::mem::transmute(reserved));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14927,7 +14927,7 @@ pub unsafe fn SetupDiOpenClassRegKeyExW<'a, Param3: ::windows::core::IntoParam<'
             fn SetupDiOpenClassRegKeyExW(classguid: *const ::windows::core::GUID, samdesired: u32, flags: u32, machinename: ::windows::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiOpenClassRegKeyExW(::core::mem::transmute(classguid), ::core::mem::transmute(samdesired), ::core::mem::transmute(flags), machinename.into_param().abi(), ::core::mem::transmute(reserved));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14943,7 +14943,7 @@ pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: *const ::core::ffi::c_void, de
             fn SetupDiOpenDevRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiOpenDevRegKey(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(scope), ::core::mem::transmute(hwprofile), ::core::mem::transmute(keytype), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15004,7 +15004,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi
             fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
         let result__ = SetupDiOpenDeviceInterfaceRegKey(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(reserved), ::core::mem::transmute(samdesired));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

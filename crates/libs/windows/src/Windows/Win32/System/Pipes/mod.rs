@@ -55,7 +55,7 @@ pub unsafe fn CreateNamedPipeA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
             fn CreateNamedPipeA(lpname: ::windows::core::PCSTR, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateNamedPipeA(lpname.into_param().abi(), ::core::mem::transmute(dwopenmode), ::core::mem::transmute(dwpipemode), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

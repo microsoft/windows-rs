@@ -70,7 +70,7 @@ pub unsafe fn CreateIoCompletionPort<'a, Param0: ::windows::core::IntoParam<'a, 
             fn CreateIoCompletionPort(filehandle: super::super::Foundation::HANDLE, existingcompletionport: super::super::Foundation::HANDLE, completionkey: usize, numberofconcurrentthreads: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateIoCompletionPort(filehandle.into_param().abi(), existingcompletionport.into_param().abi(), ::core::mem::transmute(completionkey), ::core::mem::transmute(numberofconcurrentthreads));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

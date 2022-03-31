@@ -2401,7 +2401,7 @@ pub unsafe fn GetWindowsAccountDomainSid<'a, Param0: ::windows::core::IntoParam<
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
 impl HDIAGNOSTIC_DATA_QUERY_SESSION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
@@ -2428,7 +2428,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_DATA_QUERY_SESSION {
 pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
@@ -2455,7 +2455,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
 pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
@@ -2482,7 +2482,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
 pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
@@ -2509,7 +2509,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
 pub struct HDIAGNOSTIC_RECORD(pub isize);
 impl HDIAGNOSTIC_RECORD {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDIAGNOSTIC_RECORD {
@@ -2536,7 +2536,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_RECORD {
 pub struct HDIAGNOSTIC_REPORT(pub isize);
 impl HDIAGNOSTIC_REPORT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDIAGNOSTIC_REPORT {
@@ -3189,7 +3189,7 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
 pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
 impl NCRYPT_DESCRIPTOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_DESCRIPTOR_HANDLE {
@@ -3216,7 +3216,7 @@ unsafe impl ::windows::core::Abi for NCRYPT_DESCRIPTOR_HANDLE {
 pub struct NCRYPT_STREAM_HANDLE(pub isize);
 impl NCRYPT_STREAM_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_STREAM_HANDLE {
@@ -3705,7 +3705,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoPa
 pub struct SAFER_LEVEL_HANDLE(pub isize);
 impl SAFER_LEVEL_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for SAFER_LEVEL_HANDLE {
@@ -3732,7 +3732,7 @@ unsafe impl ::windows::core::Abi for SAFER_LEVEL_HANDLE {
 pub struct SC_HANDLE(pub isize);
 impl SC_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for SC_HANDLE {

@@ -1549,7 +1549,7 @@ pub unsafe fn CreateMappedBitmap<'a, Param0: ::windows::core::IntoParam<'a, supe
             fn CreateMappedBitmap(hinstance: super::super::Foundation::HINSTANCE, idbitmap: isize, wflags: u32, lpcolormap: *const COLORMAP, inummaps: i32) -> super::super::Graphics::Gdi::HBITMAP;
         }
         let result__ = CreateMappedBitmap(hinstance.into_param().abi(), ::core::mem::transmute(idbitmap), ::core::mem::transmute(wflags), ::core::mem::transmute(lpcolormap), ::core::mem::transmute(inummaps));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1625,7 +1625,7 @@ pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessagi
             fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE;
         }
         let result__ = CreateSyntheticPointerDevice(::core::mem::transmute(pointertype), ::core::mem::transmute(maxcount), ::core::mem::transmute(mode));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5111,7 +5111,7 @@ pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
 pub struct HDPA(pub isize);
 impl HDPA {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDPA {
@@ -5138,7 +5138,7 @@ unsafe impl ::windows::core::Abi for HDPA {
 pub struct HDSA(pub isize);
 impl HDSA {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDSA {
@@ -5308,7 +5308,7 @@ pub const HHT_TORIGHT: u32 = 1024u32;
 pub struct HIMAGELIST(pub isize);
 impl HIMAGELIST {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HIMAGELIST {
@@ -5397,7 +5397,7 @@ pub const HOVER_DEFAULT: u32 = 4294967295u32;
 pub struct HPROPSHEETPAGE(pub isize);
 impl HPROPSHEETPAGE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HPROPSHEETPAGE {
@@ -5424,7 +5424,7 @@ unsafe impl ::windows::core::Abi for HPROPSHEETPAGE {
 pub struct HSYNTHETICPOINTERDEVICE(pub isize);
 impl HSYNTHETICPOINTERDEVICE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HSYNTHETICPOINTERDEVICE {

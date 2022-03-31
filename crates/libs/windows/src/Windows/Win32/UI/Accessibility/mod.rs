@@ -1337,7 +1337,7 @@ impl ::core::ops::Not for HIGHCONTRASTW_FLAGS {
 pub struct HUIAEVENT(pub isize);
 impl HUIAEVENT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HUIAEVENT {
@@ -1364,7 +1364,7 @@ unsafe impl ::windows::core::Abi for HUIAEVENT {
 pub struct HUIANODE(pub isize);
 impl HUIANODE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HUIANODE {
@@ -1391,7 +1391,7 @@ unsafe impl ::windows::core::Abi for HUIANODE {
 pub struct HUIAPATTERNOBJECT(pub isize);
 impl HUIAPATTERNOBJECT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HUIAPATTERNOBJECT {
@@ -1418,7 +1418,7 @@ unsafe impl ::windows::core::Abi for HUIAPATTERNOBJECT {
 pub struct HUIATEXTRANGE(pub isize);
 impl HUIATEXTRANGE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HUIATEXTRANGE {
@@ -1445,7 +1445,7 @@ unsafe impl ::windows::core::Abi for HUIATEXTRANGE {
 pub struct HWINEVENTHOOK(pub isize);
 impl HWINEVENTHOOK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HWINEVENTHOOK {

@@ -1014,7 +1014,7 @@ impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_FLAGS {
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
 impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
@@ -1118,7 +1118,7 @@ pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
 impl AUTHZ_AUDIT_EVENT_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for AUTHZ_AUDIT_EVENT_HANDLE {
@@ -1178,7 +1178,7 @@ impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
 impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
@@ -1331,7 +1331,7 @@ impl ::core::default::Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
 pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
 impl AUTHZ_CLIENT_CONTEXT_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
@@ -1619,7 +1619,7 @@ impl ::core::ops::Not for AUTHZ_RESOURCE_MANAGER_FLAGS {
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
 impl AUTHZ_RESOURCE_MANAGER_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
@@ -1966,7 +1966,7 @@ impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
 impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {

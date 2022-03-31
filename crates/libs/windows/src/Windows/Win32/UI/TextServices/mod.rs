@@ -224,7 +224,7 @@ pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 pub struct HKL(pub isize);
 impl HKL {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HKL {

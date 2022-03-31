@@ -242,7 +242,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                                 fn #name(#(#abi_params),*) -> #return_type;
                             }
                             let result__ = #name(#args);
-                            (!result__.is_null()).then(||result__).ok_or_else(||::windows::core::Error::from_win32())
+                            (!result__.is_null()).then(||result__).ok_or_else(::windows::core::Error::from_win32)
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
@@ -266,7 +266,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                                 fn #name(#(#abi_params),*) -> #return_type;
                             }
                             let result__ = #name(#args);
-                            (!result__.is_invalid()).then(||result__).ok_or_else(||::windows::core::Error::from_win32())
+                            (!result__.is_invalid()).then(||result__).ok_or_else(::windows::core::Error::from_win32)
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");

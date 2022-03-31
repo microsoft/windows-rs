@@ -284,7 +284,7 @@ pub unsafe fn AvSetMmMaxThreadCharacteristicsA<'a, Param0: ::windows::core::Into
             fn AvSetMmMaxThreadCharacteristicsA(firsttask: ::windows::core::PCSTR, secondtask: ::windows::core::PCSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = AvSetMmMaxThreadCharacteristicsA(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -300,7 +300,7 @@ pub unsafe fn AvSetMmMaxThreadCharacteristicsW<'a, Param0: ::windows::core::Into
             fn AvSetMmMaxThreadCharacteristicsW(firsttask: ::windows::core::PCWSTR, secondtask: ::windows::core::PCWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = AvSetMmMaxThreadCharacteristicsW(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -316,7 +316,7 @@ pub unsafe fn AvSetMmThreadCharacteristicsA<'a, Param0: ::windows::core::IntoPar
             fn AvSetMmThreadCharacteristicsA(taskname: ::windows::core::PCSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = AvSetMmThreadCharacteristicsA(taskname.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -332,7 +332,7 @@ pub unsafe fn AvSetMmThreadCharacteristicsW<'a, Param0: ::windows::core::IntoPar
             fn AvSetMmThreadCharacteristicsW(taskname: ::windows::core::PCWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = AvSetMmThreadCharacteristicsW(taskname.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -357,7 +357,7 @@ pub unsafe fn AvSetMmThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, s
 pub struct BoundaryDescriptorHandle(pub isize);
 impl BoundaryDescriptorHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for BoundaryDescriptorHandle {
@@ -695,7 +695,7 @@ pub unsafe fn CreateBoundaryDescriptorA<'a, Param0: ::windows::core::IntoParam<'
             fn CreateBoundaryDescriptorA(name: ::windows::core::PCSTR, flags: u32) -> BoundaryDescriptorHandle;
         }
         let result__ = CreateBoundaryDescriptorA(name.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -725,7 +725,7 @@ pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
             fn CreateEventA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -741,7 +741,7 @@ pub unsafe fn CreateEventExA<'a, Param1: ::windows::core::IntoParam<'a, ::window
             fn CreateEventExA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -757,7 +757,7 @@ pub unsafe fn CreateEventExW<'a, Param1: ::windows::core::IntoParam<'a, ::window
             fn CreateEventExW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -773,7 +773,7 @@ pub unsafe fn CreateEventW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
             fn CreateEventW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateEventW(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -817,7 +817,7 @@ pub unsafe fn CreateMutexA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
             fn CreateMutexA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMutexA(::core::mem::transmute(lpmutexattributes), binitialowner.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -833,7 +833,7 @@ pub unsafe fn CreateMutexExA<'a, Param1: ::windows::core::IntoParam<'a, ::window
             fn CreateMutexExA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -849,7 +849,7 @@ pub unsafe fn CreateMutexExW<'a, Param1: ::windows::core::IntoParam<'a, ::window
             fn CreateMutexExW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -865,7 +865,7 @@ pub unsafe fn CreateMutexW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
             fn CreateMutexW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateMutexW(::core::mem::transmute(lpmutexattributes), binitialowner.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -881,7 +881,7 @@ pub unsafe fn CreatePrivateNamespaceA<'a, Param2: ::windows::core::IntoParam<'a,
             fn CreatePrivateNamespaceA(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCSTR) -> NamespaceHandle;
         }
         let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes), ::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1002,7 +1002,7 @@ pub unsafe fn CreateRemoteThread<'a, Param0: ::windows::core::IntoParam<'a, supe
             fn CreateRemoteThread(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::core::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateRemoteThread(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1018,7 +1018,7 @@ pub unsafe fn CreateRemoteThreadEx<'a, Param0: ::windows::core::IntoParam<'a, su
             fn CreateRemoteThreadEx(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::core::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateRemoteThreadEx(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), lpattributelist.into_param().abi(), ::core::mem::transmute(lpthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1034,7 +1034,7 @@ pub unsafe fn CreateSemaphoreA<'a, Param3: ::windows::core::IntoParam<'a, ::wind
             fn CreateSemaphoreA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1050,7 +1050,7 @@ pub unsafe fn CreateSemaphoreExA<'a, Param3: ::windows::core::IntoParam<'a, ::wi
             fn CreateSemaphoreExA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1066,7 +1066,7 @@ pub unsafe fn CreateSemaphoreExW<'a, Param3: ::windows::core::IntoParam<'a, ::wi
             fn CreateSemaphoreExW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1082,7 +1082,7 @@ pub unsafe fn CreateSemaphoreW<'a, Param3: ::windows::core::IntoParam<'a, ::wind
             fn CreateSemaphoreW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1098,7 +1098,7 @@ pub unsafe fn CreateThread(lpthreadattributes: *const super::super::Security::SE
             fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::core::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateThread(::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1199,7 +1199,7 @@ pub unsafe fn CreateTimerQueue() -> ::windows::core::Result<super::super::Founda
             fn CreateTimerQueue() -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateTimerQueue();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1260,7 +1260,7 @@ pub unsafe fn CreateWaitableTimerExW<'a, Param1: ::windows::core::IntoParam<'a, 
             fn CreateWaitableTimerExW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes), lptimername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1276,7 +1276,7 @@ pub unsafe fn CreateWaitableTimerW<'a, Param1: ::windows::core::IntoParam<'a, su
             fn CreateWaitableTimerW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateWaitableTimerW(::core::mem::transmute(lptimerattributes), bmanualreset.into_param().abi(), lptimername.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3141,7 +3141,7 @@ pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 pub struct NamespaceHandle(pub isize);
 impl NamespaceHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for NamespaceHandle {
@@ -3219,7 +3219,7 @@ pub unsafe fn OpenEventA<'a, Param1: ::windows::core::IntoParam<'a, super::super
             fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenEventA(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3235,7 +3235,7 @@ pub unsafe fn OpenEventW<'a, Param1: ::windows::core::IntoParam<'a, super::super
             fn OpenEventW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenEventW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3251,7 +3251,7 @@ pub unsafe fn OpenMutexW<'a, Param1: ::windows::core::IntoParam<'a, super::super
             fn OpenMutexW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenMutexW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3295,7 +3295,7 @@ pub unsafe fn OpenProcess<'a, Param1: ::windows::core::IntoParam<'a, super::supe
             fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwprocessid: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenProcess(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwprocessid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3326,7 +3326,7 @@ pub unsafe fn OpenSemaphoreW<'a, Param1: ::windows::core::IntoParam<'a, super::s
             fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenSemaphoreW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3342,7 +3342,7 @@ pub unsafe fn OpenThread<'a, Param1: ::windows::core::IntoParam<'a, super::super
             fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenThread(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3373,7 +3373,7 @@ pub unsafe fn OpenWaitableTimerW<'a, Param1: ::windows::core::IntoParam<'a, supe
             fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenWaitableTimerW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lptimername.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6926,7 +6926,7 @@ pub unsafe fn TerminateThread<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub struct TimerQueueHandle(pub isize);
 impl TimerQueueHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for TimerQueueHandle {

@@ -53,7 +53,7 @@ pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::core::IntoParam<'a, 
             fn ActivateKeyboardLayout(hkl: super::super::TextServices::HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
         let result__ = ActivateKeyboardLayout(hkl.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1115,7 +1115,7 @@ pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn LoadKeyboardLayoutA(pwszklid: ::windows::core::PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
         let result__ = LoadKeyboardLayoutA(pwszklid.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1131,7 +1131,7 @@ pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn LoadKeyboardLayoutW(pwszklid: ::windows::core::PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
         let result__ = LoadKeyboardLayoutW(pwszklid.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

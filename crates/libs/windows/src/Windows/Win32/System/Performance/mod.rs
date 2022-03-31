@@ -11642,7 +11642,7 @@ pub unsafe fn PerfOpenQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub struct PerfProviderHandle(pub isize);
 impl PerfProviderHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for PerfProviderHandle {
@@ -11712,7 +11712,7 @@ pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, Param0: ::windows::core::I
 pub struct PerfQueryHandle(pub isize);
 impl PerfQueryHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for PerfQueryHandle {

@@ -2640,7 +2640,7 @@ pub unsafe fn CreateEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super:
             fn CreateEnlistment(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: super::super::Foundation::HANDLE, transactionhandle: super::super::Foundation::HANDLE, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateEnlistment(::core::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.into_param().abi(), transactionhandle.into_param().abi(), ::core::mem::transmute(notificationmask), ::core::mem::transmute(createoptions), ::core::mem::transmute(enlistmentkey));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2656,7 +2656,7 @@ pub unsafe fn CreateFile2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
             fn CreateFile2(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFile2(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(pcreateexparams));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2687,7 +2687,7 @@ pub unsafe fn CreateFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
             fn CreateFileA(lpfilename: ::windows::core::PCSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileA(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2718,7 +2718,7 @@ pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, :
             fn CreateFileTransactedA(lpfilename: ::windows::core::PCSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi(), htransaction.into_param().abi(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2734,7 +2734,7 @@ pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, :
             fn CreateFileTransactedW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi(), htransaction.into_param().abi(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2750,7 +2750,7 @@ pub unsafe fn CreateFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
             fn CreateFileW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateFileW(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2856,7 +2856,7 @@ pub unsafe fn CreateLogFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows
             fn CreateLogFile(pszlogfilename: ::windows::core::PCWSTR, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateLogFile(pszlogfilename.into_param().abi(), ::core::mem::transmute(fdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(psalogfile), ::core::mem::transmute(fcreatedisposition), ::core::mem::transmute(fflagsandattributes));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2887,7 +2887,7 @@ pub unsafe fn CreateResourceManager<'a, Param3: ::windows::core::IntoParam<'a, s
             fn CreateResourceManager(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::core::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateResourceManager(::core::mem::transmute(lpresourcemanagerattributes), ::core::mem::transmute(resourcemanagerid), ::core::mem::transmute(createoptions), tmhandle.into_param().abi(), description.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2978,7 +2978,7 @@ pub unsafe fn CreateTransaction<'a, Param6: ::windows::core::IntoParam<'a, ::win
             fn CreateTransaction(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateTransaction(::core::mem::transmute(lptransactionattributes), ::core::mem::transmute(uow), ::core::mem::transmute(createoptions), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2994,7 +2994,7 @@ pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::core::IntoParam<'a
             fn CreateTransactionManager(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: ::windows::core::PCWSTR, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateTransactionManager(::core::mem::transmute(lptransactionattributes), logfilename.into_param().abi(), ::core::mem::transmute(createoptions), ::core::mem::transmute(commitstrength));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6219,7 +6219,7 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
 pub struct FindChangeNotificationHandle(pub isize);
 impl FindChangeNotificationHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FindChangeNotificationHandle {
@@ -6276,7 +6276,7 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam
 pub struct FindFileHandle(pub isize);
 impl FindFileHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FindFileHandle {
@@ -6303,7 +6303,7 @@ unsafe impl ::windows::core::Abi for FindFileHandle {
 pub struct FindFileNameHandle(pub isize);
 impl FindFileNameHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FindFileNameHandle {
@@ -6336,7 +6336,7 @@ pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::core::IntoPara
             fn FindFirstChangeNotificationA(lppathname: ::windows::core::PCSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
         }
         let result__ = FindFirstChangeNotificationA(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), ::core::mem::transmute(dwnotifyfilter));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6352,7 +6352,7 @@ pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::core::IntoPara
             fn FindFirstChangeNotificationW(lppathname: ::windows::core::PCWSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
         }
         let result__ = FindFirstChangeNotificationW(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), ::core::mem::transmute(dwnotifyfilter));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6368,7 +6368,7 @@ pub unsafe fn FindFirstFileA<'a, Param0: ::windows::core::IntoParam<'a, ::window
             fn FindFirstFileA(lpfilename: ::windows::core::PCSTR, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle;
         }
         let result__ = FindFirstFileA(lpfilename.into_param().abi(), ::core::mem::transmute(lpfindfiledata));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6383,7 +6383,7 @@ pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
             fn FindFirstFileExA(lpfilename: ::windows::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
         }
         let result__ = FindFirstFileExA(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6413,7 +6413,7 @@ pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
             fn FindFirstFileExW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
         }
         let result__ = FindFirstFileExW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6429,7 +6429,7 @@ pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::core::IntoPara
             fn FindFirstFileNameTransactedW(lpfilename: ::windows::core::PCWSTR, dwflags: u32, stringlength: *mut u32, linkname: ::windows::core::PWSTR, htransaction: super::super::Foundation::HANDLE) -> FindFileNameHandle;
         }
         let result__ = FindFirstFileNameTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname), htransaction.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6444,7 +6444,7 @@ pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::core::IntoParam<'a, ::wi
             fn FindFirstFileNameW(lpfilename: ::windows::core::PCWSTR, dwflags: u32, stringlength: *mut u32, linkname: ::windows::core::PWSTR) -> FindFileNameHandle;
         }
         let result__ = FindFirstFileNameW(lpfilename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6460,7 +6460,7 @@ pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a
             fn FindFirstFileTransactedA(lpfilename: ::windows::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
         }
         let result__ = FindFirstFileTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6476,7 +6476,7 @@ pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a
             fn FindFirstFileTransactedW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
         }
         let result__ = FindFirstFileTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6492,7 +6492,7 @@ pub unsafe fn FindFirstFileW<'a, Param0: ::windows::core::IntoParam<'a, ::window
             fn FindFirstFileW(lpfilename: ::windows::core::PCWSTR, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle;
         }
         let result__ = FindFirstFileW(lpfilename.into_param().abi(), ::core::mem::transmute(lpfindfiledata));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6508,7 +6508,7 @@ pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::core::IntoParam<
             fn FindFirstStreamTransactedW(lpfilename: ::windows::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindStreamHandle;
         }
         let result__ = FindFirstStreamTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags), htransaction.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6523,7 +6523,7 @@ pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
             fn FindFirstStreamW(lpfilename: ::windows::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle;
         }
         let result__ = FindFirstStreamW(lpfilename.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6538,7 +6538,7 @@ pub unsafe fn FindFirstVolumeA(lpszvolumename: &mut [u8]) -> ::windows::core::Re
             fn FindFirstVolumeA(lpszvolumename: ::windows::core::PSTR, cchbufferlength: u32) -> FindVolumeHandle;
         }
         let result__ = FindFirstVolumeA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszvolumename)), lpszvolumename.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6553,7 +6553,7 @@ pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<
             fn FindFirstVolumeMountPointA(lpszrootpathname: ::windows::core::PCSTR, lpszvolumemountpoint: ::windows::core::PSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle;
         }
         let result__ = FindFirstVolumeMountPointA(lpszrootpathname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszvolumemountpoint)), lpszvolumemountpoint.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6568,7 +6568,7 @@ pub unsafe fn FindFirstVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<
             fn FindFirstVolumeMountPointW(lpszrootpathname: ::windows::core::PCWSTR, lpszvolumemountpoint: ::windows::core::PWSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle;
         }
         let result__ = FindFirstVolumeMountPointW(lpszrootpathname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszvolumemountpoint)), lpszvolumemountpoint.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6583,7 +6583,7 @@ pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> ::windows::core::R
             fn FindFirstVolumeW(lpszvolumename: ::windows::core::PWSTR, cchbufferlength: u32) -> FindVolumeHandle;
         }
         let result__ = FindFirstVolumeW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszvolumename)), lpszvolumename.len() as _);
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6728,7 +6728,7 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVol
 pub struct FindStreamHandle(pub isize);
 impl FindStreamHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FindStreamHandle {
@@ -6770,7 +6770,7 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVol
 pub struct FindVolumeHandle(pub isize);
 impl FindVolumeHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FindVolumeHandle {
@@ -6797,7 +6797,7 @@ unsafe impl ::windows::core::Abi for FindVolumeHandle {
 pub struct FindVolumeMointPointHandle(pub isize);
 impl FindVolumeMointPointHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for FindVolumeMointPointHandle {
@@ -14456,7 +14456,7 @@ pub unsafe fn OpenEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super::s
             fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenEnlistment(::core::mem::transmute(dwdesiredaccess), resourcemanagerhandle.into_param().abi(), ::core::mem::transmute(enlistmentid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14487,7 +14487,7 @@ pub unsafe fn OpenFileById<'a, Param0: ::windows::core::IntoParam<'a, super::sup
             fn OpenFileById(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenFileById(hvolumehint.into_param().abi(), ::core::mem::transmute(lpfileid), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwflagsandattributes));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14503,7 +14503,7 @@ pub unsafe fn OpenResourceManager<'a, Param1: ::windows::core::IntoParam<'a, sup
             fn OpenResourceManager(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenResourceManager(::core::mem::transmute(dwdesiredaccess), tmhandle.into_param().abi(), ::core::mem::transmute(resourcemanagerid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14519,7 +14519,7 @@ pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::window
             fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenTransaction(::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(transactionid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14535,7 +14535,7 @@ pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, 
             fn OpenTransactionManager(logfilename: ::windows::core::PCWSTR, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenTransactionManager(logfilename.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14551,7 +14551,7 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows:
             fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenTransactionManagerById(::core::mem::transmute(transactionmanagerid), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15040,7 +15040,7 @@ pub unsafe fn ReOpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super
             fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
         let result__ = ReOpenFile(horiginalfile.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwflagsandattributes));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

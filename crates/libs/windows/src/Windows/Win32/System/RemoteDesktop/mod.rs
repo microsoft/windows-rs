@@ -670,7 +670,7 @@ pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 pub struct HwtsVirtualChannelHandle(pub isize);
 impl HwtsVirtualChannelHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HwtsVirtualChannelHandle {
@@ -14307,7 +14307,7 @@ pub unsafe fn WTSVirtualChannelOpen<'a, Param0: ::windows::core::IntoParam<'a, s
             fn WTSVirtualChannelOpen(hserver: super::super::Foundation::HANDLE, sessionid: u32, pvirtualname: ::windows::core::PCSTR) -> HwtsVirtualChannelHandle;
         }
         let result__ = WTSVirtualChannelOpen(hserver.into_param().abi(), ::core::mem::transmute(sessionid), pvirtualname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14322,7 +14322,7 @@ pub unsafe fn WTSVirtualChannelOpenEx<'a, Param1: ::windows::core::IntoParam<'a,
             fn WTSVirtualChannelOpenEx(sessionid: u32, pvirtualname: ::windows::core::PCSTR, flags: u32) -> HwtsVirtualChannelHandle;
         }
         let result__ = WTSVirtualChannelOpenEx(::core::mem::transmute(sessionid), pvirtualname.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

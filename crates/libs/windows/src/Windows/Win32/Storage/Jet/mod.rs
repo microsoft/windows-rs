@@ -2670,7 +2670,7 @@ impl ::core::default::Default for JET_LOGTIME_1_0 {
 pub struct JET_LS(pub usize);
 impl JET_LS {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_LS {
@@ -2971,7 +2971,7 @@ impl ::core::default::Default for JET_OPERATIONCONTEXT {
 pub struct JET_OSSNAPID(pub usize);
 impl JET_OSSNAPID {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_OSSNAPID {

@@ -1030,7 +1030,7 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> ::windows::core::Result<
             fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateActCtxA(::core::mem::transmute(pactctx));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1046,7 +1046,7 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> ::windows::core::Result<
             fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateActCtxW(::core::mem::transmute(pactctx));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7947,7 +7947,7 @@ impl ::core::default::Default for MSIFILEHASHINFO {
 pub struct MSIHANDLE(pub u32);
 impl MSIHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for MSIHANDLE {

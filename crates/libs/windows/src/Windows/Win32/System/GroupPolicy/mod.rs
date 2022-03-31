@@ -80,7 +80,7 @@ pub unsafe fn CreateGPOLink<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 pub struct CriticalPolicySectionHandle(pub isize);
 impl CriticalPolicySectionHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for CriticalPolicySectionHandle {
@@ -141,7 +141,7 @@ pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<
             fn EnterCriticalPolicySection(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
         }
         let result__ = EnterCriticalPolicySection(bmachine.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1358,7 +1358,7 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
 pub struct HANDLE(pub isize);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HANDLE {
@@ -1833,7 +1833,7 @@ pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
             fn GetProcessHeap() -> HeapHandle;
         }
         let result__ = GetProcessHeap();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1936,7 +1936,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
 pub struct HeapHandle(pub isize);
 impl HeapHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HeapHandle {
@@ -1967,7 +1967,7 @@ pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, BOOL>, Par
             fn CreateEventA(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: BOOL, binitialstate: BOOL, lpname: ::windows::core::PCSTR) -> HANDLE;
         }
         let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

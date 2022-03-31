@@ -12,7 +12,7 @@ pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, ISec
             fn CreateSecurityPage(psi: ::windows::core::RawPtr) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
         }
         let result__ = CreateSecurityPage(psi.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1599,7 +1599,7 @@ pub const LPM_API_VERSION_1: u32 = 1u32;
 pub struct LPM_HANDLE(pub isize);
 impl LPM_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for LPM_HANDLE {
@@ -2979,7 +2979,7 @@ impl ::core::default::Default for RESV_STYLE {
 pub struct RHANDLE(pub isize);
 impl RHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for RHANDLE {

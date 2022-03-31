@@ -20,7 +20,7 @@ pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 pub struct HSWDEVICE(pub isize);
 impl HSWDEVICE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HSWDEVICE {

@@ -1593,7 +1593,7 @@ pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PR
 pub struct DHPDEV(pub isize);
 impl DHPDEV {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for DHPDEV {
@@ -1620,7 +1620,7 @@ unsafe impl ::windows::core::Abi for DHPDEV {
 pub struct DHSURF(pub isize);
 impl DHSURF {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for DHSURF {
@@ -6967,7 +6967,7 @@ pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::core::IntoP
 pub struct HBM(pub isize);
 impl HBM {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HBM {
@@ -6994,7 +6994,7 @@ unsafe impl ::windows::core::Abi for HBM {
 pub struct HDEV(pub isize);
 impl HDEV {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDEV {
@@ -7021,7 +7021,7 @@ unsafe impl ::windows::core::Abi for HDEV {
 pub struct HDRVOBJ(pub isize);
 impl HDRVOBJ {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HDRVOBJ {
@@ -7048,7 +7048,7 @@ unsafe impl ::windows::core::Abi for HDRVOBJ {
 pub struct HFASTMUTEX(pub isize);
 impl HFASTMUTEX {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HFASTMUTEX {
@@ -7131,7 +7131,7 @@ pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 pub struct HSEMAPHORE(pub isize);
 impl HSEMAPHORE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HSEMAPHORE {
@@ -7158,7 +7158,7 @@ unsafe impl ::windows::core::Abi for HSEMAPHORE {
 pub struct HSURF(pub isize);
 impl HSURF {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HSURF {

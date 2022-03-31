@@ -112,7 +112,7 @@ pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::core::IntoParam<'a, ::w
             fn AllJoynConnectToBus(connectionspec: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = AllJoynConnectToBus(connectionspec.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

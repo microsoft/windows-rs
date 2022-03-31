@@ -25,7 +25,7 @@ pub unsafe fn CreateJobObjectA<'a, Param1: ::windows::core::IntoParam<'a, ::wind
             fn CreateJobObjectA(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -41,7 +41,7 @@ pub unsafe fn CreateJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, ::wind
             fn CreateJobObjectW(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1784,7 +1784,7 @@ pub unsafe fn OpenJobObjectA<'a, Param1: ::windows::core::IntoParam<'a, super::s
             fn OpenJobObjectA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenJobObjectA(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1800,7 +1800,7 @@ pub unsafe fn OpenJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, super::s
             fn OpenJobObjectW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
         let result__ = OpenJobObjectW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

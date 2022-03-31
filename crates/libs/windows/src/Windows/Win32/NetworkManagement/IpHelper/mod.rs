@@ -2400,7 +2400,7 @@ pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICAST
 pub struct HIFTIMESTAMPCHANGE(pub isize);
 impl HIFTIMESTAMPCHANGE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HIFTIMESTAMPCHANGE {
@@ -5190,7 +5190,7 @@ pub unsafe fn Icmp6CreateFile() -> ::windows::core::Result<IcmpHandle> {
             fn Icmp6CreateFile() -> IcmpHandle;
         }
         let result__ = Icmp6CreateFile();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5249,7 +5249,7 @@ pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
             fn IcmpCreateFile() -> IcmpHandle;
         }
         let result__ = IcmpCreateFile();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5259,7 +5259,7 @@ pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
 pub struct IcmpHandle(pub isize);
 impl IcmpHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for IcmpHandle {

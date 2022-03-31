@@ -1577,7 +1577,7 @@ pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::G
 pub struct HGLRC(pub isize);
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HGLRC {
@@ -7457,7 +7457,7 @@ pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super:
             fn wglCreateContext(param0: super::Gdi::HDC) -> HGLRC;
         }
         let result__ = wglCreateContext(param0.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7473,7 +7473,7 @@ pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::core::IntoParam<'a, s
             fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> HGLRC;
         }
         let result__ = wglCreateLayerContext(param0.into_param().abi(), ::core::mem::transmute(param1));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

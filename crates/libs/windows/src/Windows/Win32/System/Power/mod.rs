@@ -1452,7 +1452,7 @@ pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS
 pub struct HPOWERNOTIFY(pub isize);
 impl HPOWERNOTIFY {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HPOWERNOTIFY {
@@ -2589,7 +2589,7 @@ pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEX
             fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
         }
         let result__ = PowerCreateRequest(::core::mem::transmute(context));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3506,7 +3506,7 @@ pub unsafe fn RegisterPowerSettingNotification<'a, Param0: ::windows::core::Into
             fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows::core::GUID, flags: u32) -> HPOWERNOTIFY;
         }
         let result__ = RegisterPowerSettingNotification(hrecipient.into_param().abi(), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3522,7 +3522,7 @@ pub unsafe fn RegisterSuspendResumeNotification<'a, Param0: ::windows::core::Int
             fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
         }
         let result__ = RegisterSuspendResumeNotification(hrecipient.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -3837,7 +3837,7 @@ impl ::core::fmt::Debug for WHV_PARTITION_COUNTER_SET {
 pub struct WHV_PARTITION_HANDLE(pub isize);
 impl WHV_PARTITION_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for WHV_PARTITION_HANDLE {

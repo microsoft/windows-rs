@@ -9162,7 +9162,7 @@ pub const GUID_USERS_CONTAINER_W: &'static str = "a9d1ca15768811d1aded00c04fd8d5
 pub struct GetDcContextHandle(pub isize);
 impl GetDcContextHandle {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for GetDcContextHandle {

@@ -1714,7 +1714,7 @@ impl ::core::fmt::Debug for COWAIT_FLAGS {
 pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
 impl CO_DEVICE_CATALOG_COOKIE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for CO_DEVICE_CATALOG_COOKIE {
@@ -1802,7 +1802,7 @@ impl ::core::fmt::Debug for CO_MARSHALING_CONTEXT_ATTRIBUTES {
 pub struct CO_MTA_USAGE_COOKIE(pub isize);
 impl CO_MTA_USAGE_COOKIE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for CO_MTA_USAGE_COOKIE {

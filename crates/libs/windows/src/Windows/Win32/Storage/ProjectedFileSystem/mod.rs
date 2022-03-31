@@ -278,7 +278,7 @@ impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
@@ -525,7 +525,7 @@ pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "sys
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {

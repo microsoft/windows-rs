@@ -4,7 +4,7 @@
 pub struct JET_API_PTR(pub usize);
 impl JET_API_PTR {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_API_PTR {
@@ -31,7 +31,7 @@ unsafe impl ::windows::core::Abi for JET_API_PTR {
 pub struct JET_HANDLE(pub usize);
 impl JET_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_HANDLE {
@@ -58,7 +58,7 @@ unsafe impl ::windows::core::Abi for JET_HANDLE {
 pub struct JET_INSTANCE(pub usize);
 impl JET_INSTANCE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_INSTANCE {
@@ -85,7 +85,7 @@ unsafe impl ::windows::core::Abi for JET_INSTANCE {
 pub struct JET_SESID(pub usize);
 impl JET_SESID {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_SESID {
@@ -112,7 +112,7 @@ unsafe impl ::windows::core::Abi for JET_SESID {
 pub struct JET_TABLEID(pub usize);
 impl JET_TABLEID {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 as _
+        self.0 == 0
     }
 }
 impl ::core::default::Default for JET_TABLEID {
