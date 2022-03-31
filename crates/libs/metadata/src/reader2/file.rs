@@ -59,8 +59,7 @@ impl File {
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 
-        if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || 
-        result.bytes.copy_as::<u32>(dos.e_lfanew as _) != IMAGE_NT_SIGNATURE {
+        if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || result.bytes.copy_as::<u32>(dos.e_lfanew as _) != IMAGE_NT_SIGNATURE {
             return Err(error_invalid_winmd());
         }
 
@@ -71,12 +70,12 @@ impl File {
 
         let (com_virtual_address, sections) = match result.bytes.copy_as::<u16>(optional_offset) {
             IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
-                let optional = result.bytes.view_as::< IMAGE_OPTIONAL_HEADER32 >(optional_offset);   
-                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset +  size_of::<IMAGE_OPTIONAL_HEADER32>(), file.NumberOfSections as usize))
+                let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset);
+                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(), file.NumberOfSections as usize))
             }
-            IMAGE_NT_OPTIONAL_HDR64_MAGIC =>{
-                let optional = result.bytes.view_as::< IMAGE_OPTIONAL_HEADER64>(optional_offset);   
-                 (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize))
+            IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
+                let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset);
+                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize))
             }
             _ => return Err(error_invalid_winmd()),
         };
@@ -200,7 +199,119 @@ impl File {
             };
         }
 
-        
+        let tables = &result.tables;
+        let type_def_or_ref = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_TYPEREF].len, tables[TABLE_TYPESPEC].len]);
+        let has_constant = composite_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_PARAM].len, unused_property.len]);
+        let has_field_marshal = composite_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_PARAM].len]);
+        let has_decl_security = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_METHODDEF].len, unused_assembly.len]);
+        let member_ref_parent = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_TYPEREF].len, tables[TABLE_MODULEREF].len, tables[TABLE_METHODDEF].len, tables[TABLE_TYPESPEC].len]);
+        let has_semantics = composite_index_size(&[unused_event.len, unused_property.len]);
+        let method_def_or_ref = composite_index_size(&[tables[TABLE_METHODDEF].len, tables[TABLE_MEMBERREF].len]);
+        let member_forwarded = composite_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_METHODDEF].len]);
+        let implementation = composite_index_size(&[unused_file.len, tables[TABLE_ASSEMBLYREF].len, unused_exported_type.len]);
+        let custom_attribute_type = composite_index_size(&[tables[TABLE_METHODDEF].len, tables[TABLE_MEMBERREF].len, unused_empty.len, unused_empty.len, unused_empty.len]);
+        let resolution_scope = composite_index_size(&[tables[TABLE_MODULE].len, tables[TABLE_MODULEREF].len, tables[TABLE_ASSEMBLYREF].len, tables[TABLE_TYPEREF].len]);
+        let type_or_method_def = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_METHODDEF].len]);
+
+        let has_custom_attribute = composite_index_size(&[
+            tables[TABLE_METHODDEF].len,
+            tables[TABLE_FIELD].len,
+            tables[TABLE_TYPEREF].len,
+            tables[TABLE_TYPEDEF].len,
+            tables[TABLE_PARAM].len,
+            tables[TABLE_INTERFACEIMPL].len,
+            tables[TABLE_MEMBERREF].len,
+            tables[TABLE_MODULE].len,
+            unused_property.len,
+            unused_event.len,
+            unused_standalone_sig.len,
+            tables[TABLE_MODULEREF].len,
+            tables[TABLE_TYPESPEC].len,
+            unused_assembly.len,
+            tables[TABLE_ASSEMBLYREF].len,
+            unused_file.len,
+            unused_exported_type.len,
+            unused_manifest_resource.len,
+            tables[TABLE_GENERICPARAM].len,
+            unused_generic_param_constraint.len,
+            unused_method_spec.len,
+        ]);
+
+        unused_assembly.set_columns(4, 8, 4, blob_index_size, string_index_size, string_index_size);
+        unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
+        unused_assembly_processor.set_columns(4, 0, 0, 0, 0, 0);
+        result.tables[TABLE_ASSEMBLYREF].set_columns(8, 4, blob_index_size, string_index_size, string_index_size, blob_index_size);
+        unused_assembly_ref_os.set_columns(4, 4, 4, result.tables[TABLE_ASSEMBLYREF].index_width(), 0, 0);
+        unused_assembly_ref_processor.set_columns(4, result.tables[TABLE_ASSEMBLYREF].index_width(), 0, 0, 0, 0);
+        result.tables[TABLE_CLASSLAYOUT].set_columns(2, 4, result.tables[TABLE_TYPEDEF].index_width(), 0, 0, 0);
+        result.tables[TABLE_CONSTANT].set_columns(2, has_constant, blob_index_size, 0, 0, 0);
+        result.tables[TABLE_CUSTOMATTRIBUTE].set_columns(has_custom_attribute, custom_attribute_type, blob_index_size, 0, 0, 0);
+        unused_decl_security.set_columns(2, has_decl_security, blob_index_size, 0, 0, 0);
+        unused_event_map.set_columns(result.tables[TABLE_TYPEDEF].index_width(), unused_event.index_width(), 0, 0, 0, 0);
+        unused_event.set_columns(2, string_index_size, type_def_or_ref, 0, 0, 0);
+        unused_exported_type.set_columns(4, 4, string_index_size, string_index_size, implementation, 0);
+        result.tables[TABLE_FIELD].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
+        unused_field_layout.set_columns(4, result.tables[TABLE_FIELD].index_width(), 0, 0, 0, 0);
+        unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
+        unused_field_rva.set_columns(4, result.tables[TABLE_FIELD].index_width(), 0, 0, 0, 0);
+        unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
+        result.tables[TABLE_GENERICPARAM].set_columns(2, 2, type_or_method_def, string_index_size, 0, 0);
+        unused_generic_param_constraint.set_columns(result.tables[TABLE_GENERICPARAM].index_width(), type_def_or_ref, 0, 0, 0, 0);
+        result.tables[TABLE_IMPLMAP].set_columns(2, member_forwarded, string_index_size, result.tables[TABLE_MODULEREF].index_width(), 0, 0);
+        result.tables[TABLE_INTERFACEIMPL].set_columns(result.tables[TABLE_TYPEDEF].index_width(), type_def_or_ref, 0, 0, 0, 0);
+        unused_manifest_resource.set_columns(4, 4, string_index_size, implementation, 0, 0);
+        result.tables[TABLE_MEMBERREF].set_columns(member_ref_parent, string_index_size, blob_index_size, 0, 0, 0);
+        result.tables[TABLE_METHODDEF].set_columns(4, 2, 2, string_index_size, blob_index_size, result.tables[TABLE_PARAM].index_width());
+        unused_method_impl.set_columns(result.tables[TABLE_TYPEDEF].index_width(), method_def_or_ref, method_def_or_ref, 0, 0, 0);
+        unused_method_semantics.set_columns(2, result.tables[TABLE_METHODDEF].index_width(), has_semantics, 0, 0, 0);
+        unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
+        result.tables[TABLE_MODULE].set_columns(2, string_index_size, guid_index_size, guid_index_size, guid_index_size, 0);
+        result.tables[TABLE_MODULEREF].set_columns(string_index_size, 0, 0, 0, 0, 0);
+        result.tables[TABLE_NESTEDCLASS].set_columns(result.tables[TABLE_TYPEDEF].index_width(), result.tables[TABLE_TYPEDEF].index_width(), 0, 0, 0, 0);
+        result.tables[TABLE_PARAM].set_columns(2, 2, string_index_size, 0, 0, 0);
+        unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
+        unused_property_map.set_columns(result.tables[TABLE_TYPEDEF].index_width(), unused_property.index_width(), 0, 0, 0, 0);
+        unused_standalone_sig.set_columns(blob_index_size, 0, 0, 0, 0, 0);
+        result.tables[TABLE_TYPEDEF].set_columns(4, string_index_size, string_index_size, type_def_or_ref, result.tables[TABLE_FIELD].index_width(), result.tables[TABLE_METHODDEF].index_width());
+        result.tables[TABLE_TYPEREF].set_columns(resolution_scope, string_index_size, string_index_size, 0, 0, 0);
+        result.tables[TABLE_TYPESPEC].set_columns(blob_index_size, 0, 0, 0, 0, 0);
+
+        result.tables[TABLE_MODULE].set_data(&mut view);
+        result.tables[TABLE_TYPEREF].set_data(&mut view);
+        result.tables[TABLE_TYPEDEF].set_data(&mut view);
+        result.tables[TABLE_FIELD].set_data(&mut view);
+        result.tables[TABLE_METHODDEF].set_data(&mut view);
+        result.tables[TABLE_PARAM].set_data(&mut view);
+        result.tables[TABLE_INTERFACEIMPL].set_data(&mut view);
+        result.tables[TABLE_MEMBERREF].set_data(&mut view);
+        result.tables[TABLE_CONSTANT].set_data(&mut view);
+        result.tables[TABLE_CUSTOMATTRIBUTE].set_data(&mut view);
+        unused_field_marshal.set_data(&mut view);
+        unused_decl_security.set_data(&mut view);
+        result.tables[TABLE_CLASSLAYOUT].set_data(&mut view);
+        unused_field_layout.set_data(&mut view);
+        unused_standalone_sig.set_data(&mut view);
+        unused_event_map.set_data(&mut view);
+        unused_event.set_data(&mut view);
+        unused_property_map.set_data(&mut view);
+        unused_property.set_data(&mut view);
+        unused_method_semantics.set_data(&mut view);
+        unused_method_impl.set_data(&mut view);
+        result.tables[TABLE_MODULEREF].set_data(&mut view);
+        result.tables[TABLE_TYPESPEC].set_data(&mut view);
+        result.tables[TABLE_IMPLMAP].set_data(&mut view);
+        unused_field_rva.set_data(&mut view);
+        unused_assembly.set_data(&mut view);
+        unused_assembly_processor.set_data(&mut view);
+        unused_assembly_os.set_data(&mut view);
+        result.tables[TABLE_ASSEMBLYREF].set_data(&mut view);
+        unused_assembly_ref_processor.set_data(&mut view);
+        unused_assembly_ref_os.set_data(&mut view);
+        unused_file.set_data(&mut view);
+        unused_exported_type.set_data(&mut view);
+        unused_manifest_resource.set_data(&mut view);
+        result.tables[TABLE_NESTEDCLASS].set_data(&mut view);
+        result.tables[TABLE_GENERICPARAM].set_data(&mut view);
 
         // Since the file was read successfully, we just assume it has a valid file name.
         result.name = path.file_name().unwrap().to_string_lossy().to_string();
@@ -308,7 +419,7 @@ impl View for [u8] {
 }
 
 fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Result<&IMAGE_SECTION_HEADER> {
-    sections.iter().find(|&s| rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe {s.Misc.VirtualSize}).ok_or_else(error_invalid_winmd)
+    sections.iter().find(|&s| rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize }).ok_or_else(error_invalid_winmd)
 }
 
 fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {

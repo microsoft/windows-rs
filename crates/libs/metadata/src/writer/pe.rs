@@ -44,13 +44,14 @@ pub(crate) fn write(filename: &str, tables: Tables) {
     clr.Flags = 1;
 
     let metadata = METADATA_HEADER {
-        signature: METADATA_SIGNATURE, 
+        signature: METADATA_SIGNATURE,
         major_version: 1,
-         minor_version: 1,
-          length: 20,
-        version: *b"WindowsRuntime\0\0\0\0\0\0", 
-        streams: 4, 
-        ..Default::default() };
+        minor_version: 1,
+        length: 20,
+        version: *b"WindowsRuntime\0\0\0\0\0\0",
+        streams: 4,
+        ..Default::default()
+    };
 
     let mut strings = Strings::new();
     let mut blobs = Blobs::new();
