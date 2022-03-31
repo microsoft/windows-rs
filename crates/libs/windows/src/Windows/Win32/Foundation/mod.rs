@@ -200,18 +200,6 @@ impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BOOLEAN(pub u8);
-impl BOOLEAN {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for BOOLEAN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -539,18 +527,6 @@ pub const CERT_E_WRONG_USAGE: ::windows::core::HRESULT = ::windows::core::HRESUL
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CHAR(pub u8);
-impl CHAR {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for CHAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3906,22 +3882,16 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0 || self.0 == -1
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if self.is_invalid() {
-            Err(::windows::core::Error::from_win32())
-        } else {
-            Ok(self)
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HANDLE {
     fn default() -> Self {
-        Self(0)
+        unsafe { ::core::mem::zeroed() }
     }
 }
 impl ::core::clone::Clone for HANDLE {
@@ -3930,12 +3900,6 @@ impl ::core::clone::Clone for HANDLE {
     }
 }
 impl ::core::marker::Copy for HANDLE {}
-impl ::core::cmp::PartialEq for HANDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HANDLE {}
 impl ::core::fmt::Debug for HANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HANDLE").field(&self.0).finish()
@@ -4002,18 +3966,6 @@ impl ::core::ops::Not for HANDLE_FLAGS {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HANDLE_PTR(pub usize);
-impl HANDLE_PTR {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for HANDLE_PTR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4190,18 +4142,6 @@ pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows::core::HRESULT = ::windows::
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HINSTANCE(pub isize);
-impl HINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for HINSTANCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4256,14 +4196,7 @@ impl ::core::default::Default for HLSURF__ {
 pub struct HRSRC(pub isize);
 impl HRSRC {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HRSRC {
@@ -4504,18 +4437,6 @@ impl ::core::default::Default for HUMPD__ {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HWND(pub isize);
-impl HWND {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for HWND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4592,18 +4513,6 @@ pub const LANGUAGE_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRE
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LPARAM(pub isize);
-impl LPARAM {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for LPARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4626,18 +4535,6 @@ unsafe impl ::windows::core::Abi for LPARAM {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LRESULT(pub isize);
-impl LRESULT {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for LRESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5856,14 +5753,7 @@ pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub struct PSID(pub *mut ::core::ffi::c_void);
 impl PSID {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0.is_null()
     }
 }
 impl ::core::default::Default for PSID {
@@ -6946,18 +6836,6 @@ pub const SEVERITY_SUCCESS: u32 = 0u32;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SHANDLE_PTR(pub isize);
-impl SHANDLE_PTR {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for SHANDLE_PTR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -21023,18 +20901,6 @@ pub const WINVER_MAXVER: u32 = 2560u32;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WPARAM(pub usize);
-impl WPARAM {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for WPARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

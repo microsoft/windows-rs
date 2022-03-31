@@ -367,14 +367,7 @@ pub const BCRYPT_ALGORITHM_NAME: &'static str = "AlgorithmName";
 pub struct BCRYPT_ALG_HANDLE(pub isize);
 impl BCRYPT_ALG_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for BCRYPT_ALG_HANDLE {
@@ -1306,14 +1299,7 @@ pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 pub struct BCRYPT_KEY_HANDLE(pub isize);
 impl BCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for BCRYPT_KEY_HANDLE {
@@ -20062,42 +20048,45 @@ pub unsafe fn CertOpenServerOcspResponse(pchaincontext: *const CERT_CHAIN_CONTEX
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
-pub unsafe fn CertOpenStore<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>>(lpszstoreprovider: Param0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: Param2, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: *const ::core::ffi::c_void) -> HCERTSTORE {
+pub unsafe fn CertOpenStore<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>>(lpszstoreprovider: Param0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: Param2, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: *const ::core::ffi::c_void) -> ::windows::core::Result<HCERTSTORE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CertOpenStore(lpszstoreprovider: ::windows::core::PCSTR, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: HCRYPTPROV_LEGACY, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: *const ::core::ffi::c_void) -> HCERTSTORE;
         }
-        ::core::mem::transmute(CertOpenStore(lpszstoreprovider.into_param().abi(), ::core::mem::transmute(dwencodingtype), hcryptprov.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvpara)))
+        let result__ = CertOpenStore(lpszstoreprovider.into_param().abi(), ::core::mem::transmute(dwencodingtype), hcryptprov.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvpara));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
-pub unsafe fn CertOpenSystemStoreA<'a, Param0: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hprov: Param0, szsubsystemprotocol: Param1) -> HCERTSTORE {
+pub unsafe fn CertOpenSystemStoreA<'a, Param0: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hprov: Param0, szsubsystemprotocol: Param1) -> ::windows::core::Result<HCERTSTORE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CertOpenSystemStoreA(hprov: HCRYPTPROV_LEGACY, szsubsystemprotocol: ::windows::core::PCSTR) -> HCERTSTORE;
         }
-        ::core::mem::transmute(CertOpenSystemStoreA(hprov.into_param().abi(), szsubsystemprotocol.into_param().abi()))
+        let result__ = CertOpenSystemStoreA(hprov.into_param().abi(), szsubsystemprotocol.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
-pub unsafe fn CertOpenSystemStoreW<'a, Param0: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprov: Param0, szsubsystemprotocol: Param1) -> HCERTSTORE {
+pub unsafe fn CertOpenSystemStoreW<'a, Param0: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprov: Param0, szsubsystemprotocol: Param1) -> ::windows::core::Result<HCERTSTORE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CertOpenSystemStoreW(hprov: HCRYPTPROV_LEGACY, szsubsystemprotocol: ::windows::core::PCWSTR) -> HCERTSTORE;
         }
-        ::core::mem::transmute(CertOpenSystemStoreW(hprov.into_param().abi(), szsubsystemprotocol.into_param().abi()))
+        let result__ = CertOpenSystemStoreW(hprov.into_param().abi(), szsubsystemprotocol.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21372,14 +21361,15 @@ pub unsafe fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata:
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
-pub unsafe fn CryptGetMessageCertificates<'a, Param1: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>>(dwmsgandcertencodingtype: u32, hcryptprov: Param1, dwflags: u32, pbsignedblob: *const u8, cbsignedblob: u32) -> HCERTSTORE {
+pub unsafe fn CryptGetMessageCertificates<'a, Param1: ::windows::core::IntoParam<'a, HCRYPTPROV_LEGACY>>(dwmsgandcertencodingtype: u32, hcryptprov: Param1, dwflags: u32, pbsignedblob: *const u8, cbsignedblob: u32) -> ::windows::core::Result<HCERTSTORE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptGetMessageCertificates(dwmsgandcertencodingtype: u32, hcryptprov: HCRYPTPROV_LEGACY, dwflags: u32, pbsignedblob: *const u8, cbsignedblob: u32) -> HCERTSTORE;
         }
-        ::core::mem::transmute(CryptGetMessageCertificates(::core::mem::transmute(dwmsgandcertencodingtype), hcryptprov.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbsignedblob), ::core::mem::transmute(cbsignedblob)))
+        let result__ = CryptGetMessageCertificates(::core::mem::transmute(dwmsgandcertencodingtype), hcryptprov.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbsignedblob), ::core::mem::transmute(cbsignedblob));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23512,14 +23502,7 @@ impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
 pub struct HCERTCHAINENGINE(pub isize);
 impl HCERTCHAINENGINE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCERTCHAINENGINE {
@@ -23546,14 +23529,7 @@ unsafe impl ::windows::core::Abi for HCERTCHAINENGINE {
 pub struct HCERTSTORE(pub *mut ::core::ffi::c_void);
 impl HCERTSTORE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0.is_null()
     }
 }
 impl ::core::default::Default for HCERTSTORE {
@@ -23580,14 +23556,7 @@ unsafe impl ::windows::core::Abi for HCERTSTORE {
 pub struct HCERTSTOREPROV(pub *mut ::core::ffi::c_void);
 impl HCERTSTOREPROV {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0.is_null()
     }
 }
 impl ::core::default::Default for HCERTSTOREPROV {
@@ -23614,14 +23583,7 @@ unsafe impl ::windows::core::Abi for HCERTSTOREPROV {
 pub struct HCRYPTASYNC(pub isize);
 impl HCRYPTASYNC {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HCRYPTASYNC {
@@ -23648,14 +23610,7 @@ unsafe impl ::windows::core::Abi for HCRYPTASYNC {
 pub struct HCRYPTPROV_LEGACY(pub usize);
 impl HCRYPTPROV_LEGACY {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for HCRYPTPROV_LEGACY {
@@ -23682,14 +23637,7 @@ unsafe impl ::windows::core::Abi for HCRYPTPROV_LEGACY {
 pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
 impl HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
@@ -25884,14 +25832,7 @@ impl ::core::ops::Not for NCRYPT_FLAGS {
 pub struct NCRYPT_HANDLE(pub usize);
 impl NCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_HANDLE {
@@ -25918,14 +25859,7 @@ unsafe impl ::windows::core::Abi for NCRYPT_HANDLE {
 pub struct NCRYPT_HASH_HANDLE(pub usize);
 impl NCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_HASH_HANDLE {
@@ -26130,14 +26064,7 @@ pub const NCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 pub struct NCRYPT_KEY_HANDLE(pub usize);
 impl NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_KEY_HANDLE {
@@ -26693,14 +26620,7 @@ pub const NCRYPT_PROVIDER_HANDLE_PROPERTY: &'static str = "Provider Handle";
 pub struct NCRYPT_PROV_HANDLE(pub usize);
 impl NCRYPT_PROV_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_PROV_HANDLE {
@@ -26753,14 +26673,7 @@ pub const NCRYPT_SEALING_FLAG: u32 = 256u32;
 pub struct NCRYPT_SECRET_HANDLE(pub usize);
 impl NCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == 0
     }
 }
 impl ::core::default::Default for NCRYPT_SECRET_HANDLE {
@@ -28469,14 +28382,15 @@ pub unsafe fn PFXExportCertStoreEx<'a, Param0: ::windows::core::IntoParam<'a, HC
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
-pub unsafe fn PFXImportCertStore<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ppfx: *const CRYPTOAPI_BLOB, szpassword: Param1, dwflags: CRYPT_KEY_FLAGS) -> HCERTSTORE {
+pub unsafe fn PFXImportCertStore<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ppfx: *const CRYPTOAPI_BLOB, szpassword: Param1, dwflags: CRYPT_KEY_FLAGS) -> ::windows::core::Result<HCERTSTORE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PFXImportCertStore(ppfx: *const CRYPTOAPI_BLOB, szpassword: ::windows::core::PCWSTR, dwflags: CRYPT_KEY_FLAGS) -> HCERTSTORE;
         }
-        ::core::mem::transmute(PFXImportCertStore(::core::mem::transmute(ppfx), szpassword.into_param().abi(), ::core::mem::transmute(dwflags)))
+        let result__ = PFXImportCertStore(::core::mem::transmute(ppfx), szpassword.into_param().abi(), ::core::mem::transmute(dwflags));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

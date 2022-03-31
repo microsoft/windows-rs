@@ -2783,18 +2783,6 @@ impl ::core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
-impl UI_ANIMATION_KEYFRAME {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for UI_ANIMATION_KEYFRAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

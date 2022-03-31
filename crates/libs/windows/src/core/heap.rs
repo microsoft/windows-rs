@@ -3,7 +3,7 @@ use bindings::*;
 
 // TODO: why not Option<RawPtr>
 pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
-    let ptr = unsafe { HeapAlloc(GetProcessHeap(), HEAP_NONE, bytes) };
+    let ptr = unsafe { HeapAlloc(GetProcessHeap()?, HEAP_NONE, bytes) };
 
     if ptr.is_null() {
         Err(E_OUTOFMEMORY.into())
@@ -14,5 +14,7 @@ pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
 
 /// # Safety
 pub unsafe fn heap_free(ptr: RawPtr) {
-    HeapFree(GetProcessHeap(), HEAP_NONE, ptr);
+    if let Ok(heap) = GetProcessHeap() {
+        HeapFree(heap, HEAP_NONE, ptr);
+    }
 }

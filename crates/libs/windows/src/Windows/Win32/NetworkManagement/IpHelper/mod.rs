@@ -2400,14 +2400,7 @@ pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICAST
 pub struct HIFTIMESTAMPCHANGE(pub isize);
 impl HIFTIMESTAMPCHANGE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HIFTIMESTAMPCHANGE {
@@ -5189,14 +5182,15 @@ pub const IP_UNLOAD: u32 = 11022u32;
 pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
+pub unsafe fn Icmp6CreateFile() -> ::windows::core::Result<IcmpHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn Icmp6CreateFile() -> IcmpHandle;
         }
-        ::core::mem::transmute(Icmp6CreateFile())
+        let result__ = Icmp6CreateFile();
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5247,14 +5241,15 @@ pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, IcmpHan
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn IcmpCreateFile() -> IcmpHandle {
+pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn IcmpCreateFile() -> IcmpHandle;
         }
-        ::core::mem::transmute(IcmpCreateFile())
+        let result__ = IcmpCreateFile();
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5264,14 +5259,7 @@ pub unsafe fn IcmpCreateFile() -> IcmpHandle {
 pub struct IcmpHandle(pub isize);
 impl IcmpHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for IcmpHandle {

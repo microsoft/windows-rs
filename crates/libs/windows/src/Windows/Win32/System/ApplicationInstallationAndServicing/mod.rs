@@ -1022,14 +1022,15 @@ impl ::core::fmt::Debug for CREATE_ASM_NAME_OBJ_FLAGS {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateActCtxA(::core::mem::transmute(pactctx)))
+        let result__ = CreateActCtxA(::core::mem::transmute(pactctx));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1037,14 +1038,15 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateActCtxW(::core::mem::transmute(pactctx)))
+        let result__ = CreateActCtxW(::core::mem::transmute(pactctx));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7945,14 +7947,7 @@ impl ::core::default::Default for MSIFILEHASHINFO {
 pub struct MSIHANDLE(pub u32);
 impl MSIHANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for MSIHANDLE {

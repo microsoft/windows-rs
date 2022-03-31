@@ -1698,14 +1698,7 @@ pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub struct HWSAEVENT(pub isize);
 impl HWSAEVENT {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HWSAEVENT {
@@ -8024,18 +8017,6 @@ impl ::core::default::Default for SOCKADDR_STORAGE_XP {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SOCKET(pub usize);
-impl SOCKET {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for SOCKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

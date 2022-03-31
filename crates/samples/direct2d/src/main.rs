@@ -313,7 +313,7 @@ impl Window {
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
-                hCursor: LoadCursorW(None, IDC_HAND),
+                hCursor: LoadCursorW(None, IDC_HAND)?,
                 hInstance: instance,
                 lpszClassName: PCSTR(b"window\0".as_ptr()),
 

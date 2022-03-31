@@ -12,3 +12,12 @@ impl ParamFlags {
         self.0 & 0x0010 != 0
     }
 }
+
+#[derive(Default)]
+pub struct PInvokeAttributes(pub u32);
+
+impl PInvokeAttributes {
+    pub fn last_error(&self) -> bool {
+        self.0 & 0x0040 != 0
+    }
+}

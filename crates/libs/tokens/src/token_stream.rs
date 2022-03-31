@@ -142,6 +142,7 @@ macro_rules! unsuffixed {
 }
 
 impl Literal {
+    unsuffixed!(i64 => i64_unsuffixed);
     unsuffixed!(usize => usize_unsuffixed);
     unsuffixed!(u32 => u32_unsuffixed);
     unsuffixed!(u16 => u16_unsuffixed);

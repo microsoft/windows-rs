@@ -104,14 +104,15 @@ pub unsafe fn AllJoynCloseBusHandle<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(connectionspec: Param0) -> super::super::Foundation::HANDLE {
+pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(connectionspec: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AllJoynConnectToBus(connectionspec: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(AllJoynConnectToBus(connectionspec.into_param().abi()))
+        let result__ = AllJoynConnectToBus(connectionspec.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1060,18 +1061,6 @@ impl ::core::fmt::Debug for alljoyn_about_announceflag {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_aboutdata(pub isize);
-impl alljoyn_aboutdata {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_aboutdata {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1710,18 +1699,6 @@ pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, Param0: ::windows::core::IntoP
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_aboutdatalistener(pub isize);
-impl alljoyn_aboutdatalistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_aboutdatalistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2003,18 +1980,6 @@ pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonpr
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_aboutlistener(pub isize);
-impl alljoyn_aboutlistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_aboutlistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2095,18 +2060,6 @@ pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::core::IntoPar
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_aboutobj(pub isize);
-impl alljoyn_aboutobj {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_aboutobj {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2199,18 +2152,6 @@ pub unsafe fn alljoyn_aboutobj_unannounce<'a, Param0: ::windows::core::IntoParam
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_aboutobjectdescription(pub isize);
-impl alljoyn_aboutobjectdescription {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_aboutobjectdescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2401,18 +2342,6 @@ pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, Param0: ::windows::core
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_aboutproxy(pub isize);
-impl alljoyn_aboutproxy {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_aboutproxy {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2536,18 +2465,6 @@ impl ::core::fmt::Debug for alljoyn_applicationstate {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_applicationstatelistener(pub isize);
-impl alljoyn_applicationstatelistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_applicationstatelistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2630,18 +2547,6 @@ pub type alljoyn_applicationstatelistener_state_ptr = ::core::option::Option<uns
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_authlistener(pub isize);
-impl alljoyn_authlistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_authlistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2840,18 +2745,6 @@ pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::core::Int
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_autopinger(pub isize);
-impl alljoyn_autopinger {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_autopinger {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3004,18 +2897,6 @@ pub unsafe fn alljoyn_autopinger_setpinginterval<'a, Param0: ::windows::core::In
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_busattachment(pub isize);
-impl alljoyn_busattachment {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_busattachment {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4190,18 +4071,6 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, Param0: ::windo
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_buslistener(pub isize);
-impl alljoyn_buslistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_buslistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4314,18 +4183,6 @@ pub type alljoyn_buslistener_name_owner_changed_ptr = ::core::option::Option<uns
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_busobject(pub isize);
-impl alljoyn_busobject {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_busobject {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4819,18 +4676,6 @@ impl ::core::fmt::Debug for alljoyn_claimcapabilityadditionalinfo_masks {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_credentials(pub isize);
-impl alljoyn_credentials {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_credentials {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5133,18 +4978,6 @@ pub unsafe fn alljoyn_init() -> QStatus {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_interfacedescription(pub isize);
-impl alljoyn_interfacedescription {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_interfacedescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6079,18 +5912,6 @@ pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option:
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_keystore(pub isize);
-impl alljoyn_keystore {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_keystore {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6113,18 +5934,6 @@ unsafe impl ::windows::core::Abi for alljoyn_keystore {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_keystorelistener(pub isize);
-impl alljoyn_keystorelistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_keystorelistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6320,18 +6129,6 @@ impl ::core::default::Default for alljoyn_manifestarray {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_message(pub isize);
-impl alljoyn_message {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_message {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6827,18 +6624,6 @@ impl ::core::fmt::Debug for alljoyn_messagetype {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_msgarg(pub isize);
-impl alljoyn_msgarg {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_msgarg {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7967,18 +7752,6 @@ pub unsafe fn alljoyn_msgarg_tostring<'a, Param0: ::windows::core::IntoParam<'a,
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_observer(pub isize);
-impl alljoyn_observer {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_observer {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8117,18 +7890,6 @@ pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::core::I
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_observerlistener(pub isize);
-impl alljoyn_observerlistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_observerlistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8224,18 +7985,6 @@ pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, Param0: ::windows::core
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_permissionconfigurationlistener(pub isize);
-impl alljoyn_permissionconfigurationlistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_permissionconfigurationlistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8327,18 +8076,6 @@ pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = ::core::o
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_permissionconfigurator(pub isize);
-impl alljoyn_permissionconfigurator {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_permissionconfigurator {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8823,18 +8560,6 @@ pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, Param0: ::windows:
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_pinglistener(pub isize);
-impl alljoyn_pinglistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_pinglistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8916,18 +8641,6 @@ pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::core::IntoPara
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_proxybusobject(pub isize);
-impl alljoyn_proxybusobject {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_proxybusobject {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9408,18 +9121,6 @@ pub unsafe fn alljoyn_proxybusobject_parsexml<'a, Param0: ::windows::core::IntoP
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_proxybusobject_ref(pub isize);
-impl alljoyn_proxybusobject_ref {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_proxybusobject_ref {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9638,18 +9339,6 @@ pub unsafe fn alljoyn_routershutdown() -> QStatus {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_securityapplicationproxy(pub isize);
-impl alljoyn_securityapplicationproxy {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_securityapplicationproxy {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10036,18 +9725,6 @@ pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, Param0: ::window
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_sessionlistener(pub isize);
-impl alljoyn_sessionlistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_sessionlistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10171,18 +9848,6 @@ impl ::core::fmt::Debug for alljoyn_sessionlostreason {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_sessionopts(pub isize);
-impl alljoyn_sessionopts {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_sessionopts {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10373,18 +10038,6 @@ pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::core::In
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct alljoyn_sessionportlistener(pub isize);
-impl alljoyn_sessionportlistener {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for alljoyn_sessionportlistener {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -278,14 +278,7 @@ impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
@@ -532,14 +525,7 @@ pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "sys
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
