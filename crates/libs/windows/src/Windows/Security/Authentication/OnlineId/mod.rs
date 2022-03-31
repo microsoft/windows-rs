@@ -1021,7 +1021,7 @@ impl ::windows::core::RuntimeName for SignOutUserOperation {
 impl SignOutUserOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new();
+            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
             self.SetCompleted(super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -1263,7 +1263,7 @@ impl ::windows::core::RuntimeName for UserAuthenticationOperation {
 impl UserAuthenticationOperation {
     pub fn get(&self) -> ::windows::core::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new();
+            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
             self.SetCompleted(super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();

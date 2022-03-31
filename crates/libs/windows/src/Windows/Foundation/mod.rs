@@ -1160,7 +1160,7 @@ unsafe impl ::windows::core::RuntimeType for IAsyncAction {
 impl IAsyncAction {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new();
+            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
             self.SetCompleted(AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -1360,7 +1360,7 @@ unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::
 impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new();
+            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
             self.SetCompleted(AsyncActionWithProgressCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -1672,7 +1672,7 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Ru
 impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn get(&self) -> ::windows::core::Result<TResult> {
         if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new();
+            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
             self.SetCompleted(AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -1880,7 +1880,7 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::window
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
     pub fn get(&self) -> ::windows::core::Result<TResult> {
         if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new();
+            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
             self.SetCompleted(AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();

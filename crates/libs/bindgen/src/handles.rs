@@ -10,7 +10,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 pub fn gen_sys_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     let ident = gen_ident(def.name());
-    let signature = gen_default_type(&underlying_type(def), gen);
+    let signature = gen_default_type(&def.underlying_type(), gen);
 
     quote! {
         pub type #ident = #signature;
@@ -20,7 +20,7 @@ pub fn gen_sys_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
 pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = def.name();
     let ident = gen_ident(def.name());
-    let underlying_type = underlying_type(def);
+    let underlying_type = def.underlying_type();
     let signature = gen_default_type(&underlying_type, gen);
     let check = if underlying_type.is_pointer() {
         quote! {
@@ -92,8 +92,4 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     tokens
-}
-
-fn underlying_type(def: &TypeDef) -> Type {
-    def.fields().next().map(|field| field.get_type(Some(def))).unwrap()
 }

@@ -11,15 +11,6 @@ fn handle() {
     assert!(HANDLE(0).is_invalid());
     assert!(HANDLE(-1).is_invalid());
 
-    assert!(HANDLE(1).ok().is_ok());
-    assert!(HANDLE(1).ok().unwrap() == HANDLE(1));
-
-    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE) };
-    assert!(HANDLE(0).ok().err().unwrap().code() == ERROR_INVALID_WINDOW_HANDLE.into());
-
-    unsafe { SetLastError(ERROR_FILE_NOT_FOUND) };
-    assert!(HANDLE(-1).ok().err().unwrap().code() == ERROR_FILE_NOT_FOUND.into());
-
     assert!(core::mem::size_of::<HANDLE>() == core::mem::size_of::<usize>());
 }
 

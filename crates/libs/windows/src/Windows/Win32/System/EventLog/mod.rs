@@ -1900,56 +1900,60 @@ pub unsafe fn NotifyChangeEventLog<'a, Param0: ::windows::core::IntoParam<'a, Ev
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpfilename: Param1) -> EventLogHandle {
+pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpfilename: Param1) -> ::windows::core::Result<EventLogHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OpenBackupEventLogA(lpuncservername: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> EventLogHandle;
         }
-        ::core::mem::transmute(OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi()))
+        let result__ = OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpfilename: Param1) -> EventLogHandle {
+pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpfilename: Param1) -> ::windows::core::Result<EventLogHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OpenBackupEventLogW(lpuncservername: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> EventLogHandle;
         }
-        ::core::mem::transmute(OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi()))
+        let result__ = OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventLogHandle {
+pub unsafe fn OpenEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventLogHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OpenEventLogA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> EventLogHandle;
         }
-        ::core::mem::transmute(OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi()))
+        let result__ = OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventLogHandle {
+pub unsafe fn OpenEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventLogHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OpenEventLogW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> EventLogHandle;
         }
-        ::core::mem::transmute(OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi()))
+        let result__ = OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2048,28 +2052,30 @@ pub unsafe fn ReadEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogH
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventSourceHandle {
+pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventSourceHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterEventSourceA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> EventSourceHandle;
         }
-        ::core::mem::transmute(RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi()))
+        let result__ = RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventSourceHandle {
+pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventSourceHandle> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterEventSourceW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> EventSourceHandle;
         }
-        ::core::mem::transmute(RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi()))
+        let result__ = RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -3171,14 +3171,15 @@ pub const SC_DLG_NO_UI: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
+pub unsafe fn SCardAccessStartedEvent() -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(SCardAccessStartedEvent())
+        let result__ = SCardAccessStartedEvent();
+        (!result__.is_invalid()).then(|| result__).ok_or_else(|| ::windows::core::Error::from_win32())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -6,10 +6,10 @@ pub struct Waiter(HANDLE);
 pub struct WaiterSignaler(HANDLE);
 
 impl Waiter {
-    pub fn new() -> (Waiter, WaiterSignaler) {
+    pub fn new() -> Result<(Waiter, WaiterSignaler)> {
         unsafe {
-            let handle = CreateEventA(core::ptr::null_mut(), true, false, None);
-            (Waiter(handle), WaiterSignaler(handle))
+            let handle = CreateEventA(core::ptr::null_mut(), true, false, None)?;
+            Ok((Waiter(handle), WaiterSignaler(handle)))
         }
     }
 }

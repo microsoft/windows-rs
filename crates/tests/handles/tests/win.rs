@@ -1,11 +1,10 @@
 use windows::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::Registry::*};
 
 #[test]
-fn boolean() {
-    let underlying: u8 = 123;
-    let handle: BOOLEAN = BOOLEAN(underlying);
+fn handle() {
+    let underlying: isize = 123;
+    let handle: HANDLE = HANDLE(underlying);
     assert!(!handle.is_invalid());
-    assert!(handle.ok().unwrap() == handle);
 
     let copy = handle;
     assert!(copy == handle);
@@ -13,10 +12,28 @@ fn boolean() {
     let clone = handle.clone();
     assert!(clone == handle);
 
-    let default = BOOLEAN::default();
+    let default = HANDLE::default();
     assert!(default.is_invalid());
 
-    assert!(format!("{:?}", handle) == "BOOLEAN(123)");
+    assert_eq!(format!("{:?}", handle), "HANDLE(123)");
+}
+
+#[test]
+fn psid() {
+    let underlying: *mut std::ffi::c_void = std::ptr::null_mut();
+    let handle: PSID = PSID(underlying);
+    assert!(handle.is_null());
+
+    let copy = handle;
+    assert!(copy == handle);
+
+    let clone = handle.clone();
+    assert!(clone == handle);
+
+    let default = PSID::default();
+    assert!(default.is_null());
+
+    assert_eq!(format!("{:?}", handle), "PSID(0x0)");
 }
 
 #[test]
