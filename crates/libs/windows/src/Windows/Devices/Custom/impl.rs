@@ -71,7 +71,7 @@ impl IIOControlCode_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IIOControlCode, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IIOControlCode, OFFSET>(),
             AccessMode: AccessMode::<Identity, Impl, OFFSET>,
             BufferingMethod: BufferingMethod::<Identity, Impl, OFFSET>,
             Function: Function::<Identity, Impl, OFFSET>,

@@ -25,7 +25,7 @@ impl ILampArrayEffect_Vtbl {
             (*this).SetZIndex(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffect, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffect, OFFSET>(),
             ZIndex: ZIndex::<Identity, Impl, OFFSET>,
             SetZIndex: SetZIndex::<Identity, Impl, OFFSET>,
         }

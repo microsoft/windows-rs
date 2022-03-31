@@ -12,7 +12,7 @@ impl IAnimationObject_Vtbl {
             (*this).PopulatePropertyInfo(::core::mem::transmute(&propertyname), ::core::mem::transmute(&propertyinfo)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAnimationObject, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAnimationObject, OFFSET>(),
             PopulatePropertyInfo: PopulatePropertyInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -26,7 +26,7 @@ impl ::windows::core::RuntimeName for ICompositionAnimationBase {
 }
 impl ICompositionAnimationBase_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationBase_Impl, const OFFSET: isize>() -> ICompositionAnimationBase_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionAnimationBase, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionAnimationBase, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositionAnimationBase as ::windows::core::Interface>::IID
@@ -59,7 +59,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
             (*this).SetSystemBackdrop(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSupportsSystemBackdrop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSupportsSystemBackdrop, OFFSET>(),
             SystemBackdrop: SystemBackdrop::<Identity, Impl, OFFSET>,
             SetSystemBackdrop: SetSystemBackdrop::<Identity, Impl, OFFSET>,
         }
@@ -74,7 +74,7 @@ impl ::windows::core::RuntimeName for ICompositionSurface {
 }
 impl ICompositionSurface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurface_Impl, const OFFSET: isize>() -> ICompositionSurface_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSurface, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSurface, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositionSurface as ::windows::core::Interface>::IID
@@ -101,7 +101,7 @@ impl ICompositionSurfaceFacade_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSurfaceFacade, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSurfaceFacade, OFFSET>(),
             GetRealSurface: GetRealSurface::<Identity, Impl, OFFSET>,
         }
     }
@@ -115,7 +115,7 @@ impl ::windows::core::RuntimeName for IVisualElement {
 }
 impl IVisualElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElement_Impl, const OFFSET: isize>() -> IVisualElement_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVisualElement, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IVisualElement, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVisualElement as ::windows::core::Interface>::IID
@@ -142,7 +142,7 @@ impl IVisualElement2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVisualElement2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVisualElement2, OFFSET>(),
             GetVisualInternal: GetVisualInternal::<Identity, Impl, OFFSET>,
         }
     }

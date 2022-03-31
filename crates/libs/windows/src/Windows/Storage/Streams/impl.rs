@@ -38,7 +38,7 @@ impl IBuffer_Vtbl {
             (*this).SetLength(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBuffer, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBuffer, OFFSET>(),
             Capacity: Capacity::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
             SetLength: SetLength::<Identity, Impl, OFFSET>,
@@ -68,7 +68,7 @@ impl IContentTypeProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContentTypeProvider, OFFSET>(), ContentType: ContentType::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IContentTypeProvider, OFFSET>(), ContentType: ContentType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentTypeProvider as ::windows::core::Interface>::IID
@@ -395,7 +395,7 @@ impl IDataReader_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataReader, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDataReader, OFFSET>(),
             UnconsumedBufferLength: UnconsumedBufferLength::<Identity, Impl, OFFSET>,
             UnicodeEncoding: UnicodeEncoding::<Identity, Impl, OFFSET>,
             SetUnicodeEncoding: SetUnicodeEncoding::<Identity, Impl, OFFSET>,
@@ -664,7 +664,7 @@ impl IDataWriter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataWriter, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDataWriter, OFFSET>(),
             UnstoredBufferLength: UnstoredBufferLength::<Identity, Impl, OFFSET>,
             UnicodeEncoding: UnicodeEncoding::<Identity, Impl, OFFSET>,
             SetUnicodeEncoding: SetUnicodeEncoding::<Identity, Impl, OFFSET>,
@@ -721,7 +721,7 @@ impl IInputStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStream, OFFSET>(), ReadAsync: ReadAsync::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IInputStream, OFFSET>(), ReadAsync: ReadAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputStream as ::windows::core::Interface>::IID
@@ -751,7 +751,7 @@ impl IInputStreamReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStreamReference, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInputStreamReference, OFFSET>(),
             OpenSequentialReadAsync: OpenSequentialReadAsync::<Identity, Impl, OFFSET>,
         }
     }
@@ -796,7 +796,7 @@ impl IOutputStream_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IOutputStream, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IOutputStream, OFFSET>(),
             WriteAsync: WriteAsync::<Identity, Impl, OFFSET>,
             FlushAsync: FlushAsync::<Identity, Impl, OFFSET>,
         }
@@ -835,7 +835,7 @@ impl IPropertySetSerializer_Vtbl {
             (*this).Deserialize(::core::mem::transmute(&propertyset), ::core::mem::transmute(&buffer)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySetSerializer, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySetSerializer, OFFSET>(),
             Serialize: Serialize::<Identity, Impl, OFFSET>,
             Deserialize: Deserialize::<Identity, Impl, OFFSET>,
         }
@@ -958,7 +958,7 @@ impl IRandomAccessStream_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStream, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStream, OFFSET>(),
             Size: Size::<Identity, Impl, OFFSET>,
             SetSize: SetSize::<Identity, Impl, OFFSET>,
             GetInputStreamAt: GetInputStreamAt::<Identity, Impl, OFFSET>,
@@ -998,7 +998,7 @@ impl IRandomAccessStreamReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamReference, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamReference, OFFSET>(),
             OpenReadAsync: OpenReadAsync::<Identity, Impl, OFFSET>,
         }
     }
@@ -1015,7 +1015,7 @@ impl ::windows::core::RuntimeName for IRandomAccessStreamWithContentType {
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStreamWithContentType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamWithContentType_Impl, const OFFSET: isize>() -> IRandomAccessStreamWithContentType_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID

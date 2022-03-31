@@ -14,7 +14,7 @@ impl IDirect3DDevice_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Trim().into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3DDevice, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3DDevice, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3DDevice as ::windows::core::Interface>::IID
@@ -43,7 +43,7 @@ impl IDirect3DSurface_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3DSurface, OFFSET>(), Description: Description::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IDirect3DSurface, OFFSET>(), Description: Description::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3DSurface as ::windows::core::Interface>::IID

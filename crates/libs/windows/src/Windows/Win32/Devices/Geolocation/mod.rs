@@ -2750,19 +2750,19 @@ impl ICivicAddressReport {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetSensorID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSensorID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2904,38 +2904,38 @@ pub struct ICivicAddressReportFactory(::windows::core::IUnknown);
 impl ICivicAddressReportFactory {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ListenForReports)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
+        (::windows::core::Interface::vtable(self).base__.ListenForReports)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.StopListeningForReports)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.StopListeningForReports)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.DesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.DesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetDesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RequestPermissions)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Interface::vtable(self).base__.RequestPermissions)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3399,19 +3399,19 @@ impl ILatLongReport {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetSensorID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSensorID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTimestamp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn GetLatitude(&self) -> ::windows::core::Result<f64> {
@@ -3517,38 +3517,38 @@ pub struct ILatLongReportFactory(::windows::core::IUnknown);
 impl ILatLongReportFactory {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ListenForReports)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
+        (::windows::core::Interface::vtable(self).base__.ListenForReports)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.StopListeningForReports)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.StopListeningForReports)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReportInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.DesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.DesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetDesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDesiredAccuracy)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RequestPermissions)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Interface::vtable(self).base__.RequestPermissions)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

@@ -66,7 +66,7 @@ impl IMediaCue_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCue, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCue, OFFSET>(),
             SetStartTime: SetStartTime::<Identity, Impl, OFFSET>,
             StartTime: StartTime::<Identity, Impl, OFFSET>,
             SetDuration: SetDuration::<Identity, Impl, OFFSET>,
@@ -85,7 +85,7 @@ impl ::windows::core::RuntimeName for IMediaSource {
 }
 impl IMediaSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaSource_Impl, const OFFSET: isize>() -> IMediaSource_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource as ::windows::core::Interface>::IID
@@ -150,7 +150,7 @@ impl IMediaStreamDescriptor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor, OFFSET>(),
             IsSelected: IsSelected::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -189,7 +189,7 @@ impl IMediaStreamDescriptor2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor2, OFFSET>(),
             SetLabel: SetLabel::<Identity, Impl, OFFSET>,
             Label: Label::<Identity, Impl, OFFSET>,
         }
@@ -264,7 +264,7 @@ impl IMediaTrack_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTrack, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTrack, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Language: Language::<Identity, Impl, OFFSET>,
             TrackKind: TrackKind::<Identity, Impl, OFFSET>,
@@ -325,7 +325,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISingleSelectMediaTrackList, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISingleSelectMediaTrackList, OFFSET>(),
             SelectedIndexChanged: SelectedIndexChanged::<Identity, Impl, OFFSET>,
             RemoveSelectedIndexChanged: RemoveSelectedIndexChanged::<Identity, Impl, OFFSET>,
             SetSelectedIndex: SetSelectedIndex::<Identity, Impl, OFFSET>,
@@ -360,7 +360,7 @@ impl ITimedMetadataTrackProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackProvider, OFFSET>(),
             TimedMetadataTracks: TimedMetadataTracks::<Identity, Impl, OFFSET>,
         }
     }

@@ -75,7 +75,7 @@ impl IXmlCharacterData_Vtbl {
             (*this).ReplaceData(offset, count, ::core::mem::transmute(&data)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlCharacterData, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXmlCharacterData, OFFSET>(),
             Data: Data::<Identity, Impl, OFFSET>,
             SetData: SetData::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
@@ -376,7 +376,7 @@ impl IXmlNode_Vtbl {
             (*this).SetPrefix(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNode, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNode, OFFSET>(),
             NodeValue: NodeValue::<Identity, Impl, OFFSET>,
             SetNodeValue: SetNodeValue::<Identity, Impl, OFFSET>,
             NodeType: NodeType::<Identity, Impl, OFFSET>,
@@ -466,7 +466,7 @@ impl IXmlNodeSelector_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeSelector, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeSelector, OFFSET>(),
             SelectSingleNode: SelectSingleNode::<Identity, Impl, OFFSET>,
             SelectNodes: SelectNodes::<Identity, Impl, OFFSET>,
             SelectSingleNodeNS: SelectSingleNodeNS::<Identity, Impl, OFFSET>,
@@ -517,7 +517,7 @@ impl IXmlNodeSerializer_Vtbl {
             (*this).SetInnerText(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeSerializer, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXmlNodeSerializer, OFFSET>(),
             GetXml: GetXml::<Identity, Impl, OFFSET>,
             InnerText: InnerText::<Identity, Impl, OFFSET>,
             SetInnerText: SetInnerText::<Identity, Impl, OFFSET>,
@@ -547,7 +547,7 @@ impl IXmlText_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXmlText, OFFSET>(), SplitText: SplitText::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IXmlText, OFFSET>(), SplitText: SplitText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlText as ::windows::core::Interface>::IID

@@ -3,7 +3,7 @@ pub trait DRendezvousSessionEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DRendezvousSessionEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DRendezvousSessionEvents_Impl, const OFFSET: isize>() -> DRendezvousSessionEvents_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DRendezvousSessionEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -19,7 +19,7 @@ impl IRendezvousApplication_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetRendezvousSession(::core::mem::transmute(&prendezvoussession)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRendezvousApplication as ::windows::core::Interface>::IID
@@ -80,7 +80,7 @@ impl IRendezvousSession_Vtbl {
             (*this).Terminate(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&bstrappdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             State: State::<Identity, Impl, OFFSET>,
             RemoteUser: RemoteUser::<Identity, Impl, OFFSET>,
             Flags: Flags::<Identity, Impl, OFFSET>,

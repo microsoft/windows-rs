@@ -33,7 +33,7 @@ impl IEnumOfflineFilesItems_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -79,7 +79,7 @@ impl IEnumOfflineFilesSettings_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -229,7 +229,7 @@ impl IOfflineFilesCache_Vtbl {
             (*this).IsPathCacheable(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&pbcacheable), ::core::mem::transmute_copy(&psharecachingmode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Synchronize: Synchronize::<Identity, Impl, OFFSET>,
             DeleteItems: DeleteItems::<Identity, Impl, OFFSET>,
             DeleteItemsForUser: DeleteItemsForUser::<Identity, Impl, OFFSET>,
@@ -265,7 +265,7 @@ impl IOfflineFilesCache2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RenameItemEx(::core::mem::transmute(&pszpathoriginal), ::core::mem::transmute(&pszpathnew), ::core::mem::transmute_copy(&breplaceifexists)).into()
         }
-        Self { base: IOfflineFilesCache_Vtbl::new::<Identity, Impl, OFFSET>(), RenameItemEx: RenameItemEx::<Identity, Impl, OFFSET> }
+        Self { base__: IOfflineFilesCache_Vtbl::new::<Identity, Impl, OFFSET>(), RenameItemEx: RenameItemEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesCache2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesCache as ::windows::core::Interface>::IID
@@ -344,7 +344,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsDirty: IsDirty::<Identity, Impl, OFFSET>,
             IsDeletedOffline: IsDeletedOffline::<Identity, Impl, OFFSET>,
             IsCreatedOffline: IsCreatedOffline::<Identity, Impl, OFFSET>,
@@ -394,7 +394,7 @@ impl IOfflineFilesConnectionInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConnectState: GetConnectState::<Identity, Impl, OFFSET>,
             SetConnectState: SetConnectState::<Identity, Impl, OFFSET>,
             TransitionOnline: TransitionOnline::<Identity, Impl, OFFSET>,
@@ -410,7 +410,7 @@ pub trait IOfflineFilesDirectoryItem_Impl: Sized + IOfflineFilesItem_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesDirectoryItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesDirectoryItem_Impl, const OFFSET: isize>() -> IOfflineFilesDirectoryItem_Vtbl {
-        Self { base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesDirectoryItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
@@ -445,7 +445,7 @@ impl IOfflineFilesDirtyInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LocalDirtyByteCount: LocalDirtyByteCount::<Identity, Impl, OFFSET>,
             RemoteDirtyByteCount: RemoteDirtyByteCount::<Identity, Impl, OFFSET>,
         }
@@ -485,7 +485,7 @@ impl IOfflineFilesErrorInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRawData: GetRawData::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
         }
@@ -651,7 +651,7 @@ impl IOfflineFilesEvents_Vtbl {
             (*this).Ping().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CacheMoved: CacheMoved::<Identity, Impl, OFFSET>,
             CacheIsFull: CacheIsFull::<Identity, Impl, OFFSET>,
             CacheIsCorrupted: CacheIsCorrupted::<Identity, Impl, OFFSET>,
@@ -744,7 +744,7 @@ impl IOfflineFilesEvents2_Vtbl {
             (*this).SettingsChangesApplied().into()
         }
         Self {
-            base: IOfflineFilesEvents_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesEvents_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemReconnectBegin: ItemReconnectBegin::<Identity, Impl, OFFSET>,
             ItemReconnectEnd: ItemReconnectEnd::<Identity, Impl, OFFSET>,
             CacheEvictBegin: CacheEvictBegin::<Identity, Impl, OFFSET>,
@@ -785,7 +785,7 @@ impl IOfflineFilesEvents3_Vtbl {
             (*this).PrefetchFileEnd(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&hrresult)).into()
         }
         Self {
-            base: IOfflineFilesEvents2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesEvents2_Vtbl::new::<Identity, Impl, OFFSET>(),
             TransparentCacheItemNotify: TransparentCacheItemNotify::<Identity, Impl, OFFSET>,
             PrefetchFileBegin: PrefetchFileBegin::<Identity, Impl, OFFSET>,
             PrefetchFileEnd: PrefetchFileEnd::<Identity, Impl, OFFSET>,
@@ -814,7 +814,7 @@ impl IOfflineFilesEvents4_Vtbl {
             (*this).PrefetchCloseHandleEnd(::core::mem::transmute_copy(&dwclosedhandlecount), ::core::mem::transmute_copy(&dwopenhandlecount), ::core::mem::transmute_copy(&hrresult)).into()
         }
         Self {
-            base: IOfflineFilesEvents3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesEvents3_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrefetchCloseHandleBegin: PrefetchCloseHandleBegin::<Identity, Impl, OFFSET>,
             PrefetchCloseHandleEnd: PrefetchCloseHandleEnd::<Identity, Impl, OFFSET>,
         }
@@ -846,7 +846,7 @@ impl IOfflineFilesEventsFilter_Vtbl {
             (*this).GetExcludedEvents(::core::mem::transmute_copy(&celements), ::core::mem::transmute_copy(&prgevents), ::core::mem::transmute_copy(&pcevents)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPathFilter: GetPathFilter::<Identity, Impl, OFFSET>,
             GetIncludedEvents: GetIncludedEvents::<Identity, Impl, OFFSET>,
             GetExcludedEvents: GetExcludedEvents::<Identity, Impl, OFFSET>,
@@ -887,7 +887,7 @@ impl IOfflineFilesFileItem_Vtbl {
             }
         }
         Self {
-            base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsSparse: IsSparse::<Identity, Impl, OFFSET>,
             IsEncrypted: IsEncrypted::<Identity, Impl, OFFSET>,
         }
@@ -933,7 +933,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAttributes: GetAttributes::<Identity, Impl, OFFSET>,
             GetTimes: GetTimes::<Identity, Impl, OFFSET>,
             GetFileSize: GetFileSize::<Identity, Impl, OFFSET>,
@@ -961,7 +961,7 @@ impl IOfflineFilesGhostInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsGhosted: IsGhosted::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsGhosted: IsGhosted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesGhostInfo as ::windows::core::Interface>::IID
@@ -1028,7 +1028,7 @@ impl IOfflineFilesItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetItemType: GetItemType::<Identity, Impl, OFFSET>,
             GetPath: GetPath::<Identity, Impl, OFFSET>,
             GetParentItem: GetParentItem::<Identity, Impl, OFFSET>,
@@ -1069,7 +1069,7 @@ impl IOfflineFilesItemContainer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumItems: EnumItems::<Identity, Impl, OFFSET>,
             EnumItemsEx: EnumItemsEx::<Identity, Impl, OFFSET>,
         }
@@ -1103,7 +1103,7 @@ impl IOfflineFilesItemFilter_Vtbl {
             (*this).GetPatternFilter(::core::mem::transmute_copy(&pszpattern), ::core::mem::transmute_copy(&cchpattern)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFilterFlags: GetFilterFlags::<Identity, Impl, OFFSET>,
             GetTimeFilter: GetTimeFilter::<Identity, Impl, OFFSET>,
             GetPatternFilter: GetPatternFilter::<Identity, Impl, OFFSET>,
@@ -1156,7 +1156,7 @@ impl IOfflineFilesPinInfo_Vtbl {
             (*this).IsPinnedForFolderRedirection(::core::mem::transmute_copy(&pbpinnedforfolderredirection), ::core::mem::transmute_copy(&pbinherit)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsPinned: IsPinned::<Identity, Impl, OFFSET>,
             IsPinnedForUser: IsPinnedForUser::<Identity, Impl, OFFSET>,
             IsPinnedForUserByPolicy: IsPinnedForUserByPolicy::<Identity, Impl, OFFSET>,
@@ -1186,7 +1186,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IOfflineFilesPinInfo_Vtbl::new::<Identity, Impl, OFFSET>(), IsPartlyPinned: IsPartlyPinned::<Identity, Impl, OFFSET> }
+        Self { base__: IOfflineFilesPinInfo_Vtbl::new::<Identity, Impl, OFFSET>(), IsPartlyPinned: IsPartlyPinned::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesPinInfo2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesPinInfo as ::windows::core::Interface>::IID
@@ -1229,7 +1229,7 @@ impl IOfflineFilesProgress_Vtbl {
             (*this).End(::core::mem::transmute_copy(&hrresult)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin: Begin::<Identity, Impl, OFFSET>,
             QueryAbort: QueryAbort::<Identity, Impl, OFFSET>,
             End: End::<Identity, Impl, OFFSET>,
@@ -1244,7 +1244,7 @@ pub trait IOfflineFilesServerItem_Impl: Sized + IOfflineFilesItem_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesServerItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesServerItem_Impl, const OFFSET: isize>() -> IOfflineFilesServerItem_Vtbl {
-        Self { base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesServerItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
@@ -1335,7 +1335,7 @@ impl IOfflineFilesSetting_Vtbl {
             (*this).GetValue(::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&pbsetbypolicy)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetValueType: GetValueType::<Identity, Impl, OFFSET>,
             GetPreference: GetPreference::<Identity, Impl, OFFSET>,
@@ -1394,7 +1394,7 @@ impl IOfflineFilesShareInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetShareItem: GetShareItem::<Identity, Impl, OFFSET>,
             GetShareCachingMode: GetShareCachingMode::<Identity, Impl, OFFSET>,
             IsShareDfsJunction: IsShareDfsJunction::<Identity, Impl, OFFSET>,
@@ -1409,7 +1409,7 @@ pub trait IOfflineFilesShareItem_Impl: Sized + IOfflineFilesItem_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesShareItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesShareItem_Impl, const OFFSET: isize>() -> IOfflineFilesShareItem_Vtbl {
-        Self { base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesShareItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
@@ -1446,7 +1446,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
             }
         }
         Self {
-            base: IOfflineFilesProgress_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesProgress_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemBegin: ItemBegin::<Identity, Impl, OFFSET>,
             ItemResult: ItemResult::<Identity, Impl, OFFSET>,
         }
@@ -1467,7 +1467,7 @@ impl IOfflineFilesSuspend_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SuspendRoot(::core::mem::transmute_copy(&bsuspend)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SuspendRoot: SuspendRoot::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SuspendRoot: SuspendRoot::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesSuspend as ::windows::core::Interface>::IID
@@ -1485,7 +1485,7 @@ impl IOfflineFilesSuspendInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IsSuspended(::core::mem::transmute_copy(&pbsuspended), ::core::mem::transmute_copy(&pbsuspendedroot)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsSuspended: IsSuspended::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsSuspended: IsSuspended::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesSuspendInfo as ::windows::core::Interface>::IID
@@ -1501,7 +1501,7 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ResolveConflict(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&fstateknown), ::core::mem::transmute_copy(&state), ::core::mem::transmute_copy(&fchangedetails), ::core::mem::transmute_copy(&pconflictresolution), ::core::mem::transmute_copy(&ppsznewname)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResolveConflict: ResolveConflict::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResolveConflict: ResolveConflict::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesSyncConflictHandler as ::windows::core::Interface>::IID
@@ -1586,7 +1586,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
             }
         }
         Self {
-            base: IOfflineFilesErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSyncOperation: GetSyncOperation::<Identity, Impl, OFFSET>,
             GetItemChangeFlags: GetItemChangeFlags::<Identity, Impl, OFFSET>,
             InfoEnumerated: InfoEnumerated::<Identity, Impl, OFFSET>,
@@ -1637,7 +1637,7 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFileAttributes: GetFileAttributes::<Identity, Impl, OFFSET>,
             GetFileTimes: GetFileTimes::<Identity, Impl, OFFSET>,
             GetFileSize: GetFileSize::<Identity, Impl, OFFSET>,
@@ -1678,7 +1678,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
             }
         }
         Self {
-            base: IOfflineFilesProgress_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOfflineFilesProgress_Vtbl::new::<Identity, Impl, OFFSET>(),
             SyncItemBegin: SyncItemBegin::<Identity, Impl, OFFSET>,
             SyncItemResult: SyncItemResult::<Identity, Impl, OFFSET>,
         }
@@ -1705,7 +1705,7 @@ impl IOfflineFilesTransparentCacheInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsTransparentlyCached: IsTransparentlyCached::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsTransparentlyCached: IsTransparentlyCached::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOfflineFilesTransparentCacheInfo as ::windows::core::Interface>::IID

@@ -161,7 +161,7 @@ impl IDiskQuotaControl_Vtbl {
             (*this).ShutdownNameResolution().into()
         }
         Self {
-            base: super::super::System::Com::IConnectionPointContainer_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IConnectionPointContainer_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             SetQuotaState: SetQuotaState::<Identity, Impl, OFFSET>,
             GetQuotaState: GetQuotaState::<Identity, Impl, OFFSET>,
@@ -199,7 +199,7 @@ impl IDiskQuotaEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnUserNameChanged(::core::mem::transmute(&puser)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiskQuotaEvents as ::windows::core::Interface>::IID
@@ -302,7 +302,7 @@ impl IDiskQuotaUser_Vtbl {
             (*this).GetAccountStatus(::core::mem::transmute_copy(&pdwstatus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetID: GetID::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetSidLength: GetSidLength::<Identity, Impl, OFFSET>,
@@ -353,7 +353,7 @@ impl IDiskQuotaUserBatch_Vtbl {
             (*this).FlushToDisk().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             RemoveAll: RemoveAll::<Identity, Impl, OFFSET>,
@@ -399,7 +399,7 @@ impl IEnumDiskQuotaUsers_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,

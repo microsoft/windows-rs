@@ -35,7 +35,7 @@ impl IDMLBindingTable_Vtbl {
             (*this).Reset(::core::mem::transmute_copy(&desc)).into()
         }
         Self {
-            base: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
             BindInputs: BindInputs::<Identity, Impl, OFFSET>,
             BindOutputs: BindOutputs::<Identity, Impl, OFFSET>,
             BindTemporaryResource: BindTemporaryResource::<Identity, Impl, OFFSET>,
@@ -59,7 +59,7 @@ impl IDMLCommandRecorder_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RecordDispatch(::core::mem::transmute(&commandlist), ::core::mem::transmute(&dispatchable), ::core::mem::transmute(&bindings))
         }
-        Self { base: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, Impl, OFFSET> }
+        Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLCommandRecorder as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID
@@ -68,7 +68,7 @@ impl IDMLCommandRecorder_Vtbl {
 pub trait IDMLCompiledOperator_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl + IDMLPageable_Impl + IDMLDispatchable_Impl {}
 impl IDMLCompiledOperator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLCompiledOperator_Impl, const OFFSET: isize>() -> IDMLCompiledOperator_Vtbl {
-        Self { base: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLCompiledOperator as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLPageable as ::windows::core::Interface>::IID || iid == &<IDMLDispatchable as ::windows::core::Interface>::IID
@@ -86,7 +86,7 @@ impl IDMLDebugDevice_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetMuteDebugOutput(::core::mem::transmute_copy(&mute))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLDebugDevice as ::windows::core::Interface>::IID
@@ -159,7 +159,7 @@ impl IDMLDevice_Vtbl {
             (*this).GetParentDevice(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: IDMLObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDMLObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             CheckFeatureSupport: CheckFeatureSupport::<Identity, Impl, OFFSET>,
             CreateOperator: CreateOperator::<Identity, Impl, OFFSET>,
             CompileOperator: CompileOperator::<Identity, Impl, OFFSET>,
@@ -188,7 +188,7 @@ impl IDMLDevice1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CompileGraph(::core::mem::transmute_copy(&desc), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: IDMLDevice_Vtbl::new::<Identity, Impl, OFFSET>(), CompileGraph: CompileGraph::<Identity, Impl, OFFSET> }
+        Self { base__: IDMLDevice_Vtbl::new::<Identity, Impl, OFFSET>(), CompileGraph: CompileGraph::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLDevice1 as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDevice as ::windows::core::Interface>::IID
@@ -204,7 +204,7 @@ impl IDMLDeviceChild_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDevice(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: IDMLObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
+        Self { base__: IDMLObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID
@@ -220,7 +220,7 @@ impl IDMLDispatchable_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             *result__ = (*this).GetBindingProperties()
         }
-        Self { base: IDMLPageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindingProperties: GetBindingProperties::<Identity, Impl, OFFSET> }
+        Self { base__: IDMLPageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindingProperties: GetBindingProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLDispatchable as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLPageable as ::windows::core::Interface>::IID
@@ -255,7 +255,7 @@ impl IDMLObject_Vtbl {
             (*this).SetName(::core::mem::transmute(&name)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateDataInterface: SetPrivateDataInterface::<Identity, Impl, OFFSET>,
@@ -269,7 +269,7 @@ impl IDMLObject_Vtbl {
 pub trait IDMLOperator_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl {}
 impl IDMLOperator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLOperator_Impl, const OFFSET: isize>() -> IDMLOperator_Vtbl {
-        Self { base: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLOperator as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID
@@ -285,7 +285,7 @@ impl IDMLOperatorInitializer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Reset(::core::mem::transmute_copy(&operatorcount), ::core::mem::transmute_copy(&operators)).into()
         }
-        Self { base: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
+        Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLOperatorInitializer as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLPageable as ::windows::core::Interface>::IID || iid == &<IDMLDispatchable as ::windows::core::Interface>::IID
@@ -294,7 +294,7 @@ impl IDMLOperatorInitializer_Vtbl {
 pub trait IDMLPageable_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl {}
 impl IDMLPageable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLPageable_Impl, const OFFSET: isize>() -> IDMLPageable_Vtbl {
-        Self { base: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLPageable as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID

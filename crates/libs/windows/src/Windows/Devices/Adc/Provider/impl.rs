@@ -115,7 +115,7 @@ impl IAdcControllerProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcControllerProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAdcControllerProvider, OFFSET>(),
             ChannelCount: ChannelCount::<Identity, Impl, OFFSET>,
             ResolutionInBits: ResolutionInBits::<Identity, Impl, OFFSET>,
             MinValue: MinValue::<Identity, Impl, OFFSET>,
@@ -155,7 +155,7 @@ impl IAdcProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAdcProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAdcProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdcProvider as ::windows::core::Interface>::IID

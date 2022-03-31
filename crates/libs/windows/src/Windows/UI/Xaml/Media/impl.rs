@@ -17,7 +17,7 @@ impl IBrushOverrides2_Vtbl {
             (*this).PopulatePropertyInfoOverride(::core::mem::transmute(&propertyname), ::core::mem::transmute(&animationpropertyinfo)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBrushOverrides2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBrushOverrides2, OFFSET>(),
             PopulatePropertyInfoOverride: PopulatePropertyInfoOverride::<Identity, Impl, OFFSET>,
         }
     }
@@ -75,7 +75,7 @@ impl IGeneralTransformOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeneralTransformOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGeneralTransformOverrides, OFFSET>(),
             InverseCore: InverseCore::<Identity, Impl, OFFSET>,
             TryTransformCore: TryTransformCore::<Identity, Impl, OFFSET>,
             TransformBoundsCore: TransformBoundsCore::<Identity, Impl, OFFSET>,
@@ -109,7 +109,7 @@ impl IXamlCompositionBrushBaseOverrides_Vtbl {
             (*this).OnDisconnected().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlCompositionBrushBaseOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlCompositionBrushBaseOverrides, OFFSET>(),
             OnConnected: OnConnected::<Identity, Impl, OFFSET>,
             OnDisconnected: OnDisconnected::<Identity, Impl, OFFSET>,
         }
@@ -155,7 +155,7 @@ impl IXamlLightOverrides_Vtbl {
             (*this).OnDisconnected(::core::mem::transmute(&oldelement)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlLightOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlLightOverrides, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             OnConnected: OnConnected::<Identity, Impl, OFFSET>,
             OnDisconnected: OnDisconnected::<Identity, Impl, OFFSET>,

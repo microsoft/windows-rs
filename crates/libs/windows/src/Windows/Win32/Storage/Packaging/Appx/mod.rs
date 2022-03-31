@@ -5747,17 +5747,17 @@ impl IAppxManifestPackageDependency2 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPublisher)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPublisher)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetMinVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetMinVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetMaxMajorVersionTested(&self) -> ::windows::core::Result<u16> {
@@ -6000,43 +6000,43 @@ impl IAppxManifestPackageId2 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE> {
         let mut result__: APPX_PACKAGE_ARCHITECTURE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetArchitecture)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_PACKAGE_ARCHITECTURE>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetArchitecture)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_PACKAGE_ARCHITECTURE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPublisher)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPublisher)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetResourceId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetResourceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetResourceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComparePublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, other: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ComparePublisher)(::core::mem::transmute_copy(self), other.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.ComparePublisher)(::core::mem::transmute_copy(self), other.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageFullName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPackageFullName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPackageFullName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPackageFamilyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPackageFamilyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetArchitecture2(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2> {
@@ -6435,48 +6435,48 @@ impl IAppxManifestReader2 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPackageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageId>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPackageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestProperties>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPackageDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPackageDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
         let mut result__: APPX_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_CAPABILITIES>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetDeviceCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDeviceCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetPrerequisite)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPrerequisite)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
@@ -6557,53 +6557,53 @@ impl IAppxManifestReader3 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetPackageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageId>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPackageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestProperties>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetPackageDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPackageDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
         let mut result__: APPX_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_CAPABILITIES>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetDeviceCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetDeviceCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetPrerequisite)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPrerequisite)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetQualifiedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetQualifiedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
@@ -6710,63 +6710,63 @@ impl IAppxManifestReader4 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetPackageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageId>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetPackageId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestProperties>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetPackageDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetPackageDependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
         let mut result__: APPX_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_CAPABILITIES>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetDeviceCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDeviceCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetPrerequisite)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrerequisite)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetQualifiedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetQualifiedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetCapabilitiesByCapabilityClass)(::core::mem::transmute_copy(self), ::core::mem::transmute(capabilityclass), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestCapabilitiesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCapabilitiesByCapabilityClass)(::core::mem::transmute_copy(self), ::core::mem::transmute(capabilityclass), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestCapabilitiesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetTargetDeviceFamilies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTargetDeviceFamilies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
     pub unsafe fn GetOptionalPackageInfo(&self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo> {

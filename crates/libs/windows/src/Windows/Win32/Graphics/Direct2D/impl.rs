@@ -8,7 +8,7 @@ impl ID2D1AnalysisTransform_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ProcessAnalysisResults(::core::mem::transmute_copy(&analysisdata), ::core::mem::transmute_copy(&analysisdatacount)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProcessAnalysisResults: ProcessAnalysisResults::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProcessAnalysisResults: ProcessAnalysisResults::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1AnalysisTransform as ::windows::core::Interface>::IID
@@ -63,7 +63,7 @@ impl ID2D1Bitmap_Vtbl {
             (*this).CopyFromMemory(::core::mem::transmute_copy(&dstrect), ::core::mem::transmute_copy(&srcdata), ::core::mem::transmute_copy(&pitch)).into()
         }
         Self {
-            base: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSize: GetSize::<Identity, Impl, OFFSET>,
             GetPixelSize: GetPixelSize::<Identity, Impl, OFFSET>,
             GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
@@ -126,7 +126,7 @@ impl ID2D1Bitmap1_Vtbl {
             (*this).Unmap().into()
         }
         Self {
-            base: ID2D1Bitmap_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Bitmap_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetColorContext: GetColorContext::<Identity, Impl, OFFSET>,
             GetOptions: GetOptions::<Identity, Impl, OFFSET>,
             GetSurface: GetSurface::<Identity, Impl, OFFSET>,
@@ -193,7 +193,7 @@ impl ID2D1BitmapBrush_Vtbl {
             (*this).GetBitmap(::core::mem::transmute_copy(&bitmap))
         }
         Self {
-            base: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetExtendModeX: SetExtendModeX::<Identity, Impl, OFFSET>,
             SetExtendModeY: SetExtendModeY::<Identity, Impl, OFFSET>,
             SetInterpolationMode: SetInterpolationMode::<Identity, Impl, OFFSET>,
@@ -227,7 +227,7 @@ impl ID2D1BitmapBrush1_Vtbl {
             (*this).GetInterpolationMode1()
         }
         Self {
-            base: ID2D1BitmapBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1BitmapBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetInterpolationMode1: SetInterpolationMode1::<Identity, Impl, OFFSET>,
             GetInterpolationMode1: GetInterpolationMode1::<Identity, Impl, OFFSET>,
         }
@@ -254,7 +254,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), GetBitmap: GetBitmap::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), GetBitmap: GetBitmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1BitmapRenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID
@@ -279,7 +279,7 @@ impl ID2D1BlendTransform_Vtbl {
             (*this).GetDescription(::core::mem::transmute_copy(&description))
         }
         Self {
-            base: ID2D1ConcreteTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1ConcreteTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
         }
@@ -319,7 +319,7 @@ impl ID2D1BorderTransform_Vtbl {
             (*this).GetExtendModeY()
         }
         Self {
-            base: ID2D1ConcreteTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1ConcreteTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetExtendModeX: SetExtendModeX::<Identity, Impl, OFFSET>,
             SetExtendModeY: SetExtendModeY::<Identity, Impl, OFFSET>,
             GetExtendModeX: GetExtendModeX::<Identity, Impl, OFFSET>,
@@ -349,7 +349,7 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
             (*this).GetOutputBounds(::core::mem::transmute_copy(&outputbounds))
         }
         Self {
-            base: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOutputBounds: SetOutputBounds::<Identity, Impl, OFFSET>,
             GetOutputBounds: GetOutputBounds::<Identity, Impl, OFFSET>,
         }
@@ -389,7 +389,7 @@ impl ID2D1Brush_Vtbl {
             (*this).GetTransform(::core::mem::transmute_copy(&transform))
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOpacity: SetOpacity::<Identity, Impl, OFFSET>,
             SetTransform: SetTransform::<Identity, Impl, OFFSET>,
             GetOpacity: GetOpacity::<Identity, Impl, OFFSET>,
@@ -423,7 +423,7 @@ impl ID2D1ColorContext_Vtbl {
             (*this).GetProfile(::core::mem::transmute_copy(&profile), ::core::mem::transmute_copy(&profilesize)).into()
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetColorSpace: GetColorSpace::<Identity, Impl, OFFSET>,
             GetProfileSize: GetProfileSize::<Identity, Impl, OFFSET>,
             GetProfile: GetProfile::<Identity, Impl, OFFSET>,
@@ -464,7 +464,7 @@ impl ID2D1ColorContext1_Vtbl {
             }
         }
         Self {
-            base: ID2D1ColorContext_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1ColorContext_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetColorContextType: GetColorContextType::<Identity, Impl, OFFSET>,
             GetDXGIColorSpace: GetDXGIColorSpace::<Identity, Impl, OFFSET>,
             GetSimpleColorProfile: GetSimpleColorProfile::<Identity, Impl, OFFSET>,
@@ -490,7 +490,7 @@ impl ID2D1CommandList_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        Self { base: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(), Stream: Stream::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(), Stream: Stream::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1CommandList as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID
@@ -653,7 +653,7 @@ impl ID2D1CommandSink_Vtbl {
             (*this).PopLayer().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
             SetAntialiasMode: SetAntialiasMode::<Identity, Impl, OFFSET>,
@@ -697,7 +697,7 @@ impl ID2D1CommandSink1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetPrimitiveBlend1(::core::mem::transmute_copy(&primitiveblend)).into()
         }
-        Self { base: ID2D1CommandSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend1: SetPrimitiveBlend1::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1CommandSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend1: SetPrimitiveBlend1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID
@@ -728,7 +728,7 @@ impl ID2D1CommandSink2_Vtbl {
             (*this).DrawGdiMetafile2(::core::mem::transmute(&gdimetafile), ::core::mem::transmute_copy(&destinationrectangle), ::core::mem::transmute_copy(&sourcerectangle)).into()
         }
         Self {
-            base: ID2D1CommandSink1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1CommandSink1_Vtbl::new::<Identity, Impl, OFFSET>(),
             DrawInk: DrawInk::<Identity, Impl, OFFSET>,
             DrawGradientMesh: DrawGradientMesh::<Identity, Impl, OFFSET>,
             DrawGdiMetafile2: DrawGdiMetafile2::<Identity, Impl, OFFSET>,
@@ -750,7 +750,7 @@ impl ID2D1CommandSink3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DrawSpriteBatch(::core::mem::transmute(&spritebatch), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&spritecount), ::core::mem::transmute(&bitmap), ::core::mem::transmute_copy(&interpolationmode), ::core::mem::transmute_copy(&spriteoptions)).into()
         }
-        Self { base: ID2D1CommandSink2_Vtbl::new::<Identity, Impl, OFFSET>(), DrawSpriteBatch: DrawSpriteBatch::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1CommandSink2_Vtbl::new::<Identity, Impl, OFFSET>(), DrawSpriteBatch: DrawSpriteBatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1CommandSink3 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID
@@ -768,7 +768,7 @@ impl ID2D1CommandSink4_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetPrimitiveBlend2(::core::mem::transmute_copy(&primitiveblend)).into()
         }
-        Self { base: ID2D1CommandSink3_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend2: SetPrimitiveBlend2::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1CommandSink3_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend2: SetPrimitiveBlend2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1CommandSink4 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink3 as ::windows::core::Interface>::IID
@@ -786,7 +786,7 @@ impl ID2D1CommandSink5_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BlendImage(::core::mem::transmute(&image), ::core::mem::transmute_copy(&blendmode), ::core::mem::transmute_copy(&targetoffset), ::core::mem::transmute_copy(&imagerectangle), ::core::mem::transmute_copy(&interpolationmode)).into()
         }
-        Self { base: ID2D1CommandSink4_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1CommandSink4_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1CommandSink5 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink3 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink4 as ::windows::core::Interface>::IID
@@ -817,7 +817,7 @@ impl ID2D1ComputeInfo_Vtbl {
             (*this).SetResourceTexture(::core::mem::transmute_copy(&textureindex), ::core::mem::transmute(&resourcetexture)).into()
         }
         Self {
-            base: ID2D1RenderInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1RenderInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetComputeShaderConstantBuffer: SetComputeShaderConstantBuffer::<Identity, Impl, OFFSET>,
             SetComputeShader: SetComputeShader::<Identity, Impl, OFFSET>,
             SetResourceTexture: SetResourceTexture::<Identity, Impl, OFFSET>,
@@ -846,7 +846,7 @@ impl ID2D1ComputeTransform_Vtbl {
             (*this).CalculateThreadgroups(::core::mem::transmute_copy(&outputrect), ::core::mem::transmute_copy(&dimensionx), ::core::mem::transmute_copy(&dimensiony), ::core::mem::transmute_copy(&dimensionz)).into()
         }
         Self {
-            base: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetComputeInfo: SetComputeInfo::<Identity, Impl, OFFSET>,
             CalculateThreadgroups: CalculateThreadgroups::<Identity, Impl, OFFSET>,
         }
@@ -874,7 +874,7 @@ impl ID2D1ConcreteTransform_Vtbl {
             (*this).SetCached(::core::mem::transmute_copy(&iscached))
         }
         Self {
-            base: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOutputBuffer: SetOutputBuffer::<Identity, Impl, OFFSET>,
             SetCached: SetCached::<Identity, Impl, OFFSET>,
         }
@@ -895,7 +895,7 @@ impl ID2D1DCRenderTarget_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BindDC(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&psubrect)).into()
         }
-        Self { base: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), BindDC: BindDC::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), BindDC: BindDC::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1DCRenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID
@@ -950,7 +950,7 @@ impl ID2D1Device_Vtbl {
             (*this).ClearResources(::core::mem::transmute_copy(&millisecondssinceuse))
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET>,
             CreatePrintControl: CreatePrintControl::<Identity, Impl, OFFSET>,
             SetMaximumTextureMemory: SetMaximumTextureMemory::<Identity, Impl, OFFSET>,
@@ -993,7 +993,7 @@ impl ID2D1Device1_Vtbl {
             }
         }
         Self {
-            base: ID2D1Device_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Device_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetRenderingPriority: GetRenderingPriority::<Identity, Impl, OFFSET>,
             SetRenderingPriority: SetRenderingPriority::<Identity, Impl, OFFSET>,
             CreateDeviceContext2: CreateDeviceContext2::<Identity, Impl, OFFSET>,
@@ -1040,7 +1040,7 @@ impl ID2D1Device2_Vtbl {
             }
         }
         Self {
-            base: ID2D1Device1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Device1_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateDeviceContext3: CreateDeviceContext3::<Identity, Impl, OFFSET>,
             FlushDeviceContexts: FlushDeviceContexts::<Identity, Impl, OFFSET>,
             GetDxgiDevice: GetDxgiDevice::<Identity, Impl, OFFSET>,
@@ -1068,7 +1068,7 @@ impl ID2D1Device3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Device2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext4: CreateDeviceContext4::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext4: CreateDeviceContext4::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Device3 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID
@@ -1105,7 +1105,7 @@ impl ID2D1Device4_Vtbl {
             (*this).GetMaximumColorGlyphCacheMemory()
         }
         Self {
-            base: ID2D1Device3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Device3_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateDeviceContext5: CreateDeviceContext5::<Identity, Impl, OFFSET>,
             SetMaximumColorGlyphCacheMemory: SetMaximumColorGlyphCacheMemory::<Identity, Impl, OFFSET>,
             GetMaximumColorGlyphCacheMemory: GetMaximumColorGlyphCacheMemory::<Identity, Impl, OFFSET>,
@@ -1133,7 +1133,7 @@ impl ID2D1Device5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Device4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext6: CreateDeviceContext6::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext6: CreateDeviceContext6::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Device5 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID || iid == &<ID2D1Device3 as ::windows::core::Interface>::IID || iid == &<ID2D1Device4 as ::windows::core::Interface>::IID
@@ -1157,7 +1157,7 @@ impl ID2D1Device6_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Device5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext7: CreateDeviceContext7::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext7: CreateDeviceContext7::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Device6 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID || iid == &<ID2D1Device3 as ::windows::core::Interface>::IID || iid == &<ID2D1Device4 as ::windows::core::Interface>::IID || iid == &<ID2D1Device5 as ::windows::core::Interface>::IID
@@ -1470,7 +1470,7 @@ impl ID2D1DeviceContext_Vtbl {
             (*this).FillOpacityMask2(::core::mem::transmute(&opacitymask), ::core::mem::transmute(&brush), ::core::mem::transmute_copy(&destinationrectangle), ::core::mem::transmute_copy(&sourcerectangle))
         }
         Self {
-            base: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateBitmap2: CreateBitmap2::<Identity, Impl, OFFSET>,
             CreateBitmapFromWicBitmap2: CreateBitmapFromWicBitmap2::<Identity, Impl, OFFSET>,
             CreateColorContext: CreateColorContext::<Identity, Impl, OFFSET>,
@@ -1549,7 +1549,7 @@ impl ID2D1DeviceContext1_Vtbl {
             (*this).DrawGeometryRealization(::core::mem::transmute(&geometryrealization), ::core::mem::transmute(&brush))
         }
         Self {
-            base: ID2D1DeviceContext_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1DeviceContext_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateFilledGeometryRealization: CreateFilledGeometryRealization::<Identity, Impl, OFFSET>,
             CreateStrokedGeometryRealization: CreateStrokedGeometryRealization::<Identity, Impl, OFFSET>,
             DrawGeometryRealization: DrawGeometryRealization::<Identity, Impl, OFFSET>,
@@ -1680,7 +1680,7 @@ impl ID2D1DeviceContext2_Vtbl {
             }
         }
         Self {
-            base: ID2D1DeviceContext1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1DeviceContext1_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateInk: CreateInk::<Identity, Impl, OFFSET>,
             CreateInkStyle: CreateInkStyle::<Identity, Impl, OFFSET>,
             CreateGradientMesh: CreateGradientMesh::<Identity, Impl, OFFSET>,
@@ -1723,7 +1723,7 @@ impl ID2D1DeviceContext3_Vtbl {
             (*this).DrawSpriteBatch(::core::mem::transmute(&spritebatch), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&spritecount), ::core::mem::transmute(&bitmap), ::core::mem::transmute_copy(&interpolationmode), ::core::mem::transmute_copy(&spriteoptions))
         }
         Self {
-            base: ID2D1DeviceContext2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1DeviceContext2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSpriteBatch: CreateSpriteBatch::<Identity, Impl, OFFSET>,
             DrawSpriteBatch: DrawSpriteBatch::<Identity, Impl, OFFSET>,
         }
@@ -1791,7 +1791,7 @@ impl ID2D1DeviceContext4_Vtbl {
                 .into()
         }
         Self {
-            base: ID2D1DeviceContext3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1DeviceContext3_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSvgGlyphStyle: CreateSvgGlyphStyle::<Identity, Impl, OFFSET>,
             DrawText2: DrawText2::<Identity, Impl, OFFSET>,
             DrawTextLayout2: DrawTextLayout2::<Identity, Impl, OFFSET>,
@@ -1854,7 +1854,7 @@ impl ID2D1DeviceContext5_Vtbl {
             }
         }
         Self {
-            base: ID2D1DeviceContext4_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1DeviceContext4_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSvgDocument: CreateSvgDocument::<Identity, Impl, OFFSET>,
             DrawSvgDocument: DrawSvgDocument::<Identity, Impl, OFFSET>,
             CreateColorContextFromDxgiColorSpace: CreateColorContextFromDxgiColorSpace::<Identity, Impl, OFFSET>,
@@ -1877,7 +1877,7 @@ impl ID2D1DeviceContext6_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BlendImage(::core::mem::transmute(&image), ::core::mem::transmute_copy(&blendmode), ::core::mem::transmute_copy(&targetoffset), ::core::mem::transmute_copy(&imagerectangle), ::core::mem::transmute_copy(&interpolationmode))
         }
-        Self { base: ID2D1DeviceContext5_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1DeviceContext5_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1DeviceContext6 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext4 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext5 as ::windows::core::Interface>::IID
@@ -1920,7 +1920,7 @@ impl ID2D1DrawInfo_Vtbl {
             (*this).SetVertexProcessing(::core::mem::transmute(&vertexbuffer), ::core::mem::transmute_copy(&vertexoptions), ::core::mem::transmute_copy(&blenddescription), ::core::mem::transmute_copy(&vertexrange), ::core::mem::transmute_copy(&vertexshader)).into()
         }
         Self {
-            base: ID2D1RenderInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1RenderInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPixelShaderConstantBuffer: SetPixelShaderConstantBuffer::<Identity, Impl, OFFSET>,
             SetResourceTexture: SetResourceTexture::<Identity, Impl, OFFSET>,
             SetVertexShaderConstantBuffer: SetVertexShaderConstantBuffer::<Identity, Impl, OFFSET>,
@@ -1944,7 +1944,7 @@ impl ID2D1DrawTransform_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDrawInfo(::core::mem::transmute(&drawinfo)).into()
         }
-        Self { base: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(), SetDrawInfo: SetDrawInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(), SetDrawInfo: SetDrawInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1DrawTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID || iid == &<ID2D1Transform as ::windows::core::Interface>::IID
@@ -1981,7 +1981,7 @@ impl ID2D1DrawingStateBlock_Vtbl {
             (*this).GetTextRenderingParams(::core::mem::transmute_copy(&textrenderingparams))
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             SetTextRenderingParams: SetTextRenderingParams::<Identity, Impl, OFFSET>,
@@ -2011,7 +2011,7 @@ impl ID2D1DrawingStateBlock1_Vtbl {
             (*this).SetDescription2(::core::mem::transmute_copy(&statedescription))
         }
         Self {
-            base: ID2D1DrawingStateBlock_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1DrawingStateBlock_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDescription2: GetDescription2::<Identity, Impl, OFFSET>,
             SetDescription2: SetDescription2::<Identity, Impl, OFFSET>,
         }
@@ -2057,7 +2057,7 @@ impl ID2D1Effect_Vtbl {
             (*this).GetOutput(::core::mem::transmute_copy(&outputimage))
         }
         Self {
-            base: ID2D1Properties_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Properties_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetInput: SetInput::<Identity, Impl, OFFSET>,
             SetInputCount: SetInputCount::<Identity, Impl, OFFSET>,
             GetInput: GetInput::<Identity, Impl, OFFSET>,
@@ -2286,7 +2286,7 @@ impl ID2D1EffectContext_Vtbl {
             (*this).IsBufferPrecisionSupported(::core::mem::transmute_copy(&bufferprecision))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDpi: GetDpi::<Identity, Impl, OFFSET>,
             CreateEffect: CreateEffect::<Identity, Impl, OFFSET>,
             GetMaximumSupportedFeatureLevel: GetMaximumSupportedFeatureLevel::<Identity, Impl, OFFSET>,
@@ -2332,7 +2332,7 @@ impl ID2D1EffectContext1_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1EffectContext_Vtbl::new::<Identity, Impl, OFFSET>(), CreateLookupTable3D: CreateLookupTable3D::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1EffectContext_Vtbl::new::<Identity, Impl, OFFSET>(), CreateLookupTable3D: CreateLookupTable3D::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1EffectContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1EffectContext as ::windows::core::Interface>::IID
@@ -2369,7 +2369,7 @@ impl ID2D1EffectContext2_Vtbl {
             }
         }
         Self {
-            base: ID2D1EffectContext1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1EffectContext1_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateColorContextFromDxgiColorSpace: CreateColorContextFromDxgiColorSpace::<Identity, Impl, OFFSET>,
             CreateColorContextFromSimpleColorProfile: CreateColorContextFromSimpleColorProfile::<Identity, Impl, OFFSET>,
         }
@@ -2401,7 +2401,7 @@ impl ID2D1EffectImpl_Vtbl {
             (*this).SetGraph(::core::mem::transmute(&transformgraph)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             PrepareForRender: PrepareForRender::<Identity, Impl, OFFSET>,
             SetGraph: SetGraph::<Identity, Impl, OFFSET>,
@@ -2423,7 +2423,7 @@ impl ID2D1EllipseGeometry_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetEllipse(::core::mem::transmute_copy(&ellipse))
         }
-        Self { base: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetEllipse: GetEllipse::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetEllipse: GetEllipse::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1EllipseGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
@@ -2592,7 +2592,7 @@ impl ID2D1Factory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReloadSystemMetrics: ReloadSystemMetrics::<Identity, Impl, OFFSET>,
             GetDesktopDpi: GetDesktopDpi::<Identity, Impl, OFFSET>,
             CreateRectangleGeometry: CreateRectangleGeometry::<Identity, Impl, OFFSET>,
@@ -2716,7 +2716,7 @@ impl ID2D1Factory1_Vtbl {
             }
         }
         Self {
-            base: ID2D1Factory_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Factory_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             CreateStrokeStyle2: CreateStrokeStyle2::<Identity, Impl, OFFSET>,
             CreatePathGeometry2: CreatePathGeometry2::<Identity, Impl, OFFSET>,
@@ -2751,7 +2751,7 @@ impl ID2D1Factory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Factory1_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice2: CreateDevice2::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory1_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice2: CreateDevice2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID
@@ -2775,7 +2775,7 @@ impl ID2D1Factory3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Factory2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice3: CreateDevice3::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice3: CreateDevice3::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID
@@ -2799,7 +2799,7 @@ impl ID2D1Factory4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Factory3_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice4: CreateDevice4::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory3_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice4: CreateDevice4::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID
@@ -2823,7 +2823,7 @@ impl ID2D1Factory5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Factory4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice5: CreateDevice5::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice5: CreateDevice5::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Factory5 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID
@@ -2847,7 +2847,7 @@ impl ID2D1Factory6_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Factory5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice6: CreateDevice6::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice6: CreateDevice6::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Factory6 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory5 as ::windows::core::Interface>::IID
@@ -2871,7 +2871,7 @@ impl ID2D1Factory7_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Factory6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice7: CreateDevice7::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice7: CreateDevice7::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Factory7 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory5 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory6 as ::windows::core::Interface>::IID
@@ -2902,7 +2902,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
             (*this).ReleaseDC(::core::mem::transmute_copy(&update)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDC: GetDC::<Identity, Impl, OFFSET>,
             ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
         }
@@ -2936,7 +2936,7 @@ impl ID2D1GdiMetafile_Vtbl {
             }
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             Stream: Stream::<Identity, Impl, OFFSET>,
             GetBounds: GetBounds::<Identity, Impl, OFFSET>,
         }
@@ -2970,7 +2970,7 @@ impl ID2D1GdiMetafile1_Vtbl {
             }
         }
         Self {
-            base: ID2D1GdiMetafile_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1GdiMetafile_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDpi: GetDpi::<Identity, Impl, OFFSET>,
             GetSourceBounds: GetSourceBounds::<Identity, Impl, OFFSET>,
         }
@@ -2989,7 +2989,7 @@ impl ID2D1GdiMetafileSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ProcessRecord(::core::mem::transmute_copy(&recordtype), ::core::mem::transmute_copy(&recorddata), ::core::mem::transmute_copy(&recorddatasize)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1GdiMetafileSink as ::windows::core::Interface>::IID
@@ -3005,7 +3005,7 @@ impl ID2D1GdiMetafileSink1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ProcessRecord2(::core::mem::transmute_copy(&recordtype), ::core::mem::transmute_copy(&recorddata), ::core::mem::transmute_copy(&recorddatasize), ::core::mem::transmute_copy(&flags)).into()
         }
-        Self { base: ID2D1GdiMetafileSink_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessRecord2: ProcessRecord2::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1GdiMetafileSink_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessRecord2: ProcessRecord2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1GdiMetafileSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1GdiMetafileSink as ::windows::core::Interface>::IID
@@ -3138,7 +3138,7 @@ impl ID2D1Geometry_Vtbl {
             (*this).Widen(::core::mem::transmute_copy(&strokewidth), ::core::mem::transmute(&strokestyle), ::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance), ::core::mem::transmute(&geometrysink)).into()
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetBounds: GetBounds::<Identity, Impl, OFFSET>,
             GetWidenedBounds: GetWidenedBounds::<Identity, Impl, OFFSET>,
             StrokeContainsPoint: StrokeContainsPoint::<Identity, Impl, OFFSET>,
@@ -3183,7 +3183,7 @@ impl ID2D1GeometryGroup_Vtbl {
             (*this).GetSourceGeometries(::core::mem::transmute_copy(&geometries), ::core::mem::transmute_copy(&geometriescount))
         }
         Self {
-            base: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFillMode: GetFillMode::<Identity, Impl, OFFSET>,
             GetSourceGeometryCount: GetSourceGeometryCount::<Identity, Impl, OFFSET>,
             GetSourceGeometries: GetSourceGeometries::<Identity, Impl, OFFSET>,
@@ -3196,7 +3196,7 @@ impl ID2D1GeometryGroup_Vtbl {
 pub trait ID2D1GeometryRealization_Impl: Sized + ID2D1Resource_Impl {}
 impl ID2D1GeometryRealization_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1GeometryRealization_Impl, const OFFSET: isize>() -> ID2D1GeometryRealization_Vtbl {
-        Self { base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1GeometryRealization as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -3239,7 +3239,7 @@ impl ID2D1GeometrySink_Vtbl {
             (*this).AddArc(::core::mem::transmute_copy(&arc))
         }
         Self {
-            base: Common::ID2D1SimplifiedGeometrySink_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: Common::ID2D1SimplifiedGeometrySink_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddLine: AddLine::<Identity, Impl, OFFSET>,
             AddBezier: AddBezier::<Identity, Impl, OFFSET>,
             AddQuadraticBezier: AddQuadraticBezier::<Identity, Impl, OFFSET>,
@@ -3270,7 +3270,7 @@ impl ID2D1GradientMesh_Vtbl {
             (*this).GetPatches(::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&patches), ::core::mem::transmute_copy(&patchescount)).into()
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPatchCount: GetPatchCount::<Identity, Impl, OFFSET>,
             GetPatches: GetPatches::<Identity, Impl, OFFSET>,
         }
@@ -3310,7 +3310,7 @@ impl ID2D1GradientStopCollection_Vtbl {
             (*this).GetExtendMode()
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGradientStopCount: GetGradientStopCount::<Identity, Impl, OFFSET>,
             GetGradientStops: GetGradientStops::<Identity, Impl, OFFSET>,
             GetColorInterpolationGamma: GetColorInterpolationGamma::<Identity, Impl, OFFSET>,
@@ -3358,7 +3358,7 @@ impl ID2D1GradientStopCollection1_Vtbl {
             (*this).GetColorInterpolationMode()
         }
         Self {
-            base: ID2D1GradientStopCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1GradientStopCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGradientStops1: GetGradientStops1::<Identity, Impl, OFFSET>,
             GetPreInterpolationSpace: GetPreInterpolationSpace::<Identity, Impl, OFFSET>,
             GetPostInterpolationSpace: GetPostInterpolationSpace::<Identity, Impl, OFFSET>,
@@ -3395,7 +3395,7 @@ impl ID2D1HwndRenderTarget_Vtbl {
             (*this).GetHwnd()
         }
         Self {
-            base: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(),
             CheckWindowState: CheckWindowState::<Identity, Impl, OFFSET>,
             Resize: Resize::<Identity, Impl, OFFSET>,
             GetHwnd: GetHwnd::<Identity, Impl, OFFSET>,
@@ -3408,7 +3408,7 @@ impl ID2D1HwndRenderTarget_Vtbl {
 pub trait ID2D1Image_Impl: Sized + ID2D1Resource_Impl {}
 impl ID2D1Image_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Image_Impl, const OFFSET: isize>() -> ID2D1Image_Vtbl {
-        Self { base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Image as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -3481,7 +3481,7 @@ impl ID2D1ImageBrush_Vtbl {
             (*this).GetSourceRectangle(::core::mem::transmute_copy(&sourcerectangle))
         }
         Self {
-            base: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetImage: SetImage::<Identity, Impl, OFFSET>,
             SetExtendModeX: SetExtendModeX::<Identity, Impl, OFFSET>,
             SetExtendModeY: SetExtendModeY::<Identity, Impl, OFFSET>,
@@ -3523,7 +3523,7 @@ impl ID2D1ImageSource_Vtbl {
             }
         }
         Self {
-            base: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
             OfferResources: OfferResources::<Identity, Impl, OFFSET>,
             TryReclaimResources: TryReclaimResources::<Identity, Impl, OFFSET>,
         }
@@ -3557,7 +3557,7 @@ impl ID2D1ImageSourceFromWic_Vtbl {
             (*this).GetSource(::core::mem::transmute_copy(&wicbitmapsource))
         }
         Self {
-            base: ID2D1ImageSource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1ImageSource_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnsureCached: EnsureCached::<Identity, Impl, OFFSET>,
             TrimCache: TrimCache::<Identity, Impl, OFFSET>,
             GetSource: GetSource::<Identity, Impl, OFFSET>,
@@ -3640,7 +3640,7 @@ impl ID2D1Ink_Vtbl {
             }
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetStartPoint: SetStartPoint::<Identity, Impl, OFFSET>,
             GetStartPoint: GetStartPoint::<Identity, Impl, OFFSET>,
             AddSegments: AddSegments::<Identity, Impl, OFFSET>,
@@ -3688,7 +3688,7 @@ impl ID2D1InkStyle_Vtbl {
             (*this).GetNibShape()
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetNibTransform: SetNibTransform::<Identity, Impl, OFFSET>,
             GetNibTransform: GetNibTransform::<Identity, Impl, OFFSET>,
             SetNibShape: SetNibShape::<Identity, Impl, OFFSET>,
@@ -3711,7 +3711,7 @@ impl ID2D1Layer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             *result__ = (*this).GetSize()
         }
-        Self { base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetSize: GetSize::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetSize: GetSize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Layer as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -3754,7 +3754,7 @@ impl ID2D1LinearGradientBrush_Vtbl {
             (*this).GetGradientStopCollection(::core::mem::transmute_copy(&gradientstopcollection))
         }
         Self {
-            base: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetStartPoint: SetStartPoint::<Identity, Impl, OFFSET>,
             SetEndPoint: SetEndPoint::<Identity, Impl, OFFSET>,
             GetStartPoint: GetStartPoint::<Identity, Impl, OFFSET>,
@@ -3769,7 +3769,7 @@ impl ID2D1LinearGradientBrush_Vtbl {
 pub trait ID2D1LookupTable3D_Impl: Sized + ID2D1Resource_Impl {}
 impl ID2D1LookupTable3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1LookupTable3D_Impl, const OFFSET: isize>() -> ID2D1LookupTable3D_Vtbl {
-        Self { base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1LookupTable3D as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -3791,7 +3791,7 @@ impl ID2D1Mesh_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Mesh as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -3822,7 +3822,7 @@ impl ID2D1Multithread_Vtbl {
             (*this).Leave()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetMultithreadProtected: GetMultithreadProtected::<Identity, Impl, OFFSET>,
             Enter: Enter::<Identity, Impl, OFFSET>,
             Leave: Leave::<Identity, Impl, OFFSET>,
@@ -3851,7 +3851,7 @@ impl ID2D1OffsetTransform_Vtbl {
             *result__ = (*this).GetOffset()
         }
         Self {
-            base: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOffset: SetOffset::<Identity, Impl, OFFSET>,
             GetOffset: GetOffset::<Identity, Impl, OFFSET>,
         }
@@ -3909,7 +3909,7 @@ impl ID2D1PathGeometry_Vtbl {
             }
         }
         Self {
-            base: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Stream: Stream::<Identity, Impl, OFFSET>,
             GetSegmentCount: GetSegmentCount::<Identity, Impl, OFFSET>,
@@ -3939,7 +3939,7 @@ impl ID2D1PathGeometry1_Vtbl {
             }
         }
         Self {
-            base: ID2D1PathGeometry_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1PathGeometry_Vtbl::new::<Identity, Impl, OFFSET>(),
             ComputePointAndSegmentAtLength: ComputePointAndSegmentAtLength::<Identity, Impl, OFFSET>,
         }
     }
@@ -3966,7 +3966,7 @@ impl ID2D1PrintControl_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddPage: AddPage::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -4052,7 +4052,7 @@ impl ID2D1Properties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropertyCount: GetPropertyCount::<Identity, Impl, OFFSET>,
             GetPropertyName: GetPropertyName::<Identity, Impl, OFFSET>,
             GetPropertyNameLength: GetPropertyNameLength::<Identity, Impl, OFFSET>,
@@ -4131,7 +4131,7 @@ impl ID2D1RadialGradientBrush_Vtbl {
             (*this).GetGradientStopCollection(::core::mem::transmute_copy(&gradientstopcollection))
         }
         Self {
-            base: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetCenter: SetCenter::<Identity, Impl, OFFSET>,
             SetGradientOriginOffset: SetGradientOriginOffset::<Identity, Impl, OFFSET>,
             SetRadiusX: SetRadiusX::<Identity, Impl, OFFSET>,
@@ -4159,7 +4159,7 @@ impl ID2D1RectangleGeometry_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRect(::core::mem::transmute_copy(&rect))
         }
-        Self { base: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRect: GetRect::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRect: GetRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1RectangleGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
@@ -4196,7 +4196,7 @@ impl ID2D1RenderInfo_Vtbl {
             (*this).SetInstructionCountHint(::core::mem::transmute_copy(&instructioncount))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetInputDescription: SetInputDescription::<Identity, Impl, OFFSET>,
             SetOutputBuffer: SetOutputBuffer::<Identity, Impl, OFFSET>,
             SetCached: SetCached::<Identity, Impl, OFFSET>,
@@ -4592,7 +4592,7 @@ impl ID2D1RenderTarget_Vtbl {
             (*this).IsSupported(::core::mem::transmute_copy(&rendertargetproperties))
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateBitmap: CreateBitmap::<Identity, Impl, OFFSET>,
             CreateBitmapFromWicBitmap: CreateBitmapFromWicBitmap::<Identity, Impl, OFFSET>,
             CreateSharedBitmap: CreateSharedBitmap::<Identity, Impl, OFFSET>,
@@ -4662,7 +4662,7 @@ impl ID2D1Resource_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFactory(::core::mem::transmute_copy(&factory))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetFactory: GetFactory::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetFactory: GetFactory::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -4678,7 +4678,7 @@ impl ID2D1ResourceTexture_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute_copy(&minimumextents), ::core::mem::transmute_copy(&maximimumextents), ::core::mem::transmute_copy(&strides), ::core::mem::transmute_copy(&dimensions), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datacount)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1ResourceTexture as ::windows::core::Interface>::IID
@@ -4696,7 +4696,7 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRoundedRect(::core::mem::transmute_copy(&roundedrect))
         }
-        Self { base: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRoundedRect: GetRoundedRect::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRoundedRect: GetRoundedRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1RoundedRectangleGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
@@ -4721,7 +4721,7 @@ impl ID2D1SolidColorBrush_Vtbl {
             *result__ = (*this).GetColor()
         }
         Self {
-            base: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             GetColor: GetColor::<Identity, Impl, OFFSET>,
         }
@@ -4749,7 +4749,7 @@ impl ID2D1SourceTransform_Vtbl {
             (*this).Draw(::core::mem::transmute(&target), ::core::mem::transmute_copy(&drawrect), ::core::mem::transmute(&targetorigin)).into()
         }
         Self {
-            base: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRenderInfo: SetRenderInfo::<Identity, Impl, OFFSET>,
             Draw: Draw::<Identity, Impl, OFFSET>,
         }
@@ -4797,7 +4797,7 @@ impl ID2D1SpriteBatch_Vtbl {
             (*this).Clear()
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddSprites: AddSprites::<Identity, Impl, OFFSET>,
             SetSprites: SetSprites::<Identity, Impl, OFFSET>,
             GetSprites: GetSprites::<Identity, Impl, OFFSET>,
@@ -4868,7 +4868,7 @@ impl ID2D1StrokeStyle_Vtbl {
             (*this).GetDashes(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount))
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStartCap: GetStartCap::<Identity, Impl, OFFSET>,
             GetEndCap: GetEndCap::<Identity, Impl, OFFSET>,
             GetDashCap: GetDashCap::<Identity, Impl, OFFSET>,
@@ -4894,7 +4894,7 @@ impl ID2D1StrokeStyle1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetStrokeTransformType()
         }
-        Self { base: ID2D1StrokeStyle_Vtbl::new::<Identity, Impl, OFFSET>(), GetStrokeTransformType: GetStrokeTransformType::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1StrokeStyle_Vtbl::new::<Identity, Impl, OFFSET>(), GetStrokeTransformType: GetStrokeTransformType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1StrokeStyle1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1StrokeStyle as ::windows::core::Interface>::IID
@@ -4923,7 +4923,7 @@ impl ID2D1SvgAttribute_Vtbl {
             }
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetElement: GetElement::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
@@ -5041,7 +5041,7 @@ impl ID2D1SvgDocument_Vtbl {
             }
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetViewportSize: SetViewportSize::<Identity, Impl, OFFSET>,
             GetViewportSize: GetViewportSize::<Identity, Impl, OFFSET>,
             SetRoot: SetRoot::<Identity, Impl, OFFSET>,
@@ -5270,7 +5270,7 @@ impl ID2D1SvgElement_Vtbl {
             }
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocument: GetDocument::<Identity, Impl, OFFSET>,
             GetTagName: GetTagName::<Identity, Impl, OFFSET>,
             GetTagNameLength: GetTagNameLength::<Identity, Impl, OFFSET>,
@@ -5342,7 +5342,7 @@ impl ID2D1SvgGlyphStyle_Vtbl {
             (*this).GetStroke(::core::mem::transmute_copy(&brush), ::core::mem::transmute_copy(&strokewidth), ::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&dashoffset))
         }
         Self {
-            base: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetFill: SetFill::<Identity, Impl, OFFSET>,
             GetFill: GetFill::<Identity, Impl, OFFSET>,
             SetStroke: SetStroke::<Identity, Impl, OFFSET>,
@@ -5403,7 +5403,7 @@ impl ID2D1SvgPaint_Vtbl {
             (*this).GetIdLength()
         }
         Self {
-            base: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPaintType: SetPaintType::<Identity, Impl, OFFSET>,
             GetPaintType: GetPaintType::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
@@ -5484,7 +5484,7 @@ impl ID2D1SvgPathData_Vtbl {
             }
         }
         Self {
-            base: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             RemoveSegmentDataAtEnd: RemoveSegmentDataAtEnd::<Identity, Impl, OFFSET>,
             UpdateSegmentData: UpdateSegmentData::<Identity, Impl, OFFSET>,
             GetSegmentData: GetSegmentData::<Identity, Impl, OFFSET>,
@@ -5531,7 +5531,7 @@ impl ID2D1SvgPointCollection_Vtbl {
             (*this).GetPointsCount()
         }
         Self {
-            base: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             RemovePointsAtEnd: RemovePointsAtEnd::<Identity, Impl, OFFSET>,
             UpdatePoints: UpdatePoints::<Identity, Impl, OFFSET>,
             GetPoints: GetPoints::<Identity, Impl, OFFSET>,
@@ -5583,7 +5583,7 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
             (*this).GetDashesCount()
         }
         Self {
-            base: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             RemoveDashesAtEnd: RemoveDashesAtEnd::<Identity, Impl, OFFSET>,
             UpdateDashes: UpdateDashes::<Identity, Impl, OFFSET>,
             UpdateDashes2: UpdateDashes2::<Identity, Impl, OFFSET>,
@@ -5615,7 +5615,7 @@ impl ID2D1TessellationSink_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddTriangles: AddTriangles::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -5655,7 +5655,7 @@ impl ID2D1Transform_Vtbl {
             }
         }
         Self {
-            base: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             MapOutputRectToInputRects: MapOutputRectToInputRects::<Identity, Impl, OFFSET>,
             MapInputRectsToOutputRect: MapInputRectsToOutputRect::<Identity, Impl, OFFSET>,
             MapInvalidRect: MapInvalidRect::<Identity, Impl, OFFSET>,
@@ -5724,7 +5724,7 @@ impl ID2D1TransformGraph_Vtbl {
             (*this).SetPassthroughGraph(::core::mem::transmute_copy(&effectinputindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInputCount: GetInputCount::<Identity, Impl, OFFSET>,
             SetSingleTransformNode: SetSingleTransformNode::<Identity, Impl, OFFSET>,
             AddNode: AddNode::<Identity, Impl, OFFSET>,
@@ -5750,7 +5750,7 @@ impl ID2D1TransformNode_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetInputCount()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInputCount: GetInputCount::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInputCount: GetInputCount::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
@@ -5775,7 +5775,7 @@ impl ID2D1TransformedGeometry_Vtbl {
             (*this).GetTransform(::core::mem::transmute_copy(&transform))
         }
         Self {
-            base: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSourceGeometry: GetSourceGeometry::<Identity, Impl, OFFSET>,
             GetTransform: GetTransform::<Identity, Impl, OFFSET>,
         }
@@ -5801,7 +5801,7 @@ impl ID2D1TransformedImageSource_Vtbl {
             (*this).GetProperties(::core::mem::transmute_copy(&properties))
         }
         Self {
-            base: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSource: GetSource::<Identity, Impl, OFFSET>,
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
         }
@@ -5826,7 +5826,7 @@ impl ID2D1VertexBuffer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Unmap().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET>, Unmap: Unmap::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET>, Unmap: Unmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1VertexBuffer as ::windows::core::Interface>::IID

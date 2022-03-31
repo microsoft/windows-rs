@@ -97,7 +97,7 @@ impl IJsonValue_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IJsonValue, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IJsonValue, OFFSET>(),
             ValueType: ValueType::<Identity, Impl, OFFSET>,
             Stringify: Stringify::<Identity, Impl, OFFSET>,
             GetString: GetString::<Identity, Impl, OFFSET>,

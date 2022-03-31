@@ -35,7 +35,7 @@ impl IAudioEffectDefinition_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEffectDefinition, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioEffectDefinition, OFFSET>(),
             ActivatableClassId: ActivatableClassId::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -105,7 +105,7 @@ impl IBasicAudioEffect_Vtbl {
             (*this).DiscardQueuedFrames().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBasicAudioEffect, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBasicAudioEffect, OFFSET>(),
             UseInputFrameForOutput: UseInputFrameForOutput::<Identity, Impl, OFFSET>,
             SupportedEncodingProperties: SupportedEncodingProperties::<Identity, Impl, OFFSET>,
             SetEncodingProperties: SetEncodingProperties::<Identity, Impl, OFFSET>,
@@ -205,7 +205,7 @@ impl IBasicVideoEffect_Vtbl {
             (*this).DiscardQueuedFrames().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBasicVideoEffect, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBasicVideoEffect, OFFSET>(),
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
             SupportedMemoryTypes: SupportedMemoryTypes::<Identity, Impl, OFFSET>,
             TimeIndependent: TimeIndependent::<Identity, Impl, OFFSET>,
@@ -268,7 +268,7 @@ impl IVideoCompositor_Vtbl {
             (*this).DiscardQueuedFrames().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositor, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositor, OFFSET>(),
             TimeIndependent: TimeIndependent::<Identity, Impl, OFFSET>,
             SetEncodingProperties: SetEncodingProperties::<Identity, Impl, OFFSET>,
             CompositeFrame: CompositeFrame::<Identity, Impl, OFFSET>,
@@ -317,7 +317,7 @@ impl IVideoCompositorDefinition_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositorDefinition, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVideoCompositorDefinition, OFFSET>(),
             ActivatableClassId: ActivatableClassId::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -363,7 +363,7 @@ impl IVideoEffectDefinition_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEffectDefinition, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVideoEffectDefinition, OFFSET>(),
             ActivatableClassId: ActivatableClassId::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }

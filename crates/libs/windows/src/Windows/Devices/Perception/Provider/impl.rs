@@ -66,7 +66,7 @@ impl IPerceptionFrameProvider_Vtbl {
             (*this).SetProperty(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProvider, OFFSET>(),
             FrameProviderInfo: FrameProviderInfo::<Identity, Impl, OFFSET>,
             Available: Available::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
@@ -103,7 +103,7 @@ impl IPerceptionFrameProviderManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProviderManager, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPerceptionFrameProviderManager, OFFSET>(),
             GetFrameProvider: GetFrameProvider::<Identity, Impl, OFFSET>,
         }
     }

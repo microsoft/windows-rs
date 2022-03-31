@@ -19,7 +19,7 @@ impl II2cControllerProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cControllerProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, II2cControllerProvider, OFFSET>(),
             GetDeviceProvider: GetDeviceProvider::<Identity, Impl, OFFSET>,
         }
     }
@@ -108,7 +108,7 @@ impl II2cDeviceProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cDeviceProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, II2cDeviceProvider, OFFSET>(),
             DeviceId: DeviceId::<Identity, Impl, OFFSET>,
             Write: Write::<Identity, Impl, OFFSET>,
             WritePartial: WritePartial::<Identity, Impl, OFFSET>,
@@ -146,7 +146,7 @@ impl II2cProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, II2cProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, II2cProvider, OFFSET>(),
             GetControllersAsync: GetControllersAsync::<Identity, Impl, OFFSET>,
         }
     }

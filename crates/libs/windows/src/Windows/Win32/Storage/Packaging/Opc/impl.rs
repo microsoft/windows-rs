@@ -35,7 +35,7 @@ impl IOpcCertificateEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -77,7 +77,7 @@ impl IOpcCertificateSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
@@ -244,7 +244,7 @@ impl IOpcDigitalSignature_Vtbl {
             (*this).GetSignatureXml(::core::mem::transmute_copy(&signaturexml), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNamespaces: GetNamespaces::<Identity, Impl, OFFSET>,
             GetSignatureId: GetSignatureId::<Identity, Impl, OFFSET>,
             GetSignaturePartName: GetSignaturePartName::<Identity, Impl, OFFSET>,
@@ -321,7 +321,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -417,7 +417,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSignatureOriginPartName: GetSignatureOriginPartName::<Identity, Impl, OFFSET>,
             SetSignatureOriginPartName: SetSignatureOriginPartName::<Identity, Impl, OFFSET>,
             GetSignatureEnumerator: GetSignatureEnumerator::<Identity, Impl, OFFSET>,
@@ -517,7 +517,7 @@ impl IOpcFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreatePackageRootUri: CreatePackageRootUri::<Identity, Impl, OFFSET>,
             CreatePartUri: CreatePartUri::<Identity, Impl, OFFSET>,
             CreateStreamOnFile: CreateStreamOnFile::<Identity, Impl, OFFSET>,
@@ -560,7 +560,7 @@ impl IOpcPackage_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPartSet: GetPartSet::<Identity, Impl, OFFSET>,
             GetRelationshipSet: GetRelationshipSet::<Identity, Impl, OFFSET>,
         }
@@ -636,7 +636,7 @@ impl IOpcPart_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRelationshipSet: GetRelationshipSet::<Identity, Impl, OFFSET>,
             GetContentStream: GetContentStream::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
@@ -703,7 +703,7 @@ impl IOpcPartEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -775,7 +775,7 @@ impl IOpcPartSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPart: GetPart::<Identity, Impl, OFFSET>,
             CreatePart: CreatePart::<Identity, Impl, OFFSET>,
             DeletePart: DeletePart::<Identity, Impl, OFFSET>,
@@ -830,7 +830,7 @@ impl IOpcPartUri_Vtbl {
             }
         }
         Self {
-            base: IOpcUri_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IOpcUri_Vtbl::new::<Identity, Impl, OFFSET>(),
             ComparePartUri: ComparePartUri::<Identity, Impl, OFFSET>,
             GetSourceUri: GetSourceUri::<Identity, Impl, OFFSET>,
             IsRelationshipsPartUri: IsRelationshipsPartUri::<Identity, Impl, OFFSET>,
@@ -907,7 +907,7 @@ impl IOpcRelationship_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetRelationshipType: GetRelationshipType::<Identity, Impl, OFFSET>,
             GetSourceUri: GetSourceUri::<Identity, Impl, OFFSET>,
@@ -974,7 +974,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1014,7 +1014,7 @@ impl IOpcRelationshipSelector_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSelectorType: GetSelectorType::<Identity, Impl, OFFSET>,
             GetSelectionCriterion: GetSelectionCriterion::<Identity, Impl, OFFSET>,
         }
@@ -1078,7 +1078,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1124,7 +1124,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
@@ -1219,7 +1219,7 @@ impl IOpcRelationshipSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRelationship: GetRelationship::<Identity, Impl, OFFSET>,
             CreateRelationship: CreateRelationship::<Identity, Impl, OFFSET>,
             DeleteRelationship: DeleteRelationship::<Identity, Impl, OFFSET>,
@@ -1243,7 +1243,7 @@ impl IOpcSignatureCustomObject_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetXml(::core::mem::transmute_copy(&xmlmarkup), ::core::mem::transmute_copy(&count)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetXml: GetXml::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetXml: GetXml::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOpcSignatureCustomObject as ::windows::core::Interface>::IID
@@ -1304,7 +1304,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1350,7 +1350,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
@@ -1421,7 +1421,7 @@ impl IOpcSignaturePartReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPartName: GetPartName::<Identity, Impl, OFFSET>,
             GetContentType: GetContentType::<Identity, Impl, OFFSET>,
             GetDigestMethod: GetDigestMethod::<Identity, Impl, OFFSET>,
@@ -1488,7 +1488,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1536,7 +1536,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
@@ -1619,7 +1619,7 @@ impl IOpcSignatureReference_Vtbl {
             (*this).GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetUri: GetUri::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
@@ -1687,7 +1687,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1735,7 +1735,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
@@ -1818,7 +1818,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSourceUri: GetSourceUri::<Identity, Impl, OFFSET>,
             GetDigestMethod: GetDigestMethod::<Identity, Impl, OFFSET>,
             GetDigestValue: GetDigestValue::<Identity, Impl, OFFSET>,
@@ -1886,7 +1886,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             MovePrevious: MovePrevious::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1946,7 +1946,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             CreateRelationshipSelectorSet: CreateRelationshipSelectorSet::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -2132,7 +2132,7 @@ impl IOpcSigningOptions_Vtbl {
             (*this).SetSignaturePartName(::core::mem::transmute(&signaturepartname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSignatureId: GetSignatureId::<Identity, Impl, OFFSET>,
             SetSignatureId: SetSignatureId::<Identity, Impl, OFFSET>,
             GetSignatureMethod: GetSignatureMethod::<Identity, Impl, OFFSET>,
@@ -2199,7 +2199,7 @@ impl IOpcUri_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IUri_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IUri_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetRelationshipsPartUri: GetRelationshipsPartUri::<Identity, Impl, OFFSET>,
             GetRelativeUri: GetRelativeUri::<Identity, Impl, OFFSET>,
             CombinePartUri: CombinePartUri::<Identity, Impl, OFFSET>,

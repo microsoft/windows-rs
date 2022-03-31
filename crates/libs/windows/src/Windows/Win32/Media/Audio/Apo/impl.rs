@@ -1,7 +1,7 @@
 pub trait IApoAcousticEchoCancellation_Impl: Sized {}
 impl IApoAcousticEchoCancellation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApoAcousticEchoCancellation_Impl, const OFFSET: isize>() -> IApoAcousticEchoCancellation_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApoAcousticEchoCancellation as ::windows::core::Interface>::IID
@@ -36,7 +36,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddAuxiliaryInput: AddAuxiliaryInput::<Identity, Impl, OFFSET>,
             RemoveAuxiliaryInput: RemoveAuxiliaryInput::<Identity, Impl, OFFSET>,
             IsInputFormatSupported: IsInputFormatSupported::<Identity, Impl, OFFSET>,
@@ -56,7 +56,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AcceptInput(::core::mem::transmute_copy(&dwinputid), ::core::mem::transmute_copy(&pinputconnection))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AcceptInput: AcceptInput::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AcceptInput: AcceptInput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApoAuxiliaryInputRT as ::windows::core::Interface>::IID
@@ -73,7 +73,7 @@ impl IAudioDeviceModulesClient_Vtbl {
             (*this).SetAudioDeviceModulesManager(::core::mem::transmute(&paudiodevicemodulesmanager)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAudioDeviceModulesManager: SetAudioDeviceModulesManager::<Identity, Impl, OFFSET>,
         }
     }
@@ -130,7 +130,7 @@ impl IAudioMediaType_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsCompressedFormat: IsCompressedFormat::<Identity, Impl, OFFSET>,
             IsEqual: IsEqual::<Identity, Impl, OFFSET>,
             GetAudioFormat: GetAudioFormat::<Identity, Impl, OFFSET>,
@@ -218,7 +218,7 @@ impl IAudioProcessingObject_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetLatency: GetLatency::<Identity, Impl, OFFSET>,
             GetRegistrationProperties: GetRegistrationProperties::<Identity, Impl, OFFSET>,
@@ -249,7 +249,7 @@ impl IAudioProcessingObjectConfiguration_Vtbl {
             (*this).UnlockForProcess().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LockForProcess: LockForProcess::<Identity, Impl, OFFSET>,
             UnlockForProcess: UnlockForProcess::<Identity, Impl, OFFSET>,
         }
@@ -268,7 +268,7 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ApoLog(::core::mem::transmute_copy(&level), ::core::mem::transmute(&format))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ApoLog: ApoLog::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ApoLog: ApoLog::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioProcessingObjectLoggingService as ::windows::core::Interface>::IID
@@ -293,7 +293,7 @@ impl IAudioProcessingObjectNotifications_Vtbl {
             (*this).HandleNotification(::core::mem::transmute_copy(&aponotification))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetApoNotificationRegistrationInfo: GetApoNotificationRegistrationInfo::<Identity, Impl, OFFSET>,
             HandleNotification: HandleNotification::<Identity, Impl, OFFSET>,
         }
@@ -325,7 +325,7 @@ impl IAudioProcessingObjectRT_Vtbl {
             (*this).CalcOutputFrames(::core::mem::transmute_copy(&u32inputframecount))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             APOProcess: APOProcess::<Identity, Impl, OFFSET>,
             CalcInputFrames: CalcInputFrames::<Identity, Impl, OFFSET>,
             CalcOutputFrames: CalcOutputFrames::<Identity, Impl, OFFSET>,
@@ -351,7 +351,7 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRealTimeWorkQueue: GetRealTimeWorkQueue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRealTimeWorkQueue: GetRealTimeWorkQueue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioProcessingObjectRTQueueService as ::windows::core::Interface>::IID
@@ -386,7 +386,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CalcMaxInputFrames: CalcMaxInputFrames::<Identity, Impl, OFFSET>,
             CalcMaxOutputFrames: CalcMaxOutputFrames::<Identity, Impl, OFFSET>,
         }
@@ -398,7 +398,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
 pub trait IAudioSystemEffects_Impl: Sized {}
 impl IAudioSystemEffects_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffects_Impl, const OFFSET: isize>() -> IAudioSystemEffects_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
@@ -416,7 +416,7 @@ impl IAudioSystemEffects2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetEffectsList(::core::mem::transmute_copy(&ppeffectsids), ::core::mem::transmute_copy(&pceffects), ::core::mem::transmute_copy(&event)).into()
         }
-        Self { base: IAudioSystemEffects_Vtbl::new::<Identity, Impl, OFFSET>(), GetEffectsList: GetEffectsList::<Identity, Impl, OFFSET> }
+        Self { base__: IAudioSystemEffects_Vtbl::new::<Identity, Impl, OFFSET>(), GetEffectsList: GetEffectsList::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
@@ -441,7 +441,7 @@ impl IAudioSystemEffects3_Vtbl {
             (*this).SetAudioSystemEffectState(::core::mem::transmute(&effectid), ::core::mem::transmute_copy(&state)).into()
         }
         Self {
-            base: IAudioSystemEffects2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAudioSystemEffects2_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetControllableSystemEffectsList: GetControllableSystemEffectsList::<Identity, Impl, OFFSET>,
             SetAudioSystemEffectState: SetAudioSystemEffectState::<Identity, Impl, OFFSET>,
         }
@@ -491,7 +491,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFormatCount: GetFormatCount::<Identity, Impl, OFFSET>,
             GetFormat: GetFormat::<Identity, Impl, OFFSET>,
             GetFormatRepresentation: GetFormatRepresentation::<Identity, Impl, OFFSET>,

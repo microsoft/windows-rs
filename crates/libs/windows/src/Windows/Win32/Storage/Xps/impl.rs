@@ -41,7 +41,7 @@ impl IXpsDocumentPackageTarget_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetXpsOMPackageWriter: GetXpsOMPackageWriter::<Identity, Impl, OFFSET>,
             GetXpsOMFactory: GetXpsOMFactory::<Identity, Impl, OFFSET>,
             GetXpsType: GetXpsType::<Identity, Impl, OFFSET>,
@@ -82,7 +82,7 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetXpsOMPackageWriter3D: GetXpsOMPackageWriter3D::<Identity, Impl, OFFSET>,
             GetXpsOMFactory: GetXpsOMFactory::<Identity, Impl, OFFSET>,
         }
@@ -114,7 +114,7 @@ impl IXpsOMBrush_Vtbl {
             (*this).SetOpacity(::core::mem::transmute_copy(&opacity)).into()
         }
         Self {
-            base: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOpacity: GetOpacity::<Identity, Impl, OFFSET>,
             SetOpacity: SetOpacity::<Identity, Impl, OFFSET>,
         }
@@ -256,7 +256,7 @@ impl IXpsOMCanvas_Vtbl {
             }
         }
         Self {
-            base: IXpsOMVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetVisuals: GetVisuals::<Identity, Impl, OFFSET>,
             GetUseAliasedEdgeMode: GetUseAliasedEdgeMode::<Identity, Impl, OFFSET>,
             SetUseAliasedEdgeMode: SetUseAliasedEdgeMode::<Identity, Impl, OFFSET>,
@@ -301,7 +301,7 @@ impl IXpsOMColorProfileResource_Vtbl {
             (*this).SetContent(::core::mem::transmute(&sourcestream), ::core::mem::transmute(&partname)).into()
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
@@ -377,7 +377,7 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -710,7 +710,7 @@ impl IXpsOMCoreProperties_Vtbl {
             }
         }
         Self {
-            base: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetCategory: GetCategory::<Identity, Impl, OFFSET>,
             SetCategory: SetCategory::<Identity, Impl, OFFSET>,
@@ -804,7 +804,7 @@ impl IXpsOMDashCollection_Vtbl {
             (*this).Append(::core::mem::transmute_copy(&dash)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -912,7 +912,7 @@ impl IXpsOMDictionary_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
@@ -1020,7 +1020,7 @@ impl IXpsOMDocument_Vtbl {
             }
         }
         Self {
-            base: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetPageReferences: GetPageReferences::<Identity, Impl, OFFSET>,
             GetPrintTicketResource: GetPrintTicketResource::<Identity, Impl, OFFSET>,
@@ -1088,7 +1088,7 @@ impl IXpsOMDocumentCollection_Vtbl {
             (*this).Append(::core::mem::transmute(&document)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -1150,7 +1150,7 @@ impl IXpsOMDocumentSequence_Vtbl {
             (*this).SetPrintTicketResource(::core::mem::transmute(&printticketresource)).into()
         }
         Self {
-            base: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetDocuments: GetDocuments::<Identity, Impl, OFFSET>,
             GetPrintTicketResource: GetPrintTicketResource::<Identity, Impl, OFFSET>,
@@ -1198,7 +1198,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
             (*this).SetContent(::core::mem::transmute(&sourcestream), ::core::mem::transmute(&partname)).into()
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
@@ -1245,7 +1245,7 @@ impl IXpsOMFontResource_Vtbl {
             }
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
             GetEmbeddingOption: GetEmbeddingOption::<Identity, Impl, OFFSET>,
@@ -1322,7 +1322,7 @@ impl IXpsOMFontResourceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             SetAt: SetAt::<Identity, Impl, OFFSET>,
@@ -1431,7 +1431,7 @@ impl IXpsOMGeometry_Vtbl {
             }
         }
         Self {
-            base: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFigures: GetFigures::<Identity, Impl, OFFSET>,
             GetFillRule: GetFillRule::<Identity, Impl, OFFSET>,
             SetFillRule: SetFillRule::<Identity, Impl, OFFSET>,
@@ -1592,7 +1592,7 @@ impl IXpsOMGeometryFigure_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetSegmentData: GetSegmentData::<Identity, Impl, OFFSET>,
             GetSegmentTypes: GetSegmentTypes::<Identity, Impl, OFFSET>,
@@ -1667,7 +1667,7 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
             (*this).Append(::core::mem::transmute(&geometryfigure)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -1951,7 +1951,7 @@ impl IXpsOMGlyphs_Vtbl {
             }
         }
         Self {
-            base: IXpsOMVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetUnicodeString: GetUnicodeString::<Identity, Impl, OFFSET>,
             GetGlyphIndexCount: GetGlyphIndexCount::<Identity, Impl, OFFSET>,
             GetGlyphIndices: GetGlyphIndices::<Identity, Impl, OFFSET>,
@@ -2142,7 +2142,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
             (*this).SetDeviceFontName(::core::mem::transmute(&devicefontname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ApplyEdits: ApplyEdits::<Identity, Impl, OFFSET>,
             GetUnicodeString: GetUnicodeString::<Identity, Impl, OFFSET>,
             SetUnicodeString: SetUnicodeString::<Identity, Impl, OFFSET>,
@@ -2268,7 +2268,7 @@ impl IXpsOMGradientBrush_Vtbl {
             (*this).SetColorInterpolationMode(::core::mem::transmute_copy(&colorinterpolationmode)).into()
         }
         Self {
-            base: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGradientStops: GetGradientStops::<Identity, Impl, OFFSET>,
             GetTransform: GetTransform::<Identity, Impl, OFFSET>,
             GetTransformLocal: GetTransformLocal::<Identity, Impl, OFFSET>,
@@ -2344,7 +2344,7 @@ impl IXpsOMGradientStop_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetOffset: GetOffset::<Identity, Impl, OFFSET>,
             SetOffset: SetOffset::<Identity, Impl, OFFSET>,
@@ -2410,7 +2410,7 @@ impl IXpsOMGradientStopCollection_Vtbl {
             (*this).Append(::core::mem::transmute(&stop)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -2476,7 +2476,7 @@ impl IXpsOMImageBrush_Vtbl {
             }
         }
         Self {
-            base: IXpsOMTileBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMTileBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetImageResource: GetImageResource::<Identity, Impl, OFFSET>,
             SetImageResource: SetImageResource::<Identity, Impl, OFFSET>,
             GetColorProfileResource: GetColorProfileResource::<Identity, Impl, OFFSET>,
@@ -2525,7 +2525,7 @@ impl IXpsOMImageResource_Vtbl {
             }
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
             GetImageType: GetImageType::<Identity, Impl, OFFSET>,
@@ -2602,7 +2602,7 @@ impl IXpsOMImageResourceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -2669,7 +2669,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
             }
         }
         Self {
-            base: IXpsOMGradientBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMGradientBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStartPoint: GetStartPoint::<Identity, Impl, OFFSET>,
             SetStartPoint: SetStartPoint::<Identity, Impl, OFFSET>,
             GetEndPoint: GetEndPoint::<Identity, Impl, OFFSET>,
@@ -2716,7 +2716,7 @@ impl IXpsOMMatrixTransform_Vtbl {
             }
         }
         Self {
-            base: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetMatrix: GetMatrix::<Identity, Impl, OFFSET>,
             SetMatrix: SetMatrix::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
@@ -2755,7 +2755,7 @@ impl IXpsOMNameCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
@@ -3215,7 +3215,7 @@ impl IXpsOMObjectFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreatePackage: CreatePackage::<Identity, Impl, OFFSET>,
             CreatePackageFromFile: CreatePackageFromFile::<Identity, Impl, OFFSET>,
             CreatePackageFromStream: CreatePackageFromStream::<Identity, Impl, OFFSET>,
@@ -3410,7 +3410,7 @@ impl IXpsOMObjectFactory1_Vtbl {
             }
         }
         Self {
-            base: IXpsOMObjectFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMObjectFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocumentTypeFromFile: GetDocumentTypeFromFile::<Identity, Impl, OFFSET>,
             GetDocumentTypeFromStream: GetDocumentTypeFromStream::<Identity, Impl, OFFSET>,
             ConvertHDPhotoToJpegXR: ConvertHDPhotoToJpegXR::<Identity, Impl, OFFSET>,
@@ -3520,7 +3520,7 @@ impl IXpsOMPackage_Vtbl {
             (*this).WriteToStream(::core::mem::transmute(&stream), ::core::mem::transmute_copy(&optimizemarkupsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDocumentSequence: GetDocumentSequence::<Identity, Impl, OFFSET>,
             SetDocumentSequence: SetDocumentSequence::<Identity, Impl, OFFSET>,
             GetCoreProperties: GetCoreProperties::<Identity, Impl, OFFSET>,
@@ -3568,7 +3568,7 @@ impl IXpsOMPackage1_Vtbl {
             (*this).WriteToStream1(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&optimizemarkupsize), ::core::mem::transmute_copy(&documenttype)).into()
         }
         Self {
-            base: IXpsOMPackage_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPackage_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocumentType: GetDocumentType::<Identity, Impl, OFFSET>,
             WriteToFile1: WriteToFile1::<Identity, Impl, OFFSET>,
             WriteToStream1: WriteToStream1::<Identity, Impl, OFFSET>,
@@ -3596,7 +3596,7 @@ impl IXpsOMPackageTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateXpsOMPackageWriter: CreateXpsOMPackageWriter::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateXpsOMPackageWriter: CreateXpsOMPackageWriter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsOMPackageTarget as ::windows::core::Interface>::IID
@@ -3645,7 +3645,7 @@ impl IXpsOMPackageWriter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartNewDocument: StartNewDocument::<Identity, Impl, OFFSET>,
             AddPage: AddPage::<Identity, Impl, OFFSET>,
             AddResource: AddResource::<Identity, Impl, OFFSET>,
@@ -3676,7 +3676,7 @@ impl IXpsOMPackageWriter3D_Vtbl {
             (*this).SetModelPrintTicket(::core::mem::transmute(&printticketpartname), ::core::mem::transmute(&printticketdata)).into()
         }
         Self {
-            base: IXpsOMPackageWriter_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPackageWriter_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddModelTexture: AddModelTexture::<Identity, Impl, OFFSET>,
             SetModelPrintTicket: SetModelPrintTicket::<Identity, Impl, OFFSET>,
         }
@@ -3902,7 +3902,7 @@ impl IXpsOMPage_Vtbl {
             }
         }
         Self {
-            base: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetVisuals: GetVisuals::<Identity, Impl, OFFSET>,
             GetPageDimensions: GetPageDimensions::<Identity, Impl, OFFSET>,
@@ -3956,7 +3956,7 @@ impl IXpsOMPage1_Vtbl {
             (*this).Write1(::core::mem::transmute(&stream), ::core::mem::transmute_copy(&optimizemarkupsize), ::core::mem::transmute_copy(&documenttype)).into()
         }
         Self {
-            base: IXpsOMPage_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMPage_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocumentType: GetDocumentType::<Identity, Impl, OFFSET>,
             Write1: Write1::<Identity, Impl, OFFSET>,
         }
@@ -4140,7 +4140,7 @@ impl IXpsOMPageReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetPage: GetPage::<Identity, Impl, OFFSET>,
             SetPage: SetPage::<Identity, Impl, OFFSET>,
@@ -4217,7 +4217,7 @@ impl IXpsOMPageReferenceCollection_Vtbl {
             (*this).Append(::core::mem::transmute(&pagereference)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -4255,7 +4255,7 @@ impl IXpsOMPart_Vtbl {
             (*this).SetPartName(::core::mem::transmute(&parturi)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPartName: GetPartName::<Identity, Impl, OFFSET>,
             SetPartName: SetPartName::<Identity, Impl, OFFSET>,
         }
@@ -4317,7 +4317,7 @@ impl IXpsOMPartResources_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFontResources: GetFontResources::<Identity, Impl, OFFSET>,
             GetImageResources: GetImageResources::<Identity, Impl, OFFSET>,
             GetColorProfileResources: GetColorProfileResources::<Identity, Impl, OFFSET>,
@@ -4383,7 +4383,7 @@ impl IXpsOMPartUriCollection_Vtbl {
             (*this).Append(::core::mem::transmute(&parturi)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -4751,7 +4751,7 @@ impl IXpsOMPath_Vtbl {
             }
         }
         Self {
-            base: IXpsOMVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGeometry: GetGeometry::<Identity, Impl, OFFSET>,
             GetGeometryLocal: GetGeometryLocal::<Identity, Impl, OFFSET>,
             SetGeometryLocal: SetGeometryLocal::<Identity, Impl, OFFSET>,
@@ -4820,7 +4820,7 @@ impl IXpsOMPrintTicketResource_Vtbl {
             (*this).SetContent(::core::mem::transmute(&sourcestream), ::core::mem::transmute(&partname)).into()
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
@@ -4900,7 +4900,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
             }
         }
         Self {
-            base: IXpsOMGradientBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMGradientBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCenter: GetCenter::<Identity, Impl, OFFSET>,
             SetCenter: SetCenter::<Identity, Impl, OFFSET>,
             GetRadiiSizes: GetRadiiSizes::<Identity, Impl, OFFSET>,
@@ -4939,7 +4939,7 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
             (*this).SetDictionary(::core::mem::transmute(&dictionary)).into()
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDictionary: GetDictionary::<Identity, Impl, OFFSET>,
             SetDictionary: SetDictionary::<Identity, Impl, OFFSET>,
         }
@@ -4973,7 +4973,7 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
             (*this).Write1(::core::mem::transmute(&stream), ::core::mem::transmute_copy(&documenttype)).into()
         }
         Self {
-            base: IXpsOMRemoteDictionaryResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMRemoteDictionaryResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocumentType: GetDocumentType::<Identity, Impl, OFFSET>,
             Write1: Write1::<Identity, Impl, OFFSET>,
         }
@@ -5049,7 +5049,7 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -5068,7 +5068,7 @@ pub trait IXpsOMResource_Impl: Sized + IXpsOMPart_Impl {}
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMResource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMResource_Impl, const OFFSET: isize>() -> IXpsOMResource_Vtbl {
-        Self { base: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsOMResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID
@@ -5103,7 +5103,7 @@ impl IXpsOMShareable_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
         }
@@ -5149,7 +5149,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
             (*this).SetContent(::core::mem::transmute(&sourcestream), ::core::mem::transmute(&partname)).into()
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
@@ -5226,7 +5226,7 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -5269,7 +5269,7 @@ impl IXpsOMSolidColorBrush_Vtbl {
             }
         }
         Self {
-            base: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetColor: GetColor::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
@@ -5316,7 +5316,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
             (*this).SetContent(::core::mem::transmute(&sourcestream), ::core::mem::transmute(&partname)).into()
         }
         Self {
-            base: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOwner: GetOwner::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
@@ -5344,7 +5344,7 @@ impl IXpsOMThumbnailGenerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GenerateThumbnail: GenerateThumbnail::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GenerateThumbnail: GenerateThumbnail::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsOMThumbnailGenerator as ::windows::core::Interface>::IID
@@ -5457,7 +5457,7 @@ impl IXpsOMTileBrush_Vtbl {
             (*this).SetTileMode(::core::mem::transmute_copy(&tilemode)).into()
         }
         Self {
-            base: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetTransform: GetTransform::<Identity, Impl, OFFSET>,
             GetTransformLocal: GetTransformLocal::<Identity, Impl, OFFSET>,
             SetTransformLocal: SetTransformLocal::<Identity, Impl, OFFSET>,
@@ -5716,7 +5716,7 @@ impl IXpsOMVisual_Vtbl {
             (*this).SetLanguage(::core::mem::transmute(&language)).into()
         }
         Self {
-            base: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetTransform: GetTransform::<Identity, Impl, OFFSET>,
             GetTransformLocal: GetTransformLocal::<Identity, Impl, OFFSET>,
             SetTransformLocal: SetTransformLocal::<Identity, Impl, OFFSET>,
@@ -5813,7 +5813,7 @@ impl IXpsOMVisualBrush_Vtbl {
             }
         }
         Self {
-            base: IXpsOMTileBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXpsOMTileBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetVisual: GetVisual::<Identity, Impl, OFFSET>,
             GetVisualLocal: GetVisualLocal::<Identity, Impl, OFFSET>,
             SetVisualLocal: SetVisualLocal::<Identity, Impl, OFFSET>,
@@ -5879,7 +5879,7 @@ impl IXpsOMVisualCollection_Vtbl {
             (*this).Append(::core::mem::transmute(&object)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -6025,7 +6025,7 @@ impl IXpsSignature_Vtbl {
             (*this).SetSignatureXml(::core::mem::transmute_copy(&signaturexml), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSignatureId: GetSignatureId::<Identity, Impl, OFFSET>,
             GetSignatureValue: GetSignatureValue::<Identity, Impl, OFFSET>,
             GetCertificateEnumerator: GetCertificateEnumerator::<Identity, Impl, OFFSET>,
@@ -6111,7 +6111,7 @@ impl IXpsSignatureBlock_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRequests: GetRequests::<Identity, Impl, OFFSET>,
             GetPartName: GetPartName::<Identity, Impl, OFFSET>,
             GetDocumentIndex: GetDocumentIndex::<Identity, Impl, OFFSET>,
@@ -6158,7 +6158,7 @@ impl IXpsSignatureBlockCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&index)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
@@ -6203,7 +6203,7 @@ impl IXpsSignatureCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&index)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
@@ -6322,7 +6322,7 @@ impl IXpsSignatureManager_Vtbl {
             (*this).SavePackageToStream(::core::mem::transmute(&stream)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LoadPackageFile: LoadPackageFile::<Identity, Impl, OFFSET>,
             LoadPackageStream: LoadPackageStream::<Identity, Impl, OFFSET>,
             Sign: Sign::<Identity, Impl, OFFSET>,
@@ -6455,7 +6455,7 @@ impl IXpsSignatureRequest_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIntent: GetIntent::<Identity, Impl, OFFSET>,
             SetIntent: SetIntent::<Identity, Impl, OFFSET>,
             GetRequestedSigner: GetRequestedSigner::<Identity, Impl, OFFSET>,
@@ -6509,7 +6509,7 @@ impl IXpsSignatureRequestCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&index)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
@@ -6688,7 +6688,7 @@ impl IXpsSigningOptions_Vtbl {
             (*this).SetFlags(::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSignatureId: GetSignatureId::<Identity, Impl, OFFSET>,
             SetSignatureId: SetSignatureId::<Identity, Impl, OFFSET>,
             GetSignatureMethod: GetSignatureMethod::<Identity, Impl, OFFSET>,

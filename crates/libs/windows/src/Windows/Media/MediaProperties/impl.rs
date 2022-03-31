@@ -54,7 +54,7 @@ impl IMediaEncodingProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProperties, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEncodingProperties, OFFSET>(),
             Properties: Properties::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
             SetSubtype: SetSubtype::<Identity, Impl, OFFSET>,

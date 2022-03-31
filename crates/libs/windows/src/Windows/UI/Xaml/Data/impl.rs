@@ -216,7 +216,7 @@ impl ICollectionView_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICollectionView, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICollectionView, OFFSET>(),
             CurrentItem: CurrentItem::<Identity, Impl, OFFSET>,
             CurrentPosition: CurrentPosition::<Identity, Impl, OFFSET>,
             IsCurrentAfterLast: IsCurrentAfterLast::<Identity, Impl, OFFSET>,
@@ -260,7 +260,7 @@ impl ICollectionViewFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICollectionViewFactory, OFFSET>(), CreateView: CreateView::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ICollectionViewFactory, OFFSET>(), CreateView: CreateView::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICollectionViewFactory as ::windows::core::Interface>::IID
@@ -303,7 +303,7 @@ impl ICollectionViewGroup_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICollectionViewGroup, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICollectionViewGroup, OFFSET>(),
             Group: Group::<Identity, Impl, OFFSET>,
             GroupItems: GroupItems::<Identity, Impl, OFFSET>,
         }
@@ -413,7 +413,7 @@ impl ICustomProperty_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomProperty, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICustomProperty, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -491,7 +491,7 @@ impl ICustomPropertyProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomPropertyProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICustomPropertyProvider, OFFSET>(),
             GetCustomProperty: GetCustomProperty::<Identity, Impl, OFFSET>,
             GetIndexedProperty: GetIndexedProperty::<Identity, Impl, OFFSET>,
             GetStringRepresentation: GetStringRepresentation::<Identity, Impl, OFFSET>,
@@ -518,7 +518,7 @@ impl IItemsRangeInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RangesChanged(::core::mem::transmute(&visiblerange), ::core::mem::transmute(&trackeditems)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsRangeInfo, OFFSET>(), RangesChanged: RangesChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IItemsRangeInfo, OFFSET>(), RangesChanged: RangesChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemsRangeInfo as ::windows::core::Interface>::IID
@@ -554,7 +554,7 @@ impl INotifyPropertyChanged_Vtbl {
             (*this).RemovePropertyChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INotifyPropertyChanged, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INotifyPropertyChanged, OFFSET>(),
             PropertyChanged: PropertyChanged::<Identity, Impl, OFFSET>,
             RemovePropertyChanged: RemovePropertyChanged::<Identity, Impl, OFFSET>,
         }
@@ -612,7 +612,7 @@ impl ISelectionInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionInfo, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISelectionInfo, OFFSET>(),
             SelectRange: SelectRange::<Identity, Impl, OFFSET>,
             DeselectRange: DeselectRange::<Identity, Impl, OFFSET>,
             IsSelected: IsSelected::<Identity, Impl, OFFSET>,
@@ -660,7 +660,7 @@ impl ISupportIncrementalLoading_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISupportIncrementalLoading, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISupportIncrementalLoading, OFFSET>(),
             LoadMoreItemsAsync: LoadMoreItemsAsync::<Identity, Impl, OFFSET>,
             HasMoreItems: HasMoreItems::<Identity, Impl, OFFSET>,
         }
@@ -706,7 +706,7 @@ impl IValueConverter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IValueConverter, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IValueConverter, OFFSET>(),
             Convert: Convert::<Identity, Impl, OFFSET>,
             ConvertBack: ConvertBack::<Identity, Impl, OFFSET>,
         }

@@ -47,7 +47,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DeviceID: DeviceID::<Identity, Impl, OFFSET>,
             Authorization: Authorization::<Identity, Impl, OFFSET>,
             SetAuthorization: SetAuthorization::<Identity, Impl, OFFSET>,
@@ -101,7 +101,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -142,7 +142,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
         }
@@ -194,7 +194,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
@@ -379,7 +379,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             showShareMediaCPL: showShareMediaCPL::<Identity, Impl, OFFSET>,
             userHomeMediaSharingState: userHomeMediaSharingState::<Identity, Impl, OFFSET>,
             SetuserHomeMediaSharingState: SetuserHomeMediaSharingState::<Identity, Impl, OFFSET>,

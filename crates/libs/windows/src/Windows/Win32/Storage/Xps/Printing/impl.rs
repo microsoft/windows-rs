@@ -11,7 +11,7 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
             (*this).PackageStatusUpdated(::core::mem::transmute_copy(&packagestatus)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PackageStatusUpdated: PackageStatusUpdated::<Identity, Impl, OFFSET>,
         }
     }
@@ -42,7 +42,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPackageTargetTypes: GetPackageTargetTypes::<Identity, Impl, OFFSET>,
             GetPackageTarget: GetPackageTarget::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
@@ -71,7 +71,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateDocumentPackageTargetForPrintJob: CreateDocumentPackageTargetForPrintJob::<Identity, Impl, OFFSET>,
         }
     }
@@ -102,7 +102,7 @@ impl IXpsPrintJob_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             GetJobStatus: GetJobStatus::<Identity, Impl, OFFSET>,
         }
@@ -123,7 +123,7 @@ impl IXpsPrintJobStream_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        Self { base: super::super::super::System::Com::ISequentialStream_Vtbl::new::<Identity, Impl, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::ISequentialStream_Vtbl::new::<Identity, Impl, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsPrintJobStream as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID

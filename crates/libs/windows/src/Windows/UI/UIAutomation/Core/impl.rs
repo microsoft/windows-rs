@@ -19,7 +19,7 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationConnectionBoundObjectProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationConnectionBoundObjectProvider, OFFSET>(),
             IsComThreadingRequired: IsComThreadingRequired::<Identity, Impl, OFFSET>,
         }
     }
@@ -54,7 +54,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRemoteOperationExtensionProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAutomationRemoteOperationExtensionProvider, OFFSET>(),
             CallExtension: CallExtension::<Identity, Impl, OFFSET>,
             IsExtensionSupported: IsExtensionSupported::<Identity, Impl, OFFSET>,
         }

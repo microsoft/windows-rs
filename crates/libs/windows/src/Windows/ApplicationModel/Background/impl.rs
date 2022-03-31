@@ -4,7 +4,7 @@ impl ::windows::core::RuntimeName for IBackgroundCondition {
 }
 impl IBackgroundCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCondition_Impl, const OFFSET: isize>() -> IBackgroundCondition_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundCondition, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundCondition, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundCondition as ::windows::core::Interface>::IID
@@ -23,7 +23,7 @@ impl IBackgroundTask_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Run(::core::mem::transmute(&taskinstance)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTask as ::windows::core::Interface>::IID
@@ -143,7 +143,7 @@ impl IBackgroundTaskInstance_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance, OFFSET>(),
             InstanceId: InstanceId::<Identity, Impl, OFFSET>,
             Task: Task::<Identity, Impl, OFFSET>,
             Progress: Progress::<Identity, Impl, OFFSET>,
@@ -183,7 +183,7 @@ impl IBackgroundTaskInstance2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance2, OFFSET>(),
             GetThrottleCount: GetThrottleCount::<Identity, Impl, OFFSET>,
         }
     }
@@ -214,7 +214,7 @@ impl IBackgroundTaskInstance4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance4, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskInstance4, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance4 as ::windows::core::Interface>::IID
@@ -301,7 +301,7 @@ impl IBackgroundTaskRegistration_Vtbl {
             (*this).Unregister(canceltask).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration, OFFSET>(),
             TaskId: TaskId::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             Progress: Progress::<Identity, Impl, OFFSET>,
@@ -338,7 +338,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration2, OFFSET>(), Trigger: Trigger::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration2, OFFSET>(), Trigger: Trigger::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration2 as ::windows::core::Interface>::IID
@@ -367,7 +367,10 @@ impl IBackgroundTaskRegistration3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration3, OFFSET>(), TaskGroup: TaskGroup::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTaskRegistration3, OFFSET>(),
+            TaskGroup: TaskGroup::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration3 as ::windows::core::Interface>::IID
@@ -379,7 +382,7 @@ impl ::windows::core::RuntimeName for IBackgroundTrigger {
 }
 impl IBackgroundTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTrigger_Impl, const OFFSET: isize>() -> IBackgroundTrigger_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTrigger, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTrigger, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundTrigger as ::windows::core::Interface>::IID

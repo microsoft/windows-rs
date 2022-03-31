@@ -11,7 +11,7 @@ impl IComponentConnector_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Connect(connectionid, ::core::mem::transmute(&target)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IComponentConnector, OFFSET>(), Connect: Connect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IComponentConnector, OFFSET>(), Connect: Connect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComponentConnector as ::windows::core::Interface>::IID
@@ -38,7 +38,7 @@ impl IComponentConnector2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IComponentConnector2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IComponentConnector2, OFFSET>(),
             GetBindingConnector: GetBindingConnector::<Identity, Impl, OFFSET>,
         }
     }
@@ -66,7 +66,7 @@ impl IDataTemplateComponent_Vtbl {
             (*this).ProcessBindings(::core::mem::transmute(&item), itemindex, phase, ::core::mem::transmute_copy(&nextphase)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataTemplateComponent, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDataTemplateComponent, OFFSET>(),
             Recycle: Recycle::<Identity, Impl, OFFSET>,
             ProcessBindings: ProcessBindings::<Identity, Impl, OFFSET>,
         }
@@ -96,7 +96,7 @@ impl IMarkupExtensionOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMarkupExtensionOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMarkupExtensionOverrides, OFFSET>(),
             ProvideValue: ProvideValue::<Identity, Impl, OFFSET>,
         }
     }
@@ -117,7 +117,7 @@ impl IXamlBindScopeDiagnostics_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Disable(linenumber, columnnumber).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlBindScopeDiagnostics, OFFSET>(), Disable: Disable::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlBindScopeDiagnostics, OFFSET>(), Disable: Disable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlBindScopeDiagnostics as ::windows::core::Interface>::IID
@@ -228,7 +228,7 @@ impl IXamlMember_Vtbl {
             (*this).SetValue(::core::mem::transmute(&instance), ::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlMember, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlMember, OFFSET>(),
             IsAttachable: IsAttachable::<Identity, Impl, OFFSET>,
             IsDependencyProperty: IsDependencyProperty::<Identity, Impl, OFFSET>,
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
@@ -294,7 +294,7 @@ impl IXamlMetadataProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlMetadataProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlMetadataProvider, OFFSET>(),
             GetXamlType: GetXamlType::<Identity, Impl, OFFSET>,
             GetXamlTypeByFullName: GetXamlTypeByFullName::<Identity, Impl, OFFSET>,
             GetXmlnsDefinitions: GetXmlnsDefinitions::<Identity, Impl, OFFSET>,
@@ -528,7 +528,7 @@ impl IXamlType_Vtbl {
             (*this).RunInitializer().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlType, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlType, OFFSET>(),
             BaseType: BaseType::<Identity, Impl, OFFSET>,
             ContentProperty: ContentProperty::<Identity, Impl, OFFSET>,
             FullName: FullName::<Identity, Impl, OFFSET>,
@@ -576,7 +576,7 @@ impl IXamlType2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlType2, OFFSET>(), BoxedType: BoxedType::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlType2, OFFSET>(), BoxedType: BoxedType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXamlType2 as ::windows::core::Interface>::IID

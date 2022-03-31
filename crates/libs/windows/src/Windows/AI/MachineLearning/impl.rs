@@ -58,7 +58,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureDescriptor, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureDescriptor, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
             Kind: Kind::<Identity, Impl, OFFSET>,
@@ -89,7 +89,7 @@ impl ILearningModelFeatureValue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelFeatureValue as ::windows::core::Interface>::IID
@@ -101,7 +101,7 @@ impl ::windows::core::RuntimeName for ILearningModelOperatorProvider {
 }
 impl ILearningModelOperatorProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProvider_Impl, const OFFSET: isize>() -> ILearningModelOperatorProvider_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelOperatorProvider as ::windows::core::Interface>::IID
@@ -144,7 +144,7 @@ impl ITensor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensor, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ITensor, OFFSET>(),
             TensorKind: TensorKind::<Identity, Impl, OFFSET>,
             Shape: Shape::<Identity, Impl, OFFSET>,
         }

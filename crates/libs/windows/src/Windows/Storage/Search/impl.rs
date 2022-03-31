@@ -79,7 +79,7 @@ impl IIndexableContent_Vtbl {
             (*this).SetStreamContentType(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IIndexableContent, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IIndexableContent, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             SetId: SetId::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
@@ -325,7 +325,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolderQueryOperations, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolderQueryOperations, OFFSET>(),
             GetIndexedStateAsync: GetIndexedStateAsync::<Identity, Impl, OFFSET>,
             CreateFileQueryOverloadDefault: CreateFileQueryOverloadDefault::<Identity, Impl, OFFSET>,
             CreateFileQuery: CreateFileQuery::<Identity, Impl, OFFSET>,
@@ -456,7 +456,7 @@ impl IStorageQueryResultBase_Vtbl {
             (*this).ApplyNewQueryOptions(::core::mem::transmute(&newqueryoptions)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageQueryResultBase, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageQueryResultBase, OFFSET>(),
             GetItemCountAsync: GetItemCountAsync::<Identity, Impl, OFFSET>,
             Folder: Folder::<Identity, Impl, OFFSET>,
             ContentsChanged: ContentsChanged::<Identity, Impl, OFFSET>,

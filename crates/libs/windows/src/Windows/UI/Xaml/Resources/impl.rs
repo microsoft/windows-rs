@@ -19,7 +19,7 @@ impl ICustomXamlResourceLoaderOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomXamlResourceLoaderOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICustomXamlResourceLoaderOverrides, OFFSET>(),
             GetResource: GetResource::<Identity, Impl, OFFSET>,
         }
     }

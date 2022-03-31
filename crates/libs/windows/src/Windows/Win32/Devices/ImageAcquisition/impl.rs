@@ -47,7 +47,7 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -106,7 +106,7 @@ impl IEnumWIA_DEV_INFO_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -165,7 +165,7 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -224,7 +224,7 @@ impl IEnumWiaItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -283,7 +283,7 @@ impl IEnumWiaItem2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -320,7 +320,7 @@ impl IWiaAppErrorHandler_Vtbl {
             (*this).ReportStatus(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pwiaitem2), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&lpercentcomplete)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetWindow: GetWindow::<Identity, Impl, OFFSET>,
             ReportStatus: ReportStatus::<Identity, Impl, OFFSET>,
         }
@@ -339,7 +339,7 @@ impl IWiaDataCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BandedDataCallback(::core::mem::transmute_copy(&lmessage), ::core::mem::transmute_copy(&lstatus), ::core::mem::transmute_copy(&lpercentcomplete), ::core::mem::transmute_copy(&loffset), ::core::mem::transmute_copy(&llength), ::core::mem::transmute_copy(&lreserved), ::core::mem::transmute_copy(&lreslength), ::core::mem::transmute_copy(&pbbuffer)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), BandedDataCallback: BandedDataCallback::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), BandedDataCallback: BandedDataCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaDataCallback as ::windows::core::Interface>::IID
@@ -394,7 +394,7 @@ impl IWiaDataTransfer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             idtGetData: idtGetData::<Identity, Impl, OFFSET>,
             idtGetBandedData: idtGetBandedData::<Identity, Impl, OFFSET>,
             idtQueryGetData: idtQueryGetData::<Identity, Impl, OFFSET>,
@@ -485,7 +485,7 @@ impl IWiaDevMgr_Vtbl {
             (*this).AddDeviceDlg(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&lflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumDeviceInfo: EnumDeviceInfo::<Identity, Impl, OFFSET>,
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             SelectDeviceDlg: SelectDeviceDlg::<Identity, Impl, OFFSET>,
@@ -574,7 +574,7 @@ impl IWiaDevMgr2_Vtbl {
             (*this).GetImageDlg(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstrdeviceid), ::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&bstrfoldername), ::core::mem::transmute(&bstrfilename), ::core::mem::transmute_copy(&plnumfiles), ::core::mem::transmute_copy(&ppbstrfilepaths), ::core::mem::transmute_copy(&ppitem)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumDeviceInfo: EnumDeviceInfo::<Identity, Impl, OFFSET>,
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             SelectDeviceDlg: SelectDeviceDlg::<Identity, Impl, OFFSET>,
@@ -734,7 +734,7 @@ impl IWiaDrvItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetItemFlags: GetItemFlags::<Identity, Impl, OFFSET>,
             GetDeviceSpecContext: GetDeviceSpecContext::<Identity, Impl, OFFSET>,
             GetFullItemName: GetFullItemName::<Identity, Impl, OFFSET>,
@@ -779,7 +779,7 @@ impl IWiaErrorHandler_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReportStatus: ReportStatus::<Identity, Impl, OFFSET>,
             GetStatusDescription: GetStatusDescription::<Identity, Impl, OFFSET>,
         }
@@ -800,7 +800,7 @@ impl IWiaEventCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ImageEventCallback(::core::mem::transmute_copy(&peventguid), ::core::mem::transmute(&bstreventdescription), ::core::mem::transmute(&bstrdeviceid), ::core::mem::transmute(&bstrdevicedescription), ::core::mem::transmute_copy(&dwdevicetype), ::core::mem::transmute(&bstrfullitemname), ::core::mem::transmute_copy(&puleventtype), ::core::mem::transmute_copy(&ulreserved)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ImageEventCallback: ImageEventCallback::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ImageEventCallback: ImageEventCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaEventCallback as ::windows::core::Interface>::IID
@@ -837,7 +837,7 @@ impl IWiaImageFilter_Vtbl {
             (*this).ApplyProperties(::core::mem::transmute(&pwiapropertystorage)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeFilter: InitializeFilter::<Identity, Impl, OFFSET>,
             SetNewCallback: SetNewCallback::<Identity, Impl, OFFSET>,
             FilterPreviewImage: FilterPreviewImage::<Identity, Impl, OFFSET>,
@@ -1005,7 +1005,7 @@ impl IWiaItem_Vtbl {
             (*this).Diagnostic(::core::mem::transmute_copy(&ulsize), ::core::mem::transmute_copy(&pbuffer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetItemType: GetItemType::<Identity, Impl, OFFSET>,
             AnalyzeItem: AnalyzeItem::<Identity, Impl, OFFSET>,
             EnumChildItems: EnumChildItems::<Identity, Impl, OFFSET>,
@@ -1190,7 +1190,7 @@ impl IWiaItem2_Vtbl {
             (*this).Diagnostic(::core::mem::transmute_copy(&ulsize), ::core::mem::transmute_copy(&pbuffer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateChildItem: CreateChildItem::<Identity, Impl, OFFSET>,
             DeleteItem: DeleteItem::<Identity, Impl, OFFSET>,
             EnumChildItems: EnumChildItems::<Identity, Impl, OFFSET>,
@@ -1244,7 +1244,7 @@ impl IWiaItemExtras_Vtbl {
             (*this).CancelPendingIO().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetExtendedErrorInfo: GetExtendedErrorInfo::<Identity, Impl, OFFSET>,
             Escape: Escape::<Identity, Impl, OFFSET>,
             CancelPendingIO: CancelPendingIO::<Identity, Impl, OFFSET>,
@@ -1279,7 +1279,7 @@ impl IWiaLog_Vtbl {
             (*this).Log(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&lresid), ::core::mem::transmute_copy(&ldetail), ::core::mem::transmute(&bstrtext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeLog: InitializeLog::<Identity, Impl, OFFSET>,
             hResult: hResult::<Identity, Impl, OFFSET>,
             Log: Log::<Identity, Impl, OFFSET>,
@@ -1326,7 +1326,7 @@ impl IWiaLogEx_Vtbl {
             (*this).LogEx(::core::mem::transmute_copy(&lmethodid), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&lresid), ::core::mem::transmute_copy(&ldetail), ::core::mem::transmute(&bstrtext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeLogEx: InitializeLogEx::<Identity, Impl, OFFSET>,
             hResult: hResult::<Identity, Impl, OFFSET>,
             Log: Log::<Identity, Impl, OFFSET>,
@@ -1497,7 +1497,7 @@ impl IWiaMiniDrv_Vtbl {
             (*this).drvUnInitializeWia(::core::mem::transmute_copy(&__midl__iwiaminidrv0064)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             drvInitializeWia: drvInitializeWia::<Identity, Impl, OFFSET>,
             drvAcquireItemData: drvAcquireItemData::<Identity, Impl, OFFSET>,
             drvInitItemProperties: drvInitItemProperties::<Identity, Impl, OFFSET>,
@@ -1533,7 +1533,7 @@ impl IWiaMiniDrvCallBack_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).MiniDrvCallback(::core::mem::transmute_copy(&lreason), ::core::mem::transmute_copy(&lstatus), ::core::mem::transmute_copy(&lpercentcomplete), ::core::mem::transmute_copy(&loffset), ::core::mem::transmute_copy(&llength), ::core::mem::transmute_copy(&ptranctx), ::core::mem::transmute_copy(&lreserved)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), MiniDrvCallback: MiniDrvCallback::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), MiniDrvCallback: MiniDrvCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaMiniDrvCallBack as ::windows::core::Interface>::IID
@@ -1564,7 +1564,7 @@ impl IWiaMiniDrvTransferCallback_Vtbl {
             (*this).SendMessage(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pwiatransferparams)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNextStream: GetNextStream::<Identity, Impl, OFFSET>,
             SendMessage: SendMessage::<Identity, Impl, OFFSET>,
         }
@@ -1583,7 +1583,7 @@ impl IWiaNotifyDevMgr_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NewDeviceArrival().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewDeviceArrival: NewDeviceArrival::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewDeviceArrival: NewDeviceArrival::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaNotifyDevMgr as ::windows::core::Interface>::IID
@@ -1618,7 +1618,7 @@ impl IWiaPreview_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNewPreview: GetNewPreview::<Identity, Impl, OFFSET>,
             UpdatePreview: UpdatePreview::<Identity, Impl, OFFSET>,
             DetectRegions: DetectRegions::<Identity, Impl, OFFSET>,
@@ -1750,7 +1750,7 @@ impl IWiaPropertyStorage_Vtbl {
             (*this).SetPropertyStream(::core::mem::transmute_copy(&pcompatibilityid), ::core::mem::transmute(&pistream)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadMultiple: ReadMultiple::<Identity, Impl, OFFSET>,
             WriteMultiple: WriteMultiple::<Identity, Impl, OFFSET>,
             DeleteMultiple: DeleteMultiple::<Identity, Impl, OFFSET>,
@@ -1785,7 +1785,7 @@ impl IWiaSegmentationFilter_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DetectRegions(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pinputstream), ::core::mem::transmute(&pwiaitem2)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DetectRegions: DetectRegions::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DetectRegions: DetectRegions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWiaSegmentationFilter as ::windows::core::Interface>::IID
@@ -1828,7 +1828,7 @@ impl IWiaTransfer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Download: Download::<Identity, Impl, OFFSET>,
             Upload: Upload::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
@@ -1864,7 +1864,7 @@ impl IWiaTransferCallback_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             TransferCallback: TransferCallback::<Identity, Impl, OFFSET>,
             GetNextStream: GetNextStream::<Identity, Impl, OFFSET>,
         }
@@ -1898,7 +1898,7 @@ impl IWiaUIExtension_Vtbl {
             (*this).GetDeviceBitmapLogo(::core::mem::transmute(&bstrdeviceid), ::core::mem::transmute_copy(&phbitmap), ::core::mem::transmute_copy(&nmaxwidth), ::core::mem::transmute_copy(&nmaxheight)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeviceDialog: DeviceDialog::<Identity, Impl, OFFSET>,
             GetDeviceIcon: GetDeviceIcon::<Identity, Impl, OFFSET>,
             GetDeviceBitmapLogo: GetDeviceBitmapLogo::<Identity, Impl, OFFSET>,
@@ -1927,7 +1927,7 @@ impl IWiaUIExtension2_Vtbl {
             (*this).GetDeviceIcon(::core::mem::transmute(&bstrdeviceid), ::core::mem::transmute_copy(&phicon), ::core::mem::transmute_copy(&nsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeviceDialog: DeviceDialog::<Identity, Impl, OFFSET>,
             GetDeviceIcon: GetDeviceIcon::<Identity, Impl, OFFSET>,
         }
@@ -2045,7 +2045,7 @@ impl IWiaVideo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PreviewVisible: PreviewVisible::<Identity, Impl, OFFSET>,
             SetPreviewVisible: SetPreviewVisible::<Identity, Impl, OFFSET>,
             ImagesDirectory: ImagesDirectory::<Identity, Impl, OFFSET>,

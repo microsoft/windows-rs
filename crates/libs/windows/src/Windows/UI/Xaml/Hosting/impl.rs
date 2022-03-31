@@ -19,7 +19,7 @@ impl IXamlUIPresenterHost_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost, OFFSET>(),
             ResolveFileResource: ResolveFileResource::<Identity, Impl, OFFSET>,
         }
     }
@@ -48,7 +48,7 @@ impl IXamlUIPresenterHost2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost2, OFFSET>(),
             GetGenericXamlFilePath: GetGenericXamlFilePath::<Identity, Impl, OFFSET>,
         }
     }
@@ -77,7 +77,7 @@ impl IXamlUIPresenterHost3_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost3, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlUIPresenterHost3, OFFSET>(),
             ResolveDictionaryResource: ResolveDictionaryResource::<Identity, Impl, OFFSET>,
         }
     }

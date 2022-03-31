@@ -41,7 +41,7 @@ impl ICatalog_Vtbl {
             (*this).MinorVersion(::core::mem::transmute_copy(&retval)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCollection: GetCollection::<Identity, Impl, OFFSET>,
             Connect: Connect::<Identity, Impl, OFFSET>,
             MajorVersion: MajorVersion::<Identity, Impl, OFFSET>,
@@ -83,7 +83,7 @@ impl IComponentUtil_Vtbl {
             (*this).GetCLSIDs(::core::mem::transmute(&bstrdllfile), ::core::mem::transmute(&bstrtypelibfile), ::core::mem::transmute_copy(&aclsids)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InstallComponent: InstallComponent::<Identity, Impl, OFFSET>,
             ImportComponent: ImportComponent::<Identity, Impl, OFFSET>,
             ImportComponentByName: ImportComponentByName::<Identity, Impl, OFFSET>,
@@ -119,7 +119,7 @@ impl IPackageUtil_Vtbl {
             (*this).ShutdownPackage(::core::mem::transmute(&bstrpackageid)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InstallPackage: InstallPackage::<Identity, Impl, OFFSET>,
             ExportPackage: ExportPackage::<Identity, Impl, OFFSET>,
             ShutdownPackage: ShutdownPackage::<Identity, Impl, OFFSET>,
@@ -148,7 +148,7 @@ impl IRemoteComponentUtil_Vtbl {
             (*this).InstallRemoteComponentByName(::core::mem::transmute(&bstrserver), ::core::mem::transmute(&bstrpackagename), ::core::mem::transmute(&bstrprogid)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InstallRemoteComponent: InstallRemoteComponent::<Identity, Impl, OFFSET>,
             InstallRemoteComponentByName: InstallRemoteComponentByName::<Identity, Impl, OFFSET>,
         }
@@ -176,7 +176,7 @@ impl IRoleAssociationUtil_Vtbl {
             (*this).AssociateRoleByName(::core::mem::transmute(&bstrrolename)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AssociateRole: AssociateRole::<Identity, Impl, OFFSET>,
             AssociateRoleByName: AssociateRoleByName::<Identity, Impl, OFFSET>,
         }

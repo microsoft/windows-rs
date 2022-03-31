@@ -21,7 +21,7 @@ impl IInkPointFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPointFactory, OFFSET>(), CreateInkPoint: CreateInkPoint::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkPointFactory, OFFSET>(), CreateInkPoint: CreateInkPoint::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPointFactory as ::windows::core::Interface>::IID
@@ -47,7 +47,7 @@ impl IInkPresenterRulerFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterRulerFactory, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterRulerFactory, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkPresenterRulerFactory as ::windows::core::Interface>::IID
@@ -153,7 +153,7 @@ impl IInkPresenterStencil_Vtbl {
             (*this).SetTransform(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterStencil, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkPresenterStencil, OFFSET>(),
             Kind: Kind::<Identity, Impl, OFFSET>,
             IsVisible: IsVisible::<Identity, Impl, OFFSET>,
             SetIsVisible: SetIsVisible::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl IInkRecognizerContainer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkRecognizerContainer, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkRecognizerContainer, OFFSET>(),
             SetDefaultRecognizer: SetDefaultRecognizer::<Identity, Impl, OFFSET>,
             RecognizeAsync: RecognizeAsync::<Identity, Impl, OFFSET>,
             GetRecognizers: GetRecognizers::<Identity, Impl, OFFSET>,
@@ -394,7 +394,7 @@ impl IInkStrokeContainer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeContainer, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkStrokeContainer, OFFSET>(),
             BoundingRect: BoundingRect::<Identity, Impl, OFFSET>,
             AddStroke: AddStroke::<Identity, Impl, OFFSET>,
             DeleteSelected: DeleteSelected::<Identity, Impl, OFFSET>,

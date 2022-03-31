@@ -33,7 +33,7 @@ impl IEnumVdsObject_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -61,7 +61,7 @@ impl IVdsAdmin_Vtbl {
             (*this).UnregisterProvider(::core::mem::transmute(&providerid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterProvider: RegisterProvider::<Identity, Impl, OFFSET>,
             UnregisterProvider: UnregisterProvider::<Identity, Impl, OFFSET>,
         }
@@ -80,7 +80,7 @@ impl IVdsAdviseSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnNotify(::core::mem::transmute_copy(&lnumberofnotifications), ::core::mem::transmute_copy(&pnotificationarray)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsAdviseSink as ::windows::core::Interface>::IID
@@ -109,7 +109,7 @@ impl IVdsAsync_Vtbl {
             (*this).QueryStatus(::core::mem::transmute_copy(&phrresult), ::core::mem::transmute_copy(&pulpercentcompleted)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             Wait: Wait::<Identity, Impl, OFFSET>,
             QueryStatus: QueryStatus::<Identity, Impl, OFFSET>,
@@ -196,7 +196,7 @@ impl IVdsController_Vtbl {
             (*this).SetStatus(::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetSubSystem: GetSubSystem::<Identity, Impl, OFFSET>,
             GetPortProperties: GetPortProperties::<Identity, Impl, OFFSET>,
@@ -227,7 +227,7 @@ impl IVdsControllerControllerPort_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryControllerPorts: QueryControllerPorts::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryControllerPorts: QueryControllerPorts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsControllerControllerPort as ::windows::core::Interface>::IID
@@ -286,7 +286,7 @@ impl IVdsControllerPort_Vtbl {
             (*this).SetStatus(::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetController: GetController::<Identity, Impl, OFFSET>,
             QueryAssociatedLuns: QueryAssociatedLuns::<Identity, Impl, OFFSET>,
@@ -353,7 +353,7 @@ impl IVdsDrive_Vtbl {
             (*this).SetStatus(::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetSubSystem: GetSubSystem::<Identity, Impl, OFFSET>,
             QueryExtents: QueryExtents::<Identity, Impl, OFFSET>,
@@ -382,7 +382,7 @@ impl IVdsDrive2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsDrive2 as ::windows::core::Interface>::IID
@@ -417,7 +417,7 @@ impl IVdsHwProvider_Vtbl {
             (*this).Refresh().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QuerySubSystems: QuerySubSystems::<Identity, Impl, OFFSET>,
             Reenumerate: Reenumerate::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -445,7 +445,7 @@ impl IVdsHwProviderPrivate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryIfCreatedLun: QueryIfCreatedLun::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryIfCreatedLun: QueryIfCreatedLun::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsHwProviderPrivate as ::windows::core::Interface>::IID
@@ -462,7 +462,7 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
             (*this).SetAllPathStatusesFromHbaPort(::core::mem::transmute(&hbaportprop), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllPathStatusesFromHbaPort: SetAllPathStatusesFromHbaPort::<Identity, Impl, OFFSET>,
         }
     }
@@ -513,7 +513,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryStoragePools: QueryStoragePools::<Identity, Impl, OFFSET>,
             CreateLunInStoragePool: CreateLunInStoragePool::<Identity, Impl, OFFSET>,
             QueryMaxLunCreateSizeInStoragePool: QueryMaxLunCreateSizeInStoragePool::<Identity, Impl, OFFSET>,
@@ -539,7 +539,7 @@ impl IVdsHwProviderType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProviderType: GetProviderType::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProviderType: GetProviderType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsHwProviderType as ::windows::core::Interface>::IID
@@ -561,7 +561,7 @@ impl IVdsHwProviderType2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProviderType2: GetProviderType2::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProviderType2: GetProviderType2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsHwProviderType2 as ::windows::core::Interface>::IID
@@ -638,7 +638,7 @@ impl IVdsIscsiPortal_Vtbl {
             (*this).SetIpsecSecurity(::core::mem::transmute_copy(&pinitiatorportaladdress), ::core::mem::transmute_copy(&ullsecurityflags), ::core::mem::transmute_copy(&pipseckey)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetSubSystem: GetSubSystem::<Identity, Impl, OFFSET>,
             QueryAssociatedPortalGroups: QueryAssociatedPortalGroups::<Identity, Impl, OFFSET>,
@@ -729,7 +729,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetTarget: GetTarget::<Identity, Impl, OFFSET>,
             QueryAssociatedPortals: QueryAssociatedPortals::<Identity, Impl, OFFSET>,
@@ -845,7 +845,7 @@ impl IVdsIscsiTarget_Vtbl {
             (*this).GetConnectedInitiators(::core::mem::transmute_copy(&pppwszinitiatorlist), ::core::mem::transmute_copy(&plnumberofinitiators)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetSubSystem: GetSubSystem::<Identity, Impl, OFFSET>,
             QueryPortalGroups: QueryPortalGroups::<Identity, Impl, OFFSET>,
@@ -1043,7 +1043,7 @@ impl IVdsLun_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetSubSystem: GetSubSystem::<Identity, Impl, OFFSET>,
             GetIdentificationData: GetIdentificationData::<Identity, Impl, OFFSET>,
@@ -1092,7 +1092,7 @@ impl IVdsLun2_Vtbl {
             (*this).ApplyHints2(::core::mem::transmute_copy(&phints2)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryHints2: QueryHints2::<Identity, Impl, OFFSET>,
             ApplyHints2: ApplyHints2::<Identity, Impl, OFFSET>,
         }
@@ -1124,7 +1124,7 @@ impl IVdsLunControllerPorts_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AssociateControllerPorts: AssociateControllerPorts::<Identity, Impl, OFFSET>,
             QueryActiveControllerPorts: QueryActiveControllerPorts::<Identity, Impl, OFFSET>,
         }
@@ -1156,7 +1156,7 @@ impl IVdsLunIscsi_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AssociateTargets: AssociateTargets::<Identity, Impl, OFFSET>,
             QueryAssociatedTargets: QueryAssociatedTargets::<Identity, Impl, OFFSET>,
         }
@@ -1202,7 +1202,7 @@ impl IVdsLunMpio_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPathInfo: GetPathInfo::<Identity, Impl, OFFSET>,
             GetLoadBalancePolicy: GetLoadBalancePolicy::<Identity, Impl, OFFSET>,
             SetLoadBalancePolicy: SetLoadBalancePolicy::<Identity, Impl, OFFSET>,
@@ -1223,7 +1223,7 @@ impl IVdsLunNaming_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetFriendlyName(::core::mem::transmute(&pwszfriendlyname)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsLunNaming as ::windows::core::Interface>::IID
@@ -1245,7 +1245,7 @@ impl IVdsLunNumber_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetLunNumber: GetLunNumber::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetLunNumber: GetLunNumber::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsLunNumber as ::windows::core::Interface>::IID
@@ -1306,7 +1306,7 @@ impl IVdsLunPlex_Vtbl {
             (*this).ApplyHints(::core::mem::transmute_copy(&phints)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetLun: GetLun::<Identity, Impl, OFFSET>,
             QueryExtents: QueryExtents::<Identity, Impl, OFFSET>,
@@ -1341,7 +1341,7 @@ impl IVdsMaintenance_Vtbl {
             (*this).PulseMaintenance(::core::mem::transmute_copy(&operation), ::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartMaintenance: StartMaintenance::<Identity, Impl, OFFSET>,
             StopMaintenance: StopMaintenance::<Identity, Impl, OFFSET>,
             PulseMaintenance: PulseMaintenance::<Identity, Impl, OFFSET>,
@@ -1367,7 +1367,7 @@ impl IVdsProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProperties: GetProperties::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetProperties: GetProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsProvider as ::windows::core::Interface>::IID
@@ -1404,7 +1404,7 @@ impl IVdsProviderPrivate_Vtbl {
             (*this).OnUnload(::core::mem::transmute_copy(&bforceunload)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetObject: GetObject::<Identity, Impl, OFFSET>,
             OnLoad: OnLoad::<Identity, Impl, OFFSET>,
             OnUnload: OnUnload::<Identity, Impl, OFFSET>,
@@ -1430,7 +1430,7 @@ impl IVdsProviderSupport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetVersionSupport: GetVersionSupport::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetVersionSupport: GetVersionSupport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsProviderSupport as ::windows::core::Interface>::IID
@@ -1509,7 +1509,7 @@ impl IVdsStoragePool_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProvider: GetProvider::<Identity, Impl, OFFSET>,
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetAttributes: GetAttributes::<Identity, Impl, OFFSET>,
@@ -1649,7 +1649,7 @@ impl IVdsSubSystem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetProvider: GetProvider::<Identity, Impl, OFFSET>,
             QueryControllers: QueryControllers::<Identity, Impl, OFFSET>,
@@ -1723,7 +1723,7 @@ impl IVdsSubSystem2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties2: GetProperties2::<Identity, Impl, OFFSET>,
             GetDrive2: GetDrive2::<Identity, Impl, OFFSET>,
             CreateLun2: CreateLun2::<Identity, Impl, OFFSET>,
@@ -1750,7 +1750,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSupportedInterconnects: GetSupportedInterconnects::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSupportedInterconnects: GetSupportedInterconnects::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsSubSystemInterconnect as ::windows::core::Interface>::IID
@@ -1803,7 +1803,7 @@ impl IVdsSubSystemIscsi_Vtbl {
             (*this).SetIpsecGroupPresharedKey(::core::mem::transmute_copy(&pipseckey)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryTargets: QueryTargets::<Identity, Impl, OFFSET>,
             QueryPortals: QueryPortals::<Identity, Impl, OFFSET>,
             CreateTarget: CreateTarget::<Identity, Impl, OFFSET>,
@@ -1824,7 +1824,7 @@ impl IVdsSubSystemNaming_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetFriendlyName(::core::mem::transmute(&pwszfriendlyname)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVdsSubSystemNaming as ::windows::core::Interface>::IID

@@ -28,7 +28,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
             (*this).SetPlaybackSource(::core::mem::transmute(&source)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEnginePlaybackSource, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEnginePlaybackSource, OFFSET>(),
             CurrentItem: CurrentItem::<Identity, Impl, OFFSET>,
             SetPlaybackSource: SetPlaybackSource::<Identity, Impl, OFFSET>,
         }
@@ -43,7 +43,7 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSource {
 }
 impl IMediaPlaybackSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSource_Impl, const OFFSET: isize>() -> IMediaPlaybackSource_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSource, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaPlaybackSource as ::windows::core::Interface>::IID

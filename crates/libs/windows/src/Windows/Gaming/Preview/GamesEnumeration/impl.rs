@@ -74,7 +74,7 @@ impl IGameListEntry_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameListEntry, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGameListEntry, OFFSET>(),
             DisplayInfo: DisplayInfo::<Identity, Impl, OFFSET>,
             LaunchAsync: LaunchAsync::<Identity, Impl, OFFSET>,
             Category: Category::<Identity, Impl, OFFSET>,
