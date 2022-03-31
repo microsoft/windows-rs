@@ -115,7 +115,7 @@ impl File {
             if padding == 0 {
                 padding = 4;
             }
-            view += (8 + stream_name.len() + padding);
+            view += 8 + stream_name.len() + padding;
         }
 
         let heap_sizes = result.bytes.copy_as::<u8>(tables_data.0 + 6);
@@ -125,7 +125,80 @@ impl File {
         let valid_bits = result.bytes.copy_as::<u64>(tables_data.0 + 8);
         view = tables_data.0 + 24;
 
-        
+        // These tables are unused by the reader, but needed temporarily to calculate sizes and offsets for subsequent tables.
+        let unused_empty = Table::default();
+        let mut unused_assembly = Table::default();
+        let mut unused_assembly_os = Table::default();
+        let mut unused_assembly_processor = Table::default();
+        let mut unused_assembly_ref_os = Table::default();
+        let mut unused_assembly_ref_processor = Table::default();
+        let mut unused_decl_security = Table::default();
+        let mut unused_event = Table::default();
+        let mut unused_event_map = Table::default();
+        let mut unused_exported_type = Table::default();
+        let mut unused_field_layout = Table::default();
+        let mut unused_field_marshal = Table::default();
+        let mut unused_field_rva = Table::default();
+        let mut unused_file = Table::default();
+        let mut unused_generic_param_constraint = Table::default();
+        let mut unused_manifest_resource = Table::default();
+        let mut unused_method_impl = Table::default();
+        let mut unused_method_semantics = Table::default();
+        let mut unused_method_spec = Table::default();
+        let mut unused_property = Table::default();
+        let mut unused_property_map = Table::default();
+        let mut unused_standalone_sig = Table::default();
+
+        for i in 0..64 {
+            if (valid_bits >> i & 1) == 0 {
+                continue;
+            }
+
+            let len = result.bytes.copy_as::<u32>(view) as _;
+            view += 4;
+
+            match i {
+                0x00 => result.tables[TABLE_MODULE].len = len,
+                0x01 => result.tables[TABLE_TYPEREF].len = len,
+                0x02 => result.tables[TABLE_TYPEDEF].len = len,
+                0x04 => result.tables[TABLE_FIELD].len = len,
+                0x06 => result.tables[TABLE_METHODDEF].len = len,
+                0x08 => result.tables[TABLE_PARAM].len = len,
+                0x09 => result.tables[TABLE_INTERFACEIMPL].len = len,
+                0x0a => result.tables[TABLE_MEMBERREF].len = len,
+                0x0b => result.tables[TABLE_CONSTANT].len = len,
+                0x0c => result.tables[TABLE_CUSTOMATTRIBUTE].len = len,
+                0x0d => unused_field_marshal.len = len,
+                0x0e => unused_decl_security.len = len,
+                0x0f => result.tables[TABLE_CLASSLAYOUT].len = len,
+                0x10 => unused_field_layout.len = len,
+                0x11 => unused_standalone_sig.len = len,
+                0x12 => unused_event_map.len = len,
+                0x14 => unused_event.len = len,
+                0x15 => unused_property_map.len = len,
+                0x17 => unused_property.len = len,
+                0x18 => unused_method_semantics.len = len,
+                0x19 => unused_method_impl.len = len,
+                0x1a => result.tables[TABLE_MODULEREF].len = len,
+                0x1b => result.tables[TABLE_TYPESPEC].len = len,
+                0x1c => result.tables[TABLE_IMPLMAP].len = len,
+                0x1d => unused_field_rva.len = len,
+                0x20 => unused_assembly.len = len,
+                0x21 => unused_assembly_processor.len = len,
+                0x22 => unused_assembly_os.len = len,
+                0x23 => result.tables[TABLE_ASSEMBLYREF].len = len,
+                0x24 => unused_assembly_ref_processor.len = len,
+                0x25 => unused_assembly_ref_os.len = len,
+                0x26 => unused_file.len = len,
+                0x27 => unused_exported_type.len = len,
+                0x28 => unused_manifest_resource.len = len,
+                0x29 => result.tables[TABLE_NESTEDCLASS].len = len,
+                0x2a => result.tables[TABLE_GENERICPARAM].len = len,
+                0x2b => unused_method_spec.len = len,
+                0x2c => unused_generic_param_constraint.len = len,
+                _ => unreachable!(),
+            };
+        }
 
         // Since the file was read successfully, we just assume it has a valid file name.
         result.name = path.file_name().unwrap().to_string_lossy().to_string();
