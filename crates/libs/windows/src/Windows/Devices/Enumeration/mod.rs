@@ -3428,7 +3428,7 @@ unsafe impl ::windows::core::Interface for IDeviceAccessChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceAccessStatus) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3441,7 +3441,7 @@ unsafe impl ::windows::core::Interface for IDeviceAccessChangedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3454,7 +3454,7 @@ unsafe impl ::windows::core::Interface for IDeviceAccessInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessInformation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3475,7 +3475,7 @@ unsafe impl ::windows::core::Interface for IDeviceAccessInformationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceAccessInformationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFromDeviceClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclassid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFromDeviceClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3490,7 +3490,7 @@ unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTriggerDetails
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerDetails_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3503,7 +3503,7 @@ unsafe impl ::windows::core::Interface for IDeviceDisconnectButtonClickedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceDisconnectButtonClickedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3516,7 +3516,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3546,7 +3546,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformation2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT,
     pub Pairing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3560,7 +3560,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationCustomPairing {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationCustomPairing_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PairAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3592,7 +3592,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairing {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairing_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPaired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CanPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3614,7 +3614,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairing2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairing2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT,
     pub Custom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3636,7 +3636,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairingStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryRegisterForAllInboundPairingRequests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3649,7 +3649,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationPairingStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryRegisterForAllInboundPairingRequestsWithProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3662,7 +3662,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateFromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3705,7 +3705,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetAqsFilterFromDeviceClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIdAsyncWithKindAndAdditionalProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3730,7 +3730,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationUpdate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationUpdate_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3747,7 +3747,7 @@ unsafe impl ::windows::core::Interface for IDeviceInformationUpdate2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceInformationUpdate2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3760,7 +3760,7 @@ unsafe impl ::windows::core::Interface for IDevicePairingRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DeviceInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PairingKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingKinds) -> ::windows::core::HRESULT,
     pub Pin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3781,7 +3781,7 @@ unsafe impl ::windows::core::Interface for IDevicePairingRequestedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub AcceptWithPasswordCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passwordcredential: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
@@ -3797,7 +3797,7 @@ unsafe impl ::windows::core::Interface for IDevicePairingResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePairingResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingResultStatus) -> ::windows::core::HRESULT,
     pub ProtectionLevelUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT,
 }
@@ -3875,7 +3875,7 @@ unsafe impl ::windows::core::Interface for IDevicePairingSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePairingSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3887,7 +3887,7 @@ unsafe impl ::windows::core::Interface for IDevicePicker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePicker_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -3947,7 +3947,7 @@ unsafe impl ::windows::core::Interface for IDevicePickerAppearance {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePickerAppearance_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI")]
@@ -4009,7 +4009,7 @@ unsafe impl ::windows::core::Interface for IDevicePickerFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePickerFilter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedDeviceClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -4029,7 +4029,7 @@ unsafe impl ::windows::core::Interface for IDeviceSelectedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceSelectedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectedDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4042,7 +4042,7 @@ unsafe impl ::windows::core::Interface for IDeviceUnpairingResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceUnpairingResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceUnpairingResultStatus) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4055,7 +4055,7 @@ unsafe impl ::windows::core::Interface for IDeviceWatcher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcher_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Added: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4110,7 +4110,7 @@ unsafe impl ::windows::core::Interface for IDeviceWatcher2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcher2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))]
     pub GetBackgroundTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedeventkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections")))]
@@ -4126,7 +4126,7 @@ unsafe impl ::windows::core::Interface for IDeviceWatcherEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcherEvent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceWatcherEventKind) -> ::windows::core::HRESULT,
     pub DeviceInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeviceInformationUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4141,7 +4141,7 @@ unsafe impl ::windows::core::Interface for IDeviceWatcherTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcherTriggerDetails_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub DeviceWatcherEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -4157,7 +4157,7 @@ unsafe impl ::windows::core::Interface for IEnclosureLocation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnclosureLocation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InDock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub InLid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Panel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Panel) -> ::windows::core::HRESULT,
@@ -4172,7 +4172,7 @@ unsafe impl ::windows::core::Interface for IEnclosureLocation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnclosureLocation2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RotationAngleInDegreesClockwise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]

@@ -81,7 +81,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -93,7 +93,7 @@ unsafe impl ::windows::core::Interface for IPrintManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PrintTaskRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -113,7 +113,7 @@ unsafe impl ::windows::core::Interface for IPrintManagerStatic {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintManagerStatic_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub ShowPrintUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -130,7 +130,7 @@ unsafe impl ::windows::core::Interface for IPrintManagerStatic2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintManagerStatic2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -143,7 +143,7 @@ unsafe impl ::windows::core::Interface for IPrintPageInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPageInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetMediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT,
     pub MediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -171,7 +171,7 @@ unsafe impl ::windows::core::Interface for IPrintPageRange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPageRange_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FirstPageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub LastPageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::Interface for IPrintPageRangeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPageRangeFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstpage: i32, lastpage: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithSinglePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::Interface for IPrintPageRangeOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPageRangeOptions_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetAllowAllPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub AllowAllPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowCurrentPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -217,7 +217,7 @@ unsafe impl ::windows::core::Interface for IPrintTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTask_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_DataTransfer"))]
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::Interface for IPrintTask2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTask2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetIsPreviewEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsPreviewEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -281,7 +281,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintTaskCompletion) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -294,7 +294,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptions_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetBordering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintBordering) -> ::windows::core::HRESULT,
     pub Bordering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintBordering) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -312,7 +312,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptions2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptions2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PageRangeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CustomPageRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionsCore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionsCore_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetPageDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -643,7 +643,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionsCoreProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionsCoreProperties_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetMediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT,
     pub MediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT,
     pub SetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintMediaType) -> ::windows::core::HRESULT,
@@ -753,7 +753,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionsCoreUIConfiguration 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionsCoreUIConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub DisplayedOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -769,7 +769,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskProgressingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskProgressingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DocumentPageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -782,7 +782,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -800,7 +800,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskRequestedDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskRequestedDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -826,7 +826,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskSourceRequestedArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskSourceRequestedArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskSourceRequestedDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskSourceRequestedDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -857,7 +857,7 @@ unsafe impl ::windows::core::Interface for IPrintTaskTargetDeviceSupport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskTargetDeviceSupport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetIsPrinterTargetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsPrinterTargetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIs3DManufacturingTargetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -873,7 +873,7 @@ unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -898,7 +898,7 @@ unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Bordering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -911,7 +911,7 @@ unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CustomPageRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -3395,7 +3395,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PrintTaskSourceRequestedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]

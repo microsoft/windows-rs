@@ -12,7 +12,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionFrameKindStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameKindStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -39,7 +39,7 @@ unsafe impl ::windows::core::Interface for IPerceptionControlGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionControlGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FrameProviderIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -58,7 +58,7 @@ unsafe impl ::windows::core::Interface for IPerceptionControlGroupFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionControlGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -77,7 +77,7 @@ unsafe impl ::windows::core::Interface for IPerceptionCorrelation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub TargetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -104,7 +104,7 @@ unsafe impl ::windows::core::Interface for IPerceptionCorrelationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, position: super::super::super::Foundation::Numerics::Vector3, orientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub RelativeLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -142,7 +142,7 @@ unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroupFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relativelocations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -161,7 +161,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFaceAuthenticationGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FrameProviderIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -180,7 +180,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroupFac
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFaceAuthenticationGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, starthandler: ::windows::core::RawPtr, stophandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -386,7 +386,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameProviderInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -425,7 +425,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameProviderInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -600,7 +600,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetFrameProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameproviderinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -619,7 +619,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManagerServic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderManagerServiceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub RegisterFrameProviderInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, frameproviderinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -674,7 +674,7 @@ unsafe impl ::windows::core::Interface for IPerceptionPropertyChangeRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionPropertyChangeRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -709,7 +709,7 @@ unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionVideoFrameAllocator_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AllocateFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -732,7 +732,7 @@ unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocatorFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionVideoFrameAllocatorFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated")))]
@@ -1884,7 +1884,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionStartFaceAuthenticationHa
 #[repr(C)]
 #[doc(hidden)]
 pub struct PerceptionStartFaceAuthenticationHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1981,7 +1981,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionStopFaceAuthenticationHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct PerceptionStopFaceAuthenticationHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

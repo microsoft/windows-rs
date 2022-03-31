@@ -110,7 +110,7 @@ unsafe impl ::windows::core::Interface for ID3D11On12Device {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11On12Device_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CreateWrappedResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource12: *mut ::core::ffi::c_void, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -212,7 +212,7 @@ unsafe impl ::windows::core::Interface for ID3D11On12Device1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11On12Device1_Vtbl {
-    pub base: ID3D11On12Device_Vtbl,
+    pub base__: ID3D11On12Device_Vtbl,
     pub GetD3D12Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]
@@ -334,7 +334,7 @@ unsafe impl ::windows::core::Interface for ID3D11On12Device2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11On12Device2_Vtbl {
-    pub base: ID3D11On12Device1_Vtbl,
+    pub base__: ID3D11On12Device1_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
     pub UnwrapUnderlyingResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource11: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))]

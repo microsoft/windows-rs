@@ -364,7 +364,7 @@ unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundRevokedEv
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionForegroundRevokedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -377,7 +377,7 @@ unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

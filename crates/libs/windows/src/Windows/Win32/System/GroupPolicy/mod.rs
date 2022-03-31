@@ -1226,7 +1226,7 @@ unsafe impl ::windows::core::Interface for IGPEInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPEInformation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT,
     pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Registry")]
@@ -1398,7 +1398,7 @@ unsafe impl ::windows::core::Interface for IGPM {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPM_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, pigpmdomain: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1638,7 +1638,7 @@ unsafe impl ::windows::core::Interface for IGPM2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPM2_Vtbl {
-    pub base: IGPM_Vtbl,
+    pub base__: IGPM_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetBackupDirEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1736,7 +1736,7 @@ unsafe impl ::windows::core::Interface for IGPMAsyncCancel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMAsyncCancel_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
@@ -1828,7 +1828,7 @@ unsafe impl ::windows::core::Interface for IGPMAsyncProgress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMAsyncProgress_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::core::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1974,7 +1974,7 @@ unsafe impl ::windows::core::Interface for IGPMBackup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackup_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2111,7 +2111,7 @@ unsafe impl ::windows::core::Interface for IGPMBackupCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackupCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -2224,7 +2224,7 @@ unsafe impl ::windows::core::Interface for IGPMBackupDir {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackupDir_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BackupDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2345,7 +2345,7 @@ unsafe impl ::windows::core::Interface for IGPMBackupDirEx {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackupDirEx_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2461,7 +2461,7 @@ unsafe impl ::windows::core::Interface for IGPMCSECollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMCSECollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -2578,7 +2578,7 @@ unsafe impl ::windows::core::Interface for IGPMClientSideExtension {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMClientSideExtension_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2974,7 +2974,7 @@ unsafe impl ::windows::core::Interface for IGPMConstants {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMConstants_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub PermGPOApply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT,
     pub PermGPORead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT,
     pub PermGPOEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT,
@@ -3519,7 +3519,7 @@ unsafe impl ::windows::core::Interface for IGPMConstants2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMConstants2_Vtbl {
-    pub base: IGPMConstants_Vtbl,
+    pub base__: IGPMConstants_Vtbl,
     pub BackupTypeGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT,
     pub BackupTypeStarterGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT,
     pub StarterGPOTypeSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT,
@@ -3679,7 +3679,7 @@ unsafe impl ::windows::core::Interface for IGPMDomain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMDomain_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3922,7 +3922,7 @@ unsafe impl ::windows::core::Interface for IGPMDomain2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMDomain2_Vtbl {
-    pub base: IGPMDomain_Vtbl,
+    pub base__: IGPMDomain_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateStarterGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewtemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4193,7 +4193,7 @@ unsafe impl ::windows::core::Interface for IGPMDomain3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMDomain3_Vtbl {
-    pub base: IGPMDomain2_Vtbl,
+    pub base__: IGPMDomain2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GenerateReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -4441,7 +4441,7 @@ unsafe impl ::windows::core::Interface for IGPMGPO {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPO_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4788,7 +4788,7 @@ unsafe impl ::windows::core::Interface for IGPMGPO2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPO2_Vtbl {
-    pub base: IGPMGPO_Vtbl,
+    pub base__: IGPMGPO_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5105,7 +5105,7 @@ unsafe impl ::windows::core::Interface for IGPMGPO3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPO3_Vtbl {
-    pub base: IGPMGPO2_Vtbl,
+    pub base__: IGPMGPO2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5217,7 +5217,7 @@ unsafe impl ::windows::core::Interface for IGPMGPOCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPOCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -5357,7 +5357,7 @@ unsafe impl ::windows::core::Interface for IGPMGPOLink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPOLink_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5478,7 +5478,7 @@ unsafe impl ::windows::core::Interface for IGPMGPOLinksCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPOLinksCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -5595,7 +5595,7 @@ unsafe impl ::windows::core::Interface for IGPMMapEntry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMMapEntry_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5708,7 +5708,7 @@ unsafe impl ::windows::core::Interface for IGPMMapEntryCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMMapEntryCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -5848,7 +5848,7 @@ unsafe impl ::windows::core::Interface for IGPMMigrationTable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMMigrationTable_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5992,7 +5992,7 @@ unsafe impl ::windows::core::Interface for IGPMPermission {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMPermission_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Inherited: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub Inheritable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub Denied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
@@ -6272,7 +6272,7 @@ unsafe impl ::windows::core::Interface for IGPMRSOP {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMRSOP_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Namespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -6493,7 +6493,7 @@ unsafe impl ::windows::core::Interface for IGPMResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMResult_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmstatusmsgcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6643,7 +6643,7 @@ unsafe impl ::windows::core::Interface for IGPMSOM {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSOM_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub GPOInheritanceBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub SetGPOInheritanceBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -6777,7 +6777,7 @@ unsafe impl ::windows::core::Interface for IGPMSOMCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSOMCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -6877,7 +6877,7 @@ unsafe impl ::windows::core::Interface for IGPMSearchCriteria {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSearchCriteria_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6999,7 +6999,7 @@ unsafe impl ::windows::core::Interface for IGPMSecurityInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSecurityInfo_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -7136,7 +7136,7 @@ unsafe impl ::windows::core::Interface for IGPMSitesContainer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSitesContainer_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7356,7 +7356,7 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPO {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPO_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7569,7 +7569,7 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPOBackup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPOBackup_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7707,7 +7707,7 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPOBackupCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPOBackupCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -7819,7 +7819,7 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPOCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPOCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -7946,7 +7946,7 @@ unsafe impl ::windows::core::Interface for IGPMStatusMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStatusMessage_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ObjectPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8067,7 +8067,7 @@ unsafe impl ::windows::core::Interface for IGPMStatusMsgCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStatusMsgCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -8191,7 +8191,7 @@ unsafe impl ::windows::core::Interface for IGPMTrustee {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMTrustee_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TrusteeSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8339,7 +8339,7 @@ unsafe impl ::windows::core::Interface for IGPMWMIFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMWMIFilter_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8474,7 +8474,7 @@ unsafe impl ::windows::core::Interface for IGPMWMIFilterCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMWMIFilterCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -8608,7 +8608,7 @@ unsafe impl ::windows::core::Interface for IGroupPolicyObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGroupPolicyObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub New: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdomainname: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     pub OpenDSGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     pub OpenLocalMachineGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
@@ -8845,7 +8845,7 @@ unsafe impl ::windows::core::Interface for IRSOPInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRSOPInformation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsection: u32, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
     pub GetEventLogEntryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszeventsource: ::windows::core::PCWSTR, pszeventlogname: ::windows::core::PCWSTR, pszeventtime: ::windows::core::PCWSTR, dweventid: u32, ppsztext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,

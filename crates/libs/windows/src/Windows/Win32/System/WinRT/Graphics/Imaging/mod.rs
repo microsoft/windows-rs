@@ -73,7 +73,7 @@ unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapNative_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`*"]
@@ -156,7 +156,7 @@ unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapNativeFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub CreateFromWICBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging")))]

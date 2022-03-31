@@ -98,12 +98,12 @@ impl TearOff {
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl {
-        base: IUnknownVtbl { QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease },
+        base__: IUnknownVtbl { QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease },
         GetWeakReference: Self::StrongDowngrade,
     };
 
     const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl {
-        base: IUnknownVtbl { QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease },
+        base__: IUnknownVtbl { QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease },
         Resolve: Self::WeakUpgrade,
     };
 

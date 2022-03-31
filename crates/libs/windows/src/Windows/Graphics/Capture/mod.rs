@@ -765,7 +765,7 @@ unsafe impl ::windows::core::Interface for IDirect3D11CaptureFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -786,7 +786,7 @@ unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePool {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePool_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Recreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -816,7 +816,7 @@ unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePoolStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -832,7 +832,7 @@ unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePoolStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub CreateFreeThreaded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -848,7 +848,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureAccessStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureAccessStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: GraphicsCaptureAccessKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess")))]
@@ -864,7 +864,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItem_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::SizeInt32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -886,7 +886,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureItemStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub CreateFromVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -902,7 +902,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureItemStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub TryCreateFromWindowId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowid: super::super::UI::WindowId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))]
@@ -919,7 +919,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCapturePicker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCapturePicker_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PickSingleItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -935,7 +935,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StartCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -948,7 +948,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureSession2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsCursorCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsCursorCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -962,7 +962,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureSession3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsBorderRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsBorderRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -976,7 +976,7 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureSessionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSessionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

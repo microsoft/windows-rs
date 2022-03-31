@@ -3411,7 +3411,7 @@ unsafe impl ::windows::core::Interface for IAVIEditStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIEditStream_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::core::RawPtr, lstart: i32, lend: i32) -> ::windows::core::HRESULT,
@@ -3498,7 +3498,7 @@ unsafe impl ::windows::core::Interface for IAVIFile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIFile_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3654,7 +3654,7 @@ unsafe impl ::windows::core::Interface for IAVIPersistFile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIPersistFile_Vtbl {
-    pub base: super::super::System::Com::IPersistFile_Vtbl,
+    pub base__: super::super::System::Com::IPersistFile_Vtbl,
     pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -3752,7 +3752,7 @@ unsafe impl ::windows::core::Interface for IAVIStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIStream_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3830,7 +3830,7 @@ unsafe impl ::windows::core::Interface for IAVIStreaming {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIStreaming_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5132,7 +5132,7 @@ unsafe impl ::windows::core::Interface for IGetFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetFrame_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

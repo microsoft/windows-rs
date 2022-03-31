@@ -63,7 +63,7 @@ unsafe impl ::windows::core::Interface for INetworkTransportSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkTransportSettings_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub ApplySetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))]
@@ -129,7 +129,7 @@ unsafe impl ::windows::core::Interface for INotificationTransportSync {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotificationTransportSync_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CompleteDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -254,7 +254,7 @@ unsafe impl ::windows::core::Interface for IRTCBuddy {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddy_Vtbl {
-    pub base: IRTCPresenceContact_Vtbl,
+    pub base__: IRTCPresenceContact_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Notes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -444,7 +444,7 @@ unsafe impl ::windows::core::Interface for IRTCBuddy2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddy2_Vtbl {
-    pub base: IRTCBuddy_Vtbl,
+    pub base__: IRTCBuddy_Vtbl,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -552,7 +552,7 @@ unsafe impl ::windows::core::Interface for IRTCBuddyEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Buddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
@@ -684,7 +684,7 @@ unsafe impl ::windows::core::Interface for IRTCBuddyEvent2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyEvent2_Vtbl {
-    pub base: IRTCBuddyEvent_Vtbl,
+    pub base__: IRTCBuddyEvent_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_BUDDY_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -786,7 +786,7 @@ unsafe impl ::windows::core::Interface for IRTCBuddyGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyGroup_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrgroupname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -916,7 +916,7 @@ unsafe impl ::windows::core::Interface for IRTCBuddyGroupEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCBuddyGroupEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_GROUP_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub Group: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Buddy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1170,7 +1170,7 @@ unsafe impl ::windows::core::Interface for IRTCClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClient_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PrepareForShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::Interface for IRTCClient2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClient2_Vtbl {
-    pub base: IRTCClient_Vtbl,
+    pub base__: IRTCClient_Vtbl,
     pub SetAnswerMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::HRESULT,
     pub AnswerMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, penmode: *mut RTC_ANSWER_MODE) -> ::windows::core::HRESULT,
     pub InvokeTuningWizardEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::core::HRESULT,
@@ -1693,7 +1693,7 @@ unsafe impl ::windows::core::Interface for IRTCClientEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_CLIENT_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub Client: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1759,7 +1759,7 @@ unsafe impl ::windows::core::Interface for IRTCClientPortManagement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientPortManagement_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub StartListenAddressAndPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1910,7 +1910,7 @@ unsafe impl ::windows::core::Interface for IRTCClientPresence {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientPresence_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub EnablePresence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fusestorage: i16, varstorage: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2200,7 +2200,7 @@ unsafe impl ::windows::core::Interface for IRTCClientPresence2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientPresence2_Vtbl {
-    pub base: IRTCClientPresence_Vtbl,
+    pub base__: IRTCClientPresence_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub EnablePresenceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr, varstorage: ::core::mem::ManuallyDrop<super::Com::VARIANT>, lflags: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2336,7 +2336,7 @@ unsafe impl ::windows::core::Interface for IRTCClientProvisioning {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientProvisioning_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprofilexml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2461,7 +2461,7 @@ unsafe impl ::windows::core::Interface for IRTCClientProvisioning2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCClientProvisioning2_Vtbl {
-    pub base: IRTCClientProvisioning_Vtbl,
+    pub base__: IRTCClientProvisioning_Vtbl,
     pub EnableProfileEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::Interface for IRTCCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -2655,7 +2655,7 @@ unsafe impl ::windows::core::Interface for IRTCDispatchEventNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCDispatchEventNotification_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
@@ -2722,7 +2722,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumBuddies {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumBuddies_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -2793,7 +2793,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumGroups {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumGroups_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -2864,7 +2864,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumParticipants {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumParticipants_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -2935,7 +2935,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumPresenceDevices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumPresenceDevices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -3006,7 +3006,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumProfiles {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumProfiles_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -3077,7 +3077,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumUserSearchResults {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumUserSearchResults_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -3148,7 +3148,7 @@ unsafe impl ::windows::core::Interface for IRTCEnumWatchers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEnumWatchers_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -3207,7 +3207,7 @@ unsafe impl ::windows::core::Interface for IRTCEventNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCEventNotification_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Event: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtcevent: RTC_EVENT, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3319,7 +3319,7 @@ unsafe impl ::windows::core::Interface for IRTCInfoEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCInfoEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Participant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparticipant: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3435,7 +3435,7 @@ unsafe impl ::windows::core::Interface for IRTCIntensityEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCIntensityEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Level: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllevel: *mut i32) -> ::windows::core::HRESULT,
     pub Min: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmin: *mut i32) -> ::windows::core::HRESULT,
     pub Max: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmax: *mut i32) -> ::windows::core::HRESULT,
@@ -3540,7 +3540,7 @@ unsafe impl ::windows::core::Interface for IRTCMediaEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMediaEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatype: *mut i32) -> ::windows::core::HRESULT,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_MEDIA_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub EventReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventreason: *mut RTC_MEDIA_EVENT_REASON) -> ::windows::core::HRESULT,
@@ -3662,7 +3662,7 @@ unsafe impl ::windows::core::Interface for IRTCMediaRequestEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMediaRequestEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ProposedMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmediatypes: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmediatypes: *mut i32) -> ::windows::core::HRESULT,
@@ -3787,7 +3787,7 @@ unsafe impl ::windows::core::Interface for IRTCMessagingEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCMessagingEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Participant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparticipant: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_MESSAGING_EVENT_TYPE) -> ::windows::core::HRESULT,
@@ -3876,7 +3876,7 @@ unsafe impl ::windows::core::Interface for IRTCParticipant {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCParticipant_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UserURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstruseruri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3988,7 +3988,7 @@ unsafe impl ::windows::core::Interface for IRTCParticipantStateChangeEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCParticipantStateChangeEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Participant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparticipant: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -4056,7 +4056,7 @@ unsafe impl ::windows::core::Interface for IRTCPortManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPortManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrremoteaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4160,7 +4160,7 @@ unsafe impl ::windows::core::Interface for IRTCPresenceContact {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceContact_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PresentityURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpresentityuri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4288,7 +4288,7 @@ unsafe impl ::windows::core::Interface for IRTCPresenceDataEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceDataEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub StatusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -4369,7 +4369,7 @@ unsafe impl ::windows::core::Interface for IRTCPresenceDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceDevice_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Notes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -4490,7 +4490,7 @@ unsafe impl ::windows::core::Interface for IRTCPresencePropertyEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresencePropertyEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub StatusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -4602,7 +4602,7 @@ unsafe impl ::windows::core::Interface for IRTCPresenceStatusEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCPresenceStatusEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub StatusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -4765,7 +4765,7 @@ unsafe impl ::windows::core::Interface for IRTCProfile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfile_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Key: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrkey: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5022,7 +5022,7 @@ unsafe impl ::windows::core::Interface for IRTCProfile2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfile2_Vtbl {
-    pub base: IRTCProfile_Vtbl,
+    pub base__: IRTCProfile_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Realm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrealm: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5133,7 +5133,7 @@ unsafe impl ::windows::core::Interface for IRTCProfileEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfileEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Cookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcookie: *mut isize) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -5266,7 +5266,7 @@ unsafe impl ::windows::core::Interface for IRTCProfileEvent2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCProfileEvent2_Vtbl {
-    pub base: IRTCProfileEvent_Vtbl,
+    pub base__: IRTCProfileEvent_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
@@ -5377,7 +5377,7 @@ unsafe impl ::windows::core::Interface for IRTCReInviteEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCReInviteEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Accept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -5495,7 +5495,7 @@ unsafe impl ::windows::core::Interface for IRTCRegistrationStateChangeEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCRegistrationStateChangeEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_REGISTRATION_STATE) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -5609,7 +5609,7 @@ unsafe impl ::windows::core::Interface for IRTCRoamingEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCRoamingEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_ROAMING_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -5763,7 +5763,7 @@ unsafe impl ::windows::core::Interface for IRTCSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSession_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Client: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pentype: *mut RTC_SESSION_TYPE) -> ::windows::core::HRESULT,
@@ -6000,7 +6000,7 @@ unsafe impl ::windows::core::Interface for IRTCSession2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSession2_Vtbl {
-    pub base: IRTCSession_Vtbl,
+    pub base__: IRTCSession_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SendInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfoheader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrinfo: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcookie: isize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6110,7 +6110,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionCallControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionCallControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Hold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: isize) -> ::windows::core::HRESULT,
     pub UnHold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: isize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -6192,7 +6192,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionDescriptionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionDescriptionManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EvaluateSessionDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfapplicationsession: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6303,7 +6303,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionOperationCompleteEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Cookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcookie: *mut isize) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -6451,7 +6451,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionOperationCompleteEvent2_Vtbl {
-    pub base: IRTCSessionOperationCompleteEvent_Vtbl,
+    pub base__: IRTCSessionOperationCompleteEvent_Vtbl,
     pub Participant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparticipant: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRemoteSessionDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -6510,7 +6510,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionPortManagement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionPortManagement_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetPortManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportmanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
@@ -6618,7 +6618,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionReferStatusEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionReferStatusEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ReferStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penreferstatus: *mut RTC_SESSION_REFER_STATUS) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -6746,7 +6746,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionReferredEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionReferredEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ReferredByURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrreferredbyuri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -6869,7 +6869,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionStateChangeEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
@@ -7027,7 +7027,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionStateChangeEvent2_Vtbl {
-    pub base: IRTCSessionStateChangeEvent_Vtbl,
+    pub base__: IRTCSessionStateChangeEvent_Vtbl,
     pub MediaTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatypes: *mut i32) -> ::windows::core::HRESULT,
     pub RemotePreferredSecurityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT,
     pub IsForked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisforked: *mut i16) -> ::windows::core::HRESULT,
@@ -7093,7 +7093,7 @@ unsafe impl ::windows::core::Interface for IRTCUserSearch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCUserSearch_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppquery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExecuteSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquery: ::windows::core::RawPtr, pprofile: ::windows::core::RawPtr, lcookie: isize) -> ::windows::core::HRESULT,
 }
@@ -7182,7 +7182,7 @@ unsafe impl ::windows::core::Interface for IRTCUserSearchQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCUserSearchQuery_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSearchTerm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7260,7 +7260,7 @@ unsafe impl ::windows::core::Interface for IRTCUserSearchResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCUserSearchResult_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7386,7 +7386,7 @@ unsafe impl ::windows::core::Interface for IRTCUserSearchResultsEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCUserSearchResultsEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub EnumerateResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Results: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7517,7 +7517,7 @@ unsafe impl ::windows::core::Interface for IRTCWatcher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcher_Vtbl {
-    pub base: IRTCPresenceContact_Vtbl,
+    pub base__: IRTCPresenceContact_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_WATCHER_STATE) -> ::windows::core::HRESULT,
     pub SetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enstate: RTC_WATCHER_STATE) -> ::windows::core::HRESULT,
 }
@@ -7670,7 +7670,7 @@ unsafe impl ::windows::core::Interface for IRTCWatcher2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcher2_Vtbl {
-    pub base: IRTCWatcher_Vtbl,
+    pub base__: IRTCWatcher_Vtbl,
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penscope: *mut RTC_ACE_SCOPE) -> ::windows::core::HRESULT,
 }
@@ -7763,7 +7763,7 @@ unsafe impl ::windows::core::Interface for IRTCWatcherEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcherEvent_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Watcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
@@ -7889,7 +7889,7 @@ unsafe impl ::windows::core::Interface for IRTCWatcherEvent2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCWatcherEvent2_Vtbl {
-    pub base: IRTCWatcherEvent_Vtbl,
+    pub base__: IRTCWatcherEvent_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_WATCHER_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -7951,7 +7951,7 @@ unsafe impl ::windows::core::Interface for ITransportSettingsInternal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransportSettingsInternal_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub ApplySetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setting: *mut TRANSPORT_SETTING) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))]

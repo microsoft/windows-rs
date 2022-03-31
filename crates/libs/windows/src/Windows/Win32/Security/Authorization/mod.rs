@@ -3983,7 +3983,7 @@ unsafe impl ::windows::core::Interface for IAzApplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplication_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4687,7 +4687,7 @@ unsafe impl ::windows::core::Interface for IAzApplication2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplication2_Vtbl {
-    pub base: IAzApplication_Vtbl,
+    pub base__: IAzApplication_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub InitializeClientContextFromToken2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5257,7 +5257,7 @@ unsafe impl ::windows::core::Interface for IAzApplication3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplication3_Vtbl {
-    pub base: IAzApplication2_Vtbl,
+    pub base__: IAzApplication2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ScopeExists: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbexist: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5563,7 +5563,7 @@ unsafe impl ::windows::core::Interface for IAzApplicationGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationGroup_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6004,7 +6004,7 @@ unsafe impl ::windows::core::Interface for IAzApplicationGroup2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationGroup2_Vtbl {
-    pub base: IAzApplicationGroup_Vtbl,
+    pub base__: IAzApplicationGroup_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BizRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6134,7 +6134,7 @@ unsafe impl ::windows::core::Interface for IAzApplicationGroups {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationGroups_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6242,7 +6242,7 @@ unsafe impl ::windows::core::Interface for IAzApplications {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplications_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6605,7 +6605,7 @@ unsafe impl ::windows::core::Interface for IAzAuthorizationStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzAuthorizationStore_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7184,7 +7184,7 @@ unsafe impl ::windows::core::Interface for IAzAuthorizationStore2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzAuthorizationStore2_Vtbl {
-    pub base: IAzAuthorizationStore_Vtbl,
+    pub base__: IAzAuthorizationStore_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub OpenApplication2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7632,7 +7632,7 @@ unsafe impl ::windows::core::Interface for IAzAuthorizationStore3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzAuthorizationStore3_Vtbl {
-    pub base: IAzAuthorizationStore2_Vtbl,
+    pub base__: IAzAuthorizationStore2_Vtbl,
     pub IsUpdateNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisupdateneeded: *mut i16) -> ::windows::core::HRESULT,
     pub BizruleGroupSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsupported: *mut i16) -> ::windows::core::HRESULT,
     pub UpgradeStoresFunctionalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfunctionallevel: i32) -> ::windows::core::HRESULT,
@@ -7745,7 +7745,7 @@ unsafe impl ::windows::core::Interface for IAzBizRuleContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzBizRuleContext_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetBusinessRuleResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bresult: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7876,7 +7876,7 @@ unsafe impl ::windows::core::Interface for IAzBizRuleInterfaces {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzBizRuleInterfaces_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linterfaceflag: i32, varinterface: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -8010,7 +8010,7 @@ unsafe impl ::windows::core::Interface for IAzBizRuleParameters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzBizRuleParameters_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varparametervalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -8201,7 +8201,7 @@ unsafe impl ::windows::core::Interface for IAzClientContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzClientContext_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AccessCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrobjectname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varscopenames: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varoperations: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varparameternames: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varparametervalues: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varinterfacenames: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varinterfaceflags: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varinterfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarresults: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -8481,7 +8481,7 @@ unsafe impl ::windows::core::Interface for IAzClientContext2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzClientContext2_Vtbl {
-    pub base: IAzClientContext_Vtbl,
+    pub base__: IAzClientContext_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetAssignedScopesPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -8805,7 +8805,7 @@ unsafe impl ::windows::core::Interface for IAzClientContext3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzClientContext3_Vtbl {
-    pub base: IAzClientContext2_Vtbl,
+    pub base__: IAzClientContext2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AccessCheck2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrobjectname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loperation: i32, plresult: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8933,7 +8933,7 @@ unsafe impl ::windows::core::Interface for IAzNameResolver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzNameResolver_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub NameFromSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psidtype: *mut i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9038,7 +9038,7 @@ unsafe impl ::windows::core::Interface for IAzObjectPicker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzObjectPicker_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetPrincipals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparentwnd: super::super::Foundation::HWND, bstrtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT, pvsids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9196,7 +9196,7 @@ unsafe impl ::windows::core::Interface for IAzOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzOperation_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9418,7 +9418,7 @@ unsafe impl ::windows::core::Interface for IAzOperation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzOperation2_Vtbl {
-    pub base: IAzOperation_Vtbl,
+    pub base__: IAzOperation_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RoleAssignments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -9524,7 +9524,7 @@ unsafe impl ::windows::core::Interface for IAzOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzOperations_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9628,7 +9628,7 @@ unsafe impl ::windows::core::Interface for IAzPrincipalLocator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzPrincipalLocator_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub NameResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnameresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9867,7 +9867,7 @@ unsafe impl ::windows::core::Interface for IAzRole {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRole_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10252,7 +10252,7 @@ unsafe impl ::windows::core::Interface for IAzRoleAssignment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleAssignment_Vtbl {
-    pub base: IAzRole_Vtbl,
+    pub base__: IAzRole_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddRoleDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrroledefinition: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10370,7 +10370,7 @@ unsafe impl ::windows::core::Interface for IAzRoleAssignments {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleAssignments_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -10649,7 +10649,7 @@ unsafe impl ::windows::core::Interface for IAzRoleDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleDefinition_Vtbl {
-    pub base: IAzTask_Vtbl,
+    pub base__: IAzTask_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RoleAssignments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -10767,7 +10767,7 @@ unsafe impl ::windows::core::Interface for IAzRoleDefinitions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleDefinitions_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -10875,7 +10875,7 @@ unsafe impl ::windows::core::Interface for IAzRoles {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoles_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -11177,7 +11177,7 @@ unsafe impl ::windows::core::Interface for IAzScope {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzScope_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11695,7 +11695,7 @@ unsafe impl ::windows::core::Interface for IAzScope2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzScope2_Vtbl {
-    pub base: IAzScope_Vtbl,
+    pub base__: IAzScope_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RoleDefinitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11829,7 +11829,7 @@ unsafe impl ::windows::core::Interface for IAzScopes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzScopes_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12062,7 +12062,7 @@ unsafe impl ::windows::core::Interface for IAzTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzTask_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12423,7 +12423,7 @@ unsafe impl ::windows::core::Interface for IAzTask2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzTask2_Vtbl {
-    pub base: IAzTask_Vtbl,
+    pub base__: IAzTask_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RoleAssignments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -12529,7 +12529,7 @@ unsafe impl ::windows::core::Interface for IAzTasks {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzTasks_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]

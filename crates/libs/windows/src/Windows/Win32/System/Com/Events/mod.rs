@@ -129,7 +129,7 @@ unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDontSupportEventSubscription_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
@@ -196,7 +196,7 @@ unsafe impl ::windows::core::Interface for IEnumEventObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumEventObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, creqelem: u32, ppinterface: *mut *mut ::core::ffi::c_void, cretelem: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -347,7 +347,7 @@ unsafe impl ::windows::core::Interface for IEventClass {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventClass_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EventClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -614,7 +614,7 @@ unsafe impl ::windows::core::Interface for IEventClass2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventClass2_Vtbl {
-    pub base: IEventClass_Vtbl,
+    pub base__: IEventClass_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PublisherID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -744,7 +744,7 @@ unsafe impl ::windows::core::Interface for IEventControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventControl_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPublisherFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppublisherfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -829,7 +829,7 @@ unsafe impl ::windows::core::Interface for IEventObjectChange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventObjectChange_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ChangedSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrsubscriptionid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -901,7 +901,7 @@ unsafe impl ::windows::core::Interface for IEventObjectChange2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventObjectChange2_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ChangedSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1010,7 +1010,7 @@ unsafe impl ::windows::core::Interface for IEventObjectCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventObjectCollection_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT,
@@ -1117,7 +1117,7 @@ unsafe impl ::windows::core::Interface for IEventProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventProperty_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1279,7 +1279,7 @@ unsafe impl ::windows::core::Interface for IEventPublisher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventPublisher_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PublisherID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1585,7 +1585,7 @@ unsafe impl ::windows::core::Interface for IEventSubscription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventSubscription_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubscriptionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubscriptionid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1812,7 +1812,7 @@ unsafe impl ::windows::core::Interface for IEventSystem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventSystem_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1910,7 +1910,7 @@ unsafe impl ::windows::core::Interface for IFiringControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFiringControl_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     pub FireSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscription: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
@@ -1999,7 +1999,7 @@ unsafe impl ::windows::core::Interface for IMultiInterfaceEventControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiInterfaceEventControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetMultiInterfacePublisherFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSubscriptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalerrorindex: *const i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2083,7 +2083,7 @@ unsafe impl ::windows::core::Interface for IMultiInterfacePublisherFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiInterfacePublisherFilter_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peic: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub PrepareToFire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2148,7 +2148,7 @@ unsafe impl ::windows::core::Interface for IPublisherFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPublisherFilter_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dispuserdefined: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

@@ -754,7 +754,7 @@ unsafe impl ::windows::core::Interface for IFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilter_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -826,7 +826,7 @@ unsafe impl ::windows::core::Interface for IPhraseSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhraseSink_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub PutSmallPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcnoun: ::windows::core::PCWSTR, cwcnoun: u32, pwcmodifier: ::windows::core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::HRESULT,
     pub PutPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcphrase: ::windows::core::PCWSTR, cwcphrase: u32) -> ::windows::core::HRESULT,
 }

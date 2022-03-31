@@ -8530,7 +8530,7 @@ unsafe impl ::windows::core::Interface for IDiskQuotaControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaControl_Vtbl {
-    pub base: super::super::System::Com::IConnectionPointContainer_Vtbl,
+    pub base__: super::super::System::Com::IConnectionPointContainer_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8617,7 +8617,7 @@ unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub OnUserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -8730,7 +8730,7 @@ unsafe impl ::windows::core::Interface for IDiskQuotaUser {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUser_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaccountcontainer: ::windows::core::PCWSTR, cchaccountcontainer: u32, pszlogonname: ::windows::core::PCWSTR, cchlogonname: u32, pszdisplayname: ::windows::core::PCWSTR, cchdisplayname: u32) -> ::windows::core::HRESULT,
     pub GetSidLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT,
@@ -8817,7 +8817,7 @@ unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUserBatch_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8888,7 +8888,7 @@ unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiskQuotaUsers_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

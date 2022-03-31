@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointFormatControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointFormatControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ResetToDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resetflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
@@ -186,7 +186,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointLastBufferControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointLastBufferControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsLastBufferControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -254,7 +254,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamMeter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamMeter_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetMeterChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetMeteringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32peakvalues: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -315,7 +315,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamMute {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamMute_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmuted: u8) -> ::windows::core::HRESULT,
     pub GetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmuted: *mut u8) -> ::windows::core::HRESULT,
 }
@@ -382,7 +382,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamVolume {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetVolumeChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Media_KernelStreaming")]
     pub SetChannelVolumes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::HRESULT,
@@ -519,7 +519,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointVolume {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointVolume_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub RegisterControlChangeNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UnregisterControlChangeNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnchannelcount: *mut u32) -> ::windows::core::HRESULT,
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointVolumeCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointVolumeCallback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -757,7 +757,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointVolumeEx {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointVolumeEx_Vtbl {
-    pub base: IAudioEndpointVolume_Vtbl,
+    pub base__: IAudioEndpointVolume_Vtbl,
     pub GetVolumeRangeChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
@@ -819,7 +819,7 @@ unsafe impl ::windows::core::Interface for IAudioLfxControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioLfxControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetLocalEffectsState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -896,7 +896,7 @@ unsafe impl ::windows::core::Interface for IAudioMeterInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMeterInformation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetPeakValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfpeak: *mut f32) -> ::windows::core::HRESULT,
     pub GetMeteringChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnchannelcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetChannelsPeakValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::HRESULT,
@@ -975,7 +975,7 @@ unsafe impl ::windows::core::Interface for IHardwareAudioEngineBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHardwareAudioEngineBase_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetAvailableOffloadConnectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _pwstrdeviceid: ::windows::core::PCWSTR, _uconnectorid: u32, _pavailableconnectorinstancecount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEngineFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT,

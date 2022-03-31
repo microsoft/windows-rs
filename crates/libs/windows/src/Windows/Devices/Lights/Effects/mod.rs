@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for ILampArrayBitmapEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -57,7 +57,7 @@ unsafe impl ::windows::core::Interface for ILampArrayBitmapEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -70,7 +70,7 @@ unsafe impl ::windows::core::Interface for ILampArrayBitmapRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SinceStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -90,7 +90,7 @@ unsafe impl ::windows::core::Interface for ILampArrayBlinkEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))]
@@ -154,7 +154,7 @@ unsafe impl ::windows::core::Interface for ILampArrayBlinkEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -167,7 +167,7 @@ unsafe impl ::windows::core::Interface for ILampArrayColorRampEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))]
@@ -205,7 +205,7 @@ unsafe impl ::windows::core::Interface for ILampArrayColorRampEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::Interface for ILampArrayCustomEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayCustomEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -254,7 +254,7 @@ unsafe impl ::windows::core::Interface for ILampArrayCustomEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayCustomEffectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
@@ -345,7 +345,7 @@ unsafe impl ::windows::core::Interface for ILampArrayEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
 }
@@ -359,7 +359,7 @@ unsafe impl ::windows::core::Interface for ILampArrayEffectPlaylist {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylist_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OverrideZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, zindex: i32) -> ::windows::core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -382,7 +382,7 @@ unsafe impl ::windows::core::Interface for ILampArrayEffectPlaylistStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylistStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub StartAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -406,7 +406,7 @@ unsafe impl ::windows::core::Interface for ILampArraySolidEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))]
@@ -444,7 +444,7 @@ unsafe impl ::windows::core::Interface for ILampArraySolidEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -457,7 +457,7 @@ unsafe impl ::windows::core::Interface for ILampArrayUpdateRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SinceStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

@@ -7065,7 +7065,7 @@ unsafe impl ::windows::core::Interface for IAddDeleteThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddDeleteThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7077,7 +7077,7 @@ unsafe impl ::windows::core::Interface for IBackEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Amplitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetAmplitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 }
@@ -7091,7 +7091,7 @@ unsafe impl ::windows::core::Interface for IBackEaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackEaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AmplitudeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7104,7 +7104,7 @@ unsafe impl ::windows::core::Interface for IBasicConnectedAnimationConfiguration
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicConnectedAnimationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7116,7 +7116,7 @@ unsafe impl ::windows::core::Interface for IBasicConnectedAnimationConfiguration
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicConnectedAnimationConfigurationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7129,7 +7129,7 @@ unsafe impl ::windows::core::Interface for IBeginStoryboard {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBeginStoryboard_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Storyboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetStoryboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7143,7 +7143,7 @@ unsafe impl ::windows::core::Interface for IBeginStoryboardStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBeginStoryboardStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StoryboardProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7156,7 +7156,7 @@ unsafe impl ::windows::core::Interface for IBounceEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Bounces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetBounces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Bounciness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -7172,7 +7172,7 @@ unsafe impl ::windows::core::Interface for IBounceEaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceEaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BouncesProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub BouncinessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7186,7 +7186,7 @@ unsafe impl ::windows::core::Interface for ICircleEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICircleEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7198,7 +7198,7 @@ unsafe impl ::windows::core::Interface for IColorAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -7238,7 +7238,7 @@ unsafe impl ::windows::core::Interface for IColorAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7255,7 +7255,7 @@ unsafe impl ::windows::core::Interface for IColorAnimationUsingKeyFrames {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimationUsingKeyFrames_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -7273,7 +7273,7 @@ unsafe impl ::windows::core::Interface for IColorAnimationUsingKeyFramesStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorAnimationUsingKeyFramesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7286,7 +7286,7 @@ unsafe impl ::windows::core::Interface for IColorKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Color) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -7308,7 +7308,7 @@ unsafe impl ::windows::core::Interface for IColorKeyFrameFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorKeyFrameFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7321,7 +7321,7 @@ unsafe impl ::windows::core::Interface for IColorKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7335,7 +7335,7 @@ unsafe impl ::windows::core::Interface for ICommonNavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonNavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -7349,7 +7349,7 @@ unsafe impl ::windows::core::Interface for ICommonNavigationTransitionInfoStatic
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonNavigationTransitionInfoStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsStaggerElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIsStaggerElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7365,7 +7365,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -7387,7 +7387,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimation2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsScaleAnimationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsScaleAnimationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -7409,7 +7409,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimation3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimation3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7423,7 +7423,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7435,7 +7435,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationConfigurationFacto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationConfigurationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7447,7 +7447,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationService_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DefaultDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -7477,7 +7477,7 @@ unsafe impl ::windows::core::Interface for IConnectedAnimationServiceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectedAnimationServiceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7490,7 +7490,7 @@ unsafe impl ::windows::core::Interface for IContentThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub VerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -7506,7 +7506,7 @@ unsafe impl ::windows::core::Interface for IContentThemeTransitionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentThemeTransitionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7520,7 +7520,7 @@ unsafe impl ::windows::core::Interface for IContinuumNavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContinuumNavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExitElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetExitElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7534,7 +7534,7 @@ unsafe impl ::windows::core::Interface for IContinuumNavigationTransitionInfoSta
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContinuumNavigationTransitionInfoStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExitElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsEntranceElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIsEntranceElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7562,7 +7562,7 @@ unsafe impl ::windows::core::Interface for ICubicEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICubicEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7574,7 +7574,7 @@ unsafe impl ::windows::core::Interface for IDirectConnectedAnimationConfiguratio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectConnectedAnimationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7586,7 +7586,7 @@ unsafe impl ::windows::core::Interface for IDirectConnectedAnimationConfiguratio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectConnectedAnimationConfigurationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7599,7 +7599,7 @@ unsafe impl ::windows::core::Interface for IDiscreteColorKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscreteColorKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7611,7 +7611,7 @@ unsafe impl ::windows::core::Interface for IDiscreteDoubleKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscreteDoubleKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7623,7 +7623,7 @@ unsafe impl ::windows::core::Interface for IDiscreteObjectKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscreteObjectKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7635,7 +7635,7 @@ unsafe impl ::windows::core::Interface for IDiscretePointKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscretePointKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7647,7 +7647,7 @@ unsafe impl ::windows::core::Interface for IDoubleAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -7687,7 +7687,7 @@ unsafe impl ::windows::core::Interface for IDoubleAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7704,7 +7704,7 @@ unsafe impl ::windows::core::Interface for IDoubleAnimationUsingKeyFrames {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimationUsingKeyFrames_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -7722,7 +7722,7 @@ unsafe impl ::windows::core::Interface for IDoubleAnimationUsingKeyFramesStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleAnimationUsingKeyFramesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7735,7 +7735,7 @@ unsafe impl ::windows::core::Interface for IDoubleKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -7757,7 +7757,7 @@ unsafe impl ::windows::core::Interface for IDoubleKeyFrameFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleKeyFrameFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7770,7 +7770,7 @@ unsafe impl ::windows::core::Interface for IDoubleKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDoubleKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7784,7 +7784,7 @@ unsafe impl ::windows::core::Interface for IDragItemThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragItemThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7798,7 +7798,7 @@ unsafe impl ::windows::core::Interface for IDragItemThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragItemThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7811,7 +7811,7 @@ unsafe impl ::windows::core::Interface for IDragOverThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragOverThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ToOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -7835,7 +7835,7 @@ unsafe impl ::windows::core::Interface for IDragOverThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragOverThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DirectionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7850,7 +7850,7 @@ unsafe impl ::windows::core::Interface for IDrillInNavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillInNavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7862,7 +7862,7 @@ unsafe impl ::windows::core::Interface for IDrillInThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillInThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetEntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EntranceTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7882,7 +7882,7 @@ unsafe impl ::windows::core::Interface for IDrillInThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillInThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EntranceTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EntranceTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExitTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7898,7 +7898,7 @@ unsafe impl ::windows::core::Interface for IDrillOutThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillOutThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetEntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EntranceTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7918,7 +7918,7 @@ unsafe impl ::windows::core::Interface for IDrillOutThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDrillOutThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EntranceTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EntranceTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExitTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7934,7 +7934,7 @@ unsafe impl ::windows::core::Interface for IDropTargetItemThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetItemThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7948,7 +7948,7 @@ unsafe impl ::windows::core::Interface for IDropTargetItemThemeAnimationStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetItemThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7961,7 +7961,7 @@ unsafe impl ::windows::core::Interface for IEasingColorKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingColorKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7975,7 +7975,7 @@ unsafe impl ::windows::core::Interface for IEasingColorKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingColorKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingFunctionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7988,7 +7988,7 @@ unsafe impl ::windows::core::Interface for IEasingDoubleKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingDoubleKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8002,7 +8002,7 @@ unsafe impl ::windows::core::Interface for IEasingDoubleKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingDoubleKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingFunctionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8015,7 +8015,7 @@ unsafe impl ::windows::core::Interface for IEasingFunctionBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingFunctionBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasingMode) -> ::windows::core::HRESULT,
     pub SetEasingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: EasingMode) -> ::windows::core::HRESULT,
     pub Ease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedtime: f64, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8030,7 +8030,7 @@ unsafe impl ::windows::core::Interface for IEasingFunctionBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingFunctionBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8042,7 +8042,7 @@ unsafe impl ::windows::core::Interface for IEasingFunctionBaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingFunctionBaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8055,7 +8055,7 @@ unsafe impl ::windows::core::Interface for IEasingPointKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingPointKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8069,7 +8069,7 @@ unsafe impl ::windows::core::Interface for IEasingPointKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasingPointKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EasingFunctionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8082,7 +8082,7 @@ unsafe impl ::windows::core::Interface for IEdgeUIThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeUIThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -8102,7 +8102,7 @@ unsafe impl ::windows::core::Interface for IEdgeUIThemeTransitionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeUIThemeTransitionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EdgeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8115,7 +8115,7 @@ unsafe impl ::windows::core::Interface for IElasticEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElasticEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Oscillations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetOscillations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Springiness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8131,7 +8131,7 @@ unsafe impl ::windows::core::Interface for IElasticEaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElasticEaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OscillationsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SpringinessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8145,7 +8145,7 @@ unsafe impl ::windows::core::Interface for IEntranceNavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntranceNavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8157,7 +8157,7 @@ unsafe impl ::windows::core::Interface for IEntranceNavigationTransitionInfoStat
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntranceNavigationTransitionInfoStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsTargetElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIsTargetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsTargetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
@@ -8172,7 +8172,7 @@ unsafe impl ::windows::core::Interface for IEntranceThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntranceThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetFromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub FromVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8190,7 +8190,7 @@ unsafe impl ::windows::core::Interface for IEntranceThemeTransitionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntranceThemeTransitionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsStaggeringEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8205,7 +8205,7 @@ unsafe impl ::windows::core::Interface for IExponentialEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExponentialEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Exponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetExponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 }
@@ -8219,7 +8219,7 @@ unsafe impl ::windows::core::Interface for IExponentialEaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExponentialEaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExponentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8232,7 +8232,7 @@ unsafe impl ::windows::core::Interface for IFadeInThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFadeInThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8246,7 +8246,7 @@ unsafe impl ::windows::core::Interface for IFadeInThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFadeInThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8259,7 +8259,7 @@ unsafe impl ::windows::core::Interface for IFadeOutThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFadeOutThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8273,7 +8273,7 @@ unsafe impl ::windows::core::Interface for IFadeOutThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFadeOutThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8286,7 +8286,7 @@ unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfigurati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGravityConnectedAnimationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8298,7 +8298,7 @@ unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfigurati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGravityConnectedAnimationConfiguration2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsShadowEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsShadowEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -8312,7 +8312,7 @@ unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfigurati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGravityConnectedAnimationConfigurationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8325,7 +8325,7 @@ unsafe impl ::windows::core::Interface for IKeySpline {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeySpline_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ControlPoint1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -8353,7 +8353,7 @@ unsafe impl ::windows::core::Interface for IKeyTimeHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyTimeHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8365,7 +8365,7 @@ unsafe impl ::windows::core::Interface for IKeyTimeHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyTimeHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timespan: super::super::super::super::Foundation::TimeSpan, result__: *mut KeyTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -8381,7 +8381,7 @@ unsafe impl ::windows::core::Interface for ILinearColorKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearColorKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8393,7 +8393,7 @@ unsafe impl ::windows::core::Interface for ILinearDoubleKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearDoubleKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8405,7 +8405,7 @@ unsafe impl ::windows::core::Interface for ILinearPointKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearPointKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8417,7 +8417,7 @@ unsafe impl ::windows::core::Interface for INavigationThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DefaultNavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDefaultNavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8431,7 +8431,7 @@ unsafe impl ::windows::core::Interface for INavigationThemeTransitionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationThemeTransitionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DefaultNavigationTransitionInfoProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8444,7 +8444,7 @@ unsafe impl ::windows::core::Interface for INavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8456,7 +8456,7 @@ unsafe impl ::windows::core::Interface for INavigationTransitionInfoFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationTransitionInfoFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8469,7 +8469,7 @@ unsafe impl ::windows::core::Interface for INavigationTransitionInfoOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationTransitionInfoOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetNavigationStateCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetNavigationStateCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8483,7 +8483,7 @@ unsafe impl ::windows::core::Interface for IObjectAnimationUsingKeyFrames {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectAnimationUsingKeyFrames_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -8501,7 +8501,7 @@ unsafe impl ::windows::core::Interface for IObjectAnimationUsingKeyFramesStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectAnimationUsingKeyFramesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8514,7 +8514,7 @@ unsafe impl ::windows::core::Interface for IObjectKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -8536,7 +8536,7 @@ unsafe impl ::windows::core::Interface for IObjectKeyFrameFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectKeyFrameFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8549,7 +8549,7 @@ unsafe impl ::windows::core::Interface for IObjectKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8563,7 +8563,7 @@ unsafe impl ::windows::core::Interface for IPaneThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaneThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -8583,7 +8583,7 @@ unsafe impl ::windows::core::Interface for IPaneThemeTransitionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaneThemeTransitionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EdgeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8596,7 +8596,7 @@ unsafe impl ::windows::core::Interface for IPointAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -8636,7 +8636,7 @@ unsafe impl ::windows::core::Interface for IPointAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8653,7 +8653,7 @@ unsafe impl ::windows::core::Interface for IPointAnimationUsingKeyFrames {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimationUsingKeyFrames_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -8671,7 +8671,7 @@ unsafe impl ::windows::core::Interface for IPointAnimationUsingKeyFramesStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointAnimationUsingKeyFramesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8684,7 +8684,7 @@ unsafe impl ::windows::core::Interface for IPointKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -8712,7 +8712,7 @@ unsafe impl ::windows::core::Interface for IPointKeyFrameFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointKeyFrameFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8725,7 +8725,7 @@ unsafe impl ::windows::core::Interface for IPointKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8739,7 +8739,7 @@ unsafe impl ::windows::core::Interface for IPointerDownThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDownThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8753,7 +8753,7 @@ unsafe impl ::windows::core::Interface for IPointerDownThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDownThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8766,7 +8766,7 @@ unsafe impl ::windows::core::Interface for IPointerUpThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerUpThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8780,7 +8780,7 @@ unsafe impl ::windows::core::Interface for IPointerUpThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerUpThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8793,7 +8793,7 @@ unsafe impl ::windows::core::Interface for IPopInThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopInThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8811,7 +8811,7 @@ unsafe impl ::windows::core::Interface for IPopInThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopInThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8826,7 +8826,7 @@ unsafe impl ::windows::core::Interface for IPopOutThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopOutThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8840,7 +8840,7 @@ unsafe impl ::windows::core::Interface for IPopOutThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopOutThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8853,7 +8853,7 @@ unsafe impl ::windows::core::Interface for IPopupThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetFromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub FromVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8869,7 +8869,7 @@ unsafe impl ::windows::core::Interface for IPopupThemeTransitionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupThemeTransitionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8883,7 +8883,7 @@ unsafe impl ::windows::core::Interface for IPowerEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Power: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 }
@@ -8897,7 +8897,7 @@ unsafe impl ::windows::core::Interface for IPowerEaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerEaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PowerProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8910,7 +8910,7 @@ unsafe impl ::windows::core::Interface for IQuadraticEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuadraticEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8922,7 +8922,7 @@ unsafe impl ::windows::core::Interface for IQuarticEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuarticEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8934,7 +8934,7 @@ unsafe impl ::windows::core::Interface for IQuinticEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuinticEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8946,7 +8946,7 @@ unsafe impl ::windows::core::Interface for IReorderThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReorderThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8958,7 +8958,7 @@ unsafe impl ::windows::core::Interface for IRepeatBehaviorHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatBehaviorHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8970,7 +8970,7 @@ unsafe impl ::windows::core::Interface for IRepeatBehaviorHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatBehaviorHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Forever: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -9006,7 +9006,7 @@ unsafe impl ::windows::core::Interface for IRepositionThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -9024,7 +9024,7 @@ unsafe impl ::windows::core::Interface for IRepositionThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9039,7 +9039,7 @@ unsafe impl ::windows::core::Interface for IRepositionThemeTransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeTransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9051,7 +9051,7 @@ unsafe impl ::windows::core::Interface for IRepositionThemeTransition2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeTransition2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -9065,7 +9065,7 @@ unsafe impl ::windows::core::Interface for IRepositionThemeTransitionStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepositionThemeTransitionStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9078,7 +9078,7 @@ unsafe impl ::windows::core::Interface for ISineEase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISineEase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9090,7 +9090,7 @@ unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlideNavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9102,7 +9102,7 @@ unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlideNavigationTransitionInfo2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Effect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SlideNavigationTransitionEffect) -> ::windows::core::HRESULT,
     pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SlideNavigationTransitionEffect) -> ::windows::core::HRESULT,
 }
@@ -9116,7 +9116,7 @@ unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfoStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlideNavigationTransitionInfoStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EffectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9129,7 +9129,7 @@ unsafe impl ::windows::core::Interface for ISplineColorKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplineColorKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetKeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9143,7 +9143,7 @@ unsafe impl ::windows::core::Interface for ISplineColorKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplineColorKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeySplineProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9156,7 +9156,7 @@ unsafe impl ::windows::core::Interface for ISplineDoubleKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplineDoubleKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetKeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9170,7 +9170,7 @@ unsafe impl ::windows::core::Interface for ISplineDoubleKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplineDoubleKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeySplineProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9183,7 +9183,7 @@ unsafe impl ::windows::core::Interface for ISplinePointKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplinePointKeyFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetKeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9197,7 +9197,7 @@ unsafe impl ::windows::core::Interface for ISplinePointKeyFrameStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplinePointKeyFrameStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeySplineProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9210,7 +9210,7 @@ unsafe impl ::windows::core::Interface for ISplitCloseThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitCloseThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetOpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub OpenedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9250,7 +9250,7 @@ unsafe impl ::windows::core::Interface for ISplitCloseThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitCloseThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpenedTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenedTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ClosedTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9273,7 +9273,7 @@ unsafe impl ::windows::core::Interface for ISplitOpenThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitOpenThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetOpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub OpenedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9313,7 +9313,7 @@ unsafe impl ::windows::core::Interface for ISplitOpenThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitOpenThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpenedTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenedTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ClosedTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9336,7 +9336,7 @@ unsafe impl ::windows::core::Interface for IStoryboard {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoryboard_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -9370,7 +9370,7 @@ unsafe impl ::windows::core::Interface for IStoryboardStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoryboardStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetPropertyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9389,7 +9389,7 @@ unsafe impl ::windows::core::Interface for ISuppressNavigationTransitionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISuppressNavigationTransitionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9401,7 +9401,7 @@ unsafe impl ::windows::core::Interface for ISwipeBackThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwipeBackThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -9419,7 +9419,7 @@ unsafe impl ::windows::core::Interface for ISwipeBackThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwipeBackThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9434,7 +9434,7 @@ unsafe impl ::windows::core::Interface for ISwipeHintThemeAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwipeHintThemeAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ToHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -9452,7 +9452,7 @@ unsafe impl ::windows::core::Interface for ISwipeHintThemeAnimationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwipeHintThemeAnimationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9467,7 +9467,7 @@ unsafe impl ::windows::core::Interface for ITimeline {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeline_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AutoReverse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAutoReverse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -9517,7 +9517,7 @@ unsafe impl ::windows::core::Interface for ITimelineFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9530,7 +9530,7 @@ unsafe impl ::windows::core::Interface for ITimelineStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AllowDependentAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowDependentAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub AutoReverseProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9550,7 +9550,7 @@ unsafe impl ::windows::core::Interface for ITransition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9562,7 +9562,7 @@ unsafe impl ::windows::core::Interface for ITransitionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransitionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: `\"UI_Xaml_Media_Animation\"`*"]
 #[repr(transparent)]

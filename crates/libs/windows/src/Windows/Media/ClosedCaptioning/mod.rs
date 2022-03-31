@@ -301,7 +301,7 @@ unsafe impl ::windows::core::Interface for IClosedCaptionPropertiesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI")]
     pub ComputedFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,

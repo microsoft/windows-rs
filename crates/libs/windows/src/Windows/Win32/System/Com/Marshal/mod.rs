@@ -1386,7 +1386,7 @@ unsafe impl ::windows::core::Interface for IMarshal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshal_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetUnmarshalClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetMarshalSizeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::HRESULT,
     pub MarshalInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::HRESULT,
@@ -1486,7 +1486,7 @@ unsafe impl ::windows::core::Interface for IMarshal2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshal2_Vtbl {
-    pub base: IMarshal_Vtbl,
+    pub base__: IMarshal_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
@@ -1629,7 +1629,7 @@ unsafe impl ::windows::core::Interface for IMarshalingStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshalingStream_Vtbl {
-    pub base: super::IStream_Vtbl,
+    pub base__: super::IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]

@@ -19,7 +19,7 @@ impl IActivationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ActivateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 
@@ -57,7 +57,7 @@ impl IActivationFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IActivationFactory, OFFSET>(),
             ActivateInstance: ActivateInstance::<Identity, Impl, OFFSET>,
         }
     }

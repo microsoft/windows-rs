@@ -7220,7 +7220,7 @@ unsafe impl ::windows::core::Interface for IDMLBindingTable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLBindingTable_Vtbl {
-    pub base: IDMLDeviceChild_Vtbl,
+    pub base__: IDMLDeviceChild_Vtbl,
     pub BindInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
     pub BindOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
     pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
@@ -7344,7 +7344,7 @@ unsafe impl ::windows::core::Interface for IDMLCommandRecorder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLCommandRecorder_Vtbl {
-    pub base: IDMLDeviceChild_Vtbl,
+    pub base__: IDMLDeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub RecordDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandlist: ::windows::core::RawPtr, dispatchable: ::windows::core::RawPtr, bindings: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -7505,7 +7505,7 @@ unsafe impl ::windows::core::Interface for IDMLCompiledOperator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLCompiledOperator_Vtbl {
-    pub base: IDMLDispatchable_Vtbl,
+    pub base__: IDMLDispatchable_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
@@ -7560,7 +7560,7 @@ unsafe impl ::windows::core::Interface for IDMLDebugDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDebugDevice_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7695,7 +7695,7 @@ unsafe impl ::windows::core::Interface for IDMLDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice_Vtbl {
-    pub base: IDMLObject_Vtbl,
+    pub base__: IDMLObject_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompileOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7863,7 +7863,7 @@ unsafe impl ::windows::core::Interface for IDMLDevice1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice1_Vtbl {
-    pub base: IDMLDevice_Vtbl,
+    pub base__: IDMLDevice_Vtbl,
     pub CompileGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -7955,7 +7955,7 @@ unsafe impl ::windows::core::Interface for IDMLDeviceChild {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDeviceChild_Vtbl {
-    pub base: IDMLObject_Vtbl,
+    pub base__: IDMLObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -8093,7 +8093,7 @@ unsafe impl ::windows::core::Interface for IDMLDispatchable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDispatchable_Vtbl {
-    pub base: IDMLPageable_Vtbl,
+    pub base__: IDMLPageable_Vtbl,
     pub GetBindingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -8160,7 +8160,7 @@ unsafe impl ::windows::core::Interface for IDMLObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8275,7 +8275,7 @@ unsafe impl ::windows::core::Interface for IDMLOperator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperator_Vtbl {
-    pub base: IDMLDeviceChild_Vtbl,
+    pub base__: IDMLDeviceChild_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
@@ -8436,7 +8436,7 @@ unsafe impl ::windows::core::Interface for IDMLOperatorInitializer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperatorInitializer_Vtbl {
-    pub base: IDMLDispatchable_Vtbl,
+    pub base__: IDMLDispatchable_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -8548,7 +8548,7 @@ unsafe impl ::windows::core::Interface for IDMLPageable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLPageable_Vtbl {
-    pub base: IDMLDeviceChild_Vtbl,
+    pub base__: IDMLDeviceChild_Vtbl,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

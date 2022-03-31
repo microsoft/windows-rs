@@ -171,7 +171,7 @@ unsafe impl ::windows::core::RuntimeType for AddPagesEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AddPagesEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Printing\"`*"]
@@ -345,7 +345,7 @@ unsafe impl ::windows::core::RuntimeType for GetPreviewPageEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct GetPreviewPageEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -358,7 +358,7 @@ unsafe impl ::windows::core::Interface for IAddPagesEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddPagesEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Printing")]
     pub PrintTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
@@ -374,7 +374,7 @@ unsafe impl ::windows::core::Interface for IGetPreviewPageEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetPreviewPageEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -387,7 +387,7 @@ unsafe impl ::windows::core::Interface for IPaginateEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaginateEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Printing")]
     pub PrintTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
@@ -404,7 +404,7 @@ unsafe impl ::windows::core::Interface for IPrintDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocument_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Printing")]
     pub DocumentSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -462,7 +462,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DocumentSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Printing\"`*"]
@@ -645,7 +645,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PaginateEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Printing\"`*"]

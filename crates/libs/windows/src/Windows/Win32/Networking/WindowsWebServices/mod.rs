@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
 }

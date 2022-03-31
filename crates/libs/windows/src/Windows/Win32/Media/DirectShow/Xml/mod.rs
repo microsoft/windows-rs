@@ -62,7 +62,7 @@ unsafe impl ::windows::core::Interface for IXMLGraphBuilder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLGraphBuilder_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub BuildFromXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pxml: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]

@@ -237,7 +237,7 @@ unsafe impl ::windows::core::Interface for IAccessibleWinSAT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleWinSAT_Vtbl {
-    pub base: super::super::UI::Accessibility::IAccessible_Vtbl,
+    pub base__: super::super::UI::Accessibility::IAccessible_Vtbl,
     pub SetAccessiblityData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsname: ::windows::core::PCWSTR, wsvalue: ::windows::core::PCWSTR, wsdesc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
@@ -302,7 +302,7 @@ unsafe impl ::windows::core::Interface for IInitiateWinSATAssessment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitiateWinSATAssessment_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InitiateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmdline: ::windows::core::PCWSTR, pcallbacks: ::windows::core::RawPtr, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -414,7 +414,7 @@ unsafe impl ::windows::core::Interface for IProvideWinSATAssessmentInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideWinSATAssessmentInfo_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Score: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, score: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -537,7 +537,7 @@ unsafe impl ::windows::core::Interface for IProvideWinSATResultsInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideWinSATResultsInfo_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetAssessmentInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assessment: WINSAT_ASSESSMENT_TYPE, ppinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::Interface for IProvideWinSATVisuals {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideWinSATVisuals_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub Bitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Interface for IQueryAllWinSATAssessments {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryAllWinSATAssessments_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub AllXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -762,7 +762,7 @@ unsafe impl ::windows::core::Interface for IQueryOEMWinSATCustomization {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryOEMWinSATCustomization_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
@@ -861,7 +861,7 @@ unsafe impl ::windows::core::Interface for IQueryRecentWinSATAssessment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryRecentWinSATAssessment_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub XML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -927,7 +927,7 @@ unsafe impl ::windows::core::Interface for IWinSATInitiateEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinSATInitiateEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub WinSATComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, strdescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub WinSATUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucurrenttick: u32, uticktotal: u32, strcurrentstate: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }

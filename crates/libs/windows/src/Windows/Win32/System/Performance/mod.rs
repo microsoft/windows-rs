@@ -216,7 +216,7 @@ unsafe impl ::windows::core::Interface for DICounterItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DICounterItem_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 pub const DIID_DICounterItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
 pub const DIID_DILogFileItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::Interface for DILogFileItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DILogFileItem_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::Interface for DISystemMonitor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DISystemMonitor_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -476,7 +476,7 @@ unsafe impl ::windows::core::Interface for DISystemMonitorEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DISystemMonitorEvents_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -561,7 +561,7 @@ unsafe impl ::windows::core::Interface for DISystemMonitorInternal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DISystemMonitorInternal_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 pub const DataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
 pub const DataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
@@ -1115,7 +1115,7 @@ unsafe impl ::windows::core::Interface for IAlertDataCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlertDataCollector_Vtbl {
-    pub base: IDataCollector_Vtbl,
+    pub base__: IDataCollector_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub AlertThresholds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alerts: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1473,7 +1473,7 @@ unsafe impl ::windows::core::Interface for IApiTracingDataCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApiTracingDataCollector_Vtbl {
-    pub base: IDataCollector_Vtbl,
+    pub base__: IDataCollector_Vtbl,
     pub LogApiNamesOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logapinames: *mut i16) -> ::windows::core::HRESULT,
     pub SetLogApiNamesOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logapinames: i16) -> ::windows::core::HRESULT,
     pub LogApisRecursively: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logrecursively: *mut i16) -> ::windows::core::HRESULT,
@@ -1845,7 +1845,7 @@ unsafe impl ::windows::core::Interface for IConfigurationDataCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConfigurationDataCollector_Vtbl {
-    pub base: IDataCollector_Vtbl,
+    pub base__: IDataCollector_Vtbl,
     pub FileMaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub SetFileMaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32) -> ::windows::core::HRESULT,
     pub FileMaxRecursiveDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, depth: *mut u32) -> ::windows::core::HRESULT,
@@ -1992,7 +1992,7 @@ unsafe impl ::windows::core::Interface for ICounterItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICounterItem_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdblvalue: *mut f64) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT,
@@ -2156,7 +2156,7 @@ unsafe impl ::windows::core::Interface for ICounterItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICounterItem2_Vtbl {
-    pub base: ICounterItem_Vtbl,
+    pub base__: ICounterItem_Vtbl,
     pub SetSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT,
     pub Selected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT,
@@ -2277,7 +2277,7 @@ unsafe impl ::windows::core::Interface for ICounters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICounters_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plong: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2506,7 +2506,7 @@ unsafe impl ::windows::core::Interface for IDataCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCollector_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub DataCollectorSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2705,7 +2705,7 @@ unsafe impl ::windows::core::Interface for IDataCollectorCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCollectorCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, collector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3130,7 +3130,7 @@ unsafe impl ::windows::core::Interface for IDataCollectorSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCollectorSet_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub DataCollectors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collectors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3430,7 +3430,7 @@ unsafe impl ::windows::core::Interface for IDataCollectorSetCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCollectorSetCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, set: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3665,7 +3665,7 @@ unsafe impl ::windows::core::Interface for IDataManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataManager_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT,
     pub CheckBeforeRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcheck: *mut i16) -> ::windows::core::HRESULT,
@@ -3853,7 +3853,7 @@ unsafe impl ::windows::core::Interface for IFolderAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderAction_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Age: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulage: *mut u32) -> ::windows::core::HRESULT,
     pub SetAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulage: u32) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulage: *mut u32) -> ::windows::core::HRESULT,
@@ -3994,7 +3994,7 @@ unsafe impl ::windows::core::Interface for IFolderActionCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderActionCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, action: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4073,7 +4073,7 @@ unsafe impl ::windows::core::Interface for ILogFileItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILogFileItem_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4190,7 +4190,7 @@ unsafe impl ::windows::core::Interface for ILogFiles {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILogFiles_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plong: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4492,7 +4492,7 @@ unsafe impl ::windows::core::Interface for IPerformanceCounterDataCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerformanceCounterDataCollector_Vtbl {
-    pub base: IDataCollector_Vtbl,
+    pub base__: IDataCollector_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DataSourceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dsn: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4642,7 +4642,7 @@ unsafe impl ::windows::core::Interface for ISchedule {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchedule_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub StartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -4795,7 +4795,7 @@ unsafe impl ::windows::core::Interface for IScheduleCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduleCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppschedule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5223,7 +5223,7 @@ unsafe impl ::windows::core::Interface for ISystemMonitor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMonitor_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iappearance: *mut i32) -> ::windows::core::HRESULT,
     pub SetAppearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iappearance: i32) -> ::windows::core::HRESULT,
     pub BackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT,
@@ -5859,7 +5859,7 @@ unsafe impl ::windows::core::Interface for ISystemMonitor2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMonitor2_Vtbl {
-    pub base: ISystemMonitor_Vtbl,
+    pub base__: ISystemMonitor_Vtbl,
     pub SetEnableDigitGrouping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT,
     pub EnableDigitGrouping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT,
     pub SetEnableToolTips: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT,
@@ -5958,7 +5958,7 @@ unsafe impl ::windows::core::Interface for ISystemMonitorEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMonitorEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub OnCounterSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32),
     pub OnCounterAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32),
     pub OnCounterDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32),
@@ -6386,7 +6386,7 @@ unsafe impl ::windows::core::Interface for ITraceDataCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceDataCollector_Vtbl {
-    pub base: IDataCollector_Vtbl,
+    pub base__: IDataCollector_Vtbl,
     pub BufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT,
     pub SetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT,
     pub BuffersLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT,
@@ -6621,7 +6621,7 @@ unsafe impl ::windows::core::Interface for ITraceDataProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceDataProvider_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6816,7 +6816,7 @@ unsafe impl ::windows::core::Interface for ITraceDataProviderCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceDataProviderCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7005,7 +7005,7 @@ unsafe impl ::windows::core::Interface for IValueMap {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueMap_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7183,7 +7183,7 @@ unsafe impl ::windows::core::Interface for IValueMapItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueMapItem_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12462,7 +12462,7 @@ unsafe impl ::windows::core::Interface for _ICounterItemUnion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ICounterItemUnion_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdblvalue: *mut f64) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT,
@@ -12980,7 +12980,7 @@ unsafe impl ::windows::core::Interface for _ISystemMonitorUnion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ISystemMonitorUnion_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iappearance: *mut i32) -> ::windows::core::HRESULT,
     pub SetAppearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iappearance: i32) -> ::windows::core::HRESULT,
     pub BackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT,

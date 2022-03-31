@@ -3193,7 +3193,7 @@ unsafe impl ::windows::core::Interface for ICameraUIControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraUIControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwindow: *mut ::core::ffi::c_void, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3283,7 +3283,7 @@ unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraUIControlEventCallback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub OnStartupComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnSuspendComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnItemCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR),
@@ -3343,7 +3343,7 @@ unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bodytext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, packagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, launchcommand: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3402,7 +3402,7 @@ unsafe impl ::windows::core::Interface for IContainerActivationHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerActivationHelper_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CanActivateClientVM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3458,7 +3458,7 @@ unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultBrowserSyncSettings_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3516,7 +3516,7 @@ unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeleteBrowsingHistory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub DeleteBrowsingHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3626,7 +3626,7 @@ unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEditionUpgradeBroker_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -3708,7 +3708,7 @@ unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEditionUpgradeHelper_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4390,7 +4390,7 @@ unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsLockModeHelper_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issmode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

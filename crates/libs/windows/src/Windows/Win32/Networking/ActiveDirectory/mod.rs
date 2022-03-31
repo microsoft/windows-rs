@@ -9340,7 +9340,7 @@ unsafe impl ::windows::core::Interface for IADs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADs_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9547,7 +9547,7 @@ unsafe impl ::windows::core::Interface for IADsADSystemInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsADSystemInfo_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9748,7 +9748,7 @@ unsafe impl ::windows::core::Interface for IADsAccessControlEntry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAccessControlEntry_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AccessMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetAccessMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnaccessmask: i32) -> ::windows::core::HRESULT,
     pub AceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -9905,7 +9905,7 @@ unsafe impl ::windows::core::Interface for IADsAccessControlList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAccessControlList_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AclRevision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetAclRevision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnaclrevision: i32) -> ::windows::core::HRESULT,
     pub AceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -10045,7 +10045,7 @@ unsafe impl ::windows::core::Interface for IADsAcl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAcl_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ProtectedAttrName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10133,7 +10133,7 @@ unsafe impl ::windows::core::Interface for IADsAggregatee {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregatee_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ConnectAsAggregatee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pouterunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisconnectAsAggregatee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RelinquishInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -10195,7 +10195,7 @@ unsafe impl ::windows::core::Interface for IADsAggregator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ConnectAsAggregator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregatee: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisconnectAsAggregator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -10303,7 +10303,7 @@ unsafe impl ::windows::core::Interface for IADsBackLink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsBackLink_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RemoteID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetRemoteID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnremoteid: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10410,7 +10410,7 @@ unsafe impl ::windows::core::Interface for IADsCaseIgnoreList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsCaseIgnoreList_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub CaseIgnoreList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -10757,7 +10757,7 @@ unsafe impl ::windows::core::Interface for IADsClass {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsClass_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PrimaryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10960,7 +10960,7 @@ unsafe impl ::windows::core::Interface for IADsCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vitem: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
@@ -11331,7 +11331,7 @@ unsafe impl ::windows::core::Interface for IADsComputer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsComputer_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ComputerID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11650,7 +11650,7 @@ unsafe impl ::windows::core::Interface for IADsComputerOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsComputerOperations_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11802,7 +11802,7 @@ unsafe impl ::windows::core::Interface for IADsContainer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsContainer_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11948,7 +11948,7 @@ unsafe impl ::windows::core::Interface for IADsDNWithBinary {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDNWithBinary_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub BinaryValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12072,7 +12072,7 @@ unsafe impl ::windows::core::Interface for IADsDNWithString {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDNWithString_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub StringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12178,7 +12178,7 @@ unsafe impl ::windows::core::Interface for IADsDeleteOps {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDeleteOps_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DeleteObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnflags: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
@@ -12437,7 +12437,7 @@ unsafe impl ::windows::core::Interface for IADsDomain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsDomain_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     pub IsWorkgroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub MinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetMinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnminpasswordlength: i32) -> ::windows::core::HRESULT,
@@ -12560,7 +12560,7 @@ unsafe impl ::windows::core::Interface for IADsEmail {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsEmail_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lntype: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -12635,7 +12635,7 @@ unsafe impl ::windows::core::Interface for IADsExtension {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsExtension_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Operate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcode: u32, vardata1: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, vardata2: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, vardata3: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12752,7 +12752,7 @@ unsafe impl ::windows::core::Interface for IADsFaxNumber {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFaxNumber_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TelephoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13119,7 +13119,7 @@ unsafe impl ::windows::core::Interface for IADsFileService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFileService_Vtbl {
-    pub base: IADsService_Vtbl,
+    pub base__: IADsService_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13372,7 +13372,7 @@ unsafe impl ::windows::core::Interface for IADsFileServiceOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFileServiceOperations_Vtbl {
-    pub base: IADsServiceOperations_Vtbl,
+    pub base__: IADsServiceOperations_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Sessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsessions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13608,7 +13608,7 @@ unsafe impl ::windows::core::Interface for IADsFileShare {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsFileShare_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     pub CurrentUserCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -13849,7 +13849,7 @@ unsafe impl ::windows::core::Interface for IADsGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsGroup_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13979,7 +13979,7 @@ unsafe impl ::windows::core::Interface for IADsHold {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsHold_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14093,7 +14093,7 @@ unsafe impl ::windows::core::Interface for IADsLargeInteger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsLargeInteger_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub HighPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetHighPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnhighpart: i32) -> ::windows::core::HRESULT,
     pub LowPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -14322,7 +14322,7 @@ unsafe impl ::windows::core::Interface for IADsLocality {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsLocality_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14461,7 +14461,7 @@ unsafe impl ::windows::core::Interface for IADsMembers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsMembers_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14593,7 +14593,7 @@ unsafe impl ::windows::core::Interface for IADsNameTranslate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsNameTranslate_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetChaseReferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnchasereferral: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnsettype: i32, bstradspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -14810,7 +14810,7 @@ unsafe impl ::windows::core::Interface for IADsNamespaces {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsNamespaces_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DefaultContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14924,7 +14924,7 @@ unsafe impl ::windows::core::Interface for IADsNetAddress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsNetAddress_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AddressType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetAddressType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnaddresstype: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15181,7 +15181,7 @@ unsafe impl ::windows::core::Interface for IADsO {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsO_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15487,7 +15487,7 @@ unsafe impl ::windows::core::Interface for IADsOU {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsOU_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15640,7 +15640,7 @@ unsafe impl ::windows::core::Interface for IADsObjectOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsObjectOptions_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnoption: i32, pvvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -15745,7 +15745,7 @@ unsafe impl ::windows::core::Interface for IADsOctetList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsOctetList_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub OctetList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -15845,7 +15845,7 @@ unsafe impl ::windows::core::Interface for IADsOpenDSObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsOpenDSObject_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub OpenDSObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszdnname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpszusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpszpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lnreserved: i32, ppoledsobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -15966,7 +15966,7 @@ unsafe impl ::windows::core::Interface for IADsPath {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPath_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lntype: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -16126,7 +16126,7 @@ unsafe impl ::windows::core::Interface for IADsPathname {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPathname_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lnsettype: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16252,7 +16252,7 @@ unsafe impl ::windows::core::Interface for IADsPostalAddress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPostalAddress_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub PostalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -16534,7 +16534,7 @@ unsafe impl ::windows::core::Interface for IADsPrintJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintJob_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub HostPrintQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16792,7 +16792,7 @@ unsafe impl ::windows::core::Interface for IADsPrintJobOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintJobOperations_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub TimeElapsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub PagesPrinted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -17115,7 +17115,7 @@ unsafe impl ::windows::core::Interface for IADsPrintQueue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintQueue_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PrinterPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -17399,7 +17399,7 @@ unsafe impl ::windows::core::Interface for IADsPrintQueueOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPrintQueueOperations_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub PrintJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -17643,7 +17643,7 @@ unsafe impl ::windows::core::Interface for IADsProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsProperty_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -17799,7 +17799,7 @@ unsafe impl ::windows::core::Interface for IADsPropertyEntry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyEntry_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -17950,7 +17950,7 @@ unsafe impl ::windows::core::Interface for IADsPropertyList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyList_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub PropertyCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -18188,7 +18188,7 @@ unsafe impl ::windows::core::Interface for IADsPropertyValue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyValue_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ADsType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetADsType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnadstype: i32) -> ::windows::core::HRESULT,
@@ -18357,7 +18357,7 @@ unsafe impl ::windows::core::Interface for IADsPropertyValue2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsPropertyValue2_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetObjectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -18500,7 +18500,7 @@ unsafe impl ::windows::core::Interface for IADsReplicaPointer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsReplicaPointer_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ServerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18726,7 +18726,7 @@ unsafe impl ::windows::core::Interface for IADsResource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsResource_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18929,7 +18929,7 @@ unsafe impl ::windows::core::Interface for IADsSecurityDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSecurityDescriptor_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Revision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetRevision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnrevision: i32) -> ::windows::core::HRESULT,
     pub Control: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -19089,7 +19089,7 @@ unsafe impl ::windows::core::Interface for IADsSecurityUtility {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSecurityUtility_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetSecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varpath: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, lpathformat: i32, lformat: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -19410,7 +19410,7 @@ unsafe impl ::windows::core::Interface for IADsService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsService_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub HostComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -19695,7 +19695,7 @@ unsafe impl ::windows::core::Interface for IADsServiceOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsServiceOperations_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -19919,7 +19919,7 @@ unsafe impl ::windows::core::Interface for IADsSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSession_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -20127,7 +20127,7 @@ unsafe impl ::windows::core::Interface for IADsSyntax {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsSyntax_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     pub OleAutoDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetOleAutoDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnoleautodatatype: i32) -> ::windows::core::HRESULT,
 }
@@ -20233,7 +20233,7 @@ unsafe impl ::windows::core::Interface for IADsTimestamp {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsTimestamp_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub WholeSeconds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub SetWholeSeconds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnwholeseconds: i32) -> ::windows::core::HRESULT,
     pub EventID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -20352,7 +20352,7 @@ unsafe impl ::windows::core::Interface for IADsTypedName {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsTypedName_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21021,7 +21021,7 @@ unsafe impl ::windows::core::Interface for IADsUser {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsUser_Vtbl {
-    pub base: IADs_Vtbl,
+    pub base__: IADs_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BadLoginAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21414,7 +21414,7 @@ unsafe impl ::windows::core::Interface for IADsWinNTSystemInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsWinNTSystemInfo_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21485,7 +21485,7 @@ unsafe impl ::windows::core::Interface for ICommonQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonQuery_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub OpenQueryWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -21565,7 +21565,7 @@ unsafe impl ::windows::core::Interface for IDirectoryObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectoryObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetObjectInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobjinfo: *mut *mut ADS_OBJECT_INFO) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetObjectAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows::core::HRESULT,
@@ -21667,7 +21667,7 @@ unsafe impl ::windows::core::Interface for IDirectorySchemaMgmt {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySchemaMgmt_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszattrnames: *const ::windows::core::PWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21788,7 +21788,7 @@ unsafe impl ::windows::core::Interface for IDirectorySearch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySearch_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSearchPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21868,7 +21868,7 @@ unsafe impl ::windows::core::Interface for IDsAdminCreateObj {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminCreateObj_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padscontainerobj: ::windows::core::RawPtr, padscopysource: ::windows::core::RawPtr, lpszclassname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -21935,7 +21935,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObj {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObj_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22020,7 +22020,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObjExt {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjExt_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padscontainerobj: ::windows::core::RawPtr, padscopysource: ::windows::core::RawPtr, lpszclassname: ::windows::core::PCWSTR, pdsadminnewobj: ::windows::core::RawPtr, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging")))]
@@ -22102,7 +22102,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObjPrimarySite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjPrimarySite_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -22172,7 +22172,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNotifyHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNotifyHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextrainfo: ::windows::core::RawPtr, pueventflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -22255,7 +22255,7 @@ unsafe impl ::windows::core::Interface for IDsBrowseDomainTree {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsBrowseDomainTree_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BrowseTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppsztargetpath: *mut ::windows::core::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22366,7 +22366,7 @@ unsafe impl ::windows::core::Interface for IDsDisplaySpecifier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsDisplaySpecifier_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserver: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     pub SetLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16) -> ::windows::core::HRESULT,
     pub GetDisplaySpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectclass: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -22446,7 +22446,7 @@ unsafe impl ::windows::core::Interface for IDsObjectPicker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsObjectPicker_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub InvokeDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppdoselections: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -22535,7 +22535,7 @@ unsafe impl ::windows::core::Interface for IDsObjectPickerCredentials {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsObjectPickerCredentials_Vtbl {
-    pub base: IDsObjectPicker_Vtbl,
+    pub base__: IDsObjectPicker_Vtbl,
     pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szusername: ::windows::core::PCWSTR, szpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
@@ -22656,7 +22656,7 @@ unsafe impl ::windows::core::Interface for IPersistQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistQuery_Vtbl {
-    pub base: super::super::System::Com::IPersist_Vtbl,
+    pub base__: super::super::System::Com::IPersist_Vtbl,
     pub WriteString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub ReadString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pbuffer: ::windows::core::PWSTR, cchbuffer: i32) -> ::windows::core::HRESULT,
     pub WriteInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, value: i32) -> ::windows::core::HRESULT,
@@ -22738,7 +22738,7 @@ unsafe impl ::windows::core::Interface for IPrivateDispatch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateDispatch_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ADSIInitializeDispatchManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwextensionid: i32) -> ::windows::core::HRESULT,
     pub ADSIGetTypeInfoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -22808,7 +22808,7 @@ unsafe impl ::windows::core::Interface for IPrivateUnknown {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateUnknown_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ADSIInitializeObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpszpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lnreserved: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22878,7 +22878,7 @@ unsafe impl ::windows::core::Interface for IQueryForm {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryForm_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Registry")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkform: super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]

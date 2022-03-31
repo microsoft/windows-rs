@@ -2169,7 +2169,7 @@ unsafe impl ::windows::core::Interface for ICoreTextCompositionCompletedEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CompositionSegments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2190,7 +2190,7 @@ unsafe impl ::windows::core::Interface for ICoreTextCompositionSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PreconversionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
 }
@@ -2204,7 +2204,7 @@ unsafe impl ::windows::core::Interface for ICoreTextCompositionStartedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2221,7 +2221,7 @@ unsafe impl ::windows::core::Interface for ICoreTextEditContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub InputScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputScope) -> ::windows::core::HRESULT,
@@ -2318,7 +2318,7 @@ unsafe impl ::windows::core::Interface for ICoreTextEditContext2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2338,7 +2338,7 @@ unsafe impl ::windows::core::Interface for ICoreTextFormatUpdatingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
     pub TextColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2375,7 +2375,7 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutBounds {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutBounds_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2403,7 +2403,7 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub LayoutBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2422,7 +2422,7 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LayoutBoundsVisualPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2435,7 +2435,7 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::core::Interface for ICoreTextSelectionRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows::core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2467,7 +2467,7 @@ unsafe impl ::windows::core::Interface for ICoreTextSelectionRequestedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2480,7 +2480,7 @@ unsafe impl ::windows::core::Interface for ICoreTextSelectionUpdatingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT,
     pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT,
@@ -2500,7 +2500,7 @@ unsafe impl ::windows::core::Interface for ICoreTextServicesManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Globalization")]
     pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
@@ -2525,7 +2525,7 @@ unsafe impl ::windows::core::Interface for ICoreTextServicesManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2538,7 +2538,7 @@ unsafe impl ::windows::core::Interface for ICoreTextServicesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HiddenCharacter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2551,7 +2551,7 @@ unsafe impl ::windows::core::Interface for ICoreTextTextRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2571,7 +2571,7 @@ unsafe impl ::windows::core::Interface for ICoreTextTextRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2584,7 +2584,7 @@ unsafe impl ::windows::core::Interface for ICoreTextTextUpdatingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub NewSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,

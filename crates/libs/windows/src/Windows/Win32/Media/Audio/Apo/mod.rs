@@ -1094,7 +1094,7 @@ unsafe impl ::windows::core::Interface for IApoAcousticEchoCancellation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAcousticEchoCancellation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
@@ -1157,7 +1157,7 @@ unsafe impl ::windows::core::Interface for IApoAuxiliaryInputConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AddAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT,
     pub RemoveAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32) -> ::windows::core::HRESULT,
     pub IsInputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequestedinputformat: ::windows::core::RawPtr, ppsupportedinputformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1214,7 +1214,7 @@ unsafe impl ::windows::core::Interface for IApoAuxiliaryInputRT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputRT_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AcceptInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY),
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Interface for IAudioDeviceModulesClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesClient_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetAudioDeviceModulesManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paudiodevicemodulesmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Interface for IAudioMediaType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMediaType_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCompressedFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1430,7 +1430,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows::core::HRESULT,
     pub GetRegistrationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppregprops: *mut *mut APO_REG_PROPERTIES) -> ::windows::core::HRESULT,
@@ -1495,7 +1495,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectConfiguration_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub LockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT,
     pub UnlockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1551,7 +1551,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectLoggingService 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectLoggingService_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ApoLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: APO_LOG_LEVEL, format: ::windows::core::PCWSTR),
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
@@ -1611,7 +1611,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectNotifications {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectNotifications_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetApoNotificationRegistrationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub HandleNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotification: *const APO_NOTIFICATION),
@@ -1678,7 +1678,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectRT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectRT_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub APOProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY),
     pub CalcInputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32outputframecount: u32) -> u32,
     pub CalcOutputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32inputframecount: u32) -> u32,
@@ -1736,7 +1736,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectRTQueueService 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectRTQueueService_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetRealTimeWorkQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, workqueueid: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
@@ -1797,7 +1797,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectVBR {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectVBR_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CalcMaxInputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32maxoutputframecount: u32, pu32inputframecount: *mut u32) -> ::windows::core::HRESULT,
     pub CalcMaxOutputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32maxinputframecount: u32, pu32outputframecount: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -1848,7 +1848,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffects {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffects_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
@@ -1923,7 +1923,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffects2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffects2_Vtbl {
-    pub base: IAudioSystemEffects_Vtbl,
+    pub base__: IAudioSystemEffects_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEffectsList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2031,7 +2031,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffects3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffects3_Vtbl {
-    pub base: IAudioSystemEffects2_Vtbl,
+    pub base__: IAudioSystemEffects2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetControllableSystemEffectsList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2101,7 +2101,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffectsCustomFormats {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffectsCustomFormats_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcformats: *mut u32) -> ::windows::core::HRESULT,
     pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nformat: u32, ppformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFormatRepresentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nformat: u32, ppwstrformatrep: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,

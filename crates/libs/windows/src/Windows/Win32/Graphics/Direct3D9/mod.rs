@@ -6450,7 +6450,7 @@ unsafe impl ::windows::core::Interface for IDirect3D9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub RegisterSoftwareDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -6632,7 +6632,7 @@ unsafe impl ::windows::core::Interface for IDirect3D9Ex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9Ex_Vtbl {
-    pub base: IDirect3D9_Vtbl,
+    pub base__: IDirect3D9_Vtbl,
     pub GetAdapterModeCountEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32,
     pub EnumAdapterModesEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> ::windows::core::HRESULT,
     pub GetAdapterDisplayModeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::HRESULT,
@@ -6770,7 +6770,7 @@ unsafe impl ::windows::core::Interface for IDirect3DBaseTexture9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DBaseTexture9_Vtbl {
-    pub base: IDirect3DResource9_Vtbl,
+    pub base__: IDirect3DResource9_Vtbl,
     pub SetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lodnew: u32) -> u32,
     pub GetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetLevelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -6946,7 +6946,7 @@ unsafe impl ::windows::core::Interface for IDirect3DCubeTexture9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DCubeTexture9_Vtbl {
-    pub base: IDirect3DBaseTexture9_Vtbl,
+    pub base__: IDirect3DBaseTexture9_Vtbl,
     pub GetLevelDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::HRESULT,
     pub GetCubeMapSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, facetype: D3DCUBEMAP_FACES, level: u32, ppcubemapsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7522,7 +7522,7 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAvailableTextureMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub EvictManagedResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8394,7 +8394,7 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice9Ex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9Ex_Vtbl {
-    pub base: IDirect3DDevice9_Vtbl,
+    pub base__: IDirect3DDevice9_Vtbl,
     pub SetConvolutionMonoKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::core::HRESULT,
     pub ComposeRects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrc: ::windows::core::RawPtr, pdst: ::windows::core::RawPtr, psrcrectdescs: ::windows::core::RawPtr, numrects: u32, pdstrectdescs: ::windows::core::RawPtr, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8542,7 +8542,7 @@ unsafe impl ::windows::core::Interface for IDirect3DIndexBuffer9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DIndexBuffer9_Vtbl {
-    pub base: IDirect3DResource9_Vtbl,
+    pub base__: IDirect3DResource9_Vtbl,
     pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows::core::HRESULT,
@@ -8604,7 +8604,7 @@ unsafe impl ::windows::core::Interface for IDirect3DPixelShader9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DPixelShader9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -8677,7 +8677,7 @@ unsafe impl ::windows::core::Interface for IDirect3DQuery9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DQuery9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3DQUERYTYPE,
     pub GetDataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -8765,7 +8765,7 @@ unsafe impl ::windows::core::Interface for IDirect3DResource9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DResource9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
@@ -8836,7 +8836,7 @@ unsafe impl ::windows::core::Interface for IDirect3DStateBlock9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DStateBlock9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Capture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8969,7 +8969,7 @@ unsafe impl ::windows::core::Interface for IDirect3DSurface9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSurface9_Vtbl {
-    pub base: IDirect3DResource9_Vtbl,
+    pub base__: IDirect3DResource9_Vtbl,
     pub GetContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcontainer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9067,7 +9067,7 @@ unsafe impl ::windows::core::Interface for IDirect3DSwapChain9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSwapChain9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub Present: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -9198,7 +9198,7 @@ unsafe impl ::windows::core::Interface for IDirect3DSwapChain9Ex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSwapChain9Ex_Vtbl {
-    pub base: IDirect3DSwapChain9_Vtbl,
+    pub base__: IDirect3DSwapChain9_Vtbl,
     pub GetLastPresentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plastpresentcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetPresentStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows::core::HRESULT,
     pub GetDisplayModeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::HRESULT,
@@ -9371,7 +9371,7 @@ unsafe impl ::windows::core::Interface for IDirect3DTexture9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DTexture9_Vtbl {
-    pub base: IDirect3DBaseTexture9_Vtbl,
+    pub base__: IDirect3DBaseTexture9_Vtbl,
     pub GetLevelDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::HRESULT,
     pub GetSurfaceLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, ppsurfacelevel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9497,7 +9497,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexBuffer9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexBuffer9_Vtbl {
-    pub base: IDirect3DResource9_Vtbl,
+    pub base__: IDirect3DResource9_Vtbl,
     pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows::core::HRESULT,
@@ -9559,7 +9559,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexDeclaration9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexDeclaration9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetDeclaration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -9620,7 +9620,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexShader9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexShader9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -9705,7 +9705,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVolume9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVolume9_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
@@ -9881,7 +9881,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVolumeTexture9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVolumeTexture9_Vtbl {
-    pub base: IDirect3DBaseTexture9_Vtbl,
+    pub base__: IDirect3DBaseTexture9_Vtbl,
     pub GetLevelDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, pdesc: *mut D3DVOLUME_DESC) -> ::windows::core::HRESULT,
     pub GetVolumeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, ppvolumelevel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LockBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::core::HRESULT,

@@ -93,7 +93,7 @@ unsafe impl ::windows::core::Interface for ICurrentTimeChangeRequestedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Time: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -109,7 +109,7 @@ unsafe impl ::windows::core::Interface for IMuteChangeRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMuteChangeRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Interface for IPlayToConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToConnection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionState) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -168,7 +168,7 @@ unsafe impl ::windows::core::Interface for IPlayToConnectionErrorEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToConnectionErrorEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionError) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -191,7 +191,7 @@ unsafe impl ::windows::core::Interface for IPlayToConnectionStateChangedEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub PreviousState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionState) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -214,7 +214,7 @@ unsafe impl ::windows::core::Interface for IPlayToConnectionTransferredEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub PreviousSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -237,7 +237,7 @@ unsafe impl ::windows::core::Interface for IPlayToManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::Interface for IPlayToManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for IPlayToReceiver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToReceiver_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PlayRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -421,7 +421,7 @@ unsafe impl ::windows::core::Interface for IPlayToSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -452,7 +452,7 @@ unsafe impl ::windows::core::Interface for IPlayToSourceDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSourceDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -471,7 +471,7 @@ unsafe impl ::windows::core::Interface for IPlayToSourceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSourceRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::Interface for IPlayToSourceRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSourceRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub SourceRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -521,7 +521,7 @@ unsafe impl ::windows::core::Interface for IPlayToSourceSelectedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSourceSelectedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -556,7 +556,7 @@ unsafe impl ::windows::core::Interface for IPlayToSourceWithPreferredSourceUri {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub PreferredSourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -576,7 +576,7 @@ unsafe impl ::windows::core::Interface for IPlaybackRateChangeRequestedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Rate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -589,7 +589,7 @@ unsafe impl ::windows::core::Interface for ISourceChangeRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISourceChangeRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Stream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -626,7 +626,7 @@ unsafe impl ::windows::core::Interface for IVolumeChangeRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVolumeChangeRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Volume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_PlayTo\"`*"]

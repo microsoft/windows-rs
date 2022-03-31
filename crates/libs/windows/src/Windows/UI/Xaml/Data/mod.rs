@@ -1107,7 +1107,7 @@ unsafe impl ::windows::core::RuntimeType for CurrentChangingEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct CurrentChangingEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::core::Interface for IBinding {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBinding_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BindingMode) -> ::windows::core::HRESULT,
@@ -1148,7 +1148,7 @@ unsafe impl ::windows::core::Interface for IBinding2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBinding2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FallbackValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetFallbackValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TargetNullValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1166,7 +1166,7 @@ unsafe impl ::windows::core::Interface for IBindingBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1178,7 +1178,7 @@ unsafe impl ::windows::core::Interface for IBindingBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1191,7 +1191,7 @@ unsafe impl ::windows::core::Interface for IBindingExpression {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpression_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DataItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ParentBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UpdateSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1206,7 +1206,7 @@ unsafe impl ::windows::core::Interface for IBindingExpressionBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpressionBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1218,7 +1218,7 @@ unsafe impl ::windows::core::Interface for IBindingExpressionBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpressionBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1230,7 +1230,7 @@ unsafe impl ::windows::core::Interface for IBindingExpressionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpressionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1242,7 +1242,7 @@ unsafe impl ::windows::core::Interface for IBindingFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1255,7 +1255,7 @@ unsafe impl ::windows::core::Interface for IBindingOperations {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingOperations_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1267,7 +1267,7 @@ unsafe impl ::windows::core::Interface for IBindingOperationsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingOperationsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, dp: ::windows::core::RawPtr, binding: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Data\"`*"]
@@ -1686,7 +1686,7 @@ unsafe impl ::windows::core::Interface for ICollectionView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionView_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub IsCurrentAfterLast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1806,7 +1806,7 @@ unsafe impl ::windows::core::Interface for ICollectionViewFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Data\"`*"]
@@ -1901,7 +1901,7 @@ unsafe impl ::windows::core::Interface for ICollectionViewGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Group: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GroupItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1918,7 +1918,7 @@ unsafe impl ::windows::core::Interface for ICollectionViewSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1937,7 +1937,7 @@ unsafe impl ::windows::core::Interface for ICollectionViewSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsSourceGroupedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1953,7 +1953,7 @@ unsafe impl ::windows::core::Interface for ICurrentChangingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentChangingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsCancelable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1968,7 +1968,7 @@ unsafe impl ::windows::core::Interface for ICurrentChangingEventArgsFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentChangingEventArgsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithCancelableParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iscancelable: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2106,7 +2106,7 @@ unsafe impl ::windows::core::Interface for ICustomProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomProperty_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Interop")]
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
@@ -2228,7 +2228,7 @@ unsafe impl ::windows::core::Interface for ICustomPropertyProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomPropertyProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetCustomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Interop")]
     pub GetIndexedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2250,7 +2250,7 @@ unsafe impl ::windows::core::Interface for IItemIndexRange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemIndexRange_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FirstIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub LastIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -2265,7 +2265,7 @@ unsafe impl ::windows::core::Interface for IItemIndexRangeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemIndexRangeFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstindex: i32, length: u32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Data\"`*"]
@@ -2381,7 +2381,7 @@ unsafe impl ::windows::core::Interface for IItemsRangeInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsRangeInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub RangesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visiblerange: ::windows::core::RawPtr, trackeditems: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2477,7 +2477,7 @@ unsafe impl ::windows::core::Interface for INotifyPropertyChanged {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotifyPropertyChanged_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2497,7 +2497,7 @@ unsafe impl ::windows::core::Interface for IPropertyChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2510,7 +2510,7 @@ unsafe impl ::windows::core::Interface for IPropertyChangedEventArgsFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyChangedEventArgsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2523,7 +2523,7 @@ unsafe impl ::windows::core::Interface for IRelativeSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRelativeSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RelativeSourceMode) -> ::windows::core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: RelativeSourceMode) -> ::windows::core::HRESULT,
 }
@@ -2537,7 +2537,7 @@ unsafe impl ::windows::core::Interface for IRelativeSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRelativeSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Data\"`*"]
@@ -2642,7 +2642,7 @@ unsafe impl ::windows::core::Interface for ISelectionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemindexrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeselectRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemindexrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2743,7 +2743,7 @@ unsafe impl ::windows::core::Interface for ISupportIncrementalLoading {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISupportIncrementalLoading_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LoadMoreItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2843,7 +2843,7 @@ unsafe impl ::windows::core::Interface for IValueConverter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueConverter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Interop")]
     pub Convert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, targettype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
@@ -3195,7 +3195,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PropertyChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Data\"`*"]

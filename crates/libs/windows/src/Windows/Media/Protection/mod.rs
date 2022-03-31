@@ -173,7 +173,7 @@ unsafe impl ::windows::core::RuntimeType for ComponentLoadFailedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ComponentLoadFailedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -472,7 +472,7 @@ unsafe impl ::windows::core::Interface for IComponentLoadFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentLoadFailedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -486,7 +486,7 @@ unsafe impl ::windows::core::Interface for IComponentRenewalStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentRenewalStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RenewSystemComponentsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, information: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::Interface for IHdcpSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdcpSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsEffectiveProtectionAtLeast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetEffectiveProtection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -531,7 +531,7 @@ unsafe impl ::windows::core::Interface for IMediaProtectionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ServiceRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -571,7 +571,7 @@ unsafe impl ::windows::core::Interface for IMediaProtectionPMPServer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -587,7 +587,7 @@ unsafe impl ::windows::core::Interface for IMediaProtectionPMPServerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreatePMPServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -603,7 +603,7 @@ unsafe impl ::windows::core::Interface for IMediaProtectionServiceCompletion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionServiceCompletion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -697,7 +697,7 @@ unsafe impl ::windows::core::Interface for IMediaProtectionServiceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionServiceRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ProtectionSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -711,7 +711,7 @@ unsafe impl ::windows::core::Interface for IProtectionCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionCapabilities_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -724,7 +724,7 @@ unsafe impl ::windows::core::Interface for IRevocationAndRenewalInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevocationAndRenewalInformation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -740,7 +740,7 @@ unsafe impl ::windows::core::Interface for IRevocationAndRenewalItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevocationAndRenewalItem_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Reasons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RevocationAndRenewalReasons) -> ::windows::core::HRESULT,
     pub HeaderHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub PublicKeyHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -757,7 +757,7 @@ unsafe impl ::windows::core::Interface for IServiceRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -771,7 +771,7 @@ unsafe impl ::windows::core::Interface for IServiceRequestedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Playback")]
     pub MediaPlaybackItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Playback"))]
@@ -1302,7 +1302,7 @@ unsafe impl ::windows::core::RuntimeType for RebootNeededEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RebootNeededEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -1801,7 +1801,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ServiceRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

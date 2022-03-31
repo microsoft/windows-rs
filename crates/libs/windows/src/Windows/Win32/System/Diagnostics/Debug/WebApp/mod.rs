@@ -51,7 +51,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationActivation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationActivation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CancelPendingActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`*"]
@@ -149,7 +149,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationAuthoringMode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationAuthoringMode_Vtbl {
-    pub base: super::super::super::Com::IServiceProvider_Vtbl,
+    pub base__: super::super::super::Com::IServiceProvider_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AuthoringClientBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, designmodedllpath: *mut super::super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -226,7 +226,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationHost_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub HWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -315,7 +315,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationNavigationEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationNavigationEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub BeforeNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
@@ -393,7 +393,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationScriptEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationScriptEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub BeforeScriptExecute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
@@ -455,7 +455,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationUIEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationUIEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SecurityProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
@@ -514,7 +514,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationUpdateEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationUpdateEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub OnPaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnCssChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

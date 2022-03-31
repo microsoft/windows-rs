@@ -1253,7 +1253,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskCanceledEventHandler 
 #[repr(C)]
 #[doc(hidden)]
 pub struct BackgroundTaskCanceledEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, reason: BackgroundTaskCancellationReason) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -1469,7 +1469,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct BackgroundTaskCompletedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -1726,7 +1726,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventHandler 
 #[repr(C)]
 #[doc(hidden)]
 pub struct BackgroundTaskProgressEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -4862,7 +4862,7 @@ unsafe impl ::windows::core::Interface for IActivitySensorTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
     pub SubscribedActivities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))]
@@ -4884,7 +4884,7 @@ unsafe impl ::windows::core::Interface for IActivitySensorTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reportintervalinmilliseconds: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4897,7 +4897,7 @@ unsafe impl ::windows::core::Interface for IAlarmApplicationManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlarmApplicationManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4914,7 +4914,7 @@ unsafe impl ::windows::core::Interface for IAppBroadcastTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetProviderInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ProviderInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4928,7 +4928,7 @@ unsafe impl ::windows::core::Interface for IAppBroadcastTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateAppBroadcastTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4941,7 +4941,7 @@ unsafe impl ::windows::core::Interface for IAppBroadcastTriggerProviderInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetDisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetLogoResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4971,7 +4971,7 @@ unsafe impl ::windows::core::Interface for IApplicationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4991,7 +4991,7 @@ unsafe impl ::windows::core::Interface for IApplicationTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationTriggerDetails_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5007,7 +5007,7 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreNotificationTrigger 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -5083,7 +5083,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCondition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCondition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5095,7 +5095,7 @@ unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5119,7 +5119,7 @@ unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessKindAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5135,7 +5135,7 @@ unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessKindForModernStandbyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5223,7 +5223,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTask_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Run: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5236,7 +5236,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetTaskEntryPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TaskEntryPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trigger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5255,7 +5255,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetCancelOnConditionLoss: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub CancelOnConditionLoss: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -5269,7 +5269,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetIsNetworkRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsNetworkRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -5283,7 +5283,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TaskGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTaskGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5297,7 +5297,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetTaskEntryPointClsid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskentrypoint: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5310,7 +5310,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CheckResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5324,7 +5324,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -5470,7 +5470,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskInstance {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Task: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -5660,7 +5660,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskInstance2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetThrottleCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -5837,7 +5837,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskInstance4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -5853,7 +5853,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskProgressEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskProgressEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -5983,7 +5983,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6160,7 +6160,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Trigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -6319,7 +6319,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TaskGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6332,7 +6332,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
@@ -6358,7 +6358,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationGroupFacto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6372,7 +6372,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AllTasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -6388,7 +6388,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AllTaskGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -6469,7 +6469,7 @@ unsafe impl ::windows::core::Interface for IBackgroundTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6481,7 +6481,7 @@ unsafe impl ::windows::core::Interface for IBackgroundWorkCostStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundWorkCostStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CurrentBackgroundWorkCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundWorkCostValue) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6494,7 +6494,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub Advertisement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
@@ -6510,7 +6510,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PreferredTransmitPowerLevelInDBm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6536,7 +6536,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MinSamplingInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6580,7 +6580,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowExtendedAdvertisements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -6594,7 +6594,7 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6606,7 +6606,7 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Provider")]
     pub UpdateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Storage::Provider::CachedFileTarget) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Provider"))]
@@ -6627,7 +6627,7 @@ unsafe impl ::windows::core::Interface for IChatMessageNotificationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6639,7 +6639,7 @@ unsafe impl ::windows::core::Interface for IChatMessageReceivedNotificationTrigg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageReceivedNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6651,7 +6651,7 @@ unsafe impl ::windows::core::Interface for ICommunicationBlockingAppSetAsActiveT
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppSetAsActiveTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6663,7 +6663,7 @@ unsafe impl ::windows::core::Interface for IContactStoreNotificationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactStoreNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6675,7 +6675,7 @@ unsafe impl ::windows::core::Interface for IContentPrefetchTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetchTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub WaitInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6691,7 +6691,7 @@ unsafe impl ::windows::core::Interface for IContentPrefetchTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetchTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waitinterval: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6707,7 +6707,7 @@ unsafe impl ::windows::core::Interface for ICustomSystemEventTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSystemEventTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Recurrence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CustomSystemEventTriggerRecurrence) -> ::windows::core::HRESULT,
 }
@@ -6721,7 +6721,7 @@ unsafe impl ::windows::core::Interface for ICustomSystemEventTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSystemEventTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recurrence: CustomSystemEventTriggerRecurrence, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6734,7 +6734,7 @@ unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub CanMaintainConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub MaintainConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6750,7 +6750,7 @@ unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTriggerStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6769,7 +6769,7 @@ unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub TriggerQualifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -6792,7 +6792,7 @@ unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerqualifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -6808,7 +6808,7 @@ unsafe impl ::windows::core::Interface for IDeviceServicingTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceServicingTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAsyncSimple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectedduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6828,7 +6828,7 @@ unsafe impl ::windows::core::Interface for IDeviceUseTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceUseTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAsyncSimple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6848,7 +6848,7 @@ unsafe impl ::windows::core::Interface for IDeviceWatcherTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcherTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6860,7 +6860,7 @@ unsafe impl ::windows::core::Interface for IEmailStoreNotificationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailStoreNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6872,7 +6872,7 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Characteristic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
@@ -6888,7 +6888,7 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub EventTriggeringMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Background"))]
@@ -6904,7 +6904,7 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
@@ -6920,7 +6920,7 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     pub CreateWithEventTriggeringMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))]
@@ -6936,7 +6936,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6961,7 +6961,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Trigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Bluetooth")]
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Bluetooth::BluetoothError) -> ::windows::core::HRESULT,
@@ -6978,7 +6978,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6994,7 +6994,7 @@ unsafe impl ::windows::core::Interface for IGeovisitTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub MonitoringScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -7014,7 +7014,7 @@ unsafe impl ::windows::core::Interface for ILocationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TriggerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LocationTriggerType) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7027,7 +7027,7 @@ unsafe impl ::windows::core::Interface for ILocationTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggertype: LocationTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7040,7 +7040,7 @@ unsafe impl ::windows::core::Interface for IMaintenanceTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMaintenanceTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FreshnessTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub OneShot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -7054,7 +7054,7 @@ unsafe impl ::windows::core::Interface for IMaintenanceTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMaintenanceTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7067,7 +7067,7 @@ unsafe impl ::windows::core::Interface for IMediaProcessingTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProcessingTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -7087,7 +7087,7 @@ unsafe impl ::windows::core::Interface for INetworkOperatorHotspotAuthentication
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorHotspotAuthenticationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7099,7 +7099,7 @@ unsafe impl ::windows::core::Interface for INetworkOperatorNotificationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorNotificationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub NetworkAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7112,7 +7112,7 @@ unsafe impl ::windows::core::Interface for INetworkOperatorNotificationTriggerFa
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorNotificationTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7125,7 +7125,7 @@ unsafe impl ::windows::core::Interface for IPhoneTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OneShot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub TriggerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Calls::Background::PhoneTriggerType) -> ::windows::core::HRESULT,
@@ -7142,7 +7142,7 @@ unsafe impl ::windows::core::Interface for IPhoneTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))]
@@ -7158,7 +7158,7 @@ unsafe impl ::windows::core::Interface for IPushNotificationTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7171,7 +7171,7 @@ unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7183,7 +7183,7 @@ unsafe impl ::windows::core::Interface for IRfcommConnectionTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommConnectionTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub InboundConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Background"))]
@@ -7224,7 +7224,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7236,7 +7236,7 @@ unsafe impl ::windows::core::Interface for ISensorDataThresholdTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7248,7 +7248,7 @@ unsafe impl ::windows::core::Interface for ISensorDataThresholdTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Sensors")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threshold: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Sensors"))]
@@ -7264,7 +7264,7 @@ unsafe impl ::windows::core::Interface for ISmartCardTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_SmartCards")]
     pub TriggerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_SmartCards"))]
@@ -7280,7 +7280,7 @@ unsafe impl ::windows::core::Interface for ISmartCardTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_SmartCards")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_SmartCards"))]
@@ -7296,7 +7296,7 @@ unsafe impl ::windows::core::Interface for ISmsMessageReceivedTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Sms")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filterrules: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Sms"))]
@@ -7312,7 +7312,7 @@ unsafe impl ::windows::core::Interface for ISocketActivityTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocketActivityTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7325,7 +7325,7 @@ unsafe impl ::windows::core::Interface for IStorageLibraryChangeTrackerTriggerFa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracker: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))]
@@ -7341,7 +7341,7 @@ unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTrigger 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryContentChangedTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7353,7 +7353,7 @@ unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTriggerS
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagelibrary: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))]
@@ -7373,7 +7373,7 @@ unsafe impl ::windows::core::Interface for ISystemCondition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemCondition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ConditionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemConditionType) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7386,7 +7386,7 @@ unsafe impl ::windows::core::Interface for ISystemConditionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemConditionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, conditiontype: SystemConditionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7399,7 +7399,7 @@ unsafe impl ::windows::core::Interface for ISystemTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OneShot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TriggerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemTriggerType) -> ::windows::core::HRESULT,
 }
@@ -7413,7 +7413,7 @@ unsafe impl ::windows::core::Interface for ISystemTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggertype: SystemTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7426,7 +7426,7 @@ unsafe impl ::windows::core::Interface for ITimeTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeTrigger_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FreshnessTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub OneShot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -7440,7 +7440,7 @@ unsafe impl ::windows::core::Interface for ITimeTriggerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7453,7 +7453,7 @@ unsafe impl ::windows::core::Interface for IToastNotificationActionTriggerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationActionTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7466,7 +7466,7 @@ unsafe impl ::windows::core::Interface for IToastNotificationHistoryChangedTrigg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7479,7 +7479,7 @@ unsafe impl ::windows::core::Interface for IUserNotificationChangedTriggerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationChangedTriggerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Notifications")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationkinds: super::super::UI::Notifications::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Notifications"))]

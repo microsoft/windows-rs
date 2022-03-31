@@ -3206,7 +3206,7 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapter_Vtbl {
-    pub base: IDXGIObject_Vtbl,
+    pub base__: IDXGIObject_Vtbl,
     pub EnumOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, output: u32, ppoutput: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC) -> ::windows::core::HRESULT,
@@ -3341,7 +3341,7 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapter1_Vtbl {
-    pub base: IDXGIAdapter_Vtbl,
+    pub base__: IDXGIAdapter_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC1) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3500,7 +3500,7 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapter2_Vtbl {
-    pub base: IDXGIAdapter1_Vtbl,
+    pub base__: IDXGIAdapter1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesc2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3708,7 +3708,7 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapter3_Vtbl {
-    pub base: IDXGIAdapter2_Vtbl,
+    pub base__: IDXGIAdapter2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3950,7 +3950,7 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapter4_Vtbl {
-    pub base: IDXGIAdapter3_Vtbl,
+    pub base__: IDXGIAdapter3_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesc3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4008,7 +4008,7 @@ unsafe impl ::windows::core::Interface for IDXGIDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDebug_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ReportLiveObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -4096,7 +4096,7 @@ unsafe impl ::windows::core::Interface for IDXGIDebug1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDebug1_Vtbl {
-    pub base: IDXGIDebug_Vtbl,
+    pub base__: IDXGIDebug_Vtbl,
     pub EnableLeakTrackingForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub DisableLeakTrackingForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(feature = "Win32_Foundation")]
@@ -4194,7 +4194,7 @@ unsafe impl ::windows::core::Interface for IDXGIDecodeSwapChain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDecodeSwapChain_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub PresentBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -4325,7 +4325,7 @@ unsafe impl ::windows::core::Interface for IDXGIDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDevice_Vtbl {
-    pub base: IDXGIObject_Vtbl,
+    pub base__: IDXGIObject_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4472,7 +4472,7 @@ unsafe impl ::windows::core::Interface for IDXGIDevice1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDevice1_Vtbl {
-    pub base: IDXGIDevice_Vtbl,
+    pub base__: IDXGIDevice_Vtbl,
     pub SetMaximumFrameLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxlatency: u32) -> ::windows::core::HRESULT,
     pub GetMaximumFrameLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaxlatency: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -4648,7 +4648,7 @@ unsafe impl ::windows::core::Interface for IDXGIDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDevice2_Vtbl {
-    pub base: IDXGIDevice1_Vtbl,
+    pub base__: IDXGIDevice1_Vtbl,
     pub OfferResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numresources: u32, ppresources: *const ::windows::core::RawPtr, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ReclaimResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numresources: u32, ppresources: *const ::windows::core::RawPtr, pdiscarded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4855,7 +4855,7 @@ unsafe impl ::windows::core::Interface for IDXGIDevice3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDevice3_Vtbl {
-    pub base: IDXGIDevice2_Vtbl,
+    pub base__: IDXGIDevice2_Vtbl,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -5083,7 +5083,7 @@ unsafe impl ::windows::core::Interface for IDXGIDevice4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDevice4_Vtbl {
-    pub base: IDXGIDevice3_Vtbl,
+    pub base__: IDXGIDevice3_Vtbl,
     pub OfferResources1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numresources: u32, ppresources: *const ::windows::core::RawPtr, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::HRESULT,
     pub ReclaimResources1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numresources: u32, ppresources: *const ::windows::core::RawPtr, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> ::windows::core::HRESULT,
 }
@@ -5177,7 +5177,7 @@ unsafe impl ::windows::core::Interface for IDXGIDeviceSubObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDeviceSubObject_Vtbl {
-    pub base: IDXGIObject_Vtbl,
+    pub base__: IDXGIObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -5238,7 +5238,7 @@ unsafe impl ::windows::core::Interface for IDXGIDisplayControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDisplayControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsStereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5361,7 +5361,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory_Vtbl {
-    pub base: IDXGIObject_Vtbl,
+    pub base__: IDXGIObject_Vtbl,
     pub EnumAdapters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, ppadapter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub MakeWindowAssociation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowhandle: super::super::Foundation::HWND, flags: u32) -> ::windows::core::HRESULT,
@@ -5523,7 +5523,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory1_Vtbl {
-    pub base: IDXGIFactory_Vtbl,
+    pub base__: IDXGIFactory_Vtbl,
     pub EnumAdapters1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, ppadapter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -5754,7 +5754,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory2_Vtbl {
-    pub base: IDXGIFactory1_Vtbl,
+    pub base__: IDXGIFactory1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsWindowedStereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6042,7 +6042,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory3_Vtbl {
-    pub base: IDXGIFactory2_Vtbl,
+    pub base__: IDXGIFactory2_Vtbl,
     pub GetCreationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -6324,7 +6324,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory4_Vtbl {
-    pub base: IDXGIFactory3_Vtbl,
+    pub base__: IDXGIFactory3_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumAdapterByLuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6634,7 +6634,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory5_Vtbl {
-    pub base: IDXGIFactory4_Vtbl,
+    pub base__: IDXGIFactory4_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -6965,7 +6965,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory6_Vtbl {
-    pub base: IDXGIFactory5_Vtbl,
+    pub base__: IDXGIFactory5_Vtbl,
     pub EnumAdapterByGpuPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -7326,7 +7326,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactory7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory7_Vtbl {
-    pub base: IDXGIFactory6_Vtbl,
+    pub base__: IDXGIFactory6_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterAdaptersChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7393,7 +7393,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactoryMedia {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactoryMedia_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateSwapChainForCompositionSurfaceHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::core::RawPtr, ppswapchain: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -7607,7 +7607,7 @@ unsafe impl ::windows::core::Interface for IDXGIInfoQueue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIInfoQueue_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, messagecountlimit: u64) -> ::windows::core::HRESULT,
     pub ClearStoredMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID),
     pub GetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::HRESULT,
@@ -7788,7 +7788,7 @@ unsafe impl ::windows::core::Interface for IDXGIKeyedMutex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIKeyedMutex_Vtbl {
-    pub base: IDXGIDeviceSubObject_Vtbl,
+    pub base__: IDXGIDeviceSubObject_Vtbl,
     pub AcquireSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: u64, dwmilliseconds: u32) -> ::windows::core::HRESULT,
     pub ReleaseSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: u64) -> ::windows::core::HRESULT,
 }
@@ -7857,7 +7857,7 @@ unsafe impl ::windows::core::Interface for IDXGIObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8007,7 +8007,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput_Vtbl {
-    pub base: IDXGIObject_Vtbl,
+    pub base__: IDXGIObject_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))]
@@ -8225,7 +8225,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput1_Vtbl {
-    pub base: IDXGIOutput_Vtbl,
+    pub base__: IDXGIOutput_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub GetDisplayModeList1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -8445,7 +8445,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput2_Vtbl {
-    pub base: IDXGIOutput1_Vtbl,
+    pub base__: IDXGIOutput1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SupportsOverlays: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8685,7 +8685,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput3_Vtbl {
-    pub base: IDXGIOutput2_Vtbl,
+    pub base__: IDXGIOutput2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CheckOverlaySupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumformat: Common::DXGI_FORMAT, pconcerneddevice: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8951,7 +8951,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput4_Vtbl {
-    pub base: IDXGIOutput3_Vtbl,
+    pub base__: IDXGIOutput3_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CheckOverlayColorSpaceSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -9243,7 +9243,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput5_Vtbl {
-    pub base: IDXGIOutput4_Vtbl,
+    pub base__: IDXGIOutput4_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub DuplicateOutput1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT, ppoutputduplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -9566,7 +9566,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutput6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput6_Vtbl {
-    pub base: IDXGIOutput5_Vtbl,
+    pub base__: IDXGIOutput5_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
     pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_OUTPUT_DESC1) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))]
@@ -9696,7 +9696,7 @@ unsafe impl ::windows::core::Interface for IDXGIOutputDuplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutputDuplication_Vtbl {
-    pub base: IDXGIObject_Vtbl,
+    pub base__: IDXGIObject_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_OUTDUPL_DESC),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -9851,7 +9851,7 @@ unsafe impl ::windows::core::Interface for IDXGIResource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIResource_Vtbl {
-    pub base: IDXGIDeviceSubObject_Vtbl,
+    pub base__: IDXGIDeviceSubObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10021,7 +10021,7 @@ unsafe impl ::windows::core::Interface for IDXGIResource1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIResource1_Vtbl {
-    pub base: IDXGIResource_Vtbl,
+    pub base__: IDXGIResource_Vtbl,
     pub CreateSubresourceSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub CreateSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: ::windows::core::PCWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -10152,7 +10152,7 @@ unsafe impl ::windows::core::Interface for IDXGISurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISurface_Vtbl {
-    pub base: IDXGIDeviceSubObject_Vtbl,
+    pub base__: IDXGIDeviceSubObject_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -10315,7 +10315,7 @@ unsafe impl ::windows::core::Interface for IDXGISurface1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISurface1_Vtbl {
-    pub base: IDXGISurface_Vtbl,
+    pub base__: IDXGISurface_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, discard: super::super::Foundation::BOOL, phdc: *mut super::Gdi::HDC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -10504,7 +10504,7 @@ unsafe impl ::windows::core::Interface for IDXGISurface2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISurface2_Vtbl {
-    pub base: IDXGISurface1_Vtbl,
+    pub base__: IDXGISurface1_Vtbl,
     pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -10667,7 +10667,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChain_Vtbl {
-    pub base: IDXGIDeviceSubObject_Vtbl,
+    pub base__: IDXGIDeviceSubObject_Vtbl,
     pub Present: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10932,7 +10932,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChain1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChain1_Vtbl {
-    pub base: IDXGISwapChain_Vtbl,
+    pub base__: IDXGISwapChain_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -11255,7 +11255,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChain2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChain2_Vtbl {
-    pub base: IDXGISwapChain1_Vtbl,
+    pub base__: IDXGISwapChain1_Vtbl,
     pub SetSourceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32) -> ::windows::core::HRESULT,
     pub GetSourceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::HRESULT,
     pub SetMaximumFrameLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxlatency: u32) -> ::windows::core::HRESULT,
@@ -11596,7 +11596,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChain3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChain3_Vtbl {
-    pub base: IDXGISwapChain2_Vtbl,
+    pub base__: IDXGISwapChain2_Vtbl,
     pub GetCurrentBackBufferIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CheckColorSpaceSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut u32) -> ::windows::core::HRESULT,
@@ -11964,7 +11964,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChain4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChain4_Vtbl {
-    pub base: IDXGISwapChain3_Vtbl,
+    pub base__: IDXGISwapChain3_Vtbl,
     pub SetHDRMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -12028,7 +12028,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChainMedia {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChainMedia_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetFrameStatisticsMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows::core::HRESULT,
     pub SetPresentDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: u32) -> ::windows::core::HRESULT,
     pub CheckPresentDurationSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> ::windows::core::HRESULT,
@@ -12089,7 +12089,7 @@ unsafe impl ::windows::core::Interface for IDXGraphicsAnalysis {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGraphicsAnalysis_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub BeginCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub EndCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }

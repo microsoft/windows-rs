@@ -4222,7 +4222,7 @@ unsafe impl ::windows::core::Interface for IAcrylicBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BackgroundSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AcrylicBackgroundSource) -> ::windows::core::HRESULT,
     pub SetBackgroundSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AcrylicBackgroundSource) -> ::windows::core::HRESULT,
     pub TintColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT,
@@ -4250,7 +4250,7 @@ unsafe impl ::windows::core::Interface for IAcrylicBrush2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrush2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TintLuminosityOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4270,7 +4270,7 @@ unsafe impl ::windows::core::Interface for IAcrylicBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4283,7 +4283,7 @@ unsafe impl ::windows::core::Interface for IAcrylicBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BackgroundSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TintColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TintOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4300,7 +4300,7 @@ unsafe impl ::windows::core::Interface for IAcrylicBrushStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrushStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TintLuminosityOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4313,7 +4313,7 @@ unsafe impl ::windows::core::Interface for IArcSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IArcSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4347,7 +4347,7 @@ unsafe impl ::windows::core::Interface for IArcSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IArcSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RotationAngleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4364,7 +4364,7 @@ unsafe impl ::windows::core::Interface for IBezierSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBezierSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Point1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4400,7 +4400,7 @@ unsafe impl ::windows::core::Interface for IBezierSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBezierSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Point1Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Point2Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Point3Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4415,7 +4415,7 @@ unsafe impl ::windows::core::Interface for IBitmapCache {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapCache_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4427,7 +4427,7 @@ unsafe impl ::windows::core::Interface for IBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Opacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub Transform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4445,7 +4445,7 @@ unsafe impl ::windows::core::Interface for IBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4458,7 +4458,7 @@ unsafe impl ::windows::core::Interface for IBrushOverrides2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrushOverrides2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub PopulatePropertyInfoOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animationpropertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -4474,7 +4474,7 @@ unsafe impl ::windows::core::Interface for IBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TransformProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RelativeTransformProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4489,7 +4489,7 @@ unsafe impl ::windows::core::Interface for ICacheMode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICacheMode_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4501,7 +4501,7 @@ unsafe impl ::windows::core::Interface for ICacheModeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICacheModeFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4514,7 +4514,7 @@ unsafe impl ::windows::core::Interface for ICompositeTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositeTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub CenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -4544,7 +4544,7 @@ unsafe impl ::windows::core::Interface for ICompositeTransformStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositeTransformStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CenterYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ScaleXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4565,7 +4565,7 @@ unsafe impl ::windows::core::Interface for ICompositionTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTarget_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4577,7 +4577,7 @@ unsafe impl ::windows::core::Interface for ICompositionTargetStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTargetStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Rendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4605,7 +4605,7 @@ unsafe impl ::windows::core::Interface for ICompositionTargetStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTargetStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Rendered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4625,7 +4625,7 @@ unsafe impl ::windows::core::Interface for IEllipseGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEllipseGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4649,7 +4649,7 @@ unsafe impl ::windows::core::Interface for IEllipseGeometryStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEllipseGeometryStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RadiusXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RadiusYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4664,7 +4664,7 @@ unsafe impl ::windows::core::Interface for IFontFamily {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFontFamily_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4677,7 +4677,7 @@ unsafe impl ::windows::core::Interface for IFontFamilyFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFontFamilyFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, familyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4690,7 +4690,7 @@ unsafe impl ::windows::core::Interface for IFontFamilyStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFontFamilyStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub XamlAutoFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4703,7 +4703,7 @@ unsafe impl ::windows::core::Interface for IGeneralTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneralTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Inverse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TransformPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, point: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -4728,7 +4728,7 @@ unsafe impl ::windows::core::Interface for IGeneralTransformFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneralTransformFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4741,7 +4741,7 @@ unsafe impl ::windows::core::Interface for IGeneralTransformOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneralTransformOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InverseCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TryTransformCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inpoint: super::super::super::Foundation::Point, outpoint: *mut super::super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4762,7 +4762,7 @@ unsafe impl ::windows::core::Interface for IGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Transform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4780,7 +4780,7 @@ unsafe impl ::windows::core::Interface for IGeometryFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4792,7 +4792,7 @@ unsafe impl ::windows::core::Interface for IGeometryGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FillRule) -> ::windows::core::HRESULT,
     pub SetFillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FillRule) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -4814,7 +4814,7 @@ unsafe impl ::windows::core::Interface for IGeometryGroupStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryGroupStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FillRuleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ChildrenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4828,7 +4828,7 @@ unsafe impl ::windows::core::Interface for IGeometryStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Empty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StandardFlatteningTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub TransformProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4843,7 +4843,7 @@ unsafe impl ::windows::core::Interface for IGradientBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SpreadMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GradientSpreadMethod) -> ::windows::core::HRESULT,
     pub SetSpreadMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GradientSpreadMethod) -> ::windows::core::HRESULT,
     pub MappingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BrushMappingMode) -> ::windows::core::HRESULT,
@@ -4869,7 +4869,7 @@ unsafe impl ::windows::core::Interface for IGradientBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4882,7 +4882,7 @@ unsafe impl ::windows::core::Interface for IGradientBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SpreadMethodProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MappingModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ColorInterpolationModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4898,7 +4898,7 @@ unsafe impl ::windows::core::Interface for IGradientStop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientStop_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT,
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -4914,7 +4914,7 @@ unsafe impl ::windows::core::Interface for IGradientStopStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientStopStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4928,7 +4928,7 @@ unsafe impl ::windows::core::Interface for IImageBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ImageSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetImageSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4958,7 +4958,7 @@ unsafe impl ::windows::core::Interface for IImageBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ImageSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4971,7 +4971,7 @@ unsafe impl ::windows::core::Interface for IImageSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4983,7 +4983,7 @@ unsafe impl ::windows::core::Interface for IImageSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4995,7 +4995,7 @@ unsafe impl ::windows::core::Interface for ILineGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5023,7 +5023,7 @@ unsafe impl ::windows::core::Interface for ILineGeometryStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineGeometryStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StartPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EndPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5037,7 +5037,7 @@ unsafe impl ::windows::core::Interface for ILineSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5057,7 +5057,7 @@ unsafe impl ::windows::core::Interface for ILineSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5070,7 +5070,7 @@ unsafe impl ::windows::core::Interface for ILinearGradientBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearGradientBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5098,7 +5098,7 @@ unsafe impl ::windows::core::Interface for ILinearGradientBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearGradientBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstanceWithGradientStopCollectionAndAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientstopcollection: ::windows::core::RawPtr, angle: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5114,7 +5114,7 @@ unsafe impl ::windows::core::Interface for ILinearGradientBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearGradientBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StartPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EndPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5128,7 +5128,7 @@ unsafe impl ::windows::core::Interface for ILoadedImageSourceLoadCompletedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadedImageSourceLoadCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LoadedImageSourceLoadStatus) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5141,7 +5141,7 @@ unsafe impl ::windows::core::Interface for ILoadedImageSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadedImageSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DecodedPhysicalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5173,7 +5173,7 @@ unsafe impl ::windows::core::Interface for ILoadedImageSurfaceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadedImageSurfaceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartLoadFromUriWithSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, desiredmaxsize: super::super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5201,7 +5201,7 @@ unsafe impl ::windows::core::Interface for IMatrix3DProjection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrix3DProjection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
     pub ProjectionMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Media3D::Matrix3D) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media_Media3D"))]
@@ -5221,7 +5221,7 @@ unsafe impl ::windows::core::Interface for IMatrix3DProjectionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrix3DProjectionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ProjectionMatrixProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5234,7 +5234,7 @@ unsafe impl ::windows::core::Interface for IMatrixHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5246,7 +5246,7 @@ unsafe impl ::windows::core::Interface for IMatrixHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Identity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Matrix) -> ::windows::core::HRESULT,
     pub FromElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, m11: f64, m12: f64, m21: f64, m22: f64, offsetx: f64, offsety: f64, result__: *mut Matrix) -> ::windows::core::HRESULT,
     pub GetIsIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: Matrix, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -5265,7 +5265,7 @@ unsafe impl ::windows::core::Interface for IMatrixTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Matrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Matrix) -> ::windows::core::HRESULT,
     pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Matrix) -> ::windows::core::HRESULT,
 }
@@ -5279,7 +5279,7 @@ unsafe impl ::windows::core::Interface for IMatrixTransformStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixTransformStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MatrixProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5292,7 +5292,7 @@ unsafe impl ::windows::core::Interface for IMediaTransportControlsThumbnailReque
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTransportControlsThumbnailRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SetThumbnailImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -5312,7 +5312,7 @@ unsafe impl ::windows::core::Interface for IPartialMediaFailureDetectedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartialMediaFailureDetectedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Playback")]
     pub StreamKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Media::Playback::FailedMediaStreamKind) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Playback"))]
@@ -5328,7 +5328,7 @@ unsafe impl ::windows::core::Interface for IPartialMediaFailureDetectedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartialMediaFailureDetectedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5341,7 +5341,7 @@ unsafe impl ::windows::core::Interface for IPathFigure {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathFigure_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Segments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5373,7 +5373,7 @@ unsafe impl ::windows::core::Interface for IPathFigureStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathFigureStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SegmentsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StartPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsClosedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5389,7 +5389,7 @@ unsafe impl ::windows::core::Interface for IPathGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FillRule) -> ::windows::core::HRESULT,
     pub SetFillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FillRule) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -5411,7 +5411,7 @@ unsafe impl ::windows::core::Interface for IPathGeometryStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathGeometryStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FillRuleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FiguresProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5425,7 +5425,7 @@ unsafe impl ::windows::core::Interface for IPathSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5437,7 +5437,7 @@ unsafe impl ::windows::core::Interface for IPathSegmentFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathSegmentFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5449,7 +5449,7 @@ unsafe impl ::windows::core::Interface for IPlaneProjection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaneProjection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LocalOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetLocalOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub LocalOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5489,7 +5489,7 @@ unsafe impl ::windows::core::Interface for IPlaneProjectionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaneProjectionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LocalOffsetXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LocalOffsetYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LocalOffsetZProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5514,7 +5514,7 @@ unsafe impl ::windows::core::Interface for IPolyBezierSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyBezierSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Points: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5534,7 +5534,7 @@ unsafe impl ::windows::core::Interface for IPolyBezierSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyBezierSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5547,7 +5547,7 @@ unsafe impl ::windows::core::Interface for IPolyLineSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyLineSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Points: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5567,7 +5567,7 @@ unsafe impl ::windows::core::Interface for IPolyLineSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyLineSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5580,7 +5580,7 @@ unsafe impl ::windows::core::Interface for IPolyQuadraticBezierSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyQuadraticBezierSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Points: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5600,7 +5600,7 @@ unsafe impl ::windows::core::Interface for IPolyQuadraticBezierSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyQuadraticBezierSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5613,7 +5613,7 @@ unsafe impl ::windows::core::Interface for IProjection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProjection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5625,7 +5625,7 @@ unsafe impl ::windows::core::Interface for IProjectionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProjectionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5638,7 +5638,7 @@ unsafe impl ::windows::core::Interface for IQuadraticBezierSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuadraticBezierSegment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Point1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5666,7 +5666,7 @@ unsafe impl ::windows::core::Interface for IQuadraticBezierSegmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuadraticBezierSegmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Point1Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Point2Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5680,7 +5680,7 @@ unsafe impl ::windows::core::Interface for IRateChangedRoutedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRateChangedRoutedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5692,7 +5692,7 @@ unsafe impl ::windows::core::Interface for IRectangleGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRectangleGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Rect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5712,7 +5712,7 @@ unsafe impl ::windows::core::Interface for IRectangleGeometryStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRectangleGeometryStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5725,7 +5725,7 @@ unsafe impl ::windows::core::Interface for IRenderedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRenderedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FrameDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5741,7 +5741,7 @@ unsafe impl ::windows::core::Interface for IRenderingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRenderingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RenderingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5757,7 +5757,7 @@ unsafe impl ::windows::core::Interface for IRevealBackgroundBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBackgroundBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5769,7 +5769,7 @@ unsafe impl ::windows::core::Interface for IRevealBackgroundBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBackgroundBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5782,7 +5782,7 @@ unsafe impl ::windows::core::Interface for IRevealBorderBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBorderBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5794,7 +5794,7 @@ unsafe impl ::windows::core::Interface for IRevealBorderBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBorderBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5807,7 +5807,7 @@ unsafe impl ::windows::core::Interface for IRevealBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT,
     pub TargetTheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ApplicationTheme) -> ::windows::core::HRESULT,
@@ -5825,7 +5825,7 @@ unsafe impl ::windows::core::Interface for IRevealBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5838,7 +5838,7 @@ unsafe impl ::windows::core::Interface for IRevealBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TargetThemeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AlwaysUseFallbackProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5856,7 +5856,7 @@ unsafe impl ::windows::core::Interface for IRotateTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRotateTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub CenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5874,7 +5874,7 @@ unsafe impl ::windows::core::Interface for IRotateTransformStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRotateTransformStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CenterYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AngleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5889,7 +5889,7 @@ unsafe impl ::windows::core::Interface for IScaleTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub CenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5909,7 +5909,7 @@ unsafe impl ::windows::core::Interface for IScaleTransformStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleTransformStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CenterYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ScaleXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5925,7 +5925,7 @@ unsafe impl ::windows::core::Interface for IShadow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShadow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5937,7 +5937,7 @@ unsafe impl ::windows::core::Interface for IShadowFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShadowFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5949,7 +5949,7 @@ unsafe impl ::windows::core::Interface for ISkewTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISkewTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub CenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5969,7 +5969,7 @@ unsafe impl ::windows::core::Interface for ISkewTransformStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISkewTransformStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CenterYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AngleXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5985,7 +5985,7 @@ unsafe impl ::windows::core::Interface for ISolidColorBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISolidColorBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT,
 }
@@ -5999,7 +5999,7 @@ unsafe impl ::windows::core::Interface for ISolidColorBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISolidColorBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6012,7 +6012,7 @@ unsafe impl ::windows::core::Interface for ISolidColorBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISolidColorBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6025,7 +6025,7 @@ unsafe impl ::windows::core::Interface for IThemeShadow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThemeShadow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Receivers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6038,7 +6038,7 @@ unsafe impl ::windows::core::Interface for IThemeShadowFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThemeShadowFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6051,7 +6051,7 @@ unsafe impl ::windows::core::Interface for ITileBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AlignmentX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AlignmentX) -> ::windows::core::HRESULT,
     pub SetAlignmentX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AlignmentX) -> ::windows::core::HRESULT,
     pub AlignmentY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AlignmentY) -> ::windows::core::HRESULT,
@@ -6069,7 +6069,7 @@ unsafe impl ::windows::core::Interface for ITileBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6082,7 +6082,7 @@ unsafe impl ::windows::core::Interface for ITileBrushStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileBrushStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AlignmentXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AlignmentYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StretchProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6097,7 +6097,7 @@ unsafe impl ::windows::core::Interface for ITimelineMarker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineMarker_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Time: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6121,7 +6121,7 @@ unsafe impl ::windows::core::Interface for ITimelineMarkerRoutedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineMarkerRoutedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Marker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6135,7 +6135,7 @@ unsafe impl ::windows::core::Interface for ITimelineMarkerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineMarkerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TextProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6150,7 +6150,7 @@ unsafe impl ::windows::core::Interface for ITransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6162,7 +6162,7 @@ unsafe impl ::windows::core::Interface for ITransformFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6174,7 +6174,7 @@ unsafe impl ::windows::core::Interface for ITransformGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -6195,7 +6195,7 @@ unsafe impl ::windows::core::Interface for ITransformGroupStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformGroupStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ChildrenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6208,7 +6208,7 @@ unsafe impl ::windows::core::Interface for ITranslateTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITranslateTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub X: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub Y: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6224,7 +6224,7 @@ unsafe impl ::windows::core::Interface for ITranslateTransformStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITranslateTransformStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub XProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub YProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6238,7 +6238,7 @@ unsafe impl ::windows::core::Interface for IVisualTreeHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6250,7 +6250,7 @@ unsafe impl ::windows::core::Interface for IVisualTreeHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindElementsInHostCoordinatesPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intersectingpoint: super::super::super::Foundation::Point, subtree: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -6282,7 +6282,7 @@ unsafe impl ::windows::core::Interface for IVisualTreeHelperStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeHelperStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Controls_Primitives"))]
     pub GetOpenPopups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Controls_Primitives")))]
@@ -6298,7 +6298,7 @@ unsafe impl ::windows::core::Interface for IVisualTreeHelperStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeHelperStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Controls_Primitives"))]
     pub GetOpenPopupsForXamlRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamlroot: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Controls_Primitives")))]
@@ -6314,7 +6314,7 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FallbackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT,
     pub SetFallbackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT,
 }
@@ -6328,7 +6328,7 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6341,7 +6341,7 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OnConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnDisconnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -6355,7 +6355,7 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseProtected {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseProtected_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub CompositionBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -6375,7 +6375,7 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FallbackColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6388,7 +6388,7 @@ unsafe impl ::windows::core::Interface for IXamlLight {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLight_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6400,7 +6400,7 @@ unsafe impl ::windows::core::Interface for IXamlLightFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLightFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6413,7 +6413,7 @@ unsafe impl ::windows::core::Interface for IXamlLightOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLightOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub OnConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnDisconnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6428,7 +6428,7 @@ unsafe impl ::windows::core::Interface for IXamlLightProtected {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLightProtected_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub CompositionLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -6448,7 +6448,7 @@ unsafe impl ::windows::core::Interface for IXamlLightStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLightStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AddTargetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveTargetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AddTargetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brush: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11027,7 +11027,7 @@ unsafe impl ::windows::core::RuntimeType for RateChangedRoutedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RateChangedRoutedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]
@@ -14152,7 +14152,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineMarkerRoutedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TimelineMarkerRoutedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Media\"`*"]

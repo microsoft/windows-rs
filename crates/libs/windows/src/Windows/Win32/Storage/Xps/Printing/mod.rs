@@ -90,7 +90,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentPackageStatusEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageStatusEvent_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub PackageStatusUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
@@ -154,7 +154,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentPackageTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTarget_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetPackageTargetTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetcount: *mut u32, targettypes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPackageTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtargettype: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -213,7 +213,7 @@ unsafe impl ::windows::core::Interface for IPrintDocumentPackageTargetFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTargetFactory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateDocumentPackageTargetForPrintJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, joboutputstream: ::windows::core::RawPtr, jobprintticketstream: ::windows::core::RawPtr, docpackagetarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::Interface for IXpsPrintJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsPrintJob_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetJobStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobstatus: *mut XPS_JOB_STATUS) -> ::windows::core::HRESULT,
 }
@@ -378,7 +378,7 @@ unsafe impl ::windows::core::Interface for IXpsPrintJobStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsPrintJobStream_Vtbl {
-    pub base: super::super::super::System::Com::ISequentialStream_Vtbl,
+    pub base__: super::super::super::System::Com::ISequentialStream_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]

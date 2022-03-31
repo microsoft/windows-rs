@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Interface for DIFsrmClassificationEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DIFsrmClassificationEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
@@ -1850,7 +1850,7 @@ unsafe impl ::windows::core::Interface for IFsrmAccessDeniedRemediationClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmAccessDeniedRemediationClient_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parentwnd: usize, accesspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, errortype: AdrClientErrorType, flags: i32, windowtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, windowmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, result: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1963,7 +1963,7 @@ unsafe impl ::windows::core::Interface for IFsrmAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmAction_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ActionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actiontype: *mut FsrmActionType) -> ::windows::core::HRESULT,
     pub RunLimitInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minutes: *mut i32) -> ::windows::core::HRESULT,
@@ -2170,7 +2170,7 @@ unsafe impl ::windows::core::Interface for IFsrmActionCommand {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionCommand_Vtbl {
-    pub base: IFsrmAction_Vtbl,
+    pub base__: IFsrmAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ExecutablePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, executablepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2412,7 +2412,7 @@ unsafe impl ::windows::core::Interface for IFsrmActionEmail {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionEmail_Vtbl {
-    pub base: IFsrmAction_Vtbl,
+    pub base__: IFsrmAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MailFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mailfrom: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2711,7 +2711,7 @@ unsafe impl ::windows::core::Interface for IFsrmActionEmail2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionEmail2_Vtbl {
-    pub base: IFsrmActionEmail_Vtbl,
+    pub base__: IFsrmActionEmail_Vtbl,
     pub AttachmentFileListSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachmentfilelistsize: *mut i32) -> ::windows::core::HRESULT,
     pub SetAttachmentFileListSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachmentfilelistsize: i32) -> ::windows::core::HRESULT,
 }
@@ -2866,7 +2866,7 @@ unsafe impl ::windows::core::Interface for IFsrmActionEventLog {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionEventLog_Vtbl {
-    pub base: IFsrmAction_Vtbl,
+    pub base__: IFsrmAction_Vtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventtype: *mut FsrmEventType) -> ::windows::core::HRESULT,
     pub SetEventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventtype: FsrmEventType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3031,7 +3031,7 @@ unsafe impl ::windows::core::Interface for IFsrmActionReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmActionReport_Vtbl {
-    pub base: IFsrmAction_Vtbl,
+    pub base__: IFsrmAction_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ReportTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttypes: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3330,7 +3330,7 @@ unsafe impl ::windows::core::Interface for IFsrmAutoApplyQuota {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmAutoApplyQuota_Vtbl {
-    pub base: IFsrmQuotaObject_Vtbl,
+    pub base__: IFsrmQuotaObject_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ExcludeFolders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3575,7 +3575,7 @@ unsafe impl ::windows::core::Interface for IFsrmClassificationManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ClassificationReportFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, formats: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3924,7 +3924,7 @@ unsafe impl ::windows::core::Interface for IFsrmClassificationManager2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationManager2_Vtbl {
-    pub base: IFsrmClassificationManager_Vtbl,
+    pub base__: IFsrmClassificationManager_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ClassifyFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4181,7 +4181,7 @@ unsafe impl ::windows::core::Interface for IFsrmClassificationRule {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationRule_Vtbl {
-    pub base: IFsrmRule_Vtbl,
+    pub base__: IFsrmRule_Vtbl,
     pub ExecutionOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, executionoption: *mut FsrmExecutionOption) -> ::windows::core::HRESULT,
     pub SetExecutionOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, executionoption: FsrmExecutionOption) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4486,7 +4486,7 @@ unsafe impl ::windows::core::Interface for IFsrmClassifierModuleDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleDefinition_Vtbl {
-    pub base: IFsrmPipelineModuleDefinition_Vtbl,
+    pub base__: IFsrmPipelineModuleDefinition_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub PropertiesAffected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertiesaffected: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4654,7 +4654,7 @@ unsafe impl ::windows::core::Interface for IFsrmClassifierModuleImplementation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleImplementation_Vtbl {
-    pub base: IFsrmPipelineModuleImplementation_Vtbl,
+    pub base__: IFsrmPipelineModuleImplementation_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub LastModified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -4797,7 +4797,7 @@ unsafe impl ::windows::core::Interface for IFsrmCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, item: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -5005,7 +5005,7 @@ unsafe impl ::windows::core::Interface for IFsrmCommittableCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmCommittableCollection_Vtbl {
-    pub base: IFsrmMutableCollection_Vtbl,
+    pub base__: IFsrmMutableCollection_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: FsrmCommitOptions, results: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5107,7 +5107,7 @@ unsafe impl ::windows::core::Interface for IFsrmDerivedObjectsResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmDerivedObjectsResult_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub DerivedObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, derivedobjects: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5234,7 +5234,7 @@ unsafe impl ::windows::core::Interface for IFsrmExportImport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmExportImport_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ExportFileGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5353,7 +5353,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileCondition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileCondition_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut FsrmFileConditionType) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5523,7 +5523,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileConditionProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileConditionProperty_Vtbl {
-    pub base: IFsrmFileCondition_Vtbl,
+    pub base__: IFsrmFileCondition_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5712,7 +5712,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileGroup_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5936,7 +5936,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileGroupImported {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileGroupImported_Vtbl {
-    pub base: IFsrmFileGroup_Vtbl,
+    pub base__: IFsrmFileGroup_Vtbl,
     pub OverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT,
     pub SetOverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT,
 }
@@ -6054,7 +6054,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileGroupManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileGroupManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateFileGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filegroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6457,7 +6457,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileManagementJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileManagementJob_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6697,7 +6697,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileManagementJobManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileManagementJobManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ActionVariables: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6941,7 +6941,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreen {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreen_Vtbl {
-    pub base: IFsrmFileScreenBase_Vtbl,
+    pub base__: IFsrmFileScreenBase_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7128,7 +7128,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenBase_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BlockedFileGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blocklist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7297,7 +7297,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenException {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenException_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7449,7 +7449,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ActionVariables: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7697,7 +7697,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenTemplate_Vtbl {
-    pub base: IFsrmFileScreenBase_Vtbl,
+    pub base__: IFsrmFileScreenBase_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7958,7 +7958,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplateImported {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenTemplateImported_Vtbl {
-    pub base: IFsrmFileScreenTemplate_Vtbl,
+    pub base__: IFsrmFileScreenTemplate_Vtbl,
     pub OverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT,
     pub SetOverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT,
 }
@@ -8076,7 +8076,7 @@ unsafe impl ::windows::core::Interface for IFsrmFileScreenTemplateManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmFileScreenTemplateManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filescreentemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8261,7 +8261,7 @@ unsafe impl ::windows::core::Interface for IFsrmMutableCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmMutableCollection_Vtbl {
-    pub base: IFsrmCollection_Vtbl,
+    pub base__: IFsrmCollection_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -8381,7 +8381,7 @@ unsafe impl ::windows::core::Interface for IFsrmObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmObject_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -8484,7 +8484,7 @@ unsafe impl ::windows::core::Interface for IFsrmPathMapper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPathMapper_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetSharePathsForLocalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, sharepaths: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -8602,7 +8602,7 @@ unsafe impl ::windows::core::Interface for IFsrmPipelineModuleConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleConnector_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ModuleImplementation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipelinemoduleimplementation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8851,7 +8851,7 @@ unsafe impl ::windows::core::Interface for IFsrmPipelineModuleDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleDefinition_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ModuleClsid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9002,7 +9002,7 @@ unsafe impl ::windows::core::Interface for IFsrmPipelineModuleImplementation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleImplementation_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduledefinition: ::windows::core::RawPtr, moduleconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9116,7 +9116,7 @@ unsafe impl ::windows::core::Interface for IFsrmProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmProperty_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9336,7 +9336,7 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyBag {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyBag_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9654,7 +9654,7 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyBag2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyBag2_Vtbl {
-    pub base: IFsrmPropertyBag_Vtbl,
+    pub base__: IFsrmPropertyBag_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetFieldValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, field: FsrmPropertyBagField, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9783,7 +9783,7 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyCondition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyCondition_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9989,7 +9989,7 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinition_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10261,7 +10261,7 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyDefinition2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinition2_Vtbl {
-    pub base: IFsrmPropertyDefinition_Vtbl,
+    pub base__: IFsrmPropertyDefinition_Vtbl,
     pub PropertyDefinitionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertydefinitionflags: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -10385,7 +10385,7 @@ unsafe impl ::windows::core::Interface for IFsrmPropertyDefinitionValue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinitionValue_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10692,7 +10692,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuota {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuota_Vtbl {
-    pub base: IFsrmQuotaObject_Vtbl,
+    pub base__: IFsrmQuotaObject_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub QuotaUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, used: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -10887,7 +10887,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaBase_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub QuotaLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quotalimit: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -11069,7 +11069,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ActionVariables: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11304,7 +11304,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaManagerEx {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaManagerEx_Vtbl {
-    pub base: IFsrmQuotaManager_Vtbl,
+    pub base__: IFsrmQuotaManager_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsAffectedByQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, options: FsrmEnumOptions, affected: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11550,7 +11550,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaObject_Vtbl {
-    pub base: IFsrmQuotaBase_Vtbl,
+    pub base__: IFsrmQuotaBase_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11801,7 +11801,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaTemplate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaTemplate_Vtbl {
-    pub base: IFsrmQuotaBase_Vtbl,
+    pub base__: IFsrmQuotaBase_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12080,7 +12080,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaTemplateImported {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaTemplateImported_Vtbl {
-    pub base: IFsrmQuotaTemplate_Vtbl,
+    pub base__: IFsrmQuotaTemplate_Vtbl,
     pub OverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT,
     pub SetOverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT,
 }
@@ -12198,7 +12198,7 @@ unsafe impl ::windows::core::Interface for IFsrmQuotaTemplateManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmQuotaTemplateManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quotatemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12352,7 +12352,7 @@ unsafe impl ::windows::core::Interface for IFsrmReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmReport_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *mut FsrmReportType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -12607,7 +12607,7 @@ unsafe impl ::windows::core::Interface for IFsrmReportJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmReportJob_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Task: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12802,7 +12802,7 @@ unsafe impl ::windows::core::Interface for IFsrmReportManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmReportManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub EnumReportJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: FsrmEnumOptions, reportjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12945,7 +12945,7 @@ unsafe impl ::windows::core::Interface for IFsrmReportScheduler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmReportScheduler_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub VerifyNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespacessafearray: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -13159,7 +13159,7 @@ unsafe impl ::windows::core::Interface for IFsrmRule {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmRule_Vtbl {
-    pub base: IFsrmObject_Vtbl,
+    pub base__: IFsrmObject_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13349,7 +13349,7 @@ unsafe impl ::windows::core::Interface for IFsrmSetting {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmSetting_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SmtpServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smtpserver: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13666,7 +13666,7 @@ unsafe impl ::windows::core::Interface for IFsrmStorageModuleDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmStorageModuleDefinition_Vtbl {
-    pub base: IFsrmPipelineModuleDefinition_Vtbl,
+    pub base__: IFsrmPipelineModuleDefinition_Vtbl,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilities: *mut FsrmStorageModuleCaps) -> ::windows::core::HRESULT,
     pub SetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilities: FsrmStorageModuleCaps) -> ::windows::core::HRESULT,
     pub StorageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagetype: *mut FsrmStorageModuleType) -> ::windows::core::HRESULT,
@@ -13807,7 +13807,7 @@ unsafe impl ::windows::core::Interface for IFsrmStorageModuleImplementation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmStorageModuleImplementation_Vtbl {
-    pub base: IFsrmPipelineModuleImplementation_Vtbl,
+    pub base__: IFsrmPipelineModuleImplementation_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub UseDefinitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertydefinitions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

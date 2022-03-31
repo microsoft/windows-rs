@@ -67,7 +67,7 @@ unsafe impl ::windows::core::Interface for IOpcCertificateEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcCertificateEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -145,7 +145,7 @@ unsafe impl ::windows::core::Interface for IOpcCertificateSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcCertificateSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))]
@@ -275,7 +275,7 @@ unsafe impl ::windows::core::Interface for IOpcDigitalSignature {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcDigitalSignature_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetSignatureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -365,7 +365,7 @@ unsafe impl ::windows::core::Interface for IOpcDigitalSignatureEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcDigitalSignatureEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -468,7 +468,7 @@ unsafe impl ::windows::core::Interface for IOpcDigitalSignatureManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcDigitalSignatureManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSignatureOriginPartName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureoriginpartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -583,7 +583,7 @@ unsafe impl ::windows::core::Interface for IOpcFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcFactory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreatePackageRootUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rooturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -665,7 +665,7 @@ unsafe impl ::windows::core::Interface for IOpcPackage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPackage_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetPartSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRelationshipSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -744,7 +744,7 @@ unsafe impl ::windows::core::Interface for IOpcPart {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPart_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetRelationshipSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetContentStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -827,7 +827,7 @@ unsafe impl ::windows::core::Interface for IOpcPartEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPartEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -915,7 +915,7 @@ unsafe impl ::windows::core::Interface for IOpcPartSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPartSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1225,7 +1225,7 @@ unsafe impl ::windows::core::Interface for IOpcPartUri {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPartUri_Vtbl {
-    pub base: IOpcUri_Vtbl,
+    pub base__: IOpcUri_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ComparePartUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, comparisonresult: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1314,7 +1314,7 @@ unsafe impl ::windows::core::Interface for IOpcRelationship {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationship_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipidentifier: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetRelationshipType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshiptype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::Interface for IOpcRelationshipEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1467,7 +1467,7 @@ unsafe impl ::windows::core::Interface for IOpcRelationshipSelector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSelector_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetSelectorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selector: *mut OPC_RELATIONSHIP_SELECTOR) -> ::windows::core::HRESULT,
     pub GetSelectionCriterion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectioncriterion: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
@@ -1541,7 +1541,7 @@ unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1615,7 +1615,7 @@ unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSelectorSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: ::windows::core::PCWSTR, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1705,7 +1705,7 @@ unsafe impl ::windows::core::Interface for IOpcRelationshipSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetRelationship: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateRelationship: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationshiptype: ::windows::core::PCWSTR, targeturi: ::windows::core::RawPtr, targetmode: OPC_URI_TARGET_MODE, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1775,7 +1775,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureCustomObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
@@ -1848,7 +1848,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObjectEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1922,7 +1922,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObjectSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlmarkup: *const u8, count: u32, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2000,7 +2000,7 @@ unsafe impl ::windows::core::Interface for IOpcSignaturePartReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignaturePartReference_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPartName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2080,7 +2080,7 @@ unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceEnumerator 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignaturePartReferenceEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2155,7 +2155,7 @@ unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignaturePartReferenceSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2241,7 +2241,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureReference_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referenceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referenceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2322,7 +2322,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureReferenceEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureReferenceEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2397,7 +2397,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureReferenceSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureReferenceSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referenceuri: ::windows::core::RawPtr, referenceid: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2483,7 +2483,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureRelationshipReference_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceEnu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2644,7 +2644,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceSet
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureRelationshipReferenceSet_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceuri: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: ::windows::core::RawPtr, transformmethod: OPC_CANONICALIZATION_METHOD, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2782,7 +2782,7 @@ unsafe impl ::windows::core::Interface for IOpcSigningOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSigningOptions_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetSignatureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetSignatureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetSignatureMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturemethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -3056,7 +3056,7 @@ unsafe impl ::windows::core::Interface for IOpcUri {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcUri_Vtbl {
-    pub base: super::super::super::System::Com::IUri_Vtbl,
+    pub base__: super::super::super::System::Com::IUri_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRelationshipsPartUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipparturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

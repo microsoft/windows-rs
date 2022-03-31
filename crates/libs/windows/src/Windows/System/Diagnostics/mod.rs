@@ -269,7 +269,7 @@ unsafe impl ::windows::core::Interface for IDiagnosticActionResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticActionResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Results: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -286,7 +286,7 @@ unsafe impl ::windows::core::Interface for IDiagnosticInvoker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvoker_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
     pub RunDiagnosticActionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Data_Json", feature = "Foundation")))]
@@ -302,7 +302,7 @@ unsafe impl ::windows::core::Interface for IDiagnosticInvoker2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvoker2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RunDiagnosticActionFromStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -318,7 +318,7 @@ unsafe impl ::windows::core::Interface for IDiagnosticInvokerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvokerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -333,7 +333,7 @@ unsafe impl ::windows::core::Interface for IProcessCpuUsage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessCpuUsage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -346,7 +346,7 @@ unsafe impl ::windows::core::Interface for IProcessCpuUsageReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessCpuUsageReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub KernelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -366,7 +366,7 @@ unsafe impl ::windows::core::Interface for IProcessDiagnosticInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ExecutableFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -388,7 +388,7 @@ unsafe impl ::windows::core::Interface for IProcessDiagnosticInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfo2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAppDiagnosticInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -405,7 +405,7 @@ unsafe impl ::windows::core::Interface for IProcessDiagnosticInfoStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfoStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetForProcesses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -422,7 +422,7 @@ unsafe impl ::windows::core::Interface for IProcessDiagnosticInfoStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfoStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryGetForProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::Interface for IProcessDiskUsage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiskUsage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::Interface for IProcessDiskUsageReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiskUsageReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ReadOperationCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     pub WriteOperationCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     pub OtherOperationCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
@@ -466,7 +466,7 @@ unsafe impl ::windows::core::Interface for IProcessMemoryUsage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessMemoryUsage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -479,7 +479,7 @@ unsafe impl ::windows::core::Interface for IProcessMemoryUsageReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessMemoryUsageReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub NonPagedPoolSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub PageFaultCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub PageFileSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -503,7 +503,7 @@ unsafe impl ::windows::core::Interface for ISystemCpuUsage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemCpuUsage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -516,7 +516,7 @@ unsafe impl ::windows::core::Interface for ISystemCpuUsageReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemCpuUsageReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub KernelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -540,7 +540,7 @@ unsafe impl ::windows::core::Interface for ISystemDiagnosticInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CpuUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -554,7 +554,7 @@ unsafe impl ::windows::core::Interface for ISystemDiagnosticInfoStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfoStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::Interface for ISystemDiagnosticInfoStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfoStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsArchitectureSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::ProcessorArchitecture, result__: *mut bool) -> ::windows::core::HRESULT,
     pub PreferredArchitecture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ProcessorArchitecture) -> ::windows::core::HRESULT,
 }
@@ -581,7 +581,7 @@ unsafe impl ::windows::core::Interface for ISystemMemoryUsage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMemoryUsage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -594,7 +594,7 @@ unsafe impl ::windows::core::Interface for ISystemMemoryUsageReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMemoryUsageReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TotalPhysicalSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub AvailableSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub CommittedSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,

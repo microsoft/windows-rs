@@ -93,7 +93,7 @@ unsafe impl ::windows::core::Interface for IWPCGamesSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCGamesSettings_Vtbl {
-    pub base: IWPCSettings_Vtbl,
+    pub base__: IWPCSettings_Vtbl,
     pub IsBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidappid: ::windows::core::GUID, pdwreasons: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
@@ -160,7 +160,7 @@ unsafe impl ::windows::core::Interface for IWPCProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrusersummary: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::Interface for IWPCProviderState {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderState_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -287,7 +287,7 @@ unsafe impl ::windows::core::Interface for IWPCProviderSupport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderSupport_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::Interface for IWPCSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCSettings_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsLoggingRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -462,7 +462,7 @@ unsafe impl ::windows::core::Interface for IWPCWebSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCWebSettings_Vtbl {
-    pub base: IWPCSettings_Vtbl,
+    pub base__: IWPCSettings_Vtbl,
     pub GetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub RequestURLOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: ::windows::core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows::core::PWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -561,7 +561,7 @@ unsafe impl ::windows::core::Interface for IWindowsParentalControls {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsParentalControls_Vtbl {
-    pub base: IWindowsParentalControlsCore_Vtbl,
+    pub base__: IWindowsParentalControlsCore_Vtbl,
     pub GetGamesSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows::core::PCWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
@@ -631,7 +631,7 @@ unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsParentalControlsCore_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::core::HRESULT,
     pub GetUserSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows::core::PCWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetWebSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows::core::PCWSTR, ppsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

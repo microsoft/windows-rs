@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IRemoteTextConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteTextConnection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub RegisterThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT,
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for IRemoteTextConnectionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RemoteTextConnectionDataHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

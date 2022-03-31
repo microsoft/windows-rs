@@ -62,7 +62,7 @@ unsafe impl ::windows::core::Interface for IWICImageEncoder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImageEncoder_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub WriteFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimage: ::windows::core::RawPtr, pframeencode: ::windows::core::RawPtr, pimageparameters: *const super::WICImageParameters) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -280,7 +280,7 @@ unsafe impl ::windows::core::Interface for IWICImagingFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImagingFactory2_Vtbl {
-    pub base: super::IWICImagingFactory_Vtbl,
+    pub base__: super::IWICImagingFactory_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub CreateImageEncoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2ddevice: ::windows::core::RawPtr, ppwicimageencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))]

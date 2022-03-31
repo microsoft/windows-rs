@@ -1674,7 +1674,7 @@ unsafe impl ::windows::core::Interface for IFeed {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeed_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS, xml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2151,7 +2151,7 @@ unsafe impl ::windows::core::Interface for IFeed2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeed2_Vtbl {
-    pub base: IFeed_Vtbl,
+    pub base__: IFeed_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetItemByEffectiveId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemeffectiveid: i32, disp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2323,7 +2323,7 @@ unsafe impl ::windows::core::Interface for IFeedEnclosure {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedEnclosure_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enclosureurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2482,7 +2482,7 @@ unsafe impl ::windows::core::Interface for IFeedEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub FeedDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -2698,7 +2698,7 @@ unsafe impl ::windows::core::Interface for IFeedFolder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedFolder_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Feeds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2923,7 +2923,7 @@ unsafe impl ::windows::core::Interface for IFeedFolderEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedFolderEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub FolderAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -3163,7 +3163,7 @@ unsafe impl ::windows::core::Interface for IFeedItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedItem_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includeflags: FEEDS_XML_INCLUDE_FLAGS, xml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3418,7 +3418,7 @@ unsafe impl ::windows::core::Interface for IFeedItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedItem2_Vtbl {
-    pub base: IFeedItem_Vtbl,
+    pub base__: IFeedItem_Vtbl,
     pub EffectiveId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectiveid: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
@@ -3522,7 +3522,7 @@ unsafe impl ::windows::core::Interface for IFeedsEnum {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedsEnum_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, disp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3702,7 +3702,7 @@ unsafe impl ::windows::core::Interface for IFeedsManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedsManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RootFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3812,7 +3812,7 @@ unsafe impl ::windows::core::Interface for IWMPAudioRenderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPAudioRenderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub audioOutputDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstroutputdevice: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3921,7 +3921,7 @@ unsafe impl ::windows::core::Interface for IWMPCdrom {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdrom_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub driveSpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrive: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4043,7 +4043,7 @@ unsafe impl ::windows::core::Interface for IWMPCdromBurn {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromBurn_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub isAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4177,7 +4177,7 @@ unsafe impl ::windows::core::Interface for IWMPCdromCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4252,7 +4252,7 @@ unsafe impl ::windows::core::Interface for IWMPCdromRip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromRip_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ripState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmprs: *mut WMPRipState) -> ::windows::core::HRESULT,
     pub ripProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprogress: *mut i32) -> ::windows::core::HRESULT,
     pub startRip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4382,7 +4382,7 @@ unsafe impl ::windows::core::Interface for IWMPClosedCaption {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaption_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SAMIStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsamistyle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4586,7 +4586,7 @@ unsafe impl ::windows::core::Interface for IWMPClosedCaption2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaption2_Vtbl {
-    pub base: IWMPClosedCaption_Vtbl,
+    pub base__: IWMPClosedCaption_Vtbl,
     pub SAMILangCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub getSAMILangName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -4680,7 +4680,7 @@ unsafe impl ::windows::core::Interface for IWMPContentContainer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPContentContainer_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontentid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetPrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprice: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -4760,7 +4760,7 @@ unsafe impl ::windows::core::Interface for IWMPContentContainerList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPContentContainerList_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetTransactionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmptt: *mut WMPTransactionType) -> ::windows::core::HRESULT,
     pub GetContainerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccontainer: *mut u32) -> ::windows::core::HRESULT,
     pub GetContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idxcontainer: u32, ppcontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4927,7 +4927,7 @@ unsafe impl ::windows::core::Interface for IWMPContentPartner {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPContentPartner_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -5113,7 +5113,7 @@ unsafe impl ::windows::core::Interface for IWMPContentPartnerCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPContentPartnerCallback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5303,7 +5303,7 @@ unsafe impl ::windows::core::Interface for IWMPControls {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub isAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5518,7 +5518,7 @@ unsafe impl ::windows::core::Interface for IWMPControls2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls2_Vtbl {
-    pub base: IWMPControls_Vtbl,
+    pub base__: IWMPControls_Vtbl,
     pub step: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstep: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
@@ -5771,7 +5771,7 @@ unsafe impl ::windows::core::Interface for IWMPControls3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls3_Vtbl {
-    pub base: IWMPControls2_Vtbl,
+    pub base__: IWMPControls2_Vtbl,
     pub audioLanguageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub getAudioLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pllangid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5853,7 +5853,7 @@ unsafe impl ::windows::core::Interface for IWMPConvert {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPConvert_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ConvertFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinputfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdestinationfolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstroutputfile: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6058,7 +6058,7 @@ unsafe impl ::windows::core::Interface for IWMPCore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -6357,7 +6357,7 @@ unsafe impl ::windows::core::Interface for IWMPCore2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore2_Vtbl {
-    pub base: IWMPCore_Vtbl,
+    pub base__: IWMPCore_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub dvd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdvd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6624,7 +6624,7 @@ unsafe impl ::windows::core::Interface for IWMPCore3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore3_Vtbl {
-    pub base: IWMPCore2_Vtbl,
+    pub base__: IWMPCore2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub newPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppplaylist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -6744,7 +6744,7 @@ unsafe impl ::windows::core::Interface for IWMPDVD {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDVD_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub isAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6870,7 +6870,7 @@ unsafe impl ::windows::core::Interface for IWMPDownloadCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -7002,7 +7002,7 @@ unsafe impl ::windows::core::Interface for IWMPDownloadItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadItem_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub sourceURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7165,7 +7165,7 @@ unsafe impl ::windows::core::Interface for IWMPDownloadItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadItem2_Vtbl {
-    pub base: IWMPDownloadItem_Vtbl,
+    pub base__: IWMPDownloadItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub getItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7267,7 +7267,7 @@ unsafe impl ::windows::core::Interface for IWMPDownloadManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub getDownloadCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionid: i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7375,7 +7375,7 @@ unsafe impl ::windows::core::Interface for IWMPEffects {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEffects_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plevels: *mut TimedLevel, hdc: super::super::Graphics::Gdi::HDC, prc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -7553,7 +7553,7 @@ unsafe impl ::windows::core::Interface for IWMPEffects2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEffects2_Vtbl {
-    pub base: IWMPEffects_Vtbl,
+    pub base__: IWMPEffects_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplayer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7678,7 +7678,7 @@ unsafe impl ::windows::core::Interface for IWMPError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPError_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub clearErrorQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub errorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plnumerrors: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -7794,7 +7794,7 @@ unsafe impl ::windows::core::Interface for IWMPErrorItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorItem_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub errorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub errorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -7945,7 +7945,7 @@ unsafe impl ::windows::core::Interface for IWMPErrorItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorItem2_Vtbl {
-    pub base: IWMPErrorItem_Vtbl,
+    pub base__: IWMPErrorItem_Vtbl,
     pub condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcondition: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -8193,7 +8193,7 @@ unsafe impl ::windows::core::Interface for IWMPEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub OpenStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstate: i32),
     pub PlayStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstate: i32),
     pub AudioLanguageChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: i32),
@@ -8581,7 +8581,7 @@ unsafe impl ::windows::core::Interface for IWMPEvents2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEvents2_Vtbl {
-    pub base: IWMPEvents_Vtbl,
+    pub base__: IWMPEvents_Vtbl,
     pub DeviceConnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr),
     pub DeviceDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr),
     pub DeviceStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, newstatus: WMPDeviceStatus),
@@ -8951,7 +8951,7 @@ unsafe impl ::windows::core::Interface for IWMPEvents3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEvents3_Vtbl {
-    pub base: IWMPEvents2_Vtbl,
+    pub base__: IWMPEvents2_Vtbl,
     pub CdromRipStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdromrip: ::windows::core::RawPtr, wmprs: WMPRipState),
     #[cfg(feature = "Win32_System_Com")]
     pub CdromRipMediaError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdromrip: ::windows::core::RawPtr, pmedia: ::windows::core::RawPtr),
@@ -9362,7 +9362,7 @@ unsafe impl ::windows::core::Interface for IWMPEvents4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEvents4_Vtbl {
-    pub base: IWMPEvents3_Vtbl,
+    pub base__: IWMPEvents3_Vtbl,
     pub DeviceEstimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64),
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -9460,7 +9460,7 @@ unsafe impl ::windows::core::Interface for IWMPFolderMonitorServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPFolderMonitorServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pbstrfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -9542,7 +9542,7 @@ unsafe impl ::windows::core::Interface for IWMPGraphCreation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPGraphCreation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GraphCreationPreRender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfiltergraph: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GraphCreationPostRender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfiltergraph: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetGraphCreationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
@@ -9614,7 +9614,7 @@ unsafe impl ::windows::core::Interface for IWMPLibrary {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPLibrary_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9718,7 +9718,7 @@ unsafe impl ::windows::core::Interface for IWMPLibrary2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPLibrary2_Vtbl {
-    pub base: IWMPLibrary_Vtbl,
+    pub base__: IWMPLibrary_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub getItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9781,7 +9781,7 @@ unsafe impl ::windows::core::Interface for IWMPLibraryServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPLibraryServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub getCountByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub getLibraryByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmplt: WMPLibraryType, lindex: i32, ppiwmplibrary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9845,7 +9845,7 @@ unsafe impl ::windows::core::Interface for IWMPLibrarySharingServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPLibrarySharingServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub isLibraryShared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbshared: *mut i16) -> ::windows::core::HRESULT,
     pub isLibrarySharingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub showLibrarySharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10018,7 +10018,7 @@ unsafe impl ::windows::core::Interface for IWMPMedia {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub isIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10272,7 +10272,7 @@ unsafe impl ::windows::core::Interface for IWMPMedia2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia2_Vtbl {
-    pub base: IWMPMedia_Vtbl,
+    pub base__: IWMPMedia_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10510,7 +10510,7 @@ unsafe impl ::windows::core::Interface for IWMPMedia3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia3_Vtbl {
-    pub base: IWMPMedia2_Vtbl,
+    pub base__: IWMPMedia2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub getAttributeCountByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10672,7 +10672,7 @@ unsafe impl ::windows::core::Interface for IWMPMediaCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -10922,7 +10922,7 @@ unsafe impl ::windows::core::Interface for IWMPMediaCollection2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollection2_Vtbl {
-    pub base: IWMPMediaCollection_Vtbl,
+    pub base__: IWMPMediaCollection_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub createQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppquery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10996,7 +10996,7 @@ unsafe impl ::windows::core::Interface for IWMPMediaPluginRegistrar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaPluginRegistrar_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub WMPRegisterPlayerPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR, pwszdescription: ::windows::core::PCWSTR, pwszuninstallstring: ::windows::core::PCWSTR, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WMPUnRegisterPlayerPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -11104,7 +11104,7 @@ unsafe impl ::windows::core::Interface for IWMPMetadataPicture {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMetadataPicture_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub mimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmimetype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11216,7 +11216,7 @@ unsafe impl ::windows::core::Interface for IWMPMetadataText {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMetadataText_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11433,7 +11433,7 @@ unsafe impl ::windows::core::Interface for IWMPNetwork {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNetwork_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub bandWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbandwidth: *mut i32) -> ::windows::core::HRESULT,
     pub recoveredPackets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plrecoveredpackets: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -11579,7 +11579,7 @@ unsafe impl ::windows::core::Interface for IWMPNodeRealEstate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeRealEstate_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesiredSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11667,7 +11667,7 @@ unsafe impl ::windows::core::Interface for IWMPNodeRealEstateHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeRealEstateHost_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnDesiredSizeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11733,7 +11733,7 @@ unsafe impl ::windows::core::Interface for IWMPNodeWindowed {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeWindowed_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetOwnerWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: isize) -> ::windows::core::HRESULT,
     pub GetOwnerWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut isize) -> ::windows::core::HRESULT,
 }
@@ -11790,7 +11790,7 @@ unsafe impl ::windows::core::Interface for IWMPNodeWindowedHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeWindowedHost_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnWindowMessageFromRenderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11874,7 +11874,7 @@ unsafe impl ::windows::core::Interface for IWMPNodeWindowless {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeWindowless_Vtbl {
-    pub base: IWMPWindowMessageSink_Vtbl,
+    pub base__: IWMPWindowMessageSink_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11933,7 +11933,7 @@ unsafe impl ::windows::core::Interface for IWMPNodeWindowlessHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeWindowlessHost_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InvalidateRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12192,7 +12192,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer_Vtbl {
-    pub base: IWMPCore_Vtbl,
+    pub base__: IWMPCore_Vtbl,
     pub enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub Setenabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
     pub fullScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbfullscreen: *mut i16) -> ::windows::core::HRESULT,
@@ -12477,7 +12477,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer2_Vtbl {
-    pub base: IWMPCore_Vtbl,
+    pub base__: IWMPCore_Vtbl,
     pub enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub Setenabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
     pub fullScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbfullscreen: *mut i16) -> ::windows::core::HRESULT,
@@ -12796,7 +12796,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayer3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer3_Vtbl {
-    pub base: IWMPCore2_Vtbl,
+    pub base__: IWMPCore2_Vtbl,
     pub enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub Setenabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
     pub fullScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbfullscreen: *mut i16) -> ::windows::core::HRESULT,
@@ -13166,7 +13166,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayer4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer4_Vtbl {
-    pub base: IWMPCore3_Vtbl,
+    pub base__: IWMPCore3_Vtbl,
     pub enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub Setenabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
     pub fullScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbfullscreen: *mut i16) -> ::windows::core::HRESULT,
@@ -13295,7 +13295,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayerApplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerApplication_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub switchToPlayerApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub switchToControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub playerDocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbplayerdocked: *mut i16) -> ::windows::core::HRESULT,
@@ -13364,7 +13364,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayerServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub activateUIPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrplugin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13466,7 +13466,7 @@ unsafe impl ::windows::core::Interface for IWMPPlayerServices2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerServices2_Vtbl {
-    pub base: IWMPPlayerServices_Vtbl,
+    pub base__: IWMPPlayerServices_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub setBackgroundProcessingPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpriority: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13623,7 +13623,7 @@ unsafe impl ::windows::core::Interface for IWMPPlaylist {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylist_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -13763,7 +13763,7 @@ unsafe impl ::windows::core::Interface for IWMPPlaylistArray {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistArray_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13893,7 +13893,7 @@ unsafe impl ::windows::core::Interface for IWMPPlaylistCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub newPlaylist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -13995,7 +13995,7 @@ unsafe impl ::windows::core::Interface for IWMPPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlugin_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwplaybackcontext: usize) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -14061,7 +14061,7 @@ unsafe impl ::windows::core::Interface for IWMPPluginEnable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPluginEnable_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetEnable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14153,7 +14153,7 @@ unsafe impl ::windows::core::Interface for IWMPPluginUI {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPluginUI_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcore: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14273,7 +14273,7 @@ unsafe impl ::windows::core::Interface for IWMPQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPQuery_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub addCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstroperator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14348,7 +14348,7 @@ unsafe impl ::windows::core::Interface for IWMPRemoteMediaServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPRemoteMediaServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetServiceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14424,7 +14424,7 @@ unsafe impl ::windows::core::Interface for IWMPRenderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPRenderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetinProcOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14490,7 +14490,7 @@ unsafe impl ::windows::core::Interface for IWMPServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetStreamTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prt: *mut i64) -> ::windows::core::HRESULT,
     pub GetStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut WMPServices_StreamState) -> ::windows::core::HRESULT,
 }
@@ -14677,7 +14677,7 @@ unsafe impl ::windows::core::Interface for IWMPSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettings_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub isAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14944,7 +14944,7 @@ unsafe impl ::windows::core::Interface for IWMPSettings2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettings2_Vtbl {
-    pub base: IWMPSettings_Vtbl,
+    pub base__: IWMPSettings_Vtbl,
     pub defaultAudioLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllangid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub mediaAccessRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrights: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -15008,7 +15008,7 @@ unsafe impl ::windows::core::Interface for IWMPSkinManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSkinManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetVisualStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15107,7 +15107,7 @@ unsafe impl ::windows::core::Interface for IWMPStringCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollection_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pbstrstring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -15251,7 +15251,7 @@ unsafe impl ::windows::core::Interface for IWMPStringCollection2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollection2_Vtbl {
-    pub base: IWMPStringCollection_Vtbl,
+    pub base__: IWMPStringCollection_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub isIdentical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpstringcollection2: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -15337,7 +15337,7 @@ unsafe impl ::windows::core::Interface for IWMPSubscriptionService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSubscriptionService_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub allowPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pmedia: ::windows::core::RawPtr, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -15461,7 +15461,7 @@ unsafe impl ::windows::core::Interface for IWMPSubscriptionService2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSubscriptionService2_Vtbl {
-    pub base: IWMPSubscriptionService_Vtbl,
+    pub base__: IWMPSubscriptionService_Vtbl,
     pub stopBackgroundProcessing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub serviceEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: WMPSubscriptionServiceEvent) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -15525,7 +15525,7 @@ unsafe impl ::windows::core::Interface for IWMPSubscriptionServiceCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSubscriptionServiceCallback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub onComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -15645,7 +15645,7 @@ unsafe impl ::windows::core::Interface for IWMPSyncDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSyncDevice_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub friendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15820,7 +15820,7 @@ unsafe impl ::windows::core::Interface for IWMPSyncDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSyncDevice2_Vtbl {
-    pub base: IWMPSyncDevice_Vtbl,
+    pub base__: IWMPSyncDevice_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub setItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15997,7 +15997,7 @@ unsafe impl ::windows::core::Interface for IWMPSyncDevice3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSyncDevice3_Vtbl {
-    pub base: IWMPSyncDevice2_Vtbl,
+    pub base__: IWMPSyncDevice2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub estimateSyncSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnonruleplaylist: ::windows::core::RawPtr, prulesplaylist: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -16061,7 +16061,7 @@ unsafe impl ::windows::core::Interface for IWMPSyncServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSyncServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub deviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub getDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -16117,7 +16117,7 @@ unsafe impl ::windows::core::Interface for IWMPTranscodePolicy {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPTranscodePolicy_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub allowTranscode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvballow: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -16172,7 +16172,7 @@ unsafe impl ::windows::core::Interface for IWMPUserEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPUserEventSink_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub NotifyUserEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcode: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -16228,7 +16228,7 @@ unsafe impl ::windows::core::Interface for IWMPVideoRenderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPVideoRenderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub SetpresenterActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
@@ -16287,7 +16287,7 @@ unsafe impl ::windows::core::Interface for IWMPWindowMessageSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPWindowMessageSink_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnWindowMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16557,7 +16557,7 @@ unsafe impl ::windows::core::Interface for IXFeed {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeed_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS, pps: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -16943,7 +16943,7 @@ unsafe impl ::windows::core::Interface for IXFeed2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeed2_Vtbl {
-    pub base: IXFeed_Vtbl,
+    pub base__: IXFeed_Vtbl,
     pub GetItemByEffectiveId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uieffectiveid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub LastItemDownloadTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstlastitemdownloadtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
@@ -17063,7 +17063,7 @@ unsafe impl ::windows::core::Interface for IXFeedEnclosure {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedEnclosure_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszmimetype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puilength: *mut u32) -> ::windows::core::HRESULT,
@@ -17158,7 +17158,7 @@ unsafe impl ::windows::core::Interface for IXFeedEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FeedDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub FeedRenamed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -17304,7 +17304,7 @@ unsafe impl ::windows::core::Interface for IXFeedFolder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedFolder_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Feeds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Subfolders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pszurl: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -17445,7 +17445,7 @@ unsafe impl ::windows::core::Interface for IXFeedFolderEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedFolderEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FolderAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub FolderDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -17600,7 +17600,7 @@ unsafe impl ::windows::core::Interface for IXFeedItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedItem_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fxif: FEEDS_XML_INCLUDE_FLAGS, pps: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -17799,7 +17799,7 @@ unsafe impl ::windows::core::Interface for IXFeedItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedItem2_Vtbl {
-    pub base: IXFeedItem_Vtbl,
+    pub base__: IXFeedItem_Vtbl,
     pub EffectiveId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puieffectiveid: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -17860,7 +17860,7 @@ unsafe impl ::windows::core::Interface for IXFeedsEnum {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedsEnum_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puicount: *mut u32) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -17991,7 +17991,7 @@ unsafe impl ::windows::core::Interface for IXFeedsManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedsManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub RootFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSubscribed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pbsubscribed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -19230,7 +19230,7 @@ unsafe impl ::windows::core::Interface for _WMPOCXEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct _WMPOCXEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const g_szAllAuthors: &'static str = "AllAuthors";

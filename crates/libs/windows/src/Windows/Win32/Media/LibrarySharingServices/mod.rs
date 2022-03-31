@@ -104,7 +104,7 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingDevice_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DeviceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -217,7 +217,7 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDeviceProp
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -324,7 +324,7 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDeviceProp
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingDevices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingDevices_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, device: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -623,7 +623,7 @@ unsafe impl ::windows::core::Interface for IWindowsMediaLibrarySharingServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsMediaLibrarySharingServices_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub showShareMediaCPL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

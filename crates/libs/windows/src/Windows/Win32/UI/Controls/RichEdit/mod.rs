@@ -2146,7 +2146,7 @@ unsafe impl ::windows::core::Interface for IRichEditOle {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditOle_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplpolesite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -2287,7 +2287,7 @@ unsafe impl ::windows::core::Interface for IRichEditOleCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditOleCallback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub GetNewStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplpstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -2382,7 +2382,7 @@ unsafe impl ::windows::core::Interface for IRicheditUiaOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRicheditUiaOverrides_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetPropertyOverrideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2471,7 +2471,7 @@ unsafe impl ::windows::core::Interface for ITextDisplays {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDisplays_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2652,7 +2652,7 @@ unsafe impl ::windows::core::Interface for ITextDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3109,7 +3109,7 @@ unsafe impl ::windows::core::Interface for ITextDocument2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument2_Vtbl {
-    pub base: ITextDocument_Vtbl,
+    pub base__: ITextDocument_Vtbl,
     pub GetCaretType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetCaretType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3504,7 +3504,7 @@ unsafe impl ::windows::core::Interface for ITextDocument2Old {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument2Old_Vtbl {
-    pub base: ITextDocument_Vtbl,
+    pub base__: ITextDocument_Vtbl,
     pub AttachMsgFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, cr: u32) -> ::windows::core::HRESULT,
     pub GetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pcr: *mut u32) -> ::windows::core::HRESULT,
@@ -3879,7 +3879,7 @@ unsafe impl ::windows::core::Interface for ITextFont {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextFont_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4521,7 +4521,7 @@ unsafe impl ::windows::core::Interface for ITextFont2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextFont2_Vtbl {
-    pub base: ITextFont_Vtbl,
+    pub base__: ITextFont_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     pub GetAutoLigatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetAutoLigatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -4805,7 +4805,7 @@ unsafe impl ::windows::core::Interface for ITextHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHost_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub TxGetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Graphics::Gdi::HDC,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
@@ -5212,7 +5212,7 @@ unsafe impl ::windows::core::Interface for ITextHost2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHost2_Vtbl {
-    pub base: ITextHost_Vtbl,
+    pub base__: ITextHost_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TxIsDoubleClickPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5544,7 +5544,7 @@ unsafe impl ::windows::core::Interface for ITextPara {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPara_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppara: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6005,7 +6005,7 @@ unsafe impl ::windows::core::Interface for ITextPara2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPara2_Vtbl {
-    pub base: ITextPara_Vtbl,
+    pub base__: ITextPara_Vtbl,
     pub GetBorders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppborders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppara: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6380,7 +6380,7 @@ unsafe impl ::windows::core::Interface for ITextRange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRange_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7145,7 +7145,7 @@ unsafe impl ::windows::core::Interface for ITextRange2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRange2_Vtbl {
-    pub base: ITextSelection_Vtbl,
+    pub base__: ITextSelection_Vtbl,
     pub GetCch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcch: *mut i32) -> ::windows::core::HRESULT,
     pub GetCells: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcells: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolumn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7522,7 +7522,7 @@ unsafe impl ::windows::core::Interface for ITextRow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRow_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub GetCellCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
@@ -7994,7 +7994,7 @@ unsafe impl ::windows::core::Interface for ITextSelection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextSelection_Vtbl {
-    pub base: ITextRange_Vtbl,
+    pub base__: ITextRange_Vtbl,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut i32) -> ::windows::core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i32) -> ::windows::core::HRESULT,
@@ -8670,7 +8670,7 @@ unsafe impl ::windows::core::Interface for ITextSelection2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextSelection2_Vtbl {
-    pub base: ITextRange2_Vtbl,
+    pub base__: ITextRange2_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
@@ -8803,7 +8803,7 @@ unsafe impl ::windows::core::Interface for ITextServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextServices_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TxSendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9014,7 +9014,7 @@ unsafe impl ::windows::core::Interface for ITextServices2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextServices2_Vtbl {
-    pub base: ITextServices_Vtbl,
+    pub base__: ITextServices_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub TxGetNaturalSize2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -9130,7 +9130,7 @@ unsafe impl ::windows::core::Interface for ITextStory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub GetDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdisplay: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9253,7 +9253,7 @@ unsafe impl ::windows::core::Interface for ITextStoryRanges {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoryRanges_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9391,7 +9391,7 @@ unsafe impl ::windows::core::Interface for ITextStoryRanges2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoryRanges2_Vtbl {
-    pub base: ITextStoryRanges_Vtbl,
+    pub base__: ITextStoryRanges_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9561,7 +9561,7 @@ unsafe impl ::windows::core::Interface for ITextStrings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStrings_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

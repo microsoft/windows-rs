@@ -145,7 +145,7 @@ unsafe impl ::windows::core::Interface for IObjectArray {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectArray_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcobjects: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -243,7 +243,7 @@ unsafe impl ::windows::core::Interface for IObjectCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectCollection_Vtbl {
-    pub base: IObjectArray_Vtbl,
+    pub base__: IObjectArray_Vtbl,
     pub AddObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poasource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveObjectAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32) -> ::windows::core::HRESULT,

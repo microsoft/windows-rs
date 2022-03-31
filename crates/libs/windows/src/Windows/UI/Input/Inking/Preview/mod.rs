@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreview_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -21,7 +21,7 @@ unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreviewStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub CreateForVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Composition")))]

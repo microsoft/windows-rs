@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Interface for DDiscFormat2DataEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscFormat2DataEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -220,7 +220,7 @@ unsafe impl ::windows::core::Interface for DDiscFormat2EraseEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscFormat2EraseEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -315,7 +315,7 @@ unsafe impl ::windows::core::Interface for DDiscFormat2RawCDEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscFormat2RawCDEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -410,7 +410,7 @@ unsafe impl ::windows::core::Interface for DDiscFormat2TrackAtOnceEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscFormat2TrackAtOnceEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -510,7 +510,7 @@ unsafe impl ::windows::core::Interface for DDiscMaster2Events {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscMaster2Events_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub NotifyDeviceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, uniqueid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -609,7 +609,7 @@ unsafe impl ::windows::core::Interface for DFileSystemImageEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DFileSystemImageEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, currentfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, copiedsectors: i32, totalsectors: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -704,7 +704,7 @@ unsafe impl ::windows::core::Interface for DFileSystemImageImportEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DFileSystemImageImportEvents_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub UpdateImport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, filesystem: FsiFileSystems, currentitem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1172,7 +1172,7 @@ unsafe impl ::windows::core::Interface for DWriteEngine2Events {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DWriteEngine2Events_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1391,7 +1391,7 @@ unsafe impl ::windows::core::Interface for IBlockRange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockRange_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub StartLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub EndLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -1485,7 +1485,7 @@ unsafe impl ::windows::core::Interface for IBlockRangeList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockRangeList_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BlockRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1620,7 +1620,7 @@ unsafe impl ::windows::core::Interface for IBootOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBootOptions_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BootImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1700,7 +1700,7 @@ unsafe impl ::windows::core::Interface for IBurnVerification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBurnVerification_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetBurnVerificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::HRESULT,
     pub BurnVerificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::HRESULT,
 }
@@ -1816,7 +1816,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub IsRecorderSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recorder: ::windows::core::RawPtr, value: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2126,7 +2126,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2Data {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2Data_Vtbl {
-    pub base: IDiscFormat2_Vtbl,
+    pub base__: IDiscFormat2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2347,7 +2347,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2DataEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2DataEventArgs_Vtbl {
-    pub base: IWriteEngine2EventArgs_Vtbl,
+    pub base__: IWriteEngine2EventArgs_Vtbl,
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub TotalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -2529,7 +2529,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2Erase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2Erase_Vtbl {
-    pub base: IDiscFormat2_Vtbl,
+    pub base__: IDiscFormat2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2806,7 +2806,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2RawCD {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2RawCD_Vtbl {
-    pub base: IDiscFormat2_Vtbl,
+    pub base__: IDiscFormat2_Vtbl,
     pub PrepareMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub WriteMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3017,7 +3017,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2RawCDEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2RawCDEventArgs_Vtbl {
-    pub base: IWriteEngine2EventArgs_Vtbl,
+    pub base__: IWriteEngine2EventArgs_Vtbl,
     pub CurrentAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> ::windows::core::HRESULT,
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -3282,7 +3282,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2TrackAtOnce {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2TrackAtOnce_Vtbl {
-    pub base: IDiscFormat2_Vtbl,
+    pub base__: IDiscFormat2_Vtbl,
     pub PrepareMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddAudioTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3496,7 +3496,7 @@ unsafe impl ::windows::core::Interface for IDiscFormat2TrackAtOnceEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2TrackAtOnceEventArgs_Vtbl {
-    pub base: IWriteEngine2EventArgs_Vtbl,
+    pub base__: IWriteEngine2EventArgs_Vtbl,
     pub CurrentTrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_FORMAT2_TAO_WRITE_ACTION) -> ::windows::core::HRESULT,
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -3603,7 +3603,7 @@ unsafe impl ::windows::core::Interface for IDiscMaster {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscMaster_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumDiscMasterFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetActiveDiscMasterFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -3723,7 +3723,7 @@ unsafe impl ::windows::core::Interface for IDiscMaster2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscMaster2_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -3820,7 +3820,7 @@ unsafe impl ::windows::core::Interface for IDiscMasterProgressEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscMasterProgressEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub QueryCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcancel: *mut u8) -> ::windows::core::HRESULT,
     pub NotifyPnPActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyAddProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncompletedsteps: i32, ntotalsteps: i32) -> ::windows::core::HRESULT,
@@ -3949,7 +3949,7 @@ unsafe impl ::windows::core::Interface for IDiscRecorder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> ::windows::core::HRESULT,
     pub GetRecorderGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> ::windows::core::HRESULT,
     pub GetRecorderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ftypecode: *mut RECORDER_TYPES) -> ::windows::core::HRESULT,
@@ -4177,7 +4177,7 @@ unsafe impl ::windows::core::Interface for IDiscRecorder2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder2_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub EjectMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CloseTray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4368,7 +4368,7 @@ unsafe impl ::windows::core::Interface for IDiscRecorder2Ex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder2Ex_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SendCommandNoData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> ::windows::core::HRESULT,
     pub SendCommandSendDataToDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> ::windows::core::HRESULT,
     pub SendCommandGetDataFromDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -4462,7 +4462,7 @@ unsafe impl ::windows::core::Interface for IEnumDiscMasterFormats {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiscMasterFormats_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cformats: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4533,7 +4533,7 @@ unsafe impl ::windows::core::Interface for IEnumDiscRecorders {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiscRecorders_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crecorders: u32, pprecorder: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crecorders: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4605,7 +4605,7 @@ unsafe impl ::windows::core::Interface for IEnumFsiItems {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumFsiItems_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4680,7 +4680,7 @@ unsafe impl ::windows::core::Interface for IEnumProgressItems {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumProgressItems_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5028,7 +5028,7 @@ unsafe impl ::windows::core::Interface for IFileSystemImage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImage_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5523,7 +5523,7 @@ unsafe impl ::windows::core::Interface for IFileSystemImage2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImage2_Vtbl {
-    pub base: IFileSystemImage_Vtbl,
+    pub base__: IFileSystemImage_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BootImageOptionsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5945,7 +5945,7 @@ unsafe impl ::windows::core::Interface for IFileSystemImage3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImage3_Vtbl {
-    pub base: IFileSystemImage2_Vtbl,
+    pub base__: IFileSystemImage2_Vtbl,
     pub CreateRedundantUdfMetadataFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub SetCreateRedundantUdfMetadataFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT,
     pub ProbeSpecificFileSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesystemtoprobe: FsiFileSystems, isappendable: *mut i16) -> ::windows::core::HRESULT,
@@ -6062,7 +6062,7 @@ unsafe impl ::windows::core::Interface for IFileSystemImageResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImageResult_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ImageStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6220,7 +6220,7 @@ unsafe impl ::windows::core::Interface for IFileSystemImageResult2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImageResult2_Vtbl {
-    pub base: IFileSystemImageResult_Vtbl,
+    pub base__: IFileSystemImageResult_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ModifiedBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6446,7 +6446,7 @@ unsafe impl ::windows::core::Interface for IFsiDirectoryItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiDirectoryItem_Vtbl {
-    pub base: IFsiItem_Vtbl,
+    pub base__: IFsiItem_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -6731,7 +6731,7 @@ unsafe impl ::windows::core::Interface for IFsiDirectoryItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiDirectoryItem2_Vtbl {
-    pub base: IFsiDirectoryItem_Vtbl,
+    pub base__: IFsiDirectoryItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddTreeWithNamedStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6931,7 +6931,7 @@ unsafe impl ::windows::core::Interface for IFsiFileItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiFileItem_Vtbl {
-    pub base: IFsiItem_Vtbl,
+    pub base__: IFsiItem_Vtbl,
     pub DataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i64) -> ::windows::core::HRESULT,
     pub DataSize32BitLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub DataSize32BitHigh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
@@ -7192,7 +7192,7 @@ unsafe impl ::windows::core::Interface for IFsiFileItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiFileItem2_Vtbl {
-    pub base: IFsiFileItem_Vtbl,
+    pub base__: IFsiFileItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub FsiNamedStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7353,7 +7353,7 @@ unsafe impl ::windows::core::Interface for IFsiItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiItem_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7485,7 +7485,7 @@ unsafe impl ::windows::core::Interface for IFsiNamedStreams {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiNamedStreams_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -7607,7 +7607,7 @@ unsafe impl ::windows::core::Interface for IIsoImageManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsoImageManager_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7705,7 +7705,7 @@ unsafe impl ::windows::core::Interface for IJolietDiscMaster {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJolietDiscMaster_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetTotalDataBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
     pub GetUsedDataBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
     pub GetDataBlockSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblockbytes: *mut i32) -> ::windows::core::HRESULT,
@@ -9005,7 +9005,7 @@ unsafe impl ::windows::core::Interface for IMultisession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultisession_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub IsSupportedOnCurrentMediaState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
     pub SetInUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     pub InUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
@@ -9157,7 +9157,7 @@ unsafe impl ::windows::core::Interface for IMultisessionRandomWrite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultisessionRandomWrite_Vtbl {
-    pub base: IMultisession_Vtbl,
+    pub base__: IMultisession_Vtbl,
     pub WriteUnitSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub LastWrittenAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub TotalSectorsOnMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -9315,7 +9315,7 @@ unsafe impl ::windows::core::Interface for IMultisessionSequential {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultisessionSequential_Vtbl {
-    pub base: IMultisession_Vtbl,
+    pub base__: IMultisession_Vtbl,
     pub IsFirstDataSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
     pub StartAddressOfPreviousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub LastWrittenAddressOfPreviousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -9504,7 +9504,7 @@ unsafe impl ::windows::core::Interface for IMultisessionSequential2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultisessionSequential2_Vtbl {
-    pub base: IMultisessionSequential_Vtbl,
+    pub base__: IMultisessionSequential_Vtbl,
     pub WriteUnitSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
@@ -9612,7 +9612,7 @@ unsafe impl ::windows::core::Interface for IProgressItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressItem_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9739,7 +9739,7 @@ unsafe impl ::windows::core::Interface for IProgressItems {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressItems_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -9939,7 +9939,7 @@ unsafe impl ::windows::core::Interface for IRawCDImageCreator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawCDImageCreator_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateResultImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10131,7 +10131,7 @@ unsafe impl ::windows::core::Interface for IRawCDImageTrackInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawCDImageTrackInfo_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub StartingLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub SectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub TrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -10240,7 +10240,7 @@ unsafe impl ::windows::core::Interface for IRedbookDiscMaster {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRedbookDiscMaster_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetTotalAudioTracks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pntracks: *mut i32) -> ::windows::core::HRESULT,
     pub GetTotalAudioBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
     pub GetUsedAudioBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
@@ -10435,7 +10435,7 @@ unsafe impl ::windows::core::Interface for IStreamConcatenate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamConcatenate_Vtbl {
-    pub base: super::super::System::Com::IStream_Vtbl,
+    pub base__: super::super::System::Com::IStream_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream1: ::windows::core::RawPtr, stream2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10623,7 +10623,7 @@ unsafe impl ::windows::core::Interface for IStreamInterleave {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamInterleave_Vtbl {
-    pub base: super::super::System::Com::IStream_Vtbl,
+    pub base__: super::super::System::Com::IStream_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: *const ::windows::core::RawPtr, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10811,7 +10811,7 @@ unsafe impl ::windows::core::Interface for IStreamPseudoRandomBased {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamPseudoRandomBased_Vtbl {
-    pub base: super::super::System::Com::IStream_Vtbl,
+    pub base__: super::super::System::Com::IStream_Vtbl,
     pub SetSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Seed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT,
     pub SetExtendedSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, values: *const u32, ecount: u32) -> ::windows::core::HRESULT,
@@ -10960,7 +10960,7 @@ unsafe impl ::windows::core::Interface for IWriteEngine2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWriteEngine2_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub WriteSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11097,7 +11097,7 @@ unsafe impl ::windows::core::Interface for IWriteEngine2EventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWriteEngine2EventArgs_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub StartLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub SectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub LastReadLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -11205,7 +11205,7 @@ unsafe impl ::windows::core::Interface for IWriteSpeedDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWriteSpeedDescriptor_Vtbl {
-    pub base: super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::HRESULT,
     pub RotationTypeIsPureCAV: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
     pub WriteSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,

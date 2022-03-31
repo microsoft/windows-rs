@@ -69,7 +69,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffect_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub GetOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: ::windows::core::RawPtr, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
@@ -138,7 +138,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectConnections {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnections_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetInputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetOutputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -210,7 +210,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectConnectionsInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnectionsInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetNumberInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinuminputs: *mut u32) -> ::windows::core::HRESULT,
     pub GetNumberOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumoutputs: *mut u32) -> ::windows::core::HRESULT,
     pub GetInputConnectorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -314,7 +314,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnector_Vtbl {
-    pub base: IMILBitmapEffectConnectorInfo_Vtbl,
+    pub base__: IMILBitmapEffectConnectorInfo_Vtbl,
     pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfconnected: *mut i16) -> ::windows::core::HRESULT,
     pub GetBitmapEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -386,7 +386,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectConnectorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnectorInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiindex: *mut u32) -> ::windows::core::HRESULT,
     pub GetOptimalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetNumberFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulnumberformats: *mut u32) -> ::windows::core::HRESULT,
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectEvents_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PropertyChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -519,7 +519,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectFactory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguideffect: *const ::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateEffectOuter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -586,7 +586,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectGroup_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetInteriorInputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetInteriorOutputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -653,7 +653,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectGroupImpl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectGroupImpl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Preprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetNumberChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumberchildren: *mut u32) -> ::windows::core::HRESULT,
     pub GetChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -740,7 +740,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectImpl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectImpl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsInPlaceModificationAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputconnector: ::windows::core::RawPtr, pfmodifyinplace: *mut i16) -> ::windows::core::HRESULT,
     pub SetParentEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparenteffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -885,7 +885,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInputConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInputConnector_Vtbl {
-    pub base: IMILBitmapEffectConnector_Vtbl,
+    pub base__: IMILBitmapEffectConnector_Vtbl,
     pub ConnectTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnector: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -942,7 +942,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorInputConnecto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorInputConnector_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetInputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
@@ -998,7 +998,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorOutputConnect
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorOutputConnector_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetOutputConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
@@ -1129,7 +1129,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectOutputConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectOutputConnector_Vtbl {
-    pub base: IMILBitmapEffectConnector_Vtbl,
+    pub base__: IMILBitmapEffectConnector_Vtbl,
     pub GetNumberConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumberconnections: *mut u32) -> ::windows::core::HRESULT,
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectOutputConnectorImpl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AddBackLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveBackLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectPrimitive {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectPrimitive_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub GetOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectPrimitiveImpl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectPrimitiveImpl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT,
     pub IsVolatile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::core::HRESULT,
 }
@@ -1426,7 +1426,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectRenderContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectRenderContext_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetOutputPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetOutputPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetUseSoftwareRenderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsoftware: i16) -> ::windows::core::HRESULT,
@@ -1505,7 +1505,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectRenderContextImpl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectRenderContextImpl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetUseSoftwareRenderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfsoftware: *mut i16) -> ::windows::core::HRESULT,
     pub GetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmatrix: *mut MILMatrixF) -> ::windows::core::HRESULT,
     pub UpdateTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmatrix: *const MILMatrixF) -> ::windows::core::HRESULT,
@@ -1580,7 +1580,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffects {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffects_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiureturn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

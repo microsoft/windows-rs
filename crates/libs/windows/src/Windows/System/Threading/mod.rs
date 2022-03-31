@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IThreadPoolStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RunAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -35,7 +35,7 @@ unsafe impl ::windows::core::Interface for IThreadPoolTimer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolTimer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Period: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -56,7 +56,7 @@ unsafe impl ::windows::core::Interface for IThreadPoolTimerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolTimerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreatePeriodicTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -326,7 +326,7 @@ unsafe impl ::windows::core::RuntimeType for TimerDestroyedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TimerDestroyedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
@@ -408,7 +408,7 @@ unsafe impl ::windows::core::RuntimeType for TimerElapsedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TimerElapsedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_Threading\"`, `\"Foundation\"`*"]
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::RuntimeType for WorkItemHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct WorkItemHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Foundation")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

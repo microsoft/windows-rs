@@ -717,7 +717,7 @@ unsafe impl ::windows::core::Interface for IDCompositionAffineTransform2DEffect 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionAffineTransform2DEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -807,7 +807,7 @@ unsafe impl ::windows::core::Interface for IDCompositionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionAnimation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetAbsoluteBeginTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, begintime: i64) -> ::windows::core::HRESULT,
     pub AddCubic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::HRESULT,
@@ -949,7 +949,7 @@ unsafe impl ::windows::core::Interface for IDCompositionArithmeticCompositeEffec
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetCoefficients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1064,7 +1064,7 @@ unsafe impl ::windows::core::Interface for IDCompositionBlendEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionBlendEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1204,7 +1204,7 @@ unsafe impl ::windows::core::Interface for IDCompositionBrightnessEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionBrightnessEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetWhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Interface for IDCompositionClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionClip_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
@@ -1386,7 +1386,7 @@ unsafe impl ::windows::core::Interface for IDCompositionColorMatrixEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionColorMatrixEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1499,7 +1499,7 @@ unsafe impl ::windows::core::Interface for IDCompositionCompositeEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionCompositeEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1572,7 +1572,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDelegatedInkTrail {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDelegatedInkTrail_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AddTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, generationid: *mut u32) -> ::windows::core::HRESULT,
     pub AddTrailPointsWithPrediction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: u32, generationid: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, generationid: u32) -> ::windows::core::HRESULT,
@@ -1773,7 +1773,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDesktopDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDesktopDevice_Vtbl {
-    pub base: IDCompositionDevice2_Vtbl,
+    pub base__: IDCompositionDevice2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateTargetForHwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1960,7 +1960,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WaitForCommitCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2161,7 +2161,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice2_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WaitForCommitCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2432,7 +2432,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice3_Vtbl {
-    pub base: IDCompositionDevice2_Vtbl,
+    pub base__: IDCompositionDevice2_Vtbl,
     pub CreateGaussianBlurEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gaussianblureffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateBrightnessEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brightnesseffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateColorMatrixEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colormatrixeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2503,7 +2503,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDeviceDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDeviceDebug_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub EnableDebugCounters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisableDebugCounters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2554,7 +2554,7 @@ unsafe impl ::windows::core::Interface for IDCompositionEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionEffect_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
@@ -2636,7 +2636,7 @@ unsafe impl ::windows::core::Interface for IDCompositionEffectGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionEffectGroup_Vtbl {
-    pub base: IDCompositionEffect_Vtbl,
+    pub base__: IDCompositionEffect_Vtbl,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetOpacity2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
     pub SetTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform3d: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2713,7 +2713,7 @@ unsafe impl ::windows::core::Interface for IDCompositionFilterEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionFilterEffect_Vtbl {
-    pub base: IDCompositionEffect_Vtbl,
+    pub base__: IDCompositionEffect_Vtbl,
     pub SetInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, input: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
@@ -2821,7 +2821,7 @@ unsafe impl ::windows::core::Interface for IDCompositionGaussianBlurEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionGaussianBlurEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetStandardDeviation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2929,7 +2929,7 @@ unsafe impl ::windows::core::Interface for IDCompositionHueRotationEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionHueRotationEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amountdegrees: f32) -> ::windows::core::HRESULT,
 }
@@ -2991,7 +2991,7 @@ unsafe impl ::windows::core::Interface for IDCompositionInkTrailDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionInkTrailDevice_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateDelegatedInkTrail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inktrail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateDelegatedInkTrailForSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void, inktrail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3176,7 +3176,7 @@ unsafe impl ::windows::core::Interface for IDCompositionLinearTransferEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionLinearTransferEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetRedYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetRedYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redyintercept: f32) -> ::windows::core::HRESULT,
     pub SetRedSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3335,7 +3335,7 @@ unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionMatrixTransform_Vtbl {
-    pub base: IDCompositionTransform_Vtbl,
+    pub base__: IDCompositionTransform_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -3444,7 +3444,7 @@ unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionMatrixTransform3D_Vtbl {
-    pub base: IDCompositionTransform3D_Vtbl,
+    pub base__: IDCompositionTransform3D_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
@@ -3616,7 +3616,7 @@ unsafe impl ::windows::core::Interface for IDCompositionRectangleClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRectangleClip_Vtbl {
-    pub base: IDCompositionClip_Vtbl,
+    pub base__: IDCompositionClip_Vtbl,
     pub SetLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetLeft2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
     pub SetTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3774,7 +3774,7 @@ unsafe impl ::windows::core::Interface for IDCompositionRotateTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform_Vtbl {
-    pub base: IDCompositionTransform_Vtbl,
+    pub base__: IDCompositionTransform_Vtbl,
     pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3926,7 +3926,7 @@ unsafe impl ::windows::core::Interface for IDCompositionRotateTransform3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform3D_Vtbl {
-    pub base: IDCompositionTransform3D_Vtbl,
+    pub base__: IDCompositionTransform3D_Vtbl,
     pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows::core::HRESULT,
     pub SetAxisX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4042,7 +4042,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSaturationEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSaturationEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetSaturation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSaturation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratio: f32) -> ::windows::core::HRESULT,
 }
@@ -4186,7 +4186,7 @@ unsafe impl ::windows::core::Interface for IDCompositionScaleTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionScaleTransform_Vtbl {
-    pub base: IDCompositionTransform_Vtbl,
+    pub base__: IDCompositionTransform_Vtbl,
     pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetScaleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows::core::HRESULT,
     pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4332,7 +4332,7 @@ unsafe impl ::windows::core::Interface for IDCompositionScaleTransform3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionScaleTransform3D_Vtbl {
-    pub base: IDCompositionTransform3D_Vtbl,
+    pub base__: IDCompositionTransform3D_Vtbl,
     pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetScaleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows::core::HRESULT,
     pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4483,7 +4483,7 @@ unsafe impl ::windows::core::Interface for IDCompositionShadowEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionShadowEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetStandardDeviation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4639,7 +4639,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSkewTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSkewTransform_Vtbl {
-    pub base: IDCompositionTransform_Vtbl,
+    pub base__: IDCompositionTransform_Vtbl,
     pub SetAngleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetAngleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anglex: f32) -> ::windows::core::HRESULT,
     pub SetAngleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4719,7 +4719,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurface_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4792,7 +4792,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSurfaceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurfaceFactory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4967,7 +4967,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTableTransferEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTableTransferEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetRedTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows::core::HRESULT,
     pub SetGreenTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows::core::HRESULT,
     pub SetBlueTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows::core::HRESULT,
@@ -5053,7 +5053,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTarget_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
@@ -5143,7 +5143,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTransform_Vtbl {
-    pub base: IDCompositionTransform3D_Vtbl,
+    pub base__: IDCompositionTransform3D_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
@@ -5212,7 +5212,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTransform3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTransform3D_Vtbl {
-    pub base: IDCompositionEffect_Vtbl,
+    pub base__: IDCompositionEffect_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
@@ -5338,7 +5338,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransform_Vtbl {
-    pub base: IDCompositionTransform_Vtbl,
+    pub base__: IDCompositionTransform_Vtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5456,7 +5456,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransform3D_Vtbl {
-    pub base: IDCompositionTransform3D_Vtbl,
+    pub base__: IDCompositionTransform3D_Vtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5589,7 +5589,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTurbulenceEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTurbulenceEffect_Vtbl {
-    pub base: IDCompositionFilterEffect_Vtbl,
+    pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -5712,7 +5712,7 @@ unsafe impl ::windows::core::Interface for IDCompositionVirtualSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVirtualSurface_Vtbl {
-    pub base: IDCompositionSurface_Vtbl,
+    pub base__: IDCompositionSurface_Vtbl,
     pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangles: *const super::super::Foundation::RECT, count: u32) -> ::windows::core::HRESULT,
@@ -5838,7 +5838,7 @@ unsafe impl ::windows::core::Interface for IDCompositionVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisual_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6013,7 +6013,7 @@ unsafe impl ::windows::core::Interface for IDCompositionVisual2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisual2_Vtbl {
-    pub base: IDCompositionVisual_Vtbl,
+    pub base__: IDCompositionVisual_Vtbl,
     pub SetOpacityMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::HRESULT,
     pub SetBackFaceVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::HRESULT,
 }
@@ -6255,7 +6255,7 @@ unsafe impl ::windows::core::Interface for IDCompositionVisual3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisual3_Vtbl {
-    pub base: IDCompositionVisualDebug_Vtbl,
+    pub base__: IDCompositionVisualDebug_Vtbl,
     pub SetDepthMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::HRESULT,
     pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetOffsetZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows::core::HRESULT,
@@ -6455,7 +6455,7 @@ unsafe impl ::windows::core::Interface for IDCompositionVisualDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisualDebug_Vtbl {
-    pub base: IDCompositionVisual2_Vtbl,
+    pub base__: IDCompositionVisual2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub EnableHeatMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]

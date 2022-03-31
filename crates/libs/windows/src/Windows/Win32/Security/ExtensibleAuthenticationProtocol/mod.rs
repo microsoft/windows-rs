@@ -2857,7 +2857,7 @@ unsafe impl ::windows::core::Interface for IAccountingProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountingProviderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2937,7 +2937,7 @@ unsafe impl ::windows::core::Interface for IAuthenticationProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAuthenticationProviderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3019,7 +3019,7 @@ unsafe impl ::windows::core::Interface for IEAPProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3136,7 +3136,7 @@ unsafe impl ::windows::core::Interface for IEAPProviderConfig2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig2_Vtbl {
-    pub base: IEAPProviderConfig_Vtbl,
+    pub base__: IEAPProviderConfig_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ServerInvokeConfigUI2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3269,7 +3269,7 @@ unsafe impl ::windows::core::Interface for IEAPProviderConfig3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig3_Vtbl {
-    pub base: IEAPProviderConfig2_Vtbl,
+    pub base__: IEAPProviderConfig2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3333,7 +3333,7 @@ unsafe impl ::windows::core::Interface for IRouterProtocolConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRouterProtocolConfig_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

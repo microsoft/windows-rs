@@ -129,7 +129,7 @@ unsafe impl ::windows::core::Interface for IAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAction_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -274,7 +274,7 @@ unsafe impl ::windows::core::Interface for IActionCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActionCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, ppaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -488,7 +488,7 @@ unsafe impl ::windows::core::Interface for IBootTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBootTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -640,7 +640,7 @@ unsafe impl ::windows::core::Interface for IComHandlerAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComHandlerAction_Vtbl {
-    pub base: IAction_Vtbl,
+    pub base__: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -847,7 +847,7 @@ unsafe impl ::windows::core::Interface for IDailyTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDailyTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     pub DaysInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i16) -> ::windows::core::HRESULT,
     pub SetDaysInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1082,7 +1082,7 @@ unsafe impl ::windows::core::Interface for IEmailAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailAction_Vtbl {
-    pub base: IAction_Vtbl,
+    pub base__: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Server: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserver: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1229,7 +1229,7 @@ unsafe impl ::windows::core::Interface for IEnumWorkItems {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWorkItems_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1437,7 +1437,7 @@ unsafe impl ::windows::core::Interface for IEventTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Subscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquery: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1615,7 +1615,7 @@ unsafe impl ::windows::core::Interface for IExecAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExecAction_Vtbl {
-    pub base: IAction_Vtbl,
+    pub base__: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1825,7 +1825,7 @@ unsafe impl ::windows::core::Interface for IExecAction2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExecAction2_Vtbl {
-    pub base: IExecAction_Vtbl,
+    pub base__: IExecAction_Vtbl,
     pub HideAppWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phideappwindow: *mut i16) -> ::windows::core::HRESULT,
     pub SetHideAppWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hideappwindow: i16) -> ::windows::core::HRESULT,
 }
@@ -1949,7 +1949,7 @@ unsafe impl ::windows::core::Interface for IIdleSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdleSettings_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IdleDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2142,7 +2142,7 @@ unsafe impl ::windows::core::Interface for IIdleTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdleTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2335,7 +2335,7 @@ unsafe impl ::windows::core::Interface for ILogonTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILogonTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2465,7 +2465,7 @@ unsafe impl ::windows::core::Interface for IMaintenanceSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMaintenanceSettings_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPeriod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2698,7 +2698,7 @@ unsafe impl ::windows::core::Interface for IMonthlyDOWTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMonthlyDOWTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     pub DaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i16) -> ::windows::core::HRESULT,
     pub SetDaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i16) -> ::windows::core::HRESULT,
     pub WeeksOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pweeks: *mut i16) -> ::windows::core::HRESULT,
@@ -2921,7 +2921,7 @@ unsafe impl ::windows::core::Interface for IMonthlyTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMonthlyTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     pub DaysOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i32) -> ::windows::core::HRESULT,
     pub SetDaysOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i32) -> ::windows::core::HRESULT,
     pub MonthsOfYear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmonths: *mut i16) -> ::windows::core::HRESULT,
@@ -3041,7 +3041,7 @@ unsafe impl ::windows::core::Interface for INetworkSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkSettings_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3199,7 +3199,7 @@ unsafe impl ::windows::core::Interface for IPrincipal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrincipal_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3343,7 +3343,7 @@ unsafe impl ::windows::core::Interface for IPrincipal2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrincipal2_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub ProcessTokenSidType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprocesstokensidtype: *mut TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::HRESULT,
     pub SetProcessTokenSidType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::HRESULT,
     pub RequiredPrivilegeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
@@ -3410,7 +3410,7 @@ unsafe impl ::windows::core::Interface for IProvideTaskPage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideTaskPage_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub GetPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls")))]
@@ -3596,7 +3596,7 @@ unsafe impl ::windows::core::Interface for IRegisteredTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegisteredTask_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3746,7 +3746,7 @@ unsafe impl ::windows::core::Interface for IRegisteredTaskCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegisteredTaskCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppregisteredtask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3928,7 +3928,7 @@ unsafe impl ::windows::core::Interface for IRegistrationInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegistrationInfo_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4183,7 +4183,7 @@ unsafe impl ::windows::core::Interface for IRegistrationTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegistrationTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4305,7 +4305,7 @@ unsafe impl ::windows::core::Interface for IRepetitionPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepetitionPattern_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinterval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4451,7 +4451,7 @@ unsafe impl ::windows::core::Interface for IRunningTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRunningTask_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4573,7 +4573,7 @@ unsafe impl ::windows::core::Interface for IRunningTaskCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRunningTaskCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pprunningtask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4761,7 +4761,7 @@ unsafe impl ::windows::core::Interface for IScheduledWorkItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduledWorkItem_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinewtrigger: *mut u16, pptrigger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeleteTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itrigger: u16) -> ::windows::core::HRESULT,
     pub GetTriggerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcount: *mut u16) -> ::windows::core::HRESULT,
@@ -5003,7 +5003,7 @@ unsafe impl ::windows::core::Interface for ISessionStateChangeTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISessionStateChangeTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5165,7 +5165,7 @@ unsafe impl ::windows::core::Interface for IShowMessageAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShowMessageAction_Vtbl {
-    pub base: IAction_Vtbl,
+    pub base__: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5437,7 +5437,7 @@ unsafe impl ::windows::core::Interface for ITask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITask_Vtbl {
-    pub base: IScheduledWorkItem_Vtbl,
+    pub base__: IScheduledWorkItem_Vtbl,
     pub SetApplicationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszapplicationname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetApplicationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszapplicationname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszparameters: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -5610,7 +5610,7 @@ unsafe impl ::windows::core::Interface for ITaskDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskDefinition_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RegistrationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppregistrationinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5827,7 +5827,7 @@ unsafe impl ::windows::core::Interface for ITaskFolder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskFolder_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5981,7 +5981,7 @@ unsafe impl ::windows::core::Interface for ITaskFolderCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskFolderCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppfolder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6055,7 +6055,7 @@ unsafe impl ::windows::core::Interface for ITaskHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandlerservices: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6121,7 +6121,7 @@ unsafe impl ::windows::core::Interface for ITaskHandlerStatus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskHandlerStatus_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UpdateStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentcomplete: i16, statusmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6241,7 +6241,7 @@ unsafe impl ::windows::core::Interface for ITaskNamedValueCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskNamedValueCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pppair: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6359,7 +6359,7 @@ unsafe impl ::windows::core::Interface for ITaskNamedValuePair {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskNamedValuePair_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6461,7 +6461,7 @@ unsafe impl ::windows::core::Interface for ITaskScheduler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskScheduler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetTargetComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszcomputer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetTargetComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszcomputer: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Enum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumworkitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6606,7 +6606,7 @@ unsafe impl ::windows::core::Interface for ITaskService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskService_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfolder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -6896,7 +6896,7 @@ unsafe impl ::windows::core::Interface for ITaskSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskSettings_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub AllowDemandStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallowdemandstart: *mut i16) -> ::windows::core::HRESULT,
     pub SetAllowDemandStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowdemandstart: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7074,7 +7074,7 @@ unsafe impl ::windows::core::Interface for ITaskSettings2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskSettings2_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub DisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT,
     pub SetDisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT,
     pub UseUnifiedSchedulingEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT,
@@ -7403,7 +7403,7 @@ unsafe impl ::windows::core::Interface for ITaskSettings3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskSettings3_Vtbl {
-    pub base: ITaskSettings_Vtbl,
+    pub base__: ITaskSettings_Vtbl,
     pub DisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT,
     pub SetDisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT,
     pub UseUnifiedSchedulingEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT,
@@ -7485,7 +7485,7 @@ unsafe impl ::windows::core::Interface for ITaskTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskTrigger_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrigger: *const TASK_TRIGGER) -> ::windows::core::HRESULT,
     pub GetTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrigger: *mut TASK_TRIGGER) -> ::windows::core::HRESULT,
     pub GetTriggerString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwsztrigger: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -7555,7 +7555,7 @@ unsafe impl ::windows::core::Interface for ITaskVariables {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskVariables_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinput: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7750,7 +7750,7 @@ unsafe impl ::windows::core::Interface for ITimeTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RandomDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7907,7 +7907,7 @@ unsafe impl ::windows::core::Interface for ITrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITrigger_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -8066,7 +8066,7 @@ unsafe impl ::windows::core::Interface for ITriggerCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITriggerCollection_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pptrigger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8280,7 +8280,7 @@ unsafe impl ::windows::core::Interface for IWeeklyTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWeeklyTrigger_Vtbl {
-    pub base: ITrigger_Vtbl,
+    pub base__: ITrigger_Vtbl,
     pub DaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i16) -> ::windows::core::HRESULT,
     pub SetDaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i16) -> ::windows::core::HRESULT,
     pub WeeksInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pweeks: *mut i16) -> ::windows::core::HRESULT,

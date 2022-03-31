@@ -2047,7 +2047,7 @@ unsafe impl ::windows::core::Interface for IAppWindow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2130,7 +2130,7 @@ unsafe impl ::windows::core::Interface for IAppWindowChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DidAvailableWindowPresentationsChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub DidDisplayRegionsChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub DidFrameChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2150,7 +2150,7 @@ unsafe impl ::windows::core::Interface for IAppWindowCloseRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowCloseRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2168,7 +2168,7 @@ unsafe impl ::windows::core::Interface for IAppWindowClosedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowClosedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowClosedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2181,7 +2181,7 @@ unsafe impl ::windows::core::Interface for IAppWindowFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
     pub DragRegionVisuals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Composition")))]
@@ -2197,7 +2197,7 @@ unsafe impl ::windows::core::Interface for IAppWindowFrameStyle {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowFrameStyle_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetFrameStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowFrameStyle) -> ::windows::core::HRESULT,
     pub SetFrameStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framestyle: AppWindowFrameStyle) -> ::windows::core::HRESULT,
 }
@@ -2211,7 +2211,7 @@ unsafe impl ::windows::core::Interface for IAppWindowPlacement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPlacement_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -2232,7 +2232,7 @@ unsafe impl ::windows::core::Interface for IAppWindowPresentationConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPresentationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowPresentationKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2245,7 +2245,7 @@ unsafe impl ::windows::core::Interface for IAppWindowPresentationConfigurationFa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPresentationConfigurationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2257,7 +2257,7 @@ unsafe impl ::windows::core::Interface for IAppWindowPresenter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPresenter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPresentationSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentationkind: AppWindowPresentationKind, result__: *mut bool) -> ::windows::core::HRESULT,
     pub RequestPresentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2273,7 +2273,7 @@ unsafe impl ::windows::core::Interface for IAppWindowStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TryCreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2291,7 +2291,7 @@ unsafe impl ::windows::core::Interface for IAppWindowTitleBar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBar_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2406,7 +2406,7 @@ unsafe impl ::windows::core::Interface for IAppWindowTitleBarOcclusion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBarOcclusion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OccludingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2422,7 +2422,7 @@ unsafe impl ::windows::core::Interface for IAppWindowTitleBarVisibility {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBarVisibility_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetPreferredVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowTitleBarVisibility) -> ::windows::core::HRESULT,
     pub SetPreferredVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::HRESULT,
 }
@@ -2436,7 +2436,7 @@ unsafe impl ::windows::core::Interface for ICompactOverlayPresentationConfigurat
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompactOverlayPresentationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::core::Interface for IDefaultPresentationConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultPresentationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2460,7 +2460,7 @@ unsafe impl ::windows::core::Interface for IDisplayRegion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRegion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayMonitorDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2491,7 +2491,7 @@ unsafe impl ::windows::core::Interface for IFullScreenPresentationConfiguration 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFullScreenPresentationConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -2505,7 +2505,7 @@ unsafe impl ::windows::core::Interface for IWindowServicesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowServicesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAllTopLevelWindowIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2521,7 +2521,7 @@ unsafe impl ::windows::core::Interface for IWindowingEnvironment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironment_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WindowingEnvironmentKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -2547,7 +2547,7 @@ unsafe impl ::windows::core::Interface for IWindowingEnvironmentAddedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentAddedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2560,7 +2560,7 @@ unsafe impl ::windows::core::Interface for IWindowingEnvironmentChangedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2572,7 +2572,7 @@ unsafe impl ::windows::core::Interface for IWindowingEnvironmentRemovedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentRemovedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2585,7 +2585,7 @@ unsafe impl ::windows::core::Interface for IWindowingEnvironmentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]

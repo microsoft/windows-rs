@@ -121,7 +121,7 @@ unsafe impl ::windows::core::Interface for IReferenceClock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClock_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AdviseTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows::core::HRESULT,
@@ -222,7 +222,7 @@ unsafe impl ::windows::core::Interface for IReferenceClock2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClock2_Vtbl {
-    pub base: IReferenceClock_Vtbl,
+    pub base__: IReferenceClock_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[repr(transparent)]
@@ -281,7 +281,7 @@ unsafe impl ::windows::core::Interface for IReferenceClockTimerControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClockTimerControl_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timerresolution: i64) -> ::windows::core::HRESULT,
     pub GetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows::core::HRESULT,
 }

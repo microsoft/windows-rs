@@ -780,7 +780,7 @@ unsafe impl ::windows::core::Interface for ICoreIncrementalInkStroke {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreIncrementalInkStroke_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AppendInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -806,7 +806,7 @@ unsafe impl ::windows::core::Interface for ICoreIncrementalInkStrokeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingattributes: ::windows::core::RawPtr, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -822,7 +822,7 @@ unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInkIndependentInputSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub PointerEntering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
@@ -891,7 +891,7 @@ unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInkIndependentInputSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Core")]
     pub PointerCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))]
@@ -911,7 +911,7 @@ unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSourceStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -924,7 +924,7 @@ unsafe impl ::windows::core::Interface for ICoreInkPresenterHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInkPresenterHost_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Composition")]
     pub RootVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -945,7 +945,7 @@ unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub NewInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -964,7 +964,7 @@ unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWetStrokeUpdateSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub WetStrokeStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1017,7 +1017,7 @@ unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
