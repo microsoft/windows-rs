@@ -1,5 +1,5 @@
 use super::*;
-use windows_sys::Win32::System::SystemServices::*;
+use windows_sys::{Win32::System::Diagnostics::Debug::*, Win32::System::SystemServices::*};
 
 #[derive(Default)]
 pub struct File {
@@ -43,21 +43,59 @@ const TABLE_ASSEMBLYREF: usize = 15;
 const TABLE_CLASSLAYOUT: usize = 16;
 const TABLE_LEN: usize = 17;
 
+fn error(message: &str) -> Result<File> {
+    Err(Error::new(ErrorKind::Other, message))
+}
+
+fn error_invalid_winmd() -> Result<File> {
+    error("File is not a valid `winmd` file")
+}
+
 impl File {
-    pub fn new(path: &str) -> std::io::Result<Self> {
+    pub fn new(path: &str) -> Result<Self> {
         let path = std::path::Path::new(path);
-        let mut file = File::default();
-        file.bytes = std::fs::read(&path)?;
+        let mut result = File::default();
+        result.bytes = std::fs::read(&path)?;
 
-        let dos = file.bytes.view_as::<IMAGE_DOS_HEADER>(0);
+        let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 
-        assert!(!dos.e_magic != IMAGE_DOS_SIGNATURE as _, "Invalid PE signature: file does not appear to be a winmd file");
+        if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || 
+        result.bytes.copy_as::<u32>(dos.e_lfanew as _) != IMAGE_NT_SIGNATURE {
+            return error_invalid_winmd();
+        }
 
-        // TODO: share structs with writer!
+        let file_offset = dos.e_lfanew as usize + size_of::<u32>();
+        let file = result.bytes.view_as::<IMAGE_FILE_HEADER>(file_offset);
+
+        let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
+
+        let (com_virtual_address, sections) = match result.bytes.copy_as::<u16>(optional_offset) {
+            IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
+                let optional = result.bytes.view_as::< IMAGE_OPTIONAL_HEADER32 >(optional_offset);   
+                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset +  size_of::<IMAGE_OPTIONAL_HEADER32>(), file.NumberOfSections as usize))
+            }
+            IMAGE_NT_OPTIONAL_HDR64_MAGIC =>{
+                let optional = result.bytes.view_as::< IMAGE_OPTIONAL_HEADER64>(optional_offset);   
+                 (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize))
+            }
+            _ => return error_invalid_winmd(),
+        };
+
+        // let cli = result.bytes.view_as::<ImageCorHeader>(offset_from_rva(section_from_rva(sections, com_virtual_address), com_virtual_address));
+
+        // if cli.cb != size_of::<ImageCorHeader>() {
+        //     unimplemented!();
+        // }
+
+        // let cli_offset = offset_from_rva(section_from_rva(sections, cli.meta_data.virtual_address), cli.meta_data.virtual_address);
+
+        // if result.bytes.copy_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
+        //     unimplemented!();
+        // }
 
         // Since the file was read successfully, we just assume it has a valid file name.
-        file.name = path.file_name().unwrap().to_string_lossy().to_string();
-        Ok(file)
+        result.name = path.file_name().unwrap().to_string_lossy().to_string();
+        Ok(result)
     }
 
     pub fn name(&self) -> &str {

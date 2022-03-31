@@ -17,8 +17,15 @@
 //     }
 // }
 
-use windows_metadata::writer::*;
+use windows_metadata::*;
 
 fn main() {
-    test();
+    writer::test();
+    let test = reader2::File::new("/git/test.winmd").unwrap();
+    let files = [test];
+    let scope = reader2::Scope::new(&files);
+
+    for ns in scope.namespaces() {
+        println!("{}", ns);
+    }
 }
