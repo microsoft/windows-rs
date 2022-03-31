@@ -83,7 +83,7 @@ impl IXAPO_Vtbl {
             (*this).CalcOutputFrames(::core::mem::transmute_copy(&inputframecount))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRegistrationProperties: GetRegistrationProperties::<Identity, Impl, OFFSET>,
             IsInputFormatSupported: IsInputFormatSupported::<Identity, Impl, OFFSET>,
             IsOutputFormatSupported: IsOutputFormatSupported::<Identity, Impl, OFFSET>,
@@ -129,7 +129,7 @@ impl IXAPOHrtfParameters_Vtbl {
             (*this).SetEnvironment(::core::mem::transmute_copy(&environment)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetSourcePosition: SetSourcePosition::<Identity, Impl, OFFSET>,
             SetSourceOrientation: SetSourceOrientation::<Identity, Impl, OFFSET>,
             SetSourceGain: SetSourceGain::<Identity, Impl, OFFSET>,
@@ -157,7 +157,7 @@ impl IXAPOParameters_Vtbl {
             (*this).GetParameters(::core::mem::transmute_copy(&pparameters), ::core::mem::transmute_copy(&parameterbytesize))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetParameters: SetParameters::<Identity, Impl, OFFSET>,
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
         }
@@ -233,7 +233,7 @@ impl IXAudio2_Vtbl {
             (*this).SetDebugConfiguration(::core::mem::transmute_copy(&pdebugconfiguration), ::core::mem::transmute_copy(&preserved))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterForCallbacks: RegisterForCallbacks::<Identity, Impl, OFFSET>,
             UnregisterForCallbacks: UnregisterForCallbacks::<Identity, Impl, OFFSET>,
             CreateSourceVoice: CreateSourceVoice::<Identity, Impl, OFFSET>,
@@ -299,7 +299,7 @@ impl IXAudio2Extension_Vtbl {
             (*this).GetProcessor(::core::mem::transmute_copy(&processor))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProcessingQuantum: GetProcessingQuantum::<Identity, Impl, OFFSET>,
             GetProcessor: GetProcessor::<Identity, Impl, OFFSET>,
         }
@@ -326,7 +326,7 @@ impl IXAudio2MasteringVoice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>(), GetChannelMask: GetChannelMask::<Identity, Impl, OFFSET> }
+        Self { base__: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>(), GetChannelMask: GetChannelMask::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXAudio2MasteringVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
@@ -399,7 +399,7 @@ impl IXAudio2SourceVoice_Vtbl {
             (*this).SetSourceSampleRate(::core::mem::transmute_copy(&newsourcesamplerate)).into()
         }
         Self {
-            base: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
             SubmitSourceBuffer: SubmitSourceBuffer::<Identity, Impl, OFFSET>,
@@ -421,7 +421,7 @@ pub trait IXAudio2SubmixVoice_Impl: Sized + IXAudio2Voice_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SubmixVoice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAudio2SubmixVoice_Impl, const OFFSET: isize>() -> IXAudio2SubmixVoice_Vtbl {
-        Self { base: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXAudio2SubmixVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID

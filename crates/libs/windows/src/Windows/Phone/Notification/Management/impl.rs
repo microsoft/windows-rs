@@ -80,7 +80,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             (*this).SetStartedProcessing(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryNotificationTriggerDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryNotificationTriggerDetails, OFFSET>(),
             TimeCreated: TimeCreated::<Identity, Impl, OFFSET>,
             AppDisplayName: AppDisplayName::<Identity, Impl, OFFSET>,
             AppId: AppId::<Identity, Impl, OFFSET>,

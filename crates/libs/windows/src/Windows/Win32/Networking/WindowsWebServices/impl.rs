@@ -24,7 +24,7 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContentPrefetcherTaskTrigger, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContentPrefetcherTaskTrigger, OFFSET>(),
             TriggerContentPrefetcherTask: TriggerContentPrefetcherTask::<Identity, Impl, OFFSET>,
             IsRegisteredForContentPrefetch: IsRegisteredForContentPrefetch::<Identity, Impl, OFFSET>,
         }

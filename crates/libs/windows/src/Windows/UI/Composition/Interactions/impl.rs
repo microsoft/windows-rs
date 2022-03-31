@@ -4,7 +4,7 @@ impl ::windows::core::RuntimeName for ICompositionInteractionSource {
 }
 impl ICompositionInteractionSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSource_Impl, const OFFSET: isize>() -> ICompositionInteractionSource_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionInteractionSource, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionInteractionSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICompositionInteractionSource as ::windows::core::Interface>::IID
@@ -54,7 +54,7 @@ impl IInteractionTrackerOwner_Vtbl {
             (*this).ValuesChanged(::core::mem::transmute(&sender), ::core::mem::transmute(&args)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInteractionTrackerOwner, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInteractionTrackerOwner, OFFSET>(),
             CustomAnimationStateEntered: CustomAnimationStateEntered::<Identity, Impl, OFFSET>,
             IdleStateEntered: IdleStateEntered::<Identity, Impl, OFFSET>,
             InertiaStateEntered: InertiaStateEntered::<Identity, Impl, OFFSET>,

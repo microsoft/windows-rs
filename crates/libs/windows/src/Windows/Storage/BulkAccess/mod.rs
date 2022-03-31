@@ -1671,7 +1671,7 @@ unsafe impl ::windows::core::Interface for IFileInformationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileInformationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1710,7 +1710,7 @@ unsafe impl ::windows::core::Interface for IFileInformationFactoryFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileInformationFactoryFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
     pub CreateWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
@@ -1887,7 +1887,7 @@ unsafe impl ::windows::core::Interface for IStorageItemInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemInformation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_FileProperties")]
     pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_FileProperties"))]

@@ -165,7 +165,7 @@ impl IStorageFile_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFile, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFile, OFFSET>(),
             FileType: FileType::<Identity, Impl, OFFSET>,
             ContentType: ContentType::<Identity, Impl, OFFSET>,
             OpenAsync: OpenAsync::<Identity, Impl, OFFSET>,
@@ -221,7 +221,7 @@ impl IStorageFile2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFile2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFile2, OFFSET>(),
             OpenWithOptionsAsync: OpenWithOptionsAsync::<Identity, Impl, OFFSET>,
             OpenTransactedWriteWithOptionsAsync: OpenTransactedWriteWithOptionsAsync::<Identity, Impl, OFFSET>,
         }
@@ -251,7 +251,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFilePropertiesWithAvailability, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFilePropertiesWithAvailability, OFFSET>(),
             IsAvailable: IsAvailable::<Identity, Impl, OFFSET>,
         }
     }
@@ -400,7 +400,7 @@ impl IStorageFolder_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolder, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolder, OFFSET>(),
             CreateFileAsyncOverloadDefaultOptions: CreateFileAsyncOverloadDefaultOptions::<Identity, Impl, OFFSET>,
             CreateFileAsync: CreateFileAsync::<Identity, Impl, OFFSET>,
             CreateFolderAsyncOverloadDefaultOptions: CreateFolderAsyncOverloadDefaultOptions::<Identity, Impl, OFFSET>,
@@ -440,7 +440,10 @@ impl IStorageFolder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolder2, OFFSET>(), TryGetItemAsync: TryGetItemAsync::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageFolder2, OFFSET>(),
+            TryGetItemAsync: TryGetItemAsync::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStorageFolder2 as ::windows::core::Interface>::IID
@@ -587,7 +590,7 @@ impl IStorageItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItem, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItem, OFFSET>(),
             RenameAsyncOverloadDefaultOptions: RenameAsyncOverloadDefaultOptions::<Identity, Impl, OFFSET>,
             RenameAsync: RenameAsync::<Identity, Impl, OFFSET>,
             DeleteAsyncOverloadDefaultOptions: DeleteAsyncOverloadDefaultOptions::<Identity, Impl, OFFSET>,
@@ -641,7 +644,7 @@ impl IStorageItem2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItem2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItem2, OFFSET>(),
             GetParentAsync: GetParentAsync::<Identity, Impl, OFFSET>,
             IsEqual: IsEqual::<Identity, Impl, OFFSET>,
         }
@@ -752,7 +755,7 @@ impl IStorageItemProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemProperties, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemProperties, OFFSET>(),
             GetThumbnailAsyncOverloadDefaultSizeDefaultOptions: GetThumbnailAsyncOverloadDefaultSizeDefaultOptions::<Identity, Impl, OFFSET>,
             GetThumbnailAsyncOverloadDefaultOptions: GetThumbnailAsyncOverloadDefaultOptions::<Identity, Impl, OFFSET>,
             GetThumbnailAsync: GetThumbnailAsync::<Identity, Impl, OFFSET>,
@@ -816,7 +819,7 @@ impl IStorageItemProperties2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemProperties2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemProperties2, OFFSET>(),
             GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions: GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions::<Identity, Impl, OFFSET>,
             GetScaledImageAsThumbnailAsyncOverloadDefaultOptions: GetScaledImageAsThumbnailAsyncOverloadDefaultOptions::<Identity, Impl, OFFSET>,
             GetScaledImageAsThumbnailAsync: GetScaledImageAsThumbnailAsync::<Identity, Impl, OFFSET>,
@@ -850,7 +853,7 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemPropertiesWithProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemPropertiesWithProvider, OFFSET>(),
             Provider: Provider::<Identity, Impl, OFFSET>,
         }
     }
@@ -872,7 +875,7 @@ impl IStreamedFileDataRequest_Vtbl {
             (*this).FailAndClose(failuremode).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStreamedFileDataRequest, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStreamedFileDataRequest, OFFSET>(),
             FailAndClose: FailAndClose::<Identity, Impl, OFFSET>,
         }
     }

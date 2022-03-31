@@ -74,7 +74,7 @@ impl IPropertyAnimation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyAnimation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyAnimation, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Delay: Delay::<Identity, Impl, OFFSET>,
             Duration: Duration::<Identity, Impl, OFFSET>,

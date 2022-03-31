@@ -32,7 +32,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDefaultAudioDeviceChangedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDefaultAudioDeviceChangedEventArgs, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Role: Role::<Identity, Impl, OFFSET>,
         }
@@ -91,7 +91,7 @@ impl IMediaDeviceController_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaDeviceController, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaDeviceController, OFFSET>(),
             GetAvailableMediaStreamProperties: GetAvailableMediaStreamProperties::<Identity, Impl, OFFSET>,
             GetMediaStreamProperties: GetMediaStreamProperties::<Identity, Impl, OFFSET>,
             SetMediaStreamPropertiesAsync: SetMediaStreamPropertiesAsync::<Identity, Impl, OFFSET>,

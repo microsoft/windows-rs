@@ -48,7 +48,7 @@ impl ISmsBinaryMessage_Vtbl {
             (*this).SetData(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsBinaryMessage, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsBinaryMessage, OFFSET>(),
             Format: Format::<Identity, Impl, OFFSET>,
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
@@ -186,7 +186,7 @@ impl ISmsDevice_Vtbl {
             (*this).RemoveSmsDeviceStatusChanged(::core::mem::transmute(&eventcookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDevice, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDevice, OFFSET>(),
             SendMessageAsync: SendMessageAsync::<Identity, Impl, OFFSET>,
             CalculateLength: CalculateLength::<Identity, Impl, OFFSET>,
             AccountPhoneNumber: AccountPhoneNumber::<Identity, Impl, OFFSET>,
@@ -237,7 +237,7 @@ impl ISmsMessage_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessage, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessage, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             MessageClass: MessageClass::<Identity, Impl, OFFSET>,
         }
@@ -319,7 +319,7 @@ impl ISmsMessageBase_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageBase, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsMessageBase, OFFSET>(),
             MessageType: MessageType::<Identity, Impl, OFFSET>,
             DeviceId: DeviceId::<Identity, Impl, OFFSET>,
             CellularClass: CellularClass::<Identity, Impl, OFFSET>,
@@ -483,7 +483,7 @@ impl ISmsTextMessage_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISmsTextMessage, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsTextMessage, OFFSET>(),
             Timestamp: Timestamp::<Identity, Impl, OFFSET>,
             PartReferenceId: PartReferenceId::<Identity, Impl, OFFSET>,
             PartNumber: PartNumber::<Identity, Impl, OFFSET>,

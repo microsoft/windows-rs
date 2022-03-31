@@ -15,7 +15,7 @@ impl ICoreFrameworkInputViewInterop_Vtbl {
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&coreframeworkinputview)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreFrameworkInputViewInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreFrameworkInputViewInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }

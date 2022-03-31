@@ -71,7 +71,7 @@ impl IAlternativeName_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromString: InitializeFromString::<Identity, Impl, OFFSET>,
             InitializeFromRawData: InitializeFromRawData::<Identity, Impl, OFFSET>,
             InitializeFromOtherName: InitializeFromOtherName::<Identity, Impl, OFFSET>,
@@ -146,7 +146,7 @@ impl IAlternativeNames_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -202,7 +202,7 @@ impl IBinaryConverter_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StringToString: StringToString::<Identity, Impl, OFFSET>,
             VariantByteArrayToString: VariantByteArrayToString::<Identity, Impl, OFFSET>,
             StringToVariantByteArray: StringToVariantByteArray::<Identity, Impl, OFFSET>,
@@ -243,7 +243,7 @@ impl IBinaryConverter2_Vtbl {
             }
         }
         Self {
-            base: IBinaryConverter_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IBinaryConverter_Vtbl::new::<Identity, Impl, OFFSET>(),
             StringArrayToVariantArray: StringArrayToVariantArray::<Identity, Impl, OFFSET>,
             VariantArrayToStringArray: VariantArrayToStringArray::<Identity, Impl, OFFSET>,
         }
@@ -763,7 +763,7 @@ impl ICEnroll_Vtbl {
             (*this).SetHashAlgorithm(::core::mem::transmute(&bstr)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             createFilePKCS10: createFilePKCS10::<Identity, Impl, OFFSET>,
             acceptFilePKCS7: acceptFilePKCS7::<Identity, Impl, OFFSET>,
             createPKCS10: createPKCS10::<Identity, Impl, OFFSET>,
@@ -881,7 +881,7 @@ impl ICEnroll2_Vtbl {
             (*this).SetEnableT61DNEncoding(::core::mem::transmute_copy(&fbool)).into()
         }
         Self {
-            base: ICEnroll_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICEnroll_Vtbl::new::<Identity, Impl, OFFSET>(),
             addCertTypeToRequest: addCertTypeToRequest::<Identity, Impl, OFFSET>,
             addNameValuePairToSignature: addNameValuePairToSignature::<Identity, Impl, OFFSET>,
             WriteCertToUserDS: WriteCertToUserDS::<Identity, Impl, OFFSET>,
@@ -1033,7 +1033,7 @@ impl ICEnroll3_Vtbl {
             }
         }
         Self {
-            base: ICEnroll2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICEnroll2_Vtbl::new::<Identity, Impl, OFFSET>(),
             InstallPKCS7: InstallPKCS7::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetSupportedKeySpec: GetSupportedKeySpec::<Identity, Impl, OFFSET>,
@@ -1343,7 +1343,7 @@ impl ICEnroll4_Vtbl {
             }
         }
         Self {
-            base: ICEnroll3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICEnroll3_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPrivateKeyArchiveCertificate: SetPrivateKeyArchiveCertificate::<Identity, Impl, OFFSET>,
             PrivateKeyArchiveCertificate: PrivateKeyArchiveCertificate::<Identity, Impl, OFFSET>,
             SetThumbPrint: SetThumbPrint::<Identity, Impl, OFFSET>,
@@ -1480,7 +1480,7 @@ impl ICertAdmin_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsValidCertificate: IsValidCertificate::<Identity, Impl, OFFSET>,
             GetRevocationReason: GetRevocationReason::<Identity, Impl, OFFSET>,
             RevokeCertificate: RevokeCertificate::<Identity, Impl, OFFSET>,
@@ -1612,7 +1612,7 @@ impl ICertAdmin2_Vtbl {
             }
         }
         Self {
-            base: ICertAdmin_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertAdmin_Vtbl::new::<Identity, Impl, OFFSET>(),
             PublishCRLs: PublishCRLs::<Identity, Impl, OFFSET>,
             GetCAProperty: GetCAProperty::<Identity, Impl, OFFSET>,
             SetCAProperty: SetCAProperty::<Identity, Impl, OFFSET>,
@@ -1685,7 +1685,7 @@ impl ICertConfig_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             GetField: GetField::<Identity, Impl, OFFSET>,
@@ -1708,7 +1708,7 @@ impl ICertConfig2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSharedFolder(::core::mem::transmute(&strsharedfolder)).into()
         }
-        Self { base: ICertConfig_Vtbl::new::<Identity, Impl, OFFSET>(), SetSharedFolder: SetSharedFolder::<Identity, Impl, OFFSET> }
+        Self { base__: ICertConfig_Vtbl::new::<Identity, Impl, OFFSET>(), SetSharedFolder: SetSharedFolder::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertConfig2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertConfig as ::windows::core::Interface>::IID
@@ -1787,7 +1787,7 @@ impl ICertEncodeAltName_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             GetNameCount: GetNameCount::<Identity, Impl, OFFSET>,
             GetNameChoice: GetNameChoice::<Identity, Impl, OFFSET>,
@@ -1844,7 +1844,7 @@ impl ICertEncodeAltName2_Vtbl {
             (*this).SetNameEntryBlob(::core::mem::transmute_copy(&nameindex), ::core::mem::transmute_copy(&namechoice), ::core::mem::transmute(&strname), ::core::mem::transmute_copy(&encoding)).into()
         }
         Self {
-            base: ICertEncodeAltName_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertEncodeAltName_Vtbl::new::<Identity, Impl, OFFSET>(),
             DecodeBlob: DecodeBlob::<Identity, Impl, OFFSET>,
             EncodeBlob: EncodeBlob::<Identity, Impl, OFFSET>,
             GetNameBlob: GetNameBlob::<Identity, Impl, OFFSET>,
@@ -1904,7 +1904,7 @@ impl ICertEncodeBitString_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             GetBitCount: GetBitCount::<Identity, Impl, OFFSET>,
             GetBitString: GetBitString::<Identity, Impl, OFFSET>,
@@ -1952,7 +1952,7 @@ impl ICertEncodeBitString2_Vtbl {
             }
         }
         Self {
-            base: ICertEncodeBitString_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertEncodeBitString_Vtbl::new::<Identity, Impl, OFFSET>(),
             DecodeBlob: DecodeBlob::<Identity, Impl, OFFSET>,
             EncodeBlob: EncodeBlob::<Identity, Impl, OFFSET>,
             GetBitStringBlob: GetBitStringBlob::<Identity, Impl, OFFSET>,
@@ -2053,7 +2053,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             GetDistPointCount: GetDistPointCount::<Identity, Impl, OFFSET>,
             GetNameCount: GetNameCount::<Identity, Impl, OFFSET>,
@@ -2094,7 +2094,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
             }
         }
         Self {
-            base: ICertEncodeCRLDistInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertEncodeCRLDistInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             DecodeBlob: DecodeBlob::<Identity, Impl, OFFSET>,
             EncodeBlob: EncodeBlob::<Identity, Impl, OFFSET>,
         }
@@ -2164,7 +2164,7 @@ impl ICertEncodeDateArray_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -2202,7 +2202,7 @@ impl ICertEncodeDateArray2_Vtbl {
             }
         }
         Self {
-            base: ICertEncodeDateArray_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertEncodeDateArray_Vtbl::new::<Identity, Impl, OFFSET>(),
             DecodeBlob: DecodeBlob::<Identity, Impl, OFFSET>,
             EncodeBlob: EncodeBlob::<Identity, Impl, OFFSET>,
         }
@@ -2272,7 +2272,7 @@ impl ICertEncodeLongArray_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -2310,7 +2310,7 @@ impl ICertEncodeLongArray2_Vtbl {
             }
         }
         Self {
-            base: ICertEncodeLongArray_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertEncodeLongArray_Vtbl::new::<Identity, Impl, OFFSET>(),
             DecodeBlob: DecodeBlob::<Identity, Impl, OFFSET>,
             EncodeBlob: EncodeBlob::<Identity, Impl, OFFSET>,
         }
@@ -2392,7 +2392,7 @@ impl ICertEncodeStringArray_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             GetStringType: GetStringType::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
@@ -2431,7 +2431,7 @@ impl ICertEncodeStringArray2_Vtbl {
             }
         }
         Self {
-            base: ICertEncodeStringArray_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertEncodeStringArray_Vtbl::new::<Identity, Impl, OFFSET>(),
             DecodeBlob: DecodeBlob::<Identity, Impl, OFFSET>,
             EncodeBlob: EncodeBlob::<Identity, Impl, OFFSET>,
         }
@@ -2477,7 +2477,7 @@ impl ICertExit_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Notify: Notify::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
@@ -2505,7 +2505,7 @@ impl ICertExit2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ICertExit_Vtbl::new::<Identity, Impl, OFFSET>(), GetManageModule: GetManageModule::<Identity, Impl, OFFSET> }
+        Self { base__: ICertExit_Vtbl::new::<Identity, Impl, OFFSET>(), GetManageModule: GetManageModule::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertExit2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertExit as ::windows::core::Interface>::IID
@@ -2529,7 +2529,7 @@ impl ICertGetConfig_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetConfig: GetConfig::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetConfig: GetConfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertGetConfig as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -2566,7 +2566,7 @@ impl ICertManageModule_Vtbl {
             (*this).Configure(::core::mem::transmute(&strconfig), ::core::mem::transmute(&strstoragelocation), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
@@ -2619,7 +2619,7 @@ impl ICertPolicy_Vtbl {
             (*this).ShutDown().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             VerifyRequest: VerifyRequest::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
@@ -2648,7 +2648,7 @@ impl ICertPolicy2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ICertPolicy_Vtbl::new::<Identity, Impl, OFFSET>(), GetManageModule: GetManageModule::<Identity, Impl, OFFSET> }
+        Self { base__: ICertPolicy_Vtbl::new::<Identity, Impl, OFFSET>(), GetManageModule: GetManageModule::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertPolicy2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertPolicy as ::windows::core::Interface>::IID
@@ -2721,7 +2721,7 @@ impl ICertProperties_Vtbl {
             (*this).InitializeFromCertificate(::core::mem::transmute_copy(&machinecontext), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strcertificate)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2796,7 +2796,7 @@ impl ICertProperty_Vtbl {
             (*this).SetValueOnCertificate(::core::mem::transmute_copy(&machinecontext), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strcertificate)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromCertificate: InitializeFromCertificate::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             PropertyId: PropertyId::<Identity, Impl, OFFSET>,
@@ -2835,7 +2835,7 @@ impl ICertPropertyArchived_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Archived: Archived::<Identity, Impl, OFFSET>,
         }
@@ -2869,7 +2869,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ArchivedKeyHash: ArchivedKeyHash::<Identity, Impl, OFFSET>,
         }
@@ -2903,7 +2903,7 @@ impl ICertPropertyAutoEnroll_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             TemplateName: TemplateName::<Identity, Impl, OFFSET>,
         }
@@ -2955,7 +2955,7 @@ impl ICertPropertyBackedUp_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromCurrentTime: InitializeFromCurrentTime::<Identity, Impl, OFFSET>,
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             BackedUpValue: BackedUpValue::<Identity, Impl, OFFSET>,
@@ -2991,7 +2991,7 @@ impl ICertPropertyDescription_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
         }
@@ -3061,7 +3061,7 @@ impl ICertPropertyEnrollment_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             RequestId: RequestId::<Identity, Impl, OFFSET>,
             CADnsName: CADnsName::<Identity, Impl, OFFSET>,
@@ -3182,7 +3182,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetPolicyServerUrl: GetPolicyServerUrl::<Identity, Impl, OFFSET>,
             GetPolicyServerId: GetPolicyServerId::<Identity, Impl, OFFSET>,
@@ -3223,7 +3223,7 @@ impl ICertPropertyFriendlyName_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             FriendlyName: FriendlyName::<Identity, Impl, OFFSET>,
         }
@@ -3257,7 +3257,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             PrivateKey: PrivateKey::<Identity, Impl, OFFSET>,
         }
@@ -3297,7 +3297,7 @@ impl ICertPropertyRenewal_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeFromCertificateHash: InitializeFromCertificateHash::<Identity, Impl, OFFSET>,
             Renewal: Renewal::<Identity, Impl, OFFSET>,
@@ -3338,7 +3338,7 @@ impl ICertPropertyRequestOriginator_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeFromLocalRequestOriginator: InitializeFromLocalRequestOriginator::<Identity, Impl, OFFSET>,
             RequestOriginator: RequestOriginator::<Identity, Impl, OFFSET>,
@@ -3373,7 +3373,7 @@ impl ICertPropertySHA1Hash_Vtbl {
             }
         }
         Self {
-            base: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             SHA1Hash: SHA1Hash::<Identity, Impl, OFFSET>,
         }
@@ -3473,7 +3473,7 @@ impl ICertRequest_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Submit: Submit::<Identity, Impl, OFFSET>,
             RetrievePending: RetrievePending::<Identity, Impl, OFFSET>,
             GetLastStatus: GetLastStatus::<Identity, Impl, OFFSET>,
@@ -3566,7 +3566,7 @@ impl ICertRequest2_Vtbl {
             }
         }
         Self {
-            base: ICertRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetIssuedCertificate: GetIssuedCertificate::<Identity, Impl, OFFSET>,
             GetErrorMessageText: GetErrorMessageText::<Identity, Impl, OFFSET>,
             GetCAProperty: GetCAProperty::<Identity, Impl, OFFSET>,
@@ -3628,7 +3628,7 @@ impl ICertRequest3_Vtbl {
             }
         }
         Self {
-            base: ICertRequest2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertRequest2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetCredential: SetCredential::<Identity, Impl, OFFSET>,
             GetRequestIdString: GetRequestIdString::<Identity, Impl, OFFSET>,
             GetIssuedCertificate2: GetIssuedCertificate2::<Identity, Impl, OFFSET>,
@@ -3668,7 +3668,7 @@ impl ICertRequestD_Vtbl {
             (*this).Ping(::core::mem::transmute(&pwszauthority)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Request: Request::<Identity, Impl, OFFSET>,
             GetCACert: GetCACert::<Identity, Impl, OFFSET>,
             Ping: Ping::<Identity, Impl, OFFSET>,
@@ -3713,7 +3713,7 @@ impl ICertRequestD2_Vtbl {
             (*this).Ping2(::core::mem::transmute(&pwszauthority)).into()
         }
         Self {
-            base: ICertRequestD_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertRequestD_Vtbl::new::<Identity, Impl, OFFSET>(),
             Request2: Request2::<Identity, Impl, OFFSET>,
             GetCAProperty: GetCAProperty::<Identity, Impl, OFFSET>,
             GetCAPropertyInfo: GetCAPropertyInfo::<Identity, Impl, OFFSET>,
@@ -3845,7 +3845,7 @@ impl ICertServerExit_Vtbl {
             (*this).EnumerateAttributesClose().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetContext: SetContext::<Identity, Impl, OFFSET>,
             GetRequestProperty: GetRequestProperty::<Identity, Impl, OFFSET>,
             GetRequestAttribute: GetRequestAttribute::<Identity, Impl, OFFSET>,
@@ -3997,7 +3997,7 @@ impl ICertServerPolicy_Vtbl {
             (*this).EnumerateAttributesClose().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetContext: SetContext::<Identity, Impl, OFFSET>,
             GetRequestProperty: GetRequestProperty::<Identity, Impl, OFFSET>,
             GetRequestAttribute: GetRequestAttribute::<Identity, Impl, OFFSET>,
@@ -4085,7 +4085,7 @@ impl ICertView_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OpenConnection: OpenConnection::<Identity, Impl, OFFSET>,
             EnumCertViewColumn: EnumCertViewColumn::<Identity, Impl, OFFSET>,
             GetColumnCount: GetColumnCount::<Identity, Impl, OFFSET>,
@@ -4112,7 +4112,7 @@ impl ICertView2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetTable(::core::mem::transmute_copy(&table)).into()
         }
-        Self { base: ICertView_Vtbl::new::<Identity, Impl, OFFSET>(), SetTable: SetTable::<Identity, Impl, OFFSET> }
+        Self { base__: ICertView_Vtbl::new::<Identity, Impl, OFFSET>(), SetTable: SetTable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertView2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertView as ::windows::core::Interface>::IID
@@ -4155,7 +4155,7 @@ impl ICertificateAttestationChallenge_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             DecryptChallenge: DecryptChallenge::<Identity, Impl, OFFSET>,
             RequestID: RequestID::<Identity, Impl, OFFSET>,
@@ -4184,7 +4184,7 @@ impl ICertificateAttestationChallenge2_Vtbl {
             (*this).SetKeyBlob(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ICertificateAttestationChallenge_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICertificateAttestationChallenge_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetKeyContainerName: SetKeyContainerName::<Identity, Impl, OFFSET>,
             SetKeyBlob: SetKeyBlob::<Identity, Impl, OFFSET>,
         }
@@ -4254,7 +4254,7 @@ impl ICertificatePolicies_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4304,7 +4304,7 @@ impl ICertificatePolicy_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
             PolicyQualifiers: PolicyQualifiers::<Identity, Impl, OFFSET>,
@@ -4393,7 +4393,7 @@ impl ICertificationAuthorities_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4426,7 +4426,7 @@ impl ICertificationAuthority_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Property: Property::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Property: Property::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificationAuthority as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -4475,7 +4475,7 @@ impl ICryptAttribute_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromObjectId: InitializeFromObjectId::<Identity, Impl, OFFSET>,
             InitializeFromValues: InitializeFromValues::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
@@ -4565,7 +4565,7 @@ impl ICryptAttributes_Vtbl {
             (*this).AddRange(::core::mem::transmute(&pvalue)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4707,7 +4707,7 @@ impl ICspAlgorithm_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAlgorithmOid: GetAlgorithmOid::<Identity, Impl, OFFSET>,
             DefaultLength: DefaultLength::<Identity, Impl, OFFSET>,
             IncrementLength: IncrementLength::<Identity, Impl, OFFSET>,
@@ -4809,7 +4809,7 @@ impl ICspAlgorithms_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -5023,7 +5023,7 @@ impl ICspInformation_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromName: InitializeFromName::<Identity, Impl, OFFSET>,
             InitializeFromType: InitializeFromType::<Identity, Impl, OFFSET>,
             CspAlgorithms: CspAlgorithms::<Identity, Impl, OFFSET>,
@@ -5174,7 +5174,7 @@ impl ICspInformations_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -5272,7 +5272,7 @@ impl ICspStatus_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Ordinal: Ordinal::<Identity, Impl, OFFSET>,
             SetOrdinal: SetOrdinal::<Identity, Impl, OFFSET>,
@@ -5395,7 +5395,7 @@ impl ICspStatuses_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -5839,7 +5839,7 @@ impl IEnroll_Vtbl {
             (*this).CreatePKCS7RequestFromRequest(::core::mem::transmute_copy(&prequest), ::core::mem::transmute_copy(&psigningcertcontext), ::core::mem::transmute_copy(&ppkcs7blob)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             createFilePKCS10WStr: createFilePKCS10WStr::<Identity, Impl, OFFSET>,
             acceptFilePKCS7WStr: acceptFilePKCS7WStr::<Identity, Impl, OFFSET>,
             createPKCS10WStr: createPKCS10WStr::<Identity, Impl, OFFSET>,
@@ -6031,7 +6031,7 @@ impl IEnroll2_Vtbl {
             (*this).EnableSMIMECapabilities(::core::mem::transmute_copy(&fenablesmimecapabilities)).into()
         }
         Self {
-            base: IEnroll_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEnroll_Vtbl::new::<Identity, Impl, OFFSET>(),
             InstallPKCS7Blob: InstallPKCS7Blob::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetSupportedKeySpec: GetSupportedKeySpec::<Identity, Impl, OFFSET>,
@@ -6255,7 +6255,7 @@ impl IEnroll4_Vtbl {
             (*this).IncludeSubjectKeyID(::core::mem::transmute_copy(&pfinclude)).into()
         }
         Self {
-            base: IEnroll2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEnroll2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetThumbPrintWStr: SetThumbPrintWStr::<Identity, Impl, OFFSET>,
             ThumbPrintWStr: ThumbPrintWStr::<Identity, Impl, OFFSET>,
             SetPrivateKeyArchiveCertificate: SetPrivateKeyArchiveCertificate::<Identity, Impl, OFFSET>,
@@ -6343,7 +6343,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -6429,7 +6429,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET>,
@@ -6501,7 +6501,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
@@ -6594,7 +6594,7 @@ impl IEnumCERTVIEWROW_Vtbl {
             (*this).GetMaxIndex(::core::mem::transmute_copy(&pindex)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             EnumCertViewColumn: EnumCertViewColumn::<Identity, Impl, OFFSET>,
             EnumCertViewAttribute: EnumCertViewAttribute::<Identity, Impl, OFFSET>,
@@ -6652,7 +6652,7 @@ impl INDESPolicy_Vtbl {
             (*this).Notify(::core::mem::transmute(&pwszchallenge), ::core::mem::transmute(&pwsztransactionid), ::core::mem::transmute_copy(&disposition), ::core::mem::transmute_copy(&lasthresult), ::core::mem::transmute_copy(&pctbissuedcertencoded)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             GenerateChallenge: GenerateChallenge::<Identity, Impl, OFFSET>,
@@ -6767,7 +6767,7 @@ impl IOCSPAdmin_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OCSPServiceProperties: OCSPServiceProperties::<Identity, Impl, OFFSET>,
             OCSPCAConfigurationCollection: OCSPCAConfigurationCollection::<Identity, Impl, OFFSET>,
             GetConfiguration: GetConfiguration::<Identity, Impl, OFFSET>,
@@ -7025,7 +7025,7 @@ impl IOCSPCAConfiguration_Vtbl {
             (*this).SetCAConfig(::core::mem::transmute(&newval)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Identifier: Identifier::<Identity, Impl, OFFSET>,
             CACertificate: CACertificate::<Identity, Impl, OFFSET>,
             HashAlgorithm: HashAlgorithm::<Identity, Impl, OFFSET>,
@@ -7129,7 +7129,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
             (*this).DeleteCAConfiguration(::core::mem::transmute(&bstridentifier)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -7191,7 +7191,7 @@ impl IOCSPProperty_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -7293,7 +7293,7 @@ impl IOCSPPropertyCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -7387,7 +7387,7 @@ impl IObjectId_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromName: InitializeFromName::<Identity, Impl, OFFSET>,
             InitializeFromValue: InitializeFromValue::<Identity, Impl, OFFSET>,
             InitializeFromAlgorithmName: InitializeFromAlgorithmName::<Identity, Impl, OFFSET>,
@@ -7469,7 +7469,7 @@ impl IObjectIds_Vtbl {
             (*this).AddRange(::core::mem::transmute(&pvalue)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -7544,7 +7544,7 @@ impl IPolicyQualifier_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
             Qualifier: Qualifier::<Identity, Impl, OFFSET>,
@@ -7617,7 +7617,7 @@ impl IPolicyQualifiers_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -7739,7 +7739,7 @@ impl ISignerCertificate_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Certificate: Certificate::<Identity, Impl, OFFSET>,
             PrivateKey: PrivateKey::<Identity, Impl, OFFSET>,
@@ -7830,7 +7830,7 @@ impl ISignerCertificates_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -7917,7 +7917,7 @@ impl ISmimeCapabilities_Vtbl {
             (*this).AddAvailableSmimeCapabilities(::core::mem::transmute_copy(&machinecontext)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -7969,7 +7969,7 @@ impl ISmimeCapability_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
             BitCount: BitCount::<Identity, Impl, OFFSET>,
@@ -8022,7 +8022,7 @@ impl IX500DistinguishedName_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Decode: Decode::<Identity, Impl, OFFSET>,
             Encode: Encode::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -8070,7 +8070,7 @@ impl IX509Attribute_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
             RawData: RawData::<Identity, Impl, OFFSET>,
@@ -8135,7 +8135,7 @@ impl IX509AttributeArchiveKey_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             EncryptedKeyBlob: EncryptedKeyBlob::<Identity, Impl, OFFSET>,
@@ -8178,7 +8178,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncodeFromEncryptedKeyBlob: InitializeEncodeFromEncryptedKeyBlob::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             EncryptedKeyHashBlob: EncryptedKeyHashBlob::<Identity, Impl, OFFSET>,
@@ -8255,7 +8255,7 @@ impl IX509AttributeClientId_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             ClientId: ClientId::<Identity, Impl, OFFSET>,
@@ -8323,7 +8323,7 @@ impl IX509AttributeCspProvider_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             KeySpec: KeySpec::<Identity, Impl, OFFSET>,
@@ -8366,7 +8366,7 @@ impl IX509AttributeExtensions_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             X509Extensions: X509Extensions::<Identity, Impl, OFFSET>,
@@ -8407,7 +8407,7 @@ impl IX509AttributeOSVersion_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             OSVersion: OSVersion::<Identity, Impl, OFFSET>,
@@ -8448,7 +8448,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
             }
         }
         Self {
-            base: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             RenewalCertificate: RenewalCertificate::<Identity, Impl, OFFSET>,
@@ -8519,7 +8519,7 @@ impl IX509Attributes_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -8767,7 +8767,7 @@ impl IX509CertificateRequest_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Encode: Encode::<Identity, Impl, OFFSET>,
             ResetForEncode: ResetForEncode::<Identity, Impl, OFFSET>,
@@ -8902,7 +8902,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
             (*this).SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
         }
         Self {
-            base: IX509CertificateRequestPkcs10_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestPkcs10_Vtbl::new::<Identity, Impl, OFFSET>(),
             CheckPublicKeySignature: CheckPublicKeySignature::<Identity, Impl, OFFSET>,
             Issuer: Issuer::<Identity, Impl, OFFSET>,
             SetIssuer: SetIssuer::<Identity, Impl, OFFSET>,
@@ -8963,7 +8963,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
             }
         }
         Self {
-            base: IX509CertificateRequestCertificate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestCertificate_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplate: InitializeFromTemplate::<Identity, Impl, OFFSET>,
             InitializeFromPrivateKeyTemplate: InitializeFromPrivateKeyTemplate::<Identity, Impl, OFFSET>,
             PolicyServer: PolicyServer::<Identity, Impl, OFFSET>,
@@ -9215,7 +9215,7 @@ impl IX509CertificateRequestCmc_Vtbl {
             }
         }
         Self {
-            base: IX509CertificateRequestPkcs7_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestPkcs7_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromInnerRequestTemplateName: InitializeFromInnerRequestTemplateName::<Identity, Impl, OFFSET>,
             TemplateObjectId: TemplateObjectId::<Identity, Impl, OFFSET>,
             NullSigned: NullSigned::<Identity, Impl, OFFSET>,
@@ -9300,7 +9300,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
             (*this).CheckCertificateSignature(::core::mem::transmute(&psignercertificate), ::core::mem::transmute_copy(&validatecertificatechain)).into()
         }
         Self {
-            base: IX509CertificateRequestCmc_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestCmc_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplate: InitializeFromTemplate::<Identity, Impl, OFFSET>,
             InitializeFromInnerRequestTemplate: InitializeFromInnerRequestTemplate::<Identity, Impl, OFFSET>,
             PolicyServer: PolicyServer::<Identity, Impl, OFFSET>,
@@ -9602,7 +9602,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
             }
         }
         Self {
-            base: IX509CertificateRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplateName: InitializeFromTemplateName::<Identity, Impl, OFFSET>,
             InitializeFromPrivateKey: InitializeFromPrivateKey::<Identity, Impl, OFFSET>,
             InitializeFromPublicKey: InitializeFromPublicKey::<Identity, Impl, OFFSET>,
@@ -9686,7 +9686,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
             }
         }
         Self {
-            base: IX509CertificateRequestPkcs10_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestPkcs10_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplate: InitializeFromTemplate::<Identity, Impl, OFFSET>,
             InitializeFromPrivateKeyTemplate: InitializeFromPrivateKeyTemplate::<Identity, Impl, OFFSET>,
             InitializeFromPublicKeyTemplate: InitializeFromPublicKeyTemplate::<Identity, Impl, OFFSET>,
@@ -9807,7 +9807,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
             }
         }
         Self {
-            base: IX509CertificateRequestPkcs10V2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestPkcs10V2_Vtbl::new::<Identity, Impl, OFFSET>(),
             AttestPrivateKey: AttestPrivateKey::<Identity, Impl, OFFSET>,
             SetAttestPrivateKey: SetAttestPrivateKey::<Identity, Impl, OFFSET>,
             AttestationEncryptionCertificate: AttestationEncryptionCertificate::<Identity, Impl, OFFSET>,
@@ -9868,7 +9868,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
             (*this).SetAttestPrivateKeyPreferred(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IX509CertificateRequestPkcs10V3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestPkcs10V3_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClaimType: ClaimType::<Identity, Impl, OFFSET>,
             SetClaimType: SetClaimType::<Identity, Impl, OFFSET>,
             AttestPrivateKeyPreferred: AttestPrivateKeyPreferred::<Identity, Impl, OFFSET>,
@@ -9946,7 +9946,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
             (*this).SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
         }
         Self {
-            base: IX509CertificateRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplateName: InitializeFromTemplateName::<Identity, Impl, OFFSET>,
             InitializeFromCertificate: InitializeFromCertificate::<Identity, Impl, OFFSET>,
             InitializeFromInnerRequest: InitializeFromInnerRequest::<Identity, Impl, OFFSET>,
@@ -10004,7 +10004,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
             (*this).CheckCertificateSignature(::core::mem::transmute_copy(&validatecertificatechain)).into()
         }
         Self {
-            base: IX509CertificateRequestPkcs7_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509CertificateRequestPkcs7_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplate: InitializeFromTemplate::<Identity, Impl, OFFSET>,
             PolicyServer: PolicyServer::<Identity, Impl, OFFSET>,
             Template: Template::<Identity, Impl, OFFSET>,
@@ -10310,7 +10310,7 @@ impl IX509CertificateRevocationList_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             Encode: Encode::<Identity, Impl, OFFSET>,
@@ -10427,7 +10427,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
             (*this).AddRange(::core::mem::transmute(&pvalue)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -10521,7 +10521,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             SerialNumber: SerialNumber::<Identity, Impl, OFFSET>,
             RevocationDate: RevocationDate::<Identity, Impl, OFFSET>,
@@ -10553,7 +10553,7 @@ impl IX509CertificateTemplate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Property: Property::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Property: Property::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IX509CertificateTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -10608,7 +10608,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
             Property: Property::<Identity, Impl, OFFSET>,
@@ -10705,7 +10705,7 @@ impl IX509CertificateTemplates_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -10829,7 +10829,7 @@ impl IX509EndorsementKey_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ProviderName: ProviderName::<Identity, Impl, OFFSET>,
             SetProviderName: SetProviderName::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
@@ -11076,7 +11076,7 @@ impl IX509Enrollment_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeFromTemplateName: InitializeFromTemplateName::<Identity, Impl, OFFSET>,
             InitializeFromRequest: InitializeFromRequest::<Identity, Impl, OFFSET>,
@@ -11161,7 +11161,7 @@ impl IX509Enrollment2_Vtbl {
             }
         }
         Self {
-            base: IX509Enrollment_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Enrollment_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeFromTemplate: InitializeFromTemplate::<Identity, Impl, OFFSET>,
             InstallResponse2: InstallResponse2::<Identity, Impl, OFFSET>,
             PolicyServer: PolicyServer::<Identity, Impl, OFFSET>,
@@ -11210,7 +11210,7 @@ impl IX509EnrollmentHelper_Vtbl {
             (*this).Initialize(::core::mem::transmute_copy(&context)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddPolicyServer: AddPolicyServer::<Identity, Impl, OFFSET>,
             AddEnrollmentServer: AddEnrollmentServer::<Identity, Impl, OFFSET>,
             Enroll: Enroll::<Identity, Impl, OFFSET>,
@@ -11480,7 +11480,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
             (*this).SetCost(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             LoadPolicy: LoadPolicy::<Identity, Impl, OFFSET>,
             GetTemplates: GetTemplates::<Identity, Impl, OFFSET>,
@@ -11626,7 +11626,7 @@ impl IX509EnrollmentStatus_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AppendText: AppendText::<Identity, Impl, OFFSET>,
             Text: Text::<Identity, Impl, OFFSET>,
             SetText: SetText::<Identity, Impl, OFFSET>,
@@ -11663,7 +11663,7 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IX509EnrollmentWebClassFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -11724,7 +11724,7 @@ impl IX509Extension_Vtbl {
             (*this).SetCritical(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
             RawData: RawData::<Identity, Impl, OFFSET>,
@@ -11767,7 +11767,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             AlternativeNames: AlternativeNames::<Identity, Impl, OFFSET>,
@@ -11808,7 +11808,7 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             AuthorityKeyIdentifier: AuthorityKeyIdentifier::<Identity, Impl, OFFSET>,
@@ -11861,7 +11861,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             IsCA: IsCA::<Identity, Impl, OFFSET>,
@@ -11903,7 +11903,7 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             Policies: Policies::<Identity, Impl, OFFSET>,
@@ -11944,7 +11944,7 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             EnhancedKeyUsage: EnhancedKeyUsage::<Identity, Impl, OFFSET>,
@@ -11985,7 +11985,7 @@ impl IX509ExtensionKeyUsage_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             KeyUsage: KeyUsage::<Identity, Impl, OFFSET>,
@@ -12026,7 +12026,7 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             Policies: Policies::<Identity, Impl, OFFSET>,
@@ -12067,7 +12067,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             SmimeCapabilities: SmimeCapabilities::<Identity, Impl, OFFSET>,
@@ -12108,7 +12108,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             SubjectKeyIdentifier: SubjectKeyIdentifier::<Identity, Impl, OFFSET>,
@@ -12173,7 +12173,7 @@ impl IX509ExtensionTemplate_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             TemplateOid: TemplateOid::<Identity, Impl, OFFSET>,
@@ -12216,7 +12216,7 @@ impl IX509ExtensionTemplateName_Vtbl {
             }
         }
         Self {
-            base: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             TemplateName: TemplateName::<Identity, Impl, OFFSET>,
@@ -12305,7 +12305,7 @@ impl IX509Extensions_Vtbl {
             (*this).AddRange(::core::mem::transmute(&pvalue)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -12338,7 +12338,7 @@ impl IX509MachineEnrollmentFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IX509MachineEnrollmentFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -12381,7 +12381,7 @@ impl IX509NameValuePair_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -12452,7 +12452,7 @@ impl IX509NameValuePairs_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -12532,7 +12532,7 @@ impl IX509PolicyServerListManager_Vtbl {
             (*this).Initialize(::core::mem::transmute_copy(&context), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -12679,7 +12679,7 @@ impl IX509PolicyServerUrl_Vtbl {
             (*this).RemoveFromRegistry(::core::mem::transmute_copy(&context)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Url: Url::<Identity, Impl, OFFSET>,
             SetUrl: SetUrl::<Identity, Impl, OFFSET>,
@@ -13224,7 +13224,7 @@ impl IX509PrivateKey_Vtbl {
             (*this).SetDescription(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
@@ -13386,7 +13386,7 @@ impl IX509PrivateKey2_Vtbl {
             (*this).SetParametersExportType(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IX509PrivateKey_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509PrivateKey_Vtbl::new::<Identity, Impl, OFFSET>(),
             HardwareKeyUsage: HardwareKeyUsage::<Identity, Impl, OFFSET>,
             SetHardwareKeyUsage: SetHardwareKeyUsage::<Identity, Impl, OFFSET>,
             AlternateStorageLocation: AlternateStorageLocation::<Identity, Impl, OFFSET>,
@@ -13482,7 +13482,7 @@ impl IX509PublicKey_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeFromEncodedPublicKeyInfo: InitializeFromEncodedPublicKeyInfo::<Identity, Impl, OFFSET>,
             Algorithm: Algorithm::<Identity, Impl, OFFSET>,
@@ -13713,7 +13713,7 @@ impl IX509SCEPEnrollment_Vtbl {
             (*this).DeleteRequest().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeForPending: InitializeForPending::<Identity, Impl, OFFSET>,
             CreateRequestMessage: CreateRequestMessage::<Identity, Impl, OFFSET>,
@@ -13815,7 +13815,7 @@ impl IX509SCEPEnrollment2_Vtbl {
             (*this).SetActivityId(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: IX509SCEPEnrollment_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IX509SCEPEnrollment_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateChallengeAnswerMessage: CreateChallengeAnswerMessage::<Identity, Impl, OFFSET>,
             ProcessResponseMessage2: ProcessResponseMessage2::<Identity, Impl, OFFSET>,
             ResultMessageText: ResultMessageText::<Identity, Impl, OFFSET>,
@@ -13895,7 +13895,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeForPending: InitializeForPending::<Identity, Impl, OFFSET>,
             Enroll: Enroll::<Identity, Impl, OFFSET>,
@@ -14035,7 +14035,7 @@ impl IX509SignatureInformation_Vtbl {
             (*this).SetDefaultValues().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             HashAlgorithm: HashAlgorithm::<Identity, Impl, OFFSET>,
             SetHashAlgorithm: SetHashAlgorithm::<Identity, Impl, OFFSET>,
             PublicKeyAlgorithm: PublicKeyAlgorithm::<Identity, Impl, OFFSET>,

@@ -8,7 +8,7 @@ impl ICreateObject_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateObject(::core::mem::transmute_copy(&clsid), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateObject as ::windows::core::Interface>::IID
@@ -24,7 +24,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDelayedPropertyStore(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&dwstoreid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: IPropertyStoreFactory_Vtbl::new::<Identity, Impl, OFFSET>(), GetDelayedPropertyStore: GetDelayedPropertyStore::<Identity, Impl, OFFSET> }
+        Self { base__: IPropertyStoreFactory_Vtbl::new::<Identity, Impl, OFFSET>(), GetDelayedPropertyStore: GetDelayedPropertyStore::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDelayedPropertyStoreFactory as ::windows::core::Interface>::IID || iid == &<IPropertyStoreFactory as ::windows::core::Interface>::IID
@@ -40,7 +40,7 @@ impl IInitializeWithFile_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&pszfilepath), ::core::mem::transmute_copy(&grfmode)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInitializeWithFile as ::windows::core::Interface>::IID
@@ -58,7 +58,7 @@ impl IInitializeWithStream_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&grfmode)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInitializeWithStream as ::windows::core::Interface>::IID
@@ -113,7 +113,7 @@ impl INamedPropertyStore_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNamedValue: GetNamedValue::<Identity, Impl, OFFSET>,
             SetNamedValue: SetNamedValue::<Identity, Impl, OFFSET>,
             GetNameCount: GetNameCount::<Identity, Impl, OFFSET>,
@@ -147,7 +147,7 @@ impl IObjectWithPropertyKey_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetPropertyKey: SetPropertyKey::<Identity, Impl, OFFSET>,
             GetPropertyKey: GetPropertyKey::<Identity, Impl, OFFSET>,
         }
@@ -179,7 +179,7 @@ impl IPersistSerializedPropStorage_Vtbl {
             (*this).GetPropertyStorage(::core::mem::transmute_copy(&ppsps), ::core::mem::transmute_copy(&pcb)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetFlags: SetFlags::<Identity, Impl, OFFSET>,
             SetPropertyStorage: SetPropertyStorage::<Identity, Impl, OFFSET>,
             GetPropertyStorage: GetPropertyStorage::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
             (*this).GetPropertyStorageBuffer(::core::mem::transmute_copy(&psps), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&pcbwritten)).into()
         }
         Self {
-            base: IPersistSerializedPropStorage_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPersistSerializedPropStorage_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPropertyStorageSize: GetPropertyStorageSize::<Identity, Impl, OFFSET>,
             GetPropertyStorageBuffer: GetPropertyStorageBuffer::<Identity, Impl, OFFSET>,
         }
@@ -239,7 +239,7 @@ impl IPropertyChange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IObjectWithPropertyKey_Vtbl::new::<Identity, Impl, OFFSET>(), ApplyToPropVariant: ApplyToPropVariant::<Identity, Impl, OFFSET> }
+        Self { base__: IObjectWithPropertyKey_Vtbl::new::<Identity, Impl, OFFSET>(), ApplyToPropVariant: ApplyToPropVariant::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyChange as ::windows::core::Interface>::IID || iid == &<IObjectWithPropertyKey as ::windows::core::Interface>::IID
@@ -298,7 +298,7 @@ impl IPropertyChangeArray_Vtbl {
             (*this).IsKeyInArray(::core::mem::transmute_copy(&key)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             InsertAt: InsertAt::<Identity, Impl, OFFSET>,
@@ -541,7 +541,7 @@ impl IPropertyDescription_Vtbl {
             (*this).IsValueCanonical(::core::mem::transmute_copy(&propvar)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropertyKey: GetPropertyKey::<Identity, Impl, OFFSET>,
             GetCanonicalName: GetCanonicalName::<Identity, Impl, OFFSET>,
             GetPropertyType: GetPropertyType::<Identity, Impl, OFFSET>,
@@ -587,7 +587,10 @@ impl IPropertyDescription2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(), GetImageReferenceForValue: GetImageReferenceForValue::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetImageReferenceForValue: GetImageReferenceForValue::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyDescription2 as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
@@ -612,7 +615,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
             (*this).GetAdditionalSortByAliases(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSortByAlias: GetSortByAlias::<Identity, Impl, OFFSET>,
             GetAdditionalSortByAliases: GetAdditionalSortByAliases::<Identity, Impl, OFFSET>,
         }
@@ -644,7 +647,7 @@ impl IPropertyDescriptionList_Vtbl {
             (*this).GetAt(::core::mem::transmute_copy(&ielem), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
@@ -665,7 +668,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRelatedProperty(::core::mem::transmute(&pszrelationshipname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Identity, Impl, OFFSET> }
+        Self { base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
@@ -726,7 +729,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
             }
         }
         Self {
-            base: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSearchInfoFlags: GetSearchInfoFlags::<Identity, Impl, OFFSET>,
             GetColumnIndexType: GetColumnIndexType::<Identity, Impl, OFFSET>,
             GetProjectionString: GetProjectionString::<Identity, Impl, OFFSET>,
@@ -804,7 +807,7 @@ impl IPropertyEnumType_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEnumType: GetEnumType::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             GetRangeMinValue: GetRangeMinValue::<Identity, Impl, OFFSET>,
@@ -834,7 +837,7 @@ impl IPropertyEnumType2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPropertyEnumType_Vtbl::new::<Identity, Impl, OFFSET>(), GetImageReference: GetImageReference::<Identity, Impl, OFFSET> }
+        Self { base__: IPropertyEnumType_Vtbl::new::<Identity, Impl, OFFSET>(), GetImageReference: GetImageReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyEnumType2 as ::windows::core::Interface>::IID || iid == &<IPropertyEnumType as ::windows::core::Interface>::IID
@@ -883,7 +886,7 @@ impl IPropertyEnumTypeList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             GetConditionAt: GetConditionAt::<Identity, Impl, OFFSET>,
@@ -949,7 +952,7 @@ impl IPropertyStore_Vtbl {
             (*this).Commit().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -998,7 +1001,7 @@ impl IPropertyStoreCache_Vtbl {
             (*this).SetValueAndState(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute_copy(&state)).into()
         }
         Self {
-            base: IPropertyStore_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPropertyStore_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetState: GetState::<Identity, Impl, OFFSET>,
             GetValueAndState: GetValueAndState::<Identity, Impl, OFFSET>,
             SetState: SetState::<Identity, Impl, OFFSET>,
@@ -1019,7 +1022,7 @@ impl IPropertyStoreCapabilities_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IsPropertyWritable(::core::mem::transmute_copy(&key)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsPropertyWritable: IsPropertyWritable::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsPropertyWritable: IsPropertyWritable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyStoreCapabilities as ::windows::core::Interface>::IID
@@ -1042,7 +1045,7 @@ impl IPropertyStoreFactory_Vtbl {
             (*this).GetPropertyStoreForKeys(::core::mem::transmute_copy(&rgkeys), ::core::mem::transmute_copy(&ckeys), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropertyStore: GetPropertyStore::<Identity, Impl, OFFSET>,
             GetPropertyStoreForKeys: GetPropertyStoreForKeys::<Identity, Impl, OFFSET>,
         }
@@ -1118,7 +1121,7 @@ impl IPropertySystem_Vtbl {
             (*this).RefreshPropertySchema().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropertyDescription: GetPropertyDescription::<Identity, Impl, OFFSET>,
             GetPropertyDescriptionByName: GetPropertyDescriptionByName::<Identity, Impl, OFFSET>,
             GetPropertyDescriptionListFromString: GetPropertyDescriptionListFromString::<Identity, Impl, OFFSET>,
@@ -1144,7 +1147,7 @@ impl IPropertySystemChangeNotify_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SchemaRefreshed().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SchemaRefreshed: SchemaRefreshed::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SchemaRefreshed: SchemaRefreshed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertySystemChangeNotify as ::windows::core::Interface>::IID
@@ -1217,7 +1220,7 @@ impl IPropertyUI_Vtbl {
             (*this).GetHelpInfo(::core::mem::transmute_copy(&fmtid), ::core::mem::transmute_copy(&pid), ::core::mem::transmute_copy(&pwszhelpfile), ::core::mem::transmute_copy(&cch), ::core::mem::transmute_copy(&puhelpid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ParsePropertyName: ParsePropertyName::<Identity, Impl, OFFSET>,
             GetCannonicalName: GetCannonicalName::<Identity, Impl, OFFSET>,
             GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET>,

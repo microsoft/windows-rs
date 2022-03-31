@@ -51,7 +51,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerFormatConfiguration, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerFormatConfiguration, OFFSET>(),
             DefaultFormat: DefaultFormat::<Identity, Impl, OFFSET>,
             Format: Format::<Identity, Impl, OFFSET>,
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
@@ -408,7 +408,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             (*this).SetContrast(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerSourceConfiguration, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IImageScannerSourceConfiguration, OFFSET>(),
             MinScanArea: MinScanArea::<Identity, Impl, OFFSET>,
             MaxScanArea: MaxScanArea::<Identity, Impl, OFFSET>,
             SelectedScanRegion: SelectedScanRegion::<Identity, Impl, OFFSET>,

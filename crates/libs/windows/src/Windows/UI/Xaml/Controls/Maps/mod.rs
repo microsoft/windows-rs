@@ -363,7 +363,7 @@ unsafe impl ::windows::core::Interface for ICustomMapTileDataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomMapTileDataSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BitmapRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -383,7 +383,7 @@ unsafe impl ::windows::core::Interface for ICustomMapTileDataSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomMapTileDataSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for IHttpMapTileDataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMapTileDataSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UriFormatString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetUriFormatString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -424,7 +424,7 @@ unsafe impl ::windows::core::Interface for IHttpMapTileDataSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMapTileDataSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithUriFormatString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uriformatstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -438,7 +438,7 @@ unsafe impl ::windows::core::Interface for ILocalMapTileDataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalMapTileDataSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UriFormatString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetUriFormatString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -460,7 +460,7 @@ unsafe impl ::windows::core::Interface for ILocalMapTileDataSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalMapTileDataSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithUriFormatString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uriformatstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -474,7 +474,7 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Camera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -487,7 +487,7 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ChangeReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapCameraChangeReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -500,7 +500,7 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Camera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -513,7 +513,7 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangingEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangingEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ChangeReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapCameraChangeReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -526,7 +526,7 @@ unsafe impl ::windows::core::Interface for IMapBillboard {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapBillboard_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -565,7 +565,7 @@ unsafe impl ::windows::core::Interface for IMapBillboardFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapBillboardFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceFromCamera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, camera: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -578,7 +578,7 @@ unsafe impl ::windows::core::Interface for IMapBillboardStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapBillboardStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LocationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NormalizedAnchorPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CollisionBehaviorDesiredProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -593,7 +593,7 @@ unsafe impl ::windows::core::Interface for IMapCamera {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCamera_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -621,7 +621,7 @@ unsafe impl ::windows::core::Interface for IMapCameraFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCameraFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub CreateInstanceWithLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -649,7 +649,7 @@ unsafe impl ::windows::core::Interface for IMapContextRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapContextRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -673,7 +673,7 @@ unsafe impl ::windows::core::Interface for IMapControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -849,7 +849,7 @@ unsafe impl ::windows::core::Interface for IMapControl2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BusinessLandmarksVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetBusinessLandmarksVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub TransitFeaturesVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -979,7 +979,7 @@ unsafe impl ::windows::core::Interface for IMapControl3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MapRightTapped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -999,7 +999,7 @@ unsafe impl ::windows::core::Interface for IMapControl4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BusinessLandmarksEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetBusinessLandmarksEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub TransitFeaturesEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1019,7 +1019,7 @@ unsafe impl ::windows::core::Interface for IMapControl5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapProjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapProjection) -> ::windows::core::HRESULT,
     pub SetMapProjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MapProjection) -> ::windows::core::HRESULT,
     pub StyleSheet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1063,7 +1063,7 @@ unsafe impl ::windows::core::Interface for IMapControl6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Layers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::Interface for IMapControl7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl7_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Region: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1105,7 +1105,7 @@ unsafe impl ::windows::core::Interface for IMapControl8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl8_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanTiltDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CanTiltUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CanZoomIn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkClickEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkClickEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch"))]
     pub LocalLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch")))]
@@ -1137,7 +1137,7 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkPointerEnt
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch"))]
     pub LocalLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch")))]
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkPointerExi
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkPointerExitedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch"))]
     pub LocalLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch")))]
@@ -1169,7 +1169,7 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkRightTappe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkRightTappedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch"))]
     pub LocalLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Services_Maps_LocalSearch")))]
@@ -1185,7 +1185,7 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BusinessLandmarkClick: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1229,7 +1229,7 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelper2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelper2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BusinessLandmarkPointerEntered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1273,7 +1273,7 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelperFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelperFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, map: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1286,7 +1286,7 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateMapControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rasterrendermode: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1299,7 +1299,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CenterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ChildrenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ColorSchemeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BusinessLandmarksVisibleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TransitFeaturesVisibleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PanInteractionModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1368,7 +1368,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BusinessLandmarksEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TransitFeaturesEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1382,7 +1382,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapProjectionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StyleSheetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ViewPaddingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LayersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1410,7 +1410,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics7_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RegionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1423,7 +1423,7 @@ unsafe impl ::windows::core::Interface for IMapControlStatics8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics8_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanTiltDownProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CanTiltUpProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CanZoomInProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1439,7 +1439,7 @@ unsafe impl ::windows::core::Interface for IMapControlTransitFeatureClickEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlTransitFeatureClickEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1460,7 +1460,7 @@ unsafe impl ::windows::core::Interface for IMapControlTransitFeaturePointerEnter
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlTransitFeaturePointerEnteredEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1481,7 +1481,7 @@ unsafe impl ::windows::core::Interface for IMapControlTransitFeaturePointerExite
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlTransitFeaturePointerExitedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1502,7 +1502,7 @@ unsafe impl ::windows::core::Interface for IMapControlTransitFeatureRightTappedE
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlTransitFeatureRightTappedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1523,7 +1523,7 @@ unsafe impl ::windows::core::Interface for IMapCustomExperience {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCustomExperience_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1535,7 +1535,7 @@ unsafe impl ::windows::core::Interface for IMapCustomExperienceChangedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCustomExperienceChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1547,7 +1547,7 @@ unsafe impl ::windows::core::Interface for IMapCustomExperienceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCustomExperienceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1560,7 +1560,7 @@ unsafe impl ::windows::core::Interface for IMapElement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1576,7 +1576,7 @@ unsafe impl ::windows::core::Interface for IMapElement2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapTabIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetMapTabIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
 }
@@ -1590,7 +1590,7 @@ unsafe impl ::windows::core::Interface for IMapElement3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapStyleSheetEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetMapStyleSheetEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MapStyleSheetEntryState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1608,7 +1608,7 @@ unsafe impl ::windows::core::Interface for IMapElement3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement3D_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -1644,7 +1644,7 @@ unsafe impl ::windows::core::Interface for IMapElement3DStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement3DStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LocationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HeadingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PitchProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1661,7 +1661,7 @@ unsafe impl ::windows::core::Interface for IMapElement4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -1675,7 +1675,7 @@ unsafe impl ::windows::core::Interface for IMapElementClickEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementClickEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1699,7 +1699,7 @@ unsafe impl ::windows::core::Interface for IMapElementFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1712,7 +1712,7 @@ unsafe impl ::windows::core::Interface for IMapElementPointerEnteredEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementPointerEnteredEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1733,7 +1733,7 @@ unsafe impl ::windows::core::Interface for IMapElementPointerExitedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementPointerExitedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1754,7 +1754,7 @@ unsafe impl ::windows::core::Interface for IMapElementStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ZIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VisibleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1768,7 +1768,7 @@ unsafe impl ::windows::core::Interface for IMapElementStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapTabIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1781,7 +1781,7 @@ unsafe impl ::windows::core::Interface for IMapElementStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapStyleSheetEntryProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MapStyleSheetEntryStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TagProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1796,7 +1796,7 @@ unsafe impl ::windows::core::Interface for IMapElementStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1809,7 +1809,7 @@ unsafe impl ::windows::core::Interface for IMapElementsLayer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub MapElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1861,7 +1861,7 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerClickEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerClickEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1885,7 +1885,7 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerContextRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerContextRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1909,7 +1909,7 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerPointerEnteredEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerPointerEnteredEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1930,7 +1930,7 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerPointerExitedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerPointerExitedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1951,7 +1951,7 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapElementsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1964,7 +1964,7 @@ unsafe impl ::windows::core::Interface for IMapIcon {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapIcon_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -2002,7 +2002,7 @@ unsafe impl ::windows::core::Interface for IMapIcon2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapIcon2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CollisionBehaviorDesired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapElementCollisionBehavior) -> ::windows::core::HRESULT,
     pub SetCollisionBehaviorDesired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MapElementCollisionBehavior) -> ::windows::core::HRESULT,
 }
@@ -2016,7 +2016,7 @@ unsafe impl ::windows::core::Interface for IMapIconStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapIconStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LocationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TitleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NormalizedAnchorPointProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2031,7 +2031,7 @@ unsafe impl ::windows::core::Interface for IMapIconStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapIconStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CollisionBehaviorDesiredProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2044,7 +2044,7 @@ unsafe impl ::windows::core::Interface for IMapInputEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapInputEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2064,7 +2064,7 @@ unsafe impl ::windows::core::Interface for IMapItemsControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapItemsControl_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ItemsSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetItemsSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -2084,7 +2084,7 @@ unsafe impl ::windows::core::Interface for IMapItemsControlStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapItemsControlStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ItemsSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ItemTemplateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2099,7 +2099,7 @@ unsafe impl ::windows::core::Interface for IMapLayer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapLayer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapTabIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetMapTabIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2117,7 +2117,7 @@ unsafe impl ::windows::core::Interface for IMapLayerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapLayerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2130,7 +2130,7 @@ unsafe impl ::windows::core::Interface for IMapLayerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapLayerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MapTabIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VisibleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ZIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2145,7 +2145,7 @@ unsafe impl ::windows::core::Interface for IMapModel3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapModel3D_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2157,7 +2157,7 @@ unsafe impl ::windows::core::Interface for IMapModel3DFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapModel3DFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2170,7 +2170,7 @@ unsafe impl ::windows::core::Interface for IMapModel3DStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapModel3DStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub CreateFrom3MFAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -2190,7 +2190,7 @@ unsafe impl ::windows::core::Interface for IMapPolygon {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolygon_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -2218,7 +2218,7 @@ unsafe impl ::windows::core::Interface for IMapPolygon2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolygon2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub Paths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
@@ -2234,7 +2234,7 @@ unsafe impl ::windows::core::Interface for IMapPolygonStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolygonStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PathProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StrokeThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StrokeDashedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2249,7 +2249,7 @@ unsafe impl ::windows::core::Interface for IMapPolyline {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolyline_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -2275,7 +2275,7 @@ unsafe impl ::windows::core::Interface for IMapPolylineStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolylineStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PathProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StrokeDashedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2289,7 +2289,7 @@ unsafe impl ::windows::core::Interface for IMapRightTappedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRightTappedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2309,7 +2309,7 @@ unsafe impl ::windows::core::Interface for IMapRouteView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteView_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RouteColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT,
     pub SetRouteColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Color) -> ::windows::core::HRESULT,
     pub OutlineColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT,
@@ -2329,7 +2329,7 @@ unsafe impl ::windows::core::Interface for IMapRouteViewFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteViewFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Services_Maps")]
     pub CreateInstanceWithMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Services_Maps"))]
@@ -2345,7 +2345,7 @@ unsafe impl ::windows::core::Interface for IMapScene {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapScene_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetCamera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TargetCameraChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2366,7 +2366,7 @@ unsafe impl ::windows::core::Interface for IMapSceneStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapSceneStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub CreateFromBoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bounds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -2411,7 +2411,7 @@ unsafe impl ::windows::core::Interface for IMapStyleSheet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapStyleSheet_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2423,7 +2423,7 @@ unsafe impl ::windows::core::Interface for IMapStyleSheetEntriesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapStyleSheetEntriesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Area: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Airport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Cemetery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2499,7 +2499,7 @@ unsafe impl ::windows::core::Interface for IMapStyleSheetEntryStatesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapStyleSheetEntryStatesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Disabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Hover: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Selected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2514,7 +2514,7 @@ unsafe impl ::windows::core::Interface for IMapStyleSheetStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapStyleSheetStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Aerial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AerialWithOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RoadLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2538,7 +2538,7 @@ unsafe impl ::windows::core::Interface for IMapTargetCameraChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTargetCameraChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Camera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2551,7 +2551,7 @@ unsafe impl ::windows::core::Interface for IMapTargetCameraChangedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTargetCameraChangedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ChangeReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapCameraChangeReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::Interface for IMapTileBitmapRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileBitmapRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub PixelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -2585,7 +2585,7 @@ unsafe impl ::windows::core::Interface for IMapTileBitmapRequestDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileBitmapRequestDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2598,7 +2598,7 @@ unsafe impl ::windows::core::Interface for IMapTileBitmapRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileBitmapRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub X: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Y: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ZoomLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -2614,7 +2614,7 @@ unsafe impl ::windows::core::Interface for IMapTileBitmapRequestedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileBitmapRequestedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FrameIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2627,7 +2627,7 @@ unsafe impl ::windows::core::Interface for IMapTileDataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileDataSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2639,7 +2639,7 @@ unsafe impl ::windows::core::Interface for IMapTileDataSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileDataSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2652,7 +2652,7 @@ unsafe impl ::windows::core::Interface for IMapTileSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Layer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapTileLayer) -> ::windows::core::HRESULT,
@@ -2692,7 +2692,7 @@ unsafe impl ::windows::core::Interface for IMapTileSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AnimationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapTileAnimationState) -> ::windows::core::HRESULT,
     pub AutoPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAutoPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2720,7 +2720,7 @@ unsafe impl ::windows::core::Interface for IMapTileSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datasource: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithDataSourceAndZoomRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datasource: ::windows::core::RawPtr, zoomlevelrange: MapZoomLevelRange, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2743,7 +2743,7 @@ unsafe impl ::windows::core::Interface for IMapTileSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DataSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LayerProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ZoomLevelRangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2766,7 +2766,7 @@ unsafe impl ::windows::core::Interface for IMapTileSourceStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSourceStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AnimationStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AutoPlayProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FrameCountProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2782,7 +2782,7 @@ unsafe impl ::windows::core::Interface for IMapTileUriRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileUriRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2803,7 +2803,7 @@ unsafe impl ::windows::core::Interface for IMapTileUriRequestDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileUriRequestDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2816,7 +2816,7 @@ unsafe impl ::windows::core::Interface for IMapTileUriRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileUriRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub X: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Y: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ZoomLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -2832,7 +2832,7 @@ unsafe impl ::windows::core::Interface for IMapTileUriRequestedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileUriRequestedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FrameIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::Interface for IStreetsideExperience {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreetsideExperience_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AddressTextVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAddressTextVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub CursorVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2869,7 +2869,7 @@ unsafe impl ::windows::core::Interface for IStreetsideExperienceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreetsideExperienceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithPanorama: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, panorama: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithPanoramaHeadingPitchAndFieldOfView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, panorama: ::windows::core::RawPtr, headingindegrees: f64, pitchindegrees: f64, fieldofviewindegrees: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2883,7 +2883,7 @@ unsafe impl ::windows::core::Interface for IStreetsidePanorama {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreetsidePanorama_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -2899,7 +2899,7 @@ unsafe impl ::windows::core::Interface for IStreetsidePanoramaStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreetsidePanoramaStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub FindNearbyWithLocationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]

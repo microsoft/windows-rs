@@ -8,7 +8,7 @@ impl IDirectManipulationAutoScrollBehavior_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetConfiguration(::core::mem::transmute_copy(&motiontypes), ::core::mem::transmute_copy(&scrollmotion)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetConfiguration: SetConfiguration::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetConfiguration: SetConfiguration::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationAutoScrollBehavior as ::windows::core::Interface>::IID
@@ -43,7 +43,7 @@ impl IDirectManipulationCompositor_Vtbl {
             (*this).Flush().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddContent: AddContent::<Identity, Impl, OFFSET>,
             RemoveContent: RemoveContent::<Identity, Impl, OFFSET>,
             SetUpdateManager: SetUpdateManager::<Identity, Impl, OFFSET>,
@@ -65,7 +65,7 @@ impl IDirectManipulationCompositor2_Vtbl {
             (*this).AddContentWithCrossProcessChaining(::core::mem::transmute(&content), ::core::mem::transmute(&device), ::core::mem::transmute(&parentvisual), ::core::mem::transmute(&childvisual)).into()
         }
         Self {
-            base: IDirectManipulationCompositor_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDirectManipulationCompositor_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddContentWithCrossProcessChaining: AddContentWithCrossProcessChaining::<Identity, Impl, OFFSET>,
         }
     }
@@ -134,7 +134,7 @@ impl IDirectManipulationContent_Vtbl {
             (*this).SyncContentTransform(::core::mem::transmute_copy(&matrix), ::core::mem::transmute_copy(&pointcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetContentRect: GetContentRect::<Identity, Impl, OFFSET>,
             SetContentRect: SetContentRect::<Identity, Impl, OFFSET>,
             GetViewport: GetViewport::<Identity, Impl, OFFSET>,
@@ -172,7 +172,7 @@ impl IDirectManipulationDeferContactService_Vtbl {
             (*this).CancelDeferral(::core::mem::transmute_copy(&pointerid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeferContact: DeferContact::<Identity, Impl, OFFSET>,
             CancelContact: CancelContact::<Identity, Impl, OFFSET>,
             CancelDeferral: CancelDeferral::<Identity, Impl, OFFSET>,
@@ -205,7 +205,7 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetConfiguration: SetConfiguration::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
         }
@@ -224,7 +224,7 @@ impl IDirectManipulationDragDropEventHandler_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnDragDropStatusChange(::core::mem::transmute(&viewport), ::core::mem::transmute_copy(&current), ::core::mem::transmute_copy(&previous)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnDragDropStatusChange: OnDragDropStatusChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnDragDropStatusChange: OnDragDropStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationDragDropEventHandler as ::windows::core::Interface>::IID
@@ -240,7 +240,7 @@ impl IDirectManipulationFrameInfoProvider_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNextFrameInfo(::core::mem::transmute_copy(&time), ::core::mem::transmute_copy(&processtime), ::core::mem::transmute_copy(&compositiontime)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNextFrameInfo: GetNextFrameInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNextFrameInfo: GetNextFrameInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationFrameInfoProvider as ::windows::core::Interface>::IID
@@ -256,7 +256,7 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnInteraction(::core::mem::transmute(&viewport), ::core::mem::transmute_copy(&interaction)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnInteraction: OnInteraction::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnInteraction: OnInteraction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationInteractionEventHandler as ::windows::core::Interface>::IID
@@ -317,7 +317,7 @@ impl IDirectManipulationManager_Vtbl {
             (*this).CreateContent(::core::mem::transmute(&frameinfo), ::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Activate: Activate::<Identity, Impl, OFFSET>,
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
             RegisterHitTestTarget: RegisterHitTestTarget::<Identity, Impl, OFFSET>,
@@ -343,7 +343,7 @@ impl IDirectManipulationManager2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateBehavior(::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
         }
-        Self { base: IDirectManipulationManager_Vtbl::new::<Identity, Impl, OFFSET>(), CreateBehavior: CreateBehavior::<Identity, Impl, OFFSET> }
+        Self { base__: IDirectManipulationManager_Vtbl::new::<Identity, Impl, OFFSET>(), CreateBehavior: CreateBehavior::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID
@@ -361,7 +361,7 @@ impl IDirectManipulationManager3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetService(::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
         }
-        Self { base: IDirectManipulationManager2_Vtbl::new::<Identity, Impl, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
+        Self { base__: IDirectManipulationManager2_Vtbl::new::<Identity, Impl, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationManager3 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID
@@ -426,7 +426,7 @@ impl IDirectManipulationPrimaryContent_Vtbl {
             (*this).GetCenterPoint(::core::mem::transmute_copy(&centerx), ::core::mem::transmute_copy(&centery)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetSnapInterval: SetSnapInterval::<Identity, Impl, OFFSET>,
             SetSnapPoints: SetSnapPoints::<Identity, Impl, OFFSET>,
             SetSnapType: SetSnapType::<Identity, Impl, OFFSET>,
@@ -452,7 +452,7 @@ impl IDirectManipulationUpdateHandler_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectManipulationUpdateHandler as ::windows::core::Interface>::IID
@@ -489,7 +489,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
             (*this).Update(::core::mem::transmute(&frameinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterWaitHandleCallback: RegisterWaitHandleCallback::<Identity, Impl, OFFSET>,
             UnregisterWaitHandleCallback: UnregisterWaitHandleCallback::<Identity, Impl, OFFSET>,
             Update: Update::<Identity, Impl, OFFSET>,
@@ -692,7 +692,7 @@ impl IDirectManipulationViewport_Vtbl {
             (*this).Abandon().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Enable: Enable::<Identity, Impl, OFFSET>,
             Disable: Disable::<Identity, Impl, OFFSET>,
             SetContact: SetContact::<Identity, Impl, OFFSET>,
@@ -758,7 +758,7 @@ impl IDirectManipulationViewport2_Vtbl {
             (*this).RemoveAllBehaviors().into()
         }
         Self {
-            base: IDirectManipulationViewport_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDirectManipulationViewport_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddBehavior: AddBehavior::<Identity, Impl, OFFSET>,
             RemoveBehavior: RemoveBehavior::<Identity, Impl, OFFSET>,
             RemoveAllBehaviors: RemoveAllBehaviors::<Identity, Impl, OFFSET>,
@@ -791,7 +791,7 @@ impl IDirectManipulationViewportEventHandler_Vtbl {
             (*this).OnContentUpdated(::core::mem::transmute(&viewport), ::core::mem::transmute(&content)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnViewportStatusChanged: OnViewportStatusChanged::<Identity, Impl, OFFSET>,
             OnViewportUpdated: OnViewportUpdated::<Identity, Impl, OFFSET>,
             OnContentUpdated: OnContentUpdated::<Identity, Impl, OFFSET>,

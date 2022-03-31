@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Gaming_Input")]
     pub Buttons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Gaming_Input"))]
@@ -41,7 +41,7 @@ unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfoFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Gaming_Input")]
     pub CreateInstanceFromGamepadReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reading: super::super::super::super::Gaming::Input::GamepadReading, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Gaming_Input"))]
@@ -57,7 +57,7 @@ unsafe impl ::windows::core::Interface for IInjectedInputKeyboardInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputKeyOptions) -> ::windows::core::HRESULT,
     pub SetKeyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputKeyOptions) -> ::windows::core::HRESULT,
     pub ScanCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -75,7 +75,7 @@ unsafe impl ::windows::core::Interface for IInjectedInputMouseInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputMouseInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MouseOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputMouseOptions) -> ::windows::core::HRESULT,
     pub SetMouseOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputMouseOptions) -> ::windows::core::HRESULT,
     pub MouseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -97,7 +97,7 @@ unsafe impl ::windows::core::Interface for IInjectedInputPenInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputPenInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT,
     pub SetPointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows::core::HRESULT,
     pub PenButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenButtons) -> ::windows::core::HRESULT,
@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for IInjectedInputTouchInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputRectangle) -> ::windows::core::HRESULT,
     pub SetContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputRectangle) -> ::windows::core::HRESULT,
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -145,7 +145,7 @@ unsafe impl ::windows::core::Interface for IInputInjector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub InjectKeyboardInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -175,7 +175,7 @@ unsafe impl ::windows::core::Interface for IInputInjector2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InitializeGamepadInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InjectGamepadInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UninitializeGamepadInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -190,7 +190,7 @@ unsafe impl ::windows::core::Interface for IInputInjectorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Interface for IInputInjectorStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]

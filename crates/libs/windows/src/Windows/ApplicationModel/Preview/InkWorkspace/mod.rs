@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub SetThumbnailAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))]
@@ -25,7 +25,7 @@ unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManagerStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Preview_InkWorkspace\"`*"]

@@ -10,7 +10,7 @@ impl ISideShowBulkCapabilities_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCapabilities(::core::mem::transmute(&in_keycollection), ::core::mem::transmute_copy(&inout_pvalues)).into()
         }
-        Self { base: ISideShowCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
+        Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISideShowBulkCapabilities as ::windows::core::Interface>::IID || iid == &<ISideShowCapabilities as ::windows::core::Interface>::IID
@@ -28,7 +28,7 @@ impl ISideShowCapabilities_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCapability(::core::mem::transmute_copy(&in_keycapability), ::core::mem::transmute_copy(&inout_pvalue)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetCapability: GetCapability::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetCapability: GetCapability::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISideShowCapabilities as ::windows::core::Interface>::IID
@@ -63,7 +63,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
@@ -109,7 +109,7 @@ impl ISideShowContent_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetContent: GetContent::<Identity, Impl, OFFSET>,
             ContentId: ContentId::<Identity, Impl, OFFSET>,
             DifferentiateContent: DifferentiateContent::<Identity, Impl, OFFSET>,
@@ -160,7 +160,7 @@ impl ISideShowContentManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             RemoveAll: RemoveAll::<Identity, Impl, OFFSET>,
@@ -207,7 +207,7 @@ impl ISideShowEvents_Vtbl {
             (*this).DeviceRemoved(::core::mem::transmute(&in_pidevice)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ContentMissing: ContentMissing::<Identity, Impl, OFFSET>,
             ApplicationEvent: ApplicationEvent::<Identity, Impl, OFFSET>,
             DeviceAdded: DeviceAdded::<Identity, Impl, OFFSET>,
@@ -255,7 +255,7 @@ impl ISideShowKeyCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
@@ -364,7 +364,7 @@ impl ISideShowNotification_Vtbl {
             (*this).SetExpirationTime(::core::mem::transmute_copy(&in_ptime)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NotificationId: NotificationId::<Identity, Impl, OFFSET>,
             SetNotificationId: SetNotificationId::<Identity, Impl, OFFSET>,
             Title: Title::<Identity, Impl, OFFSET>,
@@ -404,7 +404,7 @@ impl ISideShowNotificationManager_Vtbl {
             (*this).RevokeAll().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Show: Show::<Identity, Impl, OFFSET>,
             Revoke: Revoke::<Identity, Impl, OFFSET>,
             RevokeAll: RevokeAll::<Identity, Impl, OFFSET>,
@@ -451,7 +451,7 @@ impl ISideShowPropVariantCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
@@ -492,7 +492,7 @@ impl ISideShowSession_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterContent: RegisterContent::<Identity, Impl, OFFSET>,
             RegisterNotifications: RegisterNotifications::<Identity, Impl, OFFSET>,
         }

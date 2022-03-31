@@ -23,7 +23,7 @@ impl IXMLGraphBuilder_Vtbl {
             (*this).BuildFromXMLFile(::core::mem::transmute(&pgraph), ::core::mem::transmute(&wszfilename), ::core::mem::transmute(&wszbaseurl)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BuildFromXML: BuildFromXML::<Identity, Impl, OFFSET>,
             SaveToXML: SaveToXML::<Identity, Impl, OFFSET>,
             BuildFromXMLFile: BuildFromXMLFile::<Identity, Impl, OFFSET>,

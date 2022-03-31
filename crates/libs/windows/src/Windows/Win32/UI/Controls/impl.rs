@@ -245,7 +245,7 @@ impl IImageList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             ReplaceIcon: ReplaceIcon::<Identity, Impl, OFFSET>,
             SetOverlayImage: SetOverlayImage::<Identity, Impl, OFFSET>,
@@ -360,7 +360,7 @@ impl IImageList2_Vtbl {
             (*this).ReplaceFromImageList(::core::mem::transmute_copy(&i), ::core::mem::transmute(&pil), ::core::mem::transmute_copy(&isrc), ::core::mem::transmute(&punk), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: IImageList_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IImageList_Vtbl::new::<Identity, Impl, OFFSET>(),
             Resize: Resize::<Identity, Impl, OFFSET>,
             GetOriginalSize: GetOriginalSize::<Identity, Impl, OFFSET>,
             SetOriginalSize: SetOriginalSize::<Identity, Impl, OFFSET>,

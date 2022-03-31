@@ -59,7 +59,7 @@ impl IGPEInformation_Vtbl {
             (*this).PolicyChanged(::core::mem::transmute_copy(&bmachine), ::core::mem::transmute_copy(&badd), ::core::mem::transmute_copy(&pguidextension), ::core::mem::transmute_copy(&pguidsnapin)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET>,
             GetRegistryKey: GetRegistryKey::<Identity, Impl, OFFSET>,
@@ -220,7 +220,7 @@ impl IGPM_Vtbl {
             (*this).InitializeReporting(::core::mem::transmute(&bstradmpath)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDomain: GetDomain::<Identity, Impl, OFFSET>,
             GetBackupDir: GetBackupDir::<Identity, Impl, OFFSET>,
             GetSitesContainer: GetSitesContainer::<Identity, Impl, OFFSET>,
@@ -264,7 +264,7 @@ impl IGPM2_Vtbl {
             (*this).InitializeReportingEx(::core::mem::transmute(&bstradmpath), ::core::mem::transmute_copy(&reportingoptions)).into()
         }
         Self {
-            base: IGPM_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IGPM_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetBackupDirEx: GetBackupDirEx::<Identity, Impl, OFFSET>,
             InitializeReportingEx: InitializeReportingEx::<Identity, Impl, OFFSET>,
         }
@@ -285,7 +285,7 @@ impl IGPMAsyncCancel_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Cancel().into()
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGPMAsyncCancel as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -303,7 +303,7 @@ impl IGPMAsyncProgress_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Status(::core::mem::transmute_copy(&lprogressnumerator), ::core::mem::transmute_copy(&lprogressdenominator), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&presult), ::core::mem::transmute(&ppigpmstatusmsgcollection)).into()
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Status: Status::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Status: Status::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGPMAsyncProgress as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -424,7 +424,7 @@ impl IGPMBackup_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ID: ID::<Identity, Impl, OFFSET>,
             GPOID: GPOID::<Identity, Impl, OFFSET>,
             GPODomain: GPODomain::<Identity, Impl, OFFSET>,
@@ -484,7 +484,7 @@ impl IGPMBackupCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -537,7 +537,7 @@ impl IGPMBackupDir_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BackupDirectory: BackupDirectory::<Identity, Impl, OFFSET>,
             GetBackup: GetBackup::<Identity, Impl, OFFSET>,
             SearchBackups: SearchBackups::<Identity, Impl, OFFSET>,
@@ -602,7 +602,7 @@ impl IGPMBackupDirEx_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BackupDir: BackupDir::<Identity, Impl, OFFSET>,
             BackupType: BackupType::<Identity, Impl, OFFSET>,
             GetBackup: GetBackup::<Identity, Impl, OFFSET>,
@@ -656,7 +656,7 @@ impl IGPMCSECollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -721,7 +721,7 @@ impl IGPMClientSideExtension_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ID: ID::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             IsUserEnabled: IsUserEnabled::<Identity, Impl, OFFSET>,
@@ -1459,7 +1459,7 @@ impl IGPMConstants_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PermGPOApply: PermGPOApply::<Identity, Impl, OFFSET>,
             PermGPORead: PermGPORead::<Identity, Impl, OFFSET>,
             PermGPOEdit: PermGPOEdit::<Identity, Impl, OFFSET>,
@@ -1713,7 +1713,7 @@ impl IGPMConstants2_Vtbl {
             }
         }
         Self {
-            base: IGPMConstants_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IGPMConstants_Vtbl::new::<Identity, Impl, OFFSET>(),
             BackupTypeGPO: BackupTypeGPO::<Identity, Impl, OFFSET>,
             BackupTypeStarterGPO: BackupTypeStarterGPO::<Identity, Impl, OFFSET>,
             StarterGPOTypeSystem: StarterGPOTypeSystem::<Identity, Impl, OFFSET>,
@@ -1856,7 +1856,7 @@ impl IGPMDomain_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DomainController: DomainController::<Identity, Impl, OFFSET>,
             Domain: Domain::<Identity, Impl, OFFSET>,
             CreateGPO: CreateGPO::<Identity, Impl, OFFSET>,
@@ -1940,7 +1940,7 @@ impl IGPMDomain2_Vtbl {
             (*this).RestoreStarterGPO(::core::mem::transmute(&pigpmtmplbackup), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
         Self {
-            base: IGPMDomain_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IGPMDomain_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateStarterGPO: CreateStarterGPO::<Identity, Impl, OFFSET>,
             CreateGPOFromStarterGPO: CreateGPOFromStarterGPO::<Identity, Impl, OFFSET>,
             GetStarterGPO: GetStarterGPO::<Identity, Impl, OFFSET>,
@@ -1990,7 +1990,7 @@ impl IGPMDomain3_Vtbl {
             (*this).SetInfrastructureFlags(::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: IGPMDomain2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IGPMDomain2_Vtbl::new::<Identity, Impl, OFFSET>(),
             GenerateReport: GenerateReport::<Identity, Impl, OFFSET>,
             InfrastructureDC: InfrastructureDC::<Identity, Impl, OFFSET>,
             SetInfrastructureDC: SetInfrastructureDC::<Identity, Impl, OFFSET>,
@@ -2284,7 +2284,7 @@ impl IGPMGPO_Vtbl {
             (*this).MakeACLConsistent().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             Path: Path::<Identity, Impl, OFFSET>,
@@ -2345,7 +2345,7 @@ impl IGPMGPO2_Vtbl {
             (*this).SetDescription(::core::mem::transmute(&newval)).into()
         }
         Self {
-            base: IGPMGPO_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IGPMGPO_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
         }
@@ -2385,7 +2385,7 @@ impl IGPMGPO3_Vtbl {
             (*this).SetInfrastructureFlags(::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: IGPMGPO2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IGPMGPO2_Vtbl::new::<Identity, Impl, OFFSET>(),
             InfrastructureDC: InfrastructureDC::<Identity, Impl, OFFSET>,
             SetInfrastructureDC: SetInfrastructureDC::<Identity, Impl, OFFSET>,
             SetInfrastructureFlags: SetInfrastructureFlags::<Identity, Impl, OFFSET>,
@@ -2438,7 +2438,7 @@ impl IGPMGPOCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2545,7 +2545,7 @@ impl IGPMGPOLink_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GPOID: GPOID::<Identity, Impl, OFFSET>,
             GPODomain: GPODomain::<Identity, Impl, OFFSET>,
             Enabled: Enabled::<Identity, Impl, OFFSET>,
@@ -2604,7 +2604,7 @@ impl IGPMGPOLinksCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2669,7 +2669,7 @@ impl IGPMMapEntry_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Source: Source::<Identity, Impl, OFFSET>,
             Destination: Destination::<Identity, Impl, OFFSET>,
             DestinationOption: DestinationOption::<Identity, Impl, OFFSET>,
@@ -2723,7 +2723,7 @@ impl IGPMMapEntryCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2818,7 +2818,7 @@ impl IGPMMigrationTable_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Save: Save::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             AddEntry: AddEntry::<Identity, Impl, OFFSET>,
@@ -2900,7 +2900,7 @@ impl IGPMPermission_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Inherited: Inherited::<Identity, Impl, OFFSET>,
             Inheritable: Inheritable::<Identity, Impl, OFFSET>,
             Denied: Denied::<Identity, Impl, OFFSET>,
@@ -3237,7 +3237,7 @@ impl IGPMRSOP_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Mode: Mode::<Identity, Impl, OFFSET>,
             Namespace: Namespace::<Identity, Impl, OFFSET>,
             SetLoggingComputer: SetLoggingComputer::<Identity, Impl, OFFSET>,
@@ -3316,7 +3316,7 @@ impl IGPMResult_Vtbl {
             (*this).OverallStatus().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             Result: Result::<Identity, Impl, OFFSET>,
             OverallStatus: OverallStatus::<Identity, Impl, OFFSET>,
@@ -3441,7 +3441,7 @@ impl IGPMSOM_Vtbl {
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GPOInheritanceBlocked: GPOInheritanceBlocked::<Identity, Impl, OFFSET>,
             SetGPOInheritanceBlocked: SetGPOInheritanceBlocked::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -3501,7 +3501,7 @@ impl IGPMSOMCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3523,7 +3523,7 @@ impl IGPMSearchCriteria_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&searchproperty), ::core::mem::transmute_copy(&searchoperation), ::core::mem::transmute(&varvalue)).into()
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGPMSearchCriteria as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -3590,7 +3590,7 @@ impl IGPMSecurityInfo_Vtbl {
             (*this).RemoveTrustee(::core::mem::transmute(&bstrtrustee)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3670,7 +3670,7 @@ impl IGPMSitesContainer_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DomainController: DomainController::<Identity, Impl, OFFSET>,
             Domain: Domain::<Identity, Impl, OFFSET>,
             Forest: Forest::<Identity, Impl, OFFSET>,
@@ -3907,7 +3907,7 @@ impl IGPMStarterGPO_Vtbl {
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -4062,7 +4062,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BackupDir: BackupDir::<Identity, Impl, OFFSET>,
             Comment: Comment::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
@@ -4123,7 +4123,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4176,7 +4176,7 @@ impl IGPMStarterGPOCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4253,7 +4253,7 @@ impl IGPMStatusMessage_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ObjectPath: ObjectPath::<Identity, Impl, OFFSET>,
             ErrorCode: ErrorCode::<Identity, Impl, OFFSET>,
             ExtensionName: ExtensionName::<Identity, Impl, OFFSET>,
@@ -4309,7 +4309,7 @@ impl IGPMStatusMsgCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4386,7 +4386,7 @@ impl IGPMTrustee_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             TrusteeSid: TrusteeSid::<Identity, Impl, OFFSET>,
             TrusteeName: TrusteeName::<Identity, Impl, OFFSET>,
             TrusteeDomain: TrusteeDomain::<Identity, Impl, OFFSET>,
@@ -4483,7 +4483,7 @@ impl IGPMWMIFilter_Vtbl {
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -4541,7 +4541,7 @@ impl IGPMWMIFilterCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4666,7 +4666,7 @@ impl IGroupPolicyObject_Vtbl {
             (*this).GetPropertySheetPages(::core::mem::transmute_copy(&hpages), ::core::mem::transmute_copy(&upagecount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             New: New::<Identity, Impl, OFFSET>,
             OpenDSGPO: OpenDSGPO::<Identity, Impl, OFFSET>,
             OpenLocalMachineGPO: OpenLocalMachineGPO::<Identity, Impl, OFFSET>,
@@ -4720,7 +4720,7 @@ impl IRSOPInformation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNamespace: GetNamespace::<Identity, Impl, OFFSET>,
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
             GetEventLogEntryText: GetEventLogEntryText::<Identity, Impl, OFFSET>,

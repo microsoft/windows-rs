@@ -21,7 +21,7 @@ impl IWsbApplicationAsync_Vtbl {
             (*this).Abort().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryStatus: QueryStatus::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
         }
@@ -46,7 +46,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWsbApplicationBackupSupport as ::windows::core::Interface>::IID
@@ -89,7 +89,7 @@ impl IWsbApplicationRestoreSupport_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PreRestore: PreRestore::<Identity, Impl, OFFSET>,
             PostRestore: PostRestore::<Identity, Impl, OFFSET>,
             OrderComponents: OrderComponents::<Identity, Impl, OFFSET>,

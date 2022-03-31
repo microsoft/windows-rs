@@ -91,7 +91,7 @@ unsafe impl ::windows::core::Interface for IUriToStreamResolver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriToStreamResolver_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub UriToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -107,7 +107,7 @@ unsafe impl ::windows::core::Interface for IWebErrorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebErrorStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Web\"`*"]

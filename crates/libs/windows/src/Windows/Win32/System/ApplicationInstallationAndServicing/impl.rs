@@ -39,7 +39,7 @@ impl IAssemblyCache_Vtbl {
             (*this).InstallAssembly(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszmanifestfilepath), ::core::mem::transmute_copy(&prefdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             UninstallAssembly: UninstallAssembly::<Identity, Impl, OFFSET>,
             QueryAssemblyInfo: QueryAssemblyInfo::<Identity, Impl, OFFSET>,
             CreateAssemblyCacheItem: CreateAssemblyCacheItem::<Identity, Impl, OFFSET>,
@@ -76,7 +76,7 @@ impl IAssemblyCacheItem_Vtbl {
             (*this).AbortItem().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateStream: CreateStream::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
             AbortItem: AbortItem::<Identity, Impl, OFFSET>,
@@ -151,7 +151,7 @@ impl IAssemblyName_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             Finalize: Finalize::<Identity, Impl, OFFSET>,
@@ -204,7 +204,7 @@ impl IEnumMsmDependency_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -252,7 +252,7 @@ impl IEnumMsmError_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -300,7 +300,7 @@ impl IEnumMsmString_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -348,7 +348,7 @@ impl IMsmDependencies_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -383,7 +383,7 @@ impl IMsmDependency_Vtbl {
             (*this).Version(::core::mem::transmute_copy(&version)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Module: Module::<Identity, Impl, OFFSET>,
             Language: Language::<Identity, Impl, OFFSET>,
             Version: Version::<Identity, Impl, OFFSET>,
@@ -454,7 +454,7 @@ impl IMsmError_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Path: Path::<Identity, Impl, OFFSET>,
             Language: Language::<Identity, Impl, OFFSET>,
@@ -505,7 +505,7 @@ impl IMsmErrors_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -533,7 +533,7 @@ impl IMsmGetFiles_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ModuleFiles: ModuleFiles::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ModuleFiles: ModuleFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMsmGetFiles as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -636,7 +636,7 @@ impl IMsmMerge_Vtbl {
             (*this).ExtractFiles(::core::mem::transmute(&path)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OpenDatabase: OpenDatabase::<Identity, Impl, OFFSET>,
             OpenModule: OpenModule::<Identity, Impl, OFFSET>,
             CloseDatabase: CloseDatabase::<Identity, Impl, OFFSET>,
@@ -687,7 +687,7 @@ impl IMsmStrings_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1244,7 +1244,7 @@ impl IPMApplicationInfo_Vtbl {
             (*this).set_Title(::core::mem::transmute(&apptitle)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProductID: ProductID::<Identity, Impl, OFFSET>,
             InstanceID: InstanceID::<Identity, Impl, OFFSET>,
             OfferID: OfferID::<Identity, Impl, OFFSET>,
@@ -1322,7 +1322,7 @@ impl IPMApplicationInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMApplicationInfoEnumerator as ::windows::core::Interface>::IID
@@ -1455,7 +1455,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             (*this).set_IsScheduleAllowed(::core::mem::transmute_copy(&isscheduleallowed)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProductID: ProductID::<Identity, Impl, OFFSET>,
             TaskID: TaskID::<Identity, Impl, OFFSET>,
             BSAID: BSAID::<Identity, Impl, OFFSET>,
@@ -1492,7 +1492,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMBackgroundServiceAgentInfoEnumerator as ::windows::core::Interface>::IID
@@ -1565,7 +1565,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProductID: ProductID::<Identity, Impl, OFFSET>,
             TaskID: TaskID::<Identity, Impl, OFFSET>,
             BGName: BGName::<Identity, Impl, OFFSET>,
@@ -1594,7 +1594,7 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMBackgroundWorkerInfoEnumerator as ::windows::core::Interface>::IID
@@ -1833,7 +1833,7 @@ impl IPMDeploymentManager_Vtbl {
             (*this).FixJunctionsForAppsOnSDCard().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReportDownloadBegin: ReportDownloadBegin::<Identity, Impl, OFFSET>,
             ReportDownloadProgress: ReportDownloadProgress::<Identity, Impl, OFFSET>,
             ReportDownloadComplete: ReportDownloadComplete::<Identity, Impl, OFFSET>,
@@ -2044,7 +2044,7 @@ impl IPMEnumerationManager_Vtbl {
             (*this).StartAppEnumeratorBlob(::core::mem::transmute(&filter), ::core::mem::transmute_copy(&pcapps), ::core::mem::transmute_copy(&ppappblobs)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AllApplications: AllApplications::<Identity, Impl, OFFSET>,
             AllTiles: AllTiles::<Identity, Impl, OFFSET>,
             AllTasks: AllTasks::<Identity, Impl, OFFSET>,
@@ -2087,7 +2087,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SupportsUpdates: SupportsUpdates::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SupportsUpdates: SupportsUpdates::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMExtensionCachedFileUpdaterInfo as ::windows::core::Interface>::IID
@@ -2105,7 +2105,7 @@ impl IPMExtensionContractInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InvocationInfo(::core::mem::transmute_copy(&paumid), ::core::mem::transmute_copy(&pargs)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvocationInfo: InvocationInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvocationInfo: InvocationInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMExtensionContractInfo as ::windows::core::Interface>::IID
@@ -2160,7 +2160,7 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
             (*this).AllFileTypes(::core::mem::transmute_copy(&pcbtypes), ::core::mem::transmute_copy(&pptypes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             Logo: Logo::<Identity, Impl, OFFSET>,
@@ -2199,7 +2199,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AllFileTypes: AllFileTypes::<Identity, Impl, OFFSET>,
             SupportsAllFileTypes: SupportsAllFileTypes::<Identity, Impl, OFFSET>,
         }
@@ -2233,7 +2233,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AllFileTypes: AllFileTypes::<Identity, Impl, OFFSET>,
             SupportsAllFileTypes: SupportsAllFileTypes::<Identity, Impl, OFFSET>,
         }
@@ -2291,7 +2291,7 @@ impl IPMExtensionInfo_Vtbl {
             (*this).InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SupplierPID: SupplierPID::<Identity, Impl, OFFSET>,
             SupplierTaskID: SupplierTaskID::<Identity, Impl, OFFSET>,
             Title: Title::<Identity, Impl, OFFSET>,
@@ -2320,7 +2320,7 @@ impl IPMExtensionInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMExtensionInfoEnumerator as ::windows::core::Interface>::IID
@@ -2345,7 +2345,7 @@ impl IPMExtensionProtocolInfo_Vtbl {
             (*this).InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Protocol: Protocol::<Identity, Impl, OFFSET>,
             InvocationInfo: InvocationInfo::<Identity, Impl, OFFSET>,
         }
@@ -2385,7 +2385,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AllFileTypes: AllFileTypes::<Identity, Impl, OFFSET>,
             AllDataFormats: AllDataFormats::<Identity, Impl, OFFSET>,
             SupportsAllFileTypes: SupportsAllFileTypes::<Identity, Impl, OFFSET>,
@@ -2606,7 +2606,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             (*this).set_DownloadState(::core::mem::transmute_copy(&uldownloadstate)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProductID: ProductID::<Identity, Impl, OFFSET>,
             TileID: TileID::<Identity, Impl, OFFSET>,
             NextSchedule: NextSchedule::<Identity, Impl, OFFSET>,
@@ -2653,7 +2653,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMLiveTileJobInfoEnumerator as ::windows::core::Interface>::IID
@@ -2864,7 +2864,7 @@ impl IPMTaskInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProductID: ProductID::<Identity, Impl, OFFSET>,
             TaskID: TaskID::<Identity, Impl, OFFSET>,
             NavigationPage: NavigationPage::<Identity, Impl, OFFSET>,
@@ -2908,7 +2908,7 @@ impl IPMTaskInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMTaskInfoEnumerator as ::windows::core::Interface>::IID
@@ -3143,7 +3143,7 @@ impl IPMTileInfo_Vtbl {
             (*this).set_IsAutoRestoreDisabled(::core::mem::transmute_copy(&autorestoredisabled)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProductID: ProductID::<Identity, Impl, OFFSET>,
             TileID: TileID::<Identity, Impl, OFFSET>,
             TemplateType: TemplateType::<Identity, Impl, OFFSET>,
@@ -3190,7 +3190,7 @@ impl IPMTileInfoEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMTileInfoEnumerator as ::windows::core::Interface>::IID
@@ -3212,7 +3212,7 @@ impl IPMTilePropertyEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPMTilePropertyEnumerator as ::windows::core::Interface>::IID
@@ -3249,7 +3249,7 @@ impl IPMTilePropertyInfo_Vtbl {
             (*this).set_Property(::core::mem::transmute(&propvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PropertyID: PropertyID::<Identity, Impl, OFFSET>,
             PropertyValue: PropertyValue::<Identity, Impl, OFFSET>,
             set_Property: set_Property::<Identity, Impl, OFFSET>,
@@ -3308,7 +3308,7 @@ impl IValidate_Vtbl {
             (*this).Validate(::core::mem::transmute(&wzices)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OpenDatabase: OpenDatabase::<Identity, Impl, OFFSET>,
             OpenCUB: OpenCUB::<Identity, Impl, OFFSET>,
             CloseDatabase: CloseDatabase::<Identity, Impl, OFFSET>,

@@ -281,7 +281,7 @@ unsafe impl ::windows::core::Interface for IBackgroundEnergyManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundEnergyManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub LowUsageLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -344,7 +344,7 @@ unsafe impl ::windows::core::Interface for IForegroundEnergyManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForegroundEnergyManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub LowUsageLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for IPowerManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnergySaverStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnergySaverStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub EnergySaverStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,

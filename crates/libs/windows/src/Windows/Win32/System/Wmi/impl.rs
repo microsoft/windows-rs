@@ -39,7 +39,7 @@ impl IEnumWbemClassObject_Vtbl {
             (*this).Skip(::core::mem::transmute_copy(&ltimeout), ::core::mem::transmute_copy(&ncount))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             NextAsync: NextAsync::<Identity, Impl, OFFSET>,
@@ -74,7 +74,7 @@ impl IMofCompiler_Vtbl {
             (*this).CreateBMOF(::core::mem::transmute(&textfilename), ::core::mem::transmute(&bmoffilename), ::core::mem::transmute(&serverandnamespace), ::core::mem::transmute_copy(&loptionflags), ::core::mem::transmute_copy(&lclassflags), ::core::mem::transmute_copy(&linstanceflags), ::core::mem::transmute_copy(&pinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CompileFile: CompileFile::<Identity, Impl, OFFSET>,
             CompileBuffer: CompileBuffer::<Identity, Impl, OFFSET>,
             CreateBMOF: CreateBMOF::<Identity, Impl, OFFSET>,
@@ -451,7 +451,7 @@ impl ISWbemDateTime_Vtbl {
             (*this).SetFileTime(::core::mem::transmute(&strfiletime), ::core::mem::transmute_copy(&bislocal)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Year: Year::<Identity, Impl, OFFSET>,
@@ -529,7 +529,7 @@ impl ISWbemEventSource_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             NextEvent: NextEvent::<Identity, Impl, OFFSET>,
             Security_: Security_::<Identity, Impl, OFFSET>,
         }
@@ -543,7 +543,7 @@ pub trait ISWbemLastError_Impl: Sized + super::Com::IDispatch_Impl + ISWbemObjec
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemLastError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemLastError_Impl, const OFFSET: isize>() -> ISWbemLastError_Vtbl {
-        Self { base: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISWbemLastError as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISWbemObject as ::windows::core::Interface>::IID
@@ -580,7 +580,7 @@ impl ISWbemLocator_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ConnectServer: ConnectServer::<Identity, Impl, OFFSET>,
             Security_: Security_::<Identity, Impl, OFFSET>,
         }
@@ -656,7 +656,7 @@ impl ISWbemMethod_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Origin: Origin::<Identity, Impl, OFFSET>,
             InParameters: InParameters::<Identity, Impl, OFFSET>,
@@ -711,7 +711,7 @@ impl ISWbemMethodSet_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -758,7 +758,7 @@ impl ISWbemNamedValue_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -847,7 +847,7 @@ impl ISWbemNamedValueSet_Vtbl {
             (*this).DeleteAll().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1149,7 +1149,7 @@ impl ISWbemObject_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Put_: Put_::<Identity, Impl, OFFSET>,
             PutAsync_: PutAsync_::<Identity, Impl, OFFSET>,
             Delete_: Delete_::<Identity, Impl, OFFSET>,
@@ -1224,7 +1224,7 @@ impl ISWbemObjectEx_Vtbl {
             (*this).SetFromText_(::core::mem::transmute(&bstext), ::core::mem::transmute_copy(&iobjecttextformat), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset)).into()
         }
         Self {
-            base: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Refresh_: Refresh_::<Identity, Impl, OFFSET>,
             SystemProperties_: SystemProperties_::<Identity, Impl, OFFSET>,
             GetText_: GetText_::<Identity, Impl, OFFSET>,
@@ -1458,7 +1458,7 @@ impl ISWbemObjectPath_Vtbl {
             (*this).SetAuthority(::core::mem::transmute(&strauthority)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             SetPath: SetPath::<Identity, Impl, OFFSET>,
             RelPath: RelPath::<Identity, Impl, OFFSET>,
@@ -1555,7 +1555,7 @@ impl ISWbemObjectSet_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1628,7 +1628,7 @@ impl ISWbemPrivilege_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
             SetIsEnabled: SetIsEnabled::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -1719,7 +1719,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1830,7 +1830,7 @@ impl ISWbemProperty_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -1906,7 +1906,7 @@ impl ISWbemPropertySet_Vtbl {
             (*this).Remove(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&iflags)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2033,7 +2033,7 @@ impl ISWbemQualifier_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -2112,7 +2112,7 @@ impl ISWbemQualifierSet_Vtbl {
             (*this).Remove(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&iflags)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2197,7 +2197,7 @@ impl ISWbemRefreshableItem_Vtbl {
             (*this).Remove(::core::mem::transmute_copy(&iflags)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Index: Index::<Identity, Impl, OFFSET>,
             Refresher: Refresher::<Identity, Impl, OFFSET>,
             IsSet: IsSet::<Identity, Impl, OFFSET>,
@@ -2313,7 +2313,7 @@ impl ISWbemRefresher_Vtbl {
             (*this).DeleteAll().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2385,7 +2385,7 @@ impl ISWbemSecurity_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ImpersonationLevel: ImpersonationLevel::<Identity, Impl, OFFSET>,
             SetImpersonationLevel: SetImpersonationLevel::<Identity, Impl, OFFSET>,
             AuthenticationLevel: AuthenticationLevel::<Identity, Impl, OFFSET>,
@@ -2617,7 +2617,7 @@ impl ISWbemServices_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Get: Get::<Identity, Impl, OFFSET>,
             GetAsync: GetAsync::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -2667,7 +2667,7 @@ impl ISWbemServicesEx_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).PutAsync(::core::mem::transmute(&objwbemsink), ::core::mem::transmute(&objwbemobject), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset), ::core::mem::transmute(&objwbemasynccontext)).into()
         }
-        Self { base: ISWbemServices_Vtbl::new::<Identity, Impl, OFFSET>(), Put: Put::<Identity, Impl, OFFSET>, PutAsync: PutAsync::<Identity, Impl, OFFSET> }
+        Self { base__: ISWbemServices_Vtbl::new::<Identity, Impl, OFFSET>(), Put: Put::<Identity, Impl, OFFSET>, PutAsync: PutAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISWbemServicesEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISWbemServices as ::windows::core::Interface>::IID
@@ -2685,7 +2685,7 @@ impl ISWbemSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Cancel().into()
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISWbemSink as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -2696,7 +2696,7 @@ pub trait ISWbemSinkEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemSinkEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemSinkEvents_Impl, const OFFSET: isize>() -> ISWbemSinkEvents_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISWbemSinkEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -2718,7 +2718,7 @@ impl IUnsecuredApartment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateObjectStub: CreateObjectStub::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateObjectStub: CreateObjectStub::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUnsecuredApartment as ::windows::core::Interface>::IID
@@ -2767,7 +2767,7 @@ impl IWMIExtension_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             WMIObjectPath: WMIObjectPath::<Identity, Impl, OFFSET>,
             GetWMIObject: GetWMIObject::<Identity, Impl, OFFSET>,
             GetWMIServices: GetWMIServices::<Identity, Impl, OFFSET>,
@@ -2787,7 +2787,7 @@ impl IWbemAddressResolution_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Resolve(::core::mem::transmute(&wsznamespacepath), ::core::mem::transmute_copy(&wszaddresstype), ::core::mem::transmute_copy(&pdwaddresslength), ::core::mem::transmute_copy(&pabbinaryaddress)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemAddressResolution as ::windows::core::Interface>::IID
@@ -2810,7 +2810,7 @@ impl IWbemBackupRestore_Vtbl {
             (*this).Restore(::core::mem::transmute(&strrestorefromfile), ::core::mem::transmute_copy(&lflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Backup: Backup::<Identity, Impl, OFFSET>,
             Restore: Restore::<Identity, Impl, OFFSET>,
         }
@@ -2835,7 +2835,11 @@ impl IWbemBackupRestoreEx_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Resume().into()
         }
-        Self { base: IWbemBackupRestore_Vtbl::new::<Identity, Impl, OFFSET>(), Pause: Pause::<Identity, Impl, OFFSET>, Resume: Resume::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IWbemBackupRestore_Vtbl::new::<Identity, Impl, OFFSET>(),
+            Pause: Pause::<Identity, Impl, OFFSET>,
+            Resume: Resume::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemBackupRestoreEx as ::windows::core::Interface>::IID || iid == &<IWbemBackupRestore as ::windows::core::Interface>::IID
@@ -2896,7 +2900,7 @@ impl IWbemCallResult_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetResultObject: GetResultObject::<Identity, Impl, OFFSET>,
             GetResultString: GetResultString::<Identity, Impl, OFFSET>,
             GetResultServices: GetResultServices::<Identity, Impl, OFFSET>,
@@ -3118,7 +3122,7 @@ impl IWbemClassObject_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetQualifierSet: GetQualifierSet::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
             Put: Put::<Identity, Impl, OFFSET>,
@@ -3176,7 +3180,7 @@ impl IWbemClientConnectionTransport_Vtbl {
             (*this).Cancel(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&phandler)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             OpenAsync: OpenAsync::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
@@ -3204,7 +3208,7 @@ impl IWbemClientTransport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemClientTransport as ::windows::core::Interface>::IID
@@ -3245,7 +3249,7 @@ impl IWbemConfigureRefresher_Vtbl {
             (*this).AddEnum(::core::mem::transmute(&pnamespace), ::core::mem::transmute(&wszclassname), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&ppenum), ::core::mem::transmute_copy(&plid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddObjectByPath: AddObjectByPath::<Identity, Impl, OFFSET>,
             AddObjectByTemplate: AddObjectByTemplate::<Identity, Impl, OFFSET>,
             AddRefresher: AddRefresher::<Identity, Impl, OFFSET>,
@@ -3267,7 +3271,7 @@ impl IWbemConnectorLogin_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ConnectorLogin(::core::mem::transmute(&wsznetworkresource), ::core::mem::transmute(&wszpreferredlocale), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pctx), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pinterface)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectorLogin: ConnectorLogin::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectorLogin: ConnectorLogin::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemConnectorLogin as ::windows::core::Interface>::IID
@@ -3302,7 +3306,7 @@ impl IWbemConstructClassObject_Vtbl {
             (*this).SetServerNamespace(::core::mem::transmute(&wszserver), ::core::mem::transmute(&wsznamespace)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetInheritanceChain: SetInheritanceChain::<Identity, Impl, OFFSET>,
             SetPropertyOrigin: SetPropertyOrigin::<Identity, Impl, OFFSET>,
             SetMethodOrigin: SetMethodOrigin::<Identity, Impl, OFFSET>,
@@ -3392,7 +3396,7 @@ impl IWbemContext_Vtbl {
             (*this).DeleteAll().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             GetNames: GetNames::<Identity, Impl, OFFSET>,
             BeginEnumeration: BeginEnumeration::<Identity, Impl, OFFSET>,
@@ -3437,7 +3441,7 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
             }
         }
         Self {
-            base: IWbemDecoupledRegistrar_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWbemDecoupledRegistrar_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSink: GetSink::<Identity, Impl, OFFSET>,
             GetService: GetService::<Identity, Impl, OFFSET>,
         }
@@ -3463,7 +3467,7 @@ impl IWbemDecoupledRegistrar_Vtbl {
             (*this).UnRegister().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Register: Register::<Identity, Impl, OFFSET>,
             UnRegister: UnRegister::<Identity, Impl, OFFSET>,
         }
@@ -3488,7 +3492,7 @@ impl IWbemEventConsumerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FindConsumer: FindConsumer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FindConsumer: FindConsumer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemEventConsumerProvider as ::windows::core::Interface>::IID
@@ -3504,7 +3508,7 @@ impl IWbemEventProvider_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ProvideEvents(::core::mem::transmute(&psink), ::core::mem::transmute_copy(&lflags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProvideEvents: ProvideEvents::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProvideEvents: ProvideEvents::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemEventProvider as ::windows::core::Interface>::IID
@@ -3527,7 +3531,7 @@ impl IWbemEventProviderQuerySink_Vtbl {
             (*this).CancelQuery(::core::mem::transmute_copy(&dwid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NewQuery: NewQuery::<Identity, Impl, OFFSET>,
             CancelQuery: CancelQuery::<Identity, Impl, OFFSET>,
         }
@@ -3546,7 +3550,7 @@ impl IWbemEventProviderSecurity_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AccessCheck(::core::mem::transmute_copy(&wszquerylanguage), ::core::mem::transmute_copy(&wszquery), ::core::mem::transmute_copy(&lsidlength), ::core::mem::transmute_copy(&psid)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AccessCheck: AccessCheck::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AccessCheck: AccessCheck::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemEventProviderSecurity as ::windows::core::Interface>::IID
@@ -3589,7 +3593,7 @@ impl IWbemEventSink_Vtbl {
             (*this).SetBatchingParameters(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&dwmaxbuffersize), ::core::mem::transmute_copy(&dwmaxsendlatency)).into()
         }
         Self {
-            base: IWbemObjectSink_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWbemObjectSink_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSinkSecurity: SetSinkSecurity::<Identity, Impl, OFFSET>,
             IsActive: IsActive::<Identity, Impl, OFFSET>,
             GetRestrictedSink: GetRestrictedSink::<Identity, Impl, OFFSET>,
@@ -3629,7 +3633,7 @@ impl IWbemHiPerfEnum_Vtbl {
             (*this).RemoveAll(::core::mem::transmute_copy(&lflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddObjects: AddObjects::<Identity, Impl, OFFSET>,
             RemoveObjects: RemoveObjects::<Identity, Impl, OFFSET>,
             GetObjects: GetObjects::<Identity, Impl, OFFSET>,
@@ -3693,7 +3697,7 @@ impl IWbemHiPerfProvider_Vtbl {
             (*this).GetObjects(::core::mem::transmute(&pnamespace), ::core::mem::transmute_copy(&lnumobjects), ::core::mem::transmute_copy(&apobj), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryInstances: QueryInstances::<Identity, Impl, OFFSET>,
             CreateRefresher: CreateRefresher::<Identity, Impl, OFFSET>,
             CreateRefreshableObject: CreateRefreshableObject::<Identity, Impl, OFFSET>,
@@ -3759,7 +3763,7 @@ impl IWbemLevel1Login_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EstablishPosition: EstablishPosition::<Identity, Impl, OFFSET>,
             RequestChallenge: RequestChallenge::<Identity, Impl, OFFSET>,
             WBEMLogin: WBEMLogin::<Identity, Impl, OFFSET>,
@@ -3788,7 +3792,7 @@ impl IWbemLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemLocator as ::windows::core::Interface>::IID
@@ -3873,7 +3877,7 @@ impl IWbemObjectAccess_Vtbl {
             (*this).Unlock(::core::mem::transmute_copy(&lflags)).into()
         }
         Self {
-            base: IWbemClassObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWbemClassObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPropertyHandle: GetPropertyHandle::<Identity, Impl, OFFSET>,
             WritePropertyValue: WritePropertyValue::<Identity, Impl, OFFSET>,
             ReadPropertyValue: ReadPropertyValue::<Identity, Impl, OFFSET>,
@@ -3909,7 +3913,7 @@ impl IWbemObjectSink_Vtbl {
             (*this).SetStatus(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&hresult), ::core::mem::transmute(&strparam), ::core::mem::transmute(&pobjparam)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Indicate: Indicate::<Identity, Impl, OFFSET>,
             SetStatus: SetStatus::<Identity, Impl, OFFSET>,
         }
@@ -3967,7 +3971,7 @@ impl IWbemObjectSinkEx_Vtbl {
             (*this).WriteStreamParameter(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&vtvalue), ::core::mem::transmute_copy(&ultype), ::core::mem::transmute_copy(&ulflags)).into()
         }
         Self {
-            base: IWbemObjectSink_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWbemObjectSink_Vtbl::new::<Identity, Impl, OFFSET>(),
             WriteMessage: WriteMessage::<Identity, Impl, OFFSET>,
             WriteError: WriteError::<Identity, Impl, OFFSET>,
             PromptUser: PromptUser::<Identity, Impl, OFFSET>,
@@ -4010,7 +4014,7 @@ impl IWbemObjectTextSrc_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetText: GetText::<Identity, Impl, OFFSET>,
             CreateFromText: CreateFromText::<Identity, Impl, OFFSET>,
         }
@@ -4206,7 +4210,7 @@ impl IWbemPath_Vtbl {
             (*this).IsSameClassName(::core::mem::transmute(&wszclass))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetText: SetText::<Identity, Impl, OFFSET>,
             GetText: GetText::<Identity, Impl, OFFSET>,
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
@@ -4318,7 +4322,7 @@ impl IWbemPathKeyList_Vtbl {
             (*this).GetText(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pubufflength), ::core::mem::transmute_copy(&psztext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             SetKey: SetKey::<Identity, Impl, OFFSET>,
             SetKey2: SetKey2::<Identity, Impl, OFFSET>,
@@ -4360,7 +4364,7 @@ impl IWbemPropertyProvider_Vtbl {
             (*this).PutProperty(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&strlocale), ::core::mem::transmute(&strclassmapping), ::core::mem::transmute(&strinstmapping), ::core::mem::transmute(&strpropmapping), ::core::mem::transmute_copy(&pvvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             PutProperty: PutProperty::<Identity, Impl, OFFSET>,
         }
@@ -4379,7 +4383,7 @@ impl IWbemProviderIdentity_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetRegistrationObject(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pprovreg)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRegistrationObject: SetRegistrationObject::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRegistrationObject: SetRegistrationObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemProviderIdentity as ::windows::core::Interface>::IID
@@ -4395,7 +4399,7 @@ impl IWbemProviderInit_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&wszuser), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&wsznamespace), ::core::mem::transmute(&wszlocale), ::core::mem::transmute(&pnamespace), ::core::mem::transmute(&pctx), ::core::mem::transmute(&pinitsink)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemProviderInit as ::windows::core::Interface>::IID
@@ -4411,7 +4415,7 @@ impl IWbemProviderInitSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetStatus(::core::mem::transmute_copy(&lstatus), ::core::mem::transmute_copy(&lflags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetStatus: SetStatus::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetStatus: SetStatus::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemProviderInitSink as ::windows::core::Interface>::IID
@@ -4472,7 +4476,7 @@ impl IWbemQualifierSet_Vtbl {
             (*this).EndEnumeration().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Get: Get::<Identity, Impl, OFFSET>,
             Put: Put::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -4533,7 +4537,7 @@ impl IWbemQuery_Vtbl {
             (*this).GetQueryInfo(::core::mem::transmute_copy(&uanalysistype), ::core::mem::transmute_copy(&uinfoid), ::core::mem::transmute_copy(&ubufsize), ::core::mem::transmute_copy(&pdestbuf)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Empty: Empty::<Identity, Impl, OFFSET>,
             SetLanguageFeatures: SetLanguageFeatures::<Identity, Impl, OFFSET>,
             TestLanguageFeatures: TestLanguageFeatures::<Identity, Impl, OFFSET>,
@@ -4557,7 +4561,7 @@ impl IWbemRefresher_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Refresh(::core::mem::transmute_copy(&lflags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Refresh: Refresh::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Refresh: Refresh::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemRefresher as ::windows::core::Interface>::IID
@@ -4738,7 +4742,7 @@ impl IWbemServices_Vtbl {
             (*this).ExecMethodAsync(::core::mem::transmute(&strobjectpath), ::core::mem::transmute(&strmethodname), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pctx), ::core::mem::transmute(&pinparams), ::core::mem::transmute(&presponsehandler)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OpenNamespace: OpenNamespace::<Identity, Impl, OFFSET>,
             CancelAsyncCall: CancelAsyncCall::<Identity, Impl, OFFSET>,
             QueryObjectSink: QueryObjectSink::<Identity, Impl, OFFSET>,
@@ -4778,7 +4782,7 @@ impl IWbemShutdown_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Shutdown(::core::mem::transmute_copy(&ureason), ::core::mem::transmute_copy(&umaxmilliseconds), ::core::mem::transmute(&pctx)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Shutdown: Shutdown::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Shutdown: Shutdown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemShutdown as ::windows::core::Interface>::IID
@@ -4815,7 +4819,7 @@ impl IWbemStatusCodeText_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetErrorCodeText: GetErrorCodeText::<Identity, Impl, OFFSET>,
             GetFacilityCodeText: GetFacilityCodeText::<Identity, Impl, OFFSET>,
         }
@@ -4834,7 +4838,7 @@ impl IWbemTransport_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemTransport as ::windows::core::Interface>::IID
@@ -4850,7 +4854,7 @@ impl IWbemUnboundObjectSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IndicateToConsumer(::core::mem::transmute(&plogicalconsumer), ::core::mem::transmute_copy(&lnumobjects), ::core::mem::transmute_copy(&apobjects)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IndicateToConsumer: IndicateToConsumer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IndicateToConsumer: IndicateToConsumer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemUnboundObjectSink as ::windows::core::Interface>::IID
@@ -4872,7 +4876,7 @@ impl IWbemUnsecuredApartment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUnsecuredApartment_Vtbl::new::<Identity, Impl, OFFSET>(), CreateSinkStub: CreateSinkStub::<Identity, Impl, OFFSET> }
+        Self { base__: IUnsecuredApartment_Vtbl::new::<Identity, Impl, OFFSET>(), CreateSinkStub: CreateSinkStub::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWbemUnsecuredApartment as ::windows::core::Interface>::IID || iid == &<IUnsecuredApartment as ::windows::core::Interface>::IID

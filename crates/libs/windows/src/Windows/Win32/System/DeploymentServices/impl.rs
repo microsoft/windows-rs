@@ -35,7 +35,7 @@ impl IWdsTransportCacheable_Vtbl {
             (*this).Commit().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Dirty: Dirty::<Identity, Impl, OFFSET>,
             Discard: Discard::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -191,7 +191,7 @@ impl IWdsTransportClient_Vtbl {
             (*this).Disconnect(::core::mem::transmute_copy(&disconnectiontype)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Session: Session::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -253,7 +253,7 @@ impl IWdsTransportCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -342,7 +342,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
             (*this).NotifyWdsTransportServices(::core::mem::transmute_copy(&servicenotification)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ServicePolicy: ServicePolicy::<Identity, Impl, OFFSET>,
             DiagnosticsPolicy: DiagnosticsPolicy::<Identity, Impl, OFFSET>,
             WdsTransportServicesRunning: WdsTransportServicesRunning::<Identity, Impl, OFFSET>,
@@ -377,7 +377,7 @@ impl IWdsTransportConfigurationManager2_Vtbl {
             }
         }
         Self {
-            base: IWdsTransportConfigurationManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportConfigurationManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             MulticastSessionPolicy: MulticastSessionPolicy::<Identity, Impl, OFFSET>,
         }
     }
@@ -446,7 +446,7 @@ impl IWdsTransportContent_Vtbl {
             (*this).Terminate().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Namespace: Namespace::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -513,7 +513,7 @@ impl IWdsTransportContentProvider_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
             FilePath: FilePath::<Identity, Impl, OFFSET>,
@@ -567,7 +567,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
             (*this).SetComponents(::core::mem::transmute_copy(&ulcomponents)).into()
         }
         Self {
-            base: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             Components: Components::<Identity, Impl, OFFSET>,
@@ -596,7 +596,7 @@ impl IWdsTransportManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetWdsTransportServer: GetWdsTransportServer::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetWdsTransportServer: GetWdsTransportServer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWdsTransportManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -681,7 +681,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
             (*this).SetSlowClientFallback(::core::mem::transmute_copy(&bclientfallback)).into()
         }
         Self {
-            base: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SlowClientHandling: SlowClientHandling::<Identity, Impl, OFFSET>,
             SetSlowClientHandling: SetSlowClientHandling::<Identity, Impl, OFFSET>,
             AutoDisconnectThreshold: AutoDisconnectThreshold::<Identity, Impl, OFFSET>,
@@ -907,7 +907,7 @@ impl IWdsTransportNamespace_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -940,7 +940,7 @@ pub trait IWdsTransportNamespaceAutoCast_Impl: Sized + super::Com::IDispatch_Imp
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespaceAutoCast_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespaceAutoCast_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceAutoCast_Vtbl {
-        Self { base: IWdsTransportNamespace_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IWdsTransportNamespace_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWdsTransportNamespaceAutoCast as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWdsTransportNamespace as ::windows::core::Interface>::IID
@@ -989,7 +989,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateNamespace: CreateNamespace::<Identity, Impl, OFFSET>,
             RetrieveNamespace: RetrieveNamespace::<Identity, Impl, OFFSET>,
             RetrieveNamespaces: RetrieveNamespaces::<Identity, Impl, OFFSET>,
@@ -1011,7 +1011,7 @@ impl IWdsTransportNamespaceScheduledCast_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).StartTransmission().into()
         }
-        Self { base: IWdsTransportNamespace_Vtbl::new::<Identity, Impl, OFFSET>(), StartTransmission: StartTransmission::<Identity, Impl, OFFSET> }
+        Self { base__: IWdsTransportNamespace_Vtbl::new::<Identity, Impl, OFFSET>(), StartTransmission: StartTransmission::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWdsTransportNamespaceScheduledCast as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWdsTransportNamespace as ::windows::core::Interface>::IID
@@ -1060,7 +1060,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
             (*this).SetStartTime(::core::mem::transmute_copy(&starttime)).into()
         }
         Self {
-            base: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, Impl, OFFSET>(),
             MinimumClients: MinimumClients::<Identity, Impl, OFFSET>,
             SetMinimumClients: SetMinimumClients::<Identity, Impl, OFFSET>,
             StartTime: StartTime::<Identity, Impl, OFFSET>,
@@ -1076,7 +1076,7 @@ pub trait IWdsTransportNamespaceScheduledCastManualStart_Impl: Sized + super::Co
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespaceScheduledCastManualStart_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
-        Self { base: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWdsTransportNamespaceScheduledCastManualStart as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWdsTransportNamespace as ::windows::core::Interface>::IID || iid == &<IWdsTransportNamespaceScheduledCast as ::windows::core::Interface>::IID
@@ -1143,7 +1143,7 @@ impl IWdsTransportServer_Vtbl {
             (*this).DisconnectClient(::core::mem::transmute_copy(&ulclientid), ::core::mem::transmute_copy(&disconnectiontype)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetupManager: SetupManager::<Identity, Impl, OFFSET>,
             ConfigurationManager: ConfigurationManager::<Identity, Impl, OFFSET>,
@@ -1173,7 +1173,7 @@ impl IWdsTransportServer2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IWdsTransportServer_Vtbl::new::<Identity, Impl, OFFSET>(), TftpManager: TftpManager::<Identity, Impl, OFFSET> }
+        Self { base__: IWdsTransportServer_Vtbl::new::<Identity, Impl, OFFSET>(), TftpManager: TftpManager::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWdsTransportServer2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWdsTransportServer as ::windows::core::Interface>::IID
@@ -1294,7 +1294,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             (*this).SetNetworkProfile(::core::mem::transmute_copy(&profiletype)).into()
         }
         Self {
-            base: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
             IpAddressSource: IpAddressSource::<Identity, Impl, OFFSET>,
             SetIpAddressSource: SetIpAddressSource::<Identity, Impl, OFFSET>,
             StartIpAddress: StartIpAddress::<Identity, Impl, OFFSET>,
@@ -1374,7 +1374,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
             (*this).SetEnableTftpVariableWindowExtension(::core::mem::transmute_copy(&benabletftpvariablewindowextension)).into()
         }
         Self {
-            base: IWdsTransportServicePolicy_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportServicePolicy_Vtbl::new::<Identity, Impl, OFFSET>(),
             UdpPortPolicy: UdpPortPolicy::<Identity, Impl, OFFSET>,
             SetUdpPortPolicy: SetUdpPortPolicy::<Identity, Impl, OFFSET>,
             TftpMaximumBlockSize: TftpMaximumBlockSize::<Identity, Impl, OFFSET>,
@@ -1484,7 +1484,7 @@ impl IWdsTransportSession_Vtbl {
             (*this).Terminate().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Content: Content::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             NetworkInterfaceName: NetworkInterfaceName::<Identity, Impl, OFFSET>,
@@ -1554,7 +1554,7 @@ impl IWdsTransportSetupManager_Vtbl {
             (*this).DeregisterContentProvider(::core::mem::transmute(&bszname)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Version: Version::<Identity, Impl, OFFSET>,
             InstalledFeatures: InstalledFeatures::<Identity, Impl, OFFSET>,
             Protocols: Protocols::<Identity, Impl, OFFSET>,
@@ -1597,7 +1597,7 @@ impl IWdsTransportSetupManager2_Vtbl {
             }
         }
         Self {
-            base: IWdsTransportSetupManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWdsTransportSetupManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             TftpCapabilities: TftpCapabilities::<Identity, Impl, OFFSET>,
             ContentProviders: ContentProviders::<Identity, Impl, OFFSET>,
         }
@@ -1697,7 +1697,7 @@ impl IWdsTransportTftpClient_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FileName: FileName::<Identity, Impl, OFFSET>,
             IpAddress: IpAddress::<Identity, Impl, OFFSET>,
             Timeout: Timeout::<Identity, Impl, OFFSET>,
@@ -1729,7 +1729,7 @@ impl IWdsTransportTftpManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), RetrieveTftpClients: RetrieveTftpClients::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), RetrieveTftpClients: RetrieveTftpClients::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWdsTransportTftpManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID

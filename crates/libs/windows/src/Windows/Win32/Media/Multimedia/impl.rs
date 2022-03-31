@@ -41,7 +41,7 @@ impl IAVIEditStream_Vtbl {
             (*this).SetInfo(::core::mem::transmute_copy(&lpinfo), ::core::mem::transmute_copy(&cbinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Cut: Cut::<Identity, Impl, OFFSET>,
             Copy: Copy::<Identity, Impl, OFFSET>,
             Paste: Paste::<Identity, Impl, OFFSET>,
@@ -102,7 +102,7 @@ impl IAVIFile_Vtbl {
             (*this).DeleteStream(::core::mem::transmute_copy(&fcctype), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Info: Info::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             CreateStream: CreateStream::<Identity, Impl, OFFSET>,
@@ -128,7 +128,7 @@ impl IAVIPersistFile_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Reserved1().into()
         }
-        Self { base: super::super::System::Com::IPersistFile_Vtbl::new::<Identity, Impl, OFFSET>(), Reserved1: Reserved1::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IPersistFile_Vtbl::new::<Identity, Impl, OFFSET>(), Reserved1: Reserved1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAVIPersistFile as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistFile as ::windows::core::Interface>::IID
@@ -207,7 +207,7 @@ impl IAVIStream_Vtbl {
             (*this).SetInfo(::core::mem::transmute_copy(&lpinfo), ::core::mem::transmute_copy(&cbinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             Info: Info::<Identity, Impl, OFFSET>,
             FindSample: FindSample::<Identity, Impl, OFFSET>,
@@ -241,7 +241,7 @@ impl IAVIStreaming_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).End().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, Impl, OFFSET>, End: End::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, Impl, OFFSET>, End: End::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAVIStreaming as ::windows::core::Interface>::IID
@@ -278,7 +278,7 @@ impl IGetFrame_Vtbl {
             (*this).SetFormat(::core::mem::transmute_copy(&lpbi), ::core::mem::transmute_copy(&lpbits), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&dx), ::core::mem::transmute_copy(&dy)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFrame: GetFrame::<Identity, Impl, OFFSET>,
             Begin: Begin::<Identity, Impl, OFFSET>,
             End: End::<Identity, Impl, OFFSET>,

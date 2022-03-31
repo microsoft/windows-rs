@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IUserDataAccountPartnerAccountInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub AccountKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderPartnerAccountKind) -> ::windows::core::HRESULT,
@@ -24,7 +24,7 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderAddAccountOpe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ContentKinds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::UserDataAccountContentKinds) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub PartnerAccountInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -115,7 +115,7 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderOperation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -128,7 +128,7 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderResolveErrors
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -142,7 +142,7 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderSettingsOpera
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

@@ -23,7 +23,7 @@ impl IAction_Vtbl {
             (*this).Type(::core::mem::transmute_copy(&ptype)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             SetId: SetId::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -118,7 +118,7 @@ impl IActionCollection_Vtbl {
             (*this).SetContext(::core::mem::transmute(&context)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -153,7 +153,7 @@ impl IBootTrigger_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDelay(::core::mem::transmute(&delay)).into()
         }
-        Self { base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(), Delay: Delay::<Identity, Impl, OFFSET>, SetDelay: SetDelay::<Identity, Impl, OFFSET> }
+        Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(), Delay: Delay::<Identity, Impl, OFFSET>, SetDelay: SetDelay::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBootTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
@@ -190,7 +190,7 @@ impl IComHandlerAction_Vtbl {
             (*this).SetData(::core::mem::transmute(&data)).into()
         }
         Self {
-            base: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClassId: ClassId::<Identity, Impl, OFFSET>,
             SetClassId: SetClassId::<Identity, Impl, OFFSET>,
             Data: Data::<Identity, Impl, OFFSET>,
@@ -232,7 +232,7 @@ impl IDailyTrigger_Vtbl {
             (*this).SetRandomDelay(::core::mem::transmute(&randomdelay)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             DaysInterval: DaysInterval::<Identity, Impl, OFFSET>,
             SetDaysInterval: SetDaysInterval::<Identity, Impl, OFFSET>,
             RandomDelay: RandomDelay::<Identity, Impl, OFFSET>,
@@ -376,7 +376,7 @@ impl IEmailAction_Vtbl {
             (*this).SetAttachments(::core::mem::transmute_copy(&pattachements)).into()
         }
         Self {
-            base: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             Server: Server::<Identity, Impl, OFFSET>,
             SetServer: SetServer::<Identity, Impl, OFFSET>,
             Subject: Subject::<Identity, Impl, OFFSET>,
@@ -438,7 +438,7 @@ impl IEnumWorkItems_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -498,7 +498,7 @@ impl IEventTrigger_Vtbl {
             (*this).SetValueQueries(::core::mem::transmute(&pnamedxpaths)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             Subscription: Subscription::<Identity, Impl, OFFSET>,
             SetSubscription: SetSubscription::<Identity, Impl, OFFSET>,
             Delay: Delay::<Identity, Impl, OFFSET>,
@@ -554,7 +554,7 @@ impl IExecAction_Vtbl {
             (*this).SetWorkingDirectory(::core::mem::transmute(&workingdirectory)).into()
         }
         Self {
-            base: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             SetPath: SetPath::<Identity, Impl, OFFSET>,
             Arguments: Arguments::<Identity, Impl, OFFSET>,
@@ -586,7 +586,7 @@ impl IExecAction2_Vtbl {
             (*this).SetHideAppWindow(::core::mem::transmute_copy(&hideappwindow)).into()
         }
         Self {
-            base: IExecAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IExecAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             HideAppWindow: HideAppWindow::<Identity, Impl, OFFSET>,
             SetHideAppWindow: SetHideAppWindow::<Identity, Impl, OFFSET>,
         }
@@ -650,7 +650,7 @@ impl IIdleSettings_Vtbl {
             (*this).SetRestartOnIdle(::core::mem::transmute_copy(&restart)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IdleDuration: IdleDuration::<Identity, Impl, OFFSET>,
             SetIdleDuration: SetIdleDuration::<Identity, Impl, OFFSET>,
             WaitTimeout: WaitTimeout::<Identity, Impl, OFFSET>,
@@ -670,7 +670,7 @@ pub trait IIdleTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IIdleTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdleTrigger_Impl, const OFFSET: isize>() -> IIdleTrigger_Vtbl {
-        Self { base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdleTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
@@ -707,7 +707,7 @@ impl ILogonTrigger_Vtbl {
             (*this).SetUserId(::core::mem::transmute(&user)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             Delay: Delay::<Identity, Impl, OFFSET>,
             SetDelay: SetDelay::<Identity, Impl, OFFSET>,
             UserId: UserId::<Identity, Impl, OFFSET>,
@@ -761,7 +761,7 @@ impl IMaintenanceSettings_Vtbl {
             (*this).Exclusive(::core::mem::transmute_copy(&target)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPeriod: SetPeriod::<Identity, Impl, OFFSET>,
             Period: Period::<Identity, Impl, OFFSET>,
             SetDeadline: SetDeadline::<Identity, Impl, OFFSET>,
@@ -841,7 +841,7 @@ impl IMonthlyDOWTrigger_Vtbl {
             (*this).SetRandomDelay(::core::mem::transmute(&randomdelay)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             DaysOfWeek: DaysOfWeek::<Identity, Impl, OFFSET>,
             SetDaysOfWeek: SetDaysOfWeek::<Identity, Impl, OFFSET>,
             WeeksOfMonth: WeeksOfMonth::<Identity, Impl, OFFSET>,
@@ -913,7 +913,7 @@ impl IMonthlyTrigger_Vtbl {
             (*this).SetRandomDelay(::core::mem::transmute(&randomdelay)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             DaysOfMonth: DaysOfMonth::<Identity, Impl, OFFSET>,
             SetDaysOfMonth: SetDaysOfMonth::<Identity, Impl, OFFSET>,
             MonthsOfYear: MonthsOfYear::<Identity, Impl, OFFSET>,
@@ -959,7 +959,7 @@ impl INetworkSettings_Vtbl {
             (*this).SetId(::core::mem::transmute(&id)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
@@ -1049,7 +1049,7 @@ impl IPrincipal_Vtbl {
             (*this).SetRunLevel(::core::mem::transmute_copy(&runlevel)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             SetId: SetId::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
@@ -1105,7 +1105,7 @@ impl IPrincipal2_Vtbl {
             (*this).AddRequiredPrivilege(::core::mem::transmute(&privilege)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ProcessTokenSidType: ProcessTokenSidType::<Identity, Impl, OFFSET>,
             SetProcessTokenSidType: SetProcessTokenSidType::<Identity, Impl, OFFSET>,
             RequiredPrivilegeCount: RequiredPrivilegeCount::<Identity, Impl, OFFSET>,
@@ -1135,7 +1135,7 @@ impl IProvideTaskPage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPage: GetPage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPage: GetPage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvideTaskPage as ::windows::core::Interface>::IID
@@ -1340,7 +1340,7 @@ impl IRegisteredTask_Vtbl {
             (*this).GetRunTimes(::core::mem::transmute_copy(&pststart), ::core::mem::transmute_copy(&pstend), ::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&pruntimes)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Path: Path::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
@@ -1408,7 +1408,7 @@ impl IRegisteredTaskCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1533,7 +1533,7 @@ impl IRegistrationInfo_Vtbl {
             (*this).SetSource(::core::mem::transmute(&source)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             Author: Author::<Identity, Impl, OFFSET>,
@@ -1576,7 +1576,7 @@ impl IRegistrationTrigger_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDelay(::core::mem::transmute(&delay)).into()
         }
-        Self { base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(), Delay: Delay::<Identity, Impl, OFFSET>, SetDelay: SetDelay::<Identity, Impl, OFFSET> }
+        Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(), Delay: Delay::<Identity, Impl, OFFSET>, SetDelay: SetDelay::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRegistrationTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
@@ -1625,7 +1625,7 @@ impl IRepetitionPattern_Vtbl {
             (*this).SetStopAtDurationEnd(::core::mem::transmute_copy(&stop)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Interval: Interval::<Identity, Impl, OFFSET>,
             SetInterval: SetInterval::<Identity, Impl, OFFSET>,
             Duration: Duration::<Identity, Impl, OFFSET>,
@@ -1729,7 +1729,7 @@ impl IRunningTask_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             InstanceGuid: InstanceGuid::<Identity, Impl, OFFSET>,
             Path: Path::<Identity, Impl, OFFSET>,
@@ -1787,7 +1787,7 @@ impl IRunningTaskCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2050,7 +2050,7 @@ impl IScheduledWorkItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateTrigger: CreateTrigger::<Identity, Impl, OFFSET>,
             DeleteTrigger: DeleteTrigger::<Identity, Impl, OFFSET>,
             GetTriggerCount: GetTriggerCount::<Identity, Impl, OFFSET>,
@@ -2129,7 +2129,7 @@ impl ISessionStateChangeTrigger_Vtbl {
             (*this).SetStateChange(::core::mem::transmute_copy(&r#type)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             Delay: Delay::<Identity, Impl, OFFSET>,
             SetDelay: SetDelay::<Identity, Impl, OFFSET>,
             UserId: UserId::<Identity, Impl, OFFSET>,
@@ -2173,7 +2173,7 @@ impl IShowMessageAction_Vtbl {
             (*this).SetMessageBody(::core::mem::transmute(&messagebody)).into()
         }
         Self {
-            base: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             Title: Title::<Identity, Impl, OFFSET>,
             SetTitle: SetTitle::<Identity, Impl, OFFSET>,
             MessageBody: MessageBody::<Identity, Impl, OFFSET>,
@@ -2299,7 +2299,7 @@ impl ITask_Vtbl {
             }
         }
         Self {
-            base: IScheduledWorkItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IScheduledWorkItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetApplicationName: SetApplicationName::<Identity, Impl, OFFSET>,
             GetApplicationName: GetApplicationName::<Identity, Impl, OFFSET>,
             SetParameters: SetParameters::<Identity, Impl, OFFSET>,
@@ -2439,7 +2439,7 @@ impl ITaskDefinition_Vtbl {
             (*this).SetXmlText(::core::mem::transmute(&xml)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegistrationInfo: RegistrationInfo::<Identity, Impl, OFFSET>,
             SetRegistrationInfo: SetRegistrationInfo::<Identity, Impl, OFFSET>,
             Triggers: Triggers::<Identity, Impl, OFFSET>,
@@ -2605,7 +2605,7 @@ impl ITaskFolder_Vtbl {
             (*this).SetSecurityDescriptor(::core::mem::transmute(&sddl), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Path: Path::<Identity, Impl, OFFSET>,
             GetFolder: GetFolder::<Identity, Impl, OFFSET>,
@@ -2668,7 +2668,7 @@ impl ITaskFolderCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2715,7 +2715,7 @@ impl ITaskHandler_Vtbl {
             (*this).Resume().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
@@ -2745,7 +2745,7 @@ impl ITaskHandlerStatus_Vtbl {
             (*this).TaskCompleted(::core::mem::transmute_copy(&taskerrcode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             UpdateStatus: UpdateStatus::<Identity, Impl, OFFSET>,
             TaskCompleted: TaskCompleted::<Identity, Impl, OFFSET>,
         }
@@ -2815,7 +2815,7 @@ impl ITaskNamedValueCollection_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2859,7 +2859,7 @@ impl ITaskNamedValuePair_Vtbl {
             (*this).SetValue(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
@@ -2947,7 +2947,7 @@ impl ITaskScheduler_Vtbl {
             (*this).IsOfType(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&riid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetTargetComputer: SetTargetComputer::<Identity, Impl, OFFSET>,
             GetTargetComputer: GetTargetComputer::<Identity, Impl, OFFSET>,
             Enum: Enum::<Identity, Impl, OFFSET>,
@@ -3071,7 +3071,7 @@ impl ITaskService_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFolder: GetFolder::<Identity, Impl, OFFSET>,
             GetRunningTasks: GetRunningTasks::<Identity, Impl, OFFSET>,
             NewTask: NewTask::<Identity, Impl, OFFSET>,
@@ -3346,7 +3346,7 @@ impl ITaskSettings_Vtbl {
             (*this).SetNetworkSettings(::core::mem::transmute(&pnetworksettings)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AllowDemandStart: AllowDemandStart::<Identity, Impl, OFFSET>,
             SetAllowDemandStart: SetAllowDemandStart::<Identity, Impl, OFFSET>,
             RestartInterval: RestartInterval::<Identity, Impl, OFFSET>,
@@ -3424,7 +3424,7 @@ impl ITaskSettings2_Vtbl {
             (*this).SetUseUnifiedSchedulingEngine(::core::mem::transmute_copy(&useunifiedengine)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DisallowStartOnRemoteAppSession: DisallowStartOnRemoteAppSession::<Identity, Impl, OFFSET>,
             SetDisallowStartOnRemoteAppSession: SetDisallowStartOnRemoteAppSession::<Identity, Impl, OFFSET>,
             UseUnifiedSchedulingEngine: UseUnifiedSchedulingEngine::<Identity, Impl, OFFSET>,
@@ -3508,7 +3508,7 @@ impl ITaskSettings3_Vtbl {
             (*this).SetVolatile(::core::mem::transmute_copy(&volatile)).into()
         }
         Self {
-            base: ITaskSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITaskSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
             DisallowStartOnRemoteAppSession: DisallowStartOnRemoteAppSession::<Identity, Impl, OFFSET>,
             SetDisallowStartOnRemoteAppSession: SetDisallowStartOnRemoteAppSession::<Identity, Impl, OFFSET>,
             UseUnifiedSchedulingEngine: UseUnifiedSchedulingEngine::<Identity, Impl, OFFSET>,
@@ -3559,7 +3559,7 @@ impl ITaskTrigger_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetTrigger: SetTrigger::<Identity, Impl, OFFSET>,
             GetTrigger: GetTrigger::<Identity, Impl, OFFSET>,
             GetTriggerString: GetTriggerString::<Identity, Impl, OFFSET>,
@@ -3606,7 +3606,7 @@ impl ITaskVariables_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInput: GetInput::<Identity, Impl, OFFSET>,
             SetOutput: SetOutput::<Identity, Impl, OFFSET>,
             GetContext: GetContext::<Identity, Impl, OFFSET>,
@@ -3635,7 +3635,7 @@ impl ITimeTrigger_Vtbl {
             (*this).SetRandomDelay(::core::mem::transmute(&randomdelay)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             RandomDelay: RandomDelay::<Identity, Impl, OFFSET>,
             SetRandomDelay: SetRandomDelay::<Identity, Impl, OFFSET>,
         }
@@ -3735,7 +3735,7 @@ impl ITrigger_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             SetId: SetId::<Identity, Impl, OFFSET>,
@@ -3816,7 +3816,7 @@ impl ITriggerCollection_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3872,7 +3872,7 @@ impl IWeeklyTrigger_Vtbl {
             (*this).SetRandomDelay(::core::mem::transmute(&randomdelay)).into()
         }
         Self {
-            base: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(),
             DaysOfWeek: DaysOfWeek::<Identity, Impl, OFFSET>,
             SetDaysOfWeek: SetDaysOfWeek::<Identity, Impl, OFFSET>,
             WeeksInterval: WeeksInterval::<Identity, Impl, OFFSET>,

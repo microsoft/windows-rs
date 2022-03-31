@@ -17,7 +17,7 @@ impl IGraphicsCaptureItemInterop_Vtbl {
             (*this).CreateForMonitor(::core::mem::transmute_copy(&monitor), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&result)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
             CreateForMonitor: CreateForMonitor::<Identity, Impl, OFFSET>,
         }

@@ -158,12 +158,12 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     method_names.add_vtable_types(def);
 
     match def.vtable_types().last() {
-        Some(Type::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
-        Some(Type::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
+        Some(Type::IUnknown) => methods.combine(&quote! { pub base__: ::windows::core::IUnknownVtbl, }),
+        Some(Type::IInspectable) => methods.combine(&quote! { pub base__: ::windows::core::IInspectableVtbl, }),
         Some(Type::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(def, gen);
             let namespace = gen.namespace(def.namespace());
-            methods.combine(&quote! { pub base: #namespace #vtbl, });
+            methods.combine(&quote! { pub base__: #namespace #vtbl, });
         }
         _ => {}
     }

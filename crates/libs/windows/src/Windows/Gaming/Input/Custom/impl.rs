@@ -31,7 +31,7 @@ impl ICustomGameControllerFactory_Vtbl {
             (*this).OnGameControllerRemoved(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomGameControllerFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICustomGameControllerFactory, OFFSET>(),
             CreateGameController: CreateGameController::<Identity, Impl, OFFSET>,
             OnGameControllerAdded: OnGameControllerAdded::<Identity, Impl, OFFSET>,
             OnGameControllerRemoved: OnGameControllerRemoved::<Identity, Impl, OFFSET>,
@@ -61,7 +61,7 @@ impl IGameControllerInputSink_Vtbl {
             (*this).OnInputSuspended(timestamp).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerInputSink, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerInputSink, OFFSET>(),
             OnInputResumed: OnInputResumed::<Identity, Impl, OFFSET>,
             OnInputSuspended: OnInputSuspended::<Identity, Impl, OFFSET>,
         }
@@ -143,7 +143,7 @@ impl IGameControllerProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerProvider, OFFSET>(),
             FirmwareVersionInfo: FirmwareVersionInfo::<Identity, Impl, OFFSET>,
             HardwareProductId: HardwareProductId::<Identity, Impl, OFFSET>,
             HardwareVendorId: HardwareVendorId::<Identity, Impl, OFFSET>,
@@ -175,7 +175,7 @@ impl IGipGameControllerInputSink_Vtbl {
             (*this).OnMessageReceived(timestamp, messageclass, messageid, sequenceid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&messagebuffer), messageBuffer_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGipGameControllerInputSink, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGipGameControllerInputSink, OFFSET>(),
             OnKeyReceived: OnKeyReceived::<Identity, Impl, OFFSET>,
             OnMessageReceived: OnMessageReceived::<Identity, Impl, OFFSET>,
         }
@@ -198,7 +198,7 @@ impl IHidGameControllerInputSink_Vtbl {
             (*this).OnInputReportReceived(timestamp, reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHidGameControllerInputSink, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHidGameControllerInputSink, OFFSET>(),
             OnInputReportReceived: OnInputReportReceived::<Identity, Impl, OFFSET>,
         }
     }
@@ -220,7 +220,7 @@ impl IXusbGameControllerInputSink_Vtbl {
             (*this).OnInputReceived(timestamp, reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&inputbuffer), inputBuffer_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXusbGameControllerInputSink, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXusbGameControllerInputSink, OFFSET>(),
             OnInputReceived: OnInputReceived::<Identity, Impl, OFFSET>,
         }
     }

@@ -51,7 +51,7 @@ impl IEnumSpObjectTokens_Vtbl {
             (*this).GetCount(::core::mem::transmute_copy(&pcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -137,7 +137,7 @@ impl ISpAudio_Vtbl {
             (*this).SetBufferNotifySize(::core::mem::transmute_copy(&cbsize)).into()
         }
         Self {
-            base: ISpStreamFormat_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpStreamFormat_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetState: SetState::<Identity, Impl, OFFSET>,
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -165,7 +165,7 @@ impl ISpContainerLexicon_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddLexicon(::core::mem::transmute(&paddlexicon), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        Self { base: ISpLexicon_Vtbl::new::<Identity, Impl, OFFSET>(), AddLexicon: AddLexicon::<Identity, Impl, OFFSET> }
+        Self { base__: ISpLexicon_Vtbl::new::<Identity, Impl, OFFSET>(), AddLexicon: AddLexicon::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpContainerLexicon as ::windows::core::Interface>::IID || iid == &<ISpLexicon as ::windows::core::Interface>::IID
@@ -278,7 +278,7 @@ impl ISpDataKey_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetData: SetData::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
             SetStringValue: SetStringValue::<Identity, Impl, OFFSET>,
@@ -314,7 +314,7 @@ impl ISpDisplayAlternates_Vtbl {
             (*this).SetFullStopTrailSpace(::core::mem::transmute_copy(&ultrailspace)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDisplayAlternates: GetDisplayAlternates::<Identity, Impl, OFFSET>,
             SetFullStopTrailSpace: SetFullStopTrailSpace::<Identity, Impl, OFFSET>,
         }
@@ -340,7 +340,7 @@ impl ISpEnginePronunciation_Vtbl {
             (*this).GetPronunciations(::core::mem::transmute(&pszword), ::core::mem::transmute(&pszleftcontext), ::core::mem::transmute(&pszrightcontext), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&penginepronunciationlist)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Normalize: Normalize::<Identity, Impl, OFFSET>,
             GetPronunciations: GetPronunciations::<Identity, Impl, OFFSET>,
         }
@@ -368,7 +368,7 @@ impl ISpEventSink_Vtbl {
             (*this).GetEventInterest(::core::mem::transmute_copy(&pulleventinterest)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddEvents: AddEvents::<Identity, Impl, OFFSET>,
             GetEventInterest: GetEventInterest::<Identity, Impl, OFFSET>,
         }
@@ -402,7 +402,7 @@ impl ISpEventSource_Vtbl {
             (*this).GetInfo(::core::mem::transmute_copy(&pinfo)).into()
         }
         Self {
-            base: ISpNotifySource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpNotifySource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetInterest: SetInterest::<Identity, Impl, OFFSET>,
             GetEvents: GetEvents::<Identity, Impl, OFFSET>,
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
@@ -424,7 +424,7 @@ impl ISpEventSource2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetEventsEx(::core::mem::transmute_copy(&ulcount), ::core::mem::transmute_copy(&peventarray), ::core::mem::transmute_copy(&pulfetched)).into()
         }
-        Self { base: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(), GetEventsEx: GetEventsEx::<Identity, Impl, OFFSET> }
+        Self { base__: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(), GetEventsEx: GetEventsEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpEventSource2 as ::windows::core::Interface>::IID || iid == &<ISpNotifySource as ::windows::core::Interface>::IID || iid == &<ISpEventSource as ::windows::core::Interface>::IID
@@ -485,7 +485,7 @@ impl ISpGrammarBuilder_Vtbl {
             (*this).Commit(::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ResetGrammar: ResetGrammar::<Identity, Impl, OFFSET>,
             GetRule: GetRule::<Identity, Impl, OFFSET>,
             ClearRule: ClearRule::<Identity, Impl, OFFSET>,
@@ -517,7 +517,7 @@ impl ISpGrammarBuilder2_Vtbl {
             (*this).SetPhoneticAlphabet(::core::mem::transmute_copy(&phoneticalphabet)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddTextSubset: AddTextSubset::<Identity, Impl, OFFSET>,
             SetPhoneticAlphabet: SetPhoneticAlphabet::<Identity, Impl, OFFSET>,
         }
@@ -567,7 +567,7 @@ impl ISpLexicon_Vtbl {
             (*this).GetWords(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pdwgeneration), ::core::mem::transmute_copy(&pdwcookie), ::core::mem::transmute_copy(&pwordlist)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPronunciations: GetPronunciations::<Identity, Impl, OFFSET>,
             AddPronunciation: AddPronunciation::<Identity, Impl, OFFSET>,
             RemovePronunciation: RemovePronunciation::<Identity, Impl, OFFSET>,
@@ -617,7 +617,7 @@ impl ISpMMSysAudio_Vtbl {
             (*this).SetLineId(::core::mem::transmute_copy(&ulineid)).into()
         }
         Self {
-            base: ISpAudio_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpAudio_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDeviceId: GetDeviceId::<Identity, Impl, OFFSET>,
             SetDeviceId: SetDeviceId::<Identity, Impl, OFFSET>,
             GetMMHandle: GetMMHandle::<Identity, Impl, OFFSET>,
@@ -657,7 +657,7 @@ impl ISpNotifySink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Notify().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpNotifySink as ::windows::core::Interface>::IID
@@ -712,7 +712,7 @@ impl ISpNotifySource_Vtbl {
             (*this).GetNotifyEventHandle()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetNotifySink: SetNotifySink::<Identity, Impl, OFFSET>,
             SetNotifyWindowMessage: SetNotifyWindowMessage::<Identity, Impl, OFFSET>,
             SetNotifyCallbackFunction: SetNotifyCallbackFunction::<Identity, Impl, OFFSET>,
@@ -769,7 +769,7 @@ impl ISpNotifyTranslator_Vtbl {
             (*this).GetEventHandle()
         }
         Self {
-            base: ISpNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitWindowMessage: InitWindowMessage::<Identity, Impl, OFFSET>,
             InitCallback: InitCallback::<Identity, Impl, OFFSET>,
             InitSpNotifyCallback: InitSpNotifyCallback::<Identity, Impl, OFFSET>,
@@ -867,7 +867,7 @@ impl ISpObjectToken_Vtbl {
             (*this).MatchesAttributes(::core::mem::transmute(&pszattributes), ::core::mem::transmute_copy(&pfmatches)).into()
         }
         Self {
-            base: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetId: SetId::<Identity, Impl, OFFSET>,
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetCategory: GetCategory::<Identity, Impl, OFFSET>,
@@ -951,7 +951,7 @@ impl ISpObjectTokenCategory_Vtbl {
             }
         }
         Self {
-            base: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetId: SetId::<Identity, Impl, OFFSET>,
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetDataKey: GetDataKey::<Identity, Impl, OFFSET>,
@@ -976,7 +976,7 @@ impl ISpObjectTokenInit_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitFromDataKey(::core::mem::transmute(&pszcategoryid), ::core::mem::transmute(&psztokenid), ::core::mem::transmute(&pdatakey)).into()
         }
-        Self { base: ISpObjectToken_Vtbl::new::<Identity, Impl, OFFSET>(), InitFromDataKey: InitFromDataKey::<Identity, Impl, OFFSET> }
+        Self { base__: ISpObjectToken_Vtbl::new::<Identity, Impl, OFFSET>(), InitFromDataKey: InitFromDataKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpObjectTokenInit as ::windows::core::Interface>::IID || iid == &<ISpDataKey as ::windows::core::Interface>::IID || iid == &<ISpObjectToken as ::windows::core::Interface>::IID
@@ -1005,7 +1005,7 @@ impl ISpObjectWithToken_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetObjectToken: SetObjectToken::<Identity, Impl, OFFSET>,
             GetObjectToken: GetObjectToken::<Identity, Impl, OFFSET>,
         }
@@ -1037,7 +1037,7 @@ impl ISpPhoneConverter_Vtbl {
             (*this).IdToPhone(::core::mem::transmute_copy(&pid), ::core::mem::transmute_copy(&pszphone)).into()
         }
         Self {
-            base: ISpObjectWithToken_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpObjectWithToken_Vtbl::new::<Identity, Impl, OFFSET>(),
             PhoneToId: PhoneToId::<Identity, Impl, OFFSET>,
             IdToPhone: IdToPhone::<Identity, Impl, OFFSET>,
         }
@@ -1095,7 +1095,7 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetLangId: GetLangId::<Identity, Impl, OFFSET>,
             SetLangId: SetLangId::<Identity, Impl, OFFSET>,
             SAPI2UPS: SAPI2UPS::<Identity, Impl, OFFSET>,
@@ -1132,7 +1132,7 @@ impl ISpPhoneticAlphabetSelection_Vtbl {
             (*this).SetAlphabetToUPS(::core::mem::transmute_copy(&fforceups)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsAlphabetUPS: IsAlphabetUPS::<Identity, Impl, OFFSET>,
             SetAlphabetToUPS: SetAlphabetToUPS::<Identity, Impl, OFFSET>,
         }
@@ -1184,7 +1184,7 @@ impl ISpPhrase_Vtbl {
             (*this).Discard(::core::mem::transmute_copy(&dwvaluetypes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPhrase: GetPhrase::<Identity, Impl, OFFSET>,
             GetSerializedPhrase: GetSerializedPhrase::<Identity, Impl, OFFSET>,
             GetText: GetText::<Identity, Impl, OFFSET>,
@@ -1226,7 +1226,7 @@ impl ISpPhrase2_Vtbl {
             }
         }
         Self {
-            base: ISpPhrase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpPhrase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetXMLResult: GetXMLResult::<Identity, Impl, OFFSET>,
             GetXMLErrorInfo: GetXMLErrorInfo::<Identity, Impl, OFFSET>,
             GetAudio: GetAudio::<Identity, Impl, OFFSET>,
@@ -1255,7 +1255,7 @@ impl ISpPhraseAlt_Vtbl {
             (*this).Commit().into()
         }
         Self {
-            base: ISpPhrase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpPhrase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAltInfo: GetAltInfo::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
@@ -1299,7 +1299,7 @@ impl ISpProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetPropertyNum: SetPropertyNum::<Identity, Impl, OFFSET>,
             GetPropertyNum: GetPropertyNum::<Identity, Impl, OFFSET>,
             SetPropertyString: SetPropertyString::<Identity, Impl, OFFSET>,
@@ -1449,7 +1449,7 @@ impl ISpRecoContext_Vtbl {
             (*this).GetContextState(::core::mem::transmute_copy(&pecontextstate)).into()
         }
         Self {
-            base: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetRecognizer: GetRecognizer::<Identity, Impl, OFFSET>,
             CreateGrammar: CreateGrammar::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -1497,7 +1497,7 @@ impl ISpRecoContext2_Vtbl {
             (*this).SetAdaptationData2(::core::mem::transmute(&padaptationdata), ::core::mem::transmute_copy(&cch), ::core::mem::transmute(&ptopicname), ::core::mem::transmute_copy(&eadaptationsettings), ::core::mem::transmute_copy(&erelevance)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetGrammarOptions: SetGrammarOptions::<Identity, Impl, OFFSET>,
             GetGrammarOptions: GetGrammarOptions::<Identity, Impl, OFFSET>,
             SetAdaptationData2: SetAdaptationData2::<Identity, Impl, OFFSET>,
@@ -1634,7 +1634,7 @@ impl ISpRecoGrammar_Vtbl {
             (*this).GetGrammarState(::core::mem::transmute_copy(&pegrammarstate)).into()
         }
         Self {
-            base: ISpGrammarBuilder_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpGrammarBuilder_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGrammarId: GetGrammarId::<Identity, Impl, OFFSET>,
             GetRecoContext: GetRecoContext::<Identity, Impl, OFFSET>,
             LoadCmdFromFile: LoadCmdFromFile::<Identity, Impl, OFFSET>,
@@ -1714,7 +1714,7 @@ impl ISpRecoGrammar2_Vtbl {
             (*this).SetSMLSecurityManager(::core::mem::transmute(&psmlsecuritymanager)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRules: GetRules::<Identity, Impl, OFFSET>,
             LoadCmdFromFile2: LoadCmdFromFile2::<Identity, Impl, OFFSET>,
             LoadCmdFromMemory2: LoadCmdFromMemory2::<Identity, Impl, OFFSET>,
@@ -1790,7 +1790,7 @@ impl ISpRecoResult_Vtbl {
             }
         }
         Self {
-            base: ISpPhrase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpPhrase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetResultTimes: GetResultTimes::<Identity, Impl, OFFSET>,
             GetAlternates: GetAlternates::<Identity, Impl, OFFSET>,
             GetAudio: GetAudio::<Identity, Impl, OFFSET>,
@@ -1835,7 +1835,7 @@ impl ISpRecoResult2_Vtbl {
             (*this).SetTextFeedback(::core::mem::transmute(&pszfeedback), ::core::mem::transmute_copy(&fsuccessful)).into()
         }
         Self {
-            base: ISpRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommitAlternate: CommitAlternate::<Identity, Impl, OFFSET>,
             CommitText: CommitText::<Identity, Impl, OFFSET>,
             SetTextFeedback: SetTextFeedback::<Identity, Impl, OFFSET>,
@@ -1978,7 +1978,7 @@ impl ISpRecognizer_Vtbl {
             (*this).EmulateRecognition(::core::mem::transmute(&pphrase)).into()
         }
         Self {
-            base: ISpProperties_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpProperties_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRecognizer: SetRecognizer::<Identity, Impl, OFFSET>,
             GetRecognizer: GetRecognizer::<Identity, Impl, OFFSET>,
             SetInput: SetInput::<Identity, Impl, OFFSET>,
@@ -2026,7 +2026,7 @@ impl ISpRecognizer2_Vtbl {
             (*this).ResetAcousticModelAdaptation().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EmulateRecognitionEx: EmulateRecognitionEx::<Identity, Impl, OFFSET>,
             SetTrainingState: SetTrainingState::<Identity, Impl, OFFSET>,
             ResetAcousticModelAdaptation: ResetAcousticModelAdaptation::<Identity, Impl, OFFSET>,
@@ -2048,7 +2048,7 @@ impl ISpRegDataKey_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetKey(::core::mem::transmute_copy(&hkey), ::core::mem::transmute_copy(&freadonly)).into()
         }
-        Self { base: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(), SetKey: SetKey::<Identity, Impl, OFFSET> }
+        Self { base__: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(), SetKey: SetKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpRegDataKey as ::windows::core::Interface>::IID || iid == &<ISpDataKey as ::windows::core::Interface>::IID
@@ -2073,7 +2073,7 @@ impl ISpResourceManager_Vtbl {
             (*this).GetObject(::core::mem::transmute_copy(&guidserviceid), ::core::mem::transmute_copy(&objectclsid), ::core::mem::transmute_copy(&objectiid), ::core::mem::transmute_copy(&freleasewhenlastexternalrefreleased), ::core::mem::transmute_copy(&ppobject)).into()
         }
         Self {
-            base: super::super::System::Com::IServiceProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IServiceProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetObject: SetObject::<Identity, Impl, OFFSET>,
             GetObject: GetObject::<Identity, Impl, OFFSET>,
         }
@@ -2099,7 +2099,7 @@ impl ISpSerializeState_Vtbl {
             (*this).SetSerializedState(::core::mem::transmute_copy(&pbdata), ::core::mem::transmute_copy(&ulsize), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSerializedState: GetSerializedState::<Identity, Impl, OFFSET>,
             SetSerializedState: SetSerializedState::<Identity, Impl, OFFSET>,
         }
@@ -2167,7 +2167,7 @@ impl ISpShortcut_Vtbl {
             (*this).GetGenerationChange(::core::mem::transmute_copy(&pdwgeneration), ::core::mem::transmute_copy(&pshortcutpairlist)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddShortcut: AddShortcut::<Identity, Impl, OFFSET>,
             RemoveShortcut: RemoveShortcut::<Identity, Impl, OFFSET>,
             GetShortcuts: GetShortcuts::<Identity, Impl, OFFSET>,
@@ -2219,7 +2219,7 @@ impl ISpStream_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ISpStreamFormat_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpStreamFormat_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetBaseStream: SetBaseStream::<Identity, Impl, OFFSET>,
             GetBaseStream: GetBaseStream::<Identity, Impl, OFFSET>,
             BindToFile: BindToFile::<Identity, Impl, OFFSET>,
@@ -2248,7 +2248,7 @@ impl ISpStreamFormat_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(), GetFormat: GetFormat::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(), GetFormat: GetFormat::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpStreamFormat as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
@@ -2315,7 +2315,7 @@ impl ISpStreamFormatConverter_Vtbl {
             }
         }
         Self {
-            base: ISpStreamFormat_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpStreamFormat_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetBaseStream: SetBaseStream::<Identity, Impl, OFFSET>,
             GetBaseStream: GetBaseStream::<Identity, Impl, OFFSET>,
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
@@ -2351,7 +2351,7 @@ impl ISpTranscript_Vtbl {
             (*this).AppendTranscript(::core::mem::transmute(&psztranscript)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTranscript: GetTranscript::<Identity, Impl, OFFSET>,
             AppendTranscript: AppendTranscript::<Identity, Impl, OFFSET>,
         }
@@ -2547,7 +2547,7 @@ impl ISpVoice_Vtbl {
             (*this).DisplayUI(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&psztitle), ::core::mem::transmute(&psztypeofui), ::core::mem::transmute_copy(&pvextradata), ::core::mem::transmute_copy(&cbextradata)).into()
         }
         Self {
-            base: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOutput: SetOutput::<Identity, Impl, OFFSET>,
             GetOutputObjectToken: GetOutputObjectToken::<Identity, Impl, OFFSET>,
             GetOutputStream: GetOutputStream::<Identity, Impl, OFFSET>,
@@ -2598,7 +2598,7 @@ impl ISpXMLRecoResult_Vtbl {
             (*this).GetXMLErrorInfo(::core::mem::transmute_copy(&psemanticerrorinfo)).into()
         }
         Self {
-            base: ISpRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetXMLResult: GetXMLResult::<Identity, Impl, OFFSET>,
             GetXMLErrorInfo: GetXMLErrorInfo::<Identity, Impl, OFFSET>,
         }
@@ -2704,7 +2704,7 @@ impl ISpeechAudio_Vtbl {
             (*this).SetState(::core::mem::transmute_copy(&state)).into()
         }
         Self {
-            base: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             BufferInfo: BufferInfo::<Identity, Impl, OFFSET>,
             DefaultFormat: DefaultFormat::<Identity, Impl, OFFSET>,
@@ -2781,7 +2781,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
             (*this).SetEventBias(::core::mem::transmute_copy(&eventbias)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             MinNotification: MinNotification::<Identity, Impl, OFFSET>,
             SetMinNotification: SetMinNotification::<Identity, Impl, OFFSET>,
             BufferSize: BufferSize::<Identity, Impl, OFFSET>,
@@ -2855,7 +2855,7 @@ impl ISpeechAudioFormat_Vtbl {
             (*this).SetWaveFormatEx(::core::mem::transmute(&speechwaveformatex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             SetType: SetType::<Identity, Impl, OFFSET>,
             Guid: Guid::<Identity, Impl, OFFSET>,
@@ -2935,7 +2935,7 @@ impl ISpeechAudioStatus_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FreeBufferSpace: FreeBufferSpace::<Identity, Impl, OFFSET>,
             NonBlockingIO: NonBlockingIO::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
@@ -3002,7 +3002,7 @@ impl ISpeechBaseStream_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Format: Format::<Identity, Impl, OFFSET>,
             putref_Format: putref_Format::<Identity, Impl, OFFSET>,
             Read: Read::<Identity, Impl, OFFSET>,
@@ -3039,7 +3039,7 @@ impl ISpeechCustomStream_Vtbl {
             (*this).putref_BaseStream(::core::mem::transmute(&punkstream)).into()
         }
         Self {
-            base: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             BaseStream: BaseStream::<Identity, Impl, OFFSET>,
             putref_BaseStream: putref_BaseStream::<Identity, Impl, OFFSET>,
         }
@@ -3169,7 +3169,7 @@ impl ISpeechDataKey_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetBinaryValue: SetBinaryValue::<Identity, Impl, OFFSET>,
             GetBinaryValue: GetBinaryValue::<Identity, Impl, OFFSET>,
             SetStringValue: SetStringValue::<Identity, Impl, OFFSET>,
@@ -3206,7 +3206,7 @@ impl ISpeechFileStream_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        Self { base: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
+        Self { base__: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechFileStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
@@ -3291,7 +3291,7 @@ impl ISpeechGrammarRule_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Attributes: Attributes::<Identity, Impl, OFFSET>,
             InitialState: InitialState::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -3354,7 +3354,7 @@ impl ISpeechGrammarRuleState_Vtbl {
             (*this).AddSpecialTransition(::core::mem::transmute(&destinationstate), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&propertyvalue), ::core::mem::transmute_copy(&weight)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Rule: Rule::<Identity, Impl, OFFSET>,
             Transitions: Transitions::<Identity, Impl, OFFSET>,
             AddWordTransition: AddWordTransition::<Identity, Impl, OFFSET>,
@@ -3469,7 +3469,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Text: Text::<Identity, Impl, OFFSET>,
             Rule: Rule::<Identity, Impl, OFFSET>,
@@ -3527,7 +3527,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3628,7 +3628,7 @@ impl ISpeechGrammarRules_Vtbl {
             (*this).CommitAndSave(::core::mem::transmute_copy(&errortext), ::core::mem::transmute_copy(&savestream)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             FindRule: FindRule::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -3710,7 +3710,7 @@ impl ISpeechLexicon_Vtbl {
             (*this).GetGenerationChange(::core::mem::transmute_copy(&generationid), ::core::mem::transmute_copy(&ppwords)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GenerationId: GenerationId::<Identity, Impl, OFFSET>,
             GetWords: GetWords::<Identity, Impl, OFFSET>,
             AddPronunciation: AddPronunciation::<Identity, Impl, OFFSET>,
@@ -3792,7 +3792,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             LangId: LangId::<Identity, Impl, OFFSET>,
             PartOfSpeech: PartOfSpeech::<Identity, Impl, OFFSET>,
@@ -3847,7 +3847,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3912,7 +3912,7 @@ impl ISpeechLexiconWord_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LangId: LangId::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
             Word: Word::<Identity, Impl, OFFSET>,
@@ -3966,7 +3966,7 @@ impl ISpeechLexiconWords_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4031,7 +4031,7 @@ impl ISpeechMMSysAudio_Vtbl {
             }
         }
         Self {
-            base: ISpeechAudio_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpeechAudio_Vtbl::new::<Identity, Impl, OFFSET>(),
             DeviceId: DeviceId::<Identity, Impl, OFFSET>,
             SetDeviceId: SetDeviceId::<Identity, Impl, OFFSET>,
             LineId: LineId::<Identity, Impl, OFFSET>,
@@ -4068,7 +4068,7 @@ impl ISpeechMemoryStream_Vtbl {
             }
         }
         Self {
-            base: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetData: SetData::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
         }
@@ -4216,7 +4216,7 @@ impl ISpeechObjectToken_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             DataKey: DataKey::<Identity, Impl, OFFSET>,
             Category: Category::<Identity, Impl, OFFSET>,
@@ -4303,7 +4303,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             SetDefault: SetDefault::<Identity, Impl, OFFSET>,
             Default: Default::<Identity, Impl, OFFSET>,
@@ -4359,7 +4359,7 @@ impl ISpeechObjectTokens_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4418,7 +4418,7 @@ impl ISpeechPhoneConverter_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LanguageId: LanguageId::<Identity, Impl, OFFSET>,
             SetLanguageId: SetLanguageId::<Identity, Impl, OFFSET>,
             PhoneToId: PhoneToId::<Identity, Impl, OFFSET>,
@@ -4490,7 +4490,7 @@ impl ISpeechPhraseAlternate_Vtbl {
             (*this).Commit().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RecoResult: RecoResult::<Identity, Impl, OFFSET>,
             StartElementInResult: StartElementInResult::<Identity, Impl, OFFSET>,
             NumberOfElementsInResult: NumberOfElementsInResult::<Identity, Impl, OFFSET>,
@@ -4545,7 +4545,7 @@ impl ISpeechPhraseAlternates_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4718,7 +4718,7 @@ impl ISpeechPhraseElement_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AudioTimeOffset: AudioTimeOffset::<Identity, Impl, OFFSET>,
             AudioSizeTime: AudioSizeTime::<Identity, Impl, OFFSET>,
             AudioStreamOffset: AudioStreamOffset::<Identity, Impl, OFFSET>,
@@ -4781,7 +4781,7 @@ impl ISpeechPhraseElements_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4990,7 +4990,7 @@ impl ISpeechPhraseInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LanguageId: LanguageId::<Identity, Impl, OFFSET>,
             GrammarId: GrammarId::<Identity, Impl, OFFSET>,
             StartTime: StartTime::<Identity, Impl, OFFSET>,
@@ -5032,7 +5032,7 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RestorePhraseFromMemory: RestorePhraseFromMemory::<Identity, Impl, OFFSET>,
         }
     }
@@ -5083,7 +5083,7 @@ impl ISpeechPhraseProperties_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -5208,7 +5208,7 @@ impl ISpeechPhraseProperty_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
@@ -5279,7 +5279,7 @@ impl ISpeechPhraseReplacement_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DisplayAttributes: DisplayAttributes::<Identity, Impl, OFFSET>,
             Text: Text::<Identity, Impl, OFFSET>,
             FirstElement: FirstElement::<Identity, Impl, OFFSET>,
@@ -5333,7 +5333,7 @@ impl ISpeechPhraseReplacements_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -5446,7 +5446,7 @@ impl ISpeechPhraseRule_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             FirstElement: FirstElement::<Identity, Impl, OFFSET>,
@@ -5504,7 +5504,7 @@ impl ISpeechPhraseRules_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -5749,7 +5749,7 @@ impl ISpeechRecoContext_Vtbl {
             (*this).SetAdaptationData(::core::mem::transmute(&adaptationstring)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Recognizer: Recognizer::<Identity, Impl, OFFSET>,
             AudioInputInterferenceStatus: AudioInputInterferenceStatus::<Identity, Impl, OFFSET>,
             RequestedUIType: RequestedUIType::<Identity, Impl, OFFSET>,
@@ -5932,7 +5932,7 @@ impl ISpeechRecoGrammar_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             RecoContext: RecoContext::<Identity, Impl, OFFSET>,
             SetState: SetState::<Identity, Impl, OFFSET>,
@@ -6073,7 +6073,7 @@ impl ISpeechRecoResult_Vtbl {
             (*this).DiscardResultInfo(::core::mem::transmute_copy(&valuetypes)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RecoContext: RecoContext::<Identity, Impl, OFFSET>,
             Times: Times::<Identity, Impl, OFFSET>,
             putref_AudioFormat: putref_AudioFormat::<Identity, Impl, OFFSET>,
@@ -6102,7 +6102,7 @@ impl ISpeechRecoResult2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetTextFeedback(::core::mem::transmute(&feedback), ::core::mem::transmute_copy(&wassuccessful)).into()
         }
-        Self { base: ISpeechRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(), SetTextFeedback: SetTextFeedback::<Identity, Impl, OFFSET> }
+        Self { base__: ISpeechRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(), SetTextFeedback: SetTextFeedback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpeechRecoResult2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechRecoResult as ::windows::core::Interface>::IID
@@ -6247,7 +6247,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             (*this).SetTextFeedback(::core::mem::transmute(&feedback), ::core::mem::transmute_copy(&wassuccessful)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RecoContext: RecoContext::<Identity, Impl, OFFSET>,
             Times: Times::<Identity, Impl, OFFSET>,
             putref_AudioFormat: putref_AudioFormat::<Identity, Impl, OFFSET>,
@@ -6322,7 +6322,7 @@ impl ISpeechRecoResultTimes_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StreamTime: StreamTime::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
             TickCount: TickCount::<Identity, Impl, OFFSET>,
@@ -6592,7 +6592,7 @@ impl ISpeechRecognizer_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             putref_Recognizer: putref_Recognizer::<Identity, Impl, OFFSET>,
             Recognizer: Recognizer::<Identity, Impl, OFFSET>,
             SetAllowAudioInputFormatChangesOnNextSet: SetAllowAudioInputFormatChangesOnNextSet::<Identity, Impl, OFFSET>,
@@ -6704,7 +6704,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AudioStatus: AudioStatus::<Identity, Impl, OFFSET>,
             CurrentStreamPosition: CurrentStreamPosition::<Identity, Impl, OFFSET>,
             CurrentStreamNumber: CurrentStreamNumber::<Identity, Impl, OFFSET>,
@@ -6742,7 +6742,7 @@ impl ISpeechResourceLoader_Vtbl {
             (*this).ReleaseLocalCopy(::core::mem::transmute(&pbstrlocalpath)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LoadResource: LoadResource::<Identity, Impl, OFFSET>,
             GetLocalCopy: GetLocalCopy::<Identity, Impl, OFFSET>,
             ReleaseLocalCopy: ReleaseLocalCopy::<Identity, Impl, OFFSET>,
@@ -6831,7 +6831,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetActiveOffset: SetActiveOffset::<Identity, Impl, OFFSET>,
             ActiveOffset: ActiveOffset::<Identity, Impl, OFFSET>,
             SetActiveLength: SetActiveLength::<Identity, Impl, OFFSET>,
@@ -7159,7 +7159,7 @@ impl ISpeechVoice_Vtbl {
             (*this).DisplayUI(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&title), ::core::mem::transmute(&typeofui), ::core::mem::transmute_copy(&extradata)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             Voice: Voice::<Identity, Impl, OFFSET>,
             putref_Voice: putref_Voice::<Identity, Impl, OFFSET>,
@@ -7349,7 +7349,7 @@ impl ISpeechVoiceStatus_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentStreamNumber: CurrentStreamNumber::<Identity, Impl, OFFSET>,
             LastStreamNumberQueued: LastStreamNumberQueued::<Identity, Impl, OFFSET>,
             LastHResult: LastHResult::<Identity, Impl, OFFSET>,
@@ -7501,7 +7501,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             (*this).SetExtraData(::core::mem::transmute(&extradata)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FormatTag: FormatTag::<Identity, Impl, OFFSET>,
             SetFormatTag: SetFormatTag::<Identity, Impl, OFFSET>,
             Channels: Channels::<Identity, Impl, OFFSET>,
@@ -7547,7 +7547,7 @@ impl ISpeechXMLRecoResult_Vtbl {
             (*this).GetXMLErrorInfo(::core::mem::transmute_copy(&linenumber), ::core::mem::transmute_copy(&scriptline), ::core::mem::transmute_copy(&source), ::core::mem::transmute_copy(&description), ::core::mem::transmute_copy(&resultcode), ::core::mem::transmute_copy(&iserror)).into()
         }
         Self {
-            base: ISpeechRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpeechRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetXMLResult: GetXMLResult::<Identity, Impl, OFFSET>,
             GetXMLErrorInfo: GetXMLErrorInfo::<Identity, Impl, OFFSET>,
         }
@@ -7561,7 +7561,7 @@ pub trait _ISpeechRecoContextEvents_Impl: Sized + super::super::System::Com::IDi
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ISpeechRecoContextEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ISpeechRecoContextEvents_Impl, const OFFSET: isize>() -> _ISpeechRecoContextEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_ISpeechRecoContextEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7572,7 +7572,7 @@ pub trait _ISpeechVoiceEvents_Impl: Sized + super::super::System::Com::IDispatch
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ISpeechVoiceEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ISpeechVoiceEvents_Impl, const OFFSET: isize>() -> _ISpeechVoiceEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_ISpeechVoiceEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID

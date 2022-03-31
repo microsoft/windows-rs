@@ -90,7 +90,7 @@ unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DRendezvousSessionEvents_Vtbl {
-    pub base: super::Com::IDispatch_Vtbl,
+    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
@@ -144,7 +144,7 @@ unsafe impl ::windows::core::Interface for IRendezvousApplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRendezvousApplication_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetRendezvousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendezvoussession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
@@ -221,7 +221,7 @@ unsafe impl ::windows::core::Interface for IRendezvousSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRendezvousSession_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psessionstate: *mut RENDEZVOUS_SESSION_STATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub RemoteUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,

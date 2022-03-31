@@ -71,7 +71,7 @@ impl IMXAttributes_Vtbl {
             (*this).setValue(::core::mem::transmute_copy(&nindex), ::core::mem::transmute(&strvalue)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             addAttribute: addAttribute::<Identity, Impl, OFFSET>,
             addAttributeFromIndex: addAttributeFromIndex::<Identity, Impl, OFFSET>,
             clear: clear::<Identity, Impl, OFFSET>,
@@ -162,7 +162,7 @@ impl IMXNamespaceManager_Vtbl {
             (*this).getURI(::core::mem::transmute(&pwchprefix), ::core::mem::transmute(&pcontextnode), ::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&pcchuri)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             putAllowOverride: putAllowOverride::<Identity, Impl, OFFSET>,
             getAllowOverride: getAllowOverride::<Identity, Impl, OFFSET>,
             reset: reset::<Identity, Impl, OFFSET>,
@@ -222,7 +222,7 @@ impl IMXNamespacePrefixes_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             item: item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             _newEnum: _newEnum::<Identity, Impl, OFFSET>,
@@ -257,7 +257,7 @@ impl IMXReaderControl_Vtbl {
             (*this).suspend().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             abort: abort::<Identity, Impl, OFFSET>,
             resume: resume::<Identity, Impl, OFFSET>,
             suspend: suspend::<Identity, Impl, OFFSET>,
@@ -280,7 +280,7 @@ impl IMXSchemaDeclHandler_Vtbl {
             (*this).schemaElementDecl(::core::mem::transmute(&oschemaelement)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             schemaElementDecl: schemaElementDecl::<Identity, Impl, OFFSET>,
         }
     }
@@ -445,7 +445,7 @@ impl IMXWriter_Vtbl {
             (*this).flush().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Setoutput: Setoutput::<Identity, Impl, OFFSET>,
             output: output::<Identity, Impl, OFFSET>,
             Setencoding: Setencoding::<Identity, Impl, OFFSET>,
@@ -584,7 +584,7 @@ impl IMXXMLFilter_Vtbl {
             (*this).putref_errorHandler(::core::mem::transmute(&ohandler)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             getFeature: getFeature::<Identity, Impl, OFFSET>,
             putFeature: putFeature::<Identity, Impl, OFFSET>,
             getProperty: getProperty::<Identity, Impl, OFFSET>,
@@ -704,7 +704,7 @@ impl ISAXAttributes_Vtbl {
             (*this).getValueFromQName(::core::mem::transmute(&pwchqname), ::core::mem::transmute_copy(&cchqname), ::core::mem::transmute_copy(&ppwchvalue), ::core::mem::transmute_copy(&pcchvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             getLength: getLength::<Identity, Impl, OFFSET>,
             getURI: getURI::<Identity, Impl, OFFSET>,
             getLocalName: getLocalName::<Identity, Impl, OFFSET>,
@@ -795,7 +795,7 @@ impl ISAXContentHandler_Vtbl {
             (*this).skippedEntity(::core::mem::transmute(&pwchname), ::core::mem::transmute_copy(&cchname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             putDocumentLocator: putDocumentLocator::<Identity, Impl, OFFSET>,
             startDocument: startDocument::<Identity, Impl, OFFSET>,
             endDocument: endDocument::<Identity, Impl, OFFSET>,
@@ -830,7 +830,7 @@ impl ISAXDTDHandler_Vtbl {
             (*this).unparsedEntityDecl(::core::mem::transmute(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid), ::core::mem::transmute(&pwchnotationname), ::core::mem::transmute_copy(&cchnotationname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             notationDecl: notationDecl::<Identity, Impl, OFFSET>,
             unparsedEntityDecl: unparsedEntityDecl::<Identity, Impl, OFFSET>,
         }
@@ -868,7 +868,7 @@ impl ISAXDeclHandler_Vtbl {
             (*this).externalEntityDecl(::core::mem::transmute(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             elementDecl: elementDecl::<Identity, Impl, OFFSET>,
             attributeDecl: attributeDecl::<Identity, Impl, OFFSET>,
             internalEntityDecl: internalEntityDecl::<Identity, Impl, OFFSET>,
@@ -897,7 +897,7 @@ impl ISAXEntityResolver_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), resolveEntity: resolveEntity::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), resolveEntity: resolveEntity::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISAXEntityResolver as ::windows::core::Interface>::IID
@@ -926,7 +926,7 @@ impl ISAXErrorHandler_Vtbl {
             (*this).ignorableWarning(::core::mem::transmute(&plocator), ::core::mem::transmute(&pwcherrormessage), ::core::mem::transmute_copy(&hrerrorcode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             error: error::<Identity, Impl, OFFSET>,
             fatalError: fatalError::<Identity, Impl, OFFSET>,
             ignorableWarning: ignorableWarning::<Identity, Impl, OFFSET>,
@@ -983,7 +983,7 @@ impl ISAXLexicalHandler_Vtbl {
             (*this).comment(::core::mem::transmute(&pwchchars), ::core::mem::transmute_copy(&cchchars)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             startDTD: startDTD::<Identity, Impl, OFFSET>,
             endDTD: endDTD::<Identity, Impl, OFFSET>,
             startEntity: startEntity::<Identity, Impl, OFFSET>,
@@ -1050,7 +1050,7 @@ impl ISAXLocator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             getColumnNumber: getColumnNumber::<Identity, Impl, OFFSET>,
             getLineNumber: getLineNumber::<Identity, Impl, OFFSET>,
             getPublicId: getPublicId::<Identity, Impl, OFFSET>,
@@ -1086,7 +1086,7 @@ impl ISAXXMLFilter_Vtbl {
             (*this).putParent(::core::mem::transmute(&preader)).into()
         }
         Self {
-            base: ISAXXMLReader_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISAXXMLReader_Vtbl::new::<Identity, Impl, OFFSET>(),
             getParent: getParent::<Identity, Impl, OFFSET>,
             putParent: putParent::<Identity, Impl, OFFSET>,
         }
@@ -1258,7 +1258,7 @@ impl ISAXXMLReader_Vtbl {
             (*this).parseURL(::core::mem::transmute(&pwchurl)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             getFeature: getFeature::<Identity, Impl, OFFSET>,
             putFeature: putFeature::<Identity, Impl, OFFSET>,
             getProperty: getProperty::<Identity, Impl, OFFSET>,
@@ -1398,7 +1398,7 @@ impl ISchema_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             targetNamespace: targetNamespace::<Identity, Impl, OFFSET>,
             version: version::<Identity, Impl, OFFSET>,
             types: types::<Identity, Impl, OFFSET>,
@@ -1445,7 +1445,7 @@ impl ISchemaAny_Vtbl {
             }
         }
         Self {
-            base: ISchemaParticle_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaParticle_Vtbl::new::<Identity, Impl, OFFSET>(),
             namespaces: namespaces::<Identity, Impl, OFFSET>,
             processContents: processContents::<Identity, Impl, OFFSET>,
         }
@@ -1533,7 +1533,7 @@ impl ISchemaAttribute_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             r#type: r#type::<Identity, Impl, OFFSET>,
             scope: scope::<Identity, Impl, OFFSET>,
             defaultValue: defaultValue::<Identity, Impl, OFFSET>,
@@ -1577,7 +1577,7 @@ impl ISchemaAttributeGroup_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             anyAttribute: anyAttribute::<Identity, Impl, OFFSET>,
             attributes: attributes::<Identity, Impl, OFFSET>,
         }
@@ -1665,7 +1665,7 @@ impl ISchemaComplexType_Vtbl {
             }
         }
         Self {
-            base: ISchemaType_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaType_Vtbl::new::<Identity, Impl, OFFSET>(),
             isAbstract: isAbstract::<Identity, Impl, OFFSET>,
             anyAttribute: anyAttribute::<Identity, Impl, OFFSET>,
             attributes: attributes::<Identity, Impl, OFFSET>,
@@ -1817,7 +1817,7 @@ impl ISchemaElement_Vtbl {
             }
         }
         Self {
-            base: ISchemaParticle_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaParticle_Vtbl::new::<Identity, Impl, OFFSET>(),
             r#type: r#type::<Identity, Impl, OFFSET>,
             scope: scope::<Identity, Impl, OFFSET>,
             defaultValue: defaultValue::<Identity, Impl, OFFSET>,
@@ -1878,7 +1878,7 @@ impl ISchemaIdentityConstraint_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             selector: selector::<Identity, Impl, OFFSET>,
             fields: fields::<Identity, Impl, OFFSET>,
             referencedKey: referencedKey::<Identity, Impl, OFFSET>,
@@ -1979,7 +1979,7 @@ impl ISchemaItem_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             name: name::<Identity, Impl, OFFSET>,
             namespaceURI: namespaceURI::<Identity, Impl, OFFSET>,
             schema: schema::<Identity, Impl, OFFSET>,
@@ -2060,7 +2060,7 @@ impl ISchemaItemCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             item: item::<Identity, Impl, OFFSET>,
             itemByName: itemByName::<Identity, Impl, OFFSET>,
             itemByQName: itemByQName::<Identity, Impl, OFFSET>,
@@ -2090,7 +2090,7 @@ impl ISchemaModelGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ISchemaParticle_Vtbl::new::<Identity, Impl, OFFSET>(), particles: particles::<Identity, Impl, OFFSET> }
+        Self { base__: ISchemaParticle_Vtbl::new::<Identity, Impl, OFFSET>(), particles: particles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISchemaModelGroup as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID || iid == &<ISchemaParticle as ::windows::core::Interface>::IID
@@ -2127,7 +2127,7 @@ impl ISchemaNotation_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             systemIdentifier: systemIdentifier::<Identity, Impl, OFFSET>,
             publicIdentifier: publicIdentifier::<Identity, Impl, OFFSET>,
         }
@@ -2167,7 +2167,7 @@ impl ISchemaParticle_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             minOccurs: minOccurs::<Identity, Impl, OFFSET>,
             maxOccurs: maxOccurs::<Identity, Impl, OFFSET>,
         }
@@ -2219,7 +2219,7 @@ impl ISchemaStringCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             item: item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             _newEnum: _newEnum::<Identity, Impl, OFFSET>,
@@ -2440,7 +2440,7 @@ impl ISchemaType_Vtbl {
             }
         }
         Self {
-            base: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISchemaItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             baseTypes: baseTypes::<Identity, Impl, OFFSET>,
             r#final: r#final::<Identity, Impl, OFFSET>,
             variety: variety::<Identity, Impl, OFFSET>,
@@ -2507,7 +2507,7 @@ impl IServerXMLHTTPRequest_Vtbl {
             (*this).setOption(::core::mem::transmute_copy(&option), ::core::mem::transmute(&value)).into()
         }
         Self {
-            base: IXMLHTTPRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLHTTPRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
             setTimeouts: setTimeouts::<Identity, Impl, OFFSET>,
             waitForResponse: waitForResponse::<Identity, Impl, OFFSET>,
             getOption: getOption::<Identity, Impl, OFFSET>,
@@ -2537,7 +2537,7 @@ impl IServerXMLHTTPRequest2_Vtbl {
             (*this).setProxyCredentials(::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrpassword)).into()
         }
         Self {
-            base: IServerXMLHTTPRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IServerXMLHTTPRequest_Vtbl::new::<Identity, Impl, OFFSET>(),
             setProxy: setProxy::<Identity, Impl, OFFSET>,
             setProxyCredentials: setProxyCredentials::<Identity, Impl, OFFSET>,
         }
@@ -2649,7 +2649,7 @@ impl IVBMXNamespaceManager_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetallowOverride: SetallowOverride::<Identity, Impl, OFFSET>,
             allowOverride: allowOverride::<Identity, Impl, OFFSET>,
             reset: reset::<Identity, Impl, OFFSET>,
@@ -2818,7 +2818,7 @@ impl IVBSAXAttributes_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             length: length::<Identity, Impl, OFFSET>,
             getURI: getURI::<Identity, Impl, OFFSET>,
             getLocalName: getLocalName::<Identity, Impl, OFFSET>,
@@ -2910,7 +2910,7 @@ impl IVBSAXContentHandler_Vtbl {
             (*this).skippedEntity(::core::mem::transmute_copy(&strname)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             putref_documentLocator: putref_documentLocator::<Identity, Impl, OFFSET>,
             startDocument: startDocument::<Identity, Impl, OFFSET>,
             endDocument: endDocument::<Identity, Impl, OFFSET>,
@@ -2947,7 +2947,7 @@ impl IVBSAXDTDHandler_Vtbl {
             (*this).unparsedEntityDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid), ::core::mem::transmute_copy(&strnotationname)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             notationDecl: notationDecl::<Identity, Impl, OFFSET>,
             unparsedEntityDecl: unparsedEntityDecl::<Identity, Impl, OFFSET>,
         }
@@ -2987,7 +2987,7 @@ impl IVBSAXDeclHandler_Vtbl {
             (*this).externalEntityDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             elementDecl: elementDecl::<Identity, Impl, OFFSET>,
             attributeDecl: attributeDecl::<Identity, Impl, OFFSET>,
             internalEntityDecl: internalEntityDecl::<Identity, Impl, OFFSET>,
@@ -3010,7 +3010,10 @@ impl IVBSAXEntityResolver_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).resolveEntity(::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid), ::core::mem::transmute_copy(&varinput)).into()
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), resolveEntity: resolveEntity::<Identity, Impl, OFFSET> }
+        Self {
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            resolveEntity: resolveEntity::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVBSAXEntityResolver as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -3041,7 +3044,7 @@ impl IVBSAXErrorHandler_Vtbl {
             (*this).ignorableWarning(::core::mem::transmute(&olocator), ::core::mem::transmute_copy(&strerrormessage), ::core::mem::transmute_copy(&nerrorcode)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             error: error::<Identity, Impl, OFFSET>,
             fatalError: fatalError::<Identity, Impl, OFFSET>,
             ignorableWarning: ignorableWarning::<Identity, Impl, OFFSET>,
@@ -3100,7 +3103,7 @@ impl IVBSAXLexicalHandler_Vtbl {
             (*this).comment(::core::mem::transmute_copy(&strchars)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             startDTD: startDTD::<Identity, Impl, OFFSET>,
             endDTD: endDTD::<Identity, Impl, OFFSET>,
             startEntity: startEntity::<Identity, Impl, OFFSET>,
@@ -3169,7 +3172,7 @@ impl IVBSAXLocator_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             columnNumber: columnNumber::<Identity, Impl, OFFSET>,
             lineNumber: lineNumber::<Identity, Impl, OFFSET>,
             publicId: publicId::<Identity, Impl, OFFSET>,
@@ -3205,7 +3208,7 @@ impl IVBSAXXMLFilter_Vtbl {
             (*this).putref_parent(::core::mem::transmute(&oreader)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             parent: parent::<Identity, Impl, OFFSET>,
             putref_parent: putref_parent::<Identity, Impl, OFFSET>,
         }
@@ -3377,7 +3380,7 @@ impl IVBSAXXMLReader_Vtbl {
             (*this).parseURL(::core::mem::transmute(&strurl)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             getFeature: getFeature::<Identity, Impl, OFFSET>,
             putFeature: putFeature::<Identity, Impl, OFFSET>,
             getProperty: getProperty::<Identity, Impl, OFFSET>,
@@ -3433,7 +3436,7 @@ impl IXMLAttribute_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             name: name::<Identity, Impl, OFFSET>,
             value: value::<Identity, Impl, OFFSET>,
         }
@@ -3467,7 +3470,7 @@ impl IXMLDOMAttribute_Vtbl {
             (*this).Setvalue(::core::mem::transmute(&attributevalue)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             name: name::<Identity, Impl, OFFSET>,
             value: value::<Identity, Impl, OFFSET>,
             Setvalue: Setvalue::<Identity, Impl, OFFSET>,
@@ -3482,7 +3485,7 @@ pub trait IXMLDOMCDATASection_Impl: Sized + super::super::super::System::Com::ID
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMCDATASection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMCDATASection_Impl, const OFFSET: isize>() -> IXMLDOMCDATASection_Vtbl {
-        Self { base: IXMLDOMText_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IXMLDOMText_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMCDATASection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID || iid == &<IXMLDOMText as ::windows::core::Interface>::IID
@@ -3543,7 +3546,7 @@ impl IXMLDOMCharacterData_Vtbl {
             (*this).replaceData(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count), ::core::mem::transmute(&data)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             data: data::<Identity, Impl, OFFSET>,
             Setdata: Setdata::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
@@ -3563,7 +3566,7 @@ pub trait IXMLDOMComment_Impl: Sized + super::super::super::System::Com::IDispat
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMComment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMComment_Impl, const OFFSET: isize>() -> IXMLDOMComment_Vtbl {
-        Self { base: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMComment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID
@@ -3864,7 +3867,7 @@ impl IXMLDOMDocument_Vtbl {
             (*this).Setontransformnode(::core::mem::transmute(&ontransformnodesink)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             doctype: doctype::<Identity, Impl, OFFSET>,
             implementation: implementation::<Identity, Impl, OFFSET>,
             documentElement: documentElement::<Identity, Impl, OFFSET>,
@@ -3971,7 +3974,7 @@ impl IXMLDOMDocument2_Vtbl {
             }
         }
         Self {
-            base: IXMLDOMDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
             namespaces: namespaces::<Identity, Impl, OFFSET>,
             schemas: schemas::<Identity, Impl, OFFSET>,
             putref_schemas: putref_schemas::<Identity, Impl, OFFSET>,
@@ -4015,7 +4018,7 @@ impl IXMLDOMDocument3_Vtbl {
             }
         }
         Self {
-            base: IXMLDOMDocument2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMDocument2_Vtbl::new::<Identity, Impl, OFFSET>(),
             validateNode: validateNode::<Identity, Impl, OFFSET>,
             importNode: importNode::<Identity, Impl, OFFSET>,
         }
@@ -4029,7 +4032,7 @@ pub trait IXMLDOMDocumentFragment_Impl: Sized + super::super::super::System::Com
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMDocumentFragment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocumentFragment_Impl, const OFFSET: isize>() -> IXMLDOMDocumentFragment_Vtbl {
-        Self { base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMDocumentFragment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
@@ -4072,7 +4075,7 @@ impl IXMLDOMDocumentType_Vtbl {
             }
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             name: name::<Identity, Impl, OFFSET>,
             entities: entities::<Identity, Impl, OFFSET>,
             notations: notations::<Identity, Impl, OFFSET>,
@@ -4167,7 +4170,7 @@ impl IXMLDOMElement_Vtbl {
             (*this).normalize().into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             tagName: tagName::<Identity, Impl, OFFSET>,
             getAttribute: getAttribute::<Identity, Impl, OFFSET>,
             setAttribute: setAttribute::<Identity, Impl, OFFSET>,
@@ -4208,7 +4211,7 @@ impl IXMLDOMEntity_Vtbl {
             (*this).notationName(::core::mem::transmute_copy(&name)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             publicId: publicId::<Identity, Impl, OFFSET>,
             systemId: systemId::<Identity, Impl, OFFSET>,
             notationName: notationName::<Identity, Impl, OFFSET>,
@@ -4223,7 +4226,7 @@ pub trait IXMLDOMEntityReference_Impl: Sized + super::super::super::System::Com:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMEntityReference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMEntityReference_Impl, const OFFSET: isize>() -> IXMLDOMEntityReference_Vtbl {
-        Self { base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMEntityReference as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
@@ -4241,7 +4244,7 @@ impl IXMLDOMImplementation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).hasFeature(::core::mem::transmute(&feature), ::core::mem::transmute(&version), ::core::mem::transmute_copy(&hasfeature)).into()
         }
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), hasFeature: hasFeature::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), hasFeature: hasFeature::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMImplementation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -4362,7 +4365,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             getNamedItem: getNamedItem::<Identity, Impl, OFFSET>,
             setNamedItem: setNamedItem::<Identity, Impl, OFFSET>,
             removeNamedItem: removeNamedItem::<Identity, Impl, OFFSET>,
@@ -4698,7 +4701,7 @@ impl IXMLDOMNode_Vtbl {
             (*this).transformNodeToObject(::core::mem::transmute(&stylesheet), ::core::mem::transmute(&outputobject)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             nodeName: nodeName::<Identity, Impl, OFFSET>,
             nodeValue: nodeValue::<Identity, Impl, OFFSET>,
             SetnodeValue: SetnodeValue::<Identity, Impl, OFFSET>,
@@ -4796,7 +4799,7 @@ impl IXMLDOMNodeList_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             item: item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             nextNode: nextNode::<Identity, Impl, OFFSET>,
@@ -4827,7 +4830,7 @@ impl IXMLDOMNotation_Vtbl {
             (*this).systemId(::core::mem::transmute_copy(&systemid)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             publicId: publicId::<Identity, Impl, OFFSET>,
             systemId: systemId::<Identity, Impl, OFFSET>,
         }
@@ -4885,7 +4888,7 @@ impl IXMLDOMParseError_Vtbl {
             (*this).filepos(::core::mem::transmute_copy(&fileposition)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             errorCode: errorCode::<Identity, Impl, OFFSET>,
             url: url::<Identity, Impl, OFFSET>,
             reason: reason::<Identity, Impl, OFFSET>,
@@ -4954,7 +4957,7 @@ impl IXMLDOMParseError2_Vtbl {
             }
         }
         Self {
-            base: IXMLDOMParseError_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMParseError_Vtbl::new::<Identity, Impl, OFFSET>(),
             errorXPath: errorXPath::<Identity, Impl, OFFSET>,
             allErrors: allErrors::<Identity, Impl, OFFSET>,
             errorParameters: errorParameters::<Identity, Impl, OFFSET>,
@@ -5026,7 +5029,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             item: item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             next: next::<Identity, Impl, OFFSET>,
@@ -5063,7 +5066,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
             (*this).Setdata(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             target: target::<Identity, Impl, OFFSET>,
             data: data::<Identity, Impl, OFFSET>,
             Setdata: Setdata::<Identity, Impl, OFFSET>,
@@ -5146,7 +5149,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             add: add::<Identity, Impl, OFFSET>,
             get: get::<Identity, Impl, OFFSET>,
             remove: remove::<Identity, Impl, OFFSET>,
@@ -5215,7 +5218,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
             }
         }
         Self {
-            base: IXMLDOMSchemaCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMSchemaCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
             validate: validate::<Identity, Impl, OFFSET>,
             SetvalidateOnLoad: SetvalidateOnLoad::<Identity, Impl, OFFSET>,
             validateOnLoad: validateOnLoad::<Identity, Impl, OFFSET>,
@@ -5342,7 +5345,7 @@ impl IXMLDOMSelection_Vtbl {
             (*this).setProperty(::core::mem::transmute(&name), ::core::mem::transmute(&value)).into()
         }
         Self {
-            base: IXMLDOMNodeList_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNodeList_Vtbl::new::<Identity, Impl, OFFSET>(),
             expr: expr::<Identity, Impl, OFFSET>,
             Setexpr: Setexpr::<Identity, Impl, OFFSET>,
             context: context::<Identity, Impl, OFFSET>,
@@ -5378,7 +5381,7 @@ impl IXMLDOMText_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, OFFSET>(), splitText: splitText::<Identity, Impl, OFFSET> }
+        Self { base__: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, OFFSET>(), splitText: splitText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMText as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID
@@ -5427,7 +5430,7 @@ impl IXMLDSOControl_Vtbl {
             (*this).readyState(::core::mem::transmute_copy(&state)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             XMLDocument: XMLDocument::<Identity, Impl, OFFSET>,
             SetXMLDocument: SetXMLDocument::<Identity, Impl, OFFSET>,
             JavaDSOCompatible: JavaDSOCompatible::<Identity, Impl, OFFSET>,
@@ -5602,7 +5605,7 @@ impl IXMLDocument_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             root: root::<Identity, Impl, OFFSET>,
             fileSize: fileSize::<Identity, Impl, OFFSET>,
             fileModifiedDate: fileModifiedDate::<Identity, Impl, OFFSET>,
@@ -5804,7 +5807,7 @@ impl IXMLDocument2_Vtbl {
             (*this).Setasync(::core::mem::transmute_copy(&f)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             root: root::<Identity, Impl, OFFSET>,
             fileSize: fileSize::<Identity, Impl, OFFSET>,
             fileModifiedDate: fileModifiedDate::<Identity, Impl, OFFSET>,
@@ -5942,7 +5945,7 @@ impl IXMLElement_Vtbl {
             (*this).removeChild(::core::mem::transmute(&pchildelem)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             tagName: tagName::<Identity, Impl, OFFSET>,
             SettagName: SettagName::<Identity, Impl, OFFSET>,
             parent: parent::<Identity, Impl, OFFSET>,
@@ -6088,7 +6091,7 @@ impl IXMLElement2_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             tagName: tagName::<Identity, Impl, OFFSET>,
             SettagName: SettagName::<Identity, Impl, OFFSET>,
             parent: parent::<Identity, Impl, OFFSET>,
@@ -6157,7 +6160,7 @@ impl IXMLElementCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Setlength: Setlength::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             _newEnum: _newEnum::<Identity, Impl, OFFSET>,
@@ -6180,7 +6183,7 @@ impl IXMLError_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetErrorInfo(::core::mem::transmute_copy(&perrorreturn)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLError as ::windows::core::Interface>::IID
@@ -6331,7 +6334,7 @@ impl IXMLHTTPRequest_Vtbl {
             (*this).Setonreadystatechange(::core::mem::transmute(&preadystatesink)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             open: open::<Identity, Impl, OFFSET>,
             setRequestHeader: setRequestHeader::<Identity, Impl, OFFSET>,
             getResponseHeader: getResponseHeader::<Identity, Impl, OFFSET>,
@@ -6437,7 +6440,7 @@ impl IXMLHTTPRequest2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Send: Send::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
@@ -6491,7 +6494,7 @@ impl IXMLHTTPRequest2Callback_Vtbl {
             (*this).OnError(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&hrerror)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnRedirect: OnRedirect::<Identity, Impl, OFFSET>,
             OnHeadersAvailable: OnHeadersAvailable::<Identity, Impl, OFFSET>,
             OnDataAvailable: OnDataAvailable::<Identity, Impl, OFFSET>,
@@ -6515,7 +6518,7 @@ impl IXMLHTTPRequest3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetClientCertificate(::core::mem::transmute_copy(&cbclientcertificatehash), ::core::mem::transmute_copy(&pbclientcertificatehash), ::core::mem::transmute(&pwszpin)).into()
         }
-        Self { base: IXMLHTTPRequest2_Vtbl::new::<Identity, Impl, OFFSET>(), SetClientCertificate: SetClientCertificate::<Identity, Impl, OFFSET> }
+        Self { base__: IXMLHTTPRequest2_Vtbl::new::<Identity, Impl, OFFSET>(), SetClientCertificate: SetClientCertificate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLHTTPRequest3 as ::windows::core::Interface>::IID || iid == &<IXMLHTTPRequest2 as ::windows::core::Interface>::IID
@@ -6540,7 +6543,7 @@ impl IXMLHTTPRequest3Callback_Vtbl {
             (*this).OnClientCertificateRequested(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&cissuerlist), ::core::mem::transmute_copy(&rgpwszissuerlist)).into()
         }
         Self {
-            base: IXMLHTTPRequest2Callback_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLHTTPRequest2Callback_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnServerCertificateReceived: OnServerCertificateReceived::<Identity, Impl, OFFSET>,
             OnClientCertificateRequested: OnClientCertificateRequested::<Identity, Impl, OFFSET>,
         }
@@ -6694,7 +6697,7 @@ impl IXMLHttpRequest_Vtbl {
             (*this).Setonreadystatechange(::core::mem::transmute(&preadystatesink)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             open: open::<Identity, Impl, OFFSET>,
             setRequestHeader: setRequestHeader::<Identity, Impl, OFFSET>,
             getResponseHeader: getResponseHeader::<Identity, Impl, OFFSET>,
@@ -6854,7 +6857,7 @@ impl IXSLProcessor_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Setinput: Setinput::<Identity, Impl, OFFSET>,
             input: input::<Identity, Impl, OFFSET>,
             ownerTemplate: ownerTemplate::<Identity, Impl, OFFSET>,
@@ -6912,7 +6915,7 @@ impl IXSLTemplate_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             putref_stylesheet: putref_stylesheet::<Identity, Impl, OFFSET>,
             stylesheet: stylesheet::<Identity, Impl, OFFSET>,
             createProcessor: createProcessor::<Identity, Impl, OFFSET>,
@@ -6983,7 +6986,7 @@ impl IXTLRuntime_Vtbl {
             (*this).formatTime(::core::mem::transmute(&vartime), ::core::mem::transmute(&bstrformat), ::core::mem::transmute(&vardestlocale), ::core::mem::transmute_copy(&pbstrformattedstring)).into()
         }
         Self {
-            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXMLDOMNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             uniqueID: uniqueID::<Identity, Impl, OFFSET>,
             depth: depth::<Identity, Impl, OFFSET>,
             childNumber: childNumber::<Identity, Impl, OFFSET>,
@@ -7004,7 +7007,7 @@ pub trait XMLDOMDocumentEvents_Impl: Sized + super::super::super::System::Com::I
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl XMLDOMDocumentEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: XMLDOMDocumentEvents_Impl, const OFFSET: isize>() -> XMLDOMDocumentEvents_Vtbl {
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<XMLDOMDocumentEvents as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID

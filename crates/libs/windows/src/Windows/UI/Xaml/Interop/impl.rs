@@ -18,7 +18,7 @@ impl IBindableIterable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableIterable, OFFSET>(), First: First::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableIterable, OFFSET>(), First: First::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindableIterable as ::windows::core::Interface>::IID
@@ -71,7 +71,7 @@ impl IBindableIterator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableIterator, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableIterator, OFFSET>(),
             Current: Current::<Identity, Impl, OFFSET>,
             HasCurrent: HasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -111,7 +111,7 @@ impl IBindableObservableVector_Vtbl {
             (*this).RemoveVectorChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableObservableVector, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableObservableVector, OFFSET>(),
             VectorChanged: VectorChanged::<Identity, Impl, OFFSET>,
             RemoveVectorChanged: RemoveVectorChanged::<Identity, Impl, OFFSET>,
         }
@@ -216,7 +216,7 @@ impl IBindableVector_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVector, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVector, OFFSET>(),
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             Size: Size::<Identity, Impl, OFFSET>,
             GetView: GetView::<Identity, Impl, OFFSET>,
@@ -280,7 +280,7 @@ impl IBindableVectorView_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVectorView, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVectorView, OFFSET>(),
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             Size: Size::<Identity, Impl, OFFSET>,
             IndexOf: IndexOf::<Identity, Impl, OFFSET>,
@@ -320,7 +320,7 @@ impl INotifyCollectionChanged_Vtbl {
             (*this).RemoveCollectionChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INotifyCollectionChanged, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INotifyCollectionChanged, OFFSET>(),
             CollectionChanged: CollectionChanged::<Identity, Impl, OFFSET>,
             RemoveCollectionChanged: RemoveCollectionChanged::<Identity, Impl, OFFSET>,
         }

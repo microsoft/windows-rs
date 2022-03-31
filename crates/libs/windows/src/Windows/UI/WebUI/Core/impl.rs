@@ -4,7 +4,7 @@ impl ::windows::core::RuntimeName for IWebUICommandBarElement {
 }
 impl IWebUICommandBarElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElement_Impl, const OFFSET: isize>() -> IWebUICommandBarElement_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUICommandBarElement as ::windows::core::Interface>::IID
@@ -16,7 +16,7 @@ impl ::windows::core::RuntimeName for IWebUICommandBarIcon {
 }
 impl IWebUICommandBarIcon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIcon_Impl, const OFFSET: isize>() -> IWebUICommandBarIcon_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUICommandBarIcon as ::windows::core::Interface>::IID

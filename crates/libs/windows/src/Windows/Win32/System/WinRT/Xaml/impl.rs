@@ -23,7 +23,7 @@ impl IDesktopWindowXamlSourceNative_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachToWindow: AttachToWindow::<Identity, Impl, OFFSET>,
             WindowHandle: WindowHandle::<Identity, Impl, OFFSET>,
         }
@@ -44,7 +44,7 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).PreTranslateMessage(::core::mem::transmute_copy(&message), ::core::mem::transmute_copy(&result)).into()
         }
-        Self { base: IDesktopWindowXamlSourceNative_Vtbl::new::<Identity, Impl, OFFSET>(), PreTranslateMessage: PreTranslateMessage::<Identity, Impl, OFFSET> }
+        Self { base__: IDesktopWindowXamlSourceNative_Vtbl::new::<Identity, Impl, OFFSET>(), PreTranslateMessage: PreTranslateMessage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesktopWindowXamlSourceNative2 as ::windows::core::Interface>::IID || iid == &<IDesktopWindowXamlSourceNative as ::windows::core::Interface>::IID
@@ -60,7 +60,7 @@ impl IFindReferenceTargetsCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FoundTrackerTarget(::core::mem::transmute(&target)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FoundTrackerTarget: FoundTrackerTarget::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FoundTrackerTarget: FoundTrackerTarget::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFindReferenceTargetsCallback as ::windows::core::Interface>::IID
@@ -119,7 +119,7 @@ impl IReferenceTracker_Vtbl {
             (*this).PegFromTrackerSource().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectFromTrackerSource: ConnectFromTrackerSource::<Identity, Impl, OFFSET>,
             DisconnectFromTrackerSource: DisconnectFromTrackerSource::<Identity, Impl, OFFSET>,
             FindTrackerTargets: FindTrackerTargets::<Identity, Impl, OFFSET>,
@@ -136,7 +136,7 @@ impl IReferenceTracker_Vtbl {
 pub trait IReferenceTrackerExtension_Impl: Sized {}
 impl IReferenceTrackerExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerExtension_Impl, const OFFSET: isize>() -> IReferenceTrackerExtension_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReferenceTrackerExtension as ::windows::core::Interface>::IID
@@ -189,7 +189,7 @@ impl IReferenceTrackerHost_Vtbl {
             (*this).RemoveMemoryPressure(::core::mem::transmute_copy(&bytesallocated)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DisconnectUnusedReferenceSources: DisconnectUnusedReferenceSources::<Identity, Impl, OFFSET>,
             ReleaseDisconnectedReferenceSources: ReleaseDisconnectedReferenceSources::<Identity, Impl, OFFSET>,
             NotifyEndOfReferenceTrackingOnThread: NotifyEndOfReferenceTrackingOnThread::<Identity, Impl, OFFSET>,
@@ -231,7 +231,7 @@ impl IReferenceTrackerManager_Vtbl {
             (*this).SetReferenceTrackerHost(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReferenceTrackingStarted: ReferenceTrackingStarted::<Identity, Impl, OFFSET>,
             FindTrackerTargetsCompleted: FindTrackerTargetsCompleted::<Identity, Impl, OFFSET>,
             ReferenceTrackingCompleted: ReferenceTrackingCompleted::<Identity, Impl, OFFSET>,
@@ -271,7 +271,7 @@ impl IReferenceTrackerTarget_Vtbl {
             (*this).Unpeg().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddRefFromReferenceTracker: AddRefFromReferenceTracker::<Identity, Impl, OFFSET>,
             ReleaseFromReferenceTracker: ReleaseFromReferenceTracker::<Identity, Impl, OFFSET>,
             Peg: Peg::<Identity, Impl, OFFSET>,
@@ -292,7 +292,10 @@ impl ISurfaceImageSourceManagerNative_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FlushAllSurfacesWithDevice(::core::mem::transmute(&device)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FlushAllSurfacesWithDevice: FlushAllSurfacesWithDevice::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            FlushAllSurfacesWithDevice: FlushAllSurfacesWithDevice::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISurfaceImageSourceManagerNative as ::windows::core::Interface>::IID
@@ -323,7 +326,7 @@ impl ISurfaceImageSourceNative_Vtbl {
             (*this).EndDraw().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDevice: SetDevice::<Identity, Impl, OFFSET>,
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
@@ -370,7 +373,7 @@ impl ISurfaceImageSourceNativeWithD2D_Vtbl {
             (*this).ResumeDraw().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDevice: SetDevice::<Identity, Impl, OFFSET>,
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
@@ -394,7 +397,7 @@ impl ISwapChainBackgroundPanelNative_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSwapChain(::core::mem::transmute(&swapchain)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISwapChainBackgroundPanelNative as ::windows::core::Interface>::IID
@@ -412,7 +415,7 @@ impl ISwapChainPanelNative_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSwapChain(::core::mem::transmute(&swapchain)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISwapChainPanelNative as ::windows::core::Interface>::IID
@@ -430,7 +433,7 @@ impl ISwapChainPanelNative2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSwapChainHandle(::core::mem::transmute_copy(&swapchainhandle)).into()
         }
-        Self { base: ISwapChainPanelNative_Vtbl::new::<Identity, Impl, OFFSET>(), SetSwapChainHandle: SetSwapChainHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ISwapChainPanelNative_Vtbl::new::<Identity, Impl, OFFSET>(), SetSwapChainHandle: SetSwapChainHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISwapChainPanelNative2 as ::windows::core::Interface>::IID || iid == &<ISwapChainPanelNative as ::windows::core::Interface>::IID
@@ -471,7 +474,7 @@ impl ITrackerOwner_Vtbl {
             (*this).TryGetSafeTrackerValue(::core::mem::transmute_copy(&handle), ::core::mem::transmute_copy(&returnvalue))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateTrackerHandle: CreateTrackerHandle::<Identity, Impl, OFFSET>,
             DeleteTrackerHandle: DeleteTrackerHandle::<Identity, Impl, OFFSET>,
             SetTrackerValue: SetTrackerValue::<Identity, Impl, OFFSET>,
@@ -537,7 +540,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
             (*this).Resize(::core::mem::transmute_copy(&newwidth), ::core::mem::transmute_copy(&newheight)).into()
         }
         Self {
-            base: ISurfaceImageSourceNative_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISurfaceImageSourceNative_Vtbl::new::<Identity, Impl, OFFSET>(),
             Invalidate: Invalidate::<Identity, Impl, OFFSET>,
             GetUpdateRectCount: GetUpdateRectCount::<Identity, Impl, OFFSET>,
             GetUpdateRects: GetUpdateRects::<Identity, Impl, OFFSET>,
@@ -560,7 +563,7 @@ impl IVirtualSurfaceUpdatesCallbackNative_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).UpdatesNeeded().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), UpdatesNeeded: UpdatesNeeded::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), UpdatesNeeded: UpdatesNeeded::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVirtualSurfaceUpdatesCallbackNative as ::windows::core::Interface>::IID

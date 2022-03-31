@@ -28,7 +28,7 @@ unsafe impl ::windows::core::Interface for IHtmlUtilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHtmlUtilities_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ConvertToText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

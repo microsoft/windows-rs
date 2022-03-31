@@ -157,7 +157,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
     let mut bases = quote! {};
 
     for _ in 0..base_count {
-        bases.combine(&quote! { .base });
+        bases.combine(&quote! { .base__ });
     }
 
     match signature.kind() {

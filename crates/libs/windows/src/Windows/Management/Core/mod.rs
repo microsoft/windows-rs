@@ -99,7 +99,7 @@ unsafe impl ::windows::core::Interface for IApplicationDataManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDataManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -111,7 +111,7 @@ unsafe impl ::windows::core::Interface for IApplicationDataManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDataManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub CreateForPackageFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))]

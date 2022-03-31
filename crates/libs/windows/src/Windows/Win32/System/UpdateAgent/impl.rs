@@ -59,7 +59,7 @@ impl IAutomaticUpdates_Vtbl {
             (*this).EnableService().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DetectNow: DetectNow::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
             Resume: Resume::<Identity, Impl, OFFSET>,
@@ -91,7 +91,7 @@ impl IAutomaticUpdates2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IAutomaticUpdates_Vtbl::new::<Identity, Impl, OFFSET>(), Results: Results::<Identity, Impl, OFFSET> }
+        Self { base__: IAutomaticUpdates_Vtbl::new::<Identity, Impl, OFFSET>(), Results: Results::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAutomaticUpdates2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAutomaticUpdates as ::windows::core::Interface>::IID
@@ -128,7 +128,7 @@ impl IAutomaticUpdatesResults_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LastSearchSuccessDate: LastSearchSuccessDate::<Identity, Impl, OFFSET>,
             LastInstallationSuccessDate: LastInstallationSuccessDate::<Identity, Impl, OFFSET>,
         }
@@ -234,7 +234,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
             (*this).Save().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             NotificationLevel: NotificationLevel::<Identity, Impl, OFFSET>,
             SetNotificationLevel: SetNotificationLevel::<Identity, Impl, OFFSET>,
             ReadOnly: ReadOnly::<Identity, Impl, OFFSET>,
@@ -288,7 +288,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
             }
         }
         Self {
-            base: IAutomaticUpdatesSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAutomaticUpdatesSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
             IncludeRecommendedUpdates: IncludeRecommendedUpdates::<Identity, Impl, OFFSET>,
             SetIncludeRecommendedUpdates: SetIncludeRecommendedUpdates::<Identity, Impl, OFFSET>,
             CheckPermission: CheckPermission::<Identity, Impl, OFFSET>,
@@ -341,7 +341,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             (*this).SetFeaturedUpdatesEnabled(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IAutomaticUpdatesSettings2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAutomaticUpdatesSettings2_Vtbl::new::<Identity, Impl, OFFSET>(),
             NonAdministratorsElevated: NonAdministratorsElevated::<Identity, Impl, OFFSET>,
             SetNonAdministratorsElevated: SetNonAdministratorsElevated::<Identity, Impl, OFFSET>,
             FeaturedUpdatesEnabled: FeaturedUpdatesEnabled::<Identity, Impl, OFFSET>,
@@ -467,7 +467,7 @@ impl ICategory_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             CategoryID: CategoryID::<Identity, Impl, OFFSET>,
             Children: Children::<Identity, Impl, OFFSET>,
@@ -526,7 +526,7 @@ impl ICategoryCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -548,7 +548,7 @@ impl IDownloadCompletedCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Invoke(::core::mem::transmute(&downloadjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadCompletedCallback as ::windows::core::Interface>::IID
@@ -559,7 +559,7 @@ pub trait IDownloadCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Imp
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDownloadCompletedCallbackArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadCompletedCallbackArgs_Impl, const OFFSET: isize>() -> IDownloadCompletedCallbackArgs_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadCompletedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -632,7 +632,7 @@ impl IDownloadJob_Vtbl {
             (*this).RequestAbort().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AsyncState: AsyncState::<Identity, Impl, OFFSET>,
             IsCompleted: IsCompleted::<Identity, Impl, OFFSET>,
             Updates: Updates::<Identity, Impl, OFFSET>,
@@ -760,7 +760,7 @@ impl IDownloadProgress_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentUpdateBytesDownloaded: CurrentUpdateBytesDownloaded::<Identity, Impl, OFFSET>,
             CurrentUpdateBytesToDownload: CurrentUpdateBytesToDownload::<Identity, Impl, OFFSET>,
             CurrentUpdateIndex: CurrentUpdateIndex::<Identity, Impl, OFFSET>,
@@ -788,7 +788,7 @@ impl IDownloadProgressChangedCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Invoke(::core::mem::transmute(&downloadjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadProgressChangedCallback as ::windows::core::Interface>::IID
@@ -812,7 +812,7 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Progress: Progress::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Progress: Progress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadProgressChangedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -861,7 +861,7 @@ impl IDownloadResult_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             HResult: HResult::<Identity, Impl, OFFSET>,
             ResultCode: ResultCode::<Identity, Impl, OFFSET>,
             GetUpdateResult: GetUpdateResult::<Identity, Impl, OFFSET>,
@@ -926,7 +926,7 @@ impl IImageInformation_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AltText: AltText::<Identity, Impl, OFFSET>,
             Height: Height::<Identity, Impl, OFFSET>,
             Source: Source::<Identity, Impl, OFFSET>,
@@ -949,7 +949,10 @@ impl IInstallationAgent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RecordInstallationResult(::core::mem::transmute(&installationresultcookie), ::core::mem::transmute_copy(&hresult), ::core::mem::transmute(&extendedreportingdata)).into()
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), RecordInstallationResult: RecordInstallationResult::<Identity, Impl, OFFSET> }
+        Self {
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            RecordInstallationResult: RecordInstallationResult::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationAgent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -1010,7 +1013,7 @@ impl IInstallationBehavior_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CanRequestUserInput: CanRequestUserInput::<Identity, Impl, OFFSET>,
             Impact: Impact::<Identity, Impl, OFFSET>,
             RebootBehavior: RebootBehavior::<Identity, Impl, OFFSET>,
@@ -1033,7 +1036,7 @@ impl IInstallationCompletedCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Invoke(::core::mem::transmute(&installationjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationCompletedCallback as ::windows::core::Interface>::IID
@@ -1044,7 +1047,7 @@ pub trait IInstallationCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInstallationCompletedCallbackArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstallationCompletedCallbackArgs_Impl, const OFFSET: isize>() -> IInstallationCompletedCallbackArgs_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationCompletedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -1117,7 +1120,7 @@ impl IInstallationJob_Vtbl {
             (*this).RequestAbort().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AsyncState: AsyncState::<Identity, Impl, OFFSET>,
             IsCompleted: IsCompleted::<Identity, Impl, OFFSET>,
             Updates: Updates::<Identity, Impl, OFFSET>,
@@ -1185,7 +1188,7 @@ impl IInstallationProgress_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentUpdateIndex: CurrentUpdateIndex::<Identity, Impl, OFFSET>,
             CurrentUpdatePercentComplete: CurrentUpdatePercentComplete::<Identity, Impl, OFFSET>,
             PercentComplete: PercentComplete::<Identity, Impl, OFFSET>,
@@ -1208,7 +1211,7 @@ impl IInstallationProgressChangedCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Invoke(::core::mem::transmute(&installationjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationProgressChangedCallback as ::windows::core::Interface>::IID
@@ -1232,7 +1235,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Progress: Progress::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Progress: Progress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationProgressChangedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -1293,7 +1296,7 @@ impl IInstallationResult_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             HResult: HResult::<Identity, Impl, OFFSET>,
             RebootRequired: RebootRequired::<Identity, Impl, OFFSET>,
             ResultCode: ResultCode::<Identity, Impl, OFFSET>,
@@ -1322,7 +1325,7 @@ impl IInvalidProductLicenseException_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUpdateException_Vtbl::new::<Identity, Impl, OFFSET>(), Product: Product::<Identity, Impl, OFFSET> }
+        Self { base__: IUpdateException_Vtbl::new::<Identity, Impl, OFFSET>(), Product: Product::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInvalidProductLicenseException as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateException as ::windows::core::Interface>::IID
@@ -1340,7 +1343,7 @@ impl ISearchCompletedCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Invoke(::core::mem::transmute(&searchjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchCompletedCallback as ::windows::core::Interface>::IID
@@ -1351,7 +1354,7 @@ pub trait ISearchCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISearchCompletedCallbackArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCompletedCallbackArgs_Impl, const OFFSET: isize>() -> ISearchCompletedCallbackArgs_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchCompletedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -1400,7 +1403,7 @@ impl ISearchJob_Vtbl {
             (*this).RequestAbort().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AsyncState: AsyncState::<Identity, Impl, OFFSET>,
             IsCompleted: IsCompleted::<Identity, Impl, OFFSET>,
             CleanUp: CleanUp::<Identity, Impl, OFFSET>,
@@ -1466,7 +1469,7 @@ impl ISearchResult_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ResultCode: ResultCode::<Identity, Impl, OFFSET>,
             RootCategories: RootCategories::<Identity, Impl, OFFSET>,
             Updates: Updates::<Identity, Impl, OFFSET>,
@@ -1580,7 +1583,7 @@ impl IStringCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&index)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             SetItem: SetItem::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1628,7 +1631,7 @@ impl ISystemInformation_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OemHardwareSupportLink: OemHardwareSupportLink::<Identity, Impl, OFFSET>,
             RebootRequired: RebootRequired::<Identity, Impl, OFFSET>,
         }
@@ -2166,7 +2169,7 @@ impl IUpdate_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Title: Title::<Identity, Impl, OFFSET>,
             AutoSelectOnWebSites: AutoSelectOnWebSites::<Identity, Impl, OFFSET>,
             BundledUpdates: BundledUpdates::<Identity, Impl, OFFSET>,
@@ -2267,7 +2270,7 @@ impl IUpdate2_Vtbl {
             (*this).CopyToCache(::core::mem::transmute(&pfiles)).into()
         }
         Self {
-            base: IUpdate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdate_Vtbl::new::<Identity, Impl, OFFSET>(),
             RebootRequired: RebootRequired::<Identity, Impl, OFFSET>,
             IsPresent: IsPresent::<Identity, Impl, OFFSET>,
             CveIDs: CveIDs::<Identity, Impl, OFFSET>,
@@ -2296,7 +2299,7 @@ impl IUpdate3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUpdate2_Vtbl::new::<Identity, Impl, OFFSET>(), BrowseOnly: BrowseOnly::<Identity, Impl, OFFSET> }
+        Self { base__: IUpdate2_Vtbl::new::<Identity, Impl, OFFSET>(), BrowseOnly: BrowseOnly::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdate3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IUpdate2 as ::windows::core::Interface>::IID
@@ -2320,7 +2323,7 @@ impl IUpdate4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUpdate3_Vtbl::new::<Identity, Impl, OFFSET>(), PerUser: PerUser::<Identity, Impl, OFFSET> }
+        Self { base__: IUpdate3_Vtbl::new::<Identity, Impl, OFFSET>(), PerUser: PerUser::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdate4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IUpdate2 as ::windows::core::Interface>::IID || iid == &<IUpdate3 as ::windows::core::Interface>::IID
@@ -2357,7 +2360,7 @@ impl IUpdate5_Vtbl {
             }
         }
         Self {
-            base: IUpdate4_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdate4_Vtbl::new::<Identity, Impl, OFFSET>(),
             AutoSelection: AutoSelection::<Identity, Impl, OFFSET>,
             AutoDownload: AutoDownload::<Identity, Impl, OFFSET>,
         }
@@ -2469,7 +2472,7 @@ impl IUpdateCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&index)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             SetItem: SetItem::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2504,7 +2507,7 @@ impl IUpdateDownloadContent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), DownloadUrl: DownloadUrl::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), DownloadUrl: DownloadUrl::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateDownloadContent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -2528,7 +2531,10 @@ impl IUpdateDownloadContent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUpdateDownloadContent_Vtbl::new::<Identity, Impl, OFFSET>(), IsDeltaCompressedContent: IsDeltaCompressedContent::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IUpdateDownloadContent_Vtbl::new::<Identity, Impl, OFFSET>(),
+            IsDeltaCompressedContent: IsDeltaCompressedContent::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateDownloadContent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateDownloadContent as ::windows::core::Interface>::IID
@@ -2577,7 +2583,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2618,7 +2624,7 @@ impl IUpdateDownloadResult_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             HResult: HResult::<Identity, Impl, OFFSET>,
             ResultCode: ResultCode::<Identity, Impl, OFFSET>,
         }
@@ -2742,7 +2748,7 @@ impl IUpdateDownloader_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClientApplicationID: ClientApplicationID::<Identity, Impl, OFFSET>,
             SetClientApplicationID: SetClientApplicationID::<Identity, Impl, OFFSET>,
             IsForced: IsForced::<Identity, Impl, OFFSET>,
@@ -2803,7 +2809,7 @@ impl IUpdateException_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Message: Message::<Identity, Impl, OFFSET>,
             HResult: HResult::<Identity, Impl, OFFSET>,
             Context: Context::<Identity, Impl, OFFSET>,
@@ -2856,7 +2862,7 @@ impl IUpdateExceptionCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -3041,7 +3047,7 @@ impl IUpdateHistoryEntry_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Operation: Operation::<Identity, Impl, OFFSET>,
             ResultCode: ResultCode::<Identity, Impl, OFFSET>,
             HResult: HResult::<Identity, Impl, OFFSET>,
@@ -3080,7 +3086,7 @@ impl IUpdateHistoryEntry2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUpdateHistoryEntry_Vtbl::new::<Identity, Impl, OFFSET>(), Categories: Categories::<Identity, Impl, OFFSET> }
+        Self { base__: IUpdateHistoryEntry_Vtbl::new::<Identity, Impl, OFFSET>(), Categories: Categories::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateHistoryEntry2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateHistoryEntry as ::windows::core::Interface>::IID
@@ -3129,7 +3135,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -3170,7 +3176,7 @@ impl IUpdateIdentity_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RevisionNumber: RevisionNumber::<Identity, Impl, OFFSET>,
             UpdateID: UpdateID::<Identity, Impl, OFFSET>,
         }
@@ -3222,7 +3228,7 @@ impl IUpdateInstallationResult_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             HResult: HResult::<Identity, Impl, OFFSET>,
             RebootRequired: RebootRequired::<Identity, Impl, OFFSET>,
             ResultCode: ResultCode::<Identity, Impl, OFFSET>,
@@ -3455,7 +3461,7 @@ impl IUpdateInstaller_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClientApplicationID: ClientApplicationID::<Identity, Impl, OFFSET>,
             SetClientApplicationID: SetClientApplicationID::<Identity, Impl, OFFSET>,
             IsForced: IsForced::<Identity, Impl, OFFSET>,
@@ -3508,7 +3514,7 @@ impl IUpdateInstaller2_Vtbl {
             (*this).SetForceQuiet(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IUpdateInstaller_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateInstaller_Vtbl::new::<Identity, Impl, OFFSET>(),
             ForceQuiet: ForceQuiet::<Identity, Impl, OFFSET>,
             SetForceQuiet: SetForceQuiet::<Identity, Impl, OFFSET>,
         }
@@ -3542,7 +3548,7 @@ impl IUpdateInstaller3_Vtbl {
             (*this).SetAttemptCloseAppsIfNecessary(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IUpdateInstaller2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateInstaller2_Vtbl::new::<Identity, Impl, OFFSET>(),
             AttemptCloseAppsIfNecessary: AttemptCloseAppsIfNecessary::<Identity, Impl, OFFSET>,
             SetAttemptCloseAppsIfNecessary: SetAttemptCloseAppsIfNecessary::<Identity, Impl, OFFSET>,
         }
@@ -3563,7 +3569,7 @@ impl IUpdateInstaller4_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Commit(::core::mem::transmute_copy(&dwflags)).into()
         }
-        Self { base: IUpdateInstaller3_Vtbl::new::<Identity, Impl, OFFSET>(), Commit: Commit::<Identity, Impl, OFFSET> }
+        Self { base__: IUpdateInstaller3_Vtbl::new::<Identity, Impl, OFFSET>(), Commit: Commit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateInstaller4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller2 as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller3 as ::windows::core::Interface>::IID
@@ -3579,7 +3585,7 @@ impl IUpdateLockdown_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).LockDown(::core::mem::transmute_copy(&flags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LockDown: LockDown::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LockDown: LockDown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateLockdown as ::windows::core::Interface>::IID
@@ -3772,7 +3778,7 @@ impl IUpdateSearcher_Vtbl {
             (*this).SetServiceID(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CanAutomaticallyUpgradeService: CanAutomaticallyUpgradeService::<Identity, Impl, OFFSET>,
             SetCanAutomaticallyUpgradeService: SetCanAutomaticallyUpgradeService::<Identity, Impl, OFFSET>,
             ClientApplicationID: ClientApplicationID::<Identity, Impl, OFFSET>,
@@ -3822,7 +3828,7 @@ impl IUpdateSearcher2_Vtbl {
             (*this).SetIgnoreDownloadPriority(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IUpdateSearcher_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateSearcher_Vtbl::new::<Identity, Impl, OFFSET>(),
             IgnoreDownloadPriority: IgnoreDownloadPriority::<Identity, Impl, OFFSET>,
             SetIgnoreDownloadPriority: SetIgnoreDownloadPriority::<Identity, Impl, OFFSET>,
         }
@@ -3856,7 +3862,7 @@ impl IUpdateSearcher3_Vtbl {
             (*this).SetSearchScope(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IUpdateSearcher2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateSearcher2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SearchScope: SearchScope::<Identity, Impl, OFFSET>,
             SetSearchScope: SetSearchScope::<Identity, Impl, OFFSET>,
         }
@@ -4028,7 +4034,7 @@ impl IUpdateService_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             ContentValidationCert: ContentValidationCert::<Identity, Impl, OFFSET>,
             ExpirationDate: ExpirationDate::<Identity, Impl, OFFSET>,
@@ -4066,7 +4072,7 @@ impl IUpdateService2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUpdateService_Vtbl::new::<Identity, Impl, OFFSET>(), IsDefaultAUService: IsDefaultAUService::<Identity, Impl, OFFSET> }
+        Self { base__: IUpdateService_Vtbl::new::<Identity, Impl, OFFSET>(), IsDefaultAUService: IsDefaultAUService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateService2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateService as ::windows::core::Interface>::IID
@@ -4115,7 +4121,7 @@ impl IUpdateServiceCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -4192,7 +4198,7 @@ impl IUpdateServiceManager_Vtbl {
             (*this).SetOption(::core::mem::transmute(&optionname), ::core::mem::transmute(&optionvalue)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Services: Services::<Identity, Impl, OFFSET>,
             AddService: AddService::<Identity, Impl, OFFSET>,
             RegisterServiceWithAU: RegisterServiceWithAU::<Identity, Impl, OFFSET>,
@@ -4255,7 +4261,7 @@ impl IUpdateServiceManager2_Vtbl {
             }
         }
         Self {
-            base: IUpdateServiceManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateServiceManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClientApplicationID: ClientApplicationID::<Identity, Impl, OFFSET>,
             SetClientApplicationID: SetClientApplicationID::<Identity, Impl, OFFSET>,
             QueryServiceRegistration: QueryServiceRegistration::<Identity, Impl, OFFSET>,
@@ -4321,7 +4327,7 @@ impl IUpdateServiceRegistration_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegistrationState: RegistrationState::<Identity, Impl, OFFSET>,
             ServiceID: ServiceID::<Identity, Impl, OFFSET>,
             IsPendingRegistrationWithAU: IsPendingRegistrationWithAU::<Identity, Impl, OFFSET>,
@@ -4423,7 +4429,7 @@ impl IUpdateSession_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClientApplicationID: ClientApplicationID::<Identity, Impl, OFFSET>,
             SetClientApplicationID: SetClientApplicationID::<Identity, Impl, OFFSET>,
             ReadOnly: ReadOnly::<Identity, Impl, OFFSET>,
@@ -4463,7 +4469,7 @@ impl IUpdateSession2_Vtbl {
             (*this).SetUserLocale(::core::mem::transmute_copy(&lcid)).into()
         }
         Self {
-            base: IUpdateSession_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateSession_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserLocale: UserLocale::<Identity, Impl, OFFSET>,
             SetUserLocale: SetUserLocale::<Identity, Impl, OFFSET>,
         }
@@ -4503,7 +4509,7 @@ impl IUpdateSession3_Vtbl {
             }
         }
         Self {
-            base: IUpdateSession2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdateSession2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateUpdateServiceManager: CreateUpdateServiceManager::<Identity, Impl, OFFSET>,
             QueryHistory: QueryHistory::<Identity, Impl, OFFSET>,
         }
@@ -4639,7 +4645,7 @@ impl IWebProxy_Vtbl {
             (*this).SetAutoDetect(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Address: Address::<Identity, Impl, OFFSET>,
             SetAddress: SetAddress::<Identity, Impl, OFFSET>,
             BypassList: BypassList::<Identity, Impl, OFFSET>,
@@ -4763,7 +4769,7 @@ impl IWindowsDriverUpdate_Vtbl {
             }
         }
         Self {
-            base: IUpdate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUpdate_Vtbl::new::<Identity, Impl, OFFSET>(),
             DriverClass: DriverClass::<Identity, Impl, OFFSET>,
             DriverHardwareID: DriverHardwareID::<Identity, Impl, OFFSET>,
             DriverManufacturer: DriverManufacturer::<Identity, Impl, OFFSET>,
@@ -4827,7 +4833,7 @@ impl IWindowsDriverUpdate2_Vtbl {
             (*this).CopyToCache(::core::mem::transmute(&pfiles)).into()
         }
         Self {
-            base: IWindowsDriverUpdate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWindowsDriverUpdate_Vtbl::new::<Identity, Impl, OFFSET>(),
             RebootRequired: RebootRequired::<Identity, Impl, OFFSET>,
             IsPresent: IsPresent::<Identity, Impl, OFFSET>,
             CveIDs: CveIDs::<Identity, Impl, OFFSET>,
@@ -4856,7 +4862,7 @@ impl IWindowsDriverUpdate3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IWindowsDriverUpdate2_Vtbl::new::<Identity, Impl, OFFSET>(), BrowseOnly: BrowseOnly::<Identity, Impl, OFFSET> }
+        Self { base__: IWindowsDriverUpdate2_Vtbl::new::<Identity, Impl, OFFSET>(), BrowseOnly: BrowseOnly::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsDriverUpdate3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows::core::Interface>::IID
@@ -4893,7 +4899,7 @@ impl IWindowsDriverUpdate4_Vtbl {
             }
         }
         Self {
-            base: IWindowsDriverUpdate3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWindowsDriverUpdate3_Vtbl::new::<Identity, Impl, OFFSET>(),
             WindowsDriverUpdateEntries: WindowsDriverUpdateEntries::<Identity, Impl, OFFSET>,
             PerUser: PerUser::<Identity, Impl, OFFSET>,
         }
@@ -4933,7 +4939,7 @@ impl IWindowsDriverUpdate5_Vtbl {
             }
         }
         Self {
-            base: IWindowsDriverUpdate4_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWindowsDriverUpdate4_Vtbl::new::<Identity, Impl, OFFSET>(),
             AutoSelection: AutoSelection::<Identity, Impl, OFFSET>,
             AutoDownload: AutoDownload::<Identity, Impl, OFFSET>,
         }
@@ -5045,7 +5051,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DriverClass: DriverClass::<Identity, Impl, OFFSET>,
             DriverHardwareID: DriverHardwareID::<Identity, Impl, OFFSET>,
             DriverManufacturer: DriverManufacturer::<Identity, Impl, OFFSET>,
@@ -5103,7 +5109,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -5131,7 +5137,7 @@ impl IWindowsUpdateAgentInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetInfo: GetInfo::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetInfo: GetInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsUpdateAgentInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID

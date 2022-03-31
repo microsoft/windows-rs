@@ -45,7 +45,7 @@ impl IWebAccount_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccount, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccount, OFFSET>(),
             WebAccountProvider: WebAccountProvider::<Identity, Impl, OFFSET>,
             UserName: UserName::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,

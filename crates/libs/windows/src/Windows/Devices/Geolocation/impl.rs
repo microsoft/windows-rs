@@ -45,7 +45,7 @@ impl IGeoshape_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGeoshape, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGeoshape, OFFSET>(),
             GeoshapeType: GeoshapeType::<Identity, Impl, OFFSET>,
             SpatialReferenceId: SpatialReferenceId::<Identity, Impl, OFFSET>,
             AltitudeReferenceSystem: AltitudeReferenceSystem::<Identity, Impl, OFFSET>,

@@ -58,7 +58,7 @@ unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreview_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetCurrentPostureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -85,7 +85,7 @@ unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewRe
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreviewReading_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -124,7 +124,7 @@ unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewRe
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Reading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -143,7 +143,7 @@ unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewSt
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreviewStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]

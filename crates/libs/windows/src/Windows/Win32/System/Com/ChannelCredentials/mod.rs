@@ -117,7 +117,7 @@ unsafe impl ::windows::core::Interface for IChannelCredentials {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChannelCredentials_Vtbl {
-    pub base: super::IDispatch_Vtbl,
+    pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetWindowsCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domain: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, username: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

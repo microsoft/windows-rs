@@ -101,7 +101,7 @@ impl IPwmControllerProvider_Vtbl {
             (*this).SetPulseParameters(pin, dutycycle, invertpolarity).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmControllerProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPwmControllerProvider, OFFSET>(),
             PinCount: PinCount::<Identity, Impl, OFFSET>,
             ActualFrequency: ActualFrequency::<Identity, Impl, OFFSET>,
             SetDesiredFrequency: SetDesiredFrequency::<Identity, Impl, OFFSET>,
@@ -141,7 +141,7 @@ impl IPwmProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPwmProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IPwmProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPwmProvider as ::windows::core::Interface>::IID

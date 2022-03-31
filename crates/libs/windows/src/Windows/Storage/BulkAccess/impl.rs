@@ -125,7 +125,7 @@ impl IStorageItemInformation_Vtbl {
             (*this).RemovePropertiesUpdated(::core::mem::transmute(&eventcookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemInformation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemInformation, OFFSET>(),
             MusicProperties: MusicProperties::<Identity, Impl, OFFSET>,
             VideoProperties: VideoProperties::<Identity, Impl, OFFSET>,
             ImageProperties: ImageProperties::<Identity, Impl, OFFSET>,

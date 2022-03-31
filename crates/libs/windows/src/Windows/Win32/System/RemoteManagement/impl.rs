@@ -53,7 +53,7 @@ impl IWSMan_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSession: CreateSession::<Identity, Impl, OFFSET>,
             CreateConnectionOptions: CreateConnectionOptions::<Identity, Impl, OFFSET>,
             CommandLine: CommandLine::<Identity, Impl, OFFSET>,
@@ -95,7 +95,7 @@ impl IWSManConnectionOptions_Vtbl {
             (*this).SetPassword(::core::mem::transmute(&password)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserName: UserName::<Identity, Impl, OFFSET>,
             SetUserName: SetUserName::<Identity, Impl, OFFSET>,
             SetPassword: SetPassword::<Identity, Impl, OFFSET>,
@@ -130,7 +130,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
             (*this).SetCertificateThumbprint(::core::mem::transmute(&thumbprint)).into()
         }
         Self {
-            base: IWSManConnectionOptions_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSManConnectionOptions_Vtbl::new::<Identity, Impl, OFFSET>(),
             CertificateThumbprint: CertificateThumbprint::<Identity, Impl, OFFSET>,
             SetCertificateThumbprint: SetCertificateThumbprint::<Identity, Impl, OFFSET>,
         }
@@ -236,7 +236,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             }
         }
         Self {
-            base: IWSManConnectionOptionsEx_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSManConnectionOptionsEx_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetProxy: SetProxy::<Identity, Impl, OFFSET>,
             ProxyIEConfig: ProxyIEConfig::<Identity, Impl, OFFSET>,
             ProxyWinHttpConfig: ProxyWinHttpConfig::<Identity, Impl, OFFSET>,
@@ -294,7 +294,7 @@ impl IWSManEnumerator_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ReadItem: ReadItem::<Identity, Impl, OFFSET>,
             AtEndOfStream: AtEndOfStream::<Identity, Impl, OFFSET>,
             Error: Error::<Identity, Impl, OFFSET>,
@@ -551,7 +551,7 @@ impl IWSManEx_Vtbl {
             }
         }
         Self {
-            base: IWSMan_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSMan_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateResourceLocator: CreateResourceLocator::<Identity, Impl, OFFSET>,
             SessionFlagUTF8: SessionFlagUTF8::<Identity, Impl, OFFSET>,
             SessionFlagCredUsernamePassword: SessionFlagCredUsernamePassword::<Identity, Impl, OFFSET>,
@@ -596,7 +596,10 @@ impl IWSManEx2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IWSManEx_Vtbl::new::<Identity, Impl, OFFSET>(), SessionFlagUseClientCertificate: SessionFlagUseClientCertificate::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IWSManEx_Vtbl::new::<Identity, Impl, OFFSET>(),
+            SessionFlagUseClientCertificate: SessionFlagUseClientCertificate::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSManEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID
@@ -693,7 +696,7 @@ impl IWSManEx3_Vtbl {
             }
         }
         Self {
-            base: IWSManEx2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSManEx2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SessionFlagUTF16: SessionFlagUTF16::<Identity, Impl, OFFSET>,
             SessionFlagUseCredSsp: SessionFlagUseCredSsp::<Identity, Impl, OFFSET>,
             EnumerationFlagAssociationInstance: EnumerationFlagAssociationInstance::<Identity, Impl, OFFSET>,
@@ -725,7 +728,7 @@ impl IWSManInternal_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ConfigSDDL: ConfigSDDL::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ConfigSDDL: ConfigSDDL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSManInternal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -846,7 +849,7 @@ impl IWSManResourceLocator_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetResourceURI: SetResourceURI::<Identity, Impl, OFFSET>,
             ResourceURI: ResourceURI::<Identity, Impl, OFFSET>,
             AddSelector: AddSelector::<Identity, Impl, OFFSET>,
@@ -869,7 +872,7 @@ impl IWSManResourceLocator_Vtbl {
 pub trait IWSManResourceLocatorInternal_Impl: Sized {}
 impl IWSManResourceLocatorInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocatorInternal_Impl, const OFFSET: isize>() -> IWSManResourceLocatorInternal_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSManResourceLocatorInternal as ::windows::core::Interface>::IID
@@ -1008,7 +1011,7 @@ impl IWSManSession_Vtbl {
             (*this).SetTimeout(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Get: Get::<Identity, Impl, OFFSET>,
             Put: Put::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,

@@ -16,7 +16,7 @@ impl IMSMQApplication_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), MachineIdOfMachineName: MachineIdOfMachineName::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), MachineIdOfMachineName: MachineIdOfMachineName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQApplication as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -107,7 +107,7 @@ impl IMSMQApplication2_Vtbl {
             }
         }
         Self {
-            base: IMSMQApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMSMQApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegisterCertificate: RegisterCertificate::<Identity, Impl, OFFSET>,
             MachineNameOfMachineId: MachineNameOfMachineId::<Identity, Impl, OFFSET>,
             MSMQVersionMajor: MSMQVersionMajor::<Identity, Impl, OFFSET>,
@@ -224,7 +224,7 @@ impl IMSMQApplication3_Vtbl {
             (*this).Tidy().into()
         }
         Self {
-            base: IMSMQApplication2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMSMQApplication2_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActiveQueues: ActiveQueues::<Identity, Impl, OFFSET>,
             PrivateQueues: PrivateQueues::<Identity, Impl, OFFSET>,
             DirectoryServiceServer: DirectoryServiceServer::<Identity, Impl, OFFSET>,
@@ -284,7 +284,7 @@ impl IMSMQCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -312,7 +312,7 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQCoordinatedTransactionDispenser as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -349,7 +349,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -389,7 +389,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -531,7 +531,7 @@ impl IMSMQDestination_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             IsOpen: IsOpen::<Identity, Impl, OFFSET>,
@@ -557,7 +557,7 @@ pub trait IMSMQEvent_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQEvent_Impl, const OFFSET: isize>() -> IMSMQEvent_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -581,7 +581,7 @@ impl IMSMQEvent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IMSMQEvent_Vtbl::new::<Identity, Impl, OFFSET>(), Properties: Properties::<Identity, Impl, OFFSET> }
+        Self { base__: IMSMQEvent_Vtbl::new::<Identity, Impl, OFFSET>(), Properties: Properties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQEvent as ::windows::core::Interface>::IID
@@ -592,7 +592,7 @@ pub trait IMSMQEvent3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQEvent_Impl
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQEvent3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQEvent3_Impl, const OFFSET: isize>() -> IMSMQEvent3_Vtbl {
-        Self { base: IMSMQEvent2_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IMSMQEvent2_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQEvent3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQEvent as ::windows::core::Interface>::IID || iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID
@@ -707,7 +707,7 @@ impl IMSMQManagement_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             FormatName: FormatName::<Identity, Impl, OFFSET>,
             Machine: Machine::<Identity, Impl, OFFSET>,
@@ -1192,7 +1192,7 @@ impl IMSMQMessage_Vtbl {
             (*this).AttachCurrentSecurityContext().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Class: Class::<Identity, Impl, OFFSET>,
             PrivLevel: PrivLevel::<Identity, Impl, OFFSET>,
             SetPrivLevel: SetPrivLevel::<Identity, Impl, OFFSET>,
@@ -1969,7 +1969,7 @@ impl IMSMQMessage2_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Class: Class::<Identity, Impl, OFFSET>,
             PrivLevel: PrivLevel::<Identity, Impl, OFFSET>,
             SetPrivLevel: SetPrivLevel::<Identity, Impl, OFFSET>,
@@ -2928,7 +2928,7 @@ impl IMSMQMessage3_Vtbl {
             (*this).SetSoapBody(::core::mem::transmute(&bstrsoapbody)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Class: Class::<Identity, Impl, OFFSET>,
             PrivLevel: PrivLevel::<Identity, Impl, OFFSET>,
             SetPrivLevel: SetPrivLevel::<Identity, Impl, OFFSET>,
@@ -3903,7 +3903,7 @@ impl IMSMQMessage4_Vtbl {
             (*this).SetSoapBody(::core::mem::transmute(&bstrsoapbody)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Class: Class::<Identity, Impl, OFFSET>,
             PrivLevel: PrivLevel::<Identity, Impl, OFFSET>,
             SetPrivLevel: SetPrivLevel::<Identity, Impl, OFFSET>,
@@ -4062,7 +4062,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
             (*this).EodResend().into()
         }
         Self {
-            base: IMSMQManagement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMSMQManagement_Vtbl::new::<Identity, Impl, OFFSET>(),
             State: State::<Identity, Impl, OFFSET>,
             NextHops: NextHops::<Identity, Impl, OFFSET>,
             EodGetSendInfo: EodGetSendInfo::<Identity, Impl, OFFSET>,
@@ -4100,7 +4100,7 @@ impl IMSMQPrivateDestination_Vtbl {
             (*this).SetHandle(::core::mem::transmute(&varhandle)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Handle: Handle::<Identity, Impl, OFFSET>,
             SetHandle: SetHandle::<Identity, Impl, OFFSET>,
         }
@@ -4140,7 +4140,7 @@ impl IMSMQPrivateEvent_Vtbl {
             (*this).FireArrivedErrorEvent(::core::mem::transmute(&pq), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&msgcursor)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Hwnd: Hwnd::<Identity, Impl, OFFSET>,
             FireArrivedEvent: FireArrivedEvent::<Identity, Impl, OFFSET>,
             FireArrivedErrorEvent: FireArrivedErrorEvent::<Identity, Impl, OFFSET>,
@@ -4168,7 +4168,7 @@ impl IMSMQQuery_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), LookupQueue: LookupQueue::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), LookupQueue: LookupQueue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQQuery as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -4205,7 +4205,7 @@ impl IMSMQQuery2_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LookupQueue: LookupQueue::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -4269,7 +4269,7 @@ impl IMSMQQuery3_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LookupQueue_v2: LookupQueue_v2::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
             LookupQueue: LookupQueue::<Identity, Impl, OFFSET>,
@@ -4334,7 +4334,7 @@ impl IMSMQQuery4_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LookupQueue_v2: LookupQueue_v2::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
             LookupQueue: LookupQueue::<Identity, Impl, OFFSET>,
@@ -4489,7 +4489,7 @@ impl IMSMQQueue_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Access: Access::<Identity, Impl, OFFSET>,
             ShareMode: ShareMode::<Identity, Impl, OFFSET>,
             QueueInfo: QueueInfo::<Identity, Impl, OFFSET>,
@@ -4726,7 +4726,7 @@ impl IMSMQQueue2_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Access: Access::<Identity, Impl, OFFSET>,
             ShareMode: ShareMode::<Identity, Impl, OFFSET>,
             QueueInfo: QueueInfo::<Identity, Impl, OFFSET>,
@@ -5119,7 +5119,7 @@ impl IMSMQQueue3_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Access: Access::<Identity, Impl, OFFSET>,
             ShareMode: ShareMode::<Identity, Impl, OFFSET>,
             QueueInfo: QueueInfo::<Identity, Impl, OFFSET>,
@@ -5537,7 +5537,7 @@ impl IMSMQQueue4_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Access: Access::<Identity, Impl, OFFSET>,
             ShareMode: ShareMode::<Identity, Impl, OFFSET>,
             QueueInfo: QueueInfo::<Identity, Impl, OFFSET>,
@@ -5860,7 +5860,7 @@ impl IMSMQQueueInfo_Vtbl {
             (*this).Update().into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueueGuid: QueueGuid::<Identity, Impl, OFFSET>,
             ServiceTypeGuid: ServiceTypeGuid::<Identity, Impl, OFFSET>,
             SetServiceTypeGuid: SetServiceTypeGuid::<Identity, Impl, OFFSET>,
@@ -6222,7 +6222,7 @@ impl IMSMQQueueInfo2_Vtbl {
             (*this).SetSecurity(::core::mem::transmute(&varsecurity)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueueGuid: QueueGuid::<Identity, Impl, OFFSET>,
             ServiceTypeGuid: ServiceTypeGuid::<Identity, Impl, OFFSET>,
             SetServiceTypeGuid: SetServiceTypeGuid::<Identity, Impl, OFFSET>,
@@ -6642,7 +6642,7 @@ impl IMSMQQueueInfo3_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueueGuid: QueueGuid::<Identity, Impl, OFFSET>,
             ServiceTypeGuid: ServiceTypeGuid::<Identity, Impl, OFFSET>,
             SetServiceTypeGuid: SetServiceTypeGuid::<Identity, Impl, OFFSET>,
@@ -7067,7 +7067,7 @@ impl IMSMQQueueInfo4_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueueGuid: QueueGuid::<Identity, Impl, OFFSET>,
             ServiceTypeGuid: ServiceTypeGuid::<Identity, Impl, OFFSET>,
             SetServiceTypeGuid: SetServiceTypeGuid::<Identity, Impl, OFFSET>,
@@ -7137,7 +7137,11 @@ impl IMSMQQueueInfos_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET>, Next: Next::<Identity, Impl, OFFSET> }
+        Self {
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            Reset: Reset::<Identity, Impl, OFFSET>,
+            Next: Next::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQQueueInfos as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7180,7 +7184,7 @@ impl IMSMQQueueInfos2_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
@@ -7227,7 +7231,7 @@ impl IMSMQQueueInfos3_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
@@ -7274,7 +7278,7 @@ impl IMSMQQueueInfos4_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
@@ -7327,7 +7331,7 @@ impl IMSMQQueueManagement_Vtbl {
             }
         }
         Self {
-            base: IMSMQManagement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMSMQManagement_Vtbl::new::<Identity, Impl, OFFSET>(),
             JournalMessageCount: JournalMessageCount::<Identity, Impl, OFFSET>,
             BytesInJournal: BytesInJournal::<Identity, Impl, OFFSET>,
             EodGetReceiveInfo: EodGetReceiveInfo::<Identity, Impl, OFFSET>,
@@ -7368,7 +7372,7 @@ impl IMSMQTransaction_Vtbl {
             (*this).Abort(::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&fasync)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Transaction: Transaction::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
@@ -7403,7 +7407,7 @@ impl IMSMQTransaction2_Vtbl {
             }
         }
         Self {
-            base: IMSMQTransaction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMSMQTransaction_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitNew: InitNew::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -7430,7 +7434,7 @@ impl IMSMQTransaction3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IMSMQTransaction2_Vtbl::new::<Identity, Impl, OFFSET>(), ITransaction: ITransaction::<Identity, Impl, OFFSET> }
+        Self { base__: IMSMQTransaction2_Vtbl::new::<Identity, Impl, OFFSET>(), ITransaction: ITransaction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQTransaction3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction2 as ::windows::core::Interface>::IID
@@ -7454,7 +7458,7 @@ impl IMSMQTransactionDispenser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSMQTransactionDispenser as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7491,7 +7495,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -7531,7 +7535,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BeginTransaction: BeginTransaction::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
@@ -7545,7 +7549,7 @@ pub trait _DMSMQEventEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _DMSMQEventEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _DMSMQEventEvents_Impl, const OFFSET: isize>() -> _DMSMQEventEvents_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_DMSMQEventEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID

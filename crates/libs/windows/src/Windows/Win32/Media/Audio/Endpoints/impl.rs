@@ -8,7 +8,7 @@ impl IAudioEndpointFormatControl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ResetToDefault(::core::mem::transmute_copy(&resetflags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResetToDefault: ResetToDefault::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResetToDefault: ResetToDefault::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEndpointFormatControl as ::windows::core::Interface>::IID
@@ -33,7 +33,7 @@ impl IAudioEndpointLastBufferControl_Vtbl {
             (*this).ReleaseOutputDataPointerForLastBuffer(::core::mem::transmute_copy(&pconnectionproperty))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsLastBufferControlSupported: IsLastBufferControlSupported::<Identity, Impl, OFFSET>,
             ReleaseOutputDataPointerForLastBuffer: ReleaseOutputDataPointerForLastBuffer::<Identity, Impl, OFFSET>,
         }
@@ -71,7 +71,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetMeterChannelCount: GetMeterChannelCount::<Identity, Impl, OFFSET>,
             GetMeteringData: GetMeteringData::<Identity, Impl, OFFSET>,
         }
@@ -103,7 +103,7 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMute: SetMute::<Identity, Impl, OFFSET>,
             GetMute: GetMute::<Identity, Impl, OFFSET>,
         }
@@ -149,7 +149,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetVolumeChannelCount: GetVolumeChannelCount::<Identity, Impl, OFFSET>,
             SetChannelVolumes: SetChannelVolumes::<Identity, Impl, OFFSET>,
             GetChannelVolumes: GetChannelVolumes::<Identity, Impl, OFFSET>,
@@ -316,7 +316,7 @@ impl IAudioEndpointVolume_Vtbl {
             (*this).GetVolumeRange(::core::mem::transmute_copy(&pflvolumemindb), ::core::mem::transmute_copy(&pflvolumemaxdb), ::core::mem::transmute_copy(&pflvolumeincrementdb)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterControlChangeNotify: RegisterControlChangeNotify::<Identity, Impl, OFFSET>,
             UnregisterControlChangeNotify: UnregisterControlChangeNotify::<Identity, Impl, OFFSET>,
             GetChannelCount: GetChannelCount::<Identity, Impl, OFFSET>,
@@ -353,7 +353,7 @@ impl IAudioEndpointVolumeCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnNotify(::core::mem::transmute_copy(&pnotify)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEndpointVolumeCallback as ::windows::core::Interface>::IID
@@ -371,7 +371,7 @@ impl IAudioEndpointVolumeEx_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetVolumeRangeChannel(::core::mem::transmute_copy(&ichannel), ::core::mem::transmute_copy(&pflvolumemindb), ::core::mem::transmute_copy(&pflvolumemaxdb), ::core::mem::transmute_copy(&pflvolumeincrementdb)).into()
         }
-        Self { base: IAudioEndpointVolume_Vtbl::new::<Identity, Impl, OFFSET>(), GetVolumeRangeChannel: GetVolumeRangeChannel::<Identity, Impl, OFFSET> }
+        Self { base__: IAudioEndpointVolume_Vtbl::new::<Identity, Impl, OFFSET>(), GetVolumeRangeChannel: GetVolumeRangeChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEndpointVolumeEx as ::windows::core::Interface>::IID || iid == &<IAudioEndpointVolume as ::windows::core::Interface>::IID
@@ -402,7 +402,7 @@ impl IAudioLfxControl_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetLocalEffectsState: SetLocalEffectsState::<Identity, Impl, OFFSET>,
             GetLocalEffectsState: GetLocalEffectsState::<Identity, Impl, OFFSET>,
         }
@@ -458,7 +458,7 @@ impl IAudioMeterInformation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPeakValue: GetPeakValue::<Identity, Impl, OFFSET>,
             GetMeteringChannelCount: GetMeteringChannelCount::<Identity, Impl, OFFSET>,
             GetChannelsPeakValues: GetChannelsPeakValues::<Identity, Impl, OFFSET>,
@@ -518,7 +518,7 @@ impl IHardwareAudioEngineBase_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAvailableOffloadConnectorCount: GetAvailableOffloadConnectorCount::<Identity, Impl, OFFSET>,
             GetEngineFormat: GetEngineFormat::<Identity, Impl, OFFSET>,
             SetEngineDeviceFormat: SetEngineDeviceFormat::<Identity, Impl, OFFSET>,

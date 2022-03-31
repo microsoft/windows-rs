@@ -49,7 +49,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDClosedCaptionDataReceivedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDClosedCaptionDataReceivedEventArgs, OFFSET>(),
             ClosedCaptionDataFormat: ClosedCaptionDataFormat::<Identity, Impl, OFFSET>,
             PresentationTimestamp: PresentationTimestamp::<Identity, Impl, OFFSET>,
             ClosedCaptionData: ClosedCaptionData::<Identity, Impl, OFFSET>,
@@ -98,7 +98,7 @@ impl INDCustomData_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDCustomData, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDCustomData, OFFSET>(),
             CustomDataTypeID: CustomDataTypeID::<Identity, Impl, OFFSET>,
             CustomData: CustomData::<Identity, Impl, OFFSET>,
         }
@@ -200,7 +200,7 @@ impl INDDownloadEngine_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDDownloadEngine, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDDownloadEngine, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
             Resume: Resume::<Identity, Impl, OFFSET>,
@@ -263,7 +263,7 @@ impl INDDownloadEngineNotifier_Vtbl {
             (*this).OnNetworkError().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDDownloadEngineNotifier, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDDownloadEngineNotifier, OFFSET>(),
             OnStreamOpened: OnStreamOpened::<Identity, Impl, OFFSET>,
             OnPlayReadyObjectReceived: OnPlayReadyObjectReceived::<Identity, Impl, OFFSET>,
             OnContentIDReceived: OnContentIDReceived::<Identity, Impl, OFFSET>,
@@ -300,7 +300,7 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchCompletedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchCompletedEventArgs, OFFSET>(),
             ResponseCustomData: ResponseCustomData::<Identity, Impl, OFFSET>,
         }
     }
@@ -365,7 +365,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
             (*this).SetLicenseFetchChallengeCustomData(::core::mem::transmute(&licensefetchchallengecustomdata)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchDescriptor, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchDescriptor, OFFSET>(),
             ContentIDType: ContentIDType::<Identity, Impl, OFFSET>,
             ContentID: ContentID::<Identity, Impl, OFFSET>,
             LicenseFetchChallengeCustomData: LicenseFetchChallengeCustomData::<Identity, Impl, OFFSET>,
@@ -400,7 +400,7 @@ impl INDLicenseFetchResult_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchResult, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDLicenseFetchResult, OFFSET>(),
             ResponseCustomData: ResponseCustomData::<Identity, Impl, OFFSET>,
         }
     }
@@ -471,7 +471,7 @@ impl INDMessenger_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDMessenger, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDMessenger, OFFSET>(),
             SendRegistrationRequestAsync: SendRegistrationRequestAsync::<Identity, Impl, OFFSET>,
             SendProximityDetectionStartAsync: SendProximityDetectionStartAsync::<Identity, Impl, OFFSET>,
             SendProximityDetectionResponseAsync: SendProximityDetectionResponseAsync::<Identity, Impl, OFFSET>,
@@ -506,7 +506,7 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDProximityDetectionCompletedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDProximityDetectionCompletedEventArgs, OFFSET>(),
             ProximityDetectionRetryCount: ProximityDetectionRetryCount::<Identity, Impl, OFFSET>,
         }
     }
@@ -570,7 +570,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
             (*this).SetTransmitterCertificateAccepted(accept).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDRegistrationCompletedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDRegistrationCompletedEventArgs, OFFSET>(),
             ResponseCustomData: ResponseCustomData::<Identity, Impl, OFFSET>,
             TransmitterProperties: TransmitterProperties::<Identity, Impl, OFFSET>,
             TransmitterCertificateAccepted: TransmitterCertificateAccepted::<Identity, Impl, OFFSET>,
@@ -605,7 +605,7 @@ impl INDSendResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INDSendResult, OFFSET>(), Response: Response::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, INDSendResult, OFFSET>(), Response: Response::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDSendResult as ::windows::core::Interface>::IID
@@ -635,7 +635,7 @@ impl INDStartResult_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDStartResult, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDStartResult, OFFSET>(),
             MediaStreamSource: MediaStreamSource::<Identity, Impl, OFFSET>,
         }
     }
@@ -666,7 +666,7 @@ impl INDStorageFileHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INDStorageFileHelper, OFFSET>(), GetFileURLs: GetFileURLs::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, INDStorageFileHelper, OFFSET>(), GetFileURLs: GetFileURLs::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INDStorageFileHelper as ::windows::core::Interface>::IID
@@ -727,7 +727,7 @@ impl INDStreamParser_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDStreamParser, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDStreamParser, OFFSET>(),
             ParseData: ParseData::<Identity, Impl, OFFSET>,
             GetStreamInformation: GetStreamInformation::<Identity, Impl, OFFSET>,
             BeginOfStream: BeginOfStream::<Identity, Impl, OFFSET>,
@@ -774,7 +774,7 @@ impl INDStreamParserNotifier_Vtbl {
             (*this).OnBeginSetupDecryptor(::core::mem::transmute(&descriptor), ::core::mem::transmute(&keyid), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&probytes), proBytes_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDStreamParserNotifier, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDStreamParserNotifier, OFFSET>(),
             OnContentIDReceived: OnContentIDReceived::<Identity, Impl, OFFSET>,
             OnMediaStreamDescriptorCreated: OnMediaStreamDescriptorCreated::<Identity, Impl, OFFSET>,
             OnSampleParsed: OnSampleParsed::<Identity, Impl, OFFSET>,
@@ -942,7 +942,7 @@ impl INDTransmitterProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INDTransmitterProperties, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INDTransmitterProperties, OFFSET>(),
             CertificateType: CertificateType::<Identity, Impl, OFFSET>,
             PlatformIdentifier: PlatformIdentifier::<Identity, Impl, OFFSET>,
             SupportedFeatures: SupportedFeatures::<Identity, Impl, OFFSET>,
@@ -1036,7 +1036,7 @@ impl IPlayReadyDomain_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyDomain, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyDomain, OFFSET>(),
             AccountId: AccountId::<Identity, Impl, OFFSET>,
             ServiceId: ServiceId::<Identity, Impl, OFFSET>,
             Revision: Revision::<Identity, Impl, OFFSET>,
@@ -1150,7 +1150,7 @@ impl IPlayReadyLicense_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicense, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicense, OFFSET>(),
             FullyEvaluated: FullyEvaluated::<Identity, Impl, OFFSET>,
             UsableForPlay: UsableForPlay::<Identity, Impl, OFFSET>,
             ExpirationDate: ExpirationDate::<Identity, Impl, OFFSET>,
@@ -1213,7 +1213,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
             (*this).SetDomainServiceId(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseAcquisitionServiceRequest, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseAcquisitionServiceRequest, OFFSET>(),
             ContentHeader: ContentHeader::<Identity, Impl, OFFSET>,
             SetContentHeader: SetContentHeader::<Identity, Impl, OFFSET>,
             DomainServiceId: DomainServiceId::<Identity, Impl, OFFSET>,
@@ -1251,7 +1251,7 @@ impl IPlayReadyLicenseSession_Vtbl {
             (*this).ConfigureMediaProtectionManager(::core::mem::transmute(&mpm)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSession, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSession, OFFSET>(),
             CreateLAServiceRequest: CreateLAServiceRequest::<Identity, Impl, OFFSET>,
             ConfigureMediaProtectionManager: ConfigureMediaProtectionManager::<Identity, Impl, OFFSET>,
         }
@@ -1284,7 +1284,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSession2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyLicenseSession2, OFFSET>(),
             CreateLicenseIterable: CreateLicenseIterable::<Identity, Impl, OFFSET>,
         }
     }
@@ -1369,7 +1369,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadySecureStopServiceRequest, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadySecureStopServiceRequest, OFFSET>(),
             SessionID: SessionID::<Identity, Impl, OFFSET>,
             StartTime: StartTime::<Identity, Impl, OFFSET>,
             UpdateTime: UpdateTime::<Identity, Impl, OFFSET>,
@@ -1495,7 +1495,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyServiceRequest, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayReadyServiceRequest, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             SetUri: SetUri::<Identity, Impl, OFFSET>,
             ResponseCustomData: ResponseCustomData::<Identity, Impl, OFFSET>,

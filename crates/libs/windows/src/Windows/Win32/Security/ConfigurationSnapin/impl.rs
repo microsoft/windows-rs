@@ -27,7 +27,7 @@ impl ISceSvcAttachmentData_Vtbl {
             (*this).CloseHandle(::core::mem::transmute_copy(&scesvchandle)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetData: GetData::<Identity, Impl, OFFSET>,
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             FreeBuffer: FreeBuffer::<Identity, Impl, OFFSET>,
@@ -63,7 +63,7 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
             (*this).FreeBuffer(::core::mem::transmute_copy(&pvdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Save: Save::<Identity, Impl, OFFSET>,
             IsDirty: IsDirty::<Identity, Impl, OFFSET>,
             FreeBuffer: FreeBuffer::<Identity, Impl, OFFSET>,

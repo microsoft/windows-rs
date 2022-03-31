@@ -136,7 +136,7 @@ unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceLockdownProfileInformation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -149,7 +149,7 @@ unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceLockdownProfileStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedLockdownProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]

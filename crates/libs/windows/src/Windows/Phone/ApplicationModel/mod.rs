@@ -90,7 +90,7 @@ unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

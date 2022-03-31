@@ -32,7 +32,7 @@ impl IMediaProtectionServiceRequest_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionServiceRequest, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaProtectionServiceRequest, OFFSET>(),
             ProtectionSystem: ProtectionSystem::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
         }

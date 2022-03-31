@@ -325,7 +325,7 @@ unsafe impl ::windows::core::Interface for IPropertyValue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyType) -> ::windows::core::HRESULT,
     pub IsNumericScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub GetUInt8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -376,7 +376,7 @@ unsafe impl ::windows::core::Interface for IPropertyValueStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValueStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateEmpty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateUInt8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateInt16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -525,7 +525,7 @@ pub struct IReference_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -610,7 +610,7 @@ unsafe impl ::windows::core::Interface for IStringable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringable_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
@@ -1627,7 +1627,7 @@ unsafe impl ::windows::core::Interface for IAgileObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileObject_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
 }
 #[repr(transparent)]
 pub struct IErrorInfo(::windows::core::IUnknown);
@@ -1696,7 +1696,7 @@ unsafe impl ::windows::core::Interface for IErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut BSTR) -> ::windows::core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut BSTR) -> ::windows::core::HRESULT,
@@ -2049,7 +2049,7 @@ unsafe impl ::windows::core::Interface for IAgileReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileReference_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
@@ -2141,7 +2141,7 @@ unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetLanguageException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
@@ -2149,7 +2149,7 @@ pub struct ILanguageExceptionErrorInfo2(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetLanguageException)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLanguageException)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2226,7 +2226,7 @@ unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo2_Vtbl {
-    pub base: ILanguageExceptionErrorInfo_Vtbl,
+    pub base__: ILanguageExceptionErrorInfo_Vtbl,
     pub GetPreviousLanguageExceptionErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previouslanguageexceptionerrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CapturePropagationContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPropagationContextHead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2287,7 +2287,7 @@ unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRestrictedErrorInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut BSTR, capabilitysid: *mut BSTR) -> ::windows::core::HRESULT,
     pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut BSTR) -> ::windows::core::HRESULT,
 }
@@ -2342,7 +2342,7 @@ unsafe impl ::windows::core::Interface for IWeakReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWeakReference_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
@@ -2396,6 +2396,6 @@ unsafe impl ::windows::core::Interface for IWeakReferenceSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWeakReferenceSource_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetWeakReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weakreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

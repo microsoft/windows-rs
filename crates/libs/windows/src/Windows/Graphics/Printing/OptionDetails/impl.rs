@@ -25,7 +25,7 @@ impl IPrintCustomOptionDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomOptionDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintCustomOptionDetails, OFFSET>(),
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
         }
@@ -57,7 +57,7 @@ impl IPrintItemListOptionDetails_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintItemListOptionDetails, OFFSET>(), Items: Items::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintItemListOptionDetails, OFFSET>(), Items: Items::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintItemListOptionDetails as ::windows::core::Interface>::IID
@@ -97,7 +97,7 @@ impl IPrintNumberOptionDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintNumberOptionDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintNumberOptionDetails, OFFSET>(),
             MinValue: MinValue::<Identity, Impl, OFFSET>,
             MaxValue: MaxValue::<Identity, Impl, OFFSET>,
         }
@@ -204,7 +204,7 @@ impl IPrintOptionDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintOptionDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintOptionDetails, OFFSET>(),
             OptionId: OptionId::<Identity, Impl, OFFSET>,
             OptionType: OptionType::<Identity, Impl, OFFSET>,
             SetErrorText: SetErrorText::<Identity, Impl, OFFSET>,
@@ -240,7 +240,7 @@ impl IPrintTextOptionDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTextOptionDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTextOptionDetails, OFFSET>(),
             MaxCharacters: MaxCharacters::<Identity, Impl, OFFSET>,
         }
     }

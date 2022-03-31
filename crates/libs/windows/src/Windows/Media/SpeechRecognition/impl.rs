@@ -76,7 +76,7 @@ impl ISpeechRecognitionConstraint_Vtbl {
             (*this).SetProbability(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionConstraint, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionConstraint, OFFSET>(),
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
             SetIsEnabled: SetIsEnabled::<Identity, Impl, OFFSET>,
             Tag: Tag::<Identity, Impl, OFFSET>,

@@ -182,7 +182,7 @@ impl IContactInformation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformation, OFFSET>(),
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             FamilyName: FamilyName::<Identity, Impl, OFFSET>,
@@ -235,7 +235,7 @@ impl IContactInformation2_Vtbl {
             (*this).SetDisplayPictureDate(::core::mem::transmute(&returnvalue)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformation2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactInformation2, OFFSET>(),
             DisplayPictureDate: DisplayPictureDate::<Identity, Impl, OFFSET>,
             SetDisplayPictureDate: SetDisplayPictureDate::<Identity, Impl, OFFSET>,
         }

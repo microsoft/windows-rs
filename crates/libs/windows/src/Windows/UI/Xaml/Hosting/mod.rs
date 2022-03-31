@@ -955,7 +955,7 @@ unsafe impl ::windows::core::Interface for IDesignerAppExitedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignerAppExitedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -968,7 +968,7 @@ unsafe impl ::windows::core::Interface for IDesignerAppManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignerAppManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub DesignerAppExited: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -997,7 +997,7 @@ unsafe impl ::windows::core::Interface for IDesignerAppManagerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignerAppManagerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1010,7 +1010,7 @@ unsafe impl ::windows::core::Interface for IDesignerAppView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignerAppView_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ApplicationViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ViewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DesignerAppViewState) -> ::windows::core::HRESULT,
@@ -1033,7 +1033,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HasFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1065,7 +1065,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1078,7 +1078,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceGotFocusEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceGotFocusEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceTakeFocusRequ
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1104,7 +1104,7 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreview_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1116,7 +1116,7 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub GetElementVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -1144,7 +1144,7 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub SetImplicitShowAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -1169,7 +1169,7 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_WindowManagement")]
     pub SetAppWindowContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: ::windows::core::RawPtr, xamlcontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::core::Interface for IWindowsXamlManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsXamlManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::Interface for IWindowsXamlManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsXamlManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InitializeForCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1214,7 +1214,7 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XamlSourceFocusNavigationReason) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub HintRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -1232,7 +1232,7 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequestFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequestFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub CreateInstanceWithHintRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, hintrect: super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1253,7 +1253,7 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub WasFocusMoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1266,7 +1266,7 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResultFacto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResultFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, focusmoved: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1279,7 +1279,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetRootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ThemeKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1373,7 +1373,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ResolveFileResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
@@ -1459,7 +1459,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterHost2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetGenericXamlFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
@@ -1545,7 +1545,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterHost3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ResolveDictionaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: ::windows::core::RawPtr, dictionarykey: *mut ::core::ffi::c_void, suggestedvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1558,7 +1558,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CompleteTimelinesAutomatically: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCompleteTimelinesAutomatically: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub SetHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1574,7 +1574,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
     pub GetFlyoutPlacementTargetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: ::windows::core::RawPtr, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: *mut bool, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))]

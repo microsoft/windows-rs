@@ -29,7 +29,7 @@ impl IDDVideoPortContainer_Vtbl {
             (*this).QueryVideoPortStatus(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateVideoPort: CreateVideoPort::<Identity, Impl, OFFSET>,
             EnumVideoPorts: EnumVideoPorts::<Identity, Impl, OFFSET>,
             GetVideoPortConnectInfo: GetVideoPortConnectInfo::<Identity, Impl, OFFSET>,
@@ -179,7 +179,7 @@ impl IDirectDraw_Vtbl {
             (*this).WaitForVerticalBlank(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Compact: Compact::<Identity, Impl, OFFSET>,
             CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
             CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
@@ -351,7 +351,7 @@ impl IDirectDraw2_Vtbl {
             (*this).GetAvailableVidMem(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Compact: Compact::<Identity, Impl, OFFSET>,
             CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
             CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
@@ -554,7 +554,7 @@ impl IDirectDraw4_Vtbl {
             (*this).GetDeviceIdentifier(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Compact: Compact::<Identity, Impl, OFFSET>,
             CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
             CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
@@ -773,7 +773,7 @@ impl IDirectDraw7_Vtbl {
             (*this).EvaluateMode(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Compact: Compact::<Identity, Impl, OFFSET>,
             CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
             CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
@@ -850,7 +850,7 @@ impl IDirectDrawClipper_Vtbl {
             (*this).SetHWnd(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClipList: GetClipList::<Identity, Impl, OFFSET>,
             GetHWnd: GetHWnd::<Identity, Impl, OFFSET>,
             Initialize: Initialize::<Identity, Impl, OFFSET>,
@@ -880,7 +880,7 @@ impl IDirectDrawColorControl_Vtbl {
             (*this).SetColorControls(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetColorControls: GetColorControls::<Identity, Impl, OFFSET>,
             SetColorControls: SetColorControls::<Identity, Impl, OFFSET>,
         }
@@ -906,7 +906,7 @@ impl IDirectDrawGammaControl_Vtbl {
             (*this).SetGammaRamp(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetGammaRamp: GetGammaRamp::<Identity, Impl, OFFSET>,
             SetGammaRamp: SetGammaRamp::<Identity, Impl, OFFSET>,
         }
@@ -938,7 +938,7 @@ impl IDirectDrawKernel_Vtbl {
             (*this).ReleaseKernelHandle().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCaps: GetCaps::<Identity, Impl, OFFSET>,
             GetKernelHandle: GetKernelHandle::<Identity, Impl, OFFSET>,
             ReleaseKernelHandle: ReleaseKernelHandle::<Identity, Impl, OFFSET>,
@@ -979,7 +979,7 @@ impl IDirectDrawPalette_Vtbl {
             (*this).SetEntries(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute_copy(&param3)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCaps: GetCaps::<Identity, Impl, OFFSET>,
             GetEntries: GetEntries::<Identity, Impl, OFFSET>,
             Initialize: Initialize::<Identity, Impl, OFFSET>,
@@ -1207,7 +1207,7 @@ impl IDirectDrawSurface_Vtbl {
             (*this).UpdateOverlayZOrder(::core::mem::transmute_copy(&param0), ::core::mem::transmute(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
             Blt: Blt::<Identity, Impl, OFFSET>,
@@ -1482,7 +1482,7 @@ impl IDirectDrawSurface2_Vtbl {
             (*this).PageUnlock(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
             Blt: Blt::<Identity, Impl, OFFSET>,
@@ -1766,7 +1766,7 @@ impl IDirectDrawSurface3_Vtbl {
             (*this).SetSurfaceDesc(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
             Blt: Blt::<Identity, Impl, OFFSET>,
@@ -2081,7 +2081,7 @@ impl IDirectDrawSurface4_Vtbl {
             (*this).ChangeUniquenessValue().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
             Blt: Blt::<Identity, Impl, OFFSET>,
@@ -2425,7 +2425,7 @@ impl IDirectDrawSurface7_Vtbl {
             (*this).GetLOD(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
             Blt: Blt::<Identity, Impl, OFFSET>,
@@ -2495,7 +2495,7 @@ impl IDirectDrawSurfaceKernel_Vtbl {
             (*this).ReleaseKernelHandle().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetKernelHandle: GetKernelHandle::<Identity, Impl, OFFSET>,
             ReleaseKernelHandle: ReleaseKernelHandle::<Identity, Impl, OFFSET>,
         }
@@ -2595,7 +2595,7 @@ impl IDirectDrawVideoPort_Vtbl {
             (*this).WaitForSync(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Flip: Flip::<Identity, Impl, OFFSET>,
             GetBandwidthInfo: GetBandwidthInfo::<Identity, Impl, OFFSET>,
             GetColorControls: GetColorControls::<Identity, Impl, OFFSET>,
@@ -2635,7 +2635,7 @@ impl IDirectDrawVideoPortNotify_Vtbl {
             (*this).ReleaseNotification(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AcquireNotification: AcquireNotification::<Identity, Impl, OFFSET>,
             ReleaseNotification: ReleaseNotification::<Identity, Impl, OFFSET>,
         }

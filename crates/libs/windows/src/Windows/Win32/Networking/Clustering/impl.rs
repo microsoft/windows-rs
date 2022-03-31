@@ -23,7 +23,7 @@ impl IGetClusterDataInfo_Vtbl {
             (*this).GetObjectCount()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClusterName: GetClusterName::<Identity, Impl, OFFSET>,
             GetClusterHandle: GetClusterHandle::<Identity, Impl, OFFSET>,
             GetObjectCount: GetObjectCount::<Identity, Impl, OFFSET>,
@@ -43,7 +43,7 @@ impl IGetClusterGroupInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetGroupHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetGroupHandle: GetGroupHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetGroupHandle: GetGroupHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterGroupInfo as ::windows::core::Interface>::IID
@@ -59,7 +59,7 @@ impl IGetClusterNetInterfaceInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNetInterfaceHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNetInterfaceHandle: GetNetInterfaceHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNetInterfaceHandle: GetNetInterfaceHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterNetInterfaceInfo as ::windows::core::Interface>::IID
@@ -75,7 +75,7 @@ impl IGetClusterNetworkInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNetworkHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNetworkHandle: GetNetworkHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNetworkHandle: GetNetworkHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterNetworkInfo as ::windows::core::Interface>::IID
@@ -91,7 +91,7 @@ impl IGetClusterNodeInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNodeHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNodeHandle: GetNodeHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNodeHandle: GetNodeHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterNodeInfo as ::windows::core::Interface>::IID
@@ -116,7 +116,7 @@ impl IGetClusterObjectInfo_Vtbl {
             (*this).GetObjectType(::core::mem::transmute_copy(&lobjindex))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetObjectName: GetObjectName::<Identity, Impl, OFFSET>,
             GetObjectType: GetObjectType::<Identity, Impl, OFFSET>,
         }
@@ -150,7 +150,7 @@ impl IGetClusterResourceInfo_Vtbl {
             (*this).GetResourceNetworkName(::core::mem::transmute_copy(&lobjindex), ::core::mem::transmute_copy(&lpsznetname), ::core::mem::transmute_copy(&pcchnetname))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetResourceHandle: GetResourceHandle::<Identity, Impl, OFFSET>,
             GetResourceTypeName: GetResourceTypeName::<Identity, Impl, OFFSET>,
             GetResourceNetworkName: GetResourceNetworkName::<Identity, Impl, OFFSET>,
@@ -191,7 +191,7 @@ impl IGetClusterUIInfo_Vtbl {
             (*this).GetIcon()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClusterName: GetClusterName::<Identity, Impl, OFFSET>,
             GetLocale: GetLocale::<Identity, Impl, OFFSET>,
             GetFont: GetFont::<Identity, Impl, OFFSET>,
@@ -245,7 +245,7 @@ impl ISClusApplication_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DomainNames: DomainNames::<Identity, Impl, OFFSET>,
             ClusterNames: ClusterNames::<Identity, Impl, OFFSET>,
             OpenCluster: OpenCluster::<Identity, Impl, OFFSET>,
@@ -316,7 +316,7 @@ impl ISClusCryptoKeys_Vtbl {
             (*this).RemoveItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -384,7 +384,7 @@ impl ISClusDisk_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Signature: Signature::<Identity, Impl, OFFSET>,
             ScsiAddress: ScsiAddress::<Identity, Impl, OFFSET>,
             DiskNumber: DiskNumber::<Identity, Impl, OFFSET>,
@@ -438,7 +438,7 @@ impl ISClusDisks_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -551,7 +551,7 @@ impl ISClusNetInterface_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -615,7 +615,7 @@ impl ISClusNetInterfaces_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -759,7 +759,7 @@ impl ISClusNetwork_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -826,7 +826,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -886,7 +886,7 @@ impl ISClusNetworks_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -1054,7 +1054,7 @@ impl ISClusNode_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -1124,7 +1124,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -1184,7 +1184,7 @@ impl ISClusNodes_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -1286,7 +1286,7 @@ impl ISClusPartition_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Flags: Flags::<Identity, Impl, OFFSET>,
             DeviceName: DeviceName::<Identity, Impl, OFFSET>,
             VolumeLabel: VolumeLabel::<Identity, Impl, OFFSET>,
@@ -1367,7 +1367,7 @@ impl ISClusPartitionEx_Vtbl {
             }
         }
         Self {
-            base: ISClusPartition_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISClusPartition_Vtbl::new::<Identity, Impl, OFFSET>(),
             TotalSize: TotalSize::<Identity, Impl, OFFSET>,
             FreeSpace: FreeSpace::<Identity, Impl, OFFSET>,
             DeviceNumber: DeviceNumber::<Identity, Impl, OFFSET>,
@@ -1422,7 +1422,7 @@ impl ISClusPartitions_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -1559,7 +1559,7 @@ impl ISClusProperties_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -1740,7 +1740,7 @@ impl ISClusProperty_Vtbl {
             (*this).UseDefaultValue().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
             ValueCount: ValueCount::<Identity, Impl, OFFSET>,
@@ -1859,7 +1859,7 @@ impl ISClusPropertyValue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -1936,7 +1936,7 @@ impl ISClusPropertyValueData_Vtbl {
             (*this).RemoveItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -2009,7 +2009,7 @@ impl ISClusPropertyValues_Vtbl {
             (*this).RemoveItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -2039,7 +2039,7 @@ impl ISClusRefObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Handle: Handle::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Handle: Handle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISClusRefObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -2106,7 +2106,7 @@ impl ISClusRegistryKeys_Vtbl {
             (*this).RemoveItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2198,7 +2198,7 @@ impl ISClusResDependencies_Vtbl {
             (*this).RemoveItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2292,7 +2292,7 @@ impl ISClusResDependents_Vtbl {
             (*this).RemoveItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2494,7 +2494,7 @@ impl ISClusResGroup_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -2602,7 +2602,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             (*this).AddItem(::core::mem::transmute(&pnode)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2685,7 +2685,7 @@ impl ISClusResGroupResources_Vtbl {
             (*this).DeleteItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2765,7 +2765,7 @@ impl ISClusResGroups_Vtbl {
             (*this).DeleteItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2851,7 +2851,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -2986,7 +2986,7 @@ impl ISClusResType_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -3052,7 +3052,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -3130,7 +3130,7 @@ impl ISClusResTypeResources_Vtbl {
             (*this).DeleteItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -3210,7 +3210,7 @@ impl ISClusResTypes_Vtbl {
             (*this).DeleteItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -3566,7 +3566,7 @@ impl ISClusResource_Vtbl {
             (*this).SetMaintenanceMode(::core::mem::transmute_copy(&bmaintenancemode)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -3672,7 +3672,7 @@ impl ISClusResources_Vtbl {
             (*this).DeleteItem(::core::mem::transmute(&varindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -3740,7 +3740,7 @@ impl ISClusScsiAddress_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PortNumber: PortNumber::<Identity, Impl, OFFSET>,
             PathId: PathId::<Identity, Impl, OFFSET>,
             TargetId: TargetId::<Identity, Impl, OFFSET>,
@@ -3878,7 +3878,7 @@ impl ISClusVersion_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             MajorVersion: MajorVersion::<Identity, Impl, OFFSET>,
             MinorVersion: MinorVersion::<Identity, Impl, OFFSET>,
@@ -4124,7 +4124,7 @@ impl ISCluster_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CommonProperties: CommonProperties::<Identity, Impl, OFFSET>,
             PrivateProperties: PrivateProperties::<Identity, Impl, OFFSET>,
             CommonROProperties: CommonROProperties::<Identity, Impl, OFFSET>,
@@ -4213,7 +4213,7 @@ impl ISClusterNames_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -4274,7 +4274,7 @@ impl ISDomainNames_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -4297,7 +4297,7 @@ impl IWCContextMenuCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddExtensionMenuItem(::core::mem::transmute(&lpszname), ::core::mem::transmute(&lpszstatusbartext), ::core::mem::transmute_copy(&ncommandid), ::core::mem::transmute_copy(&nsubmenucommandid), ::core::mem::transmute_copy(&uflags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddExtensionMenuItem: AddExtensionMenuItem::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddExtensionMenuItem: AddExtensionMenuItem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWCContextMenuCallback as ::windows::core::Interface>::IID
@@ -4313,7 +4313,7 @@ impl IWCPropertySheetCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddPropertySheetPage(::core::mem::transmute_copy(&hpage)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddPropertySheetPage: AddPropertySheetPage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddPropertySheetPage: AddPropertySheetPage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWCPropertySheetCallback as ::windows::core::Interface>::IID
@@ -4338,7 +4338,7 @@ impl IWCWizard97Callback_Vtbl {
             (*this).EnableNext(::core::mem::transmute_copy(&hpage), ::core::mem::transmute_copy(&benable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddWizard97Page: AddWizard97Page::<Identity, Impl, OFFSET>,
             EnableNext: EnableNext::<Identity, Impl, OFFSET>,
         }
@@ -4366,7 +4366,7 @@ impl IWCWizardCallback_Vtbl {
             (*this).EnableNext(::core::mem::transmute_copy(&hpage), ::core::mem::transmute_copy(&benable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddWizardPage: AddWizardPage::<Identity, Impl, OFFSET>,
             EnableNext: EnableNext::<Identity, Impl, OFFSET>,
         }
@@ -4385,7 +4385,7 @@ impl IWEExtendContextMenu_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddContextMenuItems(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddContextMenuItems: AddContextMenuItems::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddContextMenuItems: AddContextMenuItems::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendContextMenu as ::windows::core::Interface>::IID
@@ -4401,7 +4401,7 @@ impl IWEExtendPropertySheet_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreatePropertySheetPages(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreatePropertySheetPages: CreatePropertySheetPages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreatePropertySheetPages: CreatePropertySheetPages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendPropertySheet as ::windows::core::Interface>::IID
@@ -4417,7 +4417,7 @@ impl IWEExtendWizard_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateWizardPages(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateWizardPages: CreateWizardPages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateWizardPages: CreateWizardPages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendWizard as ::windows::core::Interface>::IID
@@ -4433,7 +4433,7 @@ impl IWEExtendWizard97_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateWizard97Pages(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateWizard97Pages: CreateWizard97Pages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateWizard97Pages: CreateWizard97Pages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendWizard97 as ::windows::core::Interface>::IID
@@ -4449,7 +4449,7 @@ impl IWEInvokeCommand_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InvokeCommand(::core::mem::transmute_copy(&ncommandid), ::core::mem::transmute(&pidata)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvokeCommand: InvokeCommand::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvokeCommand: InvokeCommand::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEInvokeCommand as ::windows::core::Interface>::IID

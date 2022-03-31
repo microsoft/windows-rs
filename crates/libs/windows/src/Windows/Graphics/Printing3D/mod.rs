@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IPrint3DManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TaskRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -29,7 +29,7 @@ unsafe impl ::windows::core::Interface for IPrint3DManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub ShowPrintUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -46,7 +46,7 @@ unsafe impl ::windows::core::Interface for IPrint3DTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTask_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Submitting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -83,7 +83,7 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Print3DTaskCompletion) -> ::windows::core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Print3DTaskDetail) -> ::windows::core::HRESULT,
 }
@@ -97,7 +97,7 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -110,7 +110,7 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskRequestedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskSourceChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -136,7 +136,7 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskSourceRequestedArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceRequestedArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -149,7 +149,7 @@ unsafe impl ::windows::core::Interface for IPrinting3D3MFPackage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub SaveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -195,7 +195,7 @@ unsafe impl ::windows::core::Interface for IPrinting3D3MFPackage2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Compression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Printing3DPackageCompression) -> ::windows::core::HRESULT,
     pub SetCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Printing3DPackageCompression) -> ::windows::core::HRESULT,
 }
@@ -209,7 +209,7 @@ unsafe impl ::windows::core::Interface for IPrinting3D3MFPackageStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackageStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub LoadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -225,7 +225,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -241,7 +241,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Bases: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -258,7 +258,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialGroupFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -271,7 +271,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Abs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Pla: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -285,7 +285,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 }
@@ -299,7 +299,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterial2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterial2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))]
@@ -319,7 +319,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterialGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Colors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -336,7 +336,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DColorMaterialGroupFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DComponent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -375,7 +375,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DComponentWithMatrix {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DComponentWithMatrix_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Component: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -397,7 +397,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Values: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -413,7 +413,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Composites: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -434,7 +434,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroup2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BaseMaterialGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetBaseMaterialGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroupFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -461,7 +461,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DFaceReductionOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DFaceReductionOptions_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MaxReductionArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetMaxReductionArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub TargetTriangleCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -479,7 +479,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub BaseGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -511,7 +511,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DMesh {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMesh_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub VertexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetVertexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub IndexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DMeshVerificationResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMeshVerificationResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub NonmanifoldTriangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -588,7 +588,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DModel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Printing3DModelUnit) -> ::windows::core::HRESULT,
     pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Printing3DModelUnit) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -633,7 +633,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DModel2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModel2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TryPartialRepairAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DModelTexture {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModelTexture_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TextureResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTextureResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TileStyleU: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Printing3DTextureEdgeBehavior) -> ::windows::core::HRESULT,
@@ -687,7 +687,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub MaterialIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterialGr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub MultipleProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -724,7 +724,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterialGr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -737,7 +737,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Texture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTexture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub U: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -755,7 +755,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Texture2Coords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -772,7 +772,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Texture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTexture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -786,7 +786,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -799,7 +799,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DTextureResource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTextureResource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub TextureData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -1580,7 +1580,10 @@ struct Print3DTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<Pri
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
-    const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<Print3DTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1638,7 +1641,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct Print3DTaskSourceRequestedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]

@@ -14,7 +14,7 @@ impl IMediaExtension_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetProperties(::core::mem::transmute(&configuration)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaExtension as ::windows::core::Interface>::IID
@@ -146,7 +146,7 @@ impl IMediaFrame_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaFrame, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaFrame, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
             SetRelativeTime: SetRelativeTime::<Identity, Impl, OFFSET>,
@@ -214,7 +214,7 @@ impl IMediaMarker_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaMarker, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaMarker, OFFSET>(),
             Time: Time::<Identity, Impl, OFFSET>,
             MediaMarkerType: MediaMarkerType::<Identity, Impl, OFFSET>,
             Text: Text::<Identity, Impl, OFFSET>,
@@ -247,7 +247,7 @@ impl IMediaMarkers_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaMarkers, OFFSET>(), Markers: Markers::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IMediaMarkers, OFFSET>(), Markers: Markers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaMarkers as ::windows::core::Interface>::IID

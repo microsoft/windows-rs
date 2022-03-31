@@ -2520,7 +2520,7 @@ unsafe impl ::windows::core::Interface for IAudioStreamDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub EncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -2536,7 +2536,7 @@ unsafe impl ::windows::core::Interface for IAudioStreamDescriptor2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetLeadingEncoderPadding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::Interface for IAudioStreamDescriptor3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2577,7 +2577,7 @@ unsafe impl ::windows::core::Interface for IAudioStreamDescriptorFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptorFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -2593,7 +2593,7 @@ unsafe impl ::windows::core::Interface for IAudioTrack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioTrack_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OpenFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::core::Interface for IAudioTrackOpenFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioTrackOpenFailedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2636,7 +2636,7 @@ unsafe impl ::windows::core::Interface for IAudioTrackSupportInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioTrackSupportInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DecoderStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaDecoderStatus) -> ::windows::core::HRESULT,
     pub Degradation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioDecoderDegradation) -> ::windows::core::HRESULT,
     pub DegradationReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioDecoderDegradationReason) -> ::windows::core::HRESULT,
@@ -2652,7 +2652,7 @@ unsafe impl ::windows::core::Interface for IChapterCue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChapterCue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2666,7 +2666,7 @@ unsafe impl ::windows::core::Interface for ICodecInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodecInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CodecKind) -> ::windows::core::HRESULT,
     pub Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CodecCategory) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -2686,7 +2686,7 @@ unsafe impl ::windows::core::Interface for ICodecQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodecQuery_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: CodecKind, category: CodecCategory, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2702,7 +2702,7 @@ unsafe impl ::windows::core::Interface for ICodecSubtypesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodecSubtypesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub VideoFormatDV25: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub VideoFormatDV50: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub VideoFormatDvc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2765,7 +2765,7 @@ unsafe impl ::windows::core::Interface for IDataCue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -2785,7 +2785,7 @@ unsafe impl ::windows::core::Interface for IDataCue2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCue2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2801,7 +2801,7 @@ unsafe impl ::windows::core::Interface for IFaceDetectedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ResultFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2814,7 +2814,7 @@ unsafe impl ::windows::core::Interface for IFaceDetectionEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectionEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2844,7 +2844,7 @@ unsafe impl ::windows::core::Interface for IFaceDetectionEffectDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectionEffectDefinition_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetDetectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FaceDetectionMode) -> ::windows::core::HRESULT,
     pub DetectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FaceDetectionMode) -> ::windows::core::HRESULT,
     pub SetSynchronousDetectionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2860,7 +2860,7 @@ unsafe impl ::windows::core::Interface for IFaceDetectionEffectFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectionEffectFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))]
     pub DetectedFaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis")))]
@@ -2876,7 +2876,7 @@ unsafe impl ::windows::core::Interface for IHighDynamicRangeControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHighDynamicRangeControl_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -2890,7 +2890,7 @@ unsafe impl ::windows::core::Interface for IHighDynamicRangeOutput {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHighDynamicRangeOutput_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Certainty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core"))]
     pub FrameControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2907,7 +2907,7 @@ unsafe impl ::windows::core::Interface for IImageCue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageCue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedTextPoint) -> ::windows::core::HRESULT,
     pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TimedTextPoint) -> ::windows::core::HRESULT,
     pub Extent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedTextSize) -> ::windows::core::HRESULT,
@@ -2931,7 +2931,7 @@ unsafe impl ::windows::core::Interface for IInitializeMediaStreamSourceRequested
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitializeMediaStreamSourceRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub RandomAccessStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2952,7 +2952,7 @@ unsafe impl ::windows::core::Interface for ILowLightFusionResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLightFusionResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Imaging")]
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
@@ -2968,7 +2968,7 @@ unsafe impl ::windows::core::Interface for ILowLightFusionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLightFusionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub SupportedBitmapPixelFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
@@ -2989,7 +2989,7 @@ unsafe impl ::windows::core::Interface for IMediaBinder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBinder_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Binding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3012,7 +3012,7 @@ unsafe impl ::windows::core::Interface for IMediaBindingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBindingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Canceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3049,7 +3049,7 @@ unsafe impl ::windows::core::Interface for IMediaBindingEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBindingEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Streaming_Adaptive")]
     pub SetAdaptiveMediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Streaming_Adaptive"))]
@@ -3069,7 +3069,7 @@ unsafe impl ::windows::core::Interface for IMediaBindingEventArgs3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBindingEventArgs3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking_BackgroundTransfer")]
     pub SetDownloadOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadoperation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_BackgroundTransfer"))]
@@ -3193,7 +3193,7 @@ unsafe impl ::windows::core::Interface for IMediaCue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3223,7 +3223,7 @@ unsafe impl ::windows::core::Interface for IMediaCueEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCueEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Cue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -3300,7 +3300,7 @@ unsafe impl ::windows::core::Interface for IMediaSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3312,7 +3312,7 @@ unsafe impl ::windows::core::Interface for IMediaSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OpenOperationCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3349,7 +3349,7 @@ unsafe impl ::windows::core::Interface for IMediaSource3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSource3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3371,7 +3371,7 @@ unsafe impl ::windows::core::Interface for IMediaSource4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSource4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Streaming_Adaptive")]
     pub AdaptiveMediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Streaming_Adaptive"))]
@@ -3397,7 +3397,7 @@ unsafe impl ::windows::core::Interface for IMediaSource5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSource5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking_BackgroundTransfer")]
     pub DownloadOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_BackgroundTransfer"))]
@@ -3413,7 +3413,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceAppServiceConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceAppServiceConnection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InitializeMediaStreamSourceRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3434,7 +3434,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceAppServiceConnectionFacto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceAppServiceConnectionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appserviceconnection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_AppService"))]
@@ -3450,7 +3450,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceError_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3463,7 +3463,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceOpenOperationCompletedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceOpenOperationCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3476,7 +3476,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceStateChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceStateChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OldState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaSourceState) -> ::windows::core::HRESULT,
     pub NewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaSourceState) -> ::windows::core::HRESULT,
 }
@@ -3490,7 +3490,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Streaming_Adaptive")]
     pub CreateFromAdaptiveMediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Streaming_Adaptive"))]
@@ -3525,7 +3525,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromMediaBinder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3538,7 +3538,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Capture_Frames")]
     pub CreateFromMediaFrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framesource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Capture_Frames"))]
@@ -3554,7 +3554,7 @@ unsafe impl ::windows::core::Interface for IMediaSourceStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking_BackgroundTransfer")]
     pub CreateFromDownloadOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadoperation: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_BackgroundTransfer"))]
@@ -3669,7 +3669,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamDescriptor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3820,7 +3820,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamDescriptor2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamDescriptor2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -3834,7 +3834,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSample {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSample_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Processed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3887,7 +3887,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSample2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSample2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Direct3D11Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -3903,7 +3903,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSampleProtectionPropertie
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSampleProtectionProperties_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetKeyIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
     pub GetKeyIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::core::HRESULT,
     pub SetInitializationVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
@@ -3921,7 +3921,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSampleStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSampleStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, timestamp: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -3941,7 +3941,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSampleStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSampleStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateFromDirect3D11Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, timestamp: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))]
@@ -3957,7 +3957,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4058,7 +4058,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SampleRendered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4078,7 +4078,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSource3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSource3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetMaxSupportedPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4098,7 +4098,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSource4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSource4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetIsLive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsLive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -4112,7 +4112,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceClosedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceClosedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4125,7 +4125,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceClosedRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceClosedRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaStreamSourceClosedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4138,7 +4138,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFromDescriptors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, descriptor2: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4152,7 +4152,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSampleRenderedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRenderedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SampleLag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4168,7 +4168,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSampleRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StreamDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4185,7 +4185,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSampleRequestDeferr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequestDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4198,7 +4198,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSampleRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4211,7 +4211,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceStartingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceStartingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4224,7 +4224,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceStartingRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceStartingRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4245,7 +4245,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceStartingRequestDefe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceStartingRequestDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4258,7 +4258,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSwitchStreamsReques
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OldStreamDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NewStreamDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4273,7 +4273,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSwitchStreamsReques
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequestDeferral_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4286,7 +4286,7 @@ unsafe impl ::windows::core::Interface for IMediaStreamSourceSwitchStreamsReques
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -4401,7 +4401,7 @@ unsafe impl ::windows::core::Interface for IMediaTrack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTrack_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TrackKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaTrackKind) -> ::windows::core::HRESULT,
@@ -4418,7 +4418,7 @@ unsafe impl ::windows::core::Interface for IMseSourceBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMseSourceBuffer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub UpdateStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4518,7 +4518,7 @@ unsafe impl ::windows::core::Interface for IMseSourceBufferList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMseSourceBufferList_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SourceBufferAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4550,7 +4550,7 @@ unsafe impl ::windows::core::Interface for IMseStreamSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMseStreamSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Opened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4600,7 +4600,7 @@ unsafe impl ::windows::core::Interface for IMseStreamSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMseStreamSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LiveSeekableRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4620,7 +4620,7 @@ unsafe impl ::windows::core::Interface for IMseStreamSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMseStreamSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsContentTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4633,7 +4633,7 @@ unsafe impl ::windows::core::Interface for ISceneAnalysisEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneAnalysisEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HighDynamicRangeAnalyzer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub SetDesiredAnalysisInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -4662,7 +4662,7 @@ unsafe impl ::windows::core::Interface for ISceneAnalysisEffectFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneAnalysisEffectFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Capture")]
     pub FrameControlValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Capture"))]
@@ -4679,7 +4679,7 @@ unsafe impl ::windows::core::Interface for ISceneAnalysisEffectFrame2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneAnalysisEffectFrame2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AnalysisRecommendation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SceneAnalysisRecommendation) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4692,7 +4692,7 @@ unsafe impl ::windows::core::Interface for ISceneAnalyzedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneAnalyzedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ResultFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -4798,7 +4798,7 @@ unsafe impl ::windows::core::Interface for ISingleSelectMediaTrackList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISingleSelectMediaTrackList_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SelectedIndexChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4820,7 +4820,7 @@ unsafe impl ::windows::core::Interface for ISpeechCue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechCue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4850,7 +4850,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataStreamDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataStreamDescriptor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub EncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -4867,7 +4867,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataStreamDescriptorFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataStreamDescriptorFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -4883,7 +4883,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataTrack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrack_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CueEntered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -4931,7 +4931,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataTrack2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrack2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Playback")]
     pub PlaybackItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Playback"))]
@@ -4948,7 +4948,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataTrackError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackError_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackErrorCode) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -4962,7 +4962,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataTrackFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, kind: TimedMetadataKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -4975,7 +4975,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataTrackFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackFailedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -5062,7 +5062,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataTrackProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub TimedMetadataTracks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5078,7 +5078,7 @@ unsafe impl ::windows::core::Interface for ITimedTextBouten {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextBouten_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedTextBoutenType) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TimedTextBoutenType) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI")]
@@ -5102,7 +5102,7 @@ unsafe impl ::windows::core::Interface for ITimedTextCue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextCue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CueRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCueRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CueStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5122,7 +5122,7 @@ unsafe impl ::windows::core::Interface for ITimedTextLine {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextLine_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -5140,7 +5140,7 @@ unsafe impl ::windows::core::Interface for ITimedTextRegion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextRegion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedTextPoint) -> ::windows::core::HRESULT,
@@ -5182,7 +5182,7 @@ unsafe impl ::windows::core::Interface for ITimedTextRuby {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextRuby_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedTextRubyPosition) -> ::windows::core::HRESULT,
@@ -5202,7 +5202,7 @@ unsafe impl ::windows::core::Interface for ITimedTextSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Resolved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5222,7 +5222,7 @@ unsafe impl ::windows::core::Interface for ITimedTextSourceResolveResultEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextSourceResolveResultEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Tracks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5239,7 +5239,7 @@ unsafe impl ::windows::core::Interface for ITimedTextSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -5267,7 +5267,7 @@ unsafe impl ::windows::core::Interface for ITimedTextSourceStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextSourceStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateFromStreamWithIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, indexstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -5295,7 +5295,7 @@ unsafe impl ::windows::core::Interface for ITimedTextStyle {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextStyle_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -5349,7 +5349,7 @@ unsafe impl ::windows::core::Interface for ITimedTextStyle2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextStyle2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedTextFontStyle) -> ::windows::core::HRESULT,
     pub SetFontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TimedTextFontStyle) -> ::windows::core::HRESULT,
     pub IsUnderlineEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -5369,7 +5369,7 @@ unsafe impl ::windows::core::Interface for ITimedTextStyle3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextStyle3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Ruby: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Bouten: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsTextCombined: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -5387,7 +5387,7 @@ unsafe impl ::windows::core::Interface for ITimedTextSubformat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedTextSubformat_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StartIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetStartIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -5405,7 +5405,7 @@ unsafe impl ::windows::core::Interface for IVideoStabilizationEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoStabilizationEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -5431,7 +5431,7 @@ unsafe impl ::windows::core::Interface for IVideoStabilizationEffectEnabledChang
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoStabilizationEffectEnabledChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VideoStabilizationEffectEnabledChangedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5444,7 +5444,7 @@ unsafe impl ::windows::core::Interface for IVideoStreamDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoStreamDescriptor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub EncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -5460,7 +5460,7 @@ unsafe impl ::windows::core::Interface for IVideoStreamDescriptor2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoStreamDescriptor2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5473,7 +5473,7 @@ unsafe impl ::windows::core::Interface for IVideoStreamDescriptorFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoStreamDescriptorFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -5489,7 +5489,7 @@ unsafe impl ::windows::core::Interface for IVideoTrack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoTrack_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OpenFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5519,7 +5519,7 @@ unsafe impl ::windows::core::Interface for IVideoTrackOpenFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoTrackOpenFailedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5532,7 +5532,7 @@ unsafe impl ::windows::core::Interface for IVideoTrackSupportInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoTrackSupportInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DecoderStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaDecoderStatus) -> ::windows::core::HRESULT,
     pub MediaSourceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaSourceStatus) -> ::windows::core::HRESULT,
 }

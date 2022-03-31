@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for ISpatialGestureRecognizer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGestureRecognizer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RecognitionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -137,7 +137,7 @@ unsafe impl ::windows::core::Interface for ISpatialGestureRecognizerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGestureRecognizerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: SpatialGestureSettings, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -150,7 +150,7 @@ unsafe impl ::windows::core::Interface for ISpatialHoldCanceledEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialHoldCanceledEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -163,7 +163,7 @@ unsafe impl ::windows::core::Interface for ISpatialHoldCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialHoldCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -176,7 +176,7 @@ unsafe impl ::windows::core::Interface for ISpatialHoldStartedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialHoldStartedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetPointerPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -193,7 +193,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteraction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteraction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SourceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -206,7 +206,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionController_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HasTouchpad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub HasThumbstick: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
@@ -227,7 +227,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionController2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionController2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub TryGetRenderableModelAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -243,7 +243,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionController3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionController3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Power")]
     pub TryGetBatteryReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Power"))]
@@ -259,7 +259,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionControllerProperti
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionControllerProperties_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsTouchpadTouched: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsTouchpadPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsThumbstickPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionDetectedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetPointerPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionDetectedEventArgs2
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionDetectedEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -309,7 +309,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SourceDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -373,7 +373,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -386,7 +386,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionManagerStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionManagerStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSourceKindSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SpatialInteractionSourceKind, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -399,7 +399,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
@@ -413,7 +413,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPointingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsMenuSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsGraspSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -433,7 +433,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSource3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Handedness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceHandedness) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -446,7 +446,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSource4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_People")]
     pub TryCreateHandMeshObserver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Perception_People"))]
@@ -466,7 +466,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -479,7 +479,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceEventArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PressKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionPressKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -492,7 +492,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceLocation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceLocation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -528,7 +528,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceLocation3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PositionAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourcePositionAccuracy) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub AngularVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -546,7 +546,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceProperties_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub TryGetSourceLossMitigationDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceState {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceState_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceState2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceState2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSelectPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsMenuPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsGrasped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::Interface for ISpatialInteractionSourceState3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceState3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_People")]
     pub TryGetHandPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Perception_People"))]
@@ -623,7 +623,7 @@ unsafe impl ::windows::core::Interface for ISpatialManipulationCanceledEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialManipulationCanceledEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -636,7 +636,7 @@ unsafe impl ::windows::core::Interface for ISpatialManipulationCompletedEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetCumulativeDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -653,7 +653,7 @@ unsafe impl ::windows::core::Interface for ISpatialManipulationDelta {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialManipulationDelta_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Translation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::Interface for ISpatialManipulationStartedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialManipulationStartedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetPointerPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -686,7 +686,7 @@ unsafe impl ::windows::core::Interface for ISpatialManipulationUpdatedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetCumulativeDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Interface for ISpatialNavigationCanceledEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialNavigationCanceledEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -716,7 +716,7 @@ unsafe impl ::windows::core::Interface for ISpatialNavigationCompletedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub NormalizedOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -733,7 +733,7 @@ unsafe impl ::windows::core::Interface for ISpatialNavigationStartedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialNavigationStartedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetPointerPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -753,7 +753,7 @@ unsafe impl ::windows::core::Interface for ISpatialNavigationUpdatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub NormalizedOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -770,7 +770,7 @@ unsafe impl ::windows::core::Interface for ISpatialPointerInteractionSourcePose 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialPointerInteractionSourcePose_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -794,7 +794,7 @@ unsafe impl ::windows::core::Interface for ISpatialPointerInteractionSourcePose2
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -811,7 +811,7 @@ unsafe impl ::windows::core::Interface for ISpatialPointerPose {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialPointerPose_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Perception"))]
@@ -831,7 +831,7 @@ unsafe impl ::windows::core::Interface for ISpatialPointerPose2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialPointerPose2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryGetInteractionSourcePose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::Interface for ISpatialPointerPose3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialPointerPose3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_People")]
     pub Eyes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Perception_People"))]
@@ -861,7 +861,7 @@ unsafe impl ::windows::core::Interface for ISpatialPointerPoseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialPointerPoseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetAtTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, timestamp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Perception_Spatial"))]
@@ -877,7 +877,7 @@ unsafe impl ::windows::core::Interface for ISpatialRecognitionEndedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialRecognitionEndedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::Interface for ISpatialRecognitionStartedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetPointerPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -908,7 +908,7 @@ unsafe impl ::windows::core::Interface for ISpatialTappedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialTappedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
     pub TryGetPointerPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

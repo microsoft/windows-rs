@@ -63,7 +63,7 @@ impl IUICommand_Vtbl {
             (*this).SetId(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUICommand, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUICommand, OFFSET>(),
             Label: Label::<Identity, Impl, OFFSET>,
             SetLabel: SetLabel::<Identity, Impl, OFFSET>,
             Invoked: Invoked::<Identity, Impl, OFFSET>,

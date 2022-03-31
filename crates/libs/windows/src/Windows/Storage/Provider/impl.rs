@@ -19,7 +19,7 @@ impl IStorageProviderHandlerFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderHandlerFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderHandlerFactory, OFFSET>(),
             GetStatusSource: GetStatusSource::<Identity, Impl, OFFSET>,
         }
     }
@@ -51,7 +51,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderItemPropertySource, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderItemPropertySource, OFFSET>(),
             GetItemProperties: GetItemProperties::<Identity, Impl, OFFSET>,
         }
     }
@@ -80,7 +80,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderPropertyCapabilities, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderPropertyCapabilities, OFFSET>(),
             IsPropertySupported: IsPropertySupported::<Identity, Impl, OFFSET>,
         }
     }
@@ -131,7 +131,7 @@ impl IStorageProviderStatusSource_Vtbl {
             (*this).RemoveChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderStatusSource, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderStatusSource, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             Changed: Changed::<Identity, Impl, OFFSET>,
             RemoveChanged: RemoveChanged::<Identity, Impl, OFFSET>,
@@ -161,7 +161,7 @@ impl IStorageProviderUriSource_Vtbl {
             (*this).GetContentInfoForPath(::core::mem::transmute(&path), ::core::mem::transmute(&result)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderUriSource, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageProviderUriSource, OFFSET>(),
             GetPathForContentUri: GetPathForContentUri::<Identity, Impl, OFFSET>,
             GetContentInfoForPath: GetContentInfoForPath::<Identity, Impl, OFFSET>,
         }

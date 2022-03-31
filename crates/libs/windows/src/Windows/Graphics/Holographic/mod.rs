@@ -2896,7 +2896,7 @@ unsafe impl ::windows::core::Interface for IHolographicCamera {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RenderTargetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2918,7 +2918,7 @@ unsafe impl ::windows::core::Interface for IHolographicCamera2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LeftViewportParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RightViewportParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Display: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2933,7 +2933,7 @@ unsafe impl ::windows::core::Interface for IHolographicCamera3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPrimaryLayerEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPrimaryLayerEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub MaxQuadLayerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2952,7 +2952,7 @@ unsafe impl ::windows::core::Interface for IHolographicCamera4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanOverrideViewport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2965,7 +2965,7 @@ unsafe impl ::windows::core::Interface for IHolographicCamera5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsHardwareContentProtectionSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsHardwareContentProtectionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsHardwareContentProtectionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2980,7 +2980,7 @@ unsafe impl ::windows::core::Interface for IHolographicCamera6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ViewConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2993,7 +2993,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraPose {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraPose_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HolographicCamera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Viewport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -3028,7 +3028,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraPose2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraPose2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub OverrideViewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
@@ -3052,7 +3052,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub SetFocusPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
@@ -3084,7 +3084,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ReprojectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicReprojectionMode) -> ::windows::core::HRESULT,
     pub SetReprojectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HolographicReprojectionMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -3102,7 +3102,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsContentProtectionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsContentProtectionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -3116,7 +3116,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DepthReprojectionMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT,
     pub SetDepthReprojectionMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT,
 }
@@ -3130,7 +3130,7 @@ unsafe impl ::windows::core::Interface for IHolographicCameraViewportParameters 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraViewportParameters_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub HiddenAreaMesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -3150,7 +3150,7 @@ unsafe impl ::windows::core::Interface for IHolographicDisplay {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicDisplay_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub MaxViewportSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -3174,7 +3174,7 @@ unsafe impl ::windows::core::Interface for IHolographicDisplay2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicDisplay2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RefreshRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3187,7 +3187,7 @@ unsafe impl ::windows::core::Interface for IHolographicDisplay3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicDisplay3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryGetViewConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: HolographicViewConfigurationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3200,7 +3200,7 @@ unsafe impl ::windows::core::Interface for IHolographicDisplayStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicDisplayStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3213,7 +3213,7 @@ unsafe impl ::windows::core::Interface for IHolographicFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AddedCameras: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -3243,7 +3243,7 @@ unsafe impl ::windows::core::Interface for IHolographicFrame2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrame2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetQuadLayerUpdateParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3256,7 +3256,7 @@ unsafe impl ::windows::core::Interface for IHolographicFrame3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrame3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3269,7 +3269,7 @@ unsafe impl ::windows::core::Interface for IHolographicFramePrediction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePrediction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CameraPoses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -3292,7 +3292,7 @@ unsafe impl ::windows::core::Interface for IHolographicFramePresentationMonitor 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationMonitor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub ReadReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -3311,7 +3311,7 @@ unsafe impl ::windows::core::Interface for IHolographicFramePresentationReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub CompositorGpuDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -3343,7 +3343,7 @@ unsafe impl ::windows::core::Interface for IHolographicFrameRenderingReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrameRenderingReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT,
     pub MissedLatchCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3369,7 +3369,7 @@ unsafe impl ::windows::core::Interface for IHolographicFrameScanoutMonitor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrameScanoutMonitor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ReadReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -3385,7 +3385,7 @@ unsafe impl ::windows::core::Interface for IHolographicFrameScanoutReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrameScanoutReport_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RenderingReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MissedScanoutCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3411,7 +3411,7 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub PixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
@@ -3431,7 +3431,7 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3451,7 +3451,7 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParameters
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub AcquireBufferToUpdateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -3484,7 +3484,7 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParameters
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanAcquireWithHardwareProtection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub AcquireBufferToUpdateContentWithHardwareProtection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3501,7 +3501,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpace {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpace_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PrimaryAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicAdapterId) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub SetDirect3D11Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3535,7 +3535,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpace2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpace2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UserPresence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicSpaceUserPresence) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub UserPresenceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -3565,7 +3565,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpace3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpace3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFrameScanoutMonitor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3578,7 +3578,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceCameraAddedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceCameraAddedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Camera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3595,7 +3595,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceCameraRemovedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceCameraRemovedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Camera: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3608,7 +3608,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Core")]
     pub CreateForCoreWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))]
@@ -3624,7 +3624,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3646,7 +3646,7 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsConfigured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3659,7 +3659,7 @@ unsafe impl ::windows::core::Interface for IHolographicViewConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicViewConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub NativeRenderTargetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3701,7 +3701,7 @@ unsafe impl ::windows::core::Interface for IHolographicViewConfiguration2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicViewConfiguration2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedDepthReprojectionMethods: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]

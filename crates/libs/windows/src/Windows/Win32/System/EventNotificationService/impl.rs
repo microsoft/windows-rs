@@ -47,7 +47,7 @@ impl ISensLogon_Vtbl {
             (*this).StopScreenSaver(::core::mem::transmute(&bstrusername)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Logon: Logon::<Identity, Impl, OFFSET>,
             Logoff: Logoff::<Identity, Impl, OFFSET>,
             StartShell: StartShell::<Identity, Impl, OFFSET>,
@@ -98,7 +98,7 @@ impl ISensLogon2_Vtbl {
             (*this).PostShell(::core::mem::transmute(&bstrusername), ::core::mem::transmute_copy(&dwsessionid)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Logon: Logon::<Identity, Impl, OFFSET>,
             Logoff: Logoff::<Identity, Impl, OFFSET>,
             SessionDisconnect: SessionDisconnect::<Identity, Impl, OFFSET>,
@@ -147,7 +147,7 @@ impl ISensNetwork_Vtbl {
             (*this).DestinationReachableNoQOCInfo(::core::mem::transmute(&bstrdestination), ::core::mem::transmute(&bstrconnection), ::core::mem::transmute_copy(&ultype)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ConnectionMade: ConnectionMade::<Identity, Impl, OFFSET>,
             ConnectionMadeNoQOCInfo: ConnectionMadeNoQOCInfo::<Identity, Impl, OFFSET>,
             ConnectionLost: ConnectionLost::<Identity, Impl, OFFSET>,
@@ -184,7 +184,7 @@ impl ISensOnNow_Vtbl {
             (*this).BatteryLow(::core::mem::transmute_copy(&dwbatterylifepercent)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnACPower: OnACPower::<Identity, Impl, OFFSET>,
             OnBatteryPower: OnBatteryPower::<Identity, Impl, OFFSET>,
             BatteryLow: BatteryLow::<Identity, Impl, OFFSET>,

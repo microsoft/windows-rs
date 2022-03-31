@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IWalletItemSystemStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::Interface for IWalletItemSystemStore2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ItemsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -58,7 +58,7 @@ unsafe impl ::windows::core::Interface for IWalletManagerSystemStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletManagerSystemStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

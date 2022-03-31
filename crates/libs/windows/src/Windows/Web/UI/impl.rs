@@ -554,7 +554,7 @@ impl IWebViewControl_Vtbl {
             (*this).RemoveWebResourceRequested(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControl, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControl, OFFSET>(),
             Source: Source::<Identity, Impl, OFFSET>,
             SetSource: SetSource::<Identity, Impl, OFFSET>,
             DocumentTitle: DocumentTitle::<Identity, Impl, OFFSET>,
@@ -632,7 +632,7 @@ impl IWebViewControl2_Vtbl {
             (*this).AddInitializeScript(::core::mem::transmute(&script)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControl2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebViewControl2, OFFSET>(),
             AddInitializeScript: AddInitializeScript::<Identity, Impl, OFFSET>,
         }
     }

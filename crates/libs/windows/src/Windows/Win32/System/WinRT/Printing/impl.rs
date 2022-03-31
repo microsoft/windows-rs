@@ -21,7 +21,7 @@ impl IPrintManagerInterop_Vtbl {
             (*this).ShowPrintUIForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
             ShowPrintUIForWindowAsync: ShowPrintUIForWindowAsync::<Identity, Impl, OFFSET>,
         }
@@ -73,7 +73,7 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PrinterQueue: PrinterQueue::<Identity, Impl, OFFSET>,
             DriverProperties: DriverProperties::<Identity, Impl, OFFSET>,
             UserProperties: UserProperties::<Identity, Impl, OFFSET>,
@@ -108,7 +108,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartXpsOMGeneration: StartXpsOMGeneration::<Identity, Impl, OFFSET>,
             ObjectFactory: ObjectFactory::<Identity, Impl, OFFSET>,
         }
@@ -135,7 +135,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DocumentPackageTarget: DocumentPackageTarget::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DocumentPackageTarget: DocumentPackageTarget::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowXpsObjectModelTargetPackageNative as ::windows::core::Interface>::IID
@@ -178,7 +178,7 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDocumentSequencePrintTicket: SetDocumentSequencePrintTicket::<Identity, Impl, OFFSET>,
             SetDocumentSequenceUri: SetDocumentSequenceUri::<Identity, Impl, OFFSET>,
             AddDocumentData: AddDocumentData::<Identity, Impl, OFFSET>,
@@ -202,7 +202,7 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Failed(::core::mem::transmute_copy(&xpserror)).into()
         }
-        Self { base: IPrintWorkflowXpsReceiver_Vtbl::new::<Identity, Impl, OFFSET>(), Failed: Failed::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintWorkflowXpsReceiver_Vtbl::new::<Identity, Impl, OFFSET>(), Failed: Failed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowXpsReceiver2 as ::windows::core::Interface>::IID || iid == &<IPrintWorkflowXpsReceiver as ::windows::core::Interface>::IID
@@ -231,7 +231,7 @@ impl IPrinting3DManagerInterop_Vtbl {
             (*this).ShowPrintUIForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
             ShowPrintUIForWindowAsync: ShowPrintUIForWindowAsync::<Identity, Impl, OFFSET>,
         }

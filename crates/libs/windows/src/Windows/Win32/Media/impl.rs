@@ -47,7 +47,7 @@ impl IReferenceClock_Vtbl {
             (*this).Unadvise(::core::mem::transmute_copy(&dwadvisecookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTime: GetTime::<Identity, Impl, OFFSET>,
             AdviseTime: AdviseTime::<Identity, Impl, OFFSET>,
             AdvisePeriodic: AdvisePeriodic::<Identity, Impl, OFFSET>,
@@ -63,7 +63,7 @@ pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IReferenceClock2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClock2_Impl, const OFFSET: isize>() -> IReferenceClock2_Vtbl {
-        Self { base: IReferenceClock_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IReferenceClock_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReferenceClock2 as ::windows::core::Interface>::IID || iid == &<IReferenceClock as ::windows::core::Interface>::IID
@@ -92,7 +92,7 @@ impl IReferenceClockTimerControl_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDefaultTimerResolution: SetDefaultTimerResolution::<Identity, Impl, OFFSET>,
             GetDefaultTimerResolution: GetDefaultTimerResolution::<Identity, Impl, OFFSET>,
         }

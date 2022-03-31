@@ -8,7 +8,7 @@ impl IWebApplicationActivation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CancelPendingActivation().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CancelPendingActivation: CancelPendingActivation::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CancelPendingActivation: CancelPendingActivation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebApplicationActivation as ::windows::core::Interface>::IID
@@ -33,7 +33,7 @@ impl IWebApplicationAuthoringMode_Vtbl {
             }
         }
         Self {
-            base: super::super::super::Com::IServiceProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::Com::IServiceProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
             AuthoringClientBinary: AuthoringClientBinary::<Identity, Impl, OFFSET>,
         }
     }
@@ -84,7 +84,7 @@ impl IWebApplicationHost_Vtbl {
             (*this).Unadvise(::core::mem::transmute_copy(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             HWND: HWND::<Identity, Impl, OFFSET>,
             Document: Document::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -139,7 +139,7 @@ impl IWebApplicationNavigationEvents_Vtbl {
             (*this).DownloadComplete().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeforeNavigate: BeforeNavigate::<Identity, Impl, OFFSET>,
             NavigateComplete: NavigateComplete::<Identity, Impl, OFFSET>,
             NavigateError: NavigateError::<Identity, Impl, OFFSET>,
@@ -171,7 +171,7 @@ impl IWebApplicationScriptEvents_Vtbl {
             (*this).ScriptError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&scripterror), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&errorhandled)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeforeScriptExecute: BeforeScriptExecute::<Identity, Impl, OFFSET>,
             ScriptError: ScriptError::<Identity, Impl, OFFSET>,
         }
@@ -190,7 +190,7 @@ impl IWebApplicationUIEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SecurityProblem(::core::mem::transmute_copy(&securityproblem), ::core::mem::transmute_copy(&result)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SecurityProblem: SecurityProblem::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SecurityProblem: SecurityProblem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebApplicationUIEvents as ::windows::core::Interface>::IID
@@ -213,7 +213,7 @@ impl IWebApplicationUpdateEvents_Vtbl {
             (*this).OnCssChanged().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnPaint: OnPaint::<Identity, Impl, OFFSET>,
             OnCssChanged: OnCssChanged::<Identity, Impl, OFFSET>,
         }

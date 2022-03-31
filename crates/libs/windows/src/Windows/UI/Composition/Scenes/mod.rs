@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for ISceneBoundingBox {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneBoundingBox_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -41,7 +41,7 @@ unsafe impl ::windows::core::Interface for ISceneComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneComponent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ComponentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SceneComponentType) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -54,7 +54,7 @@ unsafe impl ::windows::core::Interface for ISceneComponentCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneComponentCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -66,7 +66,7 @@ unsafe impl ::windows::core::Interface for ISceneComponentFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneComponentFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -78,7 +78,7 @@ unsafe impl ::windows::core::Interface for ISceneMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -90,7 +90,7 @@ unsafe impl ::windows::core::Interface for ISceneMaterialFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -102,7 +102,7 @@ unsafe impl ::windows::core::Interface for ISceneMaterialInput {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialInput_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -114,7 +114,7 @@ unsafe impl ::windows::core::Interface for ISceneMaterialInputFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialInputFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -126,7 +126,7 @@ unsafe impl ::windows::core::Interface for ISceneMesh {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMesh_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Bounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_DirectX")]
     pub PrimitiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::HRESULT,
@@ -151,7 +151,7 @@ unsafe impl ::windows::core::Interface for ISceneMeshMaterialAttributeMap {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshMaterialAttributeMap_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -163,7 +163,7 @@ unsafe impl ::windows::core::Interface for ISceneMeshRendererComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshRendererComponent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Material: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMaterial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Mesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -180,7 +180,7 @@ unsafe impl ::windows::core::Interface for ISceneMeshRendererComponentStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshRendererComponentStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -193,7 +193,7 @@ unsafe impl ::windows::core::Interface for ISceneMeshStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -206,7 +206,7 @@ unsafe impl ::windows::core::Interface for ISceneMetallicRoughnessMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BaseColorInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetBaseColorInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -234,7 +234,7 @@ unsafe impl ::windows::core::Interface for ISceneMetallicRoughnessMaterialStatic
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterialStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -247,7 +247,7 @@ unsafe impl ::windows::core::Interface for ISceneModelTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneModelTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -295,7 +295,7 @@ unsafe impl ::windows::core::Interface for ISceneNode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneNode_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -318,7 +318,7 @@ unsafe impl ::windows::core::Interface for ISceneNodeCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneNodeCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -330,7 +330,7 @@ unsafe impl ::windows::core::Interface for ISceneNodeStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneNodeStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::Interface for ISceneObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneObject_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::Interface for ISceneObjectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneObjectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -367,7 +367,7 @@ unsafe impl ::windows::core::Interface for IScenePbrMaterial {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScenePbrMaterial_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AlphaCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetAlphaCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub AlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SceneAlphaMode) -> ::windows::core::HRESULT,
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for IScenePbrMaterialFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScenePbrMaterialFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -415,7 +415,7 @@ unsafe impl ::windows::core::Interface for ISceneRendererComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneRendererComponent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -427,7 +427,7 @@ unsafe impl ::windows::core::Interface for ISceneRendererComponentFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneRendererComponentFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -439,7 +439,7 @@ unsafe impl ::windows::core::Interface for ISceneSurfaceMaterialInput {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneSurfaceMaterialInput_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BitmapInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT,
     pub SetBitmapInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT,
     pub Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -459,7 +459,7 @@ unsafe impl ::windows::core::Interface for ISceneSurfaceMaterialInputStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneSurfaceMaterialInputStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -472,7 +472,7 @@ unsafe impl ::windows::core::Interface for ISceneVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -486,7 +486,7 @@ unsafe impl ::windows::core::Interface for ISceneVisualStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneVisualStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]

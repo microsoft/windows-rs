@@ -244,7 +244,7 @@ unsafe impl ::windows::core::Interface for IBackPressedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackPressedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -258,7 +258,7 @@ unsafe impl ::windows::core::Interface for ICameraEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -270,7 +270,7 @@ unsafe impl ::windows::core::Interface for IHardwareButtonsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHardwareButtonsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -290,7 +290,7 @@ unsafe impl ::windows::core::Interface for IHardwareButtonsStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHardwareButtonsStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CameraHalfPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

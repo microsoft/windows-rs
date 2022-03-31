@@ -22,7 +22,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterable_Vtbl<T> {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IIterable<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IIterable<T>, OFFSET>(),
             First: First::<T, Identity, Impl, OFFSET>,
             T: ::core::marker::PhantomData::<T>,
         }
@@ -94,7 +94,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator_Vtbl<T> {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IIterator<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IIterator<T>, OFFSET>(),
             Current: Current::<T, Identity, Impl, OFFSET>,
             HasCurrent: HasCurrent::<T, Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<T, Identity, Impl, OFFSET>,
@@ -144,7 +144,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyValuePair<K, V>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IKeyValuePair<K, V>, OFFSET>(),
             Key: Key::<K, V, Identity, Impl, OFFSET>,
             Value: Value::<K, V, Identity, Impl, OFFSET>,
             K: ::core::marker::PhantomData::<K>,
@@ -244,7 +244,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (*this).Clear().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMap<K, V>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMap<K, V>, OFFSET>(),
             Lookup: Lookup::<K, V, Identity, Impl, OFFSET>,
             Size: Size::<K, V, Identity, Impl, OFFSET>,
             HasKey: HasKey::<K, V, Identity, Impl, OFFSET>,
@@ -297,7 +297,7 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapChangedEventArgs<K>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMapChangedEventArgs<K>, OFFSET>(),
             CollectionChange: CollectionChange::<K, Identity, Impl, OFFSET>,
             Key: Key::<K, Identity, Impl, OFFSET>,
             K: ::core::marker::PhantomData::<K>,
@@ -364,7 +364,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (*this).Split(::core::mem::transmute_copy(&first), ::core::mem::transmute_copy(&second)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapView<K, V>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMapView<K, V>, OFFSET>(),
             Lookup: Lookup::<K, V, Identity, Impl, OFFSET>,
             Size: Size::<K, V, Identity, Impl, OFFSET>,
             HasKey: HasKey::<K, V, Identity, Impl, OFFSET>,
@@ -408,7 +408,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (*this).RemoveMapChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IObservableMap<K, V>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IObservableMap<K, V>, OFFSET>(),
             MapChanged: MapChanged::<K, V, Identity, Impl, OFFSET>,
             RemoveMapChanged: RemoveMapChanged::<K, V, Identity, Impl, OFFSET>,
             K: ::core::marker::PhantomData::<K>,
@@ -449,7 +449,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             (*this).RemoveVectorChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IObservableVector<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IObservableVector<T>, OFFSET>(),
             VectorChanged: VectorChanged::<T, Identity, Impl, OFFSET>,
             RemoveVectorChanged: RemoveVectorChanged::<T, Identity, Impl, OFFSET>,
             T: ::core::marker::PhantomData::<T>,
@@ -465,7 +465,7 @@ impl ::windows::core::RuntimeName for IPropertySet {
 }
 impl IPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySet_Impl, const OFFSET: isize>() -> IPropertySet_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySet, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySet, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertySet as ::windows::core::Interface>::IID
@@ -589,7 +589,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
             (*this).ReplaceAll(::core::slice::from_raw_parts(::core::mem::transmute_copy(&items), items_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVector<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVector<T>, OFFSET>(),
             GetAt: GetAt::<T, Identity, Impl, OFFSET>,
             Size: Size::<T, Identity, Impl, OFFSET>,
             GetView: GetView::<T, Identity, Impl, OFFSET>,
@@ -643,7 +643,7 @@ impl IVectorChangedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVectorChangedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVectorChangedEventArgs, OFFSET>(),
             CollectionChange: CollectionChange::<Identity, Impl, OFFSET>,
             Index: Index::<Identity, Impl, OFFSET>,
         }
@@ -715,7 +715,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVectorView<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVectorView<T>, OFFSET>(),
             GetAt: GetAt::<T, Identity, Impl, OFFSET>,
             Size: Size::<T, Identity, Impl, OFFSET>,
             IndexOf: IndexOf::<T, Identity, Impl, OFFSET>,

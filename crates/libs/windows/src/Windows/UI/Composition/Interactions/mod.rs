@@ -609,7 +609,7 @@ unsafe impl ::windows::core::Interface for ICompositionConditionalValue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionConditionalValue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -625,7 +625,7 @@ unsafe impl ::windows::core::Interface for ICompositionConditionalValueStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionConditionalValueStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -702,7 +702,7 @@ unsafe impl ::windows::core::Interface for ICompositionInteractionSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionInteractionSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::Interface for ICompositionInteractionSourceCollecti
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionInteractionSourceCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -730,7 +730,7 @@ unsafe impl ::windows::core::Interface for IInteractionSourceConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionSourceConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PositionXSourceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT,
     pub SetPositionXSourceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT,
     pub PositionYSourceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT,
@@ -748,7 +748,7 @@ unsafe impl ::windows::core::Interface for IInteractionTracker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTracker_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InteractionSources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPositionRoundingSuggested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -853,7 +853,7 @@ unsafe impl ::windows::core::Interface for IInteractionTracker2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTracker2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ConfigureCenterPointXInertiaModifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -873,7 +873,7 @@ unsafe impl ::windows::core::Interface for IInteractionTracker3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTracker3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ConfigureVector2PositionInertiaModifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -889,7 +889,7 @@ unsafe impl ::windows::core::Interface for IInteractionTracker4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTracker4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryUpdatePositionWithOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -910,7 +910,7 @@ unsafe impl ::windows::core::Interface for IInteractionTracker5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTracker5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryUpdatePositionWithOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -926,7 +926,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerCustomAnimationSta
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -939,7 +939,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerCustomAnimationSta
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsFromBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -952,7 +952,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerIdleStateEnteredAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerIdleStateEnteredArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -965,7 +965,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerIdleStateEnteredAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerIdleStateEnteredArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsFromBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -978,7 +978,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaModifier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaModifier_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -990,7 +990,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaModifierFac
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaModifierFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1002,7 +1002,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaMotion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaMotion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Motion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1018,7 +1018,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaMotionStati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaMotionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1031,7 +1031,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaNaturalMoti
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaNaturalMotion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NaturalMotion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1047,7 +1047,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaNaturalMoti
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1060,7 +1060,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaRestingValu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaRestingValue_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RestingValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaRestingValu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaRestingValueStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEntere
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub ModifiedRestingPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEntere
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsInertiaFromImpulse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1133,7 +1133,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEntere
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsFromBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1146,7 +1146,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInteractingStateEn
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1159,7 +1159,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInteractingStateEn
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsFromBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -1267,7 +1267,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerOwner {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerOwner_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CustomAnimationStateEntered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IdleStateEntered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub InertiaStateEntered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1285,7 +1285,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerRequestIgnoredArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerRequestIgnoredArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1298,7 +1298,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1312,7 +1312,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetBindingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, axismode: InteractionBindingAxisModes) -> ::windows::core::HRESULT,
     pub GetBindingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, result__: *mut InteractionBindingAxisModes) -> ::windows::core::HRESULT,
 }
@@ -1326,7 +1326,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerValuesChangedArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerValuesChangedArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -1344,7 +1344,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaModi
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaModifier_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1356,7 +1356,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaModi
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1368,7 +1368,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaNatu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NaturalMotion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1384,7 +1384,7 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaNatu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPositionXRailsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPositionXRailsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsPositionYRailsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1432,7 +1432,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub DeltaPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -1479,7 +1479,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSource3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSource3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointerWheelConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1492,7 +1492,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSourceObjectFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceObjectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1504,7 +1504,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1517,7 +1517,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSourceStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromIVisualElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]

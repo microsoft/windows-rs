@@ -41,7 +41,7 @@ impl IDXGIAdapter_Vtbl {
             }
         }
         Self {
-            base: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumOutputs: EnumOutputs::<Identity, Impl, OFFSET>,
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             CheckInterfaceSupport: CheckInterfaceSupport::<Identity, Impl, OFFSET>,
@@ -69,7 +69,7 @@ impl IDXGIAdapter1_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDXGIAdapter_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIAdapter_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID
@@ -93,7 +93,7 @@ impl IDXGIAdapter2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDXGIAdapter1_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc2: GetDesc2::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIAdapter1_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc2: GetDesc2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID
@@ -160,7 +160,7 @@ impl IDXGIAdapter3_Vtbl {
             (*this).UnregisterVideoMemoryBudgetChangeNotification(::core::mem::transmute_copy(&dwcookie))
         }
         Self {
-            base: IDXGIAdapter2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIAdapter2_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegisterHardwareContentProtectionTeardownStatusEvent: RegisterHardwareContentProtectionTeardownStatusEvent::<Identity, Impl, OFFSET>,
             UnregisterHardwareContentProtectionTeardownStatus: UnregisterHardwareContentProtectionTeardownStatus::<Identity, Impl, OFFSET>,
             QueryVideoMemoryInfo: QueryVideoMemoryInfo::<Identity, Impl, OFFSET>,
@@ -191,7 +191,7 @@ impl IDXGIAdapter4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDXGIAdapter3_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc3: GetDesc3::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIAdapter3_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc3: GetDesc3::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIAdapter4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter3 as ::windows::core::Interface>::IID
@@ -207,7 +207,7 @@ impl IDXGIDebug_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReportLiveObjects(::core::mem::transmute(&apiid), ::core::mem::transmute_copy(&flags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIDebug as ::windows::core::Interface>::IID
@@ -238,7 +238,7 @@ impl IDXGIDebug1_Vtbl {
             (*this).IsLeakTrackingEnabledForThread()
         }
         Self {
-            base: IDXGIDebug_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDebug_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnableLeakTrackingForThread: EnableLeakTrackingForThread::<Identity, Impl, OFFSET>,
             DisableLeakTrackingForThread: DisableLeakTrackingForThread::<Identity, Impl, OFFSET>,
             IsLeakTrackingEnabledForThread: IsLeakTrackingEnabledForThread::<Identity, Impl, OFFSET>,
@@ -321,7 +321,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
             (*this).GetColorSpace()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PresentBuffer: PresentBuffer::<Identity, Impl, OFFSET>,
             SetSourceRect: SetSourceRect::<Identity, Impl, OFFSET>,
             SetTargetRect: SetTargetRect::<Identity, Impl, OFFSET>,
@@ -386,7 +386,7 @@ impl IDXGIDevice_Vtbl {
             }
         }
         Self {
-            base: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAdapter: GetAdapter::<Identity, Impl, OFFSET>,
             CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
             QueryResourceResidency: QueryResourceResidency::<Identity, Impl, OFFSET>,
@@ -423,7 +423,7 @@ impl IDXGIDevice1_Vtbl {
             }
         }
         Self {
-            base: IDXGIDevice_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDevice_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetMaximumFrameLatency: SetMaximumFrameLatency::<Identity, Impl, OFFSET>,
             GetMaximumFrameLatency: GetMaximumFrameLatency::<Identity, Impl, OFFSET>,
         }
@@ -463,7 +463,7 @@ impl IDXGIDevice2_Vtbl {
             (*this).EnqueueSetEvent(::core::mem::transmute_copy(&hevent)).into()
         }
         Self {
-            base: IDXGIDevice1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDevice1_Vtbl::new::<Identity, Impl, OFFSET>(),
             OfferResources: OfferResources::<Identity, Impl, OFFSET>,
             ReclaimResources: ReclaimResources::<Identity, Impl, OFFSET>,
             EnqueueSetEvent: EnqueueSetEvent::<Identity, Impl, OFFSET>,
@@ -485,7 +485,7 @@ impl IDXGIDevice3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Trim()
         }
-        Self { base: IDXGIDevice2_Vtbl::new::<Identity, Impl, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIDevice2_Vtbl::new::<Identity, Impl, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIDevice3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID
@@ -516,7 +516,7 @@ impl IDXGIDevice4_Vtbl {
             }
         }
         Self {
-            base: IDXGIDevice3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDevice3_Vtbl::new::<Identity, Impl, OFFSET>(),
             OfferResources1: OfferResources1::<Identity, Impl, OFFSET>,
             ReclaimResources1: ReclaimResources1::<Identity, Impl, OFFSET>,
         }
@@ -535,7 +535,7 @@ impl IDXGIDeviceSubObject_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDevice(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppdevice)).into()
         }
-        Self { base: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
@@ -560,7 +560,7 @@ impl IDXGIDisplayControl_Vtbl {
             (*this).SetStereoEnabled(::core::mem::transmute_copy(&enabled))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsStereoEnabled: IsStereoEnabled::<Identity, Impl, OFFSET>,
             SetStereoEnabled: SetStereoEnabled::<Identity, Impl, OFFSET>,
         }
@@ -630,7 +630,7 @@ impl IDXGIFactory_Vtbl {
             }
         }
         Self {
-            base: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumAdapters: EnumAdapters::<Identity, Impl, OFFSET>,
             MakeWindowAssociation: MakeWindowAssociation::<Identity, Impl, OFFSET>,
             GetWindowAssociation: GetWindowAssociation::<Identity, Impl, OFFSET>,
@@ -667,7 +667,7 @@ impl IDXGIFactory1_Vtbl {
             (*this).IsCurrent()
         }
         Self {
-            base: IDXGIFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumAdapters1: EnumAdapters1::<Identity, Impl, OFFSET>,
             IsCurrent: IsCurrent::<Identity, Impl, OFFSET>,
         }
@@ -797,7 +797,7 @@ impl IDXGIFactory2_Vtbl {
             }
         }
         Self {
-            base: IDXGIFactory1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIFactory1_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsWindowedStereoEnabled: IsWindowedStereoEnabled::<Identity, Impl, OFFSET>,
             CreateSwapChainForHwnd: CreateSwapChainForHwnd::<Identity, Impl, OFFSET>,
             CreateSwapChainForCoreWindow: CreateSwapChainForCoreWindow::<Identity, Impl, OFFSET>,
@@ -827,7 +827,7 @@ impl IDXGIFactory3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCreationFlags()
         }
-        Self { base: IDXGIFactory2_Vtbl::new::<Identity, Impl, OFFSET>(), GetCreationFlags: GetCreationFlags::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIFactory2_Vtbl::new::<Identity, Impl, OFFSET>(), GetCreationFlags: GetCreationFlags::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID
@@ -852,7 +852,7 @@ impl IDXGIFactory4_Vtbl {
             (*this).EnumWarpAdapter(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapter)).into()
         }
         Self {
-            base: IDXGIFactory3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIFactory3_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumAdapterByLuid: EnumAdapterByLuid::<Identity, Impl, OFFSET>,
             EnumWarpAdapter: EnumWarpAdapter::<Identity, Impl, OFFSET>,
         }
@@ -873,7 +873,7 @@ impl IDXGIFactory5_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CheckFeatureSupport(::core::mem::transmute_copy(&feature), ::core::mem::transmute_copy(&pfeaturesupportdata), ::core::mem::transmute_copy(&featuresupportdatasize)).into()
         }
-        Self { base: IDXGIFactory4_Vtbl::new::<Identity, Impl, OFFSET>(), CheckFeatureSupport: CheckFeatureSupport::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIFactory4_Vtbl::new::<Identity, Impl, OFFSET>(), CheckFeatureSupport: CheckFeatureSupport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID
@@ -891,7 +891,7 @@ impl IDXGIFactory6_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).EnumAdapterByGpuPreference(::core::mem::transmute_copy(&adapter), ::core::mem::transmute_copy(&gpupreference), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapter)).into()
         }
-        Self { base: IDXGIFactory5_Vtbl::new::<Identity, Impl, OFFSET>(), EnumAdapterByGpuPreference: EnumAdapterByGpuPreference::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIFactory5_Vtbl::new::<Identity, Impl, OFFSET>(), EnumAdapterByGpuPreference: EnumAdapterByGpuPreference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIFactory6 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID
@@ -922,7 +922,7 @@ impl IDXGIFactory7_Vtbl {
             (*this).UnregisterAdaptersChangedEvent(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: IDXGIFactory6_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIFactory6_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegisterAdaptersChangedEvent: RegisterAdaptersChangedEvent::<Identity, Impl, OFFSET>,
             UnregisterAdaptersChangedEvent: UnregisterAdaptersChangedEvent::<Identity, Impl, OFFSET>,
         }
@@ -962,7 +962,7 @@ impl IDXGIFactoryMedia_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateSwapChainForCompositionSurfaceHandle: CreateSwapChainForCompositionSurfaceHandle::<Identity, Impl, OFFSET>,
             CreateDecodeSwapChainForCompositionSurfaceHandle: CreateDecodeSwapChainForCompositionSurfaceHandle::<Identity, Impl, OFFSET>,
         }
@@ -1200,7 +1200,7 @@ impl IDXGIInfoQueue_Vtbl {
             (*this).GetMuteDebugOutput(::core::mem::transmute(&producer))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, Impl, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, Impl, OFFSET>,
             GetMessage: GetMessage::<Identity, Impl, OFFSET>,
@@ -1261,7 +1261,7 @@ impl IDXGIKeyedMutex_Vtbl {
             (*this).ReleaseSync(::core::mem::transmute_copy(&key)).into()
         }
         Self {
-            base: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             AcquireSync: AcquireSync::<Identity, Impl, OFFSET>,
             ReleaseSync: ReleaseSync::<Identity, Impl, OFFSET>,
         }
@@ -1299,7 +1299,7 @@ impl IDXGIObject_Vtbl {
             (*this).GetParent(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppparent)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateDataInterface: SetPrivateDataInterface::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
@@ -1413,7 +1413,7 @@ impl IDXGIOutput_Vtbl {
             }
         }
         Self {
-            base: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetDisplayModeList: GetDisplayModeList::<Identity, Impl, OFFSET>,
             FindClosestMatchingMode: FindClosestMatchingMode::<Identity, Impl, OFFSET>,
@@ -1469,7 +1469,7 @@ impl IDXGIOutput1_Vtbl {
             }
         }
         Self {
-            base: IDXGIOutput_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIOutput_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDisplayModeList1: GetDisplayModeList1::<Identity, Impl, OFFSET>,
             FindClosestMatchingMode1: FindClosestMatchingMode1::<Identity, Impl, OFFSET>,
             GetDisplaySurfaceData1: GetDisplaySurfaceData1::<Identity, Impl, OFFSET>,
@@ -1492,7 +1492,7 @@ impl IDXGIOutput2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SupportsOverlays()
         }
-        Self { base: IDXGIOutput1_Vtbl::new::<Identity, Impl, OFFSET>(), SupportsOverlays: SupportsOverlays::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIOutput1_Vtbl::new::<Identity, Impl, OFFSET>(), SupportsOverlays: SupportsOverlays::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID
@@ -1516,7 +1516,7 @@ impl IDXGIOutput3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDXGIOutput2_Vtbl::new::<Identity, Impl, OFFSET>(), CheckOverlaySupport: CheckOverlaySupport::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIOutput2_Vtbl::new::<Identity, Impl, OFFSET>(), CheckOverlaySupport: CheckOverlaySupport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID
@@ -1540,7 +1540,10 @@ impl IDXGIOutput4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDXGIOutput3_Vtbl::new::<Identity, Impl, OFFSET>(), CheckOverlayColorSpaceSupport: CheckOverlayColorSpaceSupport::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IDXGIOutput3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            CheckOverlayColorSpaceSupport: CheckOverlayColorSpaceSupport::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID
@@ -1564,7 +1567,7 @@ impl IDXGIOutput5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDXGIOutput4_Vtbl::new::<Identity, Impl, OFFSET>(), DuplicateOutput1: DuplicateOutput1::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGIOutput4_Vtbl::new::<Identity, Impl, OFFSET>(), DuplicateOutput1: DuplicateOutput1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIOutput5 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID
@@ -1601,7 +1604,7 @@ impl IDXGIOutput6_Vtbl {
             }
         }
         Self {
-            base: IDXGIOutput5_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIOutput5_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDesc1: GetDesc1::<Identity, Impl, OFFSET>,
             CheckHardwareCompositionSupport: CheckHardwareCompositionSupport::<Identity, Impl, OFFSET>,
         }
@@ -1671,7 +1674,7 @@ impl IDXGIOutputDuplication_Vtbl {
             (*this).ReleaseFrame().into()
         }
         Self {
-            base: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             AcquireNextFrame: AcquireNextFrame::<Identity, Impl, OFFSET>,
             GetFrameDirtyRects: GetFrameDirtyRects::<Identity, Impl, OFFSET>,
@@ -1735,7 +1738,7 @@ impl IDXGIResource_Vtbl {
             }
         }
         Self {
-            base: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSharedHandle: GetSharedHandle::<Identity, Impl, OFFSET>,
             GetUsage: GetUsage::<Identity, Impl, OFFSET>,
             SetEvictionPriority: SetEvictionPriority::<Identity, Impl, OFFSET>,
@@ -1777,7 +1780,7 @@ impl IDXGIResource1_Vtbl {
             }
         }
         Self {
-            base: IDXGIResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSubresourceSurface: CreateSubresourceSurface::<Identity, Impl, OFFSET>,
             CreateSharedHandle: CreateSharedHandle::<Identity, Impl, OFFSET>,
         }
@@ -1817,7 +1820,7 @@ impl IDXGISurface_Vtbl {
             (*this).Unmap().into()
         }
         Self {
-            base: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             Map: Map::<Identity, Impl, OFFSET>,
             Unmap: Unmap::<Identity, Impl, OFFSET>,
@@ -1851,7 +1854,11 @@ impl IDXGISurface1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReleaseDC(::core::mem::transmute_copy(&pdirtyrect)).into()
         }
-        Self { base: IDXGISurface_Vtbl::new::<Identity, Impl, OFFSET>(), GetDC: GetDC::<Identity, Impl, OFFSET>, ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IDXGISurface_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetDC: GetDC::<Identity, Impl, OFFSET>,
+            ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGISurface1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISurface as ::windows::core::Interface>::IID
@@ -1869,7 +1876,7 @@ impl IDXGISurface2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetResource(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppparentresource), ::core::mem::transmute_copy(&psubresourceindex)).into()
         }
-        Self { base: IDXGISurface1_Vtbl::new::<Identity, Impl, OFFSET>(), GetResource: GetResource::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGISurface1_Vtbl::new::<Identity, Impl, OFFSET>(), GetResource: GetResource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGISurface2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISurface as ::windows::core::Interface>::IID || iid == &<IDXGISurface1 as ::windows::core::Interface>::IID
@@ -1966,7 +1973,7 @@ impl IDXGISwapChain_Vtbl {
             }
         }
         Self {
-            base: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGIDeviceSubObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Present: Present::<Identity, Impl, OFFSET>,
             GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
             SetFullscreenState: SetFullscreenState::<Identity, Impl, OFFSET>,
@@ -2092,7 +2099,7 @@ impl IDXGISwapChain1_Vtbl {
             }
         }
         Self {
-            base: IDXGISwapChain_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGISwapChain_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDesc1: GetDesc1::<Identity, Impl, OFFSET>,
             GetFullscreenDesc: GetFullscreenDesc::<Identity, Impl, OFFSET>,
             GetHwnd: GetHwnd::<Identity, Impl, OFFSET>,
@@ -2171,7 +2178,7 @@ impl IDXGISwapChain2_Vtbl {
             }
         }
         Self {
-            base: IDXGISwapChain1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGISwapChain1_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSourceSize: SetSourceSize::<Identity, Impl, OFFSET>,
             GetSourceSize: GetSourceSize::<Identity, Impl, OFFSET>,
             SetMaximumFrameLatency: SetMaximumFrameLatency::<Identity, Impl, OFFSET>,
@@ -2222,7 +2229,7 @@ impl IDXGISwapChain3_Vtbl {
             (*this).ResizeBuffers1(::core::mem::transmute_copy(&buffercount), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&swapchainflags), ::core::mem::transmute_copy(&pcreationnodemask), ::core::mem::transmute_copy(&pppresentqueue)).into()
         }
         Self {
-            base: IDXGISwapChain2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDXGISwapChain2_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCurrentBackBufferIndex: GetCurrentBackBufferIndex::<Identity, Impl, OFFSET>,
             CheckColorSpaceSupport: CheckColorSpaceSupport::<Identity, Impl, OFFSET>,
             SetColorSpace1: SetColorSpace1::<Identity, Impl, OFFSET>,
@@ -2245,7 +2252,7 @@ impl IDXGISwapChain4_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHDRMetaData(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pmetadata)).into()
         }
-        Self { base: IDXGISwapChain3_Vtbl::new::<Identity, Impl, OFFSET>(), SetHDRMetaData: SetHDRMetaData::<Identity, Impl, OFFSET> }
+        Self { base__: IDXGISwapChain3_Vtbl::new::<Identity, Impl, OFFSET>(), SetHDRMetaData: SetHDRMetaData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGISwapChain4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain3 as ::windows::core::Interface>::IID
@@ -2280,7 +2287,7 @@ impl IDXGISwapChainMedia_Vtbl {
             (*this).CheckPresentDurationSupport(::core::mem::transmute_copy(&desiredpresentduration), ::core::mem::transmute_copy(&pclosestsmallerpresentduration), ::core::mem::transmute_copy(&pclosestlargerpresentduration)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFrameStatisticsMedia: GetFrameStatisticsMedia::<Identity, Impl, OFFSET>,
             SetPresentDuration: SetPresentDuration::<Identity, Impl, OFFSET>,
             CheckPresentDurationSupport: CheckPresentDurationSupport::<Identity, Impl, OFFSET>,
@@ -2307,7 +2314,7 @@ impl IDXGraphicsAnalysis_Vtbl {
             (*this).EndCapture()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeginCapture: BeginCapture::<Identity, Impl, OFFSET>,
             EndCapture: EndCapture::<Identity, Impl, OFFSET>,
         }

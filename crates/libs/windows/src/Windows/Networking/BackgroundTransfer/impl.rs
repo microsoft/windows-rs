@@ -110,7 +110,7 @@ impl IBackgroundTransferBase_Vtbl {
             (*this).SetCostPolicy(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferBase, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferBase, OFFSET>(),
             SetRequestHeader: SetRequestHeader::<Identity, Impl, OFFSET>,
             ServerCredential: ServerCredential::<Identity, Impl, OFFSET>,
             SetServerCredential: SetServerCredential::<Identity, Impl, OFFSET>,
@@ -162,7 +162,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferContentPartFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferContentPartFactory, OFFSET>(),
             CreateWithName: CreateWithName::<Identity, Impl, OFFSET>,
             CreateWithNameAndFileName: CreateWithNameAndFileName::<Identity, Impl, OFFSET>,
         }
@@ -279,7 +279,7 @@ impl IBackgroundTransferOperation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferOperation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferOperation, OFFSET>(),
             Guid: Guid::<Identity, Impl, OFFSET>,
             RequestedUri: RequestedUri::<Identity, Impl, OFFSET>,
             Method: Method::<Identity, Impl, OFFSET>,
@@ -321,7 +321,7 @@ impl IBackgroundTransferOperationPriority_Vtbl {
             (*this).SetPriority(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferOperationPriority, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundTransferOperationPriority, OFFSET>(),
             Priority: Priority::<Identity, Impl, OFFSET>,
             SetPriority: SetPriority::<Identity, Impl, OFFSET>,
         }

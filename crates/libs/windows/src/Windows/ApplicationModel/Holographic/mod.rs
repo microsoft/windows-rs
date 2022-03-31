@@ -115,7 +115,7 @@ unsafe impl ::windows::core::Interface for IHolographicKeyboard {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicKeyboard_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub SetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
@@ -136,7 +136,7 @@ unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicKeyboardStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

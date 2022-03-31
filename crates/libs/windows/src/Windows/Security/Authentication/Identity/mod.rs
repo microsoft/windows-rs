@@ -228,7 +228,7 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationI
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TenantId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TenantName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -245,7 +245,7 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationM
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetRegistrationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationM
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

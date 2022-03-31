@@ -191,7 +191,7 @@ impl ICertSrvSetup_Vtbl {
             (*this).PostUnInstall().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CAErrorId: CAErrorId::<Identity, Impl, OFFSET>,
             CAErrorString: CAErrorString::<Identity, Impl, OFFSET>,
             InitializeDefaults: InitializeDefaults::<Identity, Impl, OFFSET>,
@@ -333,7 +333,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             (*this).SetExistingCACertificate(::core::mem::transmute(&varval)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ProviderName: ProviderName::<Identity, Impl, OFFSET>,
             SetProviderName: SetProviderName::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
@@ -401,7 +401,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             (*this).Add(::core::mem::transmute(&pikeyinformation)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -467,7 +467,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             (*this).UnInstall(::core::mem::transmute_copy(&pauthkeybasedrenewal)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ErrorString: ErrorString::<Identity, Impl, OFFSET>,
             InitializeInstallDefaults: InitializeInstallDefaults::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -541,7 +541,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             (*this).UnInstall(::core::mem::transmute_copy(&pcaconfig), ::core::mem::transmute_copy(&pauthentication)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ErrorString: ErrorString::<Identity, Impl, OFFSET>,
             InitializeInstallDefaults: InitializeInstallDefaults::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -670,7 +670,7 @@ impl IMSCEPSetup_Vtbl {
             (*this).PostUnInstall().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             MSCEPErrorId: MSCEPErrorId::<Identity, Impl, OFFSET>,
             MSCEPErrorString: MSCEPErrorString::<Identity, Impl, OFFSET>,
             InitializeDefaults: InitializeDefaults::<Identity, Impl, OFFSET>,

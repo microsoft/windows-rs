@@ -74,7 +74,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesAggregateProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesAggregateProvider, OFFSET>(),
             AdcControllerProvider: AdcControllerProvider::<Identity, Impl, OFFSET>,
             PwmControllerProvider: PwmControllerProvider::<Identity, Impl, OFFSET>,
             GpioControllerProvider: GpioControllerProvider::<Identity, Impl, OFFSET>,

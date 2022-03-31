@@ -3526,7 +3526,10 @@ struct DragCompletedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DragCompletedEventHandlerBox<F> {
-    const VTABLE: DragCompletedEventHandler_Vtbl = DragCompletedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DragCompletedEventHandler_Vtbl = DragCompletedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DragCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -3584,7 +3587,7 @@ unsafe impl ::windows::core::RuntimeType for DragCompletedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragCompletedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3741,7 +3744,10 @@ struct DragDeltaEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DragDeltaEventHandlerBox<F> {
-    const VTABLE: DragDeltaEventHandler_Vtbl = DragDeltaEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DragDeltaEventHandler_Vtbl = DragDeltaEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DragDeltaEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -3799,7 +3805,7 @@ unsafe impl ::windows::core::RuntimeType for DragDeltaEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragDeltaEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3956,7 +3962,10 @@ struct DragStartedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::co
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DragStartedEventHandlerBox<F> {
-    const VTABLE: DragStartedEventHandler_Vtbl = DragStartedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DragStartedEventHandler_Vtbl = DragStartedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DragStartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -4014,7 +4023,7 @@ unsafe impl ::windows::core::RuntimeType for DragStartedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragStartedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -5866,7 +5875,7 @@ unsafe impl ::windows::core::Interface for IAppBarButtonTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarButtonTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeyboardAcceleratorTextMinWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5879,7 +5888,7 @@ unsafe impl ::windows::core::Interface for IAppBarTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ClipRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -5901,7 +5910,7 @@ unsafe impl ::windows::core::Interface for IAppBarTemplateSettings2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarTemplateSettings2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub NegativeCompactVerticalDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub NegativeMinimalVerticalDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub NegativeHiddenVerticalDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5916,7 +5925,7 @@ unsafe impl ::windows::core::Interface for IAppBarToggleButtonTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarToggleButtonTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeyboardAcceleratorTextMinWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5929,7 +5938,7 @@ unsafe impl ::windows::core::Interface for IButtonBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ClickMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ClickMode) -> ::windows::core::HRESULT,
     pub SetClickMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::ClickMode) -> ::windows::core::HRESULT,
     pub IsPointerOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -5963,7 +5972,7 @@ unsafe impl ::windows::core::Interface for IButtonBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -5976,7 +5985,7 @@ unsafe impl ::windows::core::Interface for IButtonBaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ClickModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPointerOverProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPressedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5993,7 +6002,7 @@ unsafe impl ::windows::core::Interface for ICalendarPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarPanel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6005,7 +6014,7 @@ unsafe impl ::windows::core::Interface for ICalendarViewTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarViewTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MinViewWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub HeaderText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WeekDay1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -6035,7 +6044,7 @@ unsafe impl ::windows::core::Interface for ICarouselPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICarouselPanel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanVerticallyScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCanVerticallyScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub CanHorizontallyScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6077,7 +6086,7 @@ unsafe impl ::windows::core::Interface for ICarouselPanelFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICarouselPanelFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6090,7 +6099,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSlider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSlider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColorChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ColorPickerHsvChannel) -> ::windows::core::HRESULT,
     pub SetColorChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::ColorPickerHsvChannel) -> ::windows::core::HRESULT,
 }
@@ -6104,7 +6113,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6117,7 +6126,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColorChannelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6130,7 +6139,7 @@ unsafe impl ::windows::core::Interface for IColorSpectrum {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrum_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Color) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -6176,7 +6185,7 @@ unsafe impl ::windows::core::Interface for IColorSpectrumFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrumFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6189,7 +6198,7 @@ unsafe impl ::windows::core::Interface for IColorSpectrumStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrumStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HsvColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MinHueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6211,7 +6220,7 @@ unsafe impl ::windows::core::Interface for IComboBoxTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DropDownOpenedHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub DropDownClosedHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub DropDownOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6227,7 +6236,7 @@ unsafe impl ::windows::core::Interface for IComboBoxTemplateSettings2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxTemplateSettings2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DropDownContentMinWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6240,7 +6249,7 @@ unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarFlyoutCommandBar_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FlyoutTemplateSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6253,7 +6262,7 @@ unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBarFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarFlyoutCommandBarFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6266,7 +6275,7 @@ unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBarTemplateSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarFlyoutCommandBarTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpenAnimationStartPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub OpenAnimationEndPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub CloseAnimationEndPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6304,7 +6313,7 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ContentHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub OverflowContentClipRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -6326,7 +6335,7 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettings2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OverflowContentMaxWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6339,7 +6348,7 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettings3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EffectiveOverflowButtonVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Visibility) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6352,7 +6361,7 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettings4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OverflowContentCompactYTranslation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub OverflowContentMinimalYTranslation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub OverflowContentHiddenYTranslation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6367,7 +6376,7 @@ unsafe impl ::windows::core::Interface for IDragCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub VerticalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub Canceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6382,7 +6391,7 @@ unsafe impl ::windows::core::Interface for IDragCompletedEventArgsFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragCompletedEventArgsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalchange: f64, verticalchange: f64, canceled: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6395,7 +6404,7 @@ unsafe impl ::windows::core::Interface for IDragDeltaEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragDeltaEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub VerticalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -6409,7 +6418,7 @@ unsafe impl ::windows::core::Interface for IDragDeltaEventArgsFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragDeltaEventArgsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithHorizontalChangeAndVerticalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalchange: f64, verticalchange: f64, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6422,7 +6431,7 @@ unsafe impl ::windows::core::Interface for IDragStartedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragStartedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub VerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -6436,7 +6445,7 @@ unsafe impl ::windows::core::Interface for IDragStartedEventArgsFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragStartedEventArgsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithHorizontalOffsetAndVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontaloffset: f64, verticaloffset: f64, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6449,7 +6458,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Placement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FlyoutPlacementMode) -> ::windows::core::HRESULT,
     pub SetPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FlyoutPlacementMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6489,7 +6498,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AllowFocusOnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowFocusOnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -6518,7 +6527,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OverlayInputPassThroughElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetOverlayInputPassThroughElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6532,7 +6541,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Input")]
     pub TryInvokeKeyboardAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))]
@@ -6548,7 +6557,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShowMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FlyoutShowMode) -> ::windows::core::HRESULT,
     pub SetShowMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FlyoutShowMode) -> ::windows::core::HRESULT,
     pub InputDevicePrefersPrimaryCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6567,7 +6576,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShouldConstrainToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShouldConstrainToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsConstrainedToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6584,7 +6593,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseClosingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseClosingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -6598,7 +6607,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6611,7 +6620,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreatePresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6624,7 +6633,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseOverrides4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseOverrides4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Input")]
     pub OnProcessKeyboardAccelerators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))]
@@ -6640,7 +6649,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PlacementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AttachedFlyoutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6657,7 +6666,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AllowFocusOnInteractionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LightDismissOverlayModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AllowFocusWhenDisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6673,7 +6682,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OverlayInputPassThroughElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6686,7 +6695,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ShowModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub InputDevicePrefersPrimaryCommandsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6703,7 +6712,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShouldConstrainToRootBoundsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6716,7 +6725,7 @@ unsafe impl ::windows::core::Interface for IFlyoutShowOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutShowOptions_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -6748,7 +6757,7 @@ unsafe impl ::windows::core::Interface for IFlyoutShowOptionsFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutShowOptionsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6761,7 +6770,7 @@ unsafe impl ::windows::core::Interface for IGeneratorPositionHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneratorPositionHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6773,7 +6782,7 @@ unsafe impl ::windows::core::Interface for IGeneratorPositionHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneratorPositionHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromIndexAndOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, offset: i32, result__: *mut GeneratorPosition) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6786,7 +6795,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemPresenter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemPresenter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
@@ -6932,7 +6941,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemPresenterFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemPresenterFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6945,7 +6954,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemPresenterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemPresenterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectionCheckMarkVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckHintBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckSelectingBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6988,7 +6997,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DragItemsCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7001,7 +7010,7 @@ unsafe impl ::windows::core::Interface for IItemsChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeneratorPosition) -> ::windows::core::HRESULT,
     pub OldPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeneratorPosition) -> ::windows::core::HRESULT,
@@ -7018,7 +7027,7 @@ unsafe impl ::windows::core::Interface for IJumpListItemBackgroundConverter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemBackgroundConverter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -7046,7 +7055,7 @@ unsafe impl ::windows::core::Interface for IJumpListItemBackgroundConverterStati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemBackgroundConverterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7060,7 +7069,7 @@ unsafe impl ::windows::core::Interface for IJumpListItemForegroundConverter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemForegroundConverter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -7088,7 +7097,7 @@ unsafe impl ::windows::core::Interface for IJumpListItemForegroundConverterStati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemForegroundConverterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7102,7 +7111,7 @@ unsafe impl ::windows::core::Interface for ILayoutInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayoutInformation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7114,7 +7123,7 @@ unsafe impl ::windows::core::Interface for ILayoutInformationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayoutInformationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetLayoutExceptionElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispatcher: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetLayoutSlot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -7131,7 +7140,7 @@ unsafe impl ::windows::core::Interface for ILayoutInformationStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayoutInformationStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetAvailableSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -7147,7 +7156,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
@@ -7293,7 +7302,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenter2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub SelectedPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -7347,7 +7356,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenter3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub RevealBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -7379,7 +7388,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenter4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub SelectedDisabledBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -7583,7 +7592,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7596,7 +7605,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectionCheckMarkVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckHintBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckSelectingBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7639,7 +7648,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectedPressedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PressedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckBoxBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7657,7 +7666,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RevealBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RevealBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RevealBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7673,7 +7682,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectedDisabledBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CheckDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7712,7 +7721,7 @@ unsafe impl ::windows::core::Interface for IListViewItemTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DragItemsCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7725,7 +7734,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelector_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShouldLoop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShouldLoop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -7765,7 +7774,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorItem_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7777,7 +7786,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorPanel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7789,7 +7798,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShouldLoopProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SelectedIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7808,7 +7817,7 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutItemTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutItemTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeyboardAcceleratorTextMinWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7821,7 +7830,7 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutPresenterTemplateSettings 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutPresenterTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FlyoutContentMinWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7834,7 +7843,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemPresenter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Icon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7848,7 +7857,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenterFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemPresenterFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7861,7 +7870,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemPresenterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IconProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7874,7 +7883,7 @@ unsafe impl ::windows::core::Interface for IOrientedVirtualizingPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientedVirtualizingPanel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanVerticallyScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCanVerticallyScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub CanHorizontallyScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7916,7 +7925,7 @@ unsafe impl ::windows::core::Interface for IOrientedVirtualizingPanelFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientedVirtualizingPanelFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7928,7 +7937,7 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7940,7 +7949,7 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7953,7 +7962,7 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBaseOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OnConfirmed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShouldShowConfirmationButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -7967,7 +7976,7 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TitleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7982,7 +7991,7 @@ unsafe impl ::windows::core::Interface for IPivotHeaderItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotHeaderItem_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7994,7 +8003,7 @@ unsafe impl ::windows::core::Interface for IPivotHeaderItemFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotHeaderItemFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8007,7 +8016,7 @@ unsafe impl ::windows::core::Interface for IPivotHeaderPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotHeaderPanel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8019,7 +8028,7 @@ unsafe impl ::windows::core::Interface for IPivotPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotPanel_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8031,7 +8040,7 @@ unsafe impl ::windows::core::Interface for IPopup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Child: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8077,7 +8086,7 @@ unsafe impl ::windows::core::Interface for IPopup2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopup2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LightDismissOverlayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::LightDismissOverlayMode) -> ::windows::core::HRESULT,
     pub SetLightDismissOverlayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::LightDismissOverlayMode) -> ::windows::core::HRESULT,
 }
@@ -8091,7 +8100,7 @@ unsafe impl ::windows::core::Interface for IPopup3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopup3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShouldConstrainToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShouldConstrainToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsConstrainedToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8106,7 +8115,7 @@ unsafe impl ::windows::core::Interface for IPopup4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopup4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PlacementTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetPlacementTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DesiredPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PopupPlacementMode) -> ::windows::core::HRESULT,
@@ -8131,7 +8140,7 @@ unsafe impl ::windows::core::Interface for IPopupStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ChildProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsOpenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8149,7 +8158,7 @@ unsafe impl ::windows::core::Interface for IPopupStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LightDismissOverlayModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8162,7 +8171,7 @@ unsafe impl ::windows::core::Interface for IPopupStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShouldConstrainToRootBoundsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8175,7 +8184,7 @@ unsafe impl ::windows::core::Interface for IPopupStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PlacementTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DesiredPlacementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8189,7 +8198,7 @@ unsafe impl ::windows::core::Interface for IProgressBarTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressBarTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EllipseDiameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub EllipseOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub EllipseAnimationWellPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8208,7 +8217,7 @@ unsafe impl ::windows::core::Interface for IProgressRingTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressRingTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EllipseDiameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub EllipseOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT,
     pub MaxSideLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8223,7 +8232,7 @@ unsafe impl ::windows::core::Interface for IRangeBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Minimum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetMinimum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub Maximum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8253,7 +8262,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8266,7 +8275,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OnMinimumChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldminimum: f64, newminimum: f64) -> ::windows::core::HRESULT,
     pub OnMaximumChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldmaximum: f64, newmaximum: f64) -> ::windows::core::HRESULT,
     pub OnValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldvalue: f64, newvalue: f64) -> ::windows::core::HRESULT,
@@ -8281,7 +8290,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MinimumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MaximumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SmallChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8298,7 +8307,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseValueChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseValueChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OldValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub NewValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -8312,7 +8321,7 @@ unsafe impl ::windows::core::Interface for IRepeatButton {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatButton_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -8328,7 +8337,7 @@ unsafe impl ::windows::core::Interface for IRepeatButtonStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatButtonStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DelayProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IntervalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8342,7 +8351,7 @@ unsafe impl ::windows::core::Interface for IScrollBar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollBar_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Orientation) -> ::windows::core::HRESULT,
     pub SetOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Orientation) -> ::windows::core::HRESULT,
     pub ViewportSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8368,7 +8377,7 @@ unsafe impl ::windows::core::Interface for IScrollBarStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollBarStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OrientationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ViewportSizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IndicatorModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8383,7 +8392,7 @@ unsafe impl ::windows::core::Interface for IScrollEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub NewValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub ScrollEventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ScrollEventType) -> ::windows::core::HRESULT,
 }
@@ -8525,7 +8534,7 @@ unsafe impl ::windows::core::Interface for IScrollSnapPointsInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollSnapPointsInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AreHorizontalSnapPointsRegular: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AreVerticalSnapPointsRegular: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -8560,7 +8569,7 @@ unsafe impl ::windows::core::Interface for ISelector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelector_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectedIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetSelectedIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub SelectedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8596,7 +8605,7 @@ unsafe impl ::windows::core::Interface for ISelectorFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8608,7 +8617,7 @@ unsafe impl ::windows::core::Interface for ISelectorItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItem_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -8622,7 +8631,7 @@ unsafe impl ::windows::core::Interface for ISelectorItemFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8635,7 +8644,7 @@ unsafe impl ::windows::core::Interface for ISelectorItemStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSelectedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8648,7 +8657,7 @@ unsafe impl ::windows::core::Interface for ISelectorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SelectedIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SelectedItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SelectedValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8666,7 +8675,7 @@ unsafe impl ::windows::core::Interface for ISettingsFlyoutTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsFlyoutTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub HeaderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -8699,7 +8708,7 @@ unsafe impl ::windows::core::Interface for ISplitViewTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitViewTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OpenPaneLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub NegativeOpenPaneLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub OpenPaneLengthMinusCompactLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8717,7 +8726,7 @@ unsafe impl ::windows::core::Interface for IThumb {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumb_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsDragging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub DragStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -8755,7 +8764,7 @@ unsafe impl ::windows::core::Interface for IThumbStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsDraggingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8768,7 +8777,7 @@ unsafe impl ::windows::core::Interface for ITickBar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITickBar_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub Fill: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
@@ -8788,7 +8797,7 @@ unsafe impl ::windows::core::Interface for ITickBarStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITickBarStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FillProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8801,7 +8810,7 @@ unsafe impl ::windows::core::Interface for IToggleButton {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButton_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub IsChecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -8847,7 +8856,7 @@ unsafe impl ::windows::core::Interface for IToggleButtonFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8860,7 +8869,7 @@ unsafe impl ::windows::core::Interface for IToggleButtonOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OnToggle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8873,7 +8882,7 @@ unsafe impl ::windows::core::Interface for IToggleButtonStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsCheckedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsThreeStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8887,7 +8896,7 @@ unsafe impl ::windows::core::Interface for IToggleSwitchTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleSwitchTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KnobCurrentToOnOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub KnobCurrentToOffOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub KnobOnToOffOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8907,7 +8916,7 @@ unsafe impl ::windows::core::Interface for IToolTipTemplateSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToolTipTemplateSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub FromVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -9049,7 +9058,10 @@ struct ItemsChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::c
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ItemsChangedEventHandlerBox<F> {
-    const VTABLE: ItemsChangedEventHandler_Vtbl = ItemsChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: ItemsChangedEventHandler_Vtbl = ItemsChangedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<ItemsChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -9107,7 +9119,7 @@ unsafe impl ::windows::core::RuntimeType for ItemsChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ItemsChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -15438,7 +15450,10 @@ struct RangeBaseValueChangedEventHandlerBox<F: FnMut(&::core::option::Option<::w
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RangeBaseValueChangedEventHandlerBox<F> {
-    const VTABLE: RangeBaseValueChangedEventHandler_Vtbl = RangeBaseValueChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: RangeBaseValueChangedEventHandler_Vtbl = RangeBaseValueChangedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<RangeBaseValueChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -15496,7 +15511,7 @@ unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RangeBaseValueChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -16257,7 +16272,10 @@ struct ScrollEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::I
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ScrollEventHandlerBox<F> {
-    const VTABLE: ScrollEventHandler_Vtbl = ScrollEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: ScrollEventHandler_Vtbl = ScrollEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<ScrollEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -16315,7 +16333,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ScrollEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]

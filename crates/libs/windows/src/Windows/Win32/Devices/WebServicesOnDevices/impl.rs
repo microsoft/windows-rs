@@ -17,7 +17,7 @@ impl IWSDAddress_Vtbl {
             (*this).Deserialize(::core::mem::transmute(&pszbuffer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Serialize: Serialize::<Identity, Impl, OFFSET>,
             Deserialize: Deserialize::<Identity, Impl, OFFSET>,
         }
@@ -36,7 +36,7 @@ impl IWSDAsyncCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AsyncOperationComplete(::core::mem::transmute(&pasyncresult), ::core::mem::transmute(&pasyncstate)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSDAsyncCallback as ::windows::core::Interface>::IID
@@ -109,7 +109,7 @@ impl IWSDAsyncResult_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetCallback: SetCallback::<Identity, Impl, OFFSET>,
             SetWaitHandle: SetWaitHandle::<Identity, Impl, OFFSET>,
             HasCompleted: HasCompleted::<Identity, Impl, OFFSET>,
@@ -126,7 +126,7 @@ impl IWSDAsyncResult_Vtbl {
 pub trait IWSDAttachment_Impl: Sized {}
 impl IWSDAttachment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAttachment_Impl, const OFFSET: isize>() -> IWSDAttachment_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSDAttachment as ::windows::core::Interface>::IID
@@ -211,7 +211,7 @@ impl IWSDDeviceHost_Vtbl {
             (*this).SignalEvent(::core::mem::transmute(&pszserviceid), ::core::mem::transmute_copy(&pbody), ::core::mem::transmute_copy(&poperation)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
@@ -246,7 +246,7 @@ impl IWSDDeviceHostNotify_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSDDeviceHostNotify as ::windows::core::Interface>::IID
@@ -365,7 +365,7 @@ impl IWSDDeviceProxy_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             BeginGetMetadata: BeginGetMetadata::<Identity, Impl, OFFSET>,
             EndGetMetadata: EndGetMetadata::<Identity, Impl, OFFSET>,
@@ -449,7 +449,7 @@ impl IWSDEndpointProxy_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SendOneWayRequest: SendOneWayRequest::<Identity, Impl, OFFSET>,
             SendTwoWayRequest: SendTwoWayRequest::<Identity, Impl, OFFSET>,
             SendTwoWayRequestAsync: SendTwoWayRequestAsync::<Identity, Impl, OFFSET>,
@@ -486,7 +486,7 @@ impl IWSDEventingStatus_Vtbl {
             (*this).SubscriptionEnded(::core::mem::transmute(&pszsubscriptionaction))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SubscriptionRenewed: SubscriptionRenewed::<Identity, Impl, OFFSET>,
             SubscriptionRenewalFailed: SubscriptionRenewalFailed::<Identity, Impl, OFFSET>,
             SubscriptionEnded: SubscriptionEnded::<Identity, Impl, OFFSET>,
@@ -533,7 +533,7 @@ impl IWSDHttpAddress_Vtbl {
             (*this).SetPath(::core::mem::transmute(&pszpath)).into()
         }
         Self {
-            base: IWSDTransportAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDTransportAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSecure: GetSecure::<Identity, Impl, OFFSET>,
             SetSecure: SetSecure::<Identity, Impl, OFFSET>,
             GetPath: GetPath::<Identity, Impl, OFFSET>,
@@ -575,7 +575,7 @@ impl IWSDHttpAuthParameters_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClientAccessToken: GetClientAccessToken::<Identity, Impl, OFFSET>,
             GetAuthType: GetAuthType::<Identity, Impl, OFFSET>,
         }
@@ -667,7 +667,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: IWSDMessageParameters_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDMessageParameters_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetInboundHttpHeaders: SetInboundHttpHeaders::<Identity, Impl, OFFSET>,
             GetInboundHttpHeaders: GetInboundHttpHeaders::<Identity, Impl, OFFSET>,
             SetOutboundHttpHeaders: SetOutboundHttpHeaders::<Identity, Impl, OFFSET>,
@@ -699,7 +699,7 @@ impl IWSDInboundAttachment_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        Self { base: IWSDAttachment_Vtbl::new::<Identity, Impl, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
+        Self { base__: IWSDAttachment_Vtbl::new::<Identity, Impl, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSDInboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
@@ -758,7 +758,7 @@ impl IWSDMessageParameters_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetLocalAddress: GetLocalAddress::<Identity, Impl, OFFSET>,
             SetLocalAddress: SetLocalAddress::<Identity, Impl, OFFSET>,
             GetRemoteAddress: GetRemoteAddress::<Identity, Impl, OFFSET>,
@@ -786,7 +786,7 @@ impl IWSDMetadataExchange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMetadata: GetMetadata::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMetadata: GetMetadata::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID
@@ -821,7 +821,7 @@ impl IWSDOutboundAttachment_Vtbl {
             (*this).Abort().into()
         }
         Self {
-            base: IWSDAttachment_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDAttachment_Vtbl::new::<Identity, Impl, OFFSET>(),
             Write: Write::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
@@ -862,7 +862,7 @@ impl IWSDSSLClientCertificate_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClientCertificate: GetClientCertificate::<Identity, Impl, OFFSET>,
             GetMappedAccessToken: GetMappedAccessToken::<Identity, Impl, OFFSET>,
         }
@@ -902,7 +902,7 @@ impl IWSDScopeMatchingRule_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetScopeRule: GetScopeRule::<Identity, Impl, OFFSET>,
             MatchScopes: MatchScopes::<Identity, Impl, OFFSET>,
         }
@@ -928,7 +928,7 @@ impl IWSDServiceMessaging_Vtbl {
             (*this).FaultRequest(::core::mem::transmute_copy(&prequestheader), ::core::mem::transmute(&pmessageparameters), ::core::mem::transmute_copy(&pfault)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SendResponse: SendResponse::<Identity, Impl, OFFSET>,
             FaultRequest: FaultRequest::<Identity, Impl, OFFSET>,
         }
@@ -1014,7 +1014,7 @@ impl IWSDServiceProxy_Vtbl {
             }
         }
         Self {
-            base: IWSDMetadataExchange_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDMetadataExchange_Vtbl::new::<Identity, Impl, OFFSET>(),
             BeginGetMetadata: BeginGetMetadata::<Identity, Impl, OFFSET>,
             EndGetMetadata: EndGetMetadata::<Identity, Impl, OFFSET>,
             GetServiceMetadata: GetServiceMetadata::<Identity, Impl, OFFSET>,
@@ -1131,7 +1131,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             (*this).EndGetStatusForMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
         }
         Self {
-            base: IWSDServiceProxy_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDServiceProxy_Vtbl::new::<Identity, Impl, OFFSET>(),
             SubscribeToMultipleOperations: SubscribeToMultipleOperations::<Identity, Impl, OFFSET>,
             BeginSubscribeToMultipleOperations: BeginSubscribeToMultipleOperations::<Identity, Impl, OFFSET>,
             EndSubscribeToMultipleOperations: EndSubscribeToMultipleOperations::<Identity, Impl, OFFSET>,
@@ -1199,7 +1199,7 @@ impl IWSDSignatureProperty_Vtbl {
             (*this).GetSignedInfoHash(::core::mem::transmute_copy(&pbsignedinfohash), ::core::mem::transmute_copy(&pdwhashsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsMessageSigned: IsMessageSigned::<Identity, Impl, OFFSET>,
             IsMessageSignatureTrusted: IsMessageSignatureTrusted::<Identity, Impl, OFFSET>,
             GetKeyInfo: GetKeyInfo::<Identity, Impl, OFFSET>,
@@ -1266,7 +1266,7 @@ impl IWSDTransportAddress_Vtbl {
             (*this).SetTransportAddress(::core::mem::transmute(&pszaddress)).into()
         }
         Self {
-            base: IWSDAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPort: GetPort::<Identity, Impl, OFFSET>,
             SetPort: SetPort::<Identity, Impl, OFFSET>,
             GetTransportAddress: GetTransportAddress::<Identity, Impl, OFFSET>,
@@ -1369,7 +1369,7 @@ impl IWSDUdpAddress_Vtbl {
             }
         }
         Self {
-            base: IWSDTransportAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDTransportAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSockaddr: SetSockaddr::<Identity, Impl, OFFSET>,
             GetSockaddr: GetSockaddr::<Identity, Impl, OFFSET>,
             SetExclusive: SetExclusive::<Identity, Impl, OFFSET>,
@@ -1409,7 +1409,7 @@ impl IWSDUdpMessageParameters_Vtbl {
             }
         }
         Self {
-            base: IWSDMessageParameters_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWSDMessageParameters_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRetransmitParams: SetRetransmitParams::<Identity, Impl, OFFSET>,
             GetRetransmitParams: GetRetransmitParams::<Identity, Impl, OFFSET>,
         }
@@ -1459,7 +1459,7 @@ impl IWSDXMLContext_Vtbl {
             (*this).SetTypes(::core::mem::transmute_copy(&ptypes), ::core::mem::transmute_copy(&dwtypescount), ::core::mem::transmute_copy(&blayernumber)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddNamespace: AddNamespace::<Identity, Impl, OFFSET>,
             AddNameToNamespace: AddNameToNamespace::<Identity, Impl, OFFSET>,
             SetNamespaces: SetNamespaces::<Identity, Impl, OFFSET>,
@@ -1601,7 +1601,7 @@ impl IWSDiscoveredService_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEndpointReference: GetEndpointReference::<Identity, Impl, OFFSET>,
             GetTypes: GetTypes::<Identity, Impl, OFFSET>,
             GetScopes: GetScopes::<Identity, Impl, OFFSET>,
@@ -1672,7 +1672,7 @@ impl IWSDiscoveryProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAddressFamily: SetAddressFamily::<Identity, Impl, OFFSET>,
             Attach: Attach::<Identity, Impl, OFFSET>,
             Detach: Detach::<Identity, Impl, OFFSET>,
@@ -1715,7 +1715,7 @@ impl IWSDiscoveryProviderNotify_Vtbl {
             (*this).SearchComplete(::core::mem::transmute(&psztag)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             SearchFailed: SearchFailed::<Identity, Impl, OFFSET>,
@@ -1867,7 +1867,7 @@ impl IWSDiscoveryPublisher_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAddressFamily: SetAddressFamily::<Identity, Impl, OFFSET>,
             RegisterNotificationSink: RegisterNotificationSink::<Identity, Impl, OFFSET>,
             UnRegisterNotificationSink: UnRegisterNotificationSink::<Identity, Impl, OFFSET>,
@@ -1904,7 +1904,7 @@ impl IWSDiscoveryPublisherNotify_Vtbl {
             (*this).ResolveHandler(::core::mem::transmute_copy(&psoap), ::core::mem::transmute(&pmessageparameters)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProbeHandler: ProbeHandler::<Identity, Impl, OFFSET>,
             ResolveHandler: ResolveHandler::<Identity, Impl, OFFSET>,
         }

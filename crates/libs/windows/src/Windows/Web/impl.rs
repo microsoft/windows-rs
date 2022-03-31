@@ -22,7 +22,7 @@ impl IUriToStreamResolver_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriToStreamResolver, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUriToStreamResolver, OFFSET>(),
             UriToStreamAsync: UriToStreamAsync::<Identity, Impl, OFFSET>,
         }
     }

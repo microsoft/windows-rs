@@ -22,7 +22,7 @@ impl IToastNotificationManagerStatics3_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics3, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationManagerStatics3, OFFSET>(),
             CreateToastNotifierForSecondaryTile: CreateToastNotifierForSecondaryTile::<Identity, Impl, OFFSET>,
         }
     }

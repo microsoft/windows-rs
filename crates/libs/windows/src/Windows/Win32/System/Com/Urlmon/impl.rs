@@ -14,7 +14,7 @@ impl IBindCallbackRedirect_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Redirect: Redirect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Redirect: Redirect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindCallbackRedirect as ::windows::core::Interface>::IID
@@ -36,7 +36,7 @@ impl IBindHttpSecurity_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIgnoreCertMask: GetIgnoreCertMask::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIgnoreCertMask: GetIgnoreCertMask::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindHttpSecurity as ::windows::core::Interface>::IID
@@ -58,7 +58,7 @@ impl IBindProtocol_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateBinding: CreateBinding::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateBinding: CreateBinding::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindProtocol as ::windows::core::Interface>::IID
@@ -87,7 +87,7 @@ impl ICatalogFileInfo_Vtbl {
             (*this).GetJavaTrust(::core::mem::transmute_copy(&ppjavatrust)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCatalogFile: GetCatalogFile::<Identity, Impl, OFFSET>,
             GetJavaTrust: GetJavaTrust::<Identity, Impl, OFFSET>,
         }
@@ -108,7 +108,7 @@ impl ICodeInstall_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnCodeInstallProblem(::core::mem::transmute_copy(&ulstatuscode), ::core::mem::transmute(&szdestination), ::core::mem::transmute(&szsource), ::core::mem::transmute_copy(&dwreserved)).into()
         }
-        Self { base: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnCodeInstallProblem: OnCodeInstallProblem::<Identity, Impl, OFFSET> }
+        Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnCodeInstallProblem: OnCodeInstallProblem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICodeInstall as ::windows::core::Interface>::IID || iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
@@ -137,7 +137,7 @@ impl IDataFilter_Vtbl {
             (*this).SetEncodingLevel(::core::mem::transmute_copy(&dwenclevel)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DoEncode: DoEncode::<Identity, Impl, OFFSET>,
             DoDecode: DoDecode::<Identity, Impl, OFFSET>,
             SetEncodingLevel: SetEncodingLevel::<Identity, Impl, OFFSET>,
@@ -176,7 +176,7 @@ impl IEncodingFilterFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindBestFilter: FindBestFilter::<Identity, Impl, OFFSET>,
             GetDefaultFilter: GetDefaultFilter::<Identity, Impl, OFFSET>,
         }
@@ -203,7 +203,7 @@ impl IGetBindHandle_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBindHandle: GetBindHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBindHandle: GetBindHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetBindHandle as ::windows::core::Interface>::IID
@@ -238,7 +238,7 @@ impl IHttpNegotiate_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeginningTransaction: BeginningTransaction::<Identity, Impl, OFFSET>,
             OnResponse: OnResponse::<Identity, Impl, OFFSET>,
         }
@@ -257,7 +257,7 @@ impl IHttpNegotiate2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRootSecurityId(::core::mem::transmute_copy(&pbsecurityid), ::core::mem::transmute_copy(&pcbsecurityid), ::core::mem::transmute_copy(&dwreserved)).into()
         }
-        Self { base: IHttpNegotiate_Vtbl::new::<Identity, Impl, OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Identity, Impl, OFFSET> }
+        Self { base__: IHttpNegotiate_Vtbl::new::<Identity, Impl, OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpNegotiate2 as ::windows::core::Interface>::IID || iid == &<IHttpNegotiate as ::windows::core::Interface>::IID
@@ -274,7 +274,7 @@ impl IHttpNegotiate3_Vtbl {
             (*this).GetSerializedClientCertContext(::core::mem::transmute_copy(&ppbcert), ::core::mem::transmute_copy(&pcbcert)).into()
         }
         Self {
-            base: IHttpNegotiate2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IHttpNegotiate2_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSerializedClientCertContext: GetSerializedClientCertContext::<Identity, Impl, OFFSET>,
         }
     }
@@ -294,7 +294,7 @@ impl IHttpSecurity_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnSecurityProblem(::core::mem::transmute_copy(&dwproblem)).into()
         }
-        Self { base: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Identity, Impl, OFFSET> }
+        Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHttpSecurity as ::windows::core::Interface>::IID || iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
@@ -303,7 +303,7 @@ impl IHttpSecurity_Vtbl {
 pub trait IInternet_Impl: Sized {}
 impl IInternet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternet_Impl, const OFFSET: isize>() -> IInternet_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInternet as ::windows::core::Interface>::IID
@@ -328,7 +328,7 @@ impl IInternetBindInfo_Vtbl {
             (*this).GetBindString(::core::mem::transmute_copy(&ulstringtype), ::core::mem::transmute_copy(&ppwzstr), ::core::mem::transmute_copy(&cel), ::core::mem::transmute_copy(&pcelfetched)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetBindInfo: GetBindInfo::<Identity, Impl, OFFSET>,
             GetBindString: GetBindString::<Identity, Impl, OFFSET>,
         }
@@ -349,7 +349,7 @@ impl IInternetBindInfoEx_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetBindInfoEx(::core::mem::transmute_copy(&grfbindf), ::core::mem::transmute_copy(&pbindinfo), ::core::mem::transmute_copy(&grfbindf2), ::core::mem::transmute_copy(&pdwreserved)).into()
         }
-        Self { base: IInternetBindInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, Impl, OFFSET> }
+        Self { base__: IInternetBindInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInternetBindInfoEx as ::windows::core::Interface>::IID || iid == &<IInternetBindInfo as ::windows::core::Interface>::IID
@@ -378,7 +378,7 @@ impl IInternetHostSecurityManager_Vtbl {
             (*this).QueryCustomPolicy(::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSecurityId: GetSecurityId::<Identity, Impl, OFFSET>,
             ProcessUrlAction: ProcessUrlAction::<Identity, Impl, OFFSET>,
             QueryCustomPolicy: QueryCustomPolicy::<Identity, Impl, OFFSET>,
@@ -411,7 +411,7 @@ impl IInternetPriority_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetPriority: SetPriority::<Identity, Impl, OFFSET>,
             GetPriority: GetPriority::<Identity, Impl, OFFSET>,
         }
@@ -457,7 +457,7 @@ impl IInternetProtocol_Vtbl {
             (*this).UnlockRequest().into()
         }
         Self {
-            base: IInternetProtocolRoot_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IInternetProtocolRoot_Vtbl::new::<Identity, Impl, OFFSET>(),
             Read: Read::<Identity, Impl, OFFSET>,
             Seek: Seek::<Identity, Impl, OFFSET>,
             LockRequest: LockRequest::<Identity, Impl, OFFSET>,
@@ -480,7 +480,7 @@ impl IInternetProtocolEx_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).StartEx(::core::mem::transmute(&puri), ::core::mem::transmute(&poiprotsink), ::core::mem::transmute(&poibindinfo), ::core::mem::transmute_copy(&grfpi), ::core::mem::transmute_copy(&dwreserved)).into()
         }
-        Self { base: IInternetProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), StartEx: StartEx::<Identity, Impl, OFFSET> }
+        Self { base__: IInternetProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), StartEx: StartEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInternetProtocolEx as ::windows::core::Interface>::IID || iid == &<IInternetProtocolRoot as ::windows::core::Interface>::IID || iid == &<IInternetProtocol as ::windows::core::Interface>::IID
@@ -515,7 +515,7 @@ impl IInternetProtocolInfo_Vtbl {
             (*this).QueryInfo(::core::mem::transmute(&pwzurl), ::core::mem::transmute_copy(&oueryoption), ::core::mem::transmute_copy(&dwqueryflags), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcbbuf), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ParseUrl: ParseUrl::<Identity, Impl, OFFSET>,
             CombineUrl: CombineUrl::<Identity, Impl, OFFSET>,
             CompareUrl: CompareUrl::<Identity, Impl, OFFSET>,
@@ -569,7 +569,7 @@ impl IInternetProtocolRoot_Vtbl {
             (*this).Resume().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Continue: Continue::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
@@ -611,7 +611,7 @@ impl IInternetProtocolSink_Vtbl {
             (*this).ReportResult(::core::mem::transmute_copy(&hrresult), ::core::mem::transmute_copy(&dwerror), ::core::mem::transmute(&szresult)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Switch: Switch::<Identity, Impl, OFFSET>,
             ReportProgress: ReportProgress::<Identity, Impl, OFFSET>,
             ReportData: ReportData::<Identity, Impl, OFFSET>,
@@ -645,7 +645,7 @@ impl IInternetProtocolSinkStackable_Vtbl {
             (*this).RollbackSwitch().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SwitchSink: SwitchSink::<Identity, Impl, OFFSET>,
             CommitSwitch: CommitSwitch::<Identity, Impl, OFFSET>,
             RollbackSwitch: RollbackSwitch::<Identity, Impl, OFFSET>,
@@ -714,7 +714,7 @@ impl IInternetSecurityManager_Vtbl {
             (*this).GetZoneMappings(::core::mem::transmute_copy(&dwzone), ::core::mem::transmute_copy(&ppenumstring), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetSecuritySite: SetSecuritySite::<Identity, Impl, OFFSET>,
             GetSecuritySite: GetSecuritySite::<Identity, Impl, OFFSET>,
             MapUrlToZone: MapUrlToZone::<Identity, Impl, OFFSET>,
@@ -739,7 +739,7 @@ impl IInternetSecurityManagerEx_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ProcessUrlActionEx(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwaction), ::core::mem::transmute_copy(&ppolicy), ::core::mem::transmute_copy(&cbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&pdwoutflags)).into()
         }
-        Self { base: IInternetSecurityManager_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessUrlActionEx: ProcessUrlActionEx::<Identity, Impl, OFFSET> }
+        Self { base__: IInternetSecurityManager_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessUrlActionEx: ProcessUrlActionEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInternetSecurityManagerEx as ::windows::core::Interface>::IID || iid == &<IInternetSecurityManager as ::windows::core::Interface>::IID
@@ -774,7 +774,7 @@ impl IInternetSecurityManagerEx2_Vtbl {
             (*this).QueryCustomPolicyEx2(::core::mem::transmute(&puri), ::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: IInternetSecurityManagerEx_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IInternetSecurityManagerEx_Vtbl::new::<Identity, Impl, OFFSET>(),
             MapUrlToZoneEx2: MapUrlToZoneEx2::<Identity, Impl, OFFSET>,
             ProcessUrlActionEx2: ProcessUrlActionEx2::<Identity, Impl, OFFSET>,
             GetSecurityIdEx2: GetSecurityIdEx2::<Identity, Impl, OFFSET>,
@@ -810,7 +810,7 @@ impl IInternetSecurityMgrSite_Vtbl {
             (*this).EnableModeless(::core::mem::transmute_copy(&fenable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetWindow: GetWindow::<Identity, Impl, OFFSET>,
             EnableModeless: EnableModeless::<Identity, Impl, OFFSET>,
         }
@@ -866,7 +866,7 @@ impl IInternetSession_Vtbl {
             (*this).GetSessionOption(::core::mem::transmute_copy(&dwoption), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&pdwbufferlength), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterNameSpace: RegisterNameSpace::<Identity, Impl, OFFSET>,
             UnregisterNameSpace: UnregisterNameSpace::<Identity, Impl, OFFSET>,
             RegisterMimeFilter: RegisterMimeFilter::<Identity, Impl, OFFSET>,
@@ -897,7 +897,7 @@ impl IInternetThreadSwitch_Vtbl {
             (*this).Continue().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Prepare: Prepare::<Identity, Impl, OFFSET>,
             Continue: Continue::<Identity, Impl, OFFSET>,
         }
@@ -991,7 +991,7 @@ impl IInternetZoneManager_Vtbl {
             (*this).CopyTemplatePoliciesToZone(::core::mem::transmute_copy(&dwtemplate), ::core::mem::transmute_copy(&dwzone), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetZoneAttributes: GetZoneAttributes::<Identity, Impl, OFFSET>,
             SetZoneAttributes: SetZoneAttributes::<Identity, Impl, OFFSET>,
             GetZoneCustomPolicy: GetZoneCustomPolicy::<Identity, Impl, OFFSET>,
@@ -1029,7 +1029,7 @@ impl IInternetZoneManagerEx_Vtbl {
             (*this).SetZoneActionPolicyEx(::core::mem::transmute_copy(&dwzone), ::core::mem::transmute_copy(&dwaction), ::core::mem::transmute_copy(&ppolicy), ::core::mem::transmute_copy(&cbpolicy), ::core::mem::transmute_copy(&urlzonereg), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: IInternetZoneManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IInternetZoneManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetZoneActionPolicyEx: GetZoneActionPolicyEx::<Identity, Impl, OFFSET>,
             SetZoneActionPolicyEx: SetZoneActionPolicyEx::<Identity, Impl, OFFSET>,
         }
@@ -1069,7 +1069,7 @@ impl IInternetZoneManagerEx2_Vtbl {
             (*this).FixUnsecureSettings().into()
         }
         Self {
-            base: IInternetZoneManagerEx_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IInternetZoneManagerEx_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetZoneAttributesEx: GetZoneAttributesEx::<Identity, Impl, OFFSET>,
             GetZoneSecurityState: GetZoneSecurityState::<Identity, Impl, OFFSET>,
             GetIESecurityState: GetIESecurityState::<Identity, Impl, OFFSET>,
@@ -1090,7 +1090,7 @@ impl IMonikerProp_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).PutProperty(::core::mem::transmute_copy(&mkp), ::core::mem::transmute(&val)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), PutProperty: PutProperty::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), PutProperty: PutProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMonikerProp as ::windows::core::Interface>::IID
@@ -1151,7 +1151,7 @@ impl IPersistMoniker_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClassID: GetClassID::<Identity, Impl, OFFSET>,
             IsDirty: IsDirty::<Identity, Impl, OFFSET>,
             Load: Load::<Identity, Impl, OFFSET>,
@@ -1195,7 +1195,7 @@ impl ISoftDistExt_Vtbl {
             (*this).AsyncInstallDistributionUnit(::core::mem::transmute(&pbc), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&lpcbh)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProcessSoftDist: ProcessSoftDist::<Identity, Impl, OFFSET>,
             GetFirstCodeBase: GetFirstCodeBase::<Identity, Impl, OFFSET>,
             GetNextCodeBase: GetNextCodeBase::<Identity, Impl, OFFSET>,
@@ -1235,7 +1235,7 @@ impl IUriBuilderFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateIUriBuilder: CreateIUriBuilder::<Identity, Impl, OFFSET>,
             CreateInitializedIUriBuilder: CreateInitializedIUriBuilder::<Identity, Impl, OFFSET>,
         }
@@ -1260,7 +1260,7 @@ impl IUriContainer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIUri: GetIUri::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIUri: GetIUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUriContainer as ::windows::core::Interface>::IID
@@ -1276,7 +1276,7 @@ impl IWinInetCacheHints_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetCacheExtension(::core::mem::transmute(&pwzext), ::core::mem::transmute_copy(&pszcachefile), ::core::mem::transmute_copy(&pcbcachefile), ::core::mem::transmute_copy(&pdwwinineterror), ::core::mem::transmute_copy(&pdwreserved)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetCacheExtension: SetCacheExtension::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetCacheExtension: SetCacheExtension::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWinInetCacheHints as ::windows::core::Interface>::IID
@@ -1292,7 +1292,7 @@ impl IWinInetCacheHints2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetCacheExtension2(::core::mem::transmute(&pwzext), ::core::mem::transmute_copy(&pwzcachefile), ::core::mem::transmute_copy(&pcchcachefile), ::core::mem::transmute_copy(&pdwwinineterror), ::core::mem::transmute_copy(&pdwreserved)).into()
         }
-        Self { base: IWinInetCacheHints_Vtbl::new::<Identity, Impl, OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Identity, Impl, OFFSET> }
+        Self { base__: IWinInetCacheHints_Vtbl::new::<Identity, Impl, OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWinInetCacheHints2 as ::windows::core::Interface>::IID || iid == &<IWinInetCacheHints as ::windows::core::Interface>::IID
@@ -1315,7 +1315,7 @@ impl IWinInetFileStream_Vtbl {
             (*this).SetDeleteFile(::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetHandleForUnlock: SetHandleForUnlock::<Identity, Impl, OFFSET>,
             SetDeleteFile: SetDeleteFile::<Identity, Impl, OFFSET>,
         }
@@ -1334,7 +1334,7 @@ impl IWinInetHttpInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).QueryInfo(::core::mem::transmute_copy(&dwoption), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&pcbbuf), ::core::mem::transmute_copy(&pdwflags), ::core::mem::transmute_copy(&pdwreserved)).into()
         }
-        Self { base: IWinInetInfo_Vtbl::new::<Identity, Impl, OFFSET>(), QueryInfo: QueryInfo::<Identity, Impl, OFFSET> }
+        Self { base__: IWinInetInfo_Vtbl::new::<Identity, Impl, OFFSET>(), QueryInfo: QueryInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWinInetHttpInfo as ::windows::core::Interface>::IID || iid == &<IWinInetInfo as ::windows::core::Interface>::IID
@@ -1350,7 +1350,7 @@ impl IWinInetHttpTimeouts_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRequestTimeouts(::core::mem::transmute_copy(&pdwconnecttimeout), ::core::mem::transmute_copy(&pdwsendtimeout), ::core::mem::transmute_copy(&pdwreceivetimeout)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRequestTimeouts: GetRequestTimeouts::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRequestTimeouts: GetRequestTimeouts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWinInetHttpTimeouts as ::windows::core::Interface>::IID
@@ -1366,7 +1366,7 @@ impl IWinInetInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).QueryOption(::core::mem::transmute_copy(&dwoption), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&pcbbuf)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryOption: QueryOption::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryOption: QueryOption::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWinInetInfo as ::windows::core::Interface>::IID
@@ -1390,7 +1390,7 @@ impl IWindowForBindingUI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
@@ -1406,7 +1406,7 @@ impl IWrappedProtocol_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetWrapperCode(::core::mem::transmute_copy(&pncode), ::core::mem::transmute_copy(&dwreserved)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWrapperCode: GetWrapperCode::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWrapperCode: GetWrapperCode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWrappedProtocol as ::windows::core::Interface>::IID
@@ -1441,7 +1441,7 @@ impl IZoneIdentifier_Vtbl {
             (*this).Remove().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             SetId: SetId::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -1504,7 +1504,7 @@ impl IZoneIdentifier2_Vtbl {
             (*this).RemoveAppZoneId().into()
         }
         Self {
-            base: IZoneIdentifier_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IZoneIdentifier_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetLastWriterPackageFamilyName: GetLastWriterPackageFamilyName::<Identity, Impl, OFFSET>,
             SetLastWriterPackageFamilyName: SetLastWriterPackageFamilyName::<Identity, Impl, OFFSET>,
             RemoveLastWriterPackageFamilyName: RemoveLastWriterPackageFamilyName::<Identity, Impl, OFFSET>,

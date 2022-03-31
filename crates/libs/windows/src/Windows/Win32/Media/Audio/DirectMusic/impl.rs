@@ -59,7 +59,7 @@ impl IDirectMusic_Vtbl {
             (*this).SetDirectSound(::core::mem::transmute(&pdirectsound), ::core::mem::transmute_copy(&hwnd)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumPort: EnumPort::<Identity, Impl, OFFSET>,
             CreateMusicBuffer: CreateMusicBuffer::<Identity, Impl, OFFSET>,
             CreatePort: CreatePort::<Identity, Impl, OFFSET>,
@@ -87,7 +87,7 @@ impl IDirectMusic8_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetExternalMasterClock(::core::mem::transmute(&pclock)).into()
         }
-        Self { base: IDirectMusic_Vtbl::new::<Identity, Impl, OFFSET>(), SetExternalMasterClock: SetExternalMasterClock::<Identity, Impl, OFFSET> }
+        Self { base__: IDirectMusic_Vtbl::new::<Identity, Impl, OFFSET>(), SetExternalMasterClock: SetExternalMasterClock::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectMusic8 as ::windows::core::Interface>::IID || iid == &<IDirectMusic as ::windows::core::Interface>::IID
@@ -176,7 +176,7 @@ impl IDirectMusicBuffer_Vtbl {
             (*this).SetUsedBytes(::core::mem::transmute_copy(&cb)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Flush: Flush::<Identity, Impl, OFFSET>,
             TotalTime: TotalTime::<Identity, Impl, OFFSET>,
             PackStructured: PackStructured::<Identity, Impl, OFFSET>,
@@ -219,7 +219,7 @@ impl IDirectMusicCollection_Vtbl {
             (*this).EnumInstrument(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pdwpatch), ::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&dwnamelen)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInstrument: GetInstrument::<Identity, Impl, OFFSET>,
             EnumInstrument: EnumInstrument::<Identity, Impl, OFFSET>,
         }
@@ -238,7 +238,7 @@ impl IDirectMusicDownload_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetBuffer(::core::mem::transmute_copy(&ppvbuffer), ::core::mem::transmute_copy(&pdwsize)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectMusicDownload as ::windows::core::Interface>::IID
@@ -247,7 +247,7 @@ impl IDirectMusicDownload_Vtbl {
 pub trait IDirectMusicDownloadedInstrument_Impl: Sized {}
 impl IDirectMusicDownloadedInstrument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicDownloadedInstrument_Impl, const OFFSET: isize>() -> IDirectMusicDownloadedInstrument_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectMusicDownloadedInstrument as ::windows::core::Interface>::IID
@@ -270,7 +270,7 @@ impl IDirectMusicInstrument_Vtbl {
             (*this).SetPatch(::core::mem::transmute_copy(&dwpatch)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPatch: GetPatch::<Identity, Impl, OFFSET>,
             SetPatch: SetPatch::<Identity, Impl, OFFSET>,
         }
@@ -394,7 +394,7 @@ impl IDirectMusicPort_Vtbl {
             (*this).GetFormat(::core::mem::transmute_copy(&pwaveformatex), ::core::mem::transmute_copy(&pdwwaveformatexsize), ::core::mem::transmute_copy(&pdwbuffersize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PlayBuffer: PlayBuffer::<Identity, Impl, OFFSET>,
             SetReadNotificationHandle: SetReadNotificationHandle::<Identity, Impl, OFFSET>,
             Read: Read::<Identity, Impl, OFFSET>,
@@ -471,7 +471,7 @@ impl IDirectMusicPortDownload_Vtbl {
             (*this).Unload(::core::mem::transmute(&pidmdownload)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
             AllocateBuffer: AllocateBuffer::<Identity, Impl, OFFSET>,
             GetDLId: GetDLId::<Identity, Impl, OFFSET>,
@@ -599,7 +599,7 @@ impl IDirectMusicSynth_Vtbl {
             (*this).GetAppend(::core::mem::transmute_copy(&pdwappend)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             SetNumChannelGroups: SetNumChannelGroups::<Identity, Impl, OFFSET>,
@@ -660,7 +660,7 @@ impl IDirectMusicSynth8_Vtbl {
             (*this).AssignChannelToBuses(::core::mem::transmute_copy(&dwchannelgroup), ::core::mem::transmute_copy(&dwchannel), ::core::mem::transmute_copy(&pdwbuses), ::core::mem::transmute_copy(&cbuses)).into()
         }
         Self {
-            base: IDirectMusicSynth_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDirectMusicSynth_Vtbl::new::<Identity, Impl, OFFSET>(),
             PlayVoice: PlayVoice::<Identity, Impl, OFFSET>,
             StopVoice: StopVoice::<Identity, Impl, OFFSET>,
             GetVoiceState: GetVoiceState::<Identity, Impl, OFFSET>,
@@ -733,7 +733,7 @@ impl IDirectMusicSynthSink_Vtbl {
             (*this).GetDesiredBufferSize(::core::mem::transmute_copy(&pdwbuffersizeinsamples)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             SetMasterClock: SetMasterClock::<Identity, Impl, OFFSET>,
             GetLatencyClock: GetLatencyClock::<Identity, Impl, OFFSET>,
@@ -758,7 +758,7 @@ impl IDirectMusicThru_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ThruChannel(::core::mem::transmute_copy(&dwsourcechannelgroup), ::core::mem::transmute_copy(&dwsourcechannel), ::core::mem::transmute_copy(&dwdestinationchannelgroup), ::core::mem::transmute_copy(&dwdestinationchannel), ::core::mem::transmute(&pdestinationport)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ThruChannel: ThruChannel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ThruChannel: ThruChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectMusicThru as ::windows::core::Interface>::IID

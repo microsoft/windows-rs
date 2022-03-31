@@ -10,7 +10,7 @@ impl IAsyncGetSendNotificationCookie_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FinishAsyncCallWithData(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
-        Self { base: IPrintAsyncCookie_Vtbl::new::<Identity, Impl, OFFSET>(), FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintAsyncCookie_Vtbl::new::<Identity, Impl, OFFSET>(), FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncGetSendNotificationCookie as ::windows::core::Interface>::IID || iid == &<IPrintAsyncCookie as ::windows::core::Interface>::IID
@@ -39,7 +39,7 @@ impl IAsyncGetSrvReferralCookie_Vtbl {
             (*this).FinishAsyncCallWithData(::core::mem::transmute(&param0)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FinishAsyncCall: FinishAsyncCall::<Identity, Impl, OFFSET>,
             CancelAsyncCall: CancelAsyncCall::<Identity, Impl, OFFSET>,
             FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET>,
@@ -84,7 +84,7 @@ impl IBidiAsyncNotifyChannel_Vtbl {
             (*this).AsyncCloseChannel(::core::mem::transmute(&param0), ::core::mem::transmute(&param1)).into()
         }
         Self {
-            base: IPrintAsyncNotifyChannel_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintAsyncNotifyChannel_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateNotificationChannel: CreateNotificationChannel::<Identity, Impl, OFFSET>,
             GetPrintName: GetPrintName::<Identity, Impl, OFFSET>,
             GetChannelNotificationType: GetChannelNotificationType::<Identity, Impl, OFFSET>,
@@ -143,7 +143,7 @@ impl IBidiRequest_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetSchema: SetSchema::<Identity, Impl, OFFSET>,
             SetInputData: SetInputData::<Identity, Impl, OFFSET>,
             GetResult: GetResult::<Identity, Impl, OFFSET>,
@@ -192,7 +192,7 @@ impl IBidiRequestContainer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddRequest: AddRequest::<Identity, Impl, OFFSET>,
             GetEnumObject: GetEnumObject::<Identity, Impl, OFFSET>,
             GetRequestCount: GetRequestCount::<Identity, Impl, OFFSET>,
@@ -231,7 +231,7 @@ impl IBidiSpl_Vtbl {
             (*this).MultiSendRecv(::core::mem::transmute(&pszaction), ::core::mem::transmute(&prequestcontainer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BindDevice: BindDevice::<Identity, Impl, OFFSET>,
             UnbindDevice: UnbindDevice::<Identity, Impl, OFFSET>,
             SendRecv: SendRecv::<Identity, Impl, OFFSET>,
@@ -285,7 +285,7 @@ impl IBidiSpl2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BindDevice: BindDevice::<Identity, Impl, OFFSET>,
             UnbindDevice: UnbindDevice::<Identity, Impl, OFFSET>,
             SendRecvXMLString: SendRecvXMLString::<Identity, Impl, OFFSET>,
@@ -333,7 +333,7 @@ impl IFixedDocument_Vtbl {
             (*this).SetPrintTicket(::core::mem::transmute(&pprintticket)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetUri: GetUri::<Identity, Impl, OFFSET>,
             GetPrintTicket: GetPrintTicket::<Identity, Impl, OFFSET>,
             SetPrintTicket: SetPrintTicket::<Identity, Impl, OFFSET>,
@@ -380,7 +380,7 @@ impl IFixedDocumentSequence_Vtbl {
             (*this).SetPrintTicket(::core::mem::transmute(&pprintticket)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetUri: GetUri::<Identity, Impl, OFFSET>,
             GetPrintTicket: GetPrintTicket::<Identity, Impl, OFFSET>,
             SetPrintTicket: SetPrintTicket::<Identity, Impl, OFFSET>,
@@ -463,7 +463,7 @@ impl IFixedPage_Vtbl {
             }
         }
         Self {
-            base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPrintTicket: GetPrintTicket::<Identity, Impl, OFFSET>,
             GetPagePart: GetPagePart::<Identity, Impl, OFFSET>,
             GetWriteStream: GetWriteStream::<Identity, Impl, OFFSET>,
@@ -490,7 +490,7 @@ impl IImgCreateErrorInfo_Vtbl {
             (*this).AttachToErrorInfo(::core::mem::transmute_copy(&perrorinfo)).into()
         }
         Self {
-            base: super::super::System::Ole::ICreateErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Ole::ICreateErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             AttachToErrorInfo: AttachToErrorInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -589,7 +589,7 @@ impl IImgErrorInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDeveloperDescription: GetDeveloperDescription::<Identity, Impl, OFFSET>,
             GetUserErrorId: GetUserErrorId::<Identity, Impl, OFFSET>,
             GetUserParameterCount: GetUserParameterCount::<Identity, Impl, OFFSET>,
@@ -620,7 +620,7 @@ impl IInterFilterCommunicator_Vtbl {
             (*this).RequestWriter(::core::mem::transmute_copy(&ppiwriter)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RequestReader: RequestReader::<Identity, Impl, OFFSET>,
             RequestWriter: RequestWriter::<Identity, Impl, OFFSET>,
         }
@@ -678,7 +678,7 @@ impl IPartBase_Vtbl {
             (*this).SetPartCompression(::core::mem::transmute_copy(&compression)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetUri: GetUri::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             GetPartCompression: GetPartCompression::<Identity, Impl, OFFSET>,
@@ -694,7 +694,7 @@ pub trait IPartColorProfile_Impl: Sized + IPartBase_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPartColorProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPartColorProfile_Impl, const OFFSET: isize>() -> IPartColorProfile_Vtbl {
-        Self { base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPartColorProfile as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
@@ -712,7 +712,7 @@ impl IPartDiscardControl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDiscardProperties(::core::mem::transmute_copy(&urisentinelpage), ::core::mem::transmute_copy(&uriparttodiscard)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDiscardProperties: GetDiscardProperties::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDiscardProperties: GetDiscardProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPartDiscardControl as ::windows::core::Interface>::IID
@@ -743,7 +743,7 @@ impl IPartFont_Vtbl {
             (*this).SetFontOptions(::core::mem::transmute_copy(&options)).into()
         }
         Self {
-            base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFontProperties: GetFontProperties::<Identity, Impl, OFFSET>,
             SetFontContent: SetFontContent::<Identity, Impl, OFFSET>,
             SetFontOptions: SetFontOptions::<Identity, Impl, OFFSET>,
@@ -771,7 +771,7 @@ impl IPartFont2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPartFont_Vtbl::new::<Identity, Impl, OFFSET>(), GetFontRestriction: GetFontRestriction::<Identity, Impl, OFFSET> }
+        Self { base__: IPartFont_Vtbl::new::<Identity, Impl, OFFSET>(), GetFontRestriction: GetFontRestriction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPartFont2 as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID || iid == &<IPartFont as ::windows::core::Interface>::IID
@@ -802,7 +802,7 @@ impl IPartImage_Vtbl {
             (*this).SetImageContent(::core::mem::transmute(&pcontenttype)).into()
         }
         Self {
-            base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetImageProperties: GetImageProperties::<Identity, Impl, OFFSET>,
             SetImageContent: SetImageContent::<Identity, Impl, OFFSET>,
         }
@@ -816,7 +816,7 @@ pub trait IPartPrintTicket_Impl: Sized + IPartBase_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPartPrintTicket_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPartPrintTicket_Impl, const OFFSET: isize>() -> IPartPrintTicket_Vtbl {
-        Self { base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPartPrintTicket as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
@@ -827,7 +827,7 @@ pub trait IPartResourceDictionary_Impl: Sized + IPartBase_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPartResourceDictionary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPartResourceDictionary_Impl, const OFFSET: isize>() -> IPartResourceDictionary_Vtbl {
-        Self { base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPartResourceDictionary as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
@@ -858,7 +858,7 @@ impl IPartThumbnail_Vtbl {
             (*this).SetThumbnailContent(::core::mem::transmute(&pcontenttype)).into()
         }
         Self {
-            base: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetThumbnailProperties: GetThumbnailProperties::<Identity, Impl, OFFSET>,
             SetThumbnailContent: SetThumbnailContent::<Identity, Impl, OFFSET>,
         }
@@ -884,7 +884,7 @@ impl IPrintAsyncCookie_Vtbl {
             (*this).CancelAsyncCall(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FinishAsyncCall: FinishAsyncCall::<Identity, Impl, OFFSET>,
             CancelAsyncCall: CancelAsyncCall::<Identity, Impl, OFFSET>,
         }
@@ -903,7 +903,7 @@ impl IPrintAsyncNewChannelCookie_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FinishAsyncCallWithData(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
-        Self { base: IPrintAsyncCookie_Vtbl::new::<Identity, Impl, OFFSET>(), FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintAsyncCookie_Vtbl::new::<Identity, Impl, OFFSET>(), FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintAsyncNewChannelCookie as ::windows::core::Interface>::IID || iid == &<IPrintAsyncCookie as ::windows::core::Interface>::IID
@@ -938,7 +938,7 @@ impl IPrintAsyncNotify_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreatePrintAsyncNotifyChannel: CreatePrintAsyncNotifyChannel::<Identity, Impl, OFFSET>,
             CreatePrintAsyncNotifyRegistration: CreatePrintAsyncNotifyRegistration::<Identity, Impl, OFFSET>,
         }
@@ -964,7 +964,7 @@ impl IPrintAsyncNotifyCallback_Vtbl {
             (*this).ChannelClosed(::core::mem::transmute(&pchannel), ::core::mem::transmute(&pdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnEventNotify: OnEventNotify::<Identity, Impl, OFFSET>,
             ChannelClosed: ChannelClosed::<Identity, Impl, OFFSET>,
         }
@@ -990,7 +990,7 @@ impl IPrintAsyncNotifyChannel_Vtbl {
             (*this).CloseChannel(::core::mem::transmute(&pdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SendNotification: SendNotification::<Identity, Impl, OFFSET>,
             CloseChannel: CloseChannel::<Identity, Impl, OFFSET>,
         }
@@ -1016,7 +1016,7 @@ impl IPrintAsyncNotifyDataObject_Vtbl {
             (*this).ReleaseData().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AcquireData: AcquireData::<Identity, Impl, OFFSET>,
             ReleaseData: ReleaseData::<Identity, Impl, OFFSET>,
         }
@@ -1042,7 +1042,7 @@ impl IPrintAsyncNotifyRegistration_Vtbl {
             (*this).UnregisterForNotifications().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterForNotifications: RegisterForNotifications::<Identity, Impl, OFFSET>,
             UnregisterForNotifications: UnregisterForNotifications::<Identity, Impl, OFFSET>,
         }
@@ -1080,7 +1080,7 @@ impl IPrintAsyncNotifyServerReferral_Vtbl {
             (*this).SetServerReferral(::core::mem::transmute(&prmtserverreferral)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetServerReferral: GetServerReferral::<Identity, Impl, OFFSET>,
             AsyncGetServerReferral: AsyncGetServerReferral::<Identity, Impl, OFFSET>,
             SetServerReferral: SetServerReferral::<Identity, Impl, OFFSET>,
@@ -1100,7 +1100,7 @@ impl IPrintBidiAsyncNotifyRegistration_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AsyncGetNewChannel(::core::mem::transmute(&param0)).into()
         }
-        Self { base: IPrintAsyncNotifyRegistration_Vtbl::new::<Identity, Impl, OFFSET>(), AsyncGetNewChannel: AsyncGetNewChannel::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintAsyncNotifyRegistration_Vtbl::new::<Identity, Impl, OFFSET>(), AsyncGetNewChannel: AsyncGetNewChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintBidiAsyncNotifyRegistration as ::windows::core::Interface>::IID || iid == &<IPrintAsyncNotifyRegistration as ::windows::core::Interface>::IID
@@ -1116,7 +1116,7 @@ impl IPrintClassObjectFactory_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPrintClassObject(::core::mem::transmute(&pszprintername), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppnewobject)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPrintClassObject: GetPrintClassObject::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPrintClassObject: GetPrintClassObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintClassObjectFactory as ::windows::core::Interface>::IID
@@ -1189,7 +1189,7 @@ impl IPrintCoreHelper_Vtbl {
             (*this).CreateInstanceOfMSXMLObject(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOption: GetOption::<Identity, Impl, OFFSET>,
             SetOptions: SetOptions::<Identity, Impl, OFFSET>,
             EnumConstrainedOptions: EnumConstrainedOptions::<Identity, Impl, OFFSET>,
@@ -1230,7 +1230,7 @@ impl IPrintCoreHelperPS_Vtbl {
             (*this).GetOptionAttribute(::core::mem::transmute(&pszfeaturekeyword), ::core::mem::transmute(&pszoptionkeyword), ::core::mem::transmute(&pszattribute), ::core::mem::transmute_copy(&pdwdatatype), ::core::mem::transmute_copy(&ppbdata), ::core::mem::transmute_copy(&pcbsize)).into()
         }
         Self {
-            base: IPrintCoreHelper_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintCoreHelper_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGlobalAttribute: GetGlobalAttribute::<Identity, Impl, OFFSET>,
             GetFeatureAttribute: GetFeatureAttribute::<Identity, Impl, OFFSET>,
             GetOptionAttribute: GetOptionAttribute::<Identity, Impl, OFFSET>,
@@ -1265,7 +1265,7 @@ impl IPrintCoreHelperUni_Vtbl {
             }
         }
         Self {
-            base: IPrintCoreHelper_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintCoreHelper_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateGDLSnapshot: CreateGDLSnapshot::<Identity, Impl, OFFSET>,
             CreateDefaultGDLSnapshot: CreateDefaultGDLSnapshot::<Identity, Impl, OFFSET>,
         }
@@ -1286,7 +1286,7 @@ impl IPrintCoreHelperUni2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNamedCommand(::core::mem::transmute_copy(&pdevmode), ::core::mem::transmute_copy(&cbsize), ::core::mem::transmute(&pszcommandname), ::core::mem::transmute_copy(&ppcommandbytes), ::core::mem::transmute_copy(&pcbcommandsize)).into()
         }
-        Self { base: IPrintCoreHelperUni_Vtbl::new::<Identity, Impl, OFFSET>(), GetNamedCommand: GetNamedCommand::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintCoreHelperUni_Vtbl::new::<Identity, Impl, OFFSET>(), GetNamedCommand: GetNamedCommand::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintCoreHelperUni2 as ::windows::core::Interface>::IID || iid == &<IPrintCoreHelper as ::windows::core::Interface>::IID || iid == &<IPrintCoreHelperUni as ::windows::core::Interface>::IID
@@ -1365,7 +1365,7 @@ impl IPrintCoreUI2_Vtbl {
             (*this).QuerySimulationSupport(::core::mem::transmute_copy(&hprinter), ::core::mem::transmute_copy(&dwlevel), ::core::mem::transmute_copy(&pcaps), ::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&pcbneeded)).into()
         }
         Self {
-            base: IPrintOemDriverUI_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintOemDriverUI_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOptions: GetOptions::<Identity, Impl, OFFSET>,
             SetOptions: SetOptions::<Identity, Impl, OFFSET>,
             EnumConstrainedOptions: EnumConstrainedOptions::<Identity, Impl, OFFSET>,
@@ -1467,7 +1467,7 @@ impl IPrintJob_Vtbl {
             (*this).RequestCancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             PrintedPages: PrintedPages::<Identity, Impl, OFFSET>,
@@ -1524,7 +1524,7 @@ impl IPrintJobCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1553,7 +1553,7 @@ impl IPrintOemCommon_Vtbl {
             (*this).DevMode(::core::mem::transmute_copy(&dwmode), ::core::mem::transmute_copy(&poemdmparam)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
             DevMode: DevMode::<Identity, Impl, OFFSET>,
         }
@@ -1587,7 +1587,7 @@ impl IPrintOemDriverUI_Vtbl {
             (*this).DrvUpdateUISetting(::core::mem::transmute_copy(&pci), ::core::mem::transmute_copy(&poptitem), ::core::mem::transmute_copy(&dwpreviousselection), ::core::mem::transmute_copy(&dwmode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DrvGetDriverSetting: DrvGetDriverSetting::<Identity, Impl, OFFSET>,
             DrvUpgradeRegistrySetting: DrvUpgradeRegistrySetting::<Identity, Impl, OFFSET>,
             DrvUpdateUISetting: DrvUpdateUISetting::<Identity, Impl, OFFSET>,
@@ -1676,7 +1676,7 @@ impl IPrintOemUI_Vtbl {
             (*this).UpdateExternalFonts(::core::mem::transmute_copy(&hprinter), ::core::mem::transmute_copy(&hheap), ::core::mem::transmute(&pwstrcartridges)).into()
         }
         Self {
-            base: IPrintOemCommon_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintOemCommon_Vtbl::new::<Identity, Impl, OFFSET>(),
             PublishDriverInterface: PublishDriverInterface::<Identity, Impl, OFFSET>,
             CommonUIProp: CommonUIProp::<Identity, Impl, OFFSET>,
             DocumentPropertySheets: DocumentPropertySheets::<Identity, Impl, OFFSET>,
@@ -1720,7 +1720,7 @@ impl IPrintOemUI2_Vtbl {
             (*this).DocumentEvent(::core::mem::transmute_copy(&hprinter), ::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&iesc), ::core::mem::transmute_copy(&cbin), ::core::mem::transmute_copy(&pvin), ::core::mem::transmute_copy(&cbout), ::core::mem::transmute_copy(&pvout), ::core::mem::transmute_copy(&piresult)).into()
         }
         Self {
-            base: IPrintOemUI_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintOemUI_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueryJobAttributes: QueryJobAttributes::<Identity, Impl, OFFSET>,
             HideStandardUI: HideStandardUI::<Identity, Impl, OFFSET>,
             DocumentEvent: DocumentEvent::<Identity, Impl, OFFSET>,
@@ -1755,7 +1755,7 @@ impl IPrintOemUIMXDC_Vtbl {
             (*this).AdjustDPI(::core::mem::transmute_copy(&hprinter), ::core::mem::transmute_copy(&cbdevmode), ::core::mem::transmute_copy(&pdevmode), ::core::mem::transmute_copy(&cboemdm), ::core::mem::transmute_copy(&poemdm), ::core::mem::transmute_copy(&pdpi)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AdjustImageableArea: AdjustImageableArea::<Identity, Impl, OFFSET>,
             AdjustImageCompression: AdjustImageCompression::<Identity, Impl, OFFSET>,
             AdjustDPI: AdjustDPI::<Identity, Impl, OFFSET>,
@@ -1788,7 +1788,7 @@ impl IPrintPipelineFilter_Vtbl {
             (*this).StartOperation().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeFilter: InitializeFilter::<Identity, Impl, OFFSET>,
             ShutdownOperation: ShutdownOperation::<Identity, Impl, OFFSET>,
             StartOperation: StartOperation::<Identity, Impl, OFFSET>,
@@ -1817,7 +1817,7 @@ impl IPrintPipelineManagerControl_Vtbl {
             (*this).FilterFinished().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RequestShutdown: RequestShutdown::<Identity, Impl, OFFSET>,
             FilterFinished: FilterFinished::<Identity, Impl, OFFSET>,
         }
@@ -1836,7 +1836,7 @@ impl IPrintPipelineProgressReport_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReportProgress(::core::mem::transmute_copy(&update)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintPipelineProgressReport as ::windows::core::Interface>::IID
@@ -1873,7 +1873,7 @@ impl IPrintPipelinePropertyBag_Vtbl {
             (*this).DeleteProperty(::core::mem::transmute(&pszname))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddProperty: AddProperty::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             DeleteProperty: DeleteProperty::<Identity, Impl, OFFSET>,
@@ -1908,7 +1908,7 @@ impl IPrintPreviewDxgiPackageTarget_Vtbl {
             (*this).InvalidatePreview().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetJobPageCount: SetJobPageCount::<Identity, Impl, OFFSET>,
             DrawPage: DrawPage::<Identity, Impl, OFFSET>,
             InvalidatePreview: InvalidatePreview::<Identity, Impl, OFFSET>,
@@ -1943,7 +1943,7 @@ impl IPrintReadStream_Vtbl {
             (*this).ReadBytes(::core::mem::transmute_copy(&pvbuffer), ::core::mem::transmute_copy(&cbrequested), ::core::mem::transmute_copy(&pcbread), ::core::mem::transmute_copy(&pbendoffile)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Seek: Seek::<Identity, Impl, OFFSET>,
             ReadBytes: ReadBytes::<Identity, Impl, OFFSET>,
         }
@@ -1968,7 +1968,7 @@ impl IPrintReadStreamFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetStream: GetStream::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetStream: GetStream::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintReadStreamFactory as ::windows::core::Interface>::IID
@@ -1993,7 +1993,7 @@ impl IPrintSchemaAsyncOperation_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
@@ -2014,7 +2014,7 @@ impl IPrintSchemaAsyncOperationEvent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Completed(::core::mem::transmute(&pticket), ::core::mem::transmute_copy(&hroperation)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSchemaAsyncOperationEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -2111,7 +2111,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             }
         }
         Self {
-            base: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFeatureByKeyName: GetFeatureByKeyName::<Identity, Impl, OFFSET>,
             GetFeature: GetFeature::<Identity, Impl, OFFSET>,
             PageImageableSize: PageImageableSize::<Identity, Impl, OFFSET>,
@@ -2143,7 +2143,7 @@ impl IPrintSchemaCapabilities2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPrintSchemaCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetParameterDefinition: GetParameterDefinition::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintSchemaCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetParameterDefinition: GetParameterDefinition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSchemaCapabilities2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaCapabilities as ::windows::core::Interface>::IID
@@ -2167,7 +2167,7 @@ impl IPrintSchemaDisplayableElement_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(), DisplayName: DisplayName::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(), DisplayName: DisplayName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
@@ -2216,7 +2216,7 @@ impl IPrintSchemaElement_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             XmlNode: XmlNode::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             NamespaceUri: NamespaceUri::<Identity, Impl, OFFSET>,
@@ -2287,7 +2287,7 @@ impl IPrintSchemaFeature_Vtbl {
             }
         }
         Self {
-            base: IPrintSchemaDisplayableElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaDisplayableElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             SelectedOption: SelectedOption::<Identity, Impl, OFFSET>,
             SetSelectedOption: SetSelectedOption::<Identity, Impl, OFFSET>,
             SelectionType: SelectionType::<Identity, Impl, OFFSET>,
@@ -2317,7 +2317,7 @@ impl IPrintSchemaNUpOption_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPrintSchemaOption_Vtbl::new::<Identity, Impl, OFFSET>(), PagesPerSheet: PagesPerSheet::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintSchemaOption_Vtbl::new::<Identity, Impl, OFFSET>(), PagesPerSheet: PagesPerSheet::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSchemaNUpOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID
@@ -2366,7 +2366,7 @@ impl IPrintSchemaOption_Vtbl {
             }
         }
         Self {
-            base: IPrintSchemaDisplayableElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaDisplayableElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             Selected: Selected::<Identity, Impl, OFFSET>,
             Constrained: Constrained::<Identity, Impl, OFFSET>,
             GetPropertyValue: GetPropertyValue::<Identity, Impl, OFFSET>,
@@ -2419,7 +2419,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2508,7 +2508,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             }
         }
         Self {
-            base: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             ImageableSizeWidthInMicrons: ImageableSizeWidthInMicrons::<Identity, Impl, OFFSET>,
             ImageableSizeHeightInMicrons: ImageableSizeHeightInMicrons::<Identity, Impl, OFFSET>,
             OriginWidthInMicrons: OriginWidthInMicrons::<Identity, Impl, OFFSET>,
@@ -2552,7 +2552,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
             }
         }
         Self {
-            base: IPrintSchemaOption_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaOption_Vtbl::new::<Identity, Impl, OFFSET>(),
             WidthInMicrons: WidthInMicrons::<Identity, Impl, OFFSET>,
             HeightInMicrons: HeightInMicrons::<Identity, Impl, OFFSET>,
         }
@@ -2628,7 +2628,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
             }
         }
         Self {
-            base: IPrintSchemaDisplayableElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaDisplayableElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserInputRequired: UserInputRequired::<Identity, Impl, OFFSET>,
             UnitType: UnitType::<Identity, Impl, OFFSET>,
             DataType: DataType::<Identity, Impl, OFFSET>,
@@ -2665,7 +2665,7 @@ impl IPrintSchemaParameterInitializer_Vtbl {
             (*this).SetValue(::core::mem::transmute_copy(&pvar)).into()
         }
         Self {
-            base: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
         }
@@ -2765,7 +2765,7 @@ impl IPrintSchemaTicket_Vtbl {
             (*this).SetJobCopiesAllDocuments(::core::mem::transmute_copy(&uljobcopiesalldocuments)).into()
         }
         Self {
-            base: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFeatureByKeyName: GetFeatureByKeyName::<Identity, Impl, OFFSET>,
             GetFeature: GetFeature::<Identity, Impl, OFFSET>,
             ValidateAsync: ValidateAsync::<Identity, Impl, OFFSET>,
@@ -2798,7 +2798,7 @@ impl IPrintSchemaTicket2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPrintSchemaTicket_Vtbl::new::<Identity, Impl, OFFSET>(), GetParameterInitializer: GetParameterInitializer::<Identity, Impl, OFFSET> }
+        Self { base__: IPrintSchemaTicket_Vtbl::new::<Identity, Impl, OFFSET>(), GetParameterInitializer: GetParameterInitializer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintSchemaTicket2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaTicket as ::windows::core::Interface>::IID
@@ -2859,7 +2859,7 @@ impl IPrintTicketProvider_Vtbl {
             (*this).ValidatePrintTicket(::core::mem::transmute(&pbaseticket)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSupportedVersions: GetSupportedVersions::<Identity, Impl, OFFSET>,
             BindPrinter: BindPrinter::<Identity, Impl, OFFSET>,
             QueryDeviceNamespace: QueryDeviceNamespace::<Identity, Impl, OFFSET>,
@@ -2904,7 +2904,7 @@ impl IPrintTicketProvider2_Vtbl {
             }
         }
         Self {
-            base: IPrintTicketProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrintTicketProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPrintDeviceCapabilities: GetPrintDeviceCapabilities::<Identity, Impl, OFFSET>,
             GetPrintDeviceResources: GetPrintDeviceResources::<Identity, Impl, OFFSET>,
         }
@@ -2923,7 +2923,10 @@ impl IPrintUnidiAsyncNotifyRegistration_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AsyncGetNotification(::core::mem::transmute(&param0)).into()
         }
-        Self { base: IPrintAsyncNotifyRegistration_Vtbl::new::<Identity, Impl, OFFSET>(), AsyncGetNotification: AsyncGetNotification::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IPrintAsyncNotifyRegistration_Vtbl::new::<Identity, Impl, OFFSET>(),
+            AsyncGetNotification: AsyncGetNotification::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintUnidiAsyncNotifyRegistration as ::windows::core::Interface>::IID || iid == &<IPrintAsyncNotifyRegistration as ::windows::core::Interface>::IID
@@ -2952,7 +2955,7 @@ impl IPrintWriteStream_Vtbl {
             (*this).Close()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             WriteBytes: WriteBytes::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -2971,7 +2974,7 @@ impl IPrintWriteStreamFlush_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FlushData().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FlushData: FlushData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FlushData: FlushData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWriteStreamFlush as ::windows::core::Interface>::IID
@@ -2989,7 +2992,7 @@ impl IPrinterBidiSetRequestCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Completed(::core::mem::transmute(&bstrresponse), ::core::mem::transmute_copy(&hrstatus)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinterBidiSetRequestCallback as ::windows::core::Interface>::IID
@@ -3005,7 +3008,7 @@ impl IPrinterExtensionAsyncOperation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Cancel().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinterExtensionAsyncOperation as ::windows::core::Interface>::IID
@@ -3066,7 +3069,7 @@ impl IPrinterExtensionContext_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrinterQueue: PrinterQueue::<Identity, Impl, OFFSET>,
             PrintSchemaTicket: PrintSchemaTicket::<Identity, Impl, OFFSET>,
             DriverProperties: DriverProperties::<Identity, Impl, OFFSET>,
@@ -3120,7 +3123,7 @@ impl IPrinterExtensionContextCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3149,7 +3152,7 @@ impl IPrinterExtensionEvent_Vtbl {
             (*this).OnPrinterQueuesEnumerated(::core::mem::transmute(&pcontextcollection)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnDriverEvent: OnDriverEvent::<Identity, Impl, OFFSET>,
             OnPrinterQueuesEnumerated: OnPrinterQueuesEnumerated::<Identity, Impl, OFFSET>,
         }
@@ -3249,7 +3252,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             }
         }
         Self {
-            base: IPrinterExtensionContext_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrinterExtensionContext_Vtbl::new::<Identity, Impl, OFFSET>(),
             BidiNotification: BidiNotification::<Identity, Impl, OFFSET>,
             ReasonId: ReasonId::<Identity, Impl, OFFSET>,
             Request: Request::<Identity, Impl, OFFSET>,
@@ -3280,7 +3283,7 @@ impl IPrinterExtensionManager_Vtbl {
             (*this).DisableEvents().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnableEvents: EnableEvents::<Identity, Impl, OFFSET>,
             DisableEvents: DisableEvents::<Identity, Impl, OFFSET>,
         }
@@ -3308,7 +3311,7 @@ impl IPrinterExtensionRequest_Vtbl {
             (*this).Complete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             Complete: Complete::<Identity, Impl, OFFSET>,
         }
@@ -3414,7 +3417,7 @@ impl IPrinterPropertyBag_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetBool: GetBool::<Identity, Impl, OFFSET>,
             SetBool: SetBool::<Identity, Impl, OFFSET>,
             GetInt32: GetInt32::<Identity, Impl, OFFSET>,
@@ -3480,7 +3483,7 @@ impl IPrinterQueue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Handle: Handle::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             SendBidiQuery: SendBidiQuery::<Identity, Impl, OFFSET>,
@@ -3522,7 +3525,7 @@ impl IPrinterQueue2_Vtbl {
             }
         }
         Self {
-            base: IPrinterQueue_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrinterQueue_Vtbl::new::<Identity, Impl, OFFSET>(),
             SendBidiSetRequestAsync: SendBidiSetRequestAsync::<Identity, Impl, OFFSET>,
             GetPrinterQueueView: GetPrinterQueueView::<Identity, Impl, OFFSET>,
         }
@@ -3544,7 +3547,7 @@ impl IPrinterQueueEvent_Vtbl {
             (*this).OnBidiResponseReceived(::core::mem::transmute(&bstrresponse), ::core::mem::transmute_copy(&hrstatus)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnBidiResponseReceived: OnBidiResponseReceived::<Identity, Impl, OFFSET>,
         }
     }
@@ -3564,7 +3567,7 @@ impl IPrinterQueueView_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetViewRange(::core::mem::transmute_copy(&ulviewoffset), ::core::mem::transmute_copy(&ulviewsize)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), SetViewRange: SetViewRange::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), SetViewRange: SetViewRange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinterQueueView as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -3582,7 +3585,7 @@ impl IPrinterQueueViewEvent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnChanged(::core::mem::transmute(&pcollection), ::core::mem::transmute_copy(&ulviewoffset), ::core::mem::transmute_copy(&ulviewsize), ::core::mem::transmute_copy(&ulcountjobsinprintqueue)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinterQueueViewEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -3631,7 +3634,7 @@ impl IPrinterScriptContext_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DriverProperties: DriverProperties::<Identity, Impl, OFFSET>,
             QueueProperties: QueueProperties::<Identity, Impl, OFFSET>,
             UserProperties: UserProperties::<Identity, Impl, OFFSET>,
@@ -3744,7 +3747,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetBool: GetBool::<Identity, Impl, OFFSET>,
             SetBool: SetBool::<Identity, Impl, OFFSET>,
             GetInt32: GetInt32::<Identity, Impl, OFFSET>,
@@ -3779,7 +3782,7 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IPrinterScriptablePropertyBag_Vtbl::new::<Identity, Impl, OFFSET>(), GetReadStreamAsXML: GetReadStreamAsXML::<Identity, Impl, OFFSET> }
+        Self { base__: IPrinterScriptablePropertyBag_Vtbl::new::<Identity, Impl, OFFSET>(), GetReadStreamAsXML: GetReadStreamAsXML::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrinterScriptablePropertyBag2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterScriptablePropertyBag as ::windows::core::Interface>::IID
@@ -3816,7 +3819,7 @@ impl IPrinterScriptableSequentialStream_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Read: Read::<Identity, Impl, OFFSET>,
             Write: Write::<Identity, Impl, OFFSET>,
         }
@@ -3856,7 +3859,7 @@ impl IPrinterScriptableStream_Vtbl {
             (*this).SetSize(::core::mem::transmute_copy(&lsize)).into()
         }
         Self {
-            base: IPrinterScriptableSequentialStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPrinterScriptableSequentialStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             Commit: Commit::<Identity, Impl, OFFSET>,
             Seek: Seek::<Identity, Impl, OFFSET>,
             SetSize: SetSize::<Identity, Impl, OFFSET>,
@@ -3889,7 +3892,7 @@ impl IXpsDocument_Vtbl {
             (*this).SetThumbnail(::core::mem::transmute(&pthumbnail)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetThumbnail: GetThumbnail::<Identity, Impl, OFFSET>,
             SetThumbnail: SetThumbnail::<Identity, Impl, OFFSET>,
         }
@@ -3945,7 +3948,7 @@ impl IXpsDocumentConsumer_Vtbl {
             (*this).GetNewEmptyPart(::core::mem::transmute(&uri), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppnewobject), ::core::mem::transmute_copy(&ppwritestream)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SendXpsUnknown: SendXpsUnknown::<Identity, Impl, OFFSET>,
             SendXpsDocument: SendXpsDocument::<Identity, Impl, OFFSET>,
             SendFixedDocumentSequence: SendFixedDocumentSequence::<Identity, Impl, OFFSET>,
@@ -3975,7 +3978,7 @@ impl IXpsDocumentProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetXpsPart: GetXpsPart::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetXpsPart: GetXpsPart::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsDocumentProvider as ::windows::core::Interface>::IID
@@ -4012,7 +4015,7 @@ impl IXpsPartIterator_Vtbl {
             (*this).Next()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Current: Current::<Identity, Impl, OFFSET>,
             IsDone: IsDone::<Identity, Impl, OFFSET>,
@@ -4041,7 +4044,7 @@ impl IXpsRasterizationFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsRasterizationFactory as ::windows::core::Interface>::IID
@@ -4065,7 +4068,7 @@ impl IXpsRasterizationFactory1_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsRasterizationFactory1 as ::windows::core::Interface>::IID
@@ -4089,7 +4092,7 @@ impl IXpsRasterizationFactory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsRasterizationFactory2 as ::windows::core::Interface>::IID
@@ -4120,7 +4123,7 @@ impl IXpsRasterizer_Vtbl {
             (*this).SetMinimalLineWidth(::core::mem::transmute_copy(&width)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RasterizeRect: RasterizeRect::<Identity, Impl, OFFSET>,
             SetMinimalLineWidth: SetMinimalLineWidth::<Identity, Impl, OFFSET>,
         }
@@ -4139,7 +4142,7 @@ impl IXpsRasterizerNotificationCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Continue().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Continue: Continue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Continue: Continue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXpsRasterizerNotificationCallback as ::windows::core::Interface>::IID

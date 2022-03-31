@@ -21,7 +21,7 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
             (*this).ReportError(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderBaseReportOperation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderBaseReportOperation, OFFSET>(),
             ReportCompleted: ReportCompleted::<Identity, Impl, OFFSET>,
             ReportError: ReportError::<Identity, Impl, OFFSET>,
         }
@@ -50,7 +50,7 @@ impl IWebAccountProviderOperation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderOperation, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderOperation, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderOperation as ::windows::core::Interface>::IID
@@ -79,7 +79,7 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
             (*this).ReportUserInteractionRequiredWithError(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderSilentReportOperation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderSilentReportOperation, OFFSET>(),
             ReportUserInteractionRequired: ReportUserInteractionRequired::<Identity, Impl, OFFSET>,
             ReportUserInteractionRequiredWithError: ReportUserInteractionRequiredWithError::<Identity, Impl, OFFSET>,
         }
@@ -109,7 +109,7 @@ impl IWebAccountProviderTokenObjects_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects, OFFSET>(),
             Operation: Operation::<Identity, Impl, OFFSET>,
         }
     }
@@ -140,7 +140,7 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects2, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects2, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects2 as ::windows::core::Interface>::IID
@@ -202,7 +202,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenOperation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenOperation, OFFSET>(),
             ProviderRequest: ProviderRequest::<Identity, Impl, OFFSET>,
             ProviderResponses: ProviderResponses::<Identity, Impl, OFFSET>,
             SetCacheExpirationTime: SetCacheExpirationTime::<Identity, Impl, OFFSET>,
@@ -230,7 +230,7 @@ impl IWebAccountProviderUIReportOperation_Vtbl {
             (*this).ReportUserCanceled().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderUIReportOperation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderUIReportOperation, OFFSET>(),
             ReportUserCanceled: ReportUserCanceled::<Identity, Impl, OFFSET>,
         }
     }

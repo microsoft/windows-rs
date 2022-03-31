@@ -3,7 +3,7 @@ pub trait DICounterItem_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DICounterItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DICounterItem_Impl, const OFFSET: isize>() -> DICounterItem_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DICounterItem as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -14,7 +14,7 @@ pub trait DILogFileItem_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DILogFileItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DILogFileItem_Impl, const OFFSET: isize>() -> DILogFileItem_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DILogFileItem as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -25,7 +25,7 @@ pub trait DISystemMonitor_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DISystemMonitor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitor_Impl, const OFFSET: isize>() -> DISystemMonitor_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DISystemMonitor as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -36,7 +36,7 @@ pub trait DISystemMonitorEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DISystemMonitorEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorEvents_Impl, const OFFSET: isize>() -> DISystemMonitorEvents_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DISystemMonitorEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -47,7 +47,7 @@ pub trait DISystemMonitorInternal_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DISystemMonitorInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorInternal_Impl, const OFFSET: isize>() -> DISystemMonitorInternal_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DISystemMonitorInternal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -204,7 +204,7 @@ impl IAlertDataCollector_Vtbl {
             (*this).SetTriggerDataCollectorSet(::core::mem::transmute(&name)).into()
         }
         Self {
-            base: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
             AlertThresholds: AlertThresholds::<Identity, Impl, OFFSET>,
             SetAlertThresholds: SetAlertThresholds::<Identity, Impl, OFFSET>,
             EventLog: EventLog::<Identity, Impl, OFFSET>,
@@ -360,7 +360,7 @@ impl IApiTracingDataCollector_Vtbl {
             (*this).SetExcludeApis(::core::mem::transmute_copy(&excludeapis)).into()
         }
         Self {
-            base: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
             LogApiNamesOnly: LogApiNamesOnly::<Identity, Impl, OFFSET>,
             SetLogApiNamesOnly: SetLogApiNamesOnly::<Identity, Impl, OFFSET>,
             LogApisRecursively: LogApisRecursively::<Identity, Impl, OFFSET>,
@@ -550,7 +550,7 @@ impl IConfigurationDataCollector_Vtbl {
             (*this).SetSystemStateFile(::core::mem::transmute(&filename)).into()
         }
         Self {
-            base: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
             FileMaxCount: FileMaxCount::<Identity, Impl, OFFSET>,
             SetFileMaxCount: SetFileMaxCount::<Identity, Impl, OFFSET>,
             FileMaxRecursiveDepth: FileMaxRecursiveDepth::<Identity, Impl, OFFSET>,
@@ -690,7 +690,7 @@ impl ICounterItem_Vtbl {
             (*this).GetStatistics(::core::mem::transmute_copy(&max), ::core::mem::transmute_copy(&min), ::core::mem::transmute_copy(&avg), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             Color: Color::<Identity, Impl, OFFSET>,
@@ -764,7 +764,7 @@ impl ICounterItem2_Vtbl {
             }
         }
         Self {
-            base: ICounterItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICounterItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSelected: SetSelected::<Identity, Impl, OFFSET>,
             Selected: Selected::<Identity, Impl, OFFSET>,
             SetVisible: SetVisible::<Identity, Impl, OFFSET>,
@@ -837,7 +837,7 @@ impl ICounters_Vtbl {
             (*this).Remove(::core::mem::transmute(&index)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -1096,7 +1096,7 @@ impl IDataCollector_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DataCollectorSet: DataCollectorSet::<Identity, Impl, OFFSET>,
             SetDataCollectorSet: SetDataCollectorSet::<Identity, Impl, OFFSET>,
             DataCollectorType: DataCollectorType::<Identity, Impl, OFFSET>,
@@ -1213,7 +1213,7 @@ impl IDataCollectorCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1800,7 +1800,7 @@ impl IDataCollectorSet_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DataCollectors: DataCollectors::<Identity, Impl, OFFSET>,
             Duration: Duration::<Identity, Impl, OFFSET>,
             SetDuration: SetDuration::<Identity, Impl, OFFSET>,
@@ -1940,7 +1940,7 @@ impl IDataCollectorSetCollection_Vtbl {
             (*this).GetDataCollectorSets(::core::mem::transmute(&server), ::core::mem::transmute(&filter)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2190,7 +2190,7 @@ impl IDataManager_Vtbl {
             (*this).Extract(::core::mem::transmute(&cabfilename), ::core::mem::transmute(&destinationpath)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             CheckBeforeRunning: CheckBeforeRunning::<Identity, Impl, OFFSET>,
@@ -2301,7 +2301,7 @@ impl IFolderAction_Vtbl {
             (*this).SetSendCabTo(::core::mem::transmute(&bstrdestination)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Age: Age::<Identity, Impl, OFFSET>,
             SetAge: SetAge::<Identity, Impl, OFFSET>,
             Size: Size::<Identity, Impl, OFFSET>,
@@ -2395,7 +2395,7 @@ impl IFolderActionCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2428,7 +2428,7 @@ impl ILogFileItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Path: Path::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Path: Path::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILogFileItem as ::windows::core::Interface>::IID
@@ -2495,7 +2495,7 @@ impl ILogFiles_Vtbl {
             (*this).Remove(::core::mem::transmute(&index)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -2604,7 +2604,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
             (*this).SetSegmentMaxRecords(::core::mem::transmute_copy(&records)).into()
         }
         Self {
-            base: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
             DataSourceName: DataSourceName::<Identity, Impl, OFFSET>,
             SetDataSourceName: SetDataSourceName::<Identity, Impl, OFFSET>,
             PerformanceCounters: PerformanceCounters::<Identity, Impl, OFFSET>,
@@ -2700,7 +2700,7 @@ impl ISchedule_Vtbl {
             (*this).SetDays(::core::mem::transmute_copy(&days)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartDate: StartDate::<Identity, Impl, OFFSET>,
             SetStartDate: SetStartDate::<Identity, Impl, OFFSET>,
             EndDate: EndDate::<Identity, Impl, OFFSET>,
@@ -2794,7 +2794,7 @@ impl IScheduleCollection_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3488,7 +3488,7 @@ impl ISystemMonitor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Appearance: Appearance::<Identity, Impl, OFFSET>,
             SetAppearance: SetAppearance::<Identity, Impl, OFFSET>,
             BackColor: BackColor::<Identity, Impl, OFFSET>,
@@ -3740,7 +3740,7 @@ impl ISystemMonitor2_Vtbl {
             (*this).LoadSettings(::core::mem::transmute(&bstrsettingfilename)).into()
         }
         Self {
-            base: ISystemMonitor_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISystemMonitor_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetEnableDigitGrouping: SetEnableDigitGrouping::<Identity, Impl, OFFSET>,
             EnableDigitGrouping: EnableDigitGrouping::<Identity, Impl, OFFSET>,
             SetEnableToolTips: SetEnableToolTips::<Identity, Impl, OFFSET>,
@@ -3802,7 +3802,7 @@ impl ISystemMonitorEvents_Vtbl {
             (*this).OnDblClick(::core::mem::transmute_copy(&index))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnCounterSelected: OnCounterSelected::<Identity, Impl, OFFSET>,
             OnCounterAdded: OnCounterAdded::<Identity, Impl, OFFSET>,
             OnCounterDeleted: OnCounterDeleted::<Identity, Impl, OFFSET>,
@@ -4187,7 +4187,7 @@ impl ITraceDataCollector_Vtbl {
             }
         }
         Self {
-            base: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDataCollector_Vtbl::new::<Identity, Impl, OFFSET>(),
             BufferSize: BufferSize::<Identity, Impl, OFFSET>,
             SetBufferSize: SetBufferSize::<Identity, Impl, OFFSET>,
             BuffersLost: BuffersLost::<Identity, Impl, OFFSET>,
@@ -4421,7 +4421,7 @@ impl ITraceDataProvider_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             Guid: Guid::<Identity, Impl, OFFSET>,
@@ -4538,7 +4538,7 @@ impl ITraceDataProviderCollection_Vtbl {
             (*this).GetTraceDataProvidersByProcess(::core::mem::transmute(&server), ::core::mem::transmute_copy(&pid)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4688,7 +4688,7 @@ impl IValueMap_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4806,7 +4806,7 @@ impl IValueMapItem_Vtbl {
             (*this).SetValueMapType(::core::mem::transmute_copy(&r#type)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             Enabled: Enabled::<Identity, Impl, OFFSET>,
@@ -4986,7 +4986,7 @@ impl _ICounterItemUnion_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             Color: Color::<Identity, Impl, OFFSET>,
@@ -5851,7 +5851,7 @@ impl _ISystemMonitorUnion_Vtbl {
             (*this).LoadSettings(::core::mem::transmute(&bstrsettingfilename)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Appearance: Appearance::<Identity, Impl, OFFSET>,
             SetAppearance: SetAppearance::<Identity, Impl, OFFSET>,
             BackColor: BackColor::<Identity, Impl, OFFSET>,

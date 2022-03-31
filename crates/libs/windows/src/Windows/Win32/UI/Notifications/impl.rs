@@ -8,7 +8,7 @@ impl INotificationActivationCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Activate(::core::mem::transmute(&appusermodelid), ::core::mem::transmute(&invokedargs), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&count)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INotificationActivationCallback as ::windows::core::Interface>::IID

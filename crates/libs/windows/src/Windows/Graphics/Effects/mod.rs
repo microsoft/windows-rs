@@ -109,7 +109,7 @@ unsafe impl ::windows::core::Interface for IGraphicsEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsEffect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -187,7 +187,7 @@ unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsEffectSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

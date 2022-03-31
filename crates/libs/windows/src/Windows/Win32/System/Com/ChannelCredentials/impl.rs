@@ -65,7 +65,7 @@ impl IChannelCredentials_Vtbl {
             (*this).SetIssuedToken(::core::mem::transmute(&localissueraddres), ::core::mem::transmute(&localissuerbindingtype), ::core::mem::transmute(&localissuerbinding)).into()
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetWindowsCredential: SetWindowsCredential::<Identity, Impl, OFFSET>,
             SetUserNameCredential: SetUserNameCredential::<Identity, Impl, OFFSET>,
             SetClientCertificateFromStore: SetClientCertificateFromStore::<Identity, Impl, OFFSET>,

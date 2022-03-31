@@ -48,7 +48,7 @@ impl IMidiMessage_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiMessage, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMidiMessage, OFFSET>(),
             Timestamp: Timestamp::<Identity, Impl, OFFSET>,
             RawData: RawData::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -94,7 +94,7 @@ impl IMidiOutPort_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMidiOutPort, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMidiOutPort, OFFSET>(),
             SendMessage: SendMessage::<Identity, Impl, OFFSET>,
             SendBuffer: SendBuffer::<Identity, Impl, OFFSET>,
             DeviceId: DeviceId::<Identity, Impl, OFFSET>,

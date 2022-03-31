@@ -47,7 +47,7 @@ impl IFaxAccount_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AccountName: AccountName::<Identity, Impl, OFFSET>,
             Folders: Folders::<Identity, Impl, OFFSET>,
             ListenToAccountEvents: ListenToAccountEvents::<Identity, Impl, OFFSET>,
@@ -113,7 +113,7 @@ impl IFaxAccountFolders_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OutgoingQueue: OutgoingQueue::<Identity, Impl, OFFSET>,
             IncomingQueue: IncomingQueue::<Identity, Impl, OFFSET>,
             IncomingArchive: IncomingArchive::<Identity, Impl, OFFSET>,
@@ -185,7 +185,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SizeLow: SizeLow::<Identity, Impl, OFFSET>,
             SizeHigh: SizeHigh::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -228,7 +228,7 @@ impl IFaxAccountIncomingQueue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetJobs: GetJobs::<Identity, Impl, OFFSET>,
             GetJob: GetJob::<Identity, Impl, OFFSET>,
         }
@@ -242,7 +242,7 @@ pub trait IFaxAccountNotify_Impl: Sized + super::super::System::Com::IDispatch_I
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>() -> IFaxAccountNotify_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaxAccountNotify as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -309,7 +309,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SizeLow: SizeLow::<Identity, Impl, OFFSET>,
             SizeHigh: SizeHigh::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -352,7 +352,7 @@ impl IFaxAccountOutgoingQueue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetJobs: GetJobs::<Identity, Impl, OFFSET>,
             GetJob: GetJob::<Identity, Impl, OFFSET>,
         }
@@ -410,7 +410,7 @@ impl IFaxAccountSet_Vtbl {
             (*this).RemoveAccount(::core::mem::transmute(&bstraccountname)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAccounts: GetAccounts::<Identity, Impl, OFFSET>,
             GetAccount: GetAccount::<Identity, Impl, OFFSET>,
             AddAccount: AddAccount::<Identity, Impl, OFFSET>,
@@ -464,7 +464,7 @@ impl IFaxAccounts_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -535,7 +535,7 @@ impl IFaxActivity_Vtbl {
             (*this).Refresh().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IncomingMessages: IncomingMessages::<Identity, Impl, OFFSET>,
             RoutingMessages: RoutingMessages::<Identity, Impl, OFFSET>,
             OutgoingMessages: OutgoingMessages::<Identity, Impl, OFFSET>,
@@ -620,7 +620,7 @@ impl IFaxActivityLogging_Vtbl {
             (*this).Save().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LogIncoming: LogIncoming::<Identity, Impl, OFFSET>,
             SetLogIncoming: SetLogIncoming::<Identity, Impl, OFFSET>,
             LogOutgoing: LogOutgoing::<Identity, Impl, OFFSET>,
@@ -1020,7 +1020,7 @@ impl IFaxConfiguration_Vtbl {
             (*this).Save().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             UseArchive: UseArchive::<Identity, Impl, OFFSET>,
             SetUseArchive: SetUseArchive::<Identity, Impl, OFFSET>,
             ArchiveLocation: ArchiveLocation::<Identity, Impl, OFFSET>,
@@ -1322,7 +1322,7 @@ impl IFaxDevice_Vtbl {
             (*this).AnswerCall().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             DeviceName: DeviceName::<Identity, Impl, OFFSET>,
             ProviderUniqueName: ProviderUniqueName::<Identity, Impl, OFFSET>,
@@ -1416,7 +1416,7 @@ impl IFaxDeviceIds_Vtbl {
             (*this).SetOrder(::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute_copy(&lneworder)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1580,7 +1580,7 @@ impl IFaxDeviceProvider_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FriendlyName: FriendlyName::<Identity, Impl, OFFSET>,
             ImageName: ImageName::<Identity, Impl, OFFSET>,
             UniqueName: UniqueName::<Identity, Impl, OFFSET>,
@@ -1642,7 +1642,7 @@ impl IFaxDeviceProviders_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1707,7 +1707,7 @@ impl IFaxDevices_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2043,7 +2043,7 @@ impl IFaxDocument_Vtbl {
             (*this).SetAttachFaxToReceipt(::core::mem::transmute_copy(&battachfax)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Body: Body::<Identity, Impl, OFFSET>,
             SetBody: SetBody::<Identity, Impl, OFFSET>,
             Sender: Sender::<Identity, Impl, OFFSET>,
@@ -2133,7 +2133,7 @@ impl IFaxDocument2_Vtbl {
             (*this).ConnectedSubmit2(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&pvfaxoutgoingjobids), ::core::mem::transmute_copy(&plerrorbodyfile)).into()
         }
         Self {
-            base: IFaxDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFaxDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
             SubmissionId: SubmissionId::<Identity, Impl, OFFSET>,
             Bodies: Bodies::<Identity, Impl, OFFSET>,
             SetBodies: SetBodies::<Identity, Impl, OFFSET>,
@@ -2236,7 +2236,7 @@ impl IFaxEventLogging_Vtbl {
             (*this).Save().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitEventsLevel: InitEventsLevel::<Identity, Impl, OFFSET>,
             SetInitEventsLevel: SetInitEventsLevel::<Identity, Impl, OFFSET>,
             InboundEventsLevel: InboundEventsLevel::<Identity, Impl, OFFSET>,
@@ -2308,7 +2308,7 @@ impl IFaxFolders_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OutgoingQueue: OutgoingQueue::<Identity, Impl, OFFSET>,
             IncomingQueue: IncomingQueue::<Identity, Impl, OFFSET>,
             IncomingArchive: IncomingArchive::<Identity, Impl, OFFSET>,
@@ -2350,7 +2350,7 @@ impl IFaxInboundRouting_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetExtensions: GetExtensions::<Identity, Impl, OFFSET>,
             GetMethods: GetMethods::<Identity, Impl, OFFSET>,
         }
@@ -2498,7 +2498,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FriendlyName: FriendlyName::<Identity, Impl, OFFSET>,
             ImageName: ImageName::<Identity, Impl, OFFSET>,
             UniqueName: UniqueName::<Identity, Impl, OFFSET>,
@@ -2559,7 +2559,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2666,7 +2666,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             (*this).Save().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             GUID: GUID::<Identity, Impl, OFFSET>,
             FunctionName: FunctionName::<Identity, Impl, OFFSET>,
@@ -2725,7 +2725,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -2910,7 +2910,7 @@ impl IFaxIncomingArchive_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             UseArchive: UseArchive::<Identity, Impl, OFFSET>,
             SetUseArchive: SetUseArchive::<Identity, Impl, OFFSET>,
             ArchiveFolder: ArchiveFolder::<Identity, Impl, OFFSET>,
@@ -3152,7 +3152,7 @@ impl IFaxIncomingJob_Vtbl {
             (*this).CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Size: Size::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             CurrentPage: CurrentPage::<Identity, Impl, OFFSET>,
@@ -3221,7 +3221,7 @@ impl IFaxIncomingJobs_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -3382,7 +3382,7 @@ impl IFaxIncomingMessage_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Pages: Pages::<Identity, Impl, OFFSET>,
             Size: Size::<Identity, Impl, OFFSET>,
@@ -3547,7 +3547,7 @@ impl IFaxIncomingMessage2_Vtbl {
             (*this).Refresh().into()
         }
         Self {
-            base: IFaxIncomingMessage_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFaxIncomingMessage_Vtbl::new::<Identity, Impl, OFFSET>(),
             Subject: Subject::<Identity, Impl, OFFSET>,
             SetSubject: SetSubject::<Identity, Impl, OFFSET>,
             SenderName: SenderName::<Identity, Impl, OFFSET>,
@@ -3631,7 +3631,7 @@ impl IFaxIncomingMessageIterator_Vtbl {
             (*this).MoveNext().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Message: Message::<Identity, Impl, OFFSET>,
             PrefetchSize: PrefetchSize::<Identity, Impl, OFFSET>,
             SetPrefetchSize: SetPrefetchSize::<Identity, Impl, OFFSET>,
@@ -3705,7 +3705,7 @@ impl IFaxIncomingQueue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Blocked: Blocked::<Identity, Impl, OFFSET>,
             SetBlocked: SetBlocked::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -3929,7 +3929,7 @@ impl IFaxJobStatus_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             Pages: Pages::<Identity, Impl, OFFSET>,
             Size: Size::<Identity, Impl, OFFSET>,
@@ -3984,7 +3984,7 @@ impl IFaxLoggingOptions_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EventLogging: EventLogging::<Identity, Impl, OFFSET>,
             ActivityLogging: ActivityLogging::<Identity, Impl, OFFSET>,
         }
@@ -4024,7 +4024,7 @@ impl IFaxOutboundRouting_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetGroups: GetGroups::<Identity, Impl, OFFSET>,
             GetRules: GetRules::<Identity, Impl, OFFSET>,
         }
@@ -4076,7 +4076,7 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
             DeviceIds: DeviceIds::<Identity, Impl, OFFSET>,
@@ -4147,7 +4147,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             (*this).Remove(::core::mem::transmute(&vindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -4268,7 +4268,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             (*this).Save().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CountryCode: CountryCode::<Identity, Impl, OFFSET>,
             AreaCode: AreaCode::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
@@ -4365,7 +4365,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -4554,7 +4554,7 @@ impl IFaxOutgoingArchive_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             UseArchive: UseArchive::<Identity, Impl, OFFSET>,
             SetUseArchive: SetUseArchive::<Identity, Impl, OFFSET>,
             ArchiveFolder: ArchiveFolder::<Identity, Impl, OFFSET>,
@@ -4922,7 +4922,7 @@ impl IFaxOutgoingJob_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Subject: Subject::<Identity, Impl, OFFSET>,
             DocumentName: DocumentName::<Identity, Impl, OFFSET>,
             Pages: Pages::<Identity, Impl, OFFSET>,
@@ -5003,7 +5003,7 @@ impl IFaxOutgoingJob2_Vtbl {
             }
         }
         Self {
-            base: IFaxOutgoingJob_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFaxOutgoingJob_Vtbl::new::<Identity, Impl, OFFSET>(),
             HasCoverPage: HasCoverPage::<Identity, Impl, OFFSET>,
             ReceiptAddress: ReceiptAddress::<Identity, Impl, OFFSET>,
             ScheduleType: ScheduleType::<Identity, Impl, OFFSET>,
@@ -5056,7 +5056,7 @@ impl IFaxOutgoingJobs_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -5289,7 +5289,7 @@ impl IFaxOutgoingMessage_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SubmissionId: SubmissionId::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Subject: Subject::<Identity, Impl, OFFSET>,
@@ -5388,7 +5388,7 @@ impl IFaxOutgoingMessage2_Vtbl {
             (*this).Refresh().into()
         }
         Self {
-            base: IFaxOutgoingMessage_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFaxOutgoingMessage_Vtbl::new::<Identity, Impl, OFFSET>(),
             HasCoverPage: HasCoverPage::<Identity, Impl, OFFSET>,
             ReceiptType: ReceiptType::<Identity, Impl, OFFSET>,
             ReceiptAddress: ReceiptAddress::<Identity, Impl, OFFSET>,
@@ -5463,7 +5463,7 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             (*this).MoveNext().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Message: Message::<Identity, Impl, OFFSET>,
             AtEOF: AtEOF::<Identity, Impl, OFFSET>,
             PrefetchSize: PrefetchSize::<Identity, Impl, OFFSET>,
@@ -5699,7 +5699,7 @@ impl IFaxOutgoingQueue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Blocked: Blocked::<Identity, Impl, OFFSET>,
             SetBlocked: SetBlocked::<Identity, Impl, OFFSET>,
             Paused: Paused::<Identity, Impl, OFFSET>,
@@ -5893,7 +5893,7 @@ impl IFaxReceiptOptions_Vtbl {
             (*this).SetUseForInboundRouting(::core::mem::transmute_copy(&buseforinboundrouting)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AuthenticationType: AuthenticationType::<Identity, Impl, OFFSET>,
             SetAuthenticationType: SetAuthenticationType::<Identity, Impl, OFFSET>,
             SMTPServer: SMTPServer::<Identity, Impl, OFFSET>,
@@ -5961,7 +5961,7 @@ impl IFaxRecipient_Vtbl {
             (*this).SetName(::core::mem::transmute(&bstrname)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FaxNumber: FaxNumber::<Identity, Impl, OFFSET>,
             SetFaxNumber: SetFaxNumber::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -6033,7 +6033,7 @@ impl IFaxRecipients_Vtbl {
             (*this).Remove(::core::mem::transmute_copy(&lindex)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -6112,7 +6112,7 @@ impl IFaxSecurity_Vtbl {
             (*this).SetInformationType(::core::mem::transmute_copy(&linformationtype)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Descriptor: Descriptor::<Identity, Impl, OFFSET>,
             SetDescriptor: SetDescriptor::<Identity, Impl, OFFSET>,
             GrantedRights: GrantedRights::<Identity, Impl, OFFSET>,
@@ -6193,7 +6193,7 @@ impl IFaxSecurity2_Vtbl {
             (*this).SetInformationType(::core::mem::transmute_copy(&linformationtype)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Descriptor: Descriptor::<Identity, Impl, OFFSET>,
             SetDescriptor: SetDescriptor::<Identity, Impl, OFFSET>,
             GrantedRights: GrantedRights::<Identity, Impl, OFFSET>,
@@ -6514,7 +6514,7 @@ impl IFaxSender_Vtbl {
             (*this).SaveDefaultSender().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BillingCode: BillingCode::<Identity, Impl, OFFSET>,
             SetBillingCode: SetBillingCode::<Identity, Impl, OFFSET>,
             City: City::<Identity, Impl, OFFSET>,
@@ -6826,7 +6826,7 @@ impl IFaxServer_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             ServerName: ServerName::<Identity, Impl, OFFSET>,
             GetDeviceProviders: GetDeviceProviders::<Identity, Impl, OFFSET>,
@@ -6914,7 +6914,7 @@ impl IFaxServer2_Vtbl {
             }
         }
         Self {
-            base: IFaxServer_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFaxServer_Vtbl::new::<Identity, Impl, OFFSET>(),
             Configuration: Configuration::<Identity, Impl, OFFSET>,
             CurrentAccount: CurrentAccount::<Identity, Impl, OFFSET>,
             FaxAccountSet: FaxAccountSet::<Identity, Impl, OFFSET>,
@@ -6930,7 +6930,7 @@ pub trait IFaxServerNotify_Impl: Sized + super::super::System::Com::IDispatch_Im
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServerNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerNotify_Impl, const OFFSET: isize>() -> IFaxServerNotify_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaxServerNotify as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -6941,7 +6941,7 @@ pub trait IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_I
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServerNotify2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>() -> IFaxServerNotify2_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFaxServerNotify2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7074,7 +7074,7 @@ impl IStiDevice_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -7171,7 +7171,7 @@ impl IStiDeviceControl_Vtbl {
             (*this).WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&dwerrorcode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             RawReadData: RawReadData::<Identity, Impl, OFFSET>,
             RawWriteData: RawWriteData::<Identity, Impl, OFFSET>,
@@ -7316,7 +7316,7 @@ impl IStiUSD_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -7442,7 +7442,7 @@ impl IStillImageW_Vtbl {
             (*this).WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pszmessage)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetDeviceList: GetDeviceList::<Identity, Impl, OFFSET>,
             GetDeviceInfo: GetDeviceInfo::<Identity, Impl, OFFSET>,
@@ -7537,7 +7537,7 @@ impl _IFaxAccountNotify_Vtbl {
             (*this).OnServerShutDown(::core::mem::transmute(&pfaxserver)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnIncomingJobAdded: OnIncomingJobAdded::<Identity, Impl, OFFSET>,
             OnIncomingJobRemoved: OnIncomingJobRemoved::<Identity, Impl, OFFSET>,
             OnIncomingJobChanged: OnIncomingJobChanged::<Identity, Impl, OFFSET>,
@@ -7718,7 +7718,7 @@ impl _IFaxServerNotify2_Vtbl {
             (*this).OnGeneralServerConfigChanged(::core::mem::transmute(&pfaxserver)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnIncomingJobAdded: OnIncomingJobAdded::<Identity, Impl, OFFSET>,
             OnIncomingJobRemoved: OnIncomingJobRemoved::<Identity, Impl, OFFSET>,
             OnIncomingJobChanged: OnIncomingJobChanged::<Identity, Impl, OFFSET>,

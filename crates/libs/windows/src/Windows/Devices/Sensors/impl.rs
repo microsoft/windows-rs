@@ -4,7 +4,7 @@ impl ::windows::core::RuntimeName for ISensorDataThreshold {
 }
 impl ISensorDataThreshold_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorDataThreshold_Impl, const OFFSET: isize>() -> ISensorDataThreshold_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISensorDataThreshold, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ISensorDataThreshold, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorDataThreshold as ::windows::core::Interface>::IID

@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowBackgroundSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowBackgroundSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetupRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setupeventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -39,7 +39,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowBackgroundSetupRequeste
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub GetUserPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket")))]
@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowConfiguration_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SourceAppDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub JobTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfiguration2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowConfiguration2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AbortPrintFlow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: PrintWorkflowJobAbortReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -89,7 +89,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowForegroundSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowForegroundSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetupRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setupeventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -119,7 +119,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowForegroundSetupRequeste
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub GetUserPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket")))]
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobActivatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobActivatedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -153,7 +153,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobBackgroundSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobBackgroundSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintWorkflowSessionStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub JobStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -183,7 +183,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobNotificationEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobNotificationEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PrinterJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -201,7 +201,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobStartingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobStartingEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Printers")]
     pub Printer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -223,7 +223,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobTriggerDetails_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PrintWorkflowJobSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -236,7 +236,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobUISession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobUISession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintWorkflowSessionStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub PdlDataAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -266,7 +266,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileCo
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileCo
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpsstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -294,7 +294,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelTargetPackag
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelTargetPackage_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlConverter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlConverter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub ConvertPdlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticket: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams")))]
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlDataAvailableEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlDataAvailableEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PrinterJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SourceContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -341,7 +341,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlModificationRequeste
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PrinterJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SourceContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -371,7 +371,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlSourceContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlSourceContent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub GetInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -392,7 +392,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlTargetStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlTargetStream_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetOutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -409,7 +409,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPrinterJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPrinterJob_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub JobId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Printers")]
     pub Printer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -447,7 +447,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSourceContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSourceContent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub GetJobPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket")))]
@@ -465,7 +465,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSpoolStreamContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSpoolStreamContent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowStreamTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowStreamTarget_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetOutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -497,7 +497,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSubmittedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSubmittedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub GetTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobprintticket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -518,7 +518,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSubmittedOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSubmittedOperation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: PrintWorkflowSubmittedStatus) -> ::windows::core::HRESULT,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub XpsContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowTarget_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TargetAsStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TargetAsXpsObjectModelPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -547,7 +547,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowTriggerDetails_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -560,7 +560,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowUIActivatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowUIActivatedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -573,7 +573,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowUILauncher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowUILauncher_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsUILaunchEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub LaunchAndCompleteUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowXpsDataAvailableEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

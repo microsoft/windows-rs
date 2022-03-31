@@ -15,7 +15,7 @@ impl IWCNConnectNotify_Vtbl {
             (*this).ConnectFailed(::core::mem::transmute_copy(&hrfailure)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectSucceeded: ConnectSucceeded::<Identity, Impl, OFFSET>,
             ConnectFailed: ConnectFailed::<Identity, Impl, OFFSET>,
         }
@@ -101,7 +101,7 @@ impl IWCNDevice_Vtbl {
             (*this).SetNFCPasswordParams(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&dwoobpasswordid), ::core::mem::transmute_copy(&dwpasswordlength), ::core::mem::transmute_copy(&pbpassword), ::core::mem::transmute_copy(&dwremotepublickeyhashlength), ::core::mem::transmute_copy(&pbremotepublickeyhash), ::core::mem::transmute_copy(&dwdhkeybloblength), ::core::mem::transmute_copy(&pbdhkeyblob)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetPassword: SetPassword::<Identity, Impl, OFFSET>,
             Connect: Connect::<Identity, Impl, OFFSET>,
             GetAttribute: GetAttribute::<Identity, Impl, OFFSET>,

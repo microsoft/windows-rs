@@ -1,7 +1,7 @@
 pub trait IDontSupportEventSubscription_Impl: Sized {}
 impl IDontSupportEventSubscription_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDontSupportEventSubscription_Impl, const OFFSET: isize>() -> IDontSupportEventSubscription_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDontSupportEventSubscription as ::windows::core::Interface>::IID
@@ -42,7 +42,7 @@ impl IEnumEventObject_Vtbl {
             (*this).Skip(::core::mem::transmute_copy(&cskipelem)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -186,7 +186,7 @@ impl IEventClass_Vtbl {
             (*this).SetTypeLib(::core::mem::transmute(&bstrtypelib)).into()
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EventClassID: EventClassID::<Identity, Impl, OFFSET>,
             SetEventClassID: SetEventClassID::<Identity, Impl, OFFSET>,
             EventClassName: EventClassName::<Identity, Impl, OFFSET>,
@@ -286,7 +286,7 @@ impl IEventClass2_Vtbl {
             (*this).SetFireInParallel(::core::mem::transmute_copy(&ffireinparallel)).into()
         }
         Self {
-            base: IEventClass_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEventClass_Vtbl::new::<Identity, Impl, OFFSET>(),
             PublisherID: PublisherID::<Identity, Impl, OFFSET>,
             SetPublisherID: SetPublisherID::<Identity, Impl, OFFSET>,
             MultiInterfacePublisherFilterCLSID: MultiInterfacePublisherFilterCLSID::<Identity, Impl, OFFSET>,
@@ -356,7 +356,7 @@ impl IEventControl_Vtbl {
             }
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPublisherFilter: SetPublisherFilter::<Identity, Impl, OFFSET>,
             AllowInprocActivation: AllowInprocActivation::<Identity, Impl, OFFSET>,
             SetAllowInprocActivation: SetAllowInprocActivation::<Identity, Impl, OFFSET>,
@@ -393,7 +393,7 @@ impl IEventObjectChange_Vtbl {
             (*this).ChangedPublisher(::core::mem::transmute_copy(&changetype), ::core::mem::transmute(&bstrpublisherid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ChangedSubscription: ChangedSubscription::<Identity, Impl, OFFSET>,
             ChangedEventClass: ChangedEventClass::<Identity, Impl, OFFSET>,
             ChangedPublisher: ChangedPublisher::<Identity, Impl, OFFSET>,
@@ -422,7 +422,7 @@ impl IEventObjectChange2_Vtbl {
             (*this).ChangedEventClass(::core::mem::transmute_copy(&pinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ChangedSubscription: ChangedSubscription::<Identity, Impl, OFFSET>,
             ChangedEventClass: ChangedEventClass::<Identity, Impl, OFFSET>,
         }
@@ -498,7 +498,7 @@ impl IEventObjectCollection_Vtbl {
             (*this).Remove(::core::mem::transmute(&objectid)).into()
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             NewEnum: NewEnum::<Identity, Impl, OFFSET>,
@@ -554,7 +554,7 @@ impl IEventProperty_Vtbl {
             (*this).SetValue(::core::mem::transmute_copy(&propertyvalue)).into()
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
@@ -698,7 +698,7 @@ impl IEventPublisher_Vtbl {
             }
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PublisherID: PublisherID::<Identity, Impl, OFFSET>,
             SetPublisherID: SetPublisherID::<Identity, Impl, OFFSET>,
             PublisherName: PublisherName::<Identity, Impl, OFFSET>,
@@ -1032,7 +1032,7 @@ impl IEventSubscription_Vtbl {
             (*this).SetInterfaceID(::core::mem::transmute(&bstrinterfaceid)).into()
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SubscriptionID: SubscriptionID::<Identity, Impl, OFFSET>,
             SetSubscriptionID: SetSubscriptionID::<Identity, Impl, OFFSET>,
             SubscriptionName: SubscriptionName::<Identity, Impl, OFFSET>,
@@ -1134,7 +1134,7 @@ impl IEventSystem_Vtbl {
             (*this).RemoveS(::core::mem::transmute(&progid), ::core::mem::transmute(&querycriteria)).into()
         }
         Self {
-            base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Query: Query::<Identity, Impl, OFFSET>,
             Store: Store::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -1159,7 +1159,7 @@ impl IFiringControl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FireSubscription(::core::mem::transmute(&subscription)).into()
         }
-        Self { base: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), FireSubscription: FireSubscription::<Identity, Impl, OFFSET> }
+        Self { base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), FireSubscription: FireSubscription::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFiringControl as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
@@ -1238,7 +1238,7 @@ impl IMultiInterfaceEventControl_Vtbl {
             (*this).SetFireInParallel(::core::mem::transmute_copy(&ffireinparallel)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMultiInterfacePublisherFilter: SetMultiInterfacePublisherFilter::<Identity, Impl, OFFSET>,
             GetSubscriptions: GetSubscriptions::<Identity, Impl, OFFSET>,
             SetDefaultQuery: SetDefaultQuery::<Identity, Impl, OFFSET>,
@@ -1271,7 +1271,7 @@ impl IMultiInterfacePublisherFilter_Vtbl {
             (*this).PrepareToFire(::core::mem::transmute_copy(&iid), ::core::mem::transmute(&methodname), ::core::mem::transmute(&firingcontrol)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             PrepareToFire: PrepareToFire::<Identity, Impl, OFFSET>,
         }
@@ -1299,7 +1299,7 @@ impl IPublisherFilter_Vtbl {
             (*this).PrepareToFire(::core::mem::transmute(&methodname), ::core::mem::transmute(&firingcontrol)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             PrepareToFire: PrepareToFire::<Identity, Impl, OFFSET>,
         }

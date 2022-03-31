@@ -28,7 +28,7 @@ impl ICoreAcceleratorKeys_Vtbl {
             (*this).RemoveAcceleratorKeyActivated(::core::mem::transmute(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAcceleratorKeys, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreAcceleratorKeys, OFFSET>(),
             AcceleratorKeyActivated: AcceleratorKeyActivated::<Identity, Impl, OFFSET>,
             RemoveAcceleratorKeyActivated: RemoveAcceleratorKeyActivated::<Identity, Impl, OFFSET>,
         }
@@ -99,7 +99,7 @@ impl ICoreInputSourceBase_Vtbl {
             (*this).RemoveInputEnabled(::core::mem::transmute(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputSourceBase, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreInputSourceBase, OFFSET>(),
             Dispatcher: Dispatcher::<Identity, Impl, OFFSET>,
             IsInputEnabled: IsInputEnabled::<Identity, Impl, OFFSET>,
             SetIsInputEnabled: SetIsInputEnabled::<Identity, Impl, OFFSET>,
@@ -312,7 +312,7 @@ impl ICorePointerInputSource_Vtbl {
             (*this).RemovePointerWheelChanged(::core::mem::transmute(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICorePointerInputSource, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICorePointerInputSource, OFFSET>(),
             ReleasePointerCapture: ReleasePointerCapture::<Identity, Impl, OFFSET>,
             SetPointerCapture: SetPointerCapture::<Identity, Impl, OFFSET>,
             HasCapture: HasCapture::<Identity, Impl, OFFSET>,
@@ -363,7 +363,7 @@ impl ICorePointerInputSource2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICorePointerInputSource2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICorePointerInputSource2, OFFSET>(),
             DispatcherQueue: DispatcherQueue::<Identity, Impl, OFFSET>,
         }
     }
@@ -439,7 +439,7 @@ impl ICorePointerRedirector_Vtbl {
             (*this).RemovePointerRoutedReleased(::core::mem::transmute(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICorePointerRedirector, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICorePointerRedirector, OFFSET>(),
             PointerRoutedAway: PointerRoutedAway::<Identity, Impl, OFFSET>,
             RemovePointerRoutedAway: RemovePointerRoutedAway::<Identity, Impl, OFFSET>,
             PointerRoutedTo: PointerRoutedTo::<Identity, Impl, OFFSET>,
@@ -971,7 +971,7 @@ impl ICoreWindow_Vtbl {
             (*this).RemoveVisibilityChanged(::core::mem::transmute(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWindow, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWindow, OFFSET>(),
             AutomationHostProvider: AutomationHostProvider::<Identity, Impl, OFFSET>,
             Bounds: Bounds::<Identity, Impl, OFFSET>,
             CustomProperties: CustomProperties::<Identity, Impl, OFFSET>,
@@ -1057,7 +1057,7 @@ impl ICoreWindowEventArgs_Vtbl {
             (*this).SetHandled(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWindowEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWindowEventArgs, OFFSET>(),
             Handled: Handled::<Identity, Impl, OFFSET>,
             SetHandled: SetHandled::<Identity, Impl, OFFSET>,
         }
@@ -1079,7 +1079,10 @@ impl IInitializeWithCoreWindow_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&window)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInitializeWithCoreWindow, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInitializeWithCoreWindow, OFFSET>(),
+            Initialize: Initialize::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInitializeWithCoreWindow as ::windows::core::Interface>::IID

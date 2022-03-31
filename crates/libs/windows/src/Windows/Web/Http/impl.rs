@@ -100,7 +100,7 @@ impl IHttpContent_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContent, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHttpContent, OFFSET>(),
             Headers: Headers::<Identity, Impl, OFFSET>,
             BufferAllAsync: BufferAllAsync::<Identity, Impl, OFFSET>,
             ReadAsBufferAsync: ReadAsBufferAsync::<Identity, Impl, OFFSET>,

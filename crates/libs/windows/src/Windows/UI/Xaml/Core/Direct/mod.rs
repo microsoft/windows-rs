@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for IXamlDirect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirect_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetXamlDirectObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeindex: XamlTypeIndex, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::Interface for IXamlDirectObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirectObject_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -197,7 +197,7 @@ unsafe impl ::windows::core::Interface for IXamlDirectStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirectStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Core_Direct\"`*"]

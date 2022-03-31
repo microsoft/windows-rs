@@ -187,7 +187,7 @@ unsafe impl ::windows::core::Interface for IGpioControllerProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioControllerProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PinCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub OpenPinProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32, sharingmode: ProviderGpioSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -346,7 +346,7 @@ unsafe impl ::windows::core::Interface for IGpioPinProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -381,7 +381,7 @@ unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinEdge) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -394,7 +394,7 @@ unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, edge: ProviderGpioPinEdge, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::Interface for IGpioProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]

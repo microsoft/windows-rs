@@ -23,7 +23,7 @@ impl IPrintDialogCallback_Vtbl {
             (*this).HandleMessage(::core::mem::transmute_copy(&hdlg), ::core::mem::transmute_copy(&umsg), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam), ::core::mem::transmute_copy(&presult)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitDone: InitDone::<Identity, Impl, OFFSET>,
             SelectionChange: SelectionChange::<Identity, Impl, OFFSET>,
             HandleMessage: HandleMessage::<Identity, Impl, OFFSET>,
@@ -58,7 +58,7 @@ impl IPrintDialogServices_Vtbl {
             (*this).GetCurrentPortName(::core::mem::transmute_copy(&pportname), ::core::mem::transmute_copy(&pcchsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCurrentDevMode: GetCurrentDevMode::<Identity, Impl, OFFSET>,
             GetCurrentPrinterName: GetCurrentPrinterName::<Identity, Impl, OFFSET>,
             GetCurrentPortName: GetCurrentPortName::<Identity, Impl, OFFSET>,

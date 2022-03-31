@@ -155,7 +155,7 @@ impl ICallFrame_Vtbl {
             (*this).Invoke(::core::mem::transmute_copy(&pvreceiver)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
             GetIIDAndMethod: GetIIDAndMethod::<Identity, Impl, OFFSET>,
             GetNames: GetNames::<Identity, Impl, OFFSET>,
@@ -191,7 +191,7 @@ impl ICallFrameEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnCall(::core::mem::transmute(&pframe)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICallFrameEvents as ::windows::core::Interface>::IID
@@ -209,7 +209,7 @@ impl ICallFrameWalker_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnWalkInterface(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvinterface), ::core::mem::transmute_copy(&fin), ::core::mem::transmute_copy(&fout)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnWalkInterface: OnWalkInterface::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnWalkInterface: OnWalkInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICallFrameWalker as ::windows::core::Interface>::IID
@@ -252,7 +252,7 @@ impl ICallIndirect_Vtbl {
             (*this).GetIID(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&pfderivesfromidispatch), ::core::mem::transmute_copy(&pcmethod), ::core::mem::transmute_copy(&pwszinterface)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CallIndirect: CallIndirect::<Identity, Impl, OFFSET>,
             GetMethodInfo: GetMethodInfo::<Identity, Impl, OFFSET>,
             GetStackSize: GetStackSize::<Identity, Impl, OFFSET>,
@@ -288,7 +288,7 @@ impl ICallInterceptor_Vtbl {
             }
         }
         Self {
-            base: ICallIndirect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICallIndirect_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegisterSink: RegisterSink::<Identity, Impl, OFFSET>,
             GetRegisteredSink: GetRegisteredSink::<Identity, Impl, OFFSET>,
         }
@@ -316,7 +316,7 @@ impl ICallUnmarshal_Vtbl {
             (*this).ReleaseMarshalData(::core::mem::transmute_copy(&imethod), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&ibfirstrelease), ::core::mem::transmute_copy(&datarep), ::core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Unmarshal: Unmarshal::<Identity, Impl, OFFSET>,
             ReleaseMarshalData: ReleaseMarshalData::<Identity, Impl, OFFSET>,
         }
@@ -348,7 +348,7 @@ impl IInterfaceRelated_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetIID: SetIID::<Identity, Impl, OFFSET>,
             GetIID: GetIID::<Identity, Impl, OFFSET>,
         }

@@ -28,7 +28,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
             (*this).RemoveUnhandledErrorDetected(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationUnhandledError, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreApplicationUnhandledError, OFFSET>(),
             UnhandledErrorDetected: UnhandledErrorDetected::<Identity, Impl, OFFSET>,
             RemoveUnhandledErrorDetected: RemoveUnhandledErrorDetected::<Identity, Impl, OFFSET>,
         }
@@ -78,7 +78,7 @@ impl IFrameworkView_Vtbl {
             (*this).Uninitialize().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkView, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkView, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             SetWindow: SetWindow::<Identity, Impl, OFFSET>,
             Load: Load::<Identity, Impl, OFFSET>,
@@ -110,7 +110,7 @@ impl IFrameworkViewSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkViewSource, OFFSET>(), CreateView: CreateView::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkViewSource, OFFSET>(), CreateView: CreateView::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFrameworkViewSource as ::windows::core::Interface>::IID

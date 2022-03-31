@@ -455,7 +455,7 @@ impl IFeed_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Xml: Xml::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             Rename: Rename::<Identity, Impl, OFFSET>,
@@ -573,7 +573,7 @@ impl IFeed2_Vtbl {
             (*this).ClearCredentials().into()
         }
         Self {
-            base: IFeed_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFeed_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetItemByEffectiveId: GetItemByEffectiveId::<Identity, Impl, OFFSET>,
             LastItemDownloadTime: LastItemDownloadTime::<Identity, Impl, OFFSET>,
             Username: Username::<Identity, Impl, OFFSET>,
@@ -725,7 +725,7 @@ impl IFeedEnclosure_Vtbl {
             (*this).SetFile(::core::mem::transmute(&downloadurl), ::core::mem::transmute(&downloadfilepath), ::core::mem::transmute(&downloadmimetype), ::core::mem::transmute(&enclosurefilename)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Url: Url::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
@@ -800,7 +800,7 @@ impl IFeedEvents_Vtbl {
             (*this).FeedItemCountChanged(::core::mem::transmute(&path), ::core::mem::transmute_copy(&itemcounttype)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Error: Error::<Identity, Impl, OFFSET>,
             FeedDeleted: FeedDeleted::<Identity, Impl, OFFSET>,
             FeedRenamed: FeedRenamed::<Identity, Impl, OFFSET>,
@@ -1020,7 +1020,7 @@ impl IFeedFolder_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Feeds: Feeds::<Identity, Impl, OFFSET>,
             Subfolders: Subfolders::<Identity, Impl, OFFSET>,
             CreateFeed: CreateFeed::<Identity, Impl, OFFSET>,
@@ -1148,7 +1148,7 @@ impl IFeedFolderEvents_Vtbl {
             (*this).FeedItemCountChanged(::core::mem::transmute(&path), ::core::mem::transmute_copy(&itemcounttype)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Error: Error::<Identity, Impl, OFFSET>,
             FolderAdded: FolderAdded::<Identity, Impl, OFFSET>,
             FolderDeleted: FolderDeleted::<Identity, Impl, OFFSET>,
@@ -1370,7 +1370,7 @@ impl IFeedItem_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Xml: Xml::<Identity, Impl, OFFSET>,
             Title: Title::<Identity, Impl, OFFSET>,
             Link: Link::<Identity, Impl, OFFSET>,
@@ -1412,7 +1412,7 @@ impl IFeedItem2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IFeedItem_Vtbl::new::<Identity, Impl, OFFSET>(), EffectiveId: EffectiveId::<Identity, Impl, OFFSET> }
+        Self { base__: IFeedItem_Vtbl::new::<Identity, Impl, OFFSET>(), EffectiveId: EffectiveId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFeedItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFeedItem as ::windows::core::Interface>::IID
@@ -1461,7 +1461,7 @@ impl IFeedsEnum_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1640,7 +1640,7 @@ impl IFeedsManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RootFolder: RootFolder::<Identity, Impl, OFFSET>,
             IsSubscribed: IsSubscribed::<Identity, Impl, OFFSET>,
             ExistsFeed: ExistsFeed::<Identity, Impl, OFFSET>,
@@ -1682,7 +1682,7 @@ impl IWMPAudioRenderConfig_Vtbl {
             (*this).SetaudioOutputDevice(::core::mem::transmute(&bstroutputdevice)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             audioOutputDevice: audioOutputDevice::<Identity, Impl, OFFSET>,
             SetaudioOutputDevice: SetaudioOutputDevice::<Identity, Impl, OFFSET>,
         }
@@ -1722,7 +1722,7 @@ impl IWMPCdrom_Vtbl {
             (*this).eject().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             driveSpecifier: driveSpecifier::<Identity, Impl, OFFSET>,
             playlist: playlist::<Identity, Impl, OFFSET>,
             eject: eject::<Identity, Impl, OFFSET>,
@@ -1829,7 +1829,7 @@ impl IWMPCdromBurn_Vtbl {
             (*this).erase().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             isAvailable: isAvailable::<Identity, Impl, OFFSET>,
             getItemInfo: getItemInfo::<Identity, Impl, OFFSET>,
             label: label::<Identity, Impl, OFFSET>,
@@ -1887,7 +1887,7 @@ impl IWMPCdromCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             count: count::<Identity, Impl, OFFSET>,
             item: item::<Identity, Impl, OFFSET>,
             getByDriveSpecifier: getByDriveSpecifier::<Identity, Impl, OFFSET>,
@@ -1926,7 +1926,7 @@ impl IWMPCdromRip_Vtbl {
             (*this).stopRip().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ripState: ripState::<Identity, Impl, OFFSET>,
             ripProgress: ripProgress::<Identity, Impl, OFFSET>,
             startRip: startRip::<Identity, Impl, OFFSET>,
@@ -1992,7 +1992,7 @@ impl IWMPClosedCaption_Vtbl {
             (*this).SetcaptioningId(::core::mem::transmute(&bstrcaptioningid)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SAMIStyle: SAMIStyle::<Identity, Impl, OFFSET>,
             SetSAMIStyle: SetSAMIStyle::<Identity, Impl, OFFSET>,
             SAMILang: SAMILang::<Identity, Impl, OFFSET>,
@@ -2044,7 +2044,7 @@ impl IWMPClosedCaption2_Vtbl {
             (*this).getSAMIStyleName(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&pbstrname)).into()
         }
         Self {
-            base: IWMPClosedCaption_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPClosedCaption_Vtbl::new::<Identity, Impl, OFFSET>(),
             SAMILangCount: SAMILangCount::<Identity, Impl, OFFSET>,
             getSAMILangName: getSAMILangName::<Identity, Impl, OFFSET>,
             getSAMILangID: getSAMILangID::<Identity, Impl, OFFSET>,
@@ -2135,7 +2135,7 @@ impl IWMPContentContainer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetID: GetID::<Identity, Impl, OFFSET>,
             GetPrice: GetPrice::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
@@ -2189,7 +2189,7 @@ impl IWMPContentContainerList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTransactionType: GetTransactionType::<Identity, Impl, OFFSET>,
             GetContainerCount: GetContainerCount::<Identity, Impl, OFFSET>,
             GetContainer: GetContainer::<Identity, Impl, OFFSET>,
@@ -2368,7 +2368,7 @@ impl IWMPContentPartner_Vtbl {
             (*this).VerifyPermission(::core::mem::transmute(&bstrpermission), ::core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetCallback: SetCallback::<Identity, Impl, OFFSET>,
             Notify: Notify::<Identity, Impl, OFFSET>,
             GetItemInfo: GetItemInfo::<Identity, Impl, OFFSET>,
@@ -2483,7 +2483,7 @@ impl IWMPContentPartnerCallback_Vtbl {
             (*this).VerifyPermissionComplete(::core::mem::transmute(&bstrpermission), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&hrpermission)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Notify: Notify::<Identity, Impl, OFFSET>,
             BuyComplete: BuyComplete::<Identity, Impl, OFFSET>,
             DownloadTrack: DownloadTrack::<Identity, Impl, OFFSET>,
@@ -2612,7 +2612,7 @@ impl IWMPControls_Vtbl {
             (*this).playItem(::core::mem::transmute(&piwmpmedia)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             isAvailable: isAvailable::<Identity, Impl, OFFSET>,
             play: play::<Identity, Impl, OFFSET>,
             stop: stop::<Identity, Impl, OFFSET>,
@@ -2647,7 +2647,7 @@ impl IWMPControls2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).step(::core::mem::transmute_copy(&lstep)).into()
         }
-        Self { base: IWMPControls_Vtbl::new::<Identity, Impl, OFFSET>(), step: step::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPControls_Vtbl::new::<Identity, Impl, OFFSET>(), step: step::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPControls2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPControls as ::windows::core::Interface>::IID
@@ -2720,7 +2720,7 @@ impl IWMPControls3_Vtbl {
             (*this).SetcurrentPositionTimecode(::core::mem::transmute(&bstrtimecode)).into()
         }
         Self {
-            base: IWMPControls2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPControls2_Vtbl::new::<Identity, Impl, OFFSET>(),
             audioLanguageCount: audioLanguageCount::<Identity, Impl, OFFSET>,
             getAudioLanguageID: getAudioLanguageID::<Identity, Impl, OFFSET>,
             getAudioLanguageDescription: getAudioLanguageDescription::<Identity, Impl, OFFSET>,
@@ -2756,7 +2756,7 @@ impl IWMPConvert_Vtbl {
             (*this).GetErrorURL(::core::mem::transmute_copy(&pbstrurl)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConvertFile: ConvertFile::<Identity, Impl, OFFSET>,
             GetErrorURL: GetErrorURL::<Identity, Impl, OFFSET>,
         }
@@ -2958,7 +2958,7 @@ impl IWMPCore_Vtbl {
             (*this).status(::core::mem::transmute_copy(&pbstrstatus)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             close: close::<Identity, Impl, OFFSET>,
             URL: URL::<Identity, Impl, OFFSET>,
             SetURL: SetURL::<Identity, Impl, OFFSET>,
@@ -3004,7 +3004,7 @@ impl IWMPCore2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IWMPCore_Vtbl::new::<Identity, Impl, OFFSET>(), dvd: dvd::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPCore_Vtbl::new::<Identity, Impl, OFFSET>(), dvd: dvd::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPCore2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID
@@ -3041,7 +3041,7 @@ impl IWMPCore3_Vtbl {
             }
         }
         Self {
-            base: IWMPCore2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPCore2_Vtbl::new::<Identity, Impl, OFFSET>(),
             newPlaylist: newPlaylist::<Identity, Impl, OFFSET>,
             newMedia: newMedia::<Identity, Impl, OFFSET>,
         }
@@ -3093,7 +3093,7 @@ impl IWMPDVD_Vtbl {
             (*this).resume().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             isAvailable: isAvailable::<Identity, Impl, OFFSET>,
             domain: domain::<Identity, Impl, OFFSET>,
             topMenu: topMenu::<Identity, Impl, OFFSET>,
@@ -3161,7 +3161,7 @@ impl IWMPDownloadCollection_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             id: id::<Identity, Impl, OFFSET>,
             count: count::<Identity, Impl, OFFSET>,
             item: item::<Identity, Impl, OFFSET>,
@@ -3229,7 +3229,7 @@ impl IWMPDownloadItem_Vtbl {
             (*this).cancel().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             sourceURL: sourceURL::<Identity, Impl, OFFSET>,
             size: size::<Identity, Impl, OFFSET>,
             r#type: r#type::<Identity, Impl, OFFSET>,
@@ -3256,7 +3256,7 @@ impl IWMPDownloadItem2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).getItemInfo(::core::mem::transmute(&bstritemname), ::core::mem::transmute_copy(&pbstrval)).into()
         }
-        Self { base: IWMPDownloadItem_Vtbl::new::<Identity, Impl, OFFSET>(), getItemInfo: getItemInfo::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPDownloadItem_Vtbl::new::<Identity, Impl, OFFSET>(), getItemInfo: getItemInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPDownloadItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPDownloadItem as ::windows::core::Interface>::IID
@@ -3293,7 +3293,7 @@ impl IWMPDownloadManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             getDownloadCollection: getDownloadCollection::<Identity, Impl, OFFSET>,
             createDownloadCollection: createDownloadCollection::<Identity, Impl, OFFSET>,
         }
@@ -3375,7 +3375,7 @@ impl IWMPEffects_Vtbl {
             (*this).RenderFullScreen(::core::mem::transmute_copy(&plevels)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Render: Render::<Identity, Impl, OFFSET>,
             MediaInfo: MediaInfo::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
@@ -3436,7 +3436,7 @@ impl IWMPEffects2_Vtbl {
             (*this).RenderWindowed(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&frequiredrender)).into()
         }
         Self {
-            base: IWMPEffects_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPEffects_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetCore: SetCore::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,
             Destroy: Destroy::<Identity, Impl, OFFSET>,
@@ -3486,7 +3486,7 @@ impl IWMPError_Vtbl {
             (*this).webHelp().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             clearErrorQueue: clearErrorQueue::<Identity, Impl, OFFSET>,
             errorCount: errorCount::<Identity, Impl, OFFSET>,
             item: item::<Identity, Impl, OFFSET>,
@@ -3534,7 +3534,7 @@ impl IWMPErrorItem_Vtbl {
             (*this).customUrl(::core::mem::transmute_copy(&pbstrcustomurl)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             errorCode: errorCode::<Identity, Impl, OFFSET>,
             errorDescription: errorDescription::<Identity, Impl, OFFSET>,
             errorContext: errorContext::<Identity, Impl, OFFSET>,
@@ -3558,7 +3558,7 @@ impl IWMPErrorItem2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).condition(::core::mem::transmute_copy(&plcondition)).into()
         }
-        Self { base: IWMPErrorItem_Vtbl::new::<Identity, Impl, OFFSET>(), condition: condition::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPErrorItem_Vtbl::new::<Identity, Impl, OFFSET>(), condition: condition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPErrorItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPErrorItem as ::windows::core::Interface>::IID
@@ -3841,7 +3841,7 @@ impl IWMPEvents_Vtbl {
             (*this).MouseUp(::core::mem::transmute_copy(&nbutton), ::core::mem::transmute_copy(&nshiftstate), ::core::mem::transmute_copy(&fx), ::core::mem::transmute_copy(&fy))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OpenStateChange: OpenStateChange::<Identity, Impl, OFFSET>,
             PlayStateChange: PlayStateChange::<Identity, Impl, OFFSET>,
             AudioLanguageChange: AudioLanguageChange::<Identity, Impl, OFFSET>,
@@ -3936,7 +3936,7 @@ impl IWMPEvents2_Vtbl {
             (*this).CreatePartnershipComplete(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&hrresult))
         }
         Self {
-            base: IWMPEvents_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPEvents_Vtbl::new::<Identity, Impl, OFFSET>(),
             DeviceConnect: DeviceConnect::<Identity, Impl, OFFSET>,
             DeviceDisconnect: DeviceDisconnect::<Identity, Impl, OFFSET>,
             DeviceStatusChange: DeviceStatusChange::<Identity, Impl, OFFSET>,
@@ -4022,7 +4022,7 @@ impl IWMPEvents3_Vtbl {
             (*this).MediaCollectionMediaRemoved(::core::mem::transmute(&pdispmedia))
         }
         Self {
-            base: IWMPEvents2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPEvents2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CdromRipStateChange: CdromRipStateChange::<Identity, Impl, OFFSET>,
             CdromRipMediaError: CdromRipMediaError::<Identity, Impl, OFFSET>,
             CdromBurnStateChange: CdromBurnStateChange::<Identity, Impl, OFFSET>,
@@ -4052,7 +4052,7 @@ impl IWMPEvents4_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeviceEstimation(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&hrresult), ::core::mem::transmute_copy(&qwestimatedusedspace), ::core::mem::transmute_copy(&qwestimatedspace))
         }
-        Self { base: IWMPEvents3_Vtbl::new::<Identity, Impl, OFFSET>(), DeviceEstimation: DeviceEstimation::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPEvents3_Vtbl::new::<Identity, Impl, OFFSET>(), DeviceEstimation: DeviceEstimation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPEvents4 as ::windows::core::Interface>::IID || iid == &<IWMPEvents as ::windows::core::Interface>::IID || iid == &<IWMPEvents2 as ::windows::core::Interface>::IID || iid == &<IWMPEvents3 as ::windows::core::Interface>::IID
@@ -4131,7 +4131,7 @@ impl IWMPFolderMonitorServices_Vtbl {
             (*this).stopScan().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             count: count::<Identity, Impl, OFFSET>,
             item: item::<Identity, Impl, OFFSET>,
             add: add::<Identity, Impl, OFFSET>,
@@ -4172,7 +4172,7 @@ impl IWMPGraphCreation_Vtbl {
             (*this).GetGraphCreationFlags(::core::mem::transmute_copy(&pdwflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GraphCreationPreRender: GraphCreationPreRender::<Identity, Impl, OFFSET>,
             GraphCreationPostRender: GraphCreationPostRender::<Identity, Impl, OFFSET>,
             GetGraphCreationFlags: GetGraphCreationFlags::<Identity, Impl, OFFSET>,
@@ -4219,7 +4219,7 @@ impl IWMPLibrary_Vtbl {
             (*this).isIdentical(::core::mem::transmute(&piwmplibrary), ::core::mem::transmute_copy(&pvbool)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             name: name::<Identity, Impl, OFFSET>,
             r#type: r#type::<Identity, Impl, OFFSET>,
             mediaCollection: mediaCollection::<Identity, Impl, OFFSET>,
@@ -4242,7 +4242,7 @@ impl IWMPLibrary2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).getItemInfo(::core::mem::transmute(&bstritemname), ::core::mem::transmute_copy(&pbstrval)).into()
         }
-        Self { base: IWMPLibrary_Vtbl::new::<Identity, Impl, OFFSET>(), getItemInfo: getItemInfo::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPLibrary_Vtbl::new::<Identity, Impl, OFFSET>(), getItemInfo: getItemInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPLibrary2 as ::windows::core::Interface>::IID || iid == &<IWMPLibrary as ::windows::core::Interface>::IID
@@ -4271,7 +4271,7 @@ impl IWMPLibraryServices_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             getCountByType: getCountByType::<Identity, Impl, OFFSET>,
             getLibraryByType: getLibraryByType::<Identity, Impl, OFFSET>,
         }
@@ -4303,7 +4303,7 @@ impl IWMPLibrarySharingServices_Vtbl {
             (*this).showLibrarySharing().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             isLibraryShared: isLibraryShared::<Identity, Impl, OFFSET>,
             isLibrarySharingEnabled: isLibrarySharingEnabled::<Identity, Impl, OFFSET>,
             showLibrarySharing: showLibrarySharing::<Identity, Impl, OFFSET>,
@@ -4428,7 +4428,7 @@ impl IWMPMedia_Vtbl {
             (*this).isReadOnlyItem(::core::mem::transmute(&bstritemname), ::core::mem::transmute_copy(&pvarfisreadonly)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             isIdentical: isIdentical::<Identity, Impl, OFFSET>,
             sourceURL: sourceURL::<Identity, Impl, OFFSET>,
             name: name::<Identity, Impl, OFFSET>,
@@ -4471,7 +4471,7 @@ impl IWMPMedia2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IWMPMedia_Vtbl::new::<Identity, Impl, OFFSET>(), error: error::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPMedia_Vtbl::new::<Identity, Impl, OFFSET>(), error: error::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPMedia2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPMedia as ::windows::core::Interface>::IID
@@ -4496,7 +4496,7 @@ impl IWMPMedia3_Vtbl {
             (*this).getItemInfoByType(::core::mem::transmute(&bstrtype), ::core::mem::transmute(&bstrlanguage), ::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
         Self {
-            base: IWMPMedia2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPMedia2_Vtbl::new::<Identity, Impl, OFFSET>(),
             getAttributeCountByType: getAttributeCountByType::<Identity, Impl, OFFSET>,
             getItemInfoByType: getItemInfoByType::<Identity, Impl, OFFSET>,
         }
@@ -4632,7 +4632,7 @@ impl IWMPMediaCollection_Vtbl {
             (*this).isDeleted(::core::mem::transmute(&pitem), ::core::mem::transmute_copy(&pvarfisdeleted)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             add: add::<Identity, Impl, OFFSET>,
             getAll: getAll::<Identity, Impl, OFFSET>,
             getByName: getByName::<Identity, Impl, OFFSET>,
@@ -4706,7 +4706,7 @@ impl IWMPMediaCollection2_Vtbl {
             }
         }
         Self {
-            base: IWMPMediaCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPMediaCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
             createQuery: createQuery::<Identity, Impl, OFFSET>,
             getPlaylistByQuery: getPlaylistByQuery::<Identity, Impl, OFFSET>,
             getStringCollectionByQuery: getStringCollectionByQuery::<Identity, Impl, OFFSET>,
@@ -4734,7 +4734,7 @@ impl IWMPMediaPluginRegistrar_Vtbl {
             (*this).WMPUnRegisterPlayerPlugin(::core::mem::transmute(&guidplugintype), ::core::mem::transmute(&clsid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             WMPRegisterPlayerPlugin: WMPRegisterPlayerPlugin::<Identity, Impl, OFFSET>,
             WMPUnRegisterPlayerPlugin: WMPUnRegisterPlayerPlugin::<Identity, Impl, OFFSET>,
         }
@@ -4774,7 +4774,7 @@ impl IWMPMetadataPicture_Vtbl {
             (*this).URL(::core::mem::transmute_copy(&pbstrurl)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             mimeType: mimeType::<Identity, Impl, OFFSET>,
             pictureType: pictureType::<Identity, Impl, OFFSET>,
             description: description::<Identity, Impl, OFFSET>,
@@ -4804,7 +4804,7 @@ impl IWMPMetadataText_Vtbl {
             (*this).text(::core::mem::transmute_copy(&pbstrtext)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             description: description::<Identity, Impl, OFFSET>,
             text: text::<Identity, Impl, OFFSET>,
         }
@@ -4988,7 +4988,7 @@ impl IWMPNetwork_Vtbl {
             (*this).framesSkipped(::core::mem::transmute_copy(&plframes)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             bandWidth: bandWidth::<Identity, Impl, OFFSET>,
             recoveredPackets: recoveredPackets::<Identity, Impl, OFFSET>,
             sourceProtocol: sourceProtocol::<Identity, Impl, OFFSET>,
@@ -5072,7 +5072,7 @@ impl IWMPNodeRealEstate_Vtbl {
             (*this).GetFullScreen(::core::mem::transmute_copy(&pffullscreen)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDesiredSize: GetDesiredSize::<Identity, Impl, OFFSET>,
             SetRects: SetRects::<Identity, Impl, OFFSET>,
             GetRects: GetRects::<Identity, Impl, OFFSET>,
@@ -5105,7 +5105,7 @@ impl IWMPNodeRealEstateHost_Vtbl {
             (*this).OnFullScreenTransition(::core::mem::transmute_copy(&ffullscreen)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnDesiredSizeChange: OnDesiredSizeChange::<Identity, Impl, OFFSET>,
             OnFullScreenTransition: OnFullScreenTransition::<Identity, Impl, OFFSET>,
         }
@@ -5131,7 +5131,7 @@ impl IWMPNodeWindowed_Vtbl {
             (*this).GetOwnerWindow(::core::mem::transmute_copy(&phwnd)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetOwnerWindow: SetOwnerWindow::<Identity, Impl, OFFSET>,
             GetOwnerWindow: GetOwnerWindow::<Identity, Impl, OFFSET>,
         }
@@ -5153,7 +5153,7 @@ impl IWMPNodeWindowedHost_Vtbl {
             (*this).OnWindowMessageFromRenderer(::core::mem::transmute_copy(&umsg), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam), ::core::mem::transmute_copy(&plret), ::core::mem::transmute_copy(&pfhandled)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnWindowMessageFromRenderer: OnWindowMessageFromRenderer::<Identity, Impl, OFFSET>,
         }
     }
@@ -5173,7 +5173,7 @@ impl IWMPNodeWindowless_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnDraw(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&prcdraw)).into()
         }
-        Self { base: IWMPWindowMessageSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnDraw: OnDraw::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPWindowMessageSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnDraw: OnDraw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPNodeWindowless as ::windows::core::Interface>::IID || iid == &<IWMPWindowMessageSink as ::windows::core::Interface>::IID
@@ -5191,7 +5191,7 @@ impl IWMPNodeWindowlessHost_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InvalidateRect(::core::mem::transmute_copy(&prc), ::core::mem::transmute_copy(&ferase)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvalidateRect: InvalidateRect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvalidateRect: InvalidateRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPNodeWindowlessHost as ::windows::core::Interface>::IID
@@ -5252,7 +5252,7 @@ impl IWMPPlayer_Vtbl {
             (*this).uiMode(::core::mem::transmute_copy(&pbstrmode)).into()
         }
         Self {
-            base: IWMPCore_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPCore_Vtbl::new::<Identity, Impl, OFFSET>(),
             enabled: enabled::<Identity, Impl, OFFSET>,
             Setenabled: Setenabled::<Identity, Impl, OFFSET>,
             fullScreen: fullScreen::<Identity, Impl, OFFSET>,
@@ -5346,7 +5346,7 @@ impl IWMPPlayer2_Vtbl {
             (*this).SetwindowlessVideo(::core::mem::transmute_copy(&benabled)).into()
         }
         Self {
-            base: IWMPCore_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPCore_Vtbl::new::<Identity, Impl, OFFSET>(),
             enabled: enabled::<Identity, Impl, OFFSET>,
             Setenabled: Setenabled::<Identity, Impl, OFFSET>,
             fullScreen: fullScreen::<Identity, Impl, OFFSET>,
@@ -5444,7 +5444,7 @@ impl IWMPPlayer3_Vtbl {
             (*this).SetwindowlessVideo(::core::mem::transmute_copy(&benabled)).into()
         }
         Self {
-            base: IWMPCore2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPCore2_Vtbl::new::<Identity, Impl, OFFSET>(),
             enabled: enabled::<Identity, Impl, OFFSET>,
             Setenabled: Setenabled::<Identity, Impl, OFFSET>,
             fullScreen: fullScreen::<Identity, Impl, OFFSET>,
@@ -5566,7 +5566,7 @@ impl IWMPPlayer4_Vtbl {
             (*this).openPlayer(::core::mem::transmute(&bstrurl)).into()
         }
         Self {
-            base: IWMPCore3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPCore3_Vtbl::new::<Identity, Impl, OFFSET>(),
             enabled: enabled::<Identity, Impl, OFFSET>,
             Setenabled: Setenabled::<Identity, Impl, OFFSET>,
             fullScreen: fullScreen::<Identity, Impl, OFFSET>,
@@ -5619,7 +5619,7 @@ impl IWMPPlayerApplication_Vtbl {
             (*this).hasDisplay(::core::mem::transmute_copy(&pbhasdisplay)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             switchToPlayerApplication: switchToPlayerApplication::<Identity, Impl, OFFSET>,
             switchToControl: switchToControl::<Identity, Impl, OFFSET>,
             playerDocked: playerDocked::<Identity, Impl, OFFSET>,
@@ -5655,7 +5655,7 @@ impl IWMPPlayerServices_Vtbl {
             (*this).setTaskPaneURL(::core::mem::transmute(&bstrtaskpane), ::core::mem::transmute(&bstrurl), ::core::mem::transmute(&bstrfriendlyname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             activateUIPlugin: activateUIPlugin::<Identity, Impl, OFFSET>,
             setTaskPane: setTaskPane::<Identity, Impl, OFFSET>,
             setTaskPaneURL: setTaskPaneURL::<Identity, Impl, OFFSET>,
@@ -5678,7 +5678,7 @@ impl IWMPPlayerServices2_Vtbl {
             (*this).setBackgroundProcessingPriority(::core::mem::transmute(&bstrpriority)).into()
         }
         Self {
-            base: IWMPPlayerServices_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPPlayerServices_Vtbl::new::<Identity, Impl, OFFSET>(),
             setBackgroundProcessingPriority: setBackgroundProcessingPriority::<Identity, Impl, OFFSET>,
         }
     }
@@ -5783,7 +5783,7 @@ impl IWMPPlaylist_Vtbl {
             (*this).moveItem(::core::mem::transmute_copy(&lindexold), ::core::mem::transmute_copy(&lindexnew)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             count: count::<Identity, Impl, OFFSET>,
             name: name::<Identity, Impl, OFFSET>,
             Setname: Setname::<Identity, Impl, OFFSET>,
@@ -5829,7 +5829,7 @@ impl IWMPPlaylistArray_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             count: count::<Identity, Impl, OFFSET>,
             item: item::<Identity, Impl, OFFSET>,
         }
@@ -5911,7 +5911,7 @@ impl IWMPPlaylistCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             newPlaylist: newPlaylist::<Identity, Impl, OFFSET>,
             getAll: getAll::<Identity, Impl, OFFSET>,
             getByName: getByName::<Identity, Impl, OFFSET>,
@@ -5966,7 +5966,7 @@ impl IWMPPlugin_Vtbl {
             (*this).UnAdviseWMPServices().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
             GetID: GetID::<Identity, Impl, OFFSET>,
@@ -5998,7 +5998,7 @@ impl IWMPPluginEnable_Vtbl {
             (*this).GetEnable(::core::mem::transmute_copy(&pfenable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetEnable: SetEnable::<Identity, Impl, OFFSET>,
             GetEnable: GetEnable::<Identity, Impl, OFFSET>,
         }
@@ -6056,7 +6056,7 @@ impl IWMPPluginUI_Vtbl {
             (*this).TranslateAccelerator(::core::mem::transmute_copy(&lpmsg)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetCore: SetCore::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,
             Destroy: Destroy::<Identity, Impl, OFFSET>,
@@ -6089,7 +6089,7 @@ impl IWMPQuery_Vtbl {
             (*this).beginNextGroup().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             addCondition: addCondition::<Identity, Impl, OFFSET>,
             beginNextGroup: beginNextGroup::<Identity, Impl, OFFSET>,
         }
@@ -6129,7 +6129,7 @@ impl IWMPRemoteMediaServices_Vtbl {
             (*this).GetCustomUIMode(::core::mem::transmute_copy(&pbstrfile)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetServiceType: GetServiceType::<Identity, Impl, OFFSET>,
             GetApplicationName: GetApplicationName::<Identity, Impl, OFFSET>,
             GetScriptableObject: GetScriptableObject::<Identity, Impl, OFFSET>,
@@ -6159,7 +6159,7 @@ impl IWMPRenderConfig_Vtbl {
             (*this).inProcOnly(::core::mem::transmute_copy(&pfinproc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetinProcOnly: SetinProcOnly::<Identity, Impl, OFFSET>,
             inProcOnly: inProcOnly::<Identity, Impl, OFFSET>,
         }
@@ -6185,7 +6185,7 @@ impl IWMPServices_Vtbl {
             (*this).GetStreamState(::core::mem::transmute_copy(&pstate)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStreamTime: GetStreamTime::<Identity, Impl, OFFSET>,
             GetStreamState: GetStreamState::<Identity, Impl, OFFSET>,
         }
@@ -6339,7 +6339,7 @@ impl IWMPSettings_Vtbl {
             (*this).SetenableErrorDialogs(::core::mem::transmute_copy(&fenableerrordialogs)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             isAvailable: isAvailable::<Identity, Impl, OFFSET>,
             autoStart: autoStart::<Identity, Impl, OFFSET>,
             SetautoStart: SetautoStart::<Identity, Impl, OFFSET>,
@@ -6394,7 +6394,7 @@ impl IWMPSettings2_Vtbl {
             (*this).requestMediaAccessRights(::core::mem::transmute(&bstrdesiredaccess), ::core::mem::transmute_copy(&pvbaccepted)).into()
         }
         Self {
-            base: IWMPSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
             defaultAudioLanguage: defaultAudioLanguage::<Identity, Impl, OFFSET>,
             mediaAccessRights: mediaAccessRights::<Identity, Impl, OFFSET>,
             requestMediaAccessRights: requestMediaAccessRights::<Identity, Impl, OFFSET>,
@@ -6416,7 +6416,7 @@ impl IWMPSkinManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetVisualStyle(::core::mem::transmute(&bstrpath)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetVisualStyle: SetVisualStyle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetVisualStyle: SetVisualStyle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPSkinManager as ::windows::core::Interface>::IID
@@ -6441,7 +6441,7 @@ impl IWMPStringCollection_Vtbl {
             (*this).item(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&pbstrstring)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             count: count::<Identity, Impl, OFFSET>,
             item: item::<Identity, Impl, OFFSET>,
         }
@@ -6481,7 +6481,7 @@ impl IWMPStringCollection2_Vtbl {
             (*this).getItemInfoByType(::core::mem::transmute_copy(&lcollectionindex), ::core::mem::transmute(&bstrtype), ::core::mem::transmute(&bstrlanguage), ::core::mem::transmute_copy(&lattributeindex), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
         Self {
-            base: IWMPStringCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPStringCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
             isIdentical: isIdentical::<Identity, Impl, OFFSET>,
             getItemInfo: getItemInfo::<Identity, Impl, OFFSET>,
             getAttributeCountByType: getAttributeCountByType::<Identity, Impl, OFFSET>,
@@ -6523,7 +6523,7 @@ impl IWMPSubscriptionService_Vtbl {
             (*this).startBackgroundProcessing(::core::mem::transmute_copy(&hwnd)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             allowPlay: allowPlay::<Identity, Impl, OFFSET>,
             allowCDBurn: allowCDBurn::<Identity, Impl, OFFSET>,
             allowPDATransfer: allowPDATransfer::<Identity, Impl, OFFSET>,
@@ -6565,7 +6565,7 @@ impl IWMPSubscriptionService2_Vtbl {
             (*this).prepareForSync(::core::mem::transmute(&bstrfilename), ::core::mem::transmute(&bstrdevicename), ::core::mem::transmute(&pcb)).into()
         }
         Self {
-            base: IWMPSubscriptionService_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPSubscriptionService_Vtbl::new::<Identity, Impl, OFFSET>(),
             stopBackgroundProcessing: stopBackgroundProcessing::<Identity, Impl, OFFSET>,
             serviceEvent: serviceEvent::<Identity, Impl, OFFSET>,
             deviceAvailable: deviceAvailable::<Identity, Impl, OFFSET>,
@@ -6586,7 +6586,7 @@ impl IWMPSubscriptionServiceCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).onComplete(::core::mem::transmute_copy(&hrresult)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPSubscriptionServiceCallback as ::windows::core::Interface>::IID
@@ -6695,7 +6695,7 @@ impl IWMPSyncDevice_Vtbl {
             (*this).isIdentical(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pvbool)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             friendlyName: friendlyName::<Identity, Impl, OFFSET>,
             SetfriendlyName: SetfriendlyName::<Identity, Impl, OFFSET>,
             deviceName: deviceName::<Identity, Impl, OFFSET>,
@@ -6730,7 +6730,7 @@ impl IWMPSyncDevice2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).setItemInfo(::core::mem::transmute(&bstritemname), ::core::mem::transmute(&bstrval)).into()
         }
-        Self { base: IWMPSyncDevice_Vtbl::new::<Identity, Impl, OFFSET>(), setItemInfo: setItemInfo::<Identity, Impl, OFFSET> }
+        Self { base__: IWMPSyncDevice_Vtbl::new::<Identity, Impl, OFFSET>(), setItemInfo: setItemInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPSyncDevice2 as ::windows::core::Interface>::IID || iid == &<IWMPSyncDevice as ::windows::core::Interface>::IID
@@ -6755,7 +6755,7 @@ impl IWMPSyncDevice3_Vtbl {
             (*this).cancelEstimation().into()
         }
         Self {
-            base: IWMPSyncDevice2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWMPSyncDevice2_Vtbl::new::<Identity, Impl, OFFSET>(),
             estimateSyncSize: estimateSyncSize::<Identity, Impl, OFFSET>,
             cancelEstimation: cancelEstimation::<Identity, Impl, OFFSET>,
         }
@@ -6787,7 +6787,7 @@ impl IWMPSyncServices_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             deviceCount: deviceCount::<Identity, Impl, OFFSET>,
             getDevice: getDevice::<Identity, Impl, OFFSET>,
         }
@@ -6806,7 +6806,7 @@ impl IWMPTranscodePolicy_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).allowTranscode(::core::mem::transmute_copy(&pvballow)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), allowTranscode: allowTranscode::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), allowTranscode: allowTranscode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPTranscodePolicy as ::windows::core::Interface>::IID
@@ -6822,7 +6822,7 @@ impl IWMPUserEventSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NotifyUserEvent(::core::mem::transmute_copy(&eventcode)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NotifyUserEvent: NotifyUserEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NotifyUserEvent: NotifyUserEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPUserEventSink as ::windows::core::Interface>::IID
@@ -6840,7 +6840,7 @@ impl IWMPVideoRenderConfig_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetpresenterActivate(::core::mem::transmute(&pactivate)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetpresenterActivate: SetpresenterActivate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetpresenterActivate: SetpresenterActivate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPVideoRenderConfig as ::windows::core::Interface>::IID
@@ -6858,7 +6858,7 @@ impl IWMPWindowMessageSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnWindowMessage(::core::mem::transmute_copy(&umsg), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam), ::core::mem::transmute_copy(&plret), ::core::mem::transmute_copy(&pfhandled)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnWindowMessage: OnWindowMessage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnWindowMessage: OnWindowMessage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMPWindowMessageSink as ::windows::core::Interface>::IID
@@ -7303,7 +7303,7 @@ impl IXFeed_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Xml: Xml::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             Rename: Rename::<Identity, Impl, OFFSET>,
@@ -7415,7 +7415,7 @@ impl IXFeed2_Vtbl {
             (*this).ClearCredentials().into()
         }
         Self {
-            base: IXFeed_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IXFeed_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetItemByEffectiveId: GetItemByEffectiveId::<Identity, Impl, OFFSET>,
             LastItemDownloadTime: LastItemDownloadTime::<Identity, Impl, OFFSET>,
             Username: Username::<Identity, Impl, OFFSET>,
@@ -7559,7 +7559,7 @@ impl IXFeedEnclosure_Vtbl {
             (*this).SetFile(::core::mem::transmute(&pszdownloadurl), ::core::mem::transmute(&pszdownloadfilepath), ::core::mem::transmute(&pszdownloadmimetype), ::core::mem::transmute(&pszenclosurefilename)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Url: Url::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
@@ -7632,7 +7632,7 @@ impl IXFeedEvents_Vtbl {
             (*this).FeedItemCountChanged(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Error: Error::<Identity, Impl, OFFSET>,
             FeedDeleted: FeedDeleted::<Identity, Impl, OFFSET>,
             FeedRenamed: FeedRenamed::<Identity, Impl, OFFSET>,
@@ -7804,7 +7804,7 @@ impl IXFeedFolder_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Feeds: Feeds::<Identity, Impl, OFFSET>,
             Subfolders: Subfolders::<Identity, Impl, OFFSET>,
             CreateFeed: CreateFeed::<Identity, Impl, OFFSET>,
@@ -7930,7 +7930,7 @@ impl IXFeedFolderEvents_Vtbl {
             (*this).FeedItemCountChanged(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Error: Error::<Identity, Impl, OFFSET>,
             FolderAdded: FolderAdded::<Identity, Impl, OFFSET>,
             FolderDeleted: FolderDeleted::<Identity, Impl, OFFSET>,
@@ -8140,7 +8140,7 @@ impl IXFeedItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Xml: Xml::<Identity, Impl, OFFSET>,
             Title: Title::<Identity, Impl, OFFSET>,
             Link: Link::<Identity, Impl, OFFSET>,
@@ -8182,7 +8182,7 @@ impl IXFeedItem2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IXFeedItem_Vtbl::new::<Identity, Impl, OFFSET>(), EffectiveId: EffectiveId::<Identity, Impl, OFFSET> }
+        Self { base__: IXFeedItem_Vtbl::new::<Identity, Impl, OFFSET>(), EffectiveId: EffectiveId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXFeedItem2 as ::windows::core::Interface>::IID || iid == &<IXFeedItem as ::windows::core::Interface>::IID
@@ -8210,7 +8210,7 @@ impl IXFeedsEnum_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Item(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Count: Count::<Identity, Impl, OFFSET>, Item: Item::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Count: Count::<Identity, Impl, OFFSET>, Item: Item::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXFeedsEnum as ::windows::core::Interface>::IID
@@ -8361,7 +8361,7 @@ impl IXFeedsManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RootFolder: RootFolder::<Identity, Impl, OFFSET>,
             IsSubscribed: IsSubscribed::<Identity, Impl, OFFSET>,
             ExistsFeed: ExistsFeed::<Identity, Impl, OFFSET>,
@@ -8389,7 +8389,7 @@ pub trait _WMPOCXEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _WMPOCXEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _WMPOCXEvents_Impl, const OFFSET: isize>() -> _WMPOCXEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_WMPOCXEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID

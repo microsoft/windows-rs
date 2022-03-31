@@ -10,7 +10,7 @@ impl IEffectivePermission_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetEffectivePermission(::core::mem::transmute_copy(&pguidobjecttype), ::core::mem::transmute_copy(&pusersid), ::core::mem::transmute(&pszservername), ::core::mem::transmute_copy(&psd), ::core::mem::transmute_copy(&ppobjecttypelist), ::core::mem::transmute_copy(&pcobjecttypelistlength), ::core::mem::transmute_copy(&ppgrantedaccesslist), ::core::mem::transmute_copy(&pcgrantedaccesslistlength)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetEffectivePermission: GetEffectivePermission::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetEffectivePermission: GetEffectivePermission::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEffectivePermission as ::windows::core::Interface>::IID
@@ -78,7 +78,7 @@ impl IEffectivePermission2_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ComputeEffectivePermissionWithSecondarySecurity: ComputeEffectivePermissionWithSecondarySecurity::<Identity, Impl, OFFSET>,
         }
     }
@@ -135,7 +135,7 @@ impl ISecurityInformation_Vtbl {
             (*this).PropertySheetPageCallback(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&umsg), ::core::mem::transmute_copy(&upage)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetObjectInformation: GetObjectInformation::<Identity, Impl, OFFSET>,
             GetSecurity: GetSecurity::<Identity, Impl, OFFSET>,
             SetSecurity: SetSecurity::<Identity, Impl, OFFSET>,
@@ -168,7 +168,7 @@ impl ISecurityInformation2_Vtbl {
             (*this).LookupSids(::core::mem::transmute_copy(&csids), ::core::mem::transmute_copy(&rgpsids), ::core::mem::transmute_copy(&ppdo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsDaclCanonical: IsDaclCanonical::<Identity, Impl, OFFSET>,
             LookupSids: LookupSids::<Identity, Impl, OFFSET>,
         }
@@ -202,7 +202,7 @@ impl ISecurityInformation3_Vtbl {
             (*this).OpenElevatedEditor(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&upage)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFullResourceName: GetFullResourceName::<Identity, Impl, OFFSET>,
             OpenElevatedEditor: OpenElevatedEditor::<Identity, Impl, OFFSET>,
         }
@@ -223,7 +223,7 @@ impl ISecurityInformation4_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSecondarySecurity(::core::mem::transmute_copy(&psecurityobjects), ::core::mem::transmute_copy(&psecurityobjectcount)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSecondarySecurity: GetSecondarySecurity::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSecondarySecurity: GetSecondarySecurity::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityInformation4 as ::windows::core::Interface>::IID
@@ -239,7 +239,7 @@ impl ISecurityObjectTypeInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetInheritSource(::core::mem::transmute_copy(&si), ::core::mem::transmute_copy(&pacl), ::core::mem::transmute_copy(&ppinheritarray)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInheritSource: GetInheritSource::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInheritSource: GetInheritSource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISecurityObjectTypeInfo as ::windows::core::Interface>::IID

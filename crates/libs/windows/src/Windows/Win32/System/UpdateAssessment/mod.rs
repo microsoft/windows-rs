@@ -53,7 +53,7 @@ unsafe impl ::windows::core::Interface for IWaaSAssessor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWaaSAssessor_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetOSUpdateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

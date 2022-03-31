@@ -173,7 +173,7 @@ impl IMFDeviceTransform_Vtbl {
             (*this).FlushOutputStream(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeTransform: InitializeTransform::<Identity, Impl, OFFSET>,
             GetInputAvailableType: GetInputAvailableType::<Identity, Impl, OFFSET>,
             GetInputCurrentType: GetInputCurrentType::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl IMFDeviceTransformCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnBufferSent(::core::mem::transmute(&pcallbackattributes), ::core::mem::transmute_copy(&pinid)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnBufferSent: OnBufferSent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnBufferSent: OnBufferSent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMFDeviceTransformCallback as ::windows::core::Interface>::IID

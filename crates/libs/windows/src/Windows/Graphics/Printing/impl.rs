@@ -4,7 +4,7 @@ impl ::windows::core::RuntimeName for IPrintDocumentSource {
 }
 impl IPrintDocumentSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentSource_Impl, const OFFSET: isize>() -> IPrintDocumentSource_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDocumentSource, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDocumentSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintDocumentSource as ::windows::core::Interface>::IID
@@ -34,7 +34,7 @@ impl IPrintTaskOptionsCore_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionsCore, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionsCore, OFFSET>(),
             GetPageDescription: GetPageDescription::<Identity, Impl, OFFSET>,
         }
     }
@@ -285,7 +285,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionsCoreProperties, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionsCoreProperties, OFFSET>(),
             SetMediaSize: SetMediaSize::<Identity, Impl, OFFSET>,
             MediaSize: MediaSize::<Identity, Impl, OFFSET>,
             SetMediaType: SetMediaType::<Identity, Impl, OFFSET>,
@@ -340,7 +340,7 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionsCoreUIConfiguration, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskOptionsCoreUIConfiguration, OFFSET>(),
             DisplayedOptions: DisplayedOptions::<Identity, Impl, OFFSET>,
         }
     }

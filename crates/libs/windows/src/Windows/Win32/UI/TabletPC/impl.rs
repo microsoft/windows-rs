@@ -131,7 +131,7 @@ impl IDynamicRenderer_Vtbl {
             (*this).Draw(::core::mem::transmute_copy(&hdc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             HWND: HWND::<Identity, Impl, OFFSET>,
@@ -208,7 +208,7 @@ impl IGestureRecognizer_Vtbl {
             (*this).Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             MaxStrokeCount: MaxStrokeCount::<Identity, Impl, OFFSET>,
@@ -240,7 +240,7 @@ impl IHandwrittenTextInsertion_Vtbl {
             (*this).InsertInkRecognitionResult(::core::mem::transmute(&piinkrecoresult), ::core::mem::transmute_copy(&locale), ::core::mem::transmute_copy(&falternatecontainsautospacinginformation)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InsertRecognitionResultsArray: InsertRecognitionResultsArray::<Identity, Impl, OFFSET>,
             InsertInkRecognitionResult: InsertInkRecognitionResult::<Identity, Impl, OFFSET>,
         }
@@ -254,7 +254,7 @@ pub trait IInk_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInk_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInk_Impl, const OFFSET: isize>() -> IInk_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInk as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -621,7 +621,7 @@ impl IInkCollector_Vtbl {
             (*this).SetEventInterest(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&listen)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             hWnd: hWnd::<Identity, Impl, OFFSET>,
             SethWnd: SethWnd::<Identity, Impl, OFFSET>,
             Enabled: Enabled::<Identity, Impl, OFFSET>,
@@ -753,7 +753,7 @@ impl IInkCursor_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Inverted: Inverted::<Identity, Impl, OFFSET>,
@@ -810,7 +810,7 @@ impl IInkCursorButton_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
@@ -863,7 +863,7 @@ impl IInkCursorButtons_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -916,7 +916,7 @@ impl IInkCursors_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -987,7 +987,7 @@ impl IInkCustomStrokes_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -1259,7 +1259,7 @@ impl IInkDisp_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Strokes: Strokes::<Identity, Impl, OFFSET>,
             ExtendedProperties: ExtendedProperties::<Identity, Impl, OFFSET>,
             Dirty: Dirty::<Identity, Impl, OFFSET>,
@@ -1364,7 +1364,7 @@ impl IInkDivider_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Strokes: Strokes::<Identity, Impl, OFFSET>,
             putref_Strokes: putref_Strokes::<Identity, Impl, OFFSET>,
             RecognizerContext: RecognizerContext::<Identity, Impl, OFFSET>,
@@ -1409,7 +1409,7 @@ impl IInkDivisionResult_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Strokes: Strokes::<Identity, Impl, OFFSET>,
             ResultByType: ResultByType::<Identity, Impl, OFFSET>,
         }
@@ -1473,7 +1473,7 @@ impl IInkDivisionUnit_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Strokes: Strokes::<Identity, Impl, OFFSET>,
             DivisionType: DivisionType::<Identity, Impl, OFFSET>,
             RecognizedString: RecognizedString::<Identity, Impl, OFFSET>,
@@ -1527,7 +1527,7 @@ impl IInkDivisionUnits_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -1730,7 +1730,7 @@ impl IInkDrawingAttributes_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Color: Color::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             Width: Width::<Identity, Impl, OFFSET>,
@@ -2454,7 +2454,7 @@ impl IInkEdit_Vtbl {
             (*this).Refresh().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             UseMouseForInput: UseMouseForInput::<Identity, Impl, OFFSET>,
             SetUseMouseForInput: SetUseMouseForInput::<Identity, Impl, OFFSET>,
@@ -2617,7 +2617,7 @@ impl IInkExtendedProperties_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -2668,7 +2668,7 @@ impl IInkExtendedProperty_Vtbl {
             (*this).SetData(::core::mem::transmute(&data)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Guid: Guid::<Identity, Impl, OFFSET>,
             Data: Data::<Identity, Impl, OFFSET>,
             SetData: SetData::<Identity, Impl, OFFSET>,
@@ -2715,7 +2715,7 @@ impl IInkGesture_Vtbl {
             (*this).GetHotPoint(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Confidence: Confidence::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             GetHotPoint: GetHotPoint::<Identity, Impl, OFFSET>,
@@ -2766,7 +2766,7 @@ impl IInkLineInfo_Vtbl {
             (*this).Recognize().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
             GetFormat: GetFormat::<Identity, Impl, OFFSET>,
             GetInkExtent: GetInkExtent::<Identity, Impl, OFFSET>,
@@ -3266,7 +3266,7 @@ impl IInkOverlay_Vtbl {
             (*this).SetEventInterest(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&listen)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             hWnd: hWnd::<Identity, Impl, OFFSET>,
             SethWnd: SethWnd::<Identity, Impl, OFFSET>,
             Enabled: Enabled::<Identity, Impl, OFFSET>,
@@ -3862,7 +3862,7 @@ impl IInkPicture_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&vbool)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             hWnd: hWnd::<Identity, Impl, OFFSET>,
             DefaultDrawingAttributes: DefaultDrawingAttributes::<Identity, Impl, OFFSET>,
             putref_DefaultDrawingAttributes: putref_DefaultDrawingAttributes::<Identity, Impl, OFFSET>,
@@ -4103,7 +4103,7 @@ impl IInkRecognitionAlternate_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             String: String::<Identity, Impl, OFFSET>,
             Confidence: Confidence::<Identity, Impl, OFFSET>,
             Baseline: Baseline::<Identity, Impl, OFFSET>,
@@ -4180,7 +4180,7 @@ impl IInkRecognitionAlternates_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Strokes: Strokes::<Identity, Impl, OFFSET>,
@@ -4270,7 +4270,7 @@ impl IInkRecognitionResult_Vtbl {
             (*this).SetResultOnStrokes().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             TopString: TopString::<Identity, Impl, OFFSET>,
             TopAlternate: TopAlternate::<Identity, Impl, OFFSET>,
             TopConfidence: TopConfidence::<Identity, Impl, OFFSET>,
@@ -4375,7 +4375,7 @@ impl IInkRecognizer_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Vendor: Vendor::<Identity, Impl, OFFSET>,
             Capabilities: Capabilities::<Identity, Impl, OFFSET>,
@@ -4420,7 +4420,7 @@ impl IInkRecognizer2_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             UnicodeRanges: UnicodeRanges::<Identity, Impl, OFFSET>,
         }
@@ -4646,7 +4646,7 @@ impl IInkRecognizerContext_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Strokes: Strokes::<Identity, Impl, OFFSET>,
             putref_Strokes: putref_Strokes::<Identity, Impl, OFFSET>,
             CharacterAutoCompletionMode: CharacterAutoCompletionMode::<Identity, Impl, OFFSET>,
@@ -4702,7 +4702,7 @@ impl IInkRecognizerContext2_Vtbl {
             (*this).SetEnabledUnicodeRanges(::core::mem::transmute(&unicoderanges)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnabledUnicodeRanges: EnabledUnicodeRanges::<Identity, Impl, OFFSET>,
             SetEnabledUnicodeRanges: SetEnabledUnicodeRanges::<Identity, Impl, OFFSET>,
         }
@@ -4826,7 +4826,7 @@ impl IInkRecognizerGuide_Vtbl {
             (*this).SetGuideData(::core::mem::transmute(&recoguide)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             WritingBox: WritingBox::<Identity, Impl, OFFSET>,
             SetWritingBox: SetWritingBox::<Identity, Impl, OFFSET>,
             DrawnBox: DrawnBox::<Identity, Impl, OFFSET>,
@@ -4900,7 +4900,7 @@ impl IInkRecognizers_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             GetDefaultRecognizer: GetDefaultRecognizer::<Identity, Impl, OFFSET>,
@@ -5020,7 +5020,7 @@ impl IInkRectangle_Vtbl {
             (*this).SetRectangle(::core::mem::transmute_copy(&top), ::core::mem::transmute_copy(&left), ::core::mem::transmute_copy(&bottom), ::core::mem::transmute_copy(&right)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Top: Top::<Identity, Impl, OFFSET>,
             SetTop: SetTop::<Identity, Impl, OFFSET>,
             Left: Left::<Identity, Impl, OFFSET>,
@@ -5148,7 +5148,7 @@ impl IInkRenderer_Vtbl {
             (*this).ScaleTransform(::core::mem::transmute_copy(&horizontalmultiplier), ::core::mem::transmute_copy(&verticalmultiplier), ::core::mem::transmute_copy(&applyonpenwidth)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetViewTransform: GetViewTransform::<Identity, Impl, OFFSET>,
             SetViewTransform: SetViewTransform::<Identity, Impl, OFFSET>,
             GetObjectTransform: GetObjectTransform::<Identity, Impl, OFFSET>,
@@ -5513,7 +5513,7 @@ impl IInkStrokeDisp_Vtbl {
             (*this).ScaleTransform(::core::mem::transmute_copy(&horizontalmultiplier), ::core::mem::transmute_copy(&verticalmultiplier)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ID: ID::<Identity, Impl, OFFSET>,
             BezierPoints: BezierPoints::<Identity, Impl, OFFSET>,
             DrawingAttributes: DrawingAttributes::<Identity, Impl, OFFSET>,
@@ -5722,7 +5722,7 @@ impl IInkStrokes_Vtbl {
             (*this).RemoveRecognitionResult().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Ink: Ink::<Identity, Impl, OFFSET>,
@@ -5822,7 +5822,7 @@ impl IInkTablet_Vtbl {
             (*this).GetPropertyMetrics(::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&minimum), ::core::mem::transmute_copy(&maximum), ::core::mem::transmute_copy(&units), ::core::mem::transmute_copy(&resolution)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             PlugAndPlayId: PlugAndPlayId::<Identity, Impl, OFFSET>,
             MaximumInputRectangle: MaximumInputRectangle::<Identity, Impl, OFFSET>,
@@ -5853,7 +5853,7 @@ impl IInkTablet2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), DeviceKind: DeviceKind::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), DeviceKind: DeviceKind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkTablet2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -5890,7 +5890,7 @@ impl IInkTablet3_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsMultiTouch: IsMultiTouch::<Identity, Impl, OFFSET>,
             MaximumCursors: MaximumCursors::<Identity, Impl, OFFSET>,
         }
@@ -5966,7 +5966,7 @@ impl IInkTablets_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             DefaultTablet: DefaultTablet::<Identity, Impl, OFFSET>,
@@ -6159,7 +6159,7 @@ impl IInkTransform_Vtbl {
             (*this).SetData(::core::mem::transmute(&xform)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Translate: Translate::<Identity, Impl, OFFSET>,
             Rotate: Rotate::<Identity, Impl, OFFSET>,
@@ -6213,7 +6213,7 @@ impl IInkWordList_Vtbl {
             (*this).Merge(::core::mem::transmute(&mergewordlist)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddWord: AddWord::<Identity, Impl, OFFSET>,
             RemoveWord: RemoveWord::<Identity, Impl, OFFSET>,
             Merge: Merge::<Identity, Impl, OFFSET>,
@@ -6235,7 +6235,7 @@ impl IInkWordList2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddWords(::core::mem::transmute(&newwords)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), AddWords: AddWords::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), AddWords: AddWords::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkWordList2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -6282,7 +6282,7 @@ impl IInputPanelWindowHandle_Vtbl {
             (*this).SetAttachedEditWindow64(::core::mem::transmute_copy(&attachededitwindow)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachedEditWindow32: AttachedEditWindow32::<Identity, Impl, OFFSET>,
             SetAttachedEditWindow32: SetAttachedEditWindow32::<Identity, Impl, OFFSET>,
             AttachedEditWindow64: AttachedEditWindow64::<Identity, Impl, OFFSET>,
@@ -6420,7 +6420,7 @@ impl IMathInputControl_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Show: Show::<Identity, Impl, OFFSET>,
             Hide: Hide::<Identity, Impl, OFFSET>,
             IsVisible: IsVisible::<Identity, Impl, OFFSET>,
@@ -6679,7 +6679,7 @@ impl IPenInputPanel_Vtbl {
             (*this).EnableTsf(::core::mem::transmute_copy(&enable)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Busy: Busy::<Identity, Impl, OFFSET>,
             Factoid: Factoid::<Identity, Impl, OFFSET>,
             SetFactoid: SetFactoid::<Identity, Impl, OFFSET>,
@@ -6982,7 +6982,7 @@ impl IRealTimeStylus_Vtbl {
             (*this).GetPacketDescriptionData(::core::mem::transmute_copy(&tcid), ::core::mem::transmute_copy(&pfinktodevicescalex), ::core::mem::transmute_copy(&pfinktodevicescaley), ::core::mem::transmute_copy(&pcpacketproperties), ::core::mem::transmute_copy(&pppacketproperties)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             HWND: HWND::<Identity, Impl, OFFSET>,
@@ -7045,7 +7045,7 @@ impl IRealTimeStylus2_Vtbl {
             (*this).SetFlicksEnabled(::core::mem::transmute_copy(&fenable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FlicksEnabled: FlicksEnabled::<Identity, Impl, OFFSET>,
             SetFlicksEnabled: SetFlicksEnabled::<Identity, Impl, OFFSET>,
         }
@@ -7079,7 +7079,7 @@ impl IRealTimeStylus3_Vtbl {
             (*this).SetMultiTouchEnabled(::core::mem::transmute_copy(&fenable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MultiTouchEnabled: MultiTouchEnabled::<Identity, Impl, OFFSET>,
             SetMultiTouchEnabled: SetMultiTouchEnabled::<Identity, Impl, OFFSET>,
         }
@@ -7105,7 +7105,7 @@ impl IRealTimeStylusSynchronization_Vtbl {
             (*this).ReleaseLock(::core::mem::transmute_copy(&lock)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AcquireLock: AcquireLock::<Identity, Impl, OFFSET>,
             ReleaseLock: ReleaseLock::<Identity, Impl, OFFSET>,
         }
@@ -7119,7 +7119,7 @@ pub trait ISketchInk_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISketchInk_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISketchInk_Impl, const OFFSET: isize>() -> ISketchInk_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISketchInk as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7174,7 +7174,7 @@ impl IStrokeBuilder_Vtbl {
             (*this).putref_Ink(::core::mem::transmute(&piinkobj)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateStroke: CreateStroke::<Identity, Impl, OFFSET>,
             BeginStroke: BeginStroke::<Identity, Impl, OFFSET>,
             AppendPackets: AppendPackets::<Identity, Impl, OFFSET>,
@@ -7192,7 +7192,7 @@ pub trait IStylusAsyncPlugin_Impl: Sized + IStylusPlugin_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IStylusAsyncPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylusAsyncPlugin_Impl, const OFFSET: isize>() -> IStylusAsyncPlugin_Vtbl {
-        Self { base: IStylusPlugin_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IStylusPlugin_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStylusAsyncPlugin as ::windows::core::Interface>::IID || iid == &<IStylusPlugin as ::windows::core::Interface>::IID
@@ -7313,7 +7313,7 @@ impl IStylusPlugin_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RealTimeStylusEnabled: RealTimeStylusEnabled::<Identity, Impl, OFFSET>,
             RealTimeStylusDisabled: RealTimeStylusDisabled::<Identity, Impl, OFFSET>,
             StylusInRange: StylusInRange::<Identity, Impl, OFFSET>,
@@ -7342,7 +7342,7 @@ pub trait IStylusSyncPlugin_Impl: Sized + IStylusPlugin_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IStylusSyncPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylusSyncPlugin_Impl, const OFFSET: isize>() -> IStylusSyncPlugin_Vtbl {
-        Self { base: IStylusPlugin_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IStylusPlugin_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStylusSyncPlugin as ::windows::core::Interface>::IID || iid == &<IStylusPlugin as ::windows::core::Interface>::IID
@@ -7583,7 +7583,7 @@ impl ITextInputPanel_Vtbl {
             (*this).Unadvise(::core::mem::transmute(&eventsink)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachedEditWindow: AttachedEditWindow::<Identity, Impl, OFFSET>,
             SetAttachedEditWindow: SetAttachedEditWindow::<Identity, Impl, OFFSET>,
             CurrentInteractionMode: CurrentInteractionMode::<Identity, Impl, OFFSET>,
@@ -7694,7 +7694,7 @@ impl ITextInputPanelEventSink_Vtbl {
             (*this).TextInserted(::core::mem::transmute_copy(&ink)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InPlaceStateChanging: InPlaceStateChanging::<Identity, Impl, OFFSET>,
             InPlaceStateChanged: InPlaceStateChanged::<Identity, Impl, OFFSET>,
             InPlaceSizeChanging: InPlaceSizeChanging::<Identity, Impl, OFFSET>,
@@ -7731,7 +7731,7 @@ impl ITextInputPanelRunInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsTipRunning: IsTipRunning::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsTipRunning: IsTipRunning::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextInputPanelRunInfo as ::windows::core::Interface>::IID
@@ -7780,7 +7780,7 @@ impl ITipAutoCompleteClient_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AdviseProvider: AdviseProvider::<Identity, Impl, OFFSET>,
             UnadviseProvider: UnadviseProvider::<Identity, Impl, OFFSET>,
             UserSelection: UserSelection::<Identity, Impl, OFFSET>,
@@ -7811,7 +7811,7 @@ impl ITipAutoCompleteProvider_Vtbl {
             (*this).Show(::core::mem::transmute_copy(&fshow)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             UpdatePendingText: UpdatePendingText::<Identity, Impl, OFFSET>,
             Show: Show::<Identity, Impl, OFFSET>,
         }
@@ -7825,7 +7825,7 @@ pub trait _IInkCollectorEvents_Impl: Sized + super::super::System::Com::IDispatc
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkCollectorEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkCollectorEvents_Impl, const OFFSET: isize>() -> _IInkCollectorEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkCollectorEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7836,7 +7836,7 @@ pub trait _IInkEditEvents_Impl: Sized + super::super::System::Com::IDispatch_Imp
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkEditEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkEditEvents_Impl, const OFFSET: isize>() -> _IInkEditEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkEditEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7847,7 +7847,7 @@ pub trait _IInkEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkEvents_Impl, const OFFSET: isize>() -> _IInkEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7858,7 +7858,7 @@ pub trait _IInkOverlayEvents_Impl: Sized + super::super::System::Com::IDispatch_
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkOverlayEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkOverlayEvents_Impl, const OFFSET: isize>() -> _IInkOverlayEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkOverlayEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7869,7 +7869,7 @@ pub trait _IInkPictureEvents_Impl: Sized + super::super::System::Com::IDispatch_
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkPictureEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkPictureEvents_Impl, const OFFSET: isize>() -> _IInkPictureEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkPictureEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7880,7 +7880,7 @@ pub trait _IInkRecognitionEvents_Impl: Sized + super::super::System::Com::IDispa
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkRecognitionEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkRecognitionEvents_Impl, const OFFSET: isize>() -> _IInkRecognitionEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkRecognitionEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7891,7 +7891,7 @@ pub trait _IInkStrokesEvents_Impl: Sized + super::super::System::Com::IDispatch_
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IInkStrokesEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IInkStrokesEvents_Impl, const OFFSET: isize>() -> _IInkStrokesEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IInkStrokesEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7902,7 +7902,7 @@ pub trait _IMathInputControlEvents_Impl: Sized + super::super::System::Com::IDis
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IMathInputControlEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IMathInputControlEvents_Impl, const OFFSET: isize>() -> _IMathInputControlEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IMathInputControlEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7913,7 +7913,7 @@ pub trait _IPenInputPanelEvents_Impl: Sized + super::super::System::Com::IDispat
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IPenInputPanelEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IPenInputPanelEvents_Impl, const OFFSET: isize>() -> _IPenInputPanelEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IPenInputPanelEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID

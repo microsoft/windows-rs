@@ -48,7 +48,7 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, OFFSET>(),
             QueryText: QueryText::<Identity, Impl, OFFSET>,
             Language: Language::<Identity, Impl, OFFSET>,
             LinguisticDetails: LinguisticDetails::<Identity, Impl, OFFSET>,

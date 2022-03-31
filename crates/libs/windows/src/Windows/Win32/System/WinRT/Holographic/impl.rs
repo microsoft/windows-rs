@@ -51,7 +51,7 @@ impl IHolographicCameraInterop_Vtbl {
             (*this).UnacquireDirect3D12BufferResource(::core::mem::transmute(&presourcetounacquire)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraInterop, OFFSET>(),
             CreateDirect3D12BackBufferResource: CreateDirect3D12BackBufferResource::<Identity, Impl, OFFSET>,
             CreateDirect3D12HardwareProtectedBackBufferResource: CreateDirect3D12HardwareProtectedBackBufferResource::<Identity, Impl, OFFSET>,
             AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Identity, Impl, OFFSET>,
@@ -86,7 +86,7 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
             (*this).CommitDirect3D12ResourceWithDepthData(::core::mem::transmute(&pcolorresourcetocommit), ::core::mem::transmute(&pcolorresourcefence), ::core::mem::transmute_copy(&colorresourcefencesignalvalue), ::core::mem::transmute(&pdepthresourcetocommit), ::core::mem::transmute(&pdepthresourcefence), ::core::mem::transmute_copy(&depthresourcefencesignalvalue)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParametersInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParametersInterop, OFFSET>(),
             CommitDirect3D12Resource: CommitDirect3D12Resource::<Identity, Impl, OFFSET>,
             CommitDirect3D12ResourceWithDepthData: CommitDirect3D12ResourceWithDepthData::<Identity, Impl, OFFSET>,
         }
@@ -148,7 +148,7 @@ impl IHolographicQuadLayerInterop_Vtbl {
             (*this).UnacquireDirect3D12BufferResource(::core::mem::transmute(&presourcetounacquire)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerInterop, OFFSET>(),
             CreateDirect3D12ContentBufferResource: CreateDirect3D12ContentBufferResource::<Identity, Impl, OFFSET>,
             CreateDirect3D12HardwareProtectedContentBufferResource: CreateDirect3D12HardwareProtectedContentBufferResource::<Identity, Impl, OFFSET>,
             AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Identity, Impl, OFFSET>,
@@ -177,7 +177,7 @@ impl IHolographicQuadLayerUpdateParametersInterop_Vtbl {
             (*this).CommitDirect3D12Resource(::core::mem::transmute(&pcolorresourcetocommit), ::core::mem::transmute(&pcolorresourcefence), ::core::mem::transmute_copy(&colorresourcefencesignalvalue)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParametersInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParametersInterop, OFFSET>(),
             CommitDirect3D12Resource: CommitDirect3D12Resource::<Identity, Impl, OFFSET>,
         }
     }

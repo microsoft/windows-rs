@@ -35,7 +35,7 @@ impl IGameExplorer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddGame: AddGame::<Identity, Impl, OFFSET>,
             RemoveGame: RemoveGame::<Identity, Impl, OFFSET>,
             UpdateGame: UpdateGame::<Identity, Impl, OFFSET>,
@@ -77,7 +77,7 @@ impl IGameExplorer2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InstallGame: InstallGame::<Identity, Impl, OFFSET>,
             UninstallGame: UninstallGame::<Identity, Impl, OFFSET>,
             CheckAccess: CheckAccess::<Identity, Impl, OFFSET>,
@@ -208,7 +208,7 @@ impl IGameStatistics_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetMaxCategoryLength: GetMaxCategoryLength::<Identity, Impl, OFFSET>,
             GetMaxNameLength: GetMaxNameLength::<Identity, Impl, OFFSET>,
             GetMaxValueLength: GetMaxValueLength::<Identity, Impl, OFFSET>,
@@ -244,7 +244,7 @@ impl IGameStatisticsMgr_Vtbl {
             (*this).RemoveGameStatistics(::core::mem::transmute(&gdfbinarypath)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetGameStatistics: GetGameStatistics::<Identity, Impl, OFFSET>,
             RemoveGameStatistics: RemoveGameStatistics::<Identity, Impl, OFFSET>,
         }
@@ -314,7 +314,7 @@ impl IXblIdpAuthManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetGamerAccount: SetGamerAccount::<Identity, Impl, OFFSET>,
             GetGamerAccount: GetGamerAccount::<Identity, Impl, OFFSET>,
             SetAppViewInitialized: SetAppViewInitialized::<Identity, Impl, OFFSET>,
@@ -572,7 +572,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             GetErrorCode: GetErrorCode::<Identity, Impl, OFFSET>,
             GetToken: GetToken::<Identity, Impl, OFFSET>,
@@ -640,7 +640,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetModernGamertag: GetModernGamertag::<Identity, Impl, OFFSET>,
             GetModernGamertagSuffix: GetModernGamertagSuffix::<Identity, Impl, OFFSET>,
             GetUniqueModernGamertag: GetUniqueModernGamertag::<Identity, Impl, OFFSET>,

@@ -25413,7 +25413,7 @@ unsafe impl ::windows::core::Interface for IAmbientLight {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAmbientLight_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
 }
@@ -25427,7 +25427,7 @@ unsafe impl ::windows::core::Interface for IAmbientLight2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAmbientLight2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Intensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetIntensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 }
@@ -25441,7 +25441,7 @@ unsafe impl ::windows::core::Interface for IAnimationController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationController_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -25461,7 +25461,7 @@ unsafe impl ::windows::core::Interface for IAnimationControllerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationControllerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MaxPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub MinPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -25545,7 +25545,7 @@ unsafe impl ::windows::core::Interface for IAnimationObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationObject_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PopulatePropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -25558,7 +25558,7 @@ unsafe impl ::windows::core::Interface for IAnimationPropertyInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationPropertyInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AccessMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnimationPropertyAccessMode) -> ::windows::core::HRESULT,
     pub SetAccessMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnimationPropertyAccessMode) -> ::windows::core::HRESULT,
 }
@@ -25572,7 +25572,7 @@ unsafe impl ::windows::core::Interface for IAnimationPropertyInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationPropertyInfo2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetResolvedCompositionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetResolvedCompositionObjectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -25586,7 +25586,7 @@ unsafe impl ::windows::core::Interface for IBackEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
     pub Amplitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -25600,7 +25600,7 @@ unsafe impl ::windows::core::Interface for IBooleanKeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBooleanKeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -25613,7 +25613,7 @@ unsafe impl ::windows::core::Interface for IBounceEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
     pub Bounces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Bounciness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -25628,7 +25628,7 @@ unsafe impl ::windows::core::Interface for IBounceScalarNaturalMotionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceScalarNaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Acceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Restitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -25644,7 +25644,7 @@ unsafe impl ::windows::core::Interface for IBounceVector2NaturalMotionAnimation 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceVector2NaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Acceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Restitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -25660,7 +25660,7 @@ unsafe impl ::windows::core::Interface for IBounceVector3NaturalMotionAnimation 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceVector3NaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Acceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Restitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -25676,7 +25676,7 @@ unsafe impl ::windows::core::Interface for ICircleEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICircleEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -25689,7 +25689,7 @@ unsafe impl ::windows::core::Interface for IColorKeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorKeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InterpolationColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT,
     pub SetInterpolationColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionColorSpace) -> ::windows::core::HRESULT,
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color) -> ::windows::core::HRESULT,
@@ -25705,7 +25705,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ClearAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ClearParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetColorParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT,
@@ -25746,7 +25746,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimation2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetBooleanParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -25761,7 +25761,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimation3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub InitialValueExpressions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -25777,7 +25777,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimation4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SetExpressionReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -25854,7 +25854,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimationBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimationBase_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25866,7 +25866,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25878,7 +25878,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimationGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimationGroup_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -25894,7 +25894,7 @@ unsafe impl ::windows::core::Interface for ICompositionBackdropBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBackdropBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25906,7 +25906,7 @@ unsafe impl ::windows::core::Interface for ICompositionBatchCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBatchCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25918,7 +25918,7 @@ unsafe impl ::windows::core::Interface for ICompositionBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25930,7 +25930,7 @@ unsafe impl ::windows::core::Interface for ICompositionBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25942,7 +25942,7 @@ unsafe impl ::windows::core::Interface for ICompositionCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilities_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AreEffectsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AreEffectsFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -25964,7 +25964,7 @@ unsafe impl ::windows::core::Interface for ICompositionCapabilitiesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -25977,7 +25977,7 @@ unsafe impl ::windows::core::Interface for ICompositionClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionClip_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25989,7 +25989,7 @@ unsafe impl ::windows::core::Interface for ICompositionClip2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionClip2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub AnchorPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -26045,7 +26045,7 @@ unsafe impl ::windows::core::Interface for ICompositionClipFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionClipFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26057,7 +26057,7 @@ unsafe impl ::windows::core::Interface for ICompositionColorBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionColorBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
 }
@@ -26071,7 +26071,7 @@ unsafe impl ::windows::core::Interface for ICompositionColorGradientStop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionColorGradientStop_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -26087,7 +26087,7 @@ unsafe impl ::windows::core::Interface for ICompositionColorGradientStopCollecti
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionColorGradientStopCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26099,7 +26099,7 @@ unsafe impl ::windows::core::Interface for ICompositionCommitBatch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCommitBatch_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -26121,7 +26121,7 @@ unsafe impl ::windows::core::Interface for ICompositionContainerShape {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionContainerShape_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Shapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -26137,7 +26137,7 @@ unsafe impl ::windows::core::Interface for ICompositionDrawingSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub AlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
@@ -26161,7 +26161,7 @@ unsafe impl ::windows::core::Interface for ICompositionDrawingSurface2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurface2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub SizeInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -26197,7 +26197,7 @@ unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurfaceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26209,7 +26209,7 @@ unsafe impl ::windows::core::Interface for ICompositionEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26221,7 +26221,7 @@ unsafe impl ::windows::core::Interface for ICompositionEasingFunctionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunctionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26233,7 +26233,7 @@ unsafe impl ::windows::core::Interface for ICompositionEasingFunctionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunctionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -26259,7 +26259,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -26273,7 +26273,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub LoadStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEffectFactoryLoadStatus) -> ::windows::core::HRESULT,
@@ -26288,7 +26288,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26301,7 +26301,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameterFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26314,7 +26314,7 @@ unsafe impl ::windows::core::Interface for ICompositionEllipseGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEllipseGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -26342,7 +26342,7 @@ unsafe impl ::windows::core::Interface for ICompositionGeometricClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGeometricClip_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Geometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26358,7 +26358,7 @@ unsafe impl ::windows::core::Interface for ICompositionGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TrimEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetTrimEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub TrimOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -26376,7 +26376,7 @@ unsafe impl ::windows::core::Interface for ICompositionGeometryFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGeometryFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26388,7 +26388,7 @@ unsafe impl ::windows::core::Interface for ICompositionGradientBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub AnchorPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -26449,7 +26449,7 @@ unsafe impl ::windows::core::Interface for ICompositionGradientBrush2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrush2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MappingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionMappingMode) -> ::windows::core::HRESULT,
     pub SetMappingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionMappingMode) -> ::windows::core::HRESULT,
 }
@@ -26463,7 +26463,7 @@ unsafe impl ::windows::core::Interface for ICompositionGradientBrushFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrushFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26475,7 +26475,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
     pub CreateDrawingSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))]
@@ -26499,7 +26499,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub CreateDrawingSurface2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
@@ -26519,7 +26519,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub CreateMipmapSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
@@ -26536,7 +26536,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
     pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capturevisual: ::windows::core::RawPtr, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))]
@@ -26552,7 +26552,7 @@ unsafe impl ::windows::core::Interface for ICompositionLight {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLight_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Targets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26565,7 +26565,7 @@ unsafe impl ::windows::core::Interface for ICompositionLight2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLight2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExclusionsFromTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26578,7 +26578,7 @@ unsafe impl ::windows::core::Interface for ICompositionLight3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLight3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -26592,7 +26592,7 @@ unsafe impl ::windows::core::Interface for ICompositionLightFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLightFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26604,7 +26604,7 @@ unsafe impl ::windows::core::Interface for ICompositionLineGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLineGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -26632,7 +26632,7 @@ unsafe impl ::windows::core::Interface for ICompositionLinearGradientBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLinearGradientBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub EndPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -26660,7 +26660,7 @@ unsafe impl ::windows::core::Interface for ICompositionMaskBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionMaskBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26676,7 +26676,7 @@ unsafe impl ::windows::core::Interface for ICompositionMipmapSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionMipmapSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LevelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_DirectX")]
     pub AlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::HRESULT,
@@ -26702,7 +26702,7 @@ unsafe impl ::windows::core::Interface for ICompositionNineGridBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionNineGridBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BottomInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetBottomInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub BottomInsetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -26738,7 +26738,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObject_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Compositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Core")]
     pub Dispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26758,7 +26758,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObject2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26776,7 +26776,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObject3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -26792,7 +26792,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObject4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryGetAnimationController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26805,7 +26805,7 @@ unsafe impl ::windows::core::Interface for ICompositionObjectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObjectFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26817,7 +26817,7 @@ unsafe impl ::windows::core::Interface for ICompositionObjectStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObjectStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StartAnimationGroupWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -26831,7 +26831,7 @@ unsafe impl ::windows::core::Interface for ICompositionPath {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPath_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26843,7 +26843,7 @@ unsafe impl ::windows::core::Interface for ICompositionPathFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPathFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -26859,7 +26859,7 @@ unsafe impl ::windows::core::Interface for ICompositionPathGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPathGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -26873,7 +26873,7 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BlurRadiusMultiplier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetBlurRadiusMultiplier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Casters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26895,7 +26895,7 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCaster {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCaster_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Brush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CastingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26911,7 +26911,7 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCasterColl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub InsertAbove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub InsertAtBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26930,7 +26930,7 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCasterColl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollectionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MaxRespectedCasters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26943,7 +26943,7 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowReceiver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiver_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ReceivingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetReceivingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -26957,7 +26957,7 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowReceiverUn
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26973,7 +26973,7 @@ unsafe impl ::windows::core::Interface for ICompositionPropertySet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPropertySet_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InsertColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub InsertMatrix3x2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
@@ -27037,7 +27037,7 @@ unsafe impl ::windows::core::Interface for ICompositionPropertySet2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPropertySet2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InsertBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT,
     pub TryGetBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut bool, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
 }
@@ -27051,7 +27051,7 @@ unsafe impl ::windows::core::Interface for ICompositionRadialGradientBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionRadialGradientBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub EllipseCenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -27087,7 +27087,7 @@ unsafe impl ::windows::core::Interface for ICompositionRectangleGeometry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionRectangleGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -27115,7 +27115,7 @@ unsafe impl ::windows::core::Interface for ICompositionRoundedRectangleGeometry 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionRoundedRectangleGeometry_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub CornerRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -27151,7 +27151,7 @@ unsafe impl ::windows::core::Interface for ICompositionScopedBatch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionScopedBatch_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -27176,7 +27176,7 @@ unsafe impl ::windows::core::Interface for ICompositionShadow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShadow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27188,7 +27188,7 @@ unsafe impl ::windows::core::Interface for ICompositionShadowFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShadowFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27200,7 +27200,7 @@ unsafe impl ::windows::core::Interface for ICompositionShape {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShape_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub CenterPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -27248,7 +27248,7 @@ unsafe impl ::windows::core::Interface for ICompositionShapeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShapeFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27260,7 +27260,7 @@ unsafe impl ::windows::core::Interface for ICompositionSpriteShape {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSpriteShape_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FillBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetFillBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Geometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -27376,7 +27376,7 @@ unsafe impl ::windows::core::Interface for ICompositionSupportsSystemBackdrop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdrop_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -27454,7 +27454,7 @@ unsafe impl ::windows::core::Interface for ICompositionSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27466,7 +27466,7 @@ unsafe impl ::windows::core::Interface for ICompositionSurfaceBrush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BitmapInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT,
     pub SetBitmapInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT,
     pub HorizontalAlignmentRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -27488,7 +27488,7 @@ unsafe impl ::windows::core::Interface for ICompositionSurfaceBrush2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceBrush2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub AnchorPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -27544,7 +27544,7 @@ unsafe impl ::windows::core::Interface for ICompositionSurfaceBrush3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceBrush3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SnapToPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSnapToPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -27631,7 +27631,7 @@ unsafe impl ::windows::core::Interface for ICompositionSurfaceFacade {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceFacade_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetRealSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -27644,7 +27644,7 @@ unsafe impl ::windows::core::Interface for ICompositionTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTarget_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -27658,7 +27658,7 @@ unsafe impl ::windows::core::Interface for ICompositionTargetFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTargetFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27670,7 +27670,7 @@ unsafe impl ::windows::core::Interface for ICompositionTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTransform_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27682,7 +27682,7 @@ unsafe impl ::windows::core::Interface for ICompositionTransformFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTransformFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27694,7 +27694,7 @@ unsafe impl ::windows::core::Interface for ICompositionViewBox {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionViewBox_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontalAlignmentRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetHorizontalAlignmentRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -27728,7 +27728,7 @@ unsafe impl ::windows::core::Interface for ICompositionVirtualDrawingSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rects_array_size: u32, rects: *const super::super::Graphics::RectInt32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -27744,7 +27744,7 @@ unsafe impl ::windows::core::Interface for ICompositionVirtualDrawingSurfaceFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurfaceFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27756,7 +27756,7 @@ unsafe impl ::windows::core::Interface for ICompositionVisualSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionVisualSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -27786,7 +27786,7 @@ unsafe impl ::windows::core::Interface for ICompositor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateColorKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateColorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateColorBrushWithColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -27831,7 +27831,7 @@ unsafe impl ::windows::core::Interface for ICompositor2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateAmbientLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -27856,7 +27856,7 @@ unsafe impl ::windows::core::Interface for ICompositor3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateHostBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -27869,7 +27869,7 @@ unsafe impl ::windows::core::Interface for ICompositor4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateColorGradientStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateColorGradientStopWithOffsetAndColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f32, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateLinearGradientBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -27887,7 +27887,7 @@ unsafe impl ::windows::core::Interface for ICompositor5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -27922,7 +27922,7 @@ unsafe impl ::windows::core::Interface for ICompositor6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateGeometricClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateGeometricClipWithGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateRedirectVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -27939,7 +27939,7 @@ unsafe impl ::windows::core::Interface for ICompositor7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor7_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -27962,7 +27962,7 @@ unsafe impl ::windows::core::Interface for ICompositorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MaxGlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub MinGlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -27976,7 +27976,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithBlurredWallpaperBackdr
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TryCreateBlurredWallpaperBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -27989,7 +27989,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithProjectedShadow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorWithProjectedShadow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateProjectedShadowCaster: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateProjectedShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateProjectedShadowReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -28004,7 +28004,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithRadialGradient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorWithRadialGradient_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateRadialGradientBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -28017,7 +28017,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithVisualSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorWithVisualSurface_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateVisualSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -28030,7 +28030,7 @@ unsafe impl ::windows::core::Interface for IContainerVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -28043,7 +28043,7 @@ unsafe impl ::windows::core::Interface for IContainerVisualFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerVisualFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28055,7 +28055,7 @@ unsafe impl ::windows::core::Interface for ICubicBezierEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICubicBezierEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub ControlPoint1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28075,7 +28075,7 @@ unsafe impl ::windows::core::Interface for IDelegatedInkTrailVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDelegatedInkTrailVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AddTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkPoints_array_size: u32, inkpoints: *const InkTrailPoint, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -28097,7 +28097,7 @@ unsafe impl ::windows::core::Interface for IDelegatedInkTrailVisualStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDelegatedInkTrailVisualStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateForSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, swapchain: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28111,7 +28111,7 @@ unsafe impl ::windows::core::Interface for IDistantLight {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDistantLight_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
     pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -28135,7 +28135,7 @@ unsafe impl ::windows::core::Interface for IDistantLight2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDistantLight2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Intensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetIntensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 }
@@ -28149,7 +28149,7 @@ unsafe impl ::windows::core::Interface for IDropShadow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropShadow_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetBlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
@@ -28177,7 +28177,7 @@ unsafe impl ::windows::core::Interface for IDropShadow2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropShadow2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SourcePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionDropShadowSourcePolicy) -> ::windows::core::HRESULT,
     pub SetSourcePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionDropShadowSourcePolicy) -> ::windows::core::HRESULT,
 }
@@ -28191,7 +28191,7 @@ unsafe impl ::windows::core::Interface for IElasticEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElasticEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
     pub Oscillations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Springiness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28206,7 +28206,7 @@ unsafe impl ::windows::core::Interface for IExponentialEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExponentialEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
     pub Exponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -28220,7 +28220,7 @@ unsafe impl ::windows::core::Interface for IExpressionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExpressionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Expression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -28234,7 +28234,7 @@ unsafe impl ::windows::core::Interface for IImplicitAnimationCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImplicitAnimationCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28246,7 +28246,7 @@ unsafe impl ::windows::core::Interface for IInsetClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInsetClip_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BottomInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetBottomInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub LeftInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28266,7 +28266,7 @@ unsafe impl ::windows::core::Interface for IKeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DelayTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -28303,7 +28303,7 @@ unsafe impl ::windows::core::Interface for IKeyFrameAnimation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnimationDirection) -> ::windows::core::HRESULT,
     pub SetDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnimationDirection) -> ::windows::core::HRESULT,
 }
@@ -28317,7 +28317,7 @@ unsafe impl ::windows::core::Interface for IKeyFrameAnimation3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DelayBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnimationDelayBehavior) -> ::windows::core::HRESULT,
     pub SetDelayBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnimationDelayBehavior) -> ::windows::core::HRESULT,
 }
@@ -28331,7 +28331,7 @@ unsafe impl ::windows::core::Interface for IKeyFrameAnimationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28343,7 +28343,7 @@ unsafe impl ::windows::core::Interface for ILayerVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayerVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Effect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28357,7 +28357,7 @@ unsafe impl ::windows::core::Interface for ILayerVisual2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayerVisual2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Shadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28371,7 +28371,7 @@ unsafe impl ::windows::core::Interface for ILinearEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28383,7 +28383,7 @@ unsafe impl ::windows::core::Interface for INaturalMotionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DelayBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnimationDelayBehavior) -> ::windows::core::HRESULT,
     pub SetDelayBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnimationDelayBehavior) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -28407,7 +28407,7 @@ unsafe impl ::windows::core::Interface for INaturalMotionAnimationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INaturalMotionAnimationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28419,7 +28419,7 @@ unsafe impl ::windows::core::Interface for IPathKeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathKeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28433,7 +28433,7 @@ unsafe impl ::windows::core::Interface for IPointLight {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointLight_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
     pub ConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28463,7 +28463,7 @@ unsafe impl ::windows::core::Interface for IPointLight2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointLight2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Intensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetIntensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 }
@@ -28477,7 +28477,7 @@ unsafe impl ::windows::core::Interface for IPointLight3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointLight3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MinAttenuationCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetMinAttenuationCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub MaxAttenuationCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28493,7 +28493,7 @@ unsafe impl ::windows::core::Interface for IPowerEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
     pub Power: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -28507,7 +28507,7 @@ unsafe impl ::windows::core::Interface for IQuaternionKeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuaternionKeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28527,7 +28527,7 @@ unsafe impl ::windows::core::Interface for IRectangleClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRectangleClip_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Bottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -28579,7 +28579,7 @@ unsafe impl ::windows::core::Interface for IRedirectVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRedirectVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28593,7 +28593,7 @@ unsafe impl ::windows::core::Interface for IRenderingDeviceReplacedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRenderingDeviceReplacedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GraphicsDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -28606,7 +28606,7 @@ unsafe impl ::windows::core::Interface for IScalarKeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScalarKeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32) -> ::windows::core::HRESULT,
     pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28620,7 +28620,7 @@ unsafe impl ::windows::core::Interface for IScalarNaturalMotionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScalarNaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -28650,7 +28650,7 @@ unsafe impl ::windows::core::Interface for IScalarNaturalMotionAnimationFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScalarNaturalMotionAnimationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28662,7 +28662,7 @@ unsafe impl ::windows::core::Interface for IShapeVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShapeVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Shapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -28680,7 +28680,7 @@ unsafe impl ::windows::core::Interface for ISineEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISineEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -28693,7 +28693,7 @@ unsafe impl ::windows::core::Interface for ISpotLight {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpotLight_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -28741,7 +28741,7 @@ unsafe impl ::windows::core::Interface for ISpotLight2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpotLight2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub InnerConeIntensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetInnerConeIntensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub OuterConeIntensity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28757,7 +28757,7 @@ unsafe impl ::windows::core::Interface for ISpotLight3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpotLight3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MinAttenuationCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetMinAttenuationCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub MaxAttenuationCutoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28773,7 +28773,7 @@ unsafe impl ::windows::core::Interface for ISpringScalarNaturalMotionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpringScalarNaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DampingRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetDampingRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -28795,7 +28795,7 @@ unsafe impl ::windows::core::Interface for ISpringVector2NaturalMotionAnimation 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpringVector2NaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DampingRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetDampingRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -28817,7 +28817,7 @@ unsafe impl ::windows::core::Interface for ISpringVector3NaturalMotionAnimation 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpringVector3NaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DampingRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetDampingRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -28839,7 +28839,7 @@ unsafe impl ::windows::core::Interface for ISpriteVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpriteVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Brush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28853,7 +28853,7 @@ unsafe impl ::windows::core::Interface for ISpriteVisual2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpriteVisual2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Shadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28867,7 +28867,7 @@ unsafe impl ::windows::core::Interface for IStepEasingFunction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStepEasingFunction_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FinalStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetFinalStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub InitialStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -28889,7 +28889,7 @@ unsafe impl ::windows::core::Interface for IVector2KeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector2KeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28909,7 +28909,7 @@ unsafe impl ::windows::core::Interface for IVector2NaturalMotionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector2NaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28945,7 +28945,7 @@ unsafe impl ::windows::core::Interface for IVector2NaturalMotionAnimationFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector2NaturalMotionAnimationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28957,7 +28957,7 @@ unsafe impl ::windows::core::Interface for IVector3KeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28977,7 +28977,7 @@ unsafe impl ::windows::core::Interface for IVector3NaturalMotionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector3NaturalMotionAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -29013,7 +29013,7 @@ unsafe impl ::windows::core::Interface for IVector3NaturalMotionAnimationFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector3NaturalMotionAnimationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -29025,7 +29025,7 @@ unsafe impl ::windows::core::Interface for IVector4KeyFrameAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector4KeyFrameAnimation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -29045,7 +29045,7 @@ unsafe impl ::windows::core::Interface for IVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub AnchorPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -29138,7 +29138,7 @@ unsafe impl ::windows::core::Interface for IVisual2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ParentForTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetParentForTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -29168,7 +29168,7 @@ unsafe impl ::windows::core::Interface for IVisual3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsHitTestVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsHitTestVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -29182,7 +29182,7 @@ unsafe impl ::windows::core::Interface for IVisual4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPixelSnappingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPixelSnappingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -29196,7 +29196,7 @@ unsafe impl ::windows::core::Interface for IVisualCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub InsertAbove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub InsertAtBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -29279,7 +29279,7 @@ unsafe impl ::windows::core::Interface for IVisualElement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElement_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -29364,7 +29364,7 @@ unsafe impl ::windows::core::Interface for IVisualElement2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElement2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetVisualInternal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -29377,7 +29377,7 @@ unsafe impl ::windows::core::Interface for IVisualFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -29389,7 +29389,7 @@ unsafe impl ::windows::core::Interface for IVisualUnorderedCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualUnorderedCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newvisual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

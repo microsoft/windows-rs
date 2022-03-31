@@ -93,11 +93,11 @@ pub struct ICompositionFramePresentStatistics(::windows::core::IUnknown);
 impl ICompositionFramePresentStatistics {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetPresentId)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPresentId)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetKind)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetKind)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetContentTag(&self) -> usize {
@@ -176,7 +176,7 @@ unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionFramePresentStatistics_Vtbl {
-    pub base: IPresentStatistics_Vtbl,
+    pub base__: IPresentStatistics_Vtbl,
     pub GetContentTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
     pub GetCompositionFrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -190,11 +190,11 @@ pub struct IIndependentFlipFramePresentStatistics(::windows::core::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetPresentId)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPresentId)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetKind)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetKind)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -287,7 +287,7 @@ unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndependentFlipFramePresentStatistics_Vtbl {
-    pub base: IPresentStatistics_Vtbl,
+    pub base__: IPresentStatistics_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetOutputAdapterLUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -353,7 +353,7 @@ unsafe impl ::windows::core::Interface for IPresentStatistics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatistics_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetPresentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatisticsKind,
 }
@@ -363,11 +363,11 @@ pub struct IPresentStatusPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatusPresentStatistics {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetPresentId)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPresentId)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetKind)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetKind)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
@@ -441,7 +441,7 @@ unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatusPresentStatistics_Vtbl {
-    pub base: IPresentStatistics_Vtbl,
+    pub base__: IPresentStatistics_Vtbl,
     pub GetCompositionFrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetPresentStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatus,
 }
@@ -504,7 +504,7 @@ unsafe impl ::windows::core::Interface for IPresentationBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationBuffer_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAvailableEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availableeventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -563,7 +563,7 @@ unsafe impl ::windows::core::Interface for IPresentationContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationContent_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: usize),
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
@@ -627,7 +627,7 @@ unsafe impl ::windows::core::Interface for IPresentationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationFactory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsPresentationSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub IsPresentationSupportedWithIndependentFlip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub CreatePresentationManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -741,7 +741,7 @@ unsafe impl ::windows::core::Interface for IPresentationManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AddBufferFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resource: *mut ::core::ffi::c_void, presentationbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CreatePresentationSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositionsurfacehandle: super::super::Foundation::HANDLE, presentationsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -771,7 +771,7 @@ pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetTag(&self, tag: usize) {
-        (::windows::core::Interface::vtable(self).base.SetTag)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag))
+        (::windows::core::Interface::vtable(self).base__.SetTag)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetBuffer<'a, Param0: ::windows::core::IntoParam<'a, IPresentationBuffer>>(&self, presentationbuffer: Param0) -> ::windows::core::Result<()> {
@@ -872,7 +872,7 @@ unsafe impl ::windows::core::Interface for IPresentationSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationSurface_Vtbl {
-    pub base: IPresentationContent_Vtbl,
+    pub base__: IPresentationContent_Vtbl,
     pub SetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentationbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub SetColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::HRESULT,

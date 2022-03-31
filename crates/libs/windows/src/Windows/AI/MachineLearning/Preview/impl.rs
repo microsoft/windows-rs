@@ -61,7 +61,7 @@ impl ILearningModelVariableDescriptorPreview_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelVariableDescriptorPreview, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelVariableDescriptorPreview, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
             ModelFeatureKind: ModelFeatureKind::<Identity, Impl, OFFSET>,

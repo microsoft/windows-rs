@@ -15,7 +15,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
             (*this).GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerConfigurationInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerConfigurationInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -40,7 +40,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
             (*this).CreateForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSourceInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSourceInterop, OFFSET>(),
             CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -65,7 +65,7 @@ impl IRadialControllerInterop_Vtbl {
             (*this).CreateForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerInterop, OFFSET>(),
             CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
         }
     }

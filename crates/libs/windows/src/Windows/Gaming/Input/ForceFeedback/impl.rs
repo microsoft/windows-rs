@@ -50,7 +50,7 @@ impl IForceFeedbackEffect_Vtbl {
             (*this).Stop().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IForceFeedbackEffect, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IForceFeedbackEffect, OFFSET>(),
             Gain: Gain::<Identity, Impl, OFFSET>,
             SetGain: SetGain::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,

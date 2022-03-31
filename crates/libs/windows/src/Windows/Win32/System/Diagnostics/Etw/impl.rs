@@ -93,7 +93,7 @@ impl ITraceEvent_Vtbl {
             (*this).SetProviderId(::core::mem::transmute_copy(&providerid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             GetUserContext: GetUserContext::<Identity, Impl, OFFSET>,
             GetEventRecord: GetEventRecord::<Identity, Impl, OFFSET>,
@@ -135,7 +135,7 @@ impl ITraceEventCallback_Vtbl {
             (*this).OnEvent(::core::mem::transmute(&event), ::core::mem::transmute(&relogger)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnBeginProcessTrace: OnBeginProcessTrace::<Identity, Impl, OFFSET>,
             OnFinalizeProcessTrace: OnFinalizeProcessTrace::<Identity, Impl, OFFSET>,
             OnEvent: OnEvent::<Identity, Impl, OFFSET>,
@@ -224,7 +224,7 @@ impl ITraceRelogger_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddLogfileTraceStream: AddLogfileTraceStream::<Identity, Impl, OFFSET>,
             AddRealtimeTraceStream: AddRealtimeTraceStream::<Identity, Impl, OFFSET>,
             RegisterCallback: RegisterCallback::<Identity, Impl, OFFSET>,

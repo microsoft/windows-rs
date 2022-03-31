@@ -21,7 +21,7 @@ impl IContact_Vtbl {
             (*this).CommitChanges(::core::mem::transmute_copy(&dwcommitflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetContactID: GetContactID::<Identity, Impl, OFFSET>,
             GetPath: GetPath::<Identity, Impl, OFFSET>,
             CommitChanges: CommitChanges::<Identity, Impl, OFFSET>,
@@ -120,7 +120,7 @@ impl IContactAggregationAggregate_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Save: Save::<Identity, Impl, OFFSET>,
             GetComponentItems: GetComponentItems::<Identity, Impl, OFFSET>,
             Link: Link::<Identity, Impl, OFFSET>,
@@ -189,7 +189,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindFirst: FindFirst::<Identity, Impl, OFFSET>,
             FindFirstByAntiLinkId: FindFirstByAntiLinkId::<Identity, Impl, OFFSET>,
             FindNext: FindNext::<Identity, Impl, OFFSET>,
@@ -369,7 +369,7 @@ impl IContactAggregationContact_Vtbl {
             (*this).SetSyncIdentityHash(::core::mem::transmute_copy(&psyncidentityhash)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Delete: Delete::<Identity, Impl, OFFSET>,
             Save: Save::<Identity, Impl, OFFSET>,
             MoveToAggregate: MoveToAggregate::<Identity, Impl, OFFSET>,
@@ -459,7 +459,7 @@ impl IContactAggregationContactCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindFirst: FindFirst::<Identity, Impl, OFFSET>,
             FindNext: FindNext::<Identity, Impl, OFFSET>,
             FindFirstByIdentityHash: FindFirstByIdentityHash::<Identity, Impl, OFFSET>,
@@ -560,7 +560,7 @@ impl IContactAggregationGroup_Vtbl {
             (*this).SetName(::core::mem::transmute(&pname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Delete: Delete::<Identity, Impl, OFFSET>,
             Save: Save::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -630,7 +630,7 @@ impl IContactAggregationGroupCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindFirst: FindFirst::<Identity, Impl, OFFSET>,
             FindFirstByGlobalObjectId: FindFirstByGlobalObjectId::<Identity, Impl, OFFSET>,
             FindNext: FindNext::<Identity, Impl, OFFSET>,
@@ -798,7 +798,7 @@ impl IContactAggregationLink_Vtbl {
             (*this).SetSyncIdentityHash(::core::mem::transmute_copy(&psyncidentityhash)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Delete: Delete::<Identity, Impl, OFFSET>,
             Save: Save::<Identity, Impl, OFFSET>,
             AccountId: AccountId::<Identity, Impl, OFFSET>,
@@ -875,7 +875,7 @@ impl IContactAggregationLinkCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindFirst: FindFirst::<Identity, Impl, OFFSET>,
             FindFirstByRemoteId: FindFirstByRemoteId::<Identity, Impl, OFFSET>,
             FindNext: FindNext::<Identity, Impl, OFFSET>,
@@ -1055,7 +1055,7 @@ impl IContactAggregationManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetVersionInfo: GetVersionInfo::<Identity, Impl, OFFSET>,
             CreateOrOpenGroup: CreateOrOpenGroup::<Identity, Impl, OFFSET>,
             CreateExternalContact: CreateExternalContact::<Identity, Impl, OFFSET>,
@@ -1288,7 +1288,7 @@ impl IContactAggregationServerPerson_Vtbl {
             (*this).SetObjectId(::core::mem::transmute(&pobjectid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Delete: Delete::<Identity, Impl, OFFSET>,
             Save: Save::<Identity, Impl, OFFSET>,
             AggregateId: AggregateId::<Identity, Impl, OFFSET>,
@@ -1395,7 +1395,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindFirst: FindFirst::<Identity, Impl, OFFSET>,
             FindFirstByServerId: FindFirstByServerId::<Identity, Impl, OFFSET>,
             FindFirstByAggregateId: FindFirstByAggregateId::<Identity, Impl, OFFSET>,
@@ -1437,7 +1437,7 @@ impl IContactCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
@@ -1506,7 +1506,7 @@ impl IContactManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Load: Load::<Identity, Impl, OFFSET>,
             MergeContactIDs: MergeContactIDs::<Identity, Impl, OFFSET>,
@@ -1604,7 +1604,7 @@ impl IContactProperties_Vtbl {
             (*this).GetPropertyCollection(::core::mem::transmute_copy(&pppropertycollection), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszmultivaluename), ::core::mem::transmute_copy(&dwlabelcount), ::core::mem::transmute_copy(&ppszlabels), ::core::mem::transmute_copy(&fanylabelmatches)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetString: GetString::<Identity, Impl, OFFSET>,
             GetDate: GetDate::<Identity, Impl, OFFSET>,
             GetBinary: GetBinary::<Identity, Impl, OFFSET>,
@@ -1673,7 +1673,7 @@ impl IContactPropertyCollection_Vtbl {
             (*this).GetPropertyArrayElementID(::core::mem::transmute(&pszarrayelementid), ::core::mem::transmute_copy(&ccharrayelementid), ::core::mem::transmute_copy(&pdwccharrayelementidrequired)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             GetPropertyName: GetPropertyName::<Identity, Impl, OFFSET>,

@@ -9,7 +9,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceInfo_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub UpdateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMesh {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMesh_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub SurfaceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TriangleIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -59,7 +59,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshBuffer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
@@ -81,7 +81,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshOptions_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub VertexPositionFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
@@ -119,7 +119,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshOptionsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub SupportedVertexPositionFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
@@ -143,7 +143,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceObserver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserver_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetObservedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -172,7 +172,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceObserverStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -188,7 +188,7 @@ unsafe impl ::windows::core::Interface for ISpatialSurfaceObserverStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]

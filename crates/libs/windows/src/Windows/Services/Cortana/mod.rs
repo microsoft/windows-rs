@@ -717,7 +717,7 @@ unsafe impl ::windows::core::Interface for ICortanaActionableInsights {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaActionableInsights_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "System", feature = "deprecated"))]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "System", feature = "deprecated")))]
@@ -764,7 +764,7 @@ unsafe impl ::windows::core::Interface for ICortanaActionableInsightsOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaActionableInsightsOptions_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub ContentSourceWebLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -795,7 +795,7 @@ unsafe impl ::windows::core::Interface for ICortanaActionableInsightsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaActionableInsightsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -818,7 +818,7 @@ unsafe impl ::windows::core::Interface for ICortanaPermissionsManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaPermissionsManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -849,7 +849,7 @@ unsafe impl ::windows::core::Interface for ICortanaPermissionsManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaPermissionsManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -868,7 +868,7 @@ unsafe impl ::windows::core::Interface for ICortanaSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaSettings_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub HasUserConsentToVoiceActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -895,7 +895,7 @@ unsafe impl ::windows::core::Interface for ICortanaSettingsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICortanaSettingsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

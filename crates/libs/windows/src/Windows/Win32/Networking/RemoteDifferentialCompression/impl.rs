@@ -21,7 +21,7 @@ impl IFindSimilarResults_Vtbl {
             (*this).GetNextFileId(::core::mem::transmute_copy(&numtraitsmatched), ::core::mem::transmute_copy(&similarityfileid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSize: GetSize::<Identity, Impl, OFFSET>,
             GetNextFileId: GetNextFileId::<Identity, Impl, OFFSET>,
         }
@@ -42,7 +42,7 @@ impl IRdcComparator_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Process(::core::mem::transmute_copy(&endofinput), ::core::mem::transmute_copy(&endofoutput), ::core::mem::transmute_copy(&inputbuffer), ::core::mem::transmute_copy(&outputbuffer), ::core::mem::transmute_copy(&rdc_errorcode)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Process: Process::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Process: Process::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRdcComparator as ::windows::core::Interface>::IID
@@ -85,7 +85,7 @@ impl IRdcFileReader_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFileSize: GetFileSize::<Identity, Impl, OFFSET>,
             Read: Read::<Identity, Impl, OFFSET>,
             GetFilePosition: GetFilePosition::<Identity, Impl, OFFSET>,
@@ -126,7 +126,7 @@ impl IRdcFileWriter_Vtbl {
             (*this).DeleteOnClose().into()
         }
         Self {
-            base: IRdcFileReader_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRdcFileReader_Vtbl::new::<Identity, Impl, OFFSET>(),
             Write: Write::<Identity, Impl, OFFSET>,
             Truncate: Truncate::<Identity, Impl, OFFSET>,
             DeleteOnClose: DeleteOnClose::<Identity, Impl, OFFSET>,
@@ -161,7 +161,7 @@ impl IRdcGenerator_Vtbl {
             (*this).Process(::core::mem::transmute_copy(&endofinput), ::core::mem::transmute_copy(&endofoutput), ::core::mem::transmute_copy(&inputbuffer), ::core::mem::transmute_copy(&depth), ::core::mem::transmute_copy(&outputbuffers), ::core::mem::transmute_copy(&rdc_errorcode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetGeneratorParameters: GetGeneratorParameters::<Identity, Impl, OFFSET>,
             Process: Process::<Identity, Impl, OFFSET>,
         }
@@ -211,7 +211,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
             (*this).SetHashWindowSize(::core::mem::transmute_copy(&hashwindowsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetHorizonSize: GetHorizonSize::<Identity, Impl, OFFSET>,
             SetHorizonSize: SetHorizonSize::<Identity, Impl, OFFSET>,
             GetHashWindowSize: GetHashWindowSize::<Identity, Impl, OFFSET>,
@@ -263,7 +263,7 @@ impl IRdcGeneratorParameters_Vtbl {
             (*this).Serialize(::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&parametersblob), ::core::mem::transmute_copy(&byteswritten)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetGeneratorParametersType: GetGeneratorParametersType::<Identity, Impl, OFFSET>,
             GetParametersVersion: GetParametersVersion::<Identity, Impl, OFFSET>,
             GetSerializeSize: GetSerializeSize::<Identity, Impl, OFFSET>,
@@ -357,7 +357,7 @@ impl IRdcLibrary_Vtbl {
             (*this).GetRDCVersion(::core::mem::transmute_copy(&currentversion), ::core::mem::transmute_copy(&minimumcompatibleappversion)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ComputeDefaultRecursionDepth: ComputeDefaultRecursionDepth::<Identity, Impl, OFFSET>,
             CreateGeneratorParameters: CreateGeneratorParameters::<Identity, Impl, OFFSET>,
             OpenGeneratorParameters: OpenGeneratorParameters::<Identity, Impl, OFFSET>,
@@ -396,7 +396,7 @@ impl IRdcSignatureReader_Vtbl {
             (*this).ReadSignatures(::core::mem::transmute_copy(&rdcsignaturepointer), ::core::mem::transmute_copy(&endofoutput)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadHeader: ReadHeader::<Identity, Impl, OFFSET>,
             ReadSignatures: ReadSignatures::<Identity, Impl, OFFSET>,
         }
@@ -428,7 +428,7 @@ impl IRdcSimilarityGenerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnableSimilarity: EnableSimilarity::<Identity, Impl, OFFSET>,
             Results: Results::<Identity, Impl, OFFSET>,
         }
@@ -510,7 +510,7 @@ impl ISimilarity_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateTable: CreateTable::<Identity, Impl, OFFSET>,
             CreateTableIndirect: CreateTableIndirect::<Identity, Impl, OFFSET>,
             CloseTable: CloseTable::<Identity, Impl, OFFSET>,
@@ -603,7 +603,7 @@ impl ISimilarityFileIdTable_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateTable: CreateTable::<Identity, Impl, OFFSET>,
             CreateTableIndirect: CreateTableIndirect::<Identity, Impl, OFFSET>,
             CloseTable: CloseTable::<Identity, Impl, OFFSET>,
@@ -627,7 +627,7 @@ impl ISimilarityReportProgress_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReportProgress(::core::mem::transmute_copy(&percentcompleted)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimilarityReportProgress as ::windows::core::Interface>::IID
@@ -645,7 +645,7 @@ impl ISimilarityTableDumpState_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNextData(::core::mem::transmute_copy(&resultssize), ::core::mem::transmute_copy(&resultsused), ::core::mem::transmute_copy(&eof), ::core::mem::transmute_copy(&results)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNextData: GetNextData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNextData: GetNextData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISimilarityTableDumpState as ::windows::core::Interface>::IID
@@ -688,7 +688,7 @@ impl ISimilarityTraitsMappedView_Vtbl {
             (*this).GetView(::core::mem::transmute_copy(&mappedpagebegin), ::core::mem::transmute_copy(&mappedpageend))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Flush: Flush::<Identity, Impl, OFFSET>,
             Unmap: Unmap::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
@@ -770,7 +770,7 @@ impl ISimilarityTraitsMapping_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CloseMapping: CloseMapping::<Identity, Impl, OFFSET>,
             SetFileSize: SetFileSize::<Identity, Impl, OFFSET>,
             GetFileSize: GetFileSize::<Identity, Impl, OFFSET>,
@@ -857,7 +857,7 @@ impl ISimilarityTraitsTable_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateTable: CreateTable::<Identity, Impl, OFFSET>,
             CreateTableIndirect: CreateTableIndirect::<Identity, Impl, OFFSET>,
             CloseTable: CloseTable::<Identity, Impl, OFFSET>,

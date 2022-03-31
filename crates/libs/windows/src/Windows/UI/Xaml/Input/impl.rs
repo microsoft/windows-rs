@@ -47,7 +47,7 @@ impl ICommand_Vtbl {
             (*this).Execute(::core::mem::transmute(&parameter)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommand, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICommand, OFFSET>(),
             CanExecuteChanged: CanExecuteChanged::<Identity, Impl, OFFSET>,
             RemoveCanExecuteChanged: RemoveCanExecuteChanged::<Identity, Impl, OFFSET>,
             CanExecute: CanExecute::<Identity, Impl, OFFSET>,

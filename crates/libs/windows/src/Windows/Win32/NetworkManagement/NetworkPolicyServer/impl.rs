@@ -65,7 +65,7 @@ impl ISdo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPropertyInfo: GetPropertyInfo::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             PutProperty: PutProperty::<Identity, Impl, OFFSET>,
@@ -158,7 +158,7 @@ impl ISdoCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -228,7 +228,7 @@ impl ISdoDictionaryOld_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumAttributes: EnumAttributes::<Identity, Impl, OFFSET>,
             GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET>,
             EnumAttributeValues: EnumAttributeValues::<Identity, Impl, OFFSET>,
@@ -349,7 +349,7 @@ impl ISdoMachine_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Attach: Attach::<Identity, Impl, OFFSET>,
             GetDictionarySDO: GetDictionarySDO::<Identity, Impl, OFFSET>,
             GetServiceSDO: GetServiceSDO::<Identity, Impl, OFFSET>,
@@ -408,7 +408,7 @@ impl ISdoMachine2_Vtbl {
             (*this).Reload().into()
         }
         Self {
-            base: ISdoMachine_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISdoMachine_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetTemplatesSDO: GetTemplatesSDO::<Identity, Impl, OFFSET>,
             EnableTemplates: EnableTemplates::<Identity, Impl, OFFSET>,
             SyncConfigAgainstTemplates: SyncConfigAgainstTemplates::<Identity, Impl, OFFSET>,
@@ -457,7 +457,7 @@ impl ISdoServiceControl_Vtbl {
             (*this).ResetService().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartService: StartService::<Identity, Impl, OFFSET>,
             StopService: StopService::<Identity, Impl, OFFSET>,
             GetServiceStatus: GetServiceStatus::<Identity, Impl, OFFSET>,
@@ -493,7 +493,7 @@ impl ITemplateSdo_Vtbl {
             (*this).AddToSdoAsProperty(::core::mem::transmute(&psdotarget), ::core::mem::transmute_copy(&id)).into()
         }
         Self {
-            base: ISdo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISdo_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddToCollection: AddToCollection::<Identity, Impl, OFFSET>,
             AddToSdo: AddToSdo::<Identity, Impl, OFFSET>,
             AddToSdoAsProperty: AddToSdoAsProperty::<Identity, Impl, OFFSET>,

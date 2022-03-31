@@ -81,7 +81,7 @@ impl IApplicationOverrides_Vtbl {
             (*this).OnWindowCreated(::core::mem::transmute(&args)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationOverrides, OFFSET>(),
             OnActivated: OnActivated::<Identity, Impl, OFFSET>,
             OnLaunched: OnLaunched::<Identity, Impl, OFFSET>,
             OnFileActivated: OnFileActivated::<Identity, Impl, OFFSET>,
@@ -116,7 +116,7 @@ impl IApplicationOverrides2_Vtbl {
             (*this).OnBackgroundActivated(::core::mem::transmute(&args)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationOverrides2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationOverrides2, OFFSET>(),
             OnBackgroundActivated: OnBackgroundActivated::<Identity, Impl, OFFSET>,
         }
     }
@@ -167,7 +167,7 @@ impl IDataTemplateExtension_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataTemplateExtension, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDataTemplateExtension, OFFSET>(),
             ResetTemplate: ResetTemplate::<Identity, Impl, OFFSET>,
             ProcessBinding: ProcessBinding::<Identity, Impl, OFFSET>,
             ProcessBindings: ProcessBindings::<Identity, Impl, OFFSET>,
@@ -204,7 +204,7 @@ impl IElementFactory_Vtbl {
             (*this).RecycleElement(::core::mem::transmute(&args)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IElementFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IElementFactory, OFFSET>(),
             GetElement: GetElement::<Identity, Impl, OFFSET>,
             RecycleElement: RecycleElement::<Identity, Impl, OFFSET>,
         }
@@ -258,7 +258,7 @@ impl IFrameworkElementOverrides_Vtbl {
             (*this).OnApplyTemplate().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementOverrides, OFFSET>(),
             MeasureOverride: MeasureOverride::<Identity, Impl, OFFSET>,
             ArrangeOverride: ArrangeOverride::<Identity, Impl, OFFSET>,
             OnApplyTemplate: OnApplyTemplate::<Identity, Impl, OFFSET>,
@@ -289,7 +289,7 @@ impl IFrameworkElementOverrides2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementOverrides2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFrameworkElementOverrides2, OFFSET>(),
             GoToElementStateCore: GoToElementStateCore::<Identity, Impl, OFFSET>,
         }
     }
@@ -342,7 +342,7 @@ impl IUIElementOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides, OFFSET>(),
             OnCreateAutomationPeer: OnCreateAutomationPeer::<Identity, Impl, OFFSET>,
             OnDisconnectVisualChildren: OnDisconnectVisualChildren::<Identity, Impl, OFFSET>,
             FindSubElementsForTouchTargeting: FindSubElementsForTouchTargeting::<Identity, Impl, OFFSET>,
@@ -384,7 +384,7 @@ impl IUIElementOverrides7_Vtbl {
             (*this).OnProcessKeyboardAccelerators(::core::mem::transmute(&args)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides7, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides7, OFFSET>(),
             GetChildrenInTabFocusOrder: GetChildrenInTabFocusOrder::<Identity, Impl, OFFSET>,
             OnProcessKeyboardAccelerators: OnProcessKeyboardAccelerators::<Identity, Impl, OFFSET>,
         }
@@ -420,7 +420,7 @@ impl IUIElementOverrides8_Vtbl {
             (*this).OnBringIntoViewRequested(::core::mem::transmute(&e)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides8, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides8, OFFSET>(),
             OnKeyboardAcceleratorInvoked: OnKeyboardAcceleratorInvoked::<Identity, Impl, OFFSET>,
             OnBringIntoViewRequested: OnBringIntoViewRequested::<Identity, Impl, OFFSET>,
         }
@@ -448,7 +448,7 @@ impl IUIElementOverrides9_Vtbl {
             (*this).PopulatePropertyInfoOverride(::core::mem::transmute(&propertyname), ::core::mem::transmute(&animationpropertyinfo)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides9, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUIElementOverrides9, OFFSET>(),
             PopulatePropertyInfoOverride: PopulatePropertyInfoOverride::<Identity, Impl, OFFSET>,
         }
     }
@@ -480,7 +480,7 @@ impl IVisualStateManagerOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVisualStateManagerOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVisualStateManagerOverrides, OFFSET>(),
             GoToStateCore: GoToStateCore::<Identity, Impl, OFFSET>,
         }
     }
