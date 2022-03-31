@@ -25,7 +25,7 @@ impl IErrorReportingSettings_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IErrorReportingSettings, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IErrorReportingSettings, OFFSET>(),
             SetErrorOptions: SetErrorOptions::<Identity, Impl, OFFSET>,
             GetErrorOptions: GetErrorOptions::<Identity, Impl, OFFSET>,
         }
@@ -108,7 +108,7 @@ impl IFileLoggingSession_Vtbl {
             (*this).RemoveLogFileGenerated(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileLoggingSession, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileLoggingSession, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             AddLoggingChannel: AddLoggingChannel::<Identity, Impl, OFFSET>,
             AddLoggingChannelWithLevel: AddLoggingChannelWithLevel::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl ILoggingChannel_Vtbl {
             (*this).RemoveLoggingEnabled(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannel, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannel, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             Level: Level::<Identity, Impl, OFFSET>,
@@ -283,7 +283,7 @@ impl ILoggingSession_Vtbl {
             (*this).RemoveLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingSession, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingSession, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SaveToFileAsync: SaveToFileAsync::<Identity, Impl, OFFSET>,
             AddLoggingChannel: AddLoggingChannel::<Identity, Impl, OFFSET>,
@@ -418,7 +418,7 @@ impl ILoggingTarget_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingTarget, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingTarget, OFFSET>(),
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
             IsEnabledWithLevel: IsEnabledWithLevel::<Identity, Impl, OFFSET>,
             IsEnabledWithLevelAndKeywords: IsEnabledWithLevelAndKeywords::<Identity, Impl, OFFSET>,

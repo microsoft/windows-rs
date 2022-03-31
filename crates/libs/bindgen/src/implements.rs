@@ -91,12 +91,12 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
 
     match def.vtable_types().last() {
-        Some(Type::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
-        Some(Type::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
+        Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
+        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
         Some(Type::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(def, gen);
             let namespace = gen.namespace(def.namespace());
-            methods.combine(&quote! { base: #namespace #vtbl::new::<Identity, Impl, OFFSET>(), });
+            methods.combine(&quote! { base__: #namespace #vtbl::new::<Identity, Impl, OFFSET>(), });
         }
         _ => {}
     }

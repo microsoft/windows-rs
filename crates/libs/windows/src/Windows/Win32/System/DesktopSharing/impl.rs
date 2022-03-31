@@ -71,7 +71,7 @@ impl IRDPSRAPIApplication_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Windows: Windows::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             Shared: Shared::<Identity, Impl, OFFSET>,
@@ -133,7 +133,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&newval)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Applications: Applications::<Identity, Impl, OFFSET>,
             Windows: Windows::<Identity, Impl, OFFSET>,
             Enabled: Enabled::<Identity, Impl, OFFSET>,
@@ -175,7 +175,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
         }
@@ -275,7 +275,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             RemoteName: RemoteName::<Identity, Impl, OFFSET>,
             ControlLevel: ControlLevel::<Identity, Impl, OFFSET>,
@@ -333,7 +333,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Attendee: Attendee::<Identity, Impl, OFFSET>,
             Reason: Reason::<Identity, Impl, OFFSET>,
             Code: Code::<Identity, Impl, OFFSET>,
@@ -374,7 +374,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
         }
@@ -424,7 +424,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
             (*this).FreeBuffer().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
@@ -454,7 +454,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnPasteFromClipboard: OnPasteFromClipboard::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnPasteFromClipboard: OnPasteFromClipboard::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRDPSRAPIClipboardUseEvents as ::windows::core::Interface>::IID
@@ -485,7 +485,7 @@ impl IRDPSRAPIDebug_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetCLXCmdLine: SetCLXCmdLine::<Identity, Impl, OFFSET>,
             CLXCmdLine: CLXCmdLine::<Identity, Impl, OFFSET>,
         }
@@ -549,7 +549,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Width: Width::<Identity, Impl, OFFSET>,
             Height: Height::<Identity, Impl, OFFSET>,
             Bpp: Bpp::<Identity, Impl, OFFSET>,
@@ -639,7 +639,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             (*this).SetRevoked(::core::mem::transmute_copy(&newval)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ConnectionString: ConnectionString::<Identity, Impl, OFFSET>,
             GroupName: GroupName::<Identity, Impl, OFFSET>,
             Password: Password::<Identity, Impl, OFFSET>,
@@ -708,7 +708,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -729,7 +729,7 @@ impl IRDPSRAPIPerfCounterLogger_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).LogValue(::core::mem::transmute_copy(&lvalue)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LogValue: LogValue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LogValue: LogValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRDPSRAPIPerfCounterLogger as ::windows::core::Interface>::IID
@@ -753,7 +753,7 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateLogger: CreateLogger::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateLogger: CreateLogger::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRDPSRAPIPerfCounterLoggingManager as ::windows::core::Interface>::IID
@@ -784,7 +784,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
             (*this).SetProperty(::core::mem::transmute(&propertyname), ::core::mem::transmute(&newval)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Property: Property::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
         }
@@ -920,7 +920,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             (*this).GetDesktopSharedRect(::core::mem::transmute_copy(&pleft), ::core::mem::transmute_copy(&ptop), ::core::mem::transmute_copy(&pright), ::core::mem::transmute_copy(&pbottom)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             SetColorDepth: SetColorDepth::<Identity, Impl, OFFSET>,
@@ -972,7 +972,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
             (*this).SendControlLevelChangeResponse(::core::mem::transmute(&pattendee), ::core::mem::transmute_copy(&requestedlevel), ::core::mem::transmute_copy(&reasoncode)).into()
         }
         Self {
-            base: IRDPSRAPISharingSession_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRDPSRAPISharingSession_Vtbl::new::<Identity, Impl, OFFSET>(),
             ConnectUsingTransportStream: ConnectUsingTransportStream::<Identity, Impl, OFFSET>,
             FrameBuffer: FrameBuffer::<Identity, Impl, OFFSET>,
             SendControlLevelChangeResponse: SendControlLevelChangeResponse::<Identity, Impl, OFFSET>,
@@ -1049,7 +1049,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Protocol: Protocol::<Identity, Impl, OFFSET>,
             LocalPort: LocalPort::<Identity, Impl, OFFSET>,
             LocalIP: LocalIP::<Identity, Impl, OFFSET>,
@@ -1108,7 +1108,7 @@ impl IRDPSRAPITransportStream_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AllocBuffer: AllocBuffer::<Identity, Impl, OFFSET>,
             FreeBuffer: FreeBuffer::<Identity, Impl, OFFSET>,
             WriteBuffer: WriteBuffer::<Identity, Impl, OFFSET>,
@@ -1222,7 +1222,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             (*this).SetContext(::core::mem::transmute(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Storage: Storage::<Identity, Impl, OFFSET>,
             StorageSize: StorageSize::<Identity, Impl, OFFSET>,
             PayloadSize: PayloadSize::<Identity, Impl, OFFSET>,
@@ -1262,7 +1262,7 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
             (*this).OnStreamClosed(::core::mem::transmute_copy(&hrreason))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnWriteCompleted: OnWriteCompleted::<Identity, Impl, OFFSET>,
             OnReadCompleted: OnReadCompleted::<Identity, Impl, OFFSET>,
             OnStreamClosed: OnStreamClosed::<Identity, Impl, OFFSET>,
@@ -1411,7 +1411,7 @@ impl IRDPSRAPIViewer_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
             Attendees: Attendees::<Identity, Impl, OFFSET>,
@@ -1487,7 +1487,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SendData: SendData::<Identity, Impl, OFFSET>,
             SetAccess: SetAccess::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -1542,7 +1542,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             CreateVirtualChannel: CreateVirtualChannel::<Identity, Impl, OFFSET>,
@@ -1631,7 +1631,7 @@ impl IRDPSRAPIWindow_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Application: Application::<Identity, Impl, OFFSET>,
             Shared: Shared::<Identity, Impl, OFFSET>,
@@ -1676,7 +1676,7 @@ impl IRDPSRAPIWindowList_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
         }
@@ -1738,7 +1738,7 @@ impl IRDPViewerInputSink_Vtbl {
             (*this).EndTouchFrame().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SendMouseButtonEvent: SendMouseButtonEvent::<Identity, Impl, OFFSET>,
             SendMouseMoveEvent: SendMouseMoveEvent::<Identity, Impl, OFFSET>,
             SendMouseWheelEvent: SendMouseWheelEvent::<Identity, Impl, OFFSET>,
@@ -1758,7 +1758,7 @@ pub trait _IRDPSessionEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IRDPSessionEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IRDPSessionEvents_Impl, const OFFSET: isize>() -> _IRDPSessionEvents_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_IRDPSessionEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID

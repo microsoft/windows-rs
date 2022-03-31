@@ -10,7 +10,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 pub fn gen_sys_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     let ident = gen_ident(def.name());
-    let signature = gen_signature(def, gen);
+    let signature = gen_default_type(&def.underlying_type(), gen);
 
     quote! {
         pub type #ident = #signature;
@@ -20,26 +20,42 @@ pub fn gen_sys_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
 pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = def.name();
     let ident = gen_ident(def.name());
-    let signature = gen_signature(def, gen);
+    let underlying_type = def.underlying_type();
+    let signature = gen_default_type(&underlying_type, gen);
+    let check = if underlying_type.is_pointer() {
+        quote! {
+            impl #ident {
+                pub fn is_invalid(&self) -> bool {
+                    self.0.is_null()
+                }
+            }
+        }
+    } else {
+        let invalid = def.invalid_values();
+
+        if !invalid.is_empty() {
+            let invalid = invalid.iter().map(|value| {
+                let value = Literal::i64_unsuffixed(*value);
+                quote! { self.0 == #value }
+            });
+            quote! {
+                impl #ident {
+                    pub fn is_invalid(&self) -> bool {
+                        #(#invalid)||*
+                    }
+                }
+            }
+        } else {
+            quote! {}
+        }
+    };
 
     let mut tokens = quote! {
         #[repr(transparent)]
         // Unfortunately, Rust requires these to be derived to allow constant patterns.
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
         pub struct #ident(pub #signature);
-        impl #ident {
-            pub fn is_invalid(&self) -> bool {
-                *self == unsafe { ::core::mem::zeroed() }
-            }
-
-            pub fn ok(self) -> ::windows::core::Result<Self> {
-                if !self.is_invalid() {
-                    Ok(self)
-                } else {
-                    Err(::windows::core::Error::from_win32())
-                }
-            }
-        }
+        #check
         impl ::core::default::Default for #ident {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
@@ -76,9 +92,4 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     tokens
-}
-
-fn gen_signature(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let def = def.fields().next().map(|field| field.get_type(Some(def))).unwrap();
-    gen_default_type(&def, gen)
 }

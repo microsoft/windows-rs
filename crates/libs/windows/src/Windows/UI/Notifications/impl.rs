@@ -35,7 +35,7 @@ impl IAdaptiveNotificationContent_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveNotificationContent, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveNotificationContent, OFFSET>(),
             Kind: Kind::<Identity, Impl, OFFSET>,
             Hints: Hints::<Identity, Impl, OFFSET>,
         }

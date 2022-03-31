@@ -23,7 +23,7 @@ impl IDirect3DDevice9On12_Vtbl {
             (*this).ReturnUnderlyingResource(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&numsync), ::core::mem::transmute_copy(&psignalvalues), ::core::mem::transmute_copy(&ppfences)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetD3D12Device: GetD3D12Device::<Identity, Impl, OFFSET>,
             UnwrapUnderlyingResource: UnwrapUnderlyingResource::<Identity, Impl, OFFSET>,
             ReturnUnderlyingResource: ReturnUnderlyingResource::<Identity, Impl, OFFSET>,

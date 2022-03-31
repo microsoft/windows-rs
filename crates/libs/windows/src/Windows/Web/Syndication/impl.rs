@@ -123,7 +123,7 @@ impl ISyndicationClient_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationClient, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationClient, OFFSET>(),
             ServerCredential: ServerCredential::<Identity, Impl, OFFSET>,
             SetServerCredential: SetServerCredential::<Identity, Impl, OFFSET>,
             ProxyCredential: ProxyCredential::<Identity, Impl, OFFSET>,
@@ -287,7 +287,7 @@ impl ISyndicationNode_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationNode, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationNode, OFFSET>(),
             NodeName: NodeName::<Identity, Impl, OFFSET>,
             SetNodeName: SetNodeName::<Identity, Impl, OFFSET>,
             NodeNamespace: NodeNamespace::<Identity, Impl, OFFSET>,
@@ -375,7 +375,7 @@ impl ISyndicationText_Vtbl {
             (*this).SetXml(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationText, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationText, OFFSET>(),
             Text: Text::<Identity, Impl, OFFSET>,
             SetText: SetText::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,

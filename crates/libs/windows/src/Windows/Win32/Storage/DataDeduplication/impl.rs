@@ -10,7 +10,7 @@ impl IDedupBackupSupport_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RestoreFiles(::core::mem::transmute_copy(&numberoffiles), ::core::mem::transmute_copy(&filefullpaths), ::core::mem::transmute(&store), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&fileresults)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDedupBackupSupport as ::windows::core::Interface>::IID
@@ -53,7 +53,7 @@ impl IDedupChunkLibrary_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeForPushBuffers: InitializeForPushBuffers::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             SetParameter: SetParameter::<Identity, Impl, OFFSET>,
@@ -191,7 +191,7 @@ impl IDedupDataPort_Vtbl {
             (*this).GetRequestResults(::core::mem::transmute(&requestid), ::core::mem::transmute_copy(&maxwaitms), ::core::mem::transmute_copy(&pbatchresult), ::core::mem::transmute_copy(&pbatchcount), ::core::mem::transmute_copy(&pstatus), ::core::mem::transmute_copy(&ppitemresults)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             LookupChunks: LookupChunks::<Identity, Impl, OFFSET>,
             InsertChunks: InsertChunks::<Identity, Impl, OFFSET>,
@@ -247,7 +247,7 @@ impl IDedupDataPortManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConfiguration: GetConfiguration::<Identity, Impl, OFFSET>,
             GetVolumeStatus: GetVolumeStatus::<Identity, Impl, OFFSET>,
             GetVolumeDataPort: GetVolumeDataPort::<Identity, Impl, OFFSET>,
@@ -286,7 +286,7 @@ impl IDedupIterateChunksHash32_Vtbl {
             (*this).Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PushBuffer: PushBuffer::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Drain: Drain::<Identity, Impl, OFFSET>,
@@ -322,7 +322,7 @@ impl IDedupReadFileCallback_Vtbl {
             (*this).PreviewContainerRead(::core::mem::transmute(&filefullpath), ::core::mem::transmute_copy(&numberofreads), ::core::mem::transmute_copy(&readoffsets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadBackupFile: ReadBackupFile::<Identity, Impl, OFFSET>,
             OrderContainersRestore: OrderContainersRestore::<Identity, Impl, OFFSET>,
             PreviewContainerRead: PreviewContainerRead::<Identity, Impl, OFFSET>,

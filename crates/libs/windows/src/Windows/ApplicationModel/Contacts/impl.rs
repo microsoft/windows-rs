@@ -58,7 +58,7 @@ impl IContactField_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactField, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactField, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Category: Category::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -116,7 +116,7 @@ impl IContactFieldFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactFieldFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactFieldFactory, OFFSET>(),
             CreateField_Default: CreateField_Default::<Identity, Impl, OFFSET>,
             CreateField_Category: CreateField_Category::<Identity, Impl, OFFSET>,
             CreateField_Custom: CreateField_Custom::<Identity, Impl, OFFSET>,
@@ -176,7 +176,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactInstantMessageFieldFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactInstantMessageFieldFactory, OFFSET>(),
             CreateInstantMessage_Default: CreateInstantMessage_Default::<Identity, Impl, OFFSET>,
             CreateInstantMessage_Category: CreateInstantMessage_Category::<Identity, Impl, OFFSET>,
             CreateInstantMessage_All: CreateInstantMessage_All::<Identity, Impl, OFFSET>,
@@ -233,7 +233,7 @@ impl IContactLocationFieldFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactLocationFieldFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactLocationFieldFactory, OFFSET>(),
             CreateLocation_Default: CreateLocation_Default::<Identity, Impl, OFFSET>,
             CreateLocation_Category: CreateLocation_Category::<Identity, Impl, OFFSET>,
             CreateLocation_All: CreateLocation_All::<Identity, Impl, OFFSET>,

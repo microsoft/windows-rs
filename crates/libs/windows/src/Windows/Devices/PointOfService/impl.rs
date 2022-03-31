@@ -19,7 +19,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICashDrawerEventSourceEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICashDrawerEventSourceEventArgs, OFFSET>(),
             CashDrawer: CashDrawer::<Identity, Impl, OFFSET>,
         }
     }
@@ -247,7 +247,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommonClaimedPosPrinterStation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICommonClaimedPosPrinterStation, OFFSET>(),
             SetCharactersPerLine: SetCharactersPerLine::<Identity, Impl, OFFSET>,
             CharactersPerLine: CharactersPerLine::<Identity, Impl, OFFSET>,
             SetLineHeight: SetLineHeight::<Identity, Impl, OFFSET>,
@@ -453,7 +453,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommonPosPrintStationCapabilities, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICommonPosPrintStationCapabilities, OFFSET>(),
             IsPrinterPresent: IsPrinterPresent::<Identity, Impl, OFFSET>,
             IsDualColorSupported: IsDualColorSupported::<Identity, Impl, OFFSET>,
             ColorCartridgeCapabilities: ColorCartridgeCapabilities::<Identity, Impl, OFFSET>,
@@ -601,7 +601,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommonReceiptSlipCapabilities, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICommonReceiptSlipCapabilities, OFFSET>(),
             IsBarcodeSupported: IsBarcodeSupported::<Identity, Impl, OFFSET>,
             IsBitmapSupported: IsBitmapSupported::<Identity, Impl, OFFSET>,
             IsLeft90RotationSupported: IsLeft90RotationSupported::<Identity, Impl, OFFSET>,
@@ -659,7 +659,7 @@ impl IPosPrinterJob_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPosPrinterJob, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPosPrinterJob, OFFSET>(),
             Print: Print::<Identity, Impl, OFFSET>,
             PrintLine: PrintLine::<Identity, Impl, OFFSET>,
             PrintNewline: PrintNewline::<Identity, Impl, OFFSET>,
@@ -771,7 +771,7 @@ impl IReceiptOrSlipJob_Vtbl {
             (*this).PrintBitmapCustomWidthCustomAlign(::core::mem::transmute(&bitmap), alignmentdistance, width).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IReceiptOrSlipJob, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IReceiptOrSlipJob, OFFSET>(),
             SetBarcodeRotation: SetBarcodeRotation::<Identity, Impl, OFFSET>,
             SetPrintRotation: SetPrintRotation::<Identity, Impl, OFFSET>,
             SetPrintArea: SetPrintArea::<Identity, Impl, OFFSET>,

@@ -31,7 +31,7 @@ impl IAsyncAction_Vtbl {
             (*this).GetResults().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncAction, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncAction, OFFSET>(),
             SetCompleted: SetCompleted::<Identity, Impl, OFFSET>,
             Completed: Completed::<Identity, Impl, OFFSET>,
             GetResults: GetResults::<Identity, Impl, OFFSET>,
@@ -96,7 +96,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (*this).GetResults().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncActionWithProgress<TProgress>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncActionWithProgress<TProgress>, OFFSET>(),
             SetProgress: SetProgress::<TProgress, Identity, Impl, OFFSET>,
             Progress: Progress::<TProgress, Identity, Impl, OFFSET>,
             SetCompleted: SetCompleted::<TProgress, Identity, Impl, OFFSET>,
@@ -168,7 +168,7 @@ impl IAsyncInfo_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncInfo, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncInfo, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
             ErrorCode: ErrorCode::<Identity, Impl, OFFSET>,
@@ -223,7 +223,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResu
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperation<TResult>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperation<TResult>, OFFSET>(),
             SetCompleted: SetCompleted::<TResult, Identity, Impl, OFFSET>,
             Completed: Completed::<TResult, Identity, Impl, OFFSET>,
             GetResults: GetResults::<TResult, Identity, Impl, OFFSET>,
@@ -297,7 +297,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperationWithProgress<TResult, TProgress>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperationWithProgress<TResult, TProgress>, OFFSET>(),
             SetProgress: SetProgress::<TResult, TProgress, Identity, Impl, OFFSET>,
             Progress: Progress::<TResult, TProgress, Identity, Impl, OFFSET>,
             SetCompleted: SetCompleted::<TResult, TProgress, Identity, Impl, OFFSET>,
@@ -324,7 +324,7 @@ impl IClosable_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClosable, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IClosable, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClosable as ::windows::core::Interface>::IID
@@ -351,7 +351,7 @@ impl IGetActivationFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGetActivationFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGetActivationFactory, OFFSET>(),
             GetActivationFactory: GetActivationFactory::<Identity, Impl, OFFSET>,
         }
     }
@@ -379,7 +379,7 @@ impl IMemoryBuffer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBuffer, OFFSET>(), CreateReference: CreateReference::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBuffer, OFFSET>(), CreateReference: CreateReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMemoryBuffer as ::windows::core::Interface>::IID
@@ -425,7 +425,7 @@ impl IMemoryBufferReference_Vtbl {
             (*this).RemoveClosed(::core::mem::transmute(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBufferReference, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBufferReference, OFFSET>(),
             Capacity: Capacity::<Identity, Impl, OFFSET>,
             Closed: Closed::<Identity, Impl, OFFSET>,
             RemoveClosed: RemoveClosed::<Identity, Impl, OFFSET>,
@@ -817,7 +817,7 @@ impl IPropertyValue_Vtbl {
             (*this).GetRectArray(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size).as_array()).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyValue, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyValue, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             IsNumericScalar: IsNumericScalar::<Identity, Impl, OFFSET>,
             GetUInt8: GetUInt8::<Identity, Impl, OFFSET>,
@@ -887,7 +887,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference_Vtbl<T> {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IReference<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IReference<T>, OFFSET>(),
             Value: Value::<T, Identity, Impl, OFFSET>,
             T: ::core::marker::PhantomData::<T>,
         }
@@ -921,7 +921,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IReferenceArray<T>, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IReferenceArray<T>, OFFSET>(),
             Value: Value::<T, Identity, Impl, OFFSET>,
             T: ::core::marker::PhantomData::<T>,
         }
@@ -950,7 +950,7 @@ impl IStringable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStringable, OFFSET>(), ToString: ToString::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IStringable, OFFSET>(), ToString: ToString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStringable as ::windows::core::Interface>::IID
@@ -990,7 +990,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWwwFormUrlDecoderEntry, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWwwFormUrlDecoderEntry, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
         }

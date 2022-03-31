@@ -57,7 +57,7 @@ impl IEnhancedStorageACT_Vtbl {
             (*this).GetSilos(::core::mem::transmute_copy(&pppienhancedstoragesilos), ::core::mem::transmute_copy(&pcenhancedstoragesilos)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Authorize: Authorize::<Identity, Impl, OFFSET>,
             Unauthorize: Unauthorize::<Identity, Impl, OFFSET>,
             GetAuthorizationState: GetAuthorizationState::<Identity, Impl, OFFSET>,
@@ -101,7 +101,7 @@ impl IEnhancedStorageACT2_Vtbl {
             }
         }
         Self {
-            base: IEnhancedStorageACT_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEnhancedStorageACT_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDeviceName: GetDeviceName::<Identity, Impl, OFFSET>,
             IsDeviceRemovable: IsDeviceRemovable::<Identity, Impl, OFFSET>,
         }
@@ -147,7 +147,7 @@ impl IEnhancedStorageACT3_Vtbl {
             }
         }
         Self {
-            base: IEnhancedStorageACT2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEnhancedStorageACT2_Vtbl::new::<Identity, Impl, OFFSET>(),
             UnauthorizeEx: UnauthorizeEx::<Identity, Impl, OFFSET>,
             IsQueueFrozen: IsQueueFrozen::<Identity, Impl, OFFSET>,
             GetShellExtSupport: GetShellExtSupport::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl IEnhancedStorageSilo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
             GetActions: GetActions::<Identity, Impl, OFFSET>,
             SendCommand: SendCommand::<Identity, Impl, OFFSET>,
@@ -259,7 +259,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
             (*this).Invoke().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             Invoke: Invoke::<Identity, Impl, OFFSET>,
@@ -292,7 +292,7 @@ impl IEnumEnhancedStorageACT_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetACTs: GetACTs::<Identity, Impl, OFFSET>,
             GetMatchingACT: GetMatchingACT::<Identity, Impl, OFFSET>,
         }

@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IKeyboardCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardCapabilities_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub KeyboardPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -24,7 +24,7 @@ unsafe impl ::windows::core::Interface for IMouseCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseCapabilities_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MousePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub VerticalWheelPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub HorizontalWheelPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -41,7 +41,7 @@ unsafe impl ::windows::core::Interface for IMouseDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseDevice_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MouseMoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Interface for IMouseDeviceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseDeviceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -74,7 +74,7 @@ unsafe impl ::windows::core::Interface for IMouseEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MouseDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MouseDelta) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -87,7 +87,7 @@ unsafe impl ::windows::core::Interface for IPenButtonListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenButtonListener_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub IsSupportedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -132,7 +132,7 @@ unsafe impl ::windows::core::Interface for IPenButtonListenerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenButtonListenerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -145,7 +145,7 @@ unsafe impl ::windows::core::Interface for IPenDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDevice_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PenId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -158,7 +158,7 @@ unsafe impl ::windows::core::Interface for IPenDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDevice2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))]
@@ -174,7 +174,7 @@ unsafe impl ::windows::core::Interface for IPenDeviceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDeviceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetFromPointerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -187,7 +187,7 @@ unsafe impl ::windows::core::Interface for IPenDockListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockListener_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub IsSupportedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -224,7 +224,7 @@ unsafe impl ::windows::core::Interface for IPenDockListenerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockListenerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -237,7 +237,7 @@ unsafe impl ::windows::core::Interface for IPenDockedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -249,7 +249,7 @@ unsafe impl ::windows::core::Interface for IPenTailButtonClickedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonClickedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::Interface for IPenTailButtonDoubleClickedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonDoubleClickedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -273,7 +273,7 @@ unsafe impl ::windows::core::Interface for IPenTailButtonLongPressedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonLongPressedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -285,7 +285,7 @@ unsafe impl ::windows::core::Interface for IPenUndockedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenUndockedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -297,7 +297,7 @@ unsafe impl ::windows::core::Interface for IPointerDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDevice_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PointerDeviceType) -> ::windows::core::HRESULT,
     pub IsIntegrated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub MaxContacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -324,7 +324,7 @@ unsafe impl ::windows::core::Interface for IPointerDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDevice2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub MaxPointersWithZDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -337,7 +337,7 @@ unsafe impl ::windows::core::Interface for IPointerDeviceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDeviceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetPointerDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetPointerDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -354,7 +354,7 @@ unsafe impl ::windows::core::Interface for ITouchCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITouchCapabilities_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TouchPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }

@@ -35,7 +35,7 @@ impl IItemEnumerator_Vtbl {
             (*this).Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Current: Current::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -106,7 +106,7 @@ impl ISettingsContext_Vtbl {
             (*this).RevertSetting(::core::mem::transmute(&pidentity), ::core::mem::transmute(&pwzsetting)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Serialize: Serialize::<Identity, Impl, OFFSET>,
             Deserialize: Deserialize::<Identity, Impl, OFFSET>,
             SetUserData: SetUserData::<Identity, Impl, OFFSET>,
@@ -283,7 +283,7 @@ impl ISettingsEngine_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNamespaces: GetNamespaces::<Identity, Impl, OFFSET>,
             GetNamespace: GetNamespace::<Identity, Impl, OFFSET>,
             GetErrorDescription: GetErrorDescription::<Identity, Impl, OFFSET>,
@@ -349,7 +349,7 @@ impl ISettingsIdentity_Vtbl {
             (*this).SetFlags(::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAttribute: GetAttribute::<Identity, Impl, OFFSET>,
             SetAttribute: SetAttribute::<Identity, Impl, OFFSET>,
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
@@ -595,7 +595,7 @@ impl ISettingsItem_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -709,7 +709,7 @@ impl ISettingsNamespace_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIdentity: GetIdentity::<Identity, Impl, OFFSET>,
             Settings: Settings::<Identity, Impl, OFFSET>,
             Save: Save::<Identity, Impl, OFFSET>,
@@ -802,7 +802,7 @@ impl ISettingsResult_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetErrorCode: GetErrorCode::<Identity, Impl, OFFSET>,
             GetContextDescription: GetContextDescription::<Identity, Impl, OFFSET>,
@@ -1020,7 +1020,7 @@ impl ITargetInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTargetMode: GetTargetMode::<Identity, Impl, OFFSET>,
             SetTargetMode: SetTargetMode::<Identity, Impl, OFFSET>,
             GetTemporaryStoreLocation: GetTemporaryStoreLocation::<Identity, Impl, OFFSET>,

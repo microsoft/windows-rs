@@ -100,7 +100,7 @@ impl IInkAnalysisNode_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisNode, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisNode, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Kind: Kind::<Identity, Impl, OFFSET>,
             BoundingRect: BoundingRect::<Identity, Impl, OFFSET>,
@@ -135,7 +135,7 @@ impl IInkAnalyzerFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalyzerFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalyzerFactory, OFFSET>(),
             CreateAnalyzer: CreateAnalyzer::<Identity, Impl, OFFSET>,
         }
     }

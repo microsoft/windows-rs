@@ -3,7 +3,7 @@ pub trait IDummyMBNUCMExt_Impl: Sized + super::super::System::Com::IDispatch_Imp
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDummyMBNUCMExt_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDummyMBNUCMExt_Impl, const OFFSET: isize>() -> IDummyMBNUCMExt_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDummyMBNUCMExt as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -94,7 +94,7 @@ impl IMbnConnection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectionID: ConnectionID::<Identity, Impl, OFFSET>,
             InterfaceID: InterfaceID::<Identity, Impl, OFFSET>,
             Connect: Connect::<Identity, Impl, OFFSET>,
@@ -139,7 +139,7 @@ impl IMbnConnectionContext_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProvisionedContexts: GetProvisionedContexts::<Identity, Impl, OFFSET>,
             SetProvisionedContext: SetProvisionedContext::<Identity, Impl, OFFSET>,
         }
@@ -165,7 +165,7 @@ impl IMbnConnectionContextEvents_Vtbl {
             (*this).OnSetProvisionedContextComplete(::core::mem::transmute(&newinterface), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnProvisionedContextListChange: OnProvisionedContextListChange::<Identity, Impl, OFFSET>,
             OnSetProvisionedContextComplete: OnSetProvisionedContextComplete::<Identity, Impl, OFFSET>,
         }
@@ -203,7 +203,7 @@ impl IMbnConnectionEvents_Vtbl {
             (*this).OnVoiceCallStateChange(::core::mem::transmute(&newconnection)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnConnectComplete: OnConnectComplete::<Identity, Impl, OFFSET>,
             OnDisconnectComplete: OnDisconnectComplete::<Identity, Impl, OFFSET>,
             OnConnectStateChange: OnConnectStateChange::<Identity, Impl, OFFSET>,
@@ -245,7 +245,7 @@ impl IMbnConnectionManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConnection: GetConnection::<Identity, Impl, OFFSET>,
             GetConnections: GetConnections::<Identity, Impl, OFFSET>,
         }
@@ -271,7 +271,7 @@ impl IMbnConnectionManagerEvents_Vtbl {
             (*this).OnConnectionRemoval(::core::mem::transmute(&oldconnection)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnConnectionArrival: OnConnectionArrival::<Identity, Impl, OFFSET>,
             OnConnectionRemoval: OnConnectionRemoval::<Identity, Impl, OFFSET>,
         }
@@ -311,7 +311,7 @@ impl IMbnConnectionProfile_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProfileXmlData: GetProfileXmlData::<Identity, Impl, OFFSET>,
             UpdateProfile: UpdateProfile::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -331,7 +331,7 @@ impl IMbnConnectionProfileEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnProfileUpdate(::core::mem::transmute(&newprofile)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnProfileUpdate: OnProfileUpdate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnProfileUpdate: OnProfileUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnConnectionProfileEvents as ::windows::core::Interface>::IID
@@ -374,7 +374,7 @@ impl IMbnConnectionProfileManager_Vtbl {
             (*this).CreateConnectionProfile(::core::mem::transmute(&xmlprofile)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConnectionProfiles: GetConnectionProfiles::<Identity, Impl, OFFSET>,
             GetConnectionProfile: GetConnectionProfile::<Identity, Impl, OFFSET>,
             CreateConnectionProfile: CreateConnectionProfile::<Identity, Impl, OFFSET>,
@@ -401,7 +401,7 @@ impl IMbnConnectionProfileManagerEvents_Vtbl {
             (*this).OnConnectionProfileRemoval(::core::mem::transmute(&oldconnectionprofile)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnConnectionProfileArrival: OnConnectionProfileArrival::<Identity, Impl, OFFSET>,
             OnConnectionProfileRemoval: OnConnectionProfileRemoval::<Identity, Impl, OFFSET>,
         }
@@ -561,7 +561,7 @@ impl IMbnDeviceService_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QuerySupportedCommands: QuerySupportedCommands::<Identity, Impl, OFFSET>,
             OpenCommandSession: OpenCommandSession::<Identity, Impl, OFFSET>,
             CloseCommandSession: CloseCommandSession::<Identity, Impl, OFFSET>,
@@ -592,7 +592,7 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnSessionsStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSessionsStateChange: OnSessionsStateChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSessionsStateChange: OnSessionsStateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnDeviceServiceStateEvents as ::windows::core::Interface>::IID
@@ -653,7 +653,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumerateDeviceServices: EnumerateDeviceServices::<Identity, Impl, OFFSET>,
             GetDeviceService: GetDeviceService::<Identity, Impl, OFFSET>,
             MaxCommandSize: MaxCommandSize::<Identity, Impl, OFFSET>,
@@ -737,7 +737,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
             (*this).OnInterfaceStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnQuerySupportedCommandsComplete: OnQuerySupportedCommandsComplete::<Identity, Impl, OFFSET>,
             OnOpenCommandSessionComplete: OnOpenCommandSessionComplete::<Identity, Impl, OFFSET>,
             OnCloseCommandSessionComplete: OnCloseCommandSessionComplete::<Identity, Impl, OFFSET>,
@@ -773,7 +773,7 @@ impl IMbnDeviceServicesManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDeviceServicesContext: GetDeviceServicesContext::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDeviceServicesContext: GetDeviceServicesContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnDeviceServicesManager as ::windows::core::Interface>::IID
@@ -912,7 +912,7 @@ impl IMbnInterface_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InterfaceID: InterfaceID::<Identity, Impl, OFFSET>,
             GetInterfaceCapability: GetInterfaceCapability::<Identity, Impl, OFFSET>,
             GetSubscriberInformation: GetSubscriberInformation::<Identity, Impl, OFFSET>,
@@ -983,7 +983,7 @@ impl IMbnInterfaceEvents_Vtbl {
             (*this).OnScanNetworkComplete(::core::mem::transmute(&newinterface), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnInterfaceCapabilityAvailable: OnInterfaceCapabilityAvailable::<Identity, Impl, OFFSET>,
             OnSubscriberInformationChange: OnSubscriberInformationChange::<Identity, Impl, OFFSET>,
             OnReadyStateChange: OnReadyStateChange::<Identity, Impl, OFFSET>,
@@ -1029,7 +1029,7 @@ impl IMbnInterfaceManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterface: GetInterface::<Identity, Impl, OFFSET>,
             GetInterfaces: GetInterfaces::<Identity, Impl, OFFSET>,
         }
@@ -1055,7 +1055,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
             (*this).OnInterfaceRemoval(::core::mem::transmute(&oldinterface)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnInterfaceArrival: OnInterfaceArrival::<Identity, Impl, OFFSET>,
             OnInterfaceRemoval: OnInterfaceRemoval::<Identity, Impl, OFFSET>,
         }
@@ -1137,7 +1137,7 @@ impl IMbnMultiCarrier_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetHomeProvider: SetHomeProvider::<Identity, Impl, OFFSET>,
             GetPreferredProviders: GetPreferredProviders::<Identity, Impl, OFFSET>,
             GetVisibleProviders: GetVisibleProviders::<Identity, Impl, OFFSET>,
@@ -1185,7 +1185,7 @@ impl IMbnMultiCarrierEvents_Vtbl {
             (*this).OnInterfaceCapabilityChange(::core::mem::transmute(&mbninterface)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnSetHomeProviderComplete: OnSetHomeProviderComplete::<Identity, Impl, OFFSET>,
             OnCurrentCellularClassChange: OnCurrentCellularClassChange::<Identity, Impl, OFFSET>,
             OnPreferredProvidersChange: OnPreferredProvidersChange::<Identity, Impl, OFFSET>,
@@ -1334,7 +1334,7 @@ impl IMbnPin_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PinType: PinType::<Identity, Impl, OFFSET>,
             PinFormat: PinFormat::<Identity, Impl, OFFSET>,
             PinLengthMin: PinLengthMin::<Identity, Impl, OFFSET>,
@@ -1387,7 +1387,7 @@ impl IMbnPinEvents_Vtbl {
             (*this).OnUnblockComplete(::core::mem::transmute(&pin), ::core::mem::transmute_copy(&pininfo), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnEnableComplete: OnEnableComplete::<Identity, Impl, OFFSET>,
             OnDisableComplete: OnDisableComplete::<Identity, Impl, OFFSET>,
             OnEnterComplete: OnEnterComplete::<Identity, Impl, OFFSET>,
@@ -1442,7 +1442,7 @@ impl IMbnPinManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPinList: GetPinList::<Identity, Impl, OFFSET>,
             GetPin: GetPin::<Identity, Impl, OFFSET>,
             GetPinState: GetPinState::<Identity, Impl, OFFSET>,
@@ -1469,7 +1469,7 @@ impl IMbnPinManagerEvents_Vtbl {
             (*this).OnGetPinStateComplete(::core::mem::transmute(&pinmanager), ::core::mem::transmute(&pininfo), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnPinListAvailable: OnPinListAvailable::<Identity, Impl, OFFSET>,
             OnGetPinStateComplete: OnGetPinStateComplete::<Identity, Impl, OFFSET>,
         }
@@ -1519,7 +1519,7 @@ impl IMbnRadio_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SoftwareRadioState: SoftwareRadioState::<Identity, Impl, OFFSET>,
             HardwareRadioState: HardwareRadioState::<Identity, Impl, OFFSET>,
             SetSoftwareRadioState: SetSoftwareRadioState::<Identity, Impl, OFFSET>,
@@ -1546,7 +1546,7 @@ impl IMbnRadioEvents_Vtbl {
             (*this).OnSetSoftwareRadioStateComplete(::core::mem::transmute(&newinterface), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnRadioStateChange: OnRadioStateChange::<Identity, Impl, OFFSET>,
             OnSetSoftwareRadioStateComplete: OnSetSoftwareRadioStateComplete::<Identity, Impl, OFFSET>,
         }
@@ -1682,7 +1682,7 @@ impl IMbnRegistration_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRegisterState: GetRegisterState::<Identity, Impl, OFFSET>,
             GetRegisterMode: GetRegisterMode::<Identity, Impl, OFFSET>,
             GetProviderID: GetProviderID::<Identity, Impl, OFFSET>,
@@ -1728,7 +1728,7 @@ impl IMbnRegistrationEvents_Vtbl {
             (*this).OnSetRegisterModeComplete(::core::mem::transmute(&newinterface), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnRegisterModeAvailable: OnRegisterModeAvailable::<Identity, Impl, OFFSET>,
             OnRegisterStateChange: OnRegisterStateChange::<Identity, Impl, OFFSET>,
             OnPacketServiceStateChange: OnPacketServiceStateChange::<Identity, Impl, OFFSET>,
@@ -1757,7 +1757,7 @@ impl IMbnServiceActivation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnServiceActivation as ::windows::core::Interface>::IID
@@ -1775,7 +1775,7 @@ impl IMbnServiceActivationEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnActivationComplete(::core::mem::transmute(&serviceactivation), ::core::mem::transmute_copy(&vendorspecificdata), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status), ::core::mem::transmute_copy(&networkerror)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnActivationComplete: OnActivationComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnActivationComplete: OnActivationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnServiceActivationEvents as ::windows::core::Interface>::IID
@@ -1810,7 +1810,7 @@ impl IMbnSignal_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSignalStrength: GetSignalStrength::<Identity, Impl, OFFSET>,
             GetSignalError: GetSignalError::<Identity, Impl, OFFSET>,
         }
@@ -1829,7 +1829,7 @@ impl IMbnSignalEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnSignalStateChange(::core::mem::transmute(&newinterface)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSignalStateChange: OnSignalStateChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSignalStateChange: OnSignalStateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnSignalEvents as ::windows::core::Interface>::IID
@@ -1938,7 +1938,7 @@ impl IMbnSms_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSmsConfiguration: GetSmsConfiguration::<Identity, Impl, OFFSET>,
             SetSmsConfiguration: SetSmsConfiguration::<Identity, Impl, OFFSET>,
             SmsSendPdu: SmsSendPdu::<Identity, Impl, OFFSET>,
@@ -2020,7 +2020,7 @@ impl IMbnSmsConfiguration_Vtbl {
             (*this).SetSmsFormat(::core::mem::transmute_copy(&smsformat)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ServiceCenterAddress: ServiceCenterAddress::<Identity, Impl, OFFSET>,
             SetServiceCenterAddress: SetServiceCenterAddress::<Identity, Impl, OFFSET>,
             MaxMessageIndex: MaxMessageIndex::<Identity, Impl, OFFSET>,
@@ -2082,7 +2082,7 @@ impl IMbnSmsEvents_Vtbl {
             (*this).OnSmsStatusChange(::core::mem::transmute(&sms)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnSmsConfigurationChange: OnSmsConfigurationChange::<Identity, Impl, OFFSET>,
             OnSetSmsConfigurationComplete: OnSetSmsConfigurationComplete::<Identity, Impl, OFFSET>,
             OnSmsSendComplete: OnSmsSendComplete::<Identity, Impl, OFFSET>,
@@ -2151,7 +2151,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Index: Index::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
             PduData: PduData::<Identity, Impl, OFFSET>,
@@ -2265,7 +2265,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Index: Index::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
             Address: Address::<Identity, Impl, OFFSET>,
@@ -2323,7 +2323,7 @@ impl IMbnSubscriberInformation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SubscriberID: SubscriberID::<Identity, Impl, OFFSET>,
             SimIccID: SimIccID::<Identity, Impl, OFFSET>,
             TelephoneNumbers: TelephoneNumbers::<Identity, Impl, OFFSET>,
@@ -2352,7 +2352,7 @@ impl IMbnVendorSpecificEvents_Vtbl {
             (*this).OnSetVendorSpecificComplete(::core::mem::transmute(&vendoroperation), ::core::mem::transmute_copy(&vendorspecificdata), ::core::mem::transmute_copy(&requestid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnEventNotification: OnEventNotification::<Identity, Impl, OFFSET>,
             OnSetVendorSpecificComplete: OnSetVendorSpecificComplete::<Identity, Impl, OFFSET>,
         }
@@ -2379,7 +2379,7 @@ impl IMbnVendorSpecificOperation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetVendorSpecific: SetVendorSpecific::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetVendorSpecific: SetVendorSpecific::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMbnVendorSpecificOperation as ::windows::core::Interface>::IID

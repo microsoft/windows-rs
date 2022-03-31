@@ -47,7 +47,7 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
             (*this).Finish_ChangeCredential().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_AssociateIdentity: Begin_AssociateIdentity::<Identity, Impl, OFFSET>,
             Finish_AssociateIdentity: Finish_AssociateIdentity::<Identity, Impl, OFFSET>,
             Begin_DisassociateIdentity: Begin_DisassociateIdentity::<Identity, Impl, OFFSET>,
@@ -139,7 +139,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_ConnectIdentity: Begin_ConnectIdentity::<Identity, Impl, OFFSET>,
             Finish_ConnectIdentity: Finish_ConnectIdentity::<Identity, Impl, OFFSET>,
             Begin_DisconnectIdentity: Begin_DisconnectIdentity::<Identity, Impl, OFFSET>,
@@ -173,7 +173,7 @@ impl AsyncIIdentityAdvise_Vtbl {
             (*this).Finish_IdentityUpdated().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_IdentityUpdated: Begin_IdentityUpdated::<Identity, Impl, OFFSET>,
             Finish_IdentityUpdated: Finish_IdentityUpdated::<Identity, Impl, OFFSET>,
         }
@@ -213,7 +213,7 @@ impl AsyncIIdentityAuthentication_Vtbl {
             (*this).Finish_ValidateIdentityCredential(::core::mem::transmute_copy(&ppidentityproperties)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_SetIdentityCredential: Begin_SetIdentityCredential::<Identity, Impl, OFFSET>,
             Finish_SetIdentityCredential: Finish_SetIdentityCredential::<Identity, Impl, OFFSET>,
             Begin_ValidateIdentityCredential: Begin_ValidateIdentityCredential::<Identity, Impl, OFFSET>,
@@ -357,7 +357,7 @@ impl AsyncIIdentityProvider_Vtbl {
             (*this).Finish_UnAdvise().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_GetIdentityEnum: Begin_GetIdentityEnum::<Identity, Impl, OFFSET>,
             Finish_GetIdentityEnum: Finish_GetIdentityEnum::<Identity, Impl, OFFSET>,
             Begin_Create: Begin_Create::<Identity, Impl, OFFSET>,
@@ -471,7 +471,7 @@ impl AsyncIIdentityStore_Vtbl {
             (*this).Finish_Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_GetCount: Begin_GetCount::<Identity, Impl, OFFSET>,
             Finish_GetCount: Finish_GetCount::<Identity, Impl, OFFSET>,
             Begin_GetAt: Begin_GetAt::<Identity, Impl, OFFSET>,
@@ -519,7 +519,7 @@ impl AsyncIIdentityStoreEx_Vtbl {
             (*this).Finish_DeleteConnectedIdentity().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_CreateConnectedIdentity: Begin_CreateConnectedIdentity::<Identity, Impl, OFFSET>,
             Finish_CreateConnectedIdentity: Finish_CreateConnectedIdentity::<Identity, Impl, OFFSET>,
             Begin_DeleteConnectedIdentity: Begin_DeleteConnectedIdentity::<Identity, Impl, OFFSET>,
@@ -561,7 +561,7 @@ impl IAssociatedIdentityProvider_Vtbl {
             (*this).ChangeCredential(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&lpszuniqueid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AssociateIdentity: AssociateIdentity::<Identity, Impl, OFFSET>,
             DisassociateIdentity: DisassociateIdentity::<Identity, Impl, OFFSET>,
             ChangeCredential: ChangeCredential::<Identity, Impl, OFFSET>,
@@ -620,7 +620,7 @@ impl IConnectedIdentityProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectIdentity: ConnectIdentity::<Identity, Impl, OFFSET>,
             DisconnectIdentity: DisconnectIdentity::<Identity, Impl, OFFSET>,
             IsConnected: IsConnected::<Identity, Impl, OFFSET>,
@@ -642,7 +642,7 @@ impl IIdentityAdvise_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IdentityUpdated(::core::mem::transmute_copy(&dwidentityupdateevents), ::core::mem::transmute(&lpszuniqueid)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IdentityUpdated: IdentityUpdated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IdentityUpdated: IdentityUpdated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIdentityAdvise as ::windows::core::Interface>::IID
@@ -667,7 +667,7 @@ impl IIdentityAuthentication_Vtbl {
             (*this).ValidateIdentityCredential(::core::mem::transmute_copy(&credbuffer), ::core::mem::transmute_copy(&credbufferlength), ::core::mem::transmute_copy(&ppidentityproperties)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetIdentityCredential: SetIdentityCredential::<Identity, Impl, OFFSET>,
             ValidateIdentityCredential: ValidateIdentityCredential::<Identity, Impl, OFFSET>,
         }
@@ -755,7 +755,7 @@ impl IIdentityProvider_Vtbl {
             (*this).UnAdvise(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIdentityEnum: GetIdentityEnum::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,
             Import: Import::<Identity, Impl, OFFSET>,
@@ -825,7 +825,7 @@ impl IIdentityStore_Vtbl {
             (*this).Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             AddToCache: AddToCache::<Identity, Impl, OFFSET>,
@@ -855,7 +855,7 @@ impl IIdentityStoreEx_Vtbl {
             (*this).DeleteConnectedIdentity(::core::mem::transmute(&connectedname), ::core::mem::transmute_copy(&providerguid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateConnectedIdentity: CreateConnectedIdentity::<Identity, Impl, OFFSET>,
             DeleteConnectedIdentity: DeleteConnectedIdentity::<Identity, Impl, OFFSET>,
         }

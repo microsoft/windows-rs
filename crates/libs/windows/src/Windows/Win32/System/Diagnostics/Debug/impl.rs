@@ -51,7 +51,7 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
             (*this).Finish_onAttach().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Begin_onAddChild: Begin_onAddChild::<Identity, Impl, OFFSET>,
             Finish_onAddChild: Finish_onAddChild::<Identity, Impl, OFFSET>,
             Begin_onRemoveChild: Begin_onRemoveChild::<Identity, Impl, OFFSET>,
@@ -71,7 +71,7 @@ pub trait DebugBaseEventCallbacks_Impl: Sized + IDebugEventCallbacks_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl DebugBaseEventCallbacks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DebugBaseEventCallbacks_Impl, const OFFSET: isize>() -> DebugBaseEventCallbacks_Vtbl {
-        Self { base: IDebugEventCallbacks_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugEventCallbacks_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DebugBaseEventCallbacks as ::windows::core::Interface>::IID || iid == &<IDebugEventCallbacks as ::windows::core::Interface>::IID
@@ -82,7 +82,7 @@ pub trait DebugBaseEventCallbacksWide_Impl: Sized + IDebugEventCallbacksWide_Imp
 #[cfg(feature = "Win32_Foundation")]
 impl DebugBaseEventCallbacksWide_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DebugBaseEventCallbacksWide_Impl, const OFFSET: isize>() -> DebugBaseEventCallbacksWide_Vtbl {
-        Self { base: IDebugEventCallbacksWide_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugEventCallbacksWide_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DebugBaseEventCallbacksWide as ::windows::core::Interface>::IID || iid == &<IDebugEventCallbacksWide as ::windows::core::Interface>::IID
@@ -209,7 +209,7 @@ impl IActiveScript_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetScriptSite: SetScriptSite::<Identity, Impl, OFFSET>,
             GetScriptSite: GetScriptSite::<Identity, Impl, OFFSET>,
             SetScriptState: SetScriptState::<Identity, Impl, OFFSET>,
@@ -352,7 +352,7 @@ impl IActiveScriptAuthor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddNamedItem: AddNamedItem::<Identity, Impl, OFFSET>,
             AddScriptlet: AddScriptlet::<Identity, Impl, OFFSET>,
             ParseScriptText: ParseScriptText::<Identity, Impl, OFFSET>,
@@ -385,7 +385,7 @@ impl IActiveScriptAuthorProcedure_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ParseProcedureText(::core::mem::transmute(&pszcode), ::core::mem::transmute(&pszformalparams), ::core::mem::transmute(&pszprocedurename), ::core::mem::transmute(&pszitemname), ::core::mem::transmute(&pszdelimiter), ::core::mem::transmute_copy(&dwcookie), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pdispfor)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptAuthorProcedure as ::windows::core::Interface>::IID
@@ -420,7 +420,7 @@ impl IActiveScriptDebug32_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetScriptTextAttributes: GetScriptTextAttributes::<Identity, Impl, OFFSET>,
             GetScriptletTextAttributes: GetScriptletTextAttributes::<Identity, Impl, OFFSET>,
             EnumCodeContextsOfPosition: EnumCodeContextsOfPosition::<Identity, Impl, OFFSET>,
@@ -459,7 +459,7 @@ impl IActiveScriptDebug64_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetScriptTextAttributes: GetScriptTextAttributes::<Identity, Impl, OFFSET>,
             GetScriptletTextAttributes: GetScriptletTextAttributes::<Identity, Impl, OFFSET>,
             EnumCodeContextsOfPosition: EnumCodeContextsOfPosition::<Identity, Impl, OFFSET>,
@@ -494,7 +494,7 @@ impl IActiveScriptEncode_Vtbl {
             (*this).GetEncodeProgId(::core::mem::transmute_copy(&pbstrout)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EncodeSection: EncodeSection::<Identity, Impl, OFFSET>,
             DecodeScript: DecodeScript::<Identity, Impl, OFFSET>,
             GetEncodeProgId: GetEncodeProgId::<Identity, Impl, OFFSET>,
@@ -541,7 +541,7 @@ impl IActiveScriptError_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetExceptionInfo: GetExceptionInfo::<Identity, Impl, OFFSET>,
             GetSourcePosition: GetSourcePosition::<Identity, Impl, OFFSET>,
             GetSourceLineText: GetSourceLineText::<Identity, Impl, OFFSET>,
@@ -563,7 +563,7 @@ impl IActiveScriptError64_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSourcePosition64(::core::mem::transmute_copy(&pdwsourcecontext), ::core::mem::transmute_copy(&pullinenumber), ::core::mem::transmute_copy(&plcharacterposition)).into()
         }
-        Self { base: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(), GetSourcePosition64: GetSourcePosition64::<Identity, Impl, OFFSET> }
+        Self { base__: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(), GetSourcePosition64: GetSourcePosition64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptError64 as ::windows::core::Interface>::IID || iid == &<IActiveScriptError as ::windows::core::Interface>::IID
@@ -600,7 +600,7 @@ impl IActiveScriptErrorDebug_Vtbl {
             }
         }
         Self {
-            base: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocumentContext: GetDocumentContext::<Identity, Impl, OFFSET>,
             GetStackFrame: GetStackFrame::<Identity, Impl, OFFSET>,
         }
@@ -625,7 +625,7 @@ impl IActiveScriptErrorDebug110_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetExceptionThrownKind: GetExceptionThrownKind::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetExceptionThrownKind: GetExceptionThrownKind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptErrorDebug110 as ::windows::core::Interface>::IID
@@ -641,7 +641,7 @@ impl IActiveScriptGarbageCollector_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CollectGarbage(::core::mem::transmute_copy(&scriptgctype)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CollectGarbage: CollectGarbage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CollectGarbage: CollectGarbage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptGarbageCollector as ::windows::core::Interface>::IID
@@ -659,7 +659,7 @@ impl IActiveScriptHostEncode_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).EncodeScriptHostFile(::core::mem::transmute(&bstrinfile), ::core::mem::transmute_copy(&pbstroutfile), ::core::mem::transmute_copy(&cflags), ::core::mem::transmute(&bstrdefaultlang)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EncodeScriptHostFile: EncodeScriptHostFile::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EncodeScriptHostFile: EncodeScriptHostFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptHostEncode as ::windows::core::Interface>::IID
@@ -692,7 +692,7 @@ impl IActiveScriptParse32_Vtbl {
             (*this).ParseScriptText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitNew: InitNew::<Identity, Impl, OFFSET>,
             AddScriptlet: AddScriptlet::<Identity, Impl, OFFSET>,
             ParseScriptText: ParseScriptText::<Identity, Impl, OFFSET>,
@@ -729,7 +729,7 @@ impl IActiveScriptParse64_Vtbl {
             (*this).ParseScriptText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitNew: InitNew::<Identity, Impl, OFFSET>,
             AddScriptlet: AddScriptlet::<Identity, Impl, OFFSET>,
             ParseScriptText: ParseScriptText::<Identity, Impl, OFFSET>,
@@ -744,7 +744,7 @@ pub trait IActiveScriptParseProcedure2_32_Impl: Sized + IActiveScriptParseProced
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedure2_32_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptParseProcedure2_32_Impl, const OFFSET: isize>() -> IActiveScriptParseProcedure2_32_Vtbl {
-        Self { base: IActiveScriptParseProcedure32_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IActiveScriptParseProcedure32_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptParseProcedure2_32 as ::windows::core::Interface>::IID || iid == &<IActiveScriptParseProcedure32 as ::windows::core::Interface>::IID
@@ -755,7 +755,7 @@ pub trait IActiveScriptParseProcedure2_64_Impl: Sized + IActiveScriptParseProced
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedure2_64_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptParseProcedure2_64_Impl, const OFFSET: isize>() -> IActiveScriptParseProcedure2_64_Vtbl {
-        Self { base: IActiveScriptParseProcedure64_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IActiveScriptParseProcedure64_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptParseProcedure2_64 as ::windows::core::Interface>::IID || iid == &<IActiveScriptParseProcedure64 as ::windows::core::Interface>::IID
@@ -779,7 +779,7 @@ impl IActiveScriptParseProcedure32_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptParseProcedure32 as ::windows::core::Interface>::IID
@@ -803,7 +803,7 @@ impl IActiveScriptParseProcedure64_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptParseProcedure64 as ::windows::core::Interface>::IID
@@ -827,7 +827,7 @@ impl IActiveScriptParseProcedureOld32_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptParseProcedureOld32 as ::windows::core::Interface>::IID
@@ -851,7 +851,7 @@ impl IActiveScriptParseProcedureOld64_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptParseProcedureOld64 as ::windows::core::Interface>::IID
@@ -898,7 +898,7 @@ impl IActiveScriptProfilerCallback_Vtbl {
             (*this).OnFunctionExit(::core::mem::transmute_copy(&scriptid), ::core::mem::transmute_copy(&functionid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
             ScriptCompiled: ScriptCompiled::<Identity, Impl, OFFSET>,
@@ -928,7 +928,7 @@ impl IActiveScriptProfilerCallback2_Vtbl {
             (*this).OnFunctionExitByName(::core::mem::transmute(&pwszfunctionname), ::core::mem::transmute_copy(&r#type)).into()
         }
         Self {
-            base: IActiveScriptProfilerCallback_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IActiveScriptProfilerCallback_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnFunctionEnterByName: OnFunctionEnterByName::<Identity, Impl, OFFSET>,
             OnFunctionExitByName: OnFunctionExitByName::<Identity, Impl, OFFSET>,
         }
@@ -947,7 +947,7 @@ impl IActiveScriptProfilerCallback3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetWebWorkerId(::core::mem::transmute_copy(&webworkerid)).into()
         }
-        Self { base: IActiveScriptProfilerCallback2_Vtbl::new::<Identity, Impl, OFFSET>(), SetWebWorkerId: SetWebWorkerId::<Identity, Impl, OFFSET> }
+        Self { base__: IActiveScriptProfilerCallback2_Vtbl::new::<Identity, Impl, OFFSET>(), SetWebWorkerId: SetWebWorkerId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptProfilerCallback3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerCallback2 as ::windows::core::Interface>::IID
@@ -976,7 +976,7 @@ impl IActiveScriptProfilerControl_Vtbl {
             (*this).StopProfiling(::core::mem::transmute_copy(&hrshutdownreason)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartProfiling: StartProfiling::<Identity, Impl, OFFSET>,
             SetProfilerEventMask: SetProfilerEventMask::<Identity, Impl, OFFSET>,
             StopProfiling: StopProfiling::<Identity, Impl, OFFSET>,
@@ -1003,7 +1003,7 @@ impl IActiveScriptProfilerControl2_Vtbl {
             (*this).PrepareProfilerStop().into()
         }
         Self {
-            base: IActiveScriptProfilerControl_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IActiveScriptProfilerControl_Vtbl::new::<Identity, Impl, OFFSET>(),
             CompleteProfilerStart: CompleteProfilerStart::<Identity, Impl, OFFSET>,
             PrepareProfilerStop: PrepareProfilerStop::<Identity, Impl, OFFSET>,
         }
@@ -1028,7 +1028,7 @@ impl IActiveScriptProfilerControl3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IActiveScriptProfilerControl2_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap: EnumHeap::<Identity, Impl, OFFSET> }
+        Self { base__: IActiveScriptProfilerControl2_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap: EnumHeap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID
@@ -1044,7 +1044,7 @@ impl IActiveScriptProfilerControl4_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SummarizeHeap(::core::mem::transmute_copy(&heapsummary)).into()
         }
-        Self { base: IActiveScriptProfilerControl3_Vtbl::new::<Identity, Impl, OFFSET>(), SummarizeHeap: SummarizeHeap::<Identity, Impl, OFFSET> }
+        Self { base__: IActiveScriptProfilerControl3_Vtbl::new::<Identity, Impl, OFFSET>(), SummarizeHeap: SummarizeHeap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptProfilerControl4 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID
@@ -1066,7 +1066,7 @@ impl IActiveScriptProfilerControl5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IActiveScriptProfilerControl4_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap2: EnumHeap2::<Identity, Impl, OFFSET> }
+        Self { base__: IActiveScriptProfilerControl4_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap2: EnumHeap2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptProfilerControl5 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl4 as ::windows::core::Interface>::IID
@@ -1103,7 +1103,7 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
             (*this).GetNameIdMap(::core::mem::transmute_copy(&pnamelist), ::core::mem::transmute_copy(&pcelt)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             GetOptionalInfo: GetOptionalInfo::<Identity, Impl, OFFSET>,
             FreeObjectAndOptionalInfo: FreeObjectAndOptionalInfo::<Identity, Impl, OFFSET>,
@@ -1139,7 +1139,7 @@ impl IActiveScriptProperty_Vtbl {
             (*this).SetProperty(::core::mem::transmute_copy(&dwproperty), ::core::mem::transmute_copy(&pvarindex), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
         }
@@ -1164,7 +1164,7 @@ impl IActiveScriptSIPInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSIPOID: GetSIPOID::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSIPOID: GetSIPOID::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptSIPInfo as ::windows::core::Interface>::IID
@@ -1237,7 +1237,7 @@ impl IActiveScriptSite_Vtbl {
             (*this).OnLeaveScript().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetLCID: GetLCID::<Identity, Impl, OFFSET>,
             GetItemInfo: GetItemInfo::<Identity, Impl, OFFSET>,
             GetDocVersionString: GetDocVersionString::<Identity, Impl, OFFSET>,
@@ -1301,7 +1301,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
             (*this).OnScriptErrorDebug(::core::mem::transmute(&perrordebug), ::core::mem::transmute_copy(&pfenterdebugger), ::core::mem::transmute_copy(&pfcallonscripterrorwhencontinuing)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDocumentContextFromPosition: GetDocumentContextFromPosition::<Identity, Impl, OFFSET>,
             GetApplication: GetApplication::<Identity, Impl, OFFSET>,
             GetRootApplicationNode: GetRootApplicationNode::<Identity, Impl, OFFSET>,
@@ -1361,7 +1361,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
             (*this).OnScriptErrorDebug(::core::mem::transmute(&perrordebug), ::core::mem::transmute_copy(&pfenterdebugger), ::core::mem::transmute_copy(&pfcallonscripterrorwhencontinuing)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDocumentContextFromPosition: GetDocumentContextFromPosition::<Identity, Impl, OFFSET>,
             GetApplication: GetApplication::<Identity, Impl, OFFSET>,
             GetRootApplicationNode: GetRootApplicationNode::<Identity, Impl, OFFSET>,
@@ -1391,7 +1391,7 @@ impl IActiveScriptSiteDebugEx_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnCanNotJITScriptErrorDebug: OnCanNotJITScriptErrorDebug::<Identity, Impl, OFFSET>,
         }
     }
@@ -1409,7 +1409,7 @@ impl IActiveScriptSiteInterruptPoll_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).QueryContinue().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryContinue: QueryContinue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryContinue: QueryContinue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptSiteInterruptPoll as ::windows::core::Interface>::IID
@@ -1425,7 +1425,7 @@ impl IActiveScriptSiteTraceInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SendScriptTraceInfo(::core::mem::transmute_copy(&stieventtype), ::core::mem::transmute(&guidcontextid), ::core::mem::transmute_copy(&dwscriptcontextcookie), ::core::mem::transmute_copy(&lscriptstatementstart), ::core::mem::transmute_copy(&lscriptstatementend), ::core::mem::transmute_copy(&dwreserved)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SendScriptTraceInfo: SendScriptTraceInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SendScriptTraceInfo: SendScriptTraceInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptSiteTraceInfo as ::windows::core::Interface>::IID
@@ -1447,7 +1447,7 @@ impl IActiveScriptSiteUIControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUIBehavior: GetUIBehavior::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUIBehavior: GetUIBehavior::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptSiteUIControl as ::windows::core::Interface>::IID
@@ -1478,7 +1478,7 @@ impl IActiveScriptSiteWindow_Vtbl {
             (*this).EnableModeless(::core::mem::transmute_copy(&fenable)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetWindow: GetWindow::<Identity, Impl, OFFSET>,
             EnableModeless: EnableModeless::<Identity, Impl, OFFSET>,
         }
@@ -1510,7 +1510,7 @@ impl IActiveScriptStats_Vtbl {
             (*this).ResetStats().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStat: GetStat::<Identity, Impl, OFFSET>,
             GetStatEx: GetStatEx::<Identity, Impl, OFFSET>,
             ResetStats: ResetStats::<Identity, Impl, OFFSET>,
@@ -1538,7 +1538,7 @@ impl IActiveScriptStringCompare_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), StrComp: StrComp::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), StrComp: StrComp::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveScriptStringCompare as ::windows::core::Interface>::IID
@@ -1561,7 +1561,7 @@ impl IActiveScriptTraceInfo_Vtbl {
             (*this).StopScriptTracing().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartScriptTracing: StartScriptTracing::<Identity, Impl, OFFSET>,
             StopScriptTracing: StopScriptTracing::<Identity, Impl, OFFSET>,
         }
@@ -1613,7 +1613,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
             }
         }
         Self {
-            base: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetRestrictedErrorString: GetRestrictedErrorString::<Identity, Impl, OFFSET>,
             GetRestrictedErrorReference: GetRestrictedErrorReference::<Identity, Impl, OFFSET>,
             GetCapabilitySid: GetCapabilitySid::<Identity, Impl, OFFSET>,
@@ -1670,7 +1670,7 @@ impl IApplicationDebugger_Vtbl {
             (*this).onDebuggerEvent(::core::mem::transmute_copy(&riid), ::core::mem::transmute(&punk)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryAlive: QueryAlive::<Identity, Impl, OFFSET>,
             CreateInstanceAtDebugger: CreateInstanceAtDebugger::<Identity, Impl, OFFSET>,
             onDebugOutput: onDebugOutput::<Identity, Impl, OFFSET>,
@@ -1700,7 +1700,7 @@ impl IApplicationDebuggerUI_Vtbl {
             (*this).BringDocumentContextToTop(::core::mem::transmute(&pddc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BringDocumentToTop: BringDocumentToTop::<Identity, Impl, OFFSET>,
             BringDocumentContextToTop: BringDocumentContextToTop::<Identity, Impl, OFFSET>,
         }
@@ -1721,7 +1721,7 @@ impl IBindEventHandler_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BindHandler(::core::mem::transmute(&pstrevent), ::core::mem::transmute(&pdisp)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), BindHandler: BindHandler::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), BindHandler: BindHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindEventHandler as ::windows::core::Interface>::IID
@@ -1743,7 +1743,7 @@ impl ICodeAddressConcept_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetContainingSymbol: GetContainingSymbol::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetContainingSymbol: GetContainingSymbol::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICodeAddressConcept as ::windows::core::Interface>::IID
@@ -1765,7 +1765,7 @@ impl IComparableConcept_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CompareObjects: CompareObjects::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CompareObjects: CompareObjects::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComparableConcept as ::windows::core::Interface>::IID
@@ -1796,7 +1796,7 @@ impl IDataModelConcept_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitializeObject: InitializeObject::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
         }
@@ -2004,7 +2004,7 @@ impl IDataModelManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Close: Close::<Identity, Impl, OFFSET>,
             CreateNoValue: CreateNoValue::<Identity, Impl, OFFSET>,
             CreateErrorObject: CreateErrorObject::<Identity, Impl, OFFSET>,
@@ -2062,7 +2062,7 @@ impl IDataModelManager2_Vtbl {
             }
         }
         Self {
-            base: IDataModelManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDataModelManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             AcquireSubNamespace: AcquireSubNamespace::<Identity, Impl, OFFSET>,
             CreateTypedIntrinsicObjectEx: CreateTypedIntrinsicObjectEx::<Identity, Impl, OFFSET>,
         }
@@ -2112,7 +2112,7 @@ impl IDataModelNameBinder_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BindValue: BindValue::<Identity, Impl, OFFSET>,
             BindReference: BindReference::<Identity, Impl, OFFSET>,
             EnumerateValues: EnumerateValues::<Identity, Impl, OFFSET>,
@@ -2184,7 +2184,7 @@ impl IDataModelScript_Vtbl {
             (*this).InvokeMain(::core::mem::transmute(&client)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             Rename: Rename::<Identity, Impl, OFFSET>,
             Populate: Populate::<Identity, Impl, OFFSET>,
@@ -2208,7 +2208,7 @@ impl IDataModelScriptClient_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReportError(::core::mem::transmute_copy(&errclass), ::core::mem::transmute_copy(&hrfail), ::core::mem::transmute(&message), ::core::mem::transmute_copy(&line), ::core::mem::transmute_copy(&position)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportError: ReportError::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportError: ReportError::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataModelScriptClient as ::windows::core::Interface>::IID
@@ -2311,7 +2311,7 @@ impl IDataModelScriptDebug_Vtbl {
             (*this).StopDebugging(::core::mem::transmute(&debugclient)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDebugState: GetDebugState::<Identity, Impl, OFFSET>,
             GetCurrentPosition: GetCurrentPosition::<Identity, Impl, OFFSET>,
             GetStack: GetStack::<Identity, Impl, OFFSET>,
@@ -2346,7 +2346,7 @@ impl IDataModelScriptDebug2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDataModelScriptDebug_Vtbl::new::<Identity, Impl, OFFSET>(), SetBreakpointAtFunction: SetBreakpointAtFunction::<Identity, Impl, OFFSET> }
+        Self { base__: IDataModelScriptDebug_Vtbl::new::<Identity, Impl, OFFSET>(), SetBreakpointAtFunction: SetBreakpointAtFunction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataModelScriptDebug2 as ::windows::core::Interface>::IID || iid == &<IDataModelScriptDebug as ::windows::core::Interface>::IID
@@ -2395,7 +2395,7 @@ impl IDataModelScriptDebugBreakpoint_Vtbl {
             (*this).GetPosition(::core::mem::transmute_copy(&position), ::core::mem::transmute_copy(&positionspanend), ::core::mem::transmute_copy(&linetext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
             Enable: Enable::<Identity, Impl, OFFSET>,
@@ -2431,7 +2431,7 @@ impl IDataModelScriptDebugBreakpointEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -2450,7 +2450,7 @@ impl IDataModelScriptDebugClient_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NotifyDebugEvent(::core::mem::transmute_copy(&peventinfo), ::core::mem::transmute(&pscript), ::core::mem::transmute(&peventdataobject), ::core::mem::transmute_copy(&resumeeventkind)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NotifyDebugEvent: NotifyDebugEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NotifyDebugEvent: NotifyDebugEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDataModelScriptDebugClient as ::windows::core::Interface>::IID
@@ -2479,7 +2479,7 @@ impl IDataModelScriptDebugStack_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFrameCount: GetFrameCount::<Identity, Impl, OFFSET>,
             GetStackFrame: GetStackFrame::<Identity, Impl, OFFSET>,
         }
@@ -2567,7 +2567,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetPosition: GetPosition::<Identity, Impl, OFFSET>,
             IsTransitionPoint: IsTransitionPoint::<Identity, Impl, OFFSET>,
@@ -2600,7 +2600,7 @@ impl IDataModelScriptDebugVariableSetEnumerator_Vtbl {
             (*this).GetNext(::core::mem::transmute_copy(&variablename), ::core::mem::transmute_copy(&variablevalue), ::core::mem::transmute_copy(&variablemetadata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -2632,7 +2632,7 @@ impl IDataModelScriptHostContext_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NotifyScriptChange: NotifyScriptChange::<Identity, Impl, OFFSET>,
             GetNamespaceObject: GetNamespaceObject::<Identity, Impl, OFFSET>,
         }
@@ -2706,7 +2706,7 @@ impl IDataModelScriptManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDefaultNameBinder: GetDefaultNameBinder::<Identity, Impl, OFFSET>,
             RegisterScriptProvider: RegisterScriptProvider::<Identity, Impl, OFFSET>,
             UnregisterScriptProvider: UnregisterScriptProvider::<Identity, Impl, OFFSET>,
@@ -2786,7 +2786,7 @@ impl IDataModelScriptProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetExtension: GetExtension::<Identity, Impl, OFFSET>,
             CreateScript: CreateScript::<Identity, Impl, OFFSET>,
@@ -2821,7 +2821,7 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -2873,7 +2873,7 @@ impl IDataModelScriptTemplate_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetContent: GetContent::<Identity, Impl, OFFSET>,
@@ -2906,7 +2906,7 @@ impl IDataModelScriptTemplateEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -2932,7 +2932,7 @@ impl IDebugAdvanced_Vtbl {
             (*this).SetThreadContext(::core::mem::transmute_copy(&context), ::core::mem::transmute_copy(&contextsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetThreadContext: GetThreadContext::<Identity, Impl, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, Impl, OFFSET>,
         }
@@ -2988,7 +2988,7 @@ impl IDebugAdvanced2_Vtbl {
             (*this).GetSystemObjectInformation(::core::mem::transmute_copy(&which), ::core::mem::transmute_copy(&arg64), ::core::mem::transmute_copy(&arg32), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&infosize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetThreadContext: GetThreadContext::<Identity, Impl, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, Impl, OFFSET>,
             Request: Request::<Identity, Impl, OFFSET>,
@@ -3067,7 +3067,7 @@ impl IDebugAdvanced3_Vtbl {
             (*this).GetSymbolInformationWide(::core::mem::transmute_copy(&which), ::core::mem::transmute_copy(&arg64), ::core::mem::transmute_copy(&arg32), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&infosize), ::core::mem::transmute_copy(&stringbuffer), ::core::mem::transmute_copy(&stringbuffersize), ::core::mem::transmute_copy(&stringsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetThreadContext: GetThreadContext::<Identity, Impl, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, Impl, OFFSET>,
             Request: Request::<Identity, Impl, OFFSET>,
@@ -3155,7 +3155,7 @@ impl IDebugAdvanced4_Vtbl {
             (*this).GetSymbolInformationWideEx(::core::mem::transmute_copy(&which), ::core::mem::transmute_copy(&arg64), ::core::mem::transmute_copy(&arg32), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&infosize), ::core::mem::transmute_copy(&stringbuffer), ::core::mem::transmute_copy(&stringbuffersize), ::core::mem::transmute_copy(&stringsize), ::core::mem::transmute_copy(&pinfoex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetThreadContext: GetThreadContext::<Identity, Impl, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, Impl, OFFSET>,
             Request: Request::<Identity, Impl, OFFSET>,
@@ -3204,7 +3204,7 @@ impl IDebugApplication11032_Vtbl {
             }
         }
         Self {
-            base: IRemoteDebugApplication110_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRemoteDebugApplication110_Vtbl::new::<Identity, Impl, OFFSET>(),
             SynchronousCallInMainThread: SynchronousCallInMainThread::<Identity, Impl, OFFSET>,
             AsynchronousCallInMainThread: AsynchronousCallInMainThread::<Identity, Impl, OFFSET>,
             CallableWaitForHandles: CallableWaitForHandles::<Identity, Impl, OFFSET>,
@@ -3245,7 +3245,7 @@ impl IDebugApplication11064_Vtbl {
             }
         }
         Self {
-            base: IRemoteDebugApplication110_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRemoteDebugApplication110_Vtbl::new::<Identity, Impl, OFFSET>(),
             SynchronousCallInMainThread: SynchronousCallInMainThread::<Identity, Impl, OFFSET>,
             AsynchronousCallInMainThread: AsynchronousCallInMainThread::<Identity, Impl, OFFSET>,
             CallableWaitForHandles: CallableWaitForHandles::<Identity, Impl, OFFSET>,
@@ -3418,7 +3418,7 @@ impl IDebugApplication32_Vtbl {
             (*this).RemoveGlobalExpressionContextProvider(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: IRemoteDebugApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRemoteDebugApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetName: SetName::<Identity, Impl, OFFSET>,
             StepOutComplete: StepOutComplete::<Identity, Impl, OFFSET>,
             DebugOutput: DebugOutput::<Identity, Impl, OFFSET>,
@@ -3608,7 +3608,7 @@ impl IDebugApplication64_Vtbl {
             (*this).RemoveGlobalExpressionContextProvider(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: IRemoteDebugApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRemoteDebugApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetName: SetName::<Identity, Impl, OFFSET>,
             StepOutComplete: StepOutComplete::<Identity, Impl, OFFSET>,
             DebugOutput: DebugOutput::<Identity, Impl, OFFSET>,
@@ -3690,7 +3690,7 @@ impl IDebugApplicationNode_Vtbl {
             (*this).Detach().into()
         }
         Self {
-            base: IDebugDocumentProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugDocumentProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumChildren: EnumChildren::<Identity, Impl, OFFSET>,
             GetParent: GetParent::<Identity, Impl, OFFSET>,
             SetDocumentProvider: SetDocumentProvider::<Identity, Impl, OFFSET>,
@@ -3732,7 +3732,7 @@ impl IDebugApplicationNode100_Vtbl {
             (*this).QueryIsChildNode(::core::mem::transmute(&psearchkey)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetFilterForEventSink: SetFilterForEventSink::<Identity, Impl, OFFSET>,
             GetExcludedDocuments: GetExcludedDocuments::<Identity, Impl, OFFSET>,
             QueryIsChildNode: QueryIsChildNode::<Identity, Impl, OFFSET>,
@@ -3771,7 +3771,7 @@ impl IDebugApplicationNodeEvents_Vtbl {
             (*this).onAttach(::core::mem::transmute(&prddpparent)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             onAddChild: onAddChild::<Identity, Impl, OFFSET>,
             onRemoveChild: onRemoveChild::<Identity, Impl, OFFSET>,
             onDetach: onDetach::<Identity, Impl, OFFSET>,
@@ -3819,7 +3819,7 @@ impl IDebugApplicationThread_Vtbl {
             (*this).SetStateString(::core::mem::transmute(&pstrstate)).into()
         }
         Self {
-            base: IRemoteDebugApplicationThread_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRemoteDebugApplicationThread_Vtbl::new::<Identity, Impl, OFFSET>(),
             SynchronousCallIntoThread32: SynchronousCallIntoThread32::<Identity, Impl, OFFSET>,
             QueryIsCurrentThread: QueryIsCurrentThread::<Identity, Impl, OFFSET>,
             QueryIsDebuggerThread: QueryIsDebuggerThread::<Identity, Impl, OFFSET>,
@@ -3880,7 +3880,7 @@ impl IDebugApplicationThread11032_Vtbl {
             (*this).AsynchronousCallIntoThread(::core::mem::transmute(&pptc), ::core::mem::transmute_copy(&dwparam1), ::core::mem::transmute_copy(&dwparam2), ::core::mem::transmute_copy(&dwparam3)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetActiveThreadRequestCount: GetActiveThreadRequestCount::<Identity, Impl, OFFSET>,
             IsSuspendedForBreakPoint: IsSuspendedForBreakPoint::<Identity, Impl, OFFSET>,
             IsThreadCallable: IsThreadCallable::<Identity, Impl, OFFSET>,
@@ -3940,7 +3940,7 @@ impl IDebugApplicationThread11064_Vtbl {
             (*this).AsynchronousCallIntoThread(::core::mem::transmute(&pptc), ::core::mem::transmute_copy(&dwparam1), ::core::mem::transmute_copy(&dwparam2), ::core::mem::transmute_copy(&dwparam3)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetActiveThreadRequestCount: GetActiveThreadRequestCount::<Identity, Impl, OFFSET>,
             IsSuspendedForBreakPoint: IsSuspendedForBreakPoint::<Identity, Impl, OFFSET>,
             IsThreadCallable: IsThreadCallable::<Identity, Impl, OFFSET>,
@@ -3964,7 +3964,7 @@ impl IDebugApplicationThread64_Vtbl {
             (*this).SynchronousCallIntoThread64(::core::mem::transmute(&pstcb), ::core::mem::transmute_copy(&dwparam1), ::core::mem::transmute_copy(&dwparam2), ::core::mem::transmute_copy(&dwparam3)).into()
         }
         Self {
-            base: IDebugApplicationThread_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugApplicationThread_Vtbl::new::<Identity, Impl, OFFSET>(),
             SynchronousCallIntoThread64: SynchronousCallIntoThread64::<Identity, Impl, OFFSET>,
         }
     }
@@ -4001,7 +4001,7 @@ impl IDebugApplicationThreadEvents110_Vtbl {
             (*this).OnBeginThreadRequest().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnSuspendForBreakPoint: OnSuspendForBreakPoint::<Identity, Impl, OFFSET>,
             OnResumeFromBreakPoint: OnResumeFromBreakPoint::<Identity, Impl, OFFSET>,
             OnThreadRequestComplete: OnThreadRequestComplete::<Identity, Impl, OFFSET>,
@@ -4053,7 +4053,7 @@ impl IDebugAsyncOperation_Vtbl {
             (*this).GetResult(::core::mem::transmute_copy(&phrresult), ::core::mem::transmute_copy(&ppunkresult)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSyncDebugOperation: GetSyncDebugOperation::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
@@ -4075,7 +4075,7 @@ impl IDebugAsyncOperationCallBack_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).onComplete().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugAsyncOperationCallBack as ::windows::core::Interface>::IID
@@ -4260,7 +4260,7 @@ impl IDebugBreakpoint_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetAdder: GetAdder::<Identity, Impl, OFFSET>,
@@ -4491,7 +4491,7 @@ impl IDebugBreakpoint2_Vtbl {
             (*this).SetOffsetExpressionWide(::core::mem::transmute(&expression)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetAdder: GetAdder::<Identity, Impl, OFFSET>,
@@ -4738,7 +4738,7 @@ impl IDebugBreakpoint3_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetAdder: GetAdder::<Identity, Impl, OFFSET>,
@@ -5112,7 +5112,7 @@ impl IDebugClient_Vtbl {
             (*this).FlushCallbacks().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -5553,7 +5553,7 @@ impl IDebugClient2_Vtbl {
             (*this).AbandonCurrentProcess().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -6032,7 +6032,7 @@ impl IDebugClient3_Vtbl {
             (*this).CreateProcessAndAttachWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&commandline), ::core::mem::transmute_copy(&createflags), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&attachflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -6557,7 +6557,7 @@ impl IDebugClient4_Vtbl {
             (*this).GetDumpFileWide(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&namesize), ::core::mem::transmute_copy(&handle), ::core::mem::transmute_copy(&r#type)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -7310,7 +7310,7 @@ impl IDebugClient5_Vtbl {
             (*this).SetQuitLockStringWide(::core::mem::transmute(&string)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -8098,7 +8098,7 @@ impl IDebugClient6_Vtbl {
             (*this).SetEventContextCallbacks(::core::mem::transmute(&callbacks)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -8893,7 +8893,7 @@ impl IDebugClient7_Vtbl {
             (*this).SetClientContext(::core::mem::transmute_copy(&context), ::core::mem::transmute_copy(&contextsize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -9695,7 +9695,7 @@ impl IDebugClient8_Vtbl {
             (*this).OpenDumpFileWide2(::core::mem::transmute(&filename), ::core::mem::transmute_copy(&filehandle), ::core::mem::transmute_copy(&alternatearch)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachKernel: AttachKernel::<Identity, Impl, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, Impl, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, Impl, OFFSET>,
@@ -9820,7 +9820,7 @@ impl IDebugCodeContext_Vtbl {
             (*this).SetBreakPoint(::core::mem::transmute_copy(&bps)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDocumentContext: GetDocumentContext::<Identity, Impl, OFFSET>,
             SetBreakPoint: SetBreakPoint::<Identity, Impl, OFFSET>,
         }
@@ -10546,7 +10546,7 @@ impl IDebugControl_Vtbl {
             (*this).GetLastEventInformation(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&extrainformation), ::core::mem::transmute_copy(&extrainformationsize), ::core::mem::transmute_copy(&extrainformationused), ::core::mem::transmute_copy(&description), ::core::mem::transmute_copy(&descriptionsize), ::core::mem::transmute_copy(&descriptionused)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -11434,7 +11434,7 @@ impl IDebugControl2_Vtbl {
             (*this).OutputTextReplacements(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -12450,7 +12450,7 @@ impl IDebugControl3_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -13839,7 +13839,7 @@ impl IDebugControl4_Vtbl {
             (*this).ResetManagedStatus(::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -15317,7 +15317,7 @@ impl IDebugControl5_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -16818,7 +16818,7 @@ impl IDebugControl6_Vtbl {
             (*this).GetSynchronizationStatus(::core::mem::transmute_copy(&sendsattempted), ::core::mem::transmute_copy(&secondssincelastresponse)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -18327,7 +18327,7 @@ impl IDebugControl7_Vtbl {
             (*this).GetDebuggeeType2(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&class), ::core::mem::transmute_copy(&qualifier)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterrupt: GetInterrupt::<Identity, Impl, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, Impl, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, Impl, OFFSET>,
@@ -18518,7 +18518,7 @@ impl IDebugCookie_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDebugCookie(::core::mem::transmute_copy(&dwdebugappcookie)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetDebugCookie: SetDebugCookie::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetDebugCookie: SetDebugCookie::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugCookie as ::windows::core::Interface>::IID
@@ -18697,7 +18697,7 @@ impl IDebugDataSpaces_Vtbl {
             (*this).ReadProcessorSystemData(::core::mem::transmute_copy(&processor), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&datasize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadVirtual: ReadVirtual::<Identity, Impl, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, Impl, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, Impl, OFFSET>,
@@ -18959,7 +18959,7 @@ impl IDebugDataSpaces2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadVirtual: ReadVirtual::<Identity, Impl, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, Impl, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, Impl, OFFSET>,
@@ -19269,7 +19269,7 @@ impl IDebugDataSpaces3_Vtbl {
             (*this).EndEnumTagged(::core::mem::transmute_copy(&handle)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadVirtual: ReadVirtual::<Identity, Impl, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, Impl, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, Impl, OFFSET>,
@@ -19662,7 +19662,7 @@ impl IDebugDataSpaces4_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadVirtual: ReadVirtual::<Identity, Impl, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, Impl, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, Impl, OFFSET>,
@@ -19715,7 +19715,7 @@ pub trait IDebugDocument_Impl: Sized + IDebugDocumentInfo_Impl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDebugDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDebugDocument_Impl, const OFFSET: isize>() -> IDebugDocument_Vtbl {
-        Self { base: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugDocument as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID
@@ -19750,7 +19750,7 @@ impl IDebugDocumentContext_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDocument: GetDocument::<Identity, Impl, OFFSET>,
             EnumCodeContexts: EnumCodeContexts::<Identity, Impl, OFFSET>,
         }
@@ -19892,7 +19892,7 @@ impl IDebugDocumentHelper32_Vtbl {
             (*this).BringDocumentContextToTop(::core::mem::transmute(&pddc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             Attach: Attach::<Identity, Impl, OFFSET>,
             Detach: Detach::<Identity, Impl, OFFSET>,
@@ -20050,7 +20050,7 @@ impl IDebugDocumentHelper64_Vtbl {
             (*this).BringDocumentContextToTop(::core::mem::transmute(&pddc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             Attach: Attach::<Identity, Impl, OFFSET>,
             Detach: Detach::<Identity, Impl, OFFSET>,
@@ -20130,7 +20130,7 @@ impl IDebugDocumentHost_Vtbl {
             (*this).NotifyChanged().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDeferredText: GetDeferredText::<Identity, Impl, OFFSET>,
             GetScriptTextAttributes: GetScriptTextAttributes::<Identity, Impl, OFFSET>,
             OnCreateDocumentContext: OnCreateDocumentContext::<Identity, Impl, OFFSET>,
@@ -20174,7 +20174,7 @@ impl IDebugDocumentInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDocumentClassId: GetDocumentClassId::<Identity, Impl, OFFSET>,
         }
@@ -20201,7 +20201,7 @@ impl IDebugDocumentProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugDocumentProvider as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID
@@ -20274,7 +20274,7 @@ impl IDebugDocumentText_Vtbl {
             }
         }
         Self {
-            base: IDebugDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDocumentAttributes: GetDocumentAttributes::<Identity, Impl, OFFSET>,
             GetSize: GetSize::<Identity, Impl, OFFSET>,
             GetPositionOfLine: GetPositionOfLine::<Identity, Impl, OFFSET>,
@@ -20313,7 +20313,7 @@ impl IDebugDocumentTextAuthor_Vtbl {
             (*this).ReplaceText(::core::mem::transmute_copy(&ccharacterposition), ::core::mem::transmute_copy(&cnumtoreplace), ::core::mem::transmute(&pchartext)).into()
         }
         Self {
-            base: IDebugDocumentText_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugDocumentText_Vtbl::new::<Identity, Impl, OFFSET>(),
             InsertText: InsertText::<Identity, Impl, OFFSET>,
             RemoveText: RemoveText::<Identity, Impl, OFFSET>,
             ReplaceText: ReplaceText::<Identity, Impl, OFFSET>,
@@ -20364,7 +20364,7 @@ impl IDebugDocumentTextEvents_Vtbl {
             (*this).onUpdateDocumentAttributes(::core::mem::transmute_copy(&textdocattr)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             onDestroy: onDestroy::<Identity, Impl, OFFSET>,
             onInsertText: onInsertText::<Identity, Impl, OFFSET>,
             onRemoveText: onRemoveText::<Identity, Impl, OFFSET>,
@@ -20408,7 +20408,7 @@ impl IDebugDocumentTextExternalAuthor_Vtbl {
             (*this).NotifyChanged().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPathName: GetPathName::<Identity, Impl, OFFSET>,
             GetFileName: GetFileName::<Identity, Impl, OFFSET>,
             NotifyChanged: NotifyChanged::<Identity, Impl, OFFSET>,
@@ -20517,7 +20517,7 @@ impl IDebugEventCallbacks_Vtbl {
             (*this).ChangeSymbolState(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&argument)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterestMask: GetInterestMask::<Identity, Impl, OFFSET>,
             Breakpoint: Breakpoint::<Identity, Impl, OFFSET>,
             Exception: Exception::<Identity, Impl, OFFSET>,
@@ -20637,7 +20637,7 @@ impl IDebugEventCallbacksWide_Vtbl {
             (*this).ChangeSymbolState(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&argument)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterestMask: GetInterestMask::<Identity, Impl, OFFSET>,
             Breakpoint: Breakpoint::<Identity, Impl, OFFSET>,
             Exception: Exception::<Identity, Impl, OFFSET>,
@@ -20771,7 +20771,7 @@ impl IDebugEventContextCallbacks_Vtbl {
             (*this).ChangeSymbolState(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&argument)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterestMask: GetInterestMask::<Identity, Impl, OFFSET>,
             Breakpoint: Breakpoint::<Identity, Impl, OFFSET>,
             Exception: Exception::<Identity, Impl, OFFSET>,
@@ -20829,7 +20829,7 @@ impl IDebugExpression_Vtbl {
             (*this).GetResultAsDebugProperty(::core::mem::transmute_copy(&phrresult), ::core::mem::transmute_copy(&ppdp)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
             QueryIsComplete: QueryIsComplete::<Identity, Impl, OFFSET>,
@@ -20851,7 +20851,7 @@ impl IDebugExpressionCallBack_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).onComplete().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugExpressionCallBack as ::windows::core::Interface>::IID
@@ -20882,7 +20882,7 @@ impl IDebugExpressionContext_Vtbl {
             (*this).GetLanguageInfo(::core::mem::transmute_copy(&pbstrlanguagename), ::core::mem::transmute_copy(&planguageid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ParseLanguageText: ParseLanguageText::<Identity, Impl, OFFSET>,
             GetLanguageInfo: GetLanguageInfo::<Identity, Impl, OFFSET>,
         }
@@ -20922,7 +20922,7 @@ impl IDebugExtendedProperty_Vtbl {
             }
         }
         Self {
-            base: IDebugProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetExtendedPropertyInfo: GetExtendedPropertyInfo::<Identity, Impl, OFFSET>,
             EnumExtendedMembers: EnumExtendedMembers::<Identity, Impl, OFFSET>,
         }
@@ -20974,7 +20974,7 @@ impl IDebugFormatter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStringForVariant: GetStringForVariant::<Identity, Impl, OFFSET>,
             GetVariantForString: GetVariantForString::<Identity, Impl, OFFSET>,
             GetStringForVarType: GetStringForVarType::<Identity, Impl, OFFSET>,
@@ -21027,7 +21027,7 @@ impl IDebugHelper_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreatePropertyBrowser: CreatePropertyBrowser::<Identity, Impl, OFFSET>,
             CreatePropertyBrowserEx: CreatePropertyBrowserEx::<Identity, Impl, OFFSET>,
             CreateSimpleConnectionPoint: CreateSimpleConnectionPoint::<Identity, Impl, OFFSET>,
@@ -21078,7 +21078,7 @@ impl IDebugHost_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetHostDefinedInterface: GetHostDefinedInterface::<Identity, Impl, OFFSET>,
             GetCurrentContext: GetCurrentContext::<Identity, Impl, OFFSET>,
             GetDefaultMetadata: GetDefaultMetadata::<Identity, Impl, OFFSET>,
@@ -21106,7 +21106,7 @@ impl IDebugHostBaseClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetOffset: GetOffset::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetOffset: GetOffset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostBaseClass as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
@@ -21130,7 +21130,7 @@ impl IDebugHostConstant_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostConstant as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
@@ -21152,7 +21152,7 @@ impl IDebugHostContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsEqualTo: IsEqualTo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsEqualTo: IsEqualTo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostContext as ::windows::core::Interface>::IID
@@ -21201,7 +21201,7 @@ impl IDebugHostData_Vtbl {
             }
         }
         Self {
-            base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetLocationKind: GetLocationKind::<Identity, Impl, OFFSET>,
             GetLocation: GetLocation::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -21221,7 +21221,7 @@ impl IDebugHostErrorSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReportError(::core::mem::transmute_copy(&errclass), ::core::mem::transmute_copy(&hrerror), ::core::mem::transmute(&message)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportError: ReportError::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportError: ReportError::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostErrorSink as ::windows::core::Interface>::IID
@@ -21244,7 +21244,7 @@ impl IDebugHostEvaluator_Vtbl {
             (*this).EvaluateExtendedExpression(::core::mem::transmute(&context), ::core::mem::transmute(&expression), ::core::mem::transmute(&bindingcontext), ::core::mem::transmute_copy(&result), ::core::mem::transmute_copy(&metadata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EvaluateExpression: EvaluateExpression::<Identity, Impl, OFFSET>,
             EvaluateExtendedExpression: EvaluateExtendedExpression::<Identity, Impl, OFFSET>,
         }
@@ -21263,7 +21263,7 @@ impl IDebugHostEvaluator2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AssignTo(::core::mem::transmute(&assignmentreference), ::core::mem::transmute(&assignmentvalue), ::core::mem::transmute_copy(&assignmentresult), ::core::mem::transmute_copy(&assignmentmetadata)).into()
         }
-        Self { base: IDebugHostEvaluator_Vtbl::new::<Identity, Impl, OFFSET>(), AssignTo: AssignTo::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugHostEvaluator_Vtbl::new::<Identity, Impl, OFFSET>(), AssignTo: AssignTo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostEvaluator2 as ::windows::core::Interface>::IID || iid == &<IDebugHostEvaluator as ::windows::core::Interface>::IID
@@ -21286,7 +21286,7 @@ impl IDebugHostExtensibility_Vtbl {
             (*this).DestroyFunctionAlias(::core::mem::transmute(&aliasname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateFunctionAlias: CreateFunctionAlias::<Identity, Impl, OFFSET>,
             DestroyFunctionAlias: DestroyFunctionAlias::<Identity, Impl, OFFSET>,
         }
@@ -21350,7 +21350,7 @@ impl IDebugHostField_Vtbl {
             }
         }
         Self {
-            base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetLocationKind: GetLocationKind::<Identity, Impl, OFFSET>,
             GetOffset: GetOffset::<Identity, Impl, OFFSET>,
             GetLocation: GetLocation::<Identity, Impl, OFFSET>,
@@ -21410,7 +21410,7 @@ impl IDebugHostMemory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadBytes: ReadBytes::<Identity, Impl, OFFSET>,
             WriteBytes: WriteBytes::<Identity, Impl, OFFSET>,
             ReadPointers: ReadPointers::<Identity, Impl, OFFSET>,
@@ -21440,7 +21440,7 @@ impl IDebugHostMemory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugHostMemory_Vtbl::new::<Identity, Impl, OFFSET>(), LinearizeLocation: LinearizeLocation::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugHostMemory_Vtbl::new::<Identity, Impl, OFFSET>(), LinearizeLocation: LinearizeLocation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostMemory2 as ::windows::core::Interface>::IID || iid == &<IDebugHostMemory as ::windows::core::Interface>::IID
@@ -21519,7 +21519,7 @@ impl IDebugHostModule_Vtbl {
             }
         }
         Self {
-            base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetImageName: GetImageName::<Identity, Impl, OFFSET>,
             GetBaseLocation: GetBaseLocation::<Identity, Impl, OFFSET>,
             GetVersion: GetVersion::<Identity, Impl, OFFSET>,
@@ -21544,7 +21544,7 @@ impl IDebugHostModule2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FindContainingSymbolByRVA(::core::mem::transmute_copy(&rva), ::core::mem::transmute_copy(&symbol), ::core::mem::transmute_copy(&offset)).into()
         }
-        Self { base: IDebugHostModule_Vtbl::new::<Identity, Impl, OFFSET>(), FindContainingSymbolByRVA: FindContainingSymbolByRVA::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugHostModule_Vtbl::new::<Identity, Impl, OFFSET>(), FindContainingSymbolByRVA: FindContainingSymbolByRVA::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostModule2 as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID || iid == &<IDebugHostModule as ::windows::core::Interface>::IID
@@ -21566,7 +21566,7 @@ impl IDebugHostModuleSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsMatch: IsMatch::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsMatch: IsMatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostModuleSignature as ::windows::core::Interface>::IID
@@ -21603,7 +21603,7 @@ impl IDebugHostPublic_Vtbl {
             }
         }
         Self {
-            base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetLocationKind: GetLocationKind::<Identity, Impl, OFFSET>,
             GetLocation: GetLocation::<Identity, Impl, OFFSET>,
         }
@@ -21628,7 +21628,7 @@ impl IDebugHostScriptHost_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateContext: CreateContext::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateContext: CreateContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostScriptHost as ::windows::core::Interface>::IID
@@ -21650,7 +21650,7 @@ impl IDebugHostStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), PollUserInterrupt: PollUserInterrupt::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), PollUserInterrupt: PollUserInterrupt::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostStatus as ::windows::core::Interface>::IID
@@ -21747,7 +21747,7 @@ impl IDebugHostSymbol_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetContext: GetContext::<Identity, Impl, OFFSET>,
             EnumerateChildren: EnumerateChildren::<Identity, Impl, OFFSET>,
             GetSymbolKind: GetSymbolKind::<Identity, Impl, OFFSET>,
@@ -21779,7 +21779,7 @@ impl IDebugHostSymbol2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetLanguage: GetLanguage::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetLanguage: GetLanguage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugHostSymbol2 as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
@@ -21808,7 +21808,7 @@ impl IDebugHostSymbolEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -21900,7 +21900,7 @@ impl IDebugHostSymbols_Vtbl {
             (*this).GetMostDerivedObject(::core::mem::transmute(&pcontext), ::core::mem::transmute(&location), ::core::mem::transmute(&objecttype), ::core::mem::transmute_copy(&derivedlocation), ::core::mem::transmute_copy(&derivedtype)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateModuleSignature: CreateModuleSignature::<Identity, Impl, OFFSET>,
             CreateTypeSignature: CreateTypeSignature::<Identity, Impl, OFFSET>,
             CreateTypeSignatureForModuleRange: CreateTypeSignatureForModuleRange::<Identity, Impl, OFFSET>,
@@ -22131,7 +22131,7 @@ impl IDebugHostType_Vtbl {
             }
         }
         Self {
-            base: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetTypeKind: GetTypeKind::<Identity, Impl, OFFSET>,
             GetSize: GetSize::<Identity, Impl, OFFSET>,
             GetBaseType: GetBaseType::<Identity, Impl, OFFSET>,
@@ -22224,7 +22224,7 @@ impl IDebugHostType2_Vtbl {
             }
         }
         Self {
-            base: IDebugHostType_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugHostType_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsTypedef: IsTypedef::<Identity, Impl, OFFSET>,
             GetTypedefBaseType: GetTypedefBaseType::<Identity, Impl, OFFSET>,
             GetTypedefFinalBaseType: GetTypedefFinalBaseType::<Identity, Impl, OFFSET>,
@@ -22271,7 +22271,7 @@ impl IDebugHostTypeSignature_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetHashCode: GetHashCode::<Identity, Impl, OFFSET>,
             IsMatch: IsMatch::<Identity, Impl, OFFSET>,
             CompareAgainst: CompareAgainst::<Identity, Impl, OFFSET>,
@@ -22298,7 +22298,7 @@ impl IDebugInputCallbacks_Vtbl {
             (*this).EndInput().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartInput: StartInput::<Identity, Impl, OFFSET>,
             EndInput: EndInput::<Identity, Impl, OFFSET>,
         }
@@ -22317,7 +22317,7 @@ impl IDebugOutputCallbacks_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Output(::core::mem::transmute_copy(&mask), ::core::mem::transmute(&text)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugOutputCallbacks as ::windows::core::Interface>::IID
@@ -22352,7 +22352,7 @@ impl IDebugOutputCallbacks2_Vtbl {
             (*this).Output2(::core::mem::transmute_copy(&which), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&arg), ::core::mem::transmute(&text)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Output: Output::<Identity, Impl, OFFSET>,
             GetInterestMask: GetInterestMask::<Identity, Impl, OFFSET>,
             Output2: Output2::<Identity, Impl, OFFSET>,
@@ -22372,7 +22372,7 @@ impl IDebugOutputCallbacksWide_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Output(::core::mem::transmute_copy(&mask), ::core::mem::transmute(&text)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugOutputCallbacksWide as ::windows::core::Interface>::IID
@@ -22388,7 +22388,7 @@ impl IDebugOutputStream_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Write(::core::mem::transmute(&psz)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugOutputStream as ::windows::core::Interface>::IID
@@ -22405,7 +22405,7 @@ impl IDebugPlmClient_Vtbl {
             (*this).LaunchPlmPackageForDebugWide(::core::mem::transmute_copy(&server), ::core::mem::transmute_copy(&timeout), ::core::mem::transmute(&packagefullname), ::core::mem::transmute(&appname), ::core::mem::transmute(&arguments), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&threadid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, Impl, OFFSET>,
         }
     }
@@ -22430,7 +22430,7 @@ impl IDebugPlmClient2_Vtbl {
             (*this).LaunchPlmBgTaskForDebugWide(::core::mem::transmute_copy(&server), ::core::mem::transmute_copy(&timeout), ::core::mem::transmute(&packagefullname), ::core::mem::transmute(&backgroundtaskid), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&threadid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, Impl, OFFSET>,
             LaunchPlmBgTaskForDebugWide: LaunchPlmBgTaskForDebugWide::<Identity, Impl, OFFSET>,
         }
@@ -22510,7 +22510,7 @@ impl IDebugPlmClient3_Vtbl {
             (*this).ActivateAndDebugPlmBgTaskWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&packagefullname), ::core::mem::transmute(&backgroundtaskid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, Impl, OFFSET>,
             LaunchPlmBgTaskForDebugWide: LaunchPlmBgTaskForDebugWide::<Identity, Impl, OFFSET>,
             QueryPlmPackageWide: QueryPlmPackageWide::<Identity, Impl, OFFSET>,
@@ -22583,7 +22583,7 @@ impl IDebugProperty_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropertyInfo: GetPropertyInfo::<Identity, Impl, OFFSET>,
             GetExtendedInfo: GetExtendedInfo::<Identity, Impl, OFFSET>,
             SetValueAsString: SetValueAsString::<Identity, Impl, OFFSET>,
@@ -22613,7 +22613,7 @@ impl IDebugPropertyEnumType_All_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
@@ -22624,7 +22624,7 @@ pub trait IDebugPropertyEnumType_Arguments_Impl: Sized + IDebugPropertyEnumType_
 #[cfg(feature = "Win32_Foundation")]
 impl IDebugPropertyEnumType_Arguments_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDebugPropertyEnumType_Arguments_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_Arguments_Vtbl {
-        Self { base: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_Arguments as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
@@ -22635,7 +22635,7 @@ pub trait IDebugPropertyEnumType_Locals_Impl: Sized + IDebugPropertyEnumType_All
 #[cfg(feature = "Win32_Foundation")]
 impl IDebugPropertyEnumType_Locals_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDebugPropertyEnumType_Locals_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_Locals_Vtbl {
-        Self { base: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_Locals as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
@@ -22646,7 +22646,7 @@ pub trait IDebugPropertyEnumType_LocalsPlusArgs_Impl: Sized + IDebugPropertyEnum
 #[cfg(feature = "Win32_Foundation")]
 impl IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDebugPropertyEnumType_LocalsPlusArgs_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
-        Self { base: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_LocalsPlusArgs as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
@@ -22657,7 +22657,7 @@ pub trait IDebugPropertyEnumType_Registers_Impl: Sized + IDebugPropertyEnumType_
 #[cfg(feature = "Win32_Foundation")]
 impl IDebugPropertyEnumType_Registers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDebugPropertyEnumType_Registers_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_Registers_Vtbl {
-        Self { base: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_Registers as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
@@ -22772,7 +22772,7 @@ impl IDebugRegisters_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNumberRegisters: GetNumberRegisters::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetIndexByName: GetIndexByName::<Identity, Impl, OFFSET>,
@@ -23031,7 +23031,7 @@ impl IDebugRegisters2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNumberRegisters: GetNumberRegisters::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetIndexByName: GetIndexByName::<Identity, Impl, OFFSET>,
@@ -23074,7 +23074,7 @@ impl IDebugSessionProvider_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).StartDebugSession(::core::mem::transmute(&pda)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), StartDebugSession: StartDebugSession::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), StartDebugSession: StartDebugSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugSessionProvider as ::windows::core::Interface>::IID
@@ -23147,7 +23147,7 @@ impl IDebugStackFrame_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCodeContext: GetCodeContext::<Identity, Impl, OFFSET>,
             GetDescriptionString: GetDescriptionString::<Identity, Impl, OFFSET>,
             GetLanguageString: GetLanguageString::<Identity, Impl, OFFSET>,
@@ -23190,7 +23190,7 @@ impl IDebugStackFrame110_Vtbl {
             }
         }
         Self {
-            base: IDebugStackFrame_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDebugStackFrame_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetStackFrameType: GetStackFrameType::<Identity, Impl, OFFSET>,
             GetScriptInvocationContext: GetScriptInvocationContext::<Identity, Impl, OFFSET>,
         }
@@ -23215,7 +23215,7 @@ impl IDebugStackFrameSniffer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumStackFrames: EnumStackFrames::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumStackFrames: EnumStackFrames::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugStackFrameSniffer as ::windows::core::Interface>::IID
@@ -23237,7 +23237,7 @@ impl IDebugStackFrameSnifferEx32_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx32: EnumStackFramesEx32::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx32: EnumStackFramesEx32::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugStackFrameSnifferEx32 as ::windows::core::Interface>::IID || iid == &<IDebugStackFrameSniffer as ::windows::core::Interface>::IID
@@ -23259,7 +23259,7 @@ impl IDebugStackFrameSnifferEx64_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx64: EnumStackFramesEx64::<Identity, Impl, OFFSET> }
+        Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx64: EnumStackFramesEx64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugStackFrameSnifferEx64 as ::windows::core::Interface>::IID || iid == &<IDebugStackFrameSniffer as ::windows::core::Interface>::IID
@@ -23338,7 +23338,7 @@ impl IDebugSymbolGroup_Vtbl {
             (*this).OutputAsType(::core::mem::transmute_copy(&index), ::core::mem::transmute(&r#type)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNumberSymbols: GetNumberSymbols::<Identity, Impl, OFFSET>,
             AddSymbol: AddSymbol::<Identity, Impl, OFFSET>,
             RemoveSymbolByName: RemoveSymbolByName::<Identity, Impl, OFFSET>,
@@ -23530,7 +23530,7 @@ impl IDebugSymbolGroup2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNumberSymbols: GetNumberSymbols::<Identity, Impl, OFFSET>,
             AddSymbol: AddSymbol::<Identity, Impl, OFFSET>,
             RemoveSymbolByName: RemoveSymbolByName::<Identity, Impl, OFFSET>,
@@ -23953,7 +23953,7 @@ impl IDebugSymbols_Vtbl {
             (*this).GetSourceFileLineOffsets(::core::mem::transmute(&file), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&bufferlines), ::core::mem::transmute_copy(&filelines)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSymbolOptions: GetSymbolOptions::<Identity, Impl, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, Impl, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, Impl, OFFSET>,
@@ -24456,7 +24456,7 @@ impl IDebugSymbols2_Vtbl {
             (*this).SetTypeOptions(::core::mem::transmute_copy(&options)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSymbolOptions: GetSymbolOptions::<Identity, Impl, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, Impl, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, Impl, OFFSET>,
@@ -25453,7 +25453,7 @@ impl IDebugSymbols3_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSymbolOptions: GetSymbolOptions::<Identity, Impl, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, Impl, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, Impl, OFFSET>,
@@ -26558,7 +26558,7 @@ impl IDebugSymbols4_Vtbl {
             (*this).OutputSymbolByInlineContext(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&inlinecontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSymbolOptions: GetSymbolOptions::<Identity, Impl, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, Impl, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, Impl, OFFSET>,
@@ -27688,7 +27688,7 @@ impl IDebugSymbols5_Vtbl {
             (*this).SetScopeFrameByIndexEx(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&index)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSymbolOptions: GetSymbolOptions::<Identity, Impl, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, Impl, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, Impl, OFFSET>,
@@ -27862,7 +27862,7 @@ impl IDebugSyncOperation_Vtbl {
             (*this).InProgressAbort().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTargetThread: GetTargetThread::<Identity, Impl, OFFSET>,
             Execute: Execute::<Identity, Impl, OFFSET>,
             InProgressAbort: InProgressAbort::<Identity, Impl, OFFSET>,
@@ -28189,7 +28189,7 @@ impl IDebugSystemObjects_Vtbl {
             (*this).GetCurrentProcessExecutableName(::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&exesize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEventThread: GetEventThread::<Identity, Impl, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, Impl, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, Impl, OFFSET>,
@@ -28590,7 +28590,7 @@ impl IDebugSystemObjects2_Vtbl {
             (*this).SetImplicitProcessDataOffset(::core::mem::transmute_copy(&offset)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEventThread: GetEventThread::<Identity, Impl, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, Impl, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, Impl, OFFSET>,
@@ -29080,7 +29080,7 @@ impl IDebugSystemObjects3_Vtbl {
             (*this).GetCurrentSystemServerName(::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&namesize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEventThread: GetEventThread::<Identity, Impl, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, Impl, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, Impl, OFFSET>,
@@ -29591,7 +29591,7 @@ impl IDebugSystemObjects4_Vtbl {
             (*this).GetCurrentSystemServerNameWide(::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&namesize)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEventThread: GetEventThread::<Identity, Impl, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, Impl, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, Impl, OFFSET>,
@@ -29653,7 +29653,7 @@ impl IDebugThreadCall32_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ThreadCallHandler(::core::mem::transmute_copy(&dwparam1), ::core::mem::transmute_copy(&dwparam2), ::core::mem::transmute_copy(&dwparam3)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugThreadCall32 as ::windows::core::Interface>::IID
@@ -29669,7 +29669,7 @@ impl IDebugThreadCall64_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ThreadCallHandler(::core::mem::transmute_copy(&dwparam1), ::core::mem::transmute_copy(&dwparam2), ::core::mem::transmute_copy(&dwparam3)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDebugThreadCall64 as ::windows::core::Interface>::IID
@@ -29710,7 +29710,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
             (*this).NotifyDestruct().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConcept: GetConcept::<Identity, Impl, OFFSET>,
             SetConcept: SetConcept::<Identity, Impl, OFFSET>,
             NotifyParent: NotifyParent::<Identity, Impl, OFFSET>,
@@ -29751,7 +29751,7 @@ impl IDynamicKeyProviderConcept_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetKey: GetKey::<Identity, Impl, OFFSET>,
             SetKey: SetKey::<Identity, Impl, OFFSET>,
             EnumerateKeys: EnumerateKeys::<Identity, Impl, OFFSET>,
@@ -29796,7 +29796,7 @@ impl IEnumDebugApplicationNodes_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -29842,7 +29842,7 @@ impl IEnumDebugCodeContexts_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -29888,7 +29888,7 @@ impl IEnumDebugExpressionContexts_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -29948,7 +29948,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -30009,7 +30009,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -30058,7 +30058,7 @@ impl IEnumDebugStackFrames_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -30081,7 +30081,7 @@ impl IEnumDebugStackFrames64_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Next64(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&prgdsfd), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
-        Self { base: IEnumDebugStackFrames_Vtbl::new::<Identity, Impl, OFFSET>(), Next64: Next64::<Identity, Impl, OFFSET> }
+        Self { base__: IEnumDebugStackFrames_Vtbl::new::<Identity, Impl, OFFSET>(), Next64: Next64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumDebugStackFrames64 as ::windows::core::Interface>::IID || iid == &<IEnumDebugStackFrames as ::windows::core::Interface>::IID
@@ -30103,7 +30103,7 @@ impl IEnumJsStackFrames_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Reset().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET>, Reset: Reset::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET>, Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumJsStackFrames as ::windows::core::Interface>::IID
@@ -30144,7 +30144,7 @@ impl IEnumRemoteDebugApplicationThreads_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -30190,7 +30190,7 @@ impl IEnumRemoteDebugApplications_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -30217,7 +30217,7 @@ impl IEquatableConcept_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AreObjectsEqual: AreObjectsEqual::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AreObjectsEqual: AreObjectsEqual::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEquatableConcept as ::windows::core::Interface>::IID
@@ -30233,7 +30233,7 @@ impl IHostDataModelAccess_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDataModel(::core::mem::transmute_copy(&manager), ::core::mem::transmute_copy(&host)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDataModel: GetDataModel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDataModel: GetDataModel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IHostDataModelAccess as ::windows::core::Interface>::IID
@@ -30268,7 +30268,7 @@ impl IIndexableConcept_Vtbl {
             (*this).SetAt(::core::mem::transmute(&contextobject), ::core::mem::transmute_copy(&indexercount), ::core::mem::transmute_copy(&indexers), ::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDimensionality: GetDimensionality::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             SetAt: SetAt::<Identity, Impl, OFFSET>,
@@ -30307,7 +30307,7 @@ impl IIterableConcept_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDefaultIndexDimensionality: GetDefaultIndexDimensionality::<Identity, Impl, OFFSET>,
             GetIterator: GetIterator::<Identity, Impl, OFFSET>,
         }
@@ -30332,7 +30332,7 @@ impl IJsDebug_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenVirtualProcess: OpenVirtualProcess::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenVirtualProcess: OpenVirtualProcess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsDebug as ::windows::core::Interface>::IID
@@ -30381,7 +30381,7 @@ impl IJsDebugBreakPoint_Vtbl {
             (*this).GetDocumentPosition(::core::mem::transmute_copy(&pdocumentid), ::core::mem::transmute_copy(&pcharacteroffset), ::core::mem::transmute_copy(&pstatementcharcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
             Enable: Enable::<Identity, Impl, OFFSET>,
             Disable: Disable::<Identity, Impl, OFFSET>,
@@ -30484,7 +30484,7 @@ impl IJsDebugDataTarget_Vtbl {
             (*this).GetThreadContext(::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&contextflags), ::core::mem::transmute_copy(&contextsize), ::core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadMemory: ReadMemory::<Identity, Impl, OFFSET>,
             WriteMemory: WriteMemory::<Identity, Impl, OFFSET>,
             AllocateVirtualMemory: AllocateVirtualMemory::<Identity, Impl, OFFSET>,
@@ -30567,7 +30567,7 @@ impl IJsDebugFrame_Vtbl {
             (*this).Evaluate(::core::mem::transmute(&pexpressiontext), ::core::mem::transmute_copy(&ppdebugproperty), ::core::mem::transmute_copy(&perror)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStackRange: GetStackRange::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDocumentPositionWithId: GetDocumentPositionWithId::<Identity, Impl, OFFSET>,
@@ -30630,7 +30630,7 @@ impl IJsDebugProcess_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateStackWalker: CreateStackWalker::<Identity, Impl, OFFSET>,
             CreateBreakPoint: CreateBreakPoint::<Identity, Impl, OFFSET>,
             PerformAsyncBreak: PerformAsyncBreak::<Identity, Impl, OFFSET>,
@@ -30672,7 +30672,7 @@ impl IJsDebugProperty_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropertyInfo: GetPropertyInfo::<Identity, Impl, OFFSET>,
             GetMembers: GetMembers::<Identity, Impl, OFFSET>,
         }
@@ -30697,7 +30697,7 @@ impl IJsDebugStackWalker_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNext: GetNext::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNext: GetNext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IJsDebugStackWalker as ::windows::core::Interface>::IID
@@ -30726,7 +30726,7 @@ impl IJsEnumDebugProperty_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
         }
@@ -30754,7 +30754,7 @@ impl IKeyEnumerator_Vtbl {
             (*this).GetNext(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&metadata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -30798,7 +30798,7 @@ impl IKeyStore_Vtbl {
             (*this).ClearKeys().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetKey: GetKey::<Identity, Impl, OFFSET>,
             SetKey: SetKey::<Identity, Impl, OFFSET>,
             GetKeyValue: GetKeyValue::<Identity, Impl, OFFSET>,
@@ -30845,7 +30845,7 @@ impl IMachineDebugManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddApplication: AddApplication::<Identity, Impl, OFFSET>,
             RemoveApplication: RemoveApplication::<Identity, Impl, OFFSET>,
             EnumApplications: EnumApplications::<Identity, Impl, OFFSET>,
@@ -30890,7 +30890,7 @@ impl IMachineDebugManagerCookie_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddApplication: AddApplication::<Identity, Impl, OFFSET>,
             RemoveApplication: RemoveApplication::<Identity, Impl, OFFSET>,
             EnumApplications: EnumApplications::<Identity, Impl, OFFSET>,
@@ -30917,7 +30917,7 @@ impl IMachineDebugManagerEvents_Vtbl {
             (*this).onRemoveApplication(::core::mem::transmute(&pda), ::core::mem::transmute_copy(&dwappcookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             onAddApplication: onAddApplication::<Identity, Impl, OFFSET>,
             onRemoveApplication: onRemoveApplication::<Identity, Impl, OFFSET>,
         }
@@ -30943,7 +30943,7 @@ impl IModelIterator_Vtbl {
             (*this).GetNext(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&dimensions), ::core::mem::transmute_copy(&indexers), ::core::mem::transmute_copy(&metadata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -31019,7 +31019,7 @@ impl IModelKeyReference_Vtbl {
             (*this).SetKeyValue(::core::mem::transmute(&object)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetKeyName: GetKeyName::<Identity, Impl, OFFSET>,
             GetOriginalObject: GetOriginalObject::<Identity, Impl, OFFSET>,
             GetContextObject: GetContextObject::<Identity, Impl, OFFSET>,
@@ -31045,7 +31045,7 @@ impl IModelKeyReference2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OverrideContextObject(::core::mem::transmute(&newcontextobject)).into()
         }
-        Self { base: IModelKeyReference_Vtbl::new::<Identity, Impl, OFFSET>(), OverrideContextObject: OverrideContextObject::<Identity, Impl, OFFSET> }
+        Self { base__: IModelKeyReference_Vtbl::new::<Identity, Impl, OFFSET>(), OverrideContextObject: OverrideContextObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IModelKeyReference2 as ::windows::core::Interface>::IID || iid == &<IModelKeyReference as ::windows::core::Interface>::IID
@@ -31061,7 +31061,7 @@ impl IModelMethod_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Call(::core::mem::transmute(&pcontextobject), ::core::mem::transmute_copy(&argcount), ::core::mem::transmute_copy(&pparguments), ::core::mem::transmute_copy(&ppresult), ::core::mem::transmute_copy(&ppmetadata)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Call: Call::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Call: Call::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IModelMethod as ::windows::core::Interface>::IID
@@ -31386,7 +31386,7 @@ impl IModelObject_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetContext: GetContext::<Identity, Impl, OFFSET>,
             GetKind: GetKind::<Identity, Impl, OFFSET>,
             GetIntrinsicValue: GetIntrinsicValue::<Identity, Impl, OFFSET>,
@@ -31449,7 +31449,7 @@ impl IModelPropertyAccessor_Vtbl {
             (*this).SetValue(::core::mem::transmute(&key), ::core::mem::transmute(&contextobject), ::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
         }
@@ -31475,7 +31475,7 @@ impl IObjectSafety_Vtbl {
             (*this).SetInterfaceSafetyOptions(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&dwoptionsetmask), ::core::mem::transmute_copy(&dwenabledoptions)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInterfaceSafetyOptions: GetInterfaceSafetyOptions::<Identity, Impl, OFFSET>,
             SetInterfaceSafetyOptions: SetInterfaceSafetyOptions::<Identity, Impl, OFFSET>,
         }
@@ -31527,7 +31527,7 @@ impl IPerPropertyBrowsing2_Vtbl {
             (*this).SetPredefinedValue(::core::mem::transmute_copy(&dispid), ::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDisplayString: GetDisplayString::<Identity, Impl, OFFSET>,
             MapPropertyToPage: MapPropertyToPage::<Identity, Impl, OFFSET>,
             GetPredefinedStrings: GetPredefinedStrings::<Identity, Impl, OFFSET>,
@@ -31554,7 +31554,10 @@ impl IPreferredRuntimeTypeConcept_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CastToPreferredRuntimeType: CastToPreferredRuntimeType::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            CastToPreferredRuntimeType: CastToPreferredRuntimeType::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPreferredRuntimeTypeConcept as ::windows::core::Interface>::IID
@@ -31619,7 +31622,7 @@ impl IProcessDebugManager32_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateApplication: CreateApplication::<Identity, Impl, OFFSET>,
             GetDefaultApplication: GetDefaultApplication::<Identity, Impl, OFFSET>,
             AddApplication: AddApplication::<Identity, Impl, OFFSET>,
@@ -31690,7 +31693,7 @@ impl IProcessDebugManager64_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateApplication: CreateApplication::<Identity, Impl, OFFSET>,
             GetDefaultApplication: GetDefaultApplication::<Identity, Impl, OFFSET>,
             AddApplication: AddApplication::<Identity, Impl, OFFSET>,
@@ -31718,7 +31721,7 @@ impl IProvideExpressionContexts_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumExpressionContexts: EnumExpressionContexts::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumExpressionContexts: EnumExpressionContexts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvideExpressionContexts as ::windows::core::Interface>::IID
@@ -31743,7 +31746,7 @@ impl IRawEnumerator_Vtbl {
             (*this).GetNext(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&kind), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             GetNext: GetNext::<Identity, Impl, OFFSET>,
         }
@@ -31861,7 +31864,7 @@ impl IRemoteDebugApplication_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ResumeFromBreakPoint: ResumeFromBreakPoint::<Identity, Impl, OFFSET>,
             CauseBreak: CauseBreak::<Identity, Impl, OFFSET>,
             ConnectDebugger: ConnectDebugger::<Identity, Impl, OFFSET>,
@@ -31914,7 +31917,7 @@ impl IRemoteDebugApplication110_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDebuggerOptions: SetDebuggerOptions::<Identity, Impl, OFFSET>,
             GetCurrentDebuggerOptions: GetCurrentDebuggerOptions::<Identity, Impl, OFFSET>,
             GetMainThread: GetMainThread::<Identity, Impl, OFFSET>,
@@ -31989,7 +31992,7 @@ impl IRemoteDebugApplicationEvents_Vtbl {
             (*this).OnBreakFlagChange(::core::mem::transmute_copy(&abf), ::core::mem::transmute(&prdatsteppingthread)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnConnectDebugger: OnConnectDebugger::<Identity, Impl, OFFSET>,
             OnDisconnectDebugger: OnDisconnectDebugger::<Identity, Impl, OFFSET>,
             OnSetName: OnSetName::<Identity, Impl, OFFSET>,
@@ -32109,7 +32112,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSystemThreadId: GetSystemThreadId::<Identity, Impl, OFFSET>,
             GetApplication: GetApplication::<Identity, Impl, OFFSET>,
             EnumStackFrames: EnumStackFrames::<Identity, Impl, OFFSET>,
@@ -32137,7 +32140,7 @@ impl IRemoteDebugCriticalErrorEvent110_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetErrorInfo(::core::mem::transmute_copy(&pbstrsource), ::core::mem::transmute_copy(&pmessageid), ::core::mem::transmute_copy(&pbstrmessage), ::core::mem::transmute_copy(&pplocation)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteDebugCriticalErrorEvent110 as ::windows::core::Interface>::IID
@@ -32155,7 +32158,7 @@ impl IRemoteDebugInfoEvent110_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetEventInfo(::core::mem::transmute_copy(&pmessagetype), ::core::mem::transmute_copy(&pbstrmessage), ::core::mem::transmute_copy(&pbstrurl), ::core::mem::transmute_copy(&pplocation)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetEventInfo: GetEventInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetEventInfo: GetEventInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteDebugInfoEvent110 as ::windows::core::Interface>::IID
@@ -32258,7 +32261,7 @@ impl IScriptEntry_Vtbl {
             (*this).GetRange(::core::mem::transmute_copy(&pichmin), ::core::mem::transmute_copy(&pcch)).into()
         }
         Self {
-            base: IScriptNode_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IScriptNode_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetText: GetText::<Identity, Impl, OFFSET>,
             SetText: SetText::<Identity, Impl, OFFSET>,
             GetBody: GetBody::<Identity, Impl, OFFSET>,
@@ -32319,7 +32322,7 @@ impl IScriptInvocationContext_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetContextType: GetContextType::<Identity, Impl, OFFSET>,
             GetContextDescription: GetContextDescription::<Identity, Impl, OFFSET>,
             GetContextObject: GetContextObject::<Identity, Impl, OFFSET>,
@@ -32444,7 +32447,7 @@ impl IScriptNode_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Alive: Alive::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
             GetParent: GetParent::<Identity, Impl, OFFSET>,
@@ -32522,7 +32525,7 @@ impl IScriptScriptlet_Vtbl {
             (*this).SetSimpleEventName(::core::mem::transmute(&psz)).into()
         }
         Self {
-            base: IScriptEntry_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IScriptEntry_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSubItemName: GetSubItemName::<Identity, Impl, OFFSET>,
             SetSubItemName: SetSubItemName::<Identity, Impl, OFFSET>,
             GetEventName: GetEventName::<Identity, Impl, OFFSET>,
@@ -32578,7 +32581,7 @@ impl ISimpleConnectionPoint_Vtbl {
             (*this).Unadvise(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEventCount: GetEventCount::<Identity, Impl, OFFSET>,
             DescribeEvents: DescribeEvents::<Identity, Impl, OFFSET>,
             Advise: Advise::<Identity, Impl, OFFSET>,
@@ -32607,7 +32610,7 @@ impl IStringDisplayableConcept_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ToDisplayString: ToDisplayString::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ToDisplayString: ToDisplayString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStringDisplayableConcept as ::windows::core::Interface>::IID
@@ -32625,7 +32628,7 @@ impl ITridentEventSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FireEvent(::core::mem::transmute(&pstrevent), ::core::mem::transmute_copy(&pdp), ::core::mem::transmute_copy(&pvarres), ::core::mem::transmute_copy(&pei)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITridentEventSink as ::windows::core::Interface>::IID
@@ -32643,7 +32646,7 @@ impl IWebAppDiagnosticsObjectInitialization_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&hpassedhandle), ::core::mem::transmute(&pdebugapplication)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAppDiagnosticsObjectInitialization as ::windows::core::Interface>::IID
@@ -32672,7 +32675,7 @@ impl IWebAppDiagnosticsSetup_Vtbl {
             (*this).CreateObjectWithSiteAtWebApp(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&hpasstoobject)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DiagnosticsSupported: DiagnosticsSupported::<Identity, Impl, OFFSET>,
             CreateObjectWithSiteAtWebApp: CreateObjectWithSiteAtWebApp::<Identity, Impl, OFFSET>,
         }

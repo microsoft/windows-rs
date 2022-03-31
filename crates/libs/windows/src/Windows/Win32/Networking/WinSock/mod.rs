@@ -153,6 +153,35 @@ impl ::core::fmt::Debug for AAL_TYPE {
         f.debug_tuple("AAL_TYPE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ADDRESS_FAMILY(pub u32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const AF_INET: ADDRESS_FAMILY = ADDRESS_FAMILY(2u32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const AF_INET6: ADDRESS_FAMILY = ADDRESS_FAMILY(23u32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const AF_UNSPEC: ADDRESS_FAMILY = ADDRESS_FAMILY(0u32);
+impl ::core::marker::Copy for ADDRESS_FAMILY {}
+impl ::core::clone::Clone for ADDRESS_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADDRESS_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADDRESS_FAMILY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADDRESS_FAMILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADDRESS_FAMILY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1669,14 +1698,7 @@ pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub struct HWSAEVENT(pub isize);
 impl HWSAEVENT {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HWSAEVENT {
@@ -5399,23 +5421,25 @@ impl ::core::fmt::Debug for PMTUD_STATE {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLERR: u32 = 1u32;
+pub const POLLERR: u16 = 1u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLHUP: u32 = 2u32;
+pub const POLLHUP: u16 = 2u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLNVAL: u32 = 4u32;
+pub const POLLIN: u16 = 768u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLOUT: u32 = 16u32;
+pub const POLLNVAL: u16 = 4u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLPRI: u32 = 1024u32;
+pub const POLLOUT: u16 = 16u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLRDBAND: u32 = 512u32;
+pub const POLLPRI: u16 = 1024u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLRDNORM: u32 = 256u32;
+pub const POLLRDBAND: u16 = 512u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLWRBAND: u32 = 32u32;
+pub const POLLRDNORM: u16 = 256u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLWRNORM: u32 = 16u32;
+pub const POLLWRBAND: u16 = 32u16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLWRNORM: u16 = 16u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct PRIORITY_STATUS {
@@ -7446,13 +7470,165 @@ pub const SIOCSHIWAT: i32 = -2147192064i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SIOCSLOWAT: i32 = -2147192062i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ABSORB_RTRALERT: u32 = 2550136837u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ACQUIRE_PORT_RESERVATION: u32 = 2550136932u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ADDRESS_LIST_CHANGE: u32 = 671088663u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ADDRESS_LIST_QUERY: u32 = 1207959574u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ADDRESS_LIST_SORT: u32 = 3355443225u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_AF_UNIX_GETPEERPID: u32 = 1476395264u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_AF_UNIX_SETBINDPARENTPATH: u32 = 2550137089u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_AF_UNIX_SETCONNPARENTPATH: u32 = 2550137090u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_APPLY_TRANSPORT_SETTING: u32 = 2550136851u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ASSOCIATE_HANDLE: u32 = 2281701377u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ASSOCIATE_PORT_RESERVATION: u32 = 2550136934u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SIO_ASSOCIATE_PVC: u32 = 2417360899u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_BASE_HANDLE: u32 = 1207959586u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_BSP_HANDLE: u32 = 1207959579u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_BSP_HANDLE_POLL: u32 = 1207959581u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_BSP_HANDLE_SELECT: u32 = 1207959580u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_CPU_AFFINITY: u32 = 2550136853u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_DELETE_PEER_TARGET_NAME: u32 = 2550137035u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ENABLE_CIRCULAR_QUEUEING: u32 = 671088642u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_EXT_POLL: u32 = 3355443231u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_EXT_SELECT: u32 = 3355443230u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_EXT_SENDMSG: u32 = 3355443232u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_FIND_ROUTE: u32 = 1207959555u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_FLUSH: u32 = 671088644u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SIO_GET_ATM_ADDRESS: u32 = 3491102722u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SIO_GET_ATM_CONNECTION_ID: u32 = 1343619076u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_GET_BROADCAST_ADDRESS: u32 = 1207959557u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_GET_EXTENSION_FUNCTION_POINTER: u32 = 3355443206u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_GET_GROUP_QOS: u32 = 3355443208u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_GET_MULTIPLE_EXTENSION_FUNCTION_POINTER: u32 = 3355443236u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SIO_GET_NUMBER_OF_ATM_DEVICES: u32 = 1343619073u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_GET_QOS: u32 = 3355443207u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_GET_TX_TIMESTAMP: u32 = 2550137066u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_INDEX_ADD_MCAST: u32 = 2550136842u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_INDEX_BIND: u32 = 2550136840u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_INDEX_DEL_MCAST: u32 = 2550136843u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_INDEX_MCASTIF: u32 = 2550136841u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_KEEPALIVE_VALS: u32 = 2550136836u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_LIMIT_BROADCASTS: u32 = 2550136839u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_LOOPBACK_FAST_PATH: u32 = 2550136848u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_MULTICAST_SCOPE: u32 = 2281701386u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_MULTIPOINT_LOOPBACK: u32 = 2281701385u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_NSP_NOTIFY_CHANGE: u32 = 2281701401u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_PRIORITY_HINT: u32 = 2550136856u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_RSS_PROCESSOR_INFO: u32 = 1207959589u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_RSS_SCALABILITY_INFO: u32 = 1476395218u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_SECURITY: u32 = 3623878857u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_TARGET_PNP_HANDLE: u32 = 1207959576u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_TRANSPORT_SETTING: u32 = 2550136852u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_WFP_ALE_ENDPOINT_HANDLE: u32 = 1476395213u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_WFP_CONNECTION_REDIRECT_CONTEXT: u32 = 2550137053u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_QUERY_WFP_CONNECTION_REDIRECT_RECORDS: u32 = 2550137052u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RCVALL: u32 = 2550136833u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RCVALL_IF: u32 = 2550136846u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RCVALL_IGMPMCAST: u32 = 2550136835u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RCVALL_MCAST: u32 = 2550136834u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RCVALL_MCAST_IF: u32 = 2550136845u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RELEASE_PORT_RESERVATION: u32 = 2550136933u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RESERVED_1: u32 = 2281701402u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_RESERVED_2: u32 = 2281701409u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ROUTING_INTERFACE_CHANGE: u32 = 2281701397u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_ROUTING_INTERFACE_QUERY: u32 = 3355443220u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_COMPATIBILITY_MODE: u32 = 2550137132u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_GROUP_QOS: u32 = 2281701388u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_PEER_TARGET_NAME: u32 = 2550137034u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_PRIORITY_HINT: u32 = 2550136856u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_QOS: u32 = 2281701387u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_SECURITY: u32 = 2550137032u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SET_WFP_CONNECTION_REDIRECT_RECORDS: u32 = 2550137054u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SOCKET_CLOSE_NOTIFY: u32 = 2550136845u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_SOCKET_USAGE_NOTIFICATION: u32 = 2550137036u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_TCP_INFO: u32 = 3623878695u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_TCP_INITIAL_RTO: u32 = 2550136849u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_TCP_SET_ACK_FREQUENCY: u32 = 2550136855u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_TCP_SET_ICW: u32 = 2550136854u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_TIMESTAMPING: u32 = 2550137067u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_TRANSLATE_HANDLE: u32 = 3355443213u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_UCAST_IF: u32 = 2550136838u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_UDP_CONNRESET: u32 = 2550136844u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SIO_UDP_NETRESET: u32 = 2550136847u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SI_NETWORK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -7841,18 +8017,6 @@ impl ::core::default::Default for SOCKADDR_STORAGE_XP {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SOCKET(pub usize);
-impl SOCKET {
-    pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-}
 impl ::core::default::Default for SOCKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

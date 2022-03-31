@@ -160,7 +160,7 @@ unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedAppLauncher_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Launch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

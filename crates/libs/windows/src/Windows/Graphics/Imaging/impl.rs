@@ -165,7 +165,7 @@ impl IBitmapFrame_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapFrame, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapFrame, OFFSET>(),
             GetThumbnailAsync: GetThumbnailAsync::<Identity, Impl, OFFSET>,
             BitmapProperties: BitmapProperties::<Identity, Impl, OFFSET>,
             BitmapPixelFormat: BitmapPixelFormat::<Identity, Impl, OFFSET>,
@@ -234,7 +234,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapFrameWithSoftwareBitmap, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapFrameWithSoftwareBitmap, OFFSET>(),
             GetSoftwareBitmapAsync: GetSoftwareBitmapAsync::<Identity, Impl, OFFSET>,
             GetSoftwareBitmapConvertedAsync: GetSoftwareBitmapConvertedAsync::<Identity, Impl, OFFSET>,
             GetSoftwareBitmapTransformedAsync: GetSoftwareBitmapTransformedAsync::<Identity, Impl, OFFSET>,
@@ -268,7 +268,7 @@ impl IBitmapPropertiesView_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapPropertiesView, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBitmapPropertiesView, OFFSET>(),
             GetPropertiesAsync: GetPropertiesAsync::<Identity, Impl, OFFSET>,
         }
     }

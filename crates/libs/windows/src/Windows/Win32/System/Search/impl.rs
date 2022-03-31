@@ -51,7 +51,7 @@ impl DataSource_Vtbl {
             (*this).removeDataSourceListener(::core::mem::transmute(&pdsl)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             getDataMember: getDataMember::<Identity, Impl, OFFSET>,
             getDataMemberName: getDataMemberName::<Identity, Impl, OFFSET>,
             getDataMemberCount: getDataMemberCount::<Identity, Impl, OFFSET>,
@@ -86,7 +86,7 @@ impl DataSourceListener_Vtbl {
             (*this).dataMemberRemoved(::core::mem::transmute_copy(&bstrdm)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             dataMemberChanged: dataMemberChanged::<Identity, Impl, OFFSET>,
             dataMemberAdded: dataMemberAdded::<Identity, Impl, OFFSET>,
             dataMemberRemoved: dataMemberRemoved::<Identity, Impl, OFFSET>,
@@ -101,7 +101,7 @@ pub trait DataSourceObject_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DataSourceObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DataSourceObject_Impl, const OFFSET: isize>() -> DataSourceObject_Vtbl {
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DataSourceObject as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -150,7 +150,7 @@ impl IAccessor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddRefAccessor: AddRefAccessor::<Identity, Impl, OFFSET>,
             CreateAccessor: CreateAccessor::<Identity, Impl, OFFSET>,
             GetBindings: GetBindings::<Identity, Impl, OFFSET>,
@@ -173,7 +173,7 @@ impl IAlterIndex_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AlterIndex(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pindexid), ::core::mem::transmute_copy(&pnewindexid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AlterIndex: AlterIndex::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AlterIndex: AlterIndex::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAlterIndex as ::windows::core::Interface>::IID
@@ -198,7 +198,7 @@ impl IAlterTable_Vtbl {
             (*this).AlterTable(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pnewtableid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AlterColumn: AlterColumn::<Identity, Impl, OFFSET>,
             AlterTable: AlterTable::<Identity, Impl, OFFSET>,
         }
@@ -219,7 +219,7 @@ impl IBindResource_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Bind(::core::mem::transmute(&punkouter), ::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwbindurlflags), ::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&pimplsession), ::core::mem::transmute_copy(&pdwbindstatus), ::core::mem::transmute_copy(&ppunk)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBindResource as ::windows::core::Interface>::IID
@@ -254,7 +254,7 @@ impl IChapteredRowset_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddRefChapter: AddRefChapter::<Identity, Impl, OFFSET>,
             ReleaseChapter: ReleaseChapter::<Identity, Impl, OFFSET>,
         }
@@ -294,7 +294,7 @@ impl IColumnMapper_Vtbl {
             (*this).IsMapUpToDate().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPropInfoFromName: GetPropInfoFromName::<Identity, Impl, OFFSET>,
             GetPropInfoFromId: GetPropInfoFromId::<Identity, Impl, OFFSET>,
             EnumPropInfo: EnumPropInfo::<Identity, Impl, OFFSET>,
@@ -321,7 +321,7 @@ impl IColumnMapperCreator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetColumnMapper: GetColumnMapper::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetColumnMapper: GetColumnMapper::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColumnMapperCreator as ::windows::core::Interface>::IID
@@ -346,7 +346,7 @@ impl IColumnsInfo_Vtbl {
             (*this).MapColumnIDs(::core::mem::transmute_copy(&ccolumnids), ::core::mem::transmute_copy(&rgcolumnids), ::core::mem::transmute_copy(&rgcolumns)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetColumnInfo: GetColumnInfo::<Identity, Impl, OFFSET>,
             MapColumnIDs: MapColumnIDs::<Identity, Impl, OFFSET>,
         }
@@ -367,7 +367,7 @@ impl IColumnsInfo2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRestrictedColumnInfo(::core::mem::transmute_copy(&ccolumnidmasks), ::core::mem::transmute_copy(&rgcolumnidmasks), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pccolumns), ::core::mem::transmute_copy(&prgcolumnids), ::core::mem::transmute_copy(&prgcolumninfo), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
         }
-        Self { base: IColumnsInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Identity, Impl, OFFSET> }
+        Self { base__: IColumnsInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IColumnsInfo2 as ::windows::core::Interface>::IID || iid == &<IColumnsInfo as ::windows::core::Interface>::IID
@@ -392,7 +392,7 @@ impl IColumnsRowset_Vtbl {
             (*this).GetColumnsRowset(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&coptcolumns), ::core::mem::transmute_copy(&rgoptcolumns), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets), ::core::mem::transmute_copy(&ppcolrowset)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAvailableColumns: GetAvailableColumns::<Identity, Impl, OFFSET>,
             GetColumnsRowset: GetColumnsRowset::<Identity, Impl, OFFSET>,
         }
@@ -430,7 +430,7 @@ impl ICommand_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             Execute: Execute::<Identity, Impl, OFFSET>,
             GetDBSession: GetDBSession::<Identity, Impl, OFFSET>,
@@ -481,7 +481,7 @@ impl ICommandCost_Vtbl {
             (*this).SetCostLimits(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&ccostlimits), ::core::mem::transmute_copy(&prgcostlimits), ::core::mem::transmute_copy(&dwexecutionflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAccumulatedCost: GetAccumulatedCost::<Identity, Impl, OFFSET>,
             GetCostEstimate: GetCostEstimate::<Identity, Impl, OFFSET>,
             GetCostGoals: GetCostGoals::<Identity, Impl, OFFSET>,
@@ -525,7 +525,7 @@ impl ICommandPersist_Vtbl {
             (*this).SaveCommand(::core::mem::transmute_copy(&pcommandid), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeleteCommand: DeleteCommand::<Identity, Impl, OFFSET>,
             GetCurrentCommand: GetCurrentCommand::<Identity, Impl, OFFSET>,
             LoadCommand: LoadCommand::<Identity, Impl, OFFSET>,
@@ -553,7 +553,7 @@ impl ICommandPrepare_Vtbl {
             (*this).Unprepare().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Prepare: Prepare::<Identity, Impl, OFFSET>,
             Unprepare: Unprepare::<Identity, Impl, OFFSET>,
         }
@@ -581,7 +581,7 @@ impl ICommandProperties_Vtbl {
             (*this).SetProperties(::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             SetProperties: SetProperties::<Identity, Impl, OFFSET>,
         }
@@ -607,7 +607,7 @@ impl ICommandStream_Vtbl {
             (*this).SetCommandStream(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&rguiddialect), ::core::mem::transmute(&pcommandstream)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCommandStream: GetCommandStream::<Identity, Impl, OFFSET>,
             SetCommandStream: SetCommandStream::<Identity, Impl, OFFSET>,
         }
@@ -633,7 +633,7 @@ impl ICommandText_Vtbl {
             (*this).SetCommandText(::core::mem::transmute_copy(&rguiddialect), ::core::mem::transmute(&pwszcommand)).into()
         }
         Self {
-            base: ICommand_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICommand_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCommandText: GetCommandText::<Identity, Impl, OFFSET>,
             SetCommandText: SetCommandText::<Identity, Impl, OFFSET>,
         }
@@ -659,7 +659,7 @@ impl ICommandValidate_Vtbl {
             (*this).ValidateSyntax().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ValidateCompletely: ValidateCompletely::<Identity, Impl, OFFSET>,
             ValidateSyntax: ValidateSyntax::<Identity, Impl, OFFSET>,
         }
@@ -693,7 +693,7 @@ impl ICommandWithParameters_Vtbl {
             (*this).SetParameterInfo(::core::mem::transmute_copy(&cparams), ::core::mem::transmute_copy(&rgparamordinals), ::core::mem::transmute_copy(&rgparambindinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetParameterInfo: GetParameterInfo::<Identity, Impl, OFFSET>,
             MapParameterNames: MapParameterNames::<Identity, Impl, OFFSET>,
             SetParameterInfo: SetParameterInfo::<Identity, Impl, OFFSET>,
@@ -776,7 +776,7 @@ impl ICondition_Vtbl {
             }
         }
         Self {
-            base: super::Com::IPersistStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IPersistStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetConditionType: GetConditionType::<Identity, Impl, OFFSET>,
             GetSubConditions: GetSubConditions::<Identity, Impl, OFFSET>,
             GetComparisonInfo: GetComparisonInfo::<Identity, Impl, OFFSET>,
@@ -815,7 +815,7 @@ impl ICondition2_Vtbl {
             (*this).GetLeafConditionInfo(::core::mem::transmute_copy(&ppropkey), ::core::mem::transmute_copy(&pcop), ::core::mem::transmute_copy(&ppropvar)).into()
         }
         Self {
-            base: ICondition_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICondition_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetLocale: GetLocale::<Identity, Impl, OFFSET>,
             GetLeafConditionInfo: GetLeafConditionInfo::<Identity, Impl, OFFSET>,
         }
@@ -879,7 +879,7 @@ impl IConditionFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MakeNot: MakeNot::<Identity, Impl, OFFSET>,
             MakeAndOr: MakeAndOr::<Identity, Impl, OFFSET>,
             MakeLeaf: MakeLeaf::<Identity, Impl, OFFSET>,
@@ -951,7 +951,7 @@ impl IConditionFactory2_Vtbl {
             (*this).ResolveCondition(::core::mem::transmute(&pc), ::core::mem::transmute_copy(&sqro), ::core::mem::transmute_copy(&pstreferencetime), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: IConditionFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IConditionFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateTrueFalse: CreateTrueFalse::<Identity, Impl, OFFSET>,
             CreateNegation: CreateNegation::<Identity, Impl, OFFSET>,
             CreateCompoundFromObjectArray: CreateCompoundFromObjectArray::<Identity, Impl, OFFSET>,
@@ -1019,7 +1019,7 @@ impl IConditionGenerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             RecognizeNamedEntities: RecognizeNamedEntities::<Identity, Impl, OFFSET>,
             GenerateForLeaf: GenerateForLeaf::<Identity, Impl, OFFSET>,
@@ -1040,7 +1040,7 @@ impl IConvertType_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CanConvert(::core::mem::transmute_copy(&wfromtype), ::core::mem::transmute_copy(&wtotype), ::core::mem::transmute_copy(&dwconvertflags)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CanConvert: CanConvert::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CanConvert: CanConvert::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConvertType as ::windows::core::Interface>::IID
@@ -1058,7 +1058,7 @@ impl ICreateRow_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateRow(::core::mem::transmute(&punkouter), ::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwbindurlflags), ::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&pimplsession), ::core::mem::transmute_copy(&pdwbindstatus), ::core::mem::transmute_copy(&ppwsznewurl), ::core::mem::transmute_copy(&ppunk)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRow: CreateRow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRow: CreateRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICreateRow as ::windows::core::Interface>::IID
@@ -1087,7 +1087,7 @@ impl IDBAsynchNotify_Vtbl {
             (*this).OnStop(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute(&pwszstatustext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnLowResource: OnLowResource::<Identity, Impl, OFFSET>,
             OnProgress: OnProgress::<Identity, Impl, OFFSET>,
             OnStop: OnStop::<Identity, Impl, OFFSET>,
@@ -1114,7 +1114,7 @@ impl IDBAsynchStatus_Vtbl {
             (*this).GetStatus(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&pulprogress), ::core::mem::transmute_copy(&pulprogressmax), ::core::mem::transmute_copy(&peasynchphase), ::core::mem::transmute_copy(&ppwszstatustext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Abort: Abort::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
         }
@@ -1135,7 +1135,7 @@ impl IDBBinderProperties_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Reset().into()
         }
-        Self { base: IDBProperties_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
+        Self { base__: IDBProperties_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDBBinderProperties as ::windows::core::Interface>::IID || iid == &<IDBProperties as ::windows::core::Interface>::IID
@@ -1157,7 +1157,7 @@ impl IDBCreateCommand_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateCommand: CreateCommand::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateCommand: CreateCommand::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDBCreateCommand as ::windows::core::Interface>::IID
@@ -1179,7 +1179,7 @@ impl IDBCreateSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateSession: CreateSession::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateSession: CreateSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDBCreateSession as ::windows::core::Interface>::IID
@@ -1216,7 +1216,7 @@ impl IDBDataSourceAdmin_Vtbl {
             (*this).ModifyDataSource(::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateDataSource: CreateDataSource::<Identity, Impl, OFFSET>,
             DestroyDataSource: DestroyDataSource::<Identity, Impl, OFFSET>,
             GetCreationProperties: GetCreationProperties::<Identity, Impl, OFFSET>,
@@ -1252,7 +1252,7 @@ impl IDBInfo_Vtbl {
             (*this).GetLiteralInfo(::core::mem::transmute_copy(&cliterals), ::core::mem::transmute_copy(&rgliterals), ::core::mem::transmute_copy(&pcliteralinfo), ::core::mem::transmute_copy(&prgliteralinfo), ::core::mem::transmute_copy(&ppcharbuffer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetKeywords: GetKeywords::<Identity, Impl, OFFSET>,
             GetLiteralInfo: GetLiteralInfo::<Identity, Impl, OFFSET>,
         }
@@ -1278,7 +1278,7 @@ impl IDBInitialize_Vtbl {
             (*this).Uninitialize().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
         }
@@ -1312,7 +1312,7 @@ impl IDBPromptInitialize_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PromptDataSource: PromptDataSource::<Identity, Impl, OFFSET>,
             PromptFileName: PromptFileName::<Identity, Impl, OFFSET>,
         }
@@ -1346,7 +1346,7 @@ impl IDBProperties_Vtbl {
             (*this).SetProperties(::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetPropertyInfo: GetPropertyInfo::<Identity, Impl, OFFSET>,
             SetProperties: SetProperties::<Identity, Impl, OFFSET>,
@@ -1379,7 +1379,7 @@ impl IDBSchemaCommand_Vtbl {
             (*this).GetSchemas(::core::mem::transmute_copy(&pcschemas), ::core::mem::transmute_copy(&prgschemas)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCommand: GetCommand::<Identity, Impl, OFFSET>,
             GetSchemas: GetSchemas::<Identity, Impl, OFFSET>,
         }
@@ -1407,7 +1407,7 @@ impl IDBSchemaRowset_Vtbl {
             (*this).GetSchemas(::core::mem::transmute_copy(&pcschemas), ::core::mem::transmute_copy(&prgschemas), ::core::mem::transmute_copy(&prgrestrictionsupport)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRowset: GetRowset::<Identity, Impl, OFFSET>,
             GetSchemas: GetSchemas::<Identity, Impl, OFFSET>,
         }
@@ -1435,7 +1435,7 @@ impl IDCInfo_Vtbl {
             (*this).SetInfo(::core::mem::transmute_copy(&cinfo), ::core::mem::transmute_copy(&rginfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
             SetInfo: SetInfo::<Identity, Impl, OFFSET>,
         }
@@ -1482,7 +1482,7 @@ impl IDataConvert_Vtbl {
             (*this).GetConversionSize(::core::mem::transmute_copy(&wsrctype), ::core::mem::transmute_copy(&wdsttype), ::core::mem::transmute_copy(&pcbsrclength), ::core::mem::transmute_copy(&pcbdstlength), ::core::mem::transmute_copy(&psrc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DataConvert: DataConvert::<Identity, Impl, OFFSET>,
             CanConvert: CanConvert::<Identity, Impl, OFFSET>,
             GetConversionSize: GetConversionSize::<Identity, Impl, OFFSET>,
@@ -1553,7 +1553,7 @@ impl IDataInitialize_Vtbl {
             (*this).WriteStringToStorage(::core::mem::transmute(&pwszfilename), ::core::mem::transmute(&pwszinitializationstring), ::core::mem::transmute_copy(&dwcreationdisposition)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDataSource: GetDataSource::<Identity, Impl, OFFSET>,
             GetInitializationString: GetInitializationString::<Identity, Impl, OFFSET>,
             CreateDBInstance: CreateDBInstance::<Identity, Impl, OFFSET>,
@@ -1609,7 +1609,7 @@ impl IDataSourceLocator_Vtbl {
             (*this).PromptEdit(::core::mem::transmute_copy(&ppadoconnection), ::core::mem::transmute_copy(&pbsuccess)).into()
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             hWnd: hWnd::<Identity, Impl, OFFSET>,
             SethWnd: SethWnd::<Identity, Impl, OFFSET>,
             PromptNew: PromptNew::<Identity, Impl, OFFSET>,
@@ -1703,7 +1703,7 @@ impl IEntity_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Base: Base::<Identity, Impl, OFFSET>,
             Relationships: Relationships::<Identity, Impl, OFFSET>,
@@ -1767,7 +1767,7 @@ impl IEnumItemProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1814,7 +1814,7 @@ impl IEnumSearchRoots_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1860,7 +1860,7 @@ impl IEnumSearchScopeRules_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1918,7 +1918,7 @@ impl IEnumSubscription_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1955,7 +1955,7 @@ impl IErrorLookup_Vtbl {
             (*this).ReleaseErrors(::core::mem::transmute_copy(&dwdynamicerrorid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetErrorDescription: GetErrorDescription::<Identity, Impl, OFFSET>,
             GetHelpInfo: GetHelpInfo::<Identity, Impl, OFFSET>,
             ReleaseErrors: ReleaseErrors::<Identity, Impl, OFFSET>,
@@ -2038,7 +2038,7 @@ impl IErrorRecords_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddErrorRecord: AddErrorRecord::<Identity, Impl, OFFSET>,
             GetBasicErrorInfo: GetBasicErrorInfo::<Identity, Impl, OFFSET>,
             GetCustomErrorObject: GetCustomErrorObject::<Identity, Impl, OFFSET>,
@@ -2067,7 +2067,7 @@ impl IGetDataSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDataSource: GetDataSource::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDataSource: GetDataSource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetDataSource as ::windows::core::Interface>::IID
@@ -2102,7 +2102,7 @@ impl IGetRow_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRowFromHROW: GetRowFromHROW::<Identity, Impl, OFFSET>,
             GetURLFromHROW: GetURLFromHROW::<Identity, Impl, OFFSET>,
         }
@@ -2127,7 +2127,7 @@ impl IGetSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSession: GetSession::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSession: GetSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetSession as ::windows::core::Interface>::IID
@@ -2149,7 +2149,7 @@ impl IGetSourceRow_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSourceRow: GetSourceRow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSourceRow: GetSourceRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetSourceRow as ::windows::core::Interface>::IID
@@ -2174,7 +2174,7 @@ impl IIndexDefinition_Vtbl {
             (*this).DropIndex(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pindexid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateIndex: CreateIndex::<Identity, Impl, OFFSET>,
             DropIndex: DropIndex::<Identity, Impl, OFFSET>,
         }
@@ -2195,7 +2195,7 @@ impl IInterval_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetLimits(::core::mem::transmute_copy(&pilklower), ::core::mem::transmute_copy(&ppropvarlower), ::core::mem::transmute_copy(&pilkupper), ::core::mem::transmute_copy(&ppropvarupper)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetLimits: GetLimits::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetLimits: GetLimits::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInterval as ::windows::core::Interface>::IID
@@ -2226,7 +2226,7 @@ impl ILoadFilter_Vtbl {
             (*this).LoadIFilterFromStream(::core::mem::transmute(&pstm), ::core::mem::transmute_copy(&pfilteredsources), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&fusedefault), ::core::mem::transmute_copy(&pfilterclsid), ::core::mem::transmute_copy(&searchdecsize), ::core::mem::transmute_copy(&pwcssearchdesc), ::core::mem::transmute_copy(&ppifilt)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LoadIFilter: LoadIFilter::<Identity, Impl, OFFSET>,
             LoadIFilterFromStorage: LoadIFilterFromStorage::<Identity, Impl, OFFSET>,
             LoadIFilterFromStream: LoadIFilterFromStream::<Identity, Impl, OFFSET>,
@@ -2249,7 +2249,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
             (*this).LoadIFilterWithPrivateComActivation(::core::mem::transmute_copy(&filteredsources), ::core::mem::transmute_copy(&usedefault), ::core::mem::transmute_copy(&filterclsid), ::core::mem::transmute_copy(&isfilterprivatecomactivated), ::core::mem::transmute_copy(&filterobj)).into()
         }
         Self {
-            base: ILoadFilter_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ILoadFilter_Vtbl::new::<Identity, Impl, OFFSET>(),
             LoadIFilterWithPrivateComActivation: LoadIFilterWithPrivateComActivation::<Identity, Impl, OFFSET>,
         }
     }
@@ -2300,7 +2300,7 @@ impl IMDDataset_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FreeAxisInfo: FreeAxisInfo::<Identity, Impl, OFFSET>,
             GetAxisInfo: GetAxisInfo::<Identity, Impl, OFFSET>,
             GetAxisRowset: GetAxisRowset::<Identity, Impl, OFFSET>,
@@ -2329,7 +2329,7 @@ impl IMDFind_Vtbl {
             (*this).FindTuple(::core::mem::transmute_copy(&ulaxisidentifier), ::core::mem::transmute_copy(&ulstartingordinal), ::core::mem::transmute_copy(&cmembers), ::core::mem::transmute_copy(&rgpwszmember), ::core::mem::transmute_copy(&pultupleordinal)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             FindCell: FindCell::<Identity, Impl, OFFSET>,
             FindTuple: FindTuple::<Identity, Impl, OFFSET>,
         }
@@ -2350,7 +2350,7 @@ impl IMDRangeRowset_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRangeRowset(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&ulstartcell), ::core::mem::transmute_copy(&ulendcell), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets), ::core::mem::transmute_copy(&pprowset)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRangeRowset: GetRangeRowset::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRangeRowset: GetRangeRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMDRangeRowset as ::windows::core::Interface>::IID
@@ -2366,7 +2366,7 @@ impl IMetaData_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetData(::core::mem::transmute_copy(&ppszkey), ::core::mem::transmute_copy(&ppszvalue)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMetaData as ::windows::core::Interface>::IID
@@ -2382,7 +2382,7 @@ impl IMultipleResults_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetResult(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&lresultflag), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pcrowsaffected), ::core::mem::transmute_copy(&pprowset)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetResult: GetResult::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetResult: GetResult::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMultipleResults as ::windows::core::Interface>::IID
@@ -2417,7 +2417,7 @@ impl INamedEntity_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             DefaultPhrase: DefaultPhrase::<Identity, Impl, OFFSET>,
         }
@@ -2436,7 +2436,7 @@ impl INamedEntityCollector_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&beginspan), ::core::mem::transmute_copy(&endspan), ::core::mem::transmute_copy(&beginactual), ::core::mem::transmute_copy(&endactual), ::core::mem::transmute(&ptype), ::core::mem::transmute(&pszvalue), ::core::mem::transmute_copy(&certainty)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INamedEntityCollector as ::windows::core::Interface>::IID
@@ -2479,7 +2479,7 @@ impl IObjectAccessControl_Vtbl {
             (*this).SetObjectOwner(::core::mem::transmute_copy(&pobject), ::core::mem::transmute_copy(&powner)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetObjectAccessRights: GetObjectAccessRights::<Identity, Impl, OFFSET>,
             GetObjectOwner: GetObjectOwner::<Identity, Impl, OFFSET>,
             IsObjectAccessAllowed: IsObjectAccessAllowed::<Identity, Impl, OFFSET>,
@@ -2534,7 +2534,7 @@ impl IOpLockStatus_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsOplockValid: IsOplockValid::<Identity, Impl, OFFSET>,
             IsOplockBroken: IsOplockBroken::<Identity, Impl, OFFSET>,
             GetOplockEventHandle: GetOplockEventHandle::<Identity, Impl, OFFSET>,
@@ -2556,7 +2556,7 @@ impl IOpenRowset_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OpenRowset(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pindexid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets), ::core::mem::transmute_copy(&pprowset)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenRowset: OpenRowset::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenRowset: OpenRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IOpenRowset as ::windows::core::Interface>::IID
@@ -2578,7 +2578,7 @@ impl IParentRowset_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetChildRowset: GetChildRowset::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetChildRowset: GetChildRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IParentRowset as ::windows::core::Interface>::IID
@@ -2596,7 +2596,7 @@ impl IProtocolHandlerSite_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFilter(::core::mem::transmute_copy(&pclsidobj), ::core::mem::transmute(&pcwszcontenttype), ::core::mem::transmute(&pcwszextension), ::core::mem::transmute_copy(&ppfilter)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetFilter: GetFilter::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetFilter: GetFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtocolHandlerSite as ::windows::core::Interface>::IID
@@ -2620,7 +2620,7 @@ impl IProvideMoniker_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMoniker: GetMoniker::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMoniker: GetMoniker::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvideMoniker as ::windows::core::Interface>::IID
@@ -2711,7 +2711,7 @@ impl IQueryParser_Vtbl {
             (*this).RestatePropertyValueToString(::core::mem::transmute(&pcondition), ::core::mem::transmute_copy(&fuseenglish), ::core::mem::transmute_copy(&ppszpropertyname), ::core::mem::transmute_copy(&ppszquerystring)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Parse: Parse::<Identity, Impl, OFFSET>,
             SetOption: SetOption::<Identity, Impl, OFFSET>,
             GetOption: GetOption::<Identity, Impl, OFFSET>,
@@ -2751,7 +2751,7 @@ impl IQueryParserManager_Vtbl {
             (*this).SetOption(::core::mem::transmute_copy(&option), ::core::mem::transmute_copy(&poptionvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateLoadedParser: CreateLoadedParser::<Identity, Impl, OFFSET>,
             InitializeOptions: InitializeOptions::<Identity, Impl, OFFSET>,
             SetOption: SetOption::<Identity, Impl, OFFSET>,
@@ -2786,7 +2786,7 @@ impl IQuerySolution_Vtbl {
             (*this).GetLexicalData(::core::mem::transmute_copy(&ppszinputstring), ::core::mem::transmute_copy(&pptokens), ::core::mem::transmute_copy(&plcid), ::core::mem::transmute_copy(&ppwordbreaker)).into()
         }
         Self {
-            base: IConditionFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IConditionFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetQuery: GetQuery::<Identity, Impl, OFFSET>,
             GetErrors: GetErrors::<Identity, Impl, OFFSET>,
             GetLexicalData: GetLexicalData::<Identity, Impl, OFFSET>,
@@ -2813,7 +2813,7 @@ impl IReadData_Vtbl {
             (*this).ReleaseChapter(::core::mem::transmute_copy(&hchapter)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReadData: ReadData::<Identity, Impl, OFFSET>,
             ReleaseChapter: ReleaseChapter::<Identity, Impl, OFFSET>,
         }
@@ -2851,7 +2851,7 @@ impl IRegisterProvider_Vtbl {
             (*this).UnregisterProvider(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&rclsidprovider)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetURLMapping: GetURLMapping::<Identity, Impl, OFFSET>,
             SetURLMapping: SetURLMapping::<Identity, Impl, OFFSET>,
             UnregisterProvider: UnregisterProvider::<Identity, Impl, OFFSET>,
@@ -2922,7 +2922,7 @@ impl IRelationship_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             IsReal: IsReal::<Identity, Impl, OFFSET>,
             Destination: Destination::<Identity, Impl, OFFSET>,
@@ -2946,7 +2946,7 @@ impl IRichChunk_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetData(::core::mem::transmute_copy(&pfirstpos), ::core::mem::transmute_copy(&plength), ::core::mem::transmute_copy(&ppsz), ::core::mem::transmute_copy(&pvalue)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRichChunk as ::windows::core::Interface>::IID
@@ -2983,7 +2983,7 @@ impl IRow_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetColumns: GetColumns::<Identity, Impl, OFFSET>,
             GetSourceRowset: GetSourceRowset::<Identity, Impl, OFFSET>,
             Open: Open::<Identity, Impl, OFFSET>,
@@ -3005,7 +3005,7 @@ impl IRowChange_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetColumns(::core::mem::transmute_copy(&ccolumns), ::core::mem::transmute_copy(&rgcolumns)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetColumns: SetColumns::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetColumns: SetColumns::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowChange as ::windows::core::Interface>::IID
@@ -3052,7 +3052,7 @@ impl IRowPosition_Vtbl {
             (*this).SetRowPosition(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&dwpositionflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ClearRowPosition: ClearRowPosition::<Identity, Impl, OFFSET>,
             GetRowPosition: GetRowPosition::<Identity, Impl, OFFSET>,
             GetRowset: GetRowset::<Identity, Impl, OFFSET>,
@@ -3076,7 +3076,7 @@ impl IRowPositionChange_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnRowPositionChange(::core::mem::transmute_copy(&ereason), ::core::mem::transmute_copy(&ephase), ::core::mem::transmute_copy(&fcantdeny)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnRowPositionChange: OnRowPositionChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnRowPositionChange: OnRowPositionChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowPositionChange as ::windows::core::Interface>::IID
@@ -3101,7 +3101,7 @@ impl IRowSchemaChange_Vtbl {
             (*this).AddColumns(::core::mem::transmute_copy(&ccolumns), ::core::mem::transmute_copy(&rgnewcolumninfo), ::core::mem::transmute_copy(&rgcolumns)).into()
         }
         Self {
-            base: IRowChange_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRowChange_Vtbl::new::<Identity, Impl, OFFSET>(),
             DeleteColumns: DeleteColumns::<Identity, Impl, OFFSET>,
             AddColumns: AddColumns::<Identity, Impl, OFFSET>,
         }
@@ -3145,7 +3145,7 @@ impl IRowset_Vtbl {
             (*this).RestartPosition(::core::mem::transmute_copy(&hreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddRefRows: AddRefRows::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
             GetNextRows: GetNextRows::<Identity, Impl, OFFSET>,
@@ -3176,7 +3176,7 @@ impl IRowsetAsynch_Vtbl {
             (*this).Stop().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RatioFinished: RatioFinished::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
         }
@@ -3195,7 +3195,7 @@ impl IRowsetBookmark_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).PositionOnBookmark(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&cbbookmark), ::core::mem::transmute_copy(&pbookmark)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), PositionOnBookmark: PositionOnBookmark::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), PositionOnBookmark: PositionOnBookmark::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetBookmark as ::windows::core::Interface>::IID
@@ -3224,7 +3224,7 @@ impl IRowsetChange_Vtbl {
             (*this).InsertRow(::core::mem::transmute_copy(&hreserved), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&phrow)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeleteRows: DeleteRows::<Identity, Impl, OFFSET>,
             SetData: SetData::<Identity, Impl, OFFSET>,
             InsertRow: InsertRow::<Identity, Impl, OFFSET>,
@@ -3251,7 +3251,7 @@ impl IRowsetChangeExtInfo_Vtbl {
             (*this).GetPendingColumns(::core::mem::transmute_copy(&hreserved), ::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&ccolumnordinals), ::core::mem::transmute_copy(&rgiordinals), ::core::mem::transmute_copy(&rgcolumnstatus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOriginalRow: GetOriginalRow::<Identity, Impl, OFFSET>,
             GetPendingColumns: GetPendingColumns::<Identity, Impl, OFFSET>,
         }
@@ -3270,7 +3270,7 @@ impl IRowsetChapterMember_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IsRowInChapter(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&hrow)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsRowInChapter: IsRowInChapter::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsRowInChapter: IsRowInChapter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetChapterMember as ::windows::core::Interface>::IID
@@ -3305,7 +3305,7 @@ impl IRowsetCopyRows_Vtbl {
             (*this).DefineSource(::core::mem::transmute(&prowsetsource), ::core::mem::transmute_copy(&ccolids), ::core::mem::transmute_copy(&rgsourcecolumns), ::core::mem::transmute_copy(&rgtargetcolumns), ::core::mem::transmute_copy(&phsourceid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CloseSource: CloseSource::<Identity, Impl, OFFSET>,
             CopyByHROWS: CopyByHROWS::<Identity, Impl, OFFSET>,
             CopyRows: CopyRows::<Identity, Impl, OFFSET>,
@@ -3335,7 +3335,7 @@ impl IRowsetCurrentIndex_Vtbl {
             (*this).SetIndex(::core::mem::transmute_copy(&pindexid)).into()
         }
         Self {
-            base: IRowsetIndex_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRowsetIndex_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetIndex: GetIndex::<Identity, Impl, OFFSET>,
             SetIndex: SetIndex::<Identity, Impl, OFFSET>,
         }
@@ -3375,7 +3375,7 @@ impl IRowsetEvents_Vtbl {
             (*this).OnRowsetEvent(::core::mem::transmute_copy(&eventtype), ::core::mem::transmute_copy(&eventdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnNewItem: OnNewItem::<Identity, Impl, OFFSET>,
             OnChangedItem: OnChangedItem::<Identity, Impl, OFFSET>,
             OnDeletedItem: OnDeletedItem::<Identity, Impl, OFFSET>,
@@ -3405,7 +3405,7 @@ impl IRowsetFastLoad_Vtbl {
             (*this).Commit(::core::mem::transmute_copy(&fdone)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InsertRow: InsertRow::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
@@ -3424,7 +3424,7 @@ impl IRowsetFind_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FindNextRow(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pfindvalue), ::core::mem::transmute_copy(&compareop), ::core::mem::transmute_copy(&cbbookmark), ::core::mem::transmute_copy(&pbookmark), ::core::mem::transmute_copy(&lrowsoffset), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&pcrowsobtained), ::core::mem::transmute_copy(&prghrows)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FindNextRow: FindNextRow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FindNextRow: FindNextRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetFind as ::windows::core::Interface>::IID
@@ -3440,7 +3440,7 @@ impl IRowsetIdentity_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IsSameRow(::core::mem::transmute_copy(&hthisrow), ::core::mem::transmute_copy(&hthatrow)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsSameRow: IsSameRow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsSameRow: IsSameRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetIdentity as ::windows::core::Interface>::IID
@@ -3471,7 +3471,7 @@ impl IRowsetIndex_Vtbl {
             (*this).SetRange(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&cstartkeycolumns), ::core::mem::transmute_copy(&pstartdata), ::core::mem::transmute_copy(&cendkeycolumns), ::core::mem::transmute_copy(&penddata), ::core::mem::transmute_copy(&dwrangeoptions)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIndexInfo: GetIndexInfo::<Identity, Impl, OFFSET>,
             Seek: Seek::<Identity, Impl, OFFSET>,
             SetRange: SetRange::<Identity, Impl, OFFSET>,
@@ -3518,7 +3518,7 @@ impl IRowsetInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetReferencedRowset: GetReferencedRowset::<Identity, Impl, OFFSET>,
             GetSpecification: GetSpecification::<Identity, Impl, OFFSET>,
@@ -3538,7 +3538,7 @@ impl IRowsetKeys_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ListKeys(::core::mem::transmute_copy(&pccolumns), ::core::mem::transmute_copy(&prgcolumns)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ListKeys: ListKeys::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ListKeys: ListKeys::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetKeys as ::windows::core::Interface>::IID
@@ -3573,7 +3573,7 @@ impl IRowsetLocate_Vtbl {
             (*this).Hash(::core::mem::transmute_copy(&hreserved), ::core::mem::transmute_copy(&cbookmarks), ::core::mem::transmute_copy(&rgcbbookmarks), ::core::mem::transmute_copy(&rgpbookmarks), ::core::mem::transmute_copy(&rghashedvalues), ::core::mem::transmute_copy(&rgbookmarkstatus)).into()
         }
         Self {
-            base: IRowset_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRowset_Vtbl::new::<Identity, Impl, OFFSET>(),
             Compare: Compare::<Identity, Impl, OFFSET>,
             GetRowsAt: GetRowsAt::<Identity, Impl, OFFSET>,
             GetRowsByBookmark: GetRowsByBookmark::<Identity, Impl, OFFSET>,
@@ -3594,7 +3594,7 @@ impl IRowsetNewRowAfter_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetNewDataAfter(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&cbbmprevious), ::core::mem::transmute_copy(&pbmprevious), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&phrow)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetNewDataAfter: SetNewDataAfter::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetNewDataAfter: SetNewDataAfter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetNewRowAfter as ::windows::core::Interface>::IID
@@ -3616,7 +3616,7 @@ impl IRowsetNextRowset_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNextRowset: GetNextRowset::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNextRowset: GetNextRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetNextRowset as ::windows::core::Interface>::IID
@@ -3647,7 +3647,7 @@ impl IRowsetNotify_Vtbl {
             (*this).OnRowsetChange(::core::mem::transmute(&prowset), ::core::mem::transmute_copy(&ereason), ::core::mem::transmute_copy(&ephase), ::core::mem::transmute_copy(&fcantdeny)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnFieldChange: OnFieldChange::<Identity, Impl, OFFSET>,
             OnRowChange: OnRowChange::<Identity, Impl, OFFSET>,
             OnRowsetChange: OnRowsetChange::<Identity, Impl, OFFSET>,
@@ -3680,7 +3680,7 @@ impl IRowsetPrioritization_Vtbl {
             (*this).GetScopeStatistics(::core::mem::transmute_copy(&indexeddocumentcount), ::core::mem::transmute_copy(&oustandingaddcount), ::core::mem::transmute_copy(&oustandingmodifycount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetScopePriority: SetScopePriority::<Identity, Impl, OFFSET>,
             GetScopePriority: GetScopePriority::<Identity, Impl, OFFSET>,
             GetScopeStatistics: GetScopeStatistics::<Identity, Impl, OFFSET>,
@@ -3707,7 +3707,7 @@ impl IRowsetQueryStatus_Vtbl {
             (*this).GetStatusEx(::core::mem::transmute_copy(&pdwstatus), ::core::mem::transmute_copy(&pcfiltereddocuments), ::core::mem::transmute_copy(&pcdocumentstofilter), ::core::mem::transmute_copy(&pdwratiofinisheddenominator), ::core::mem::transmute_copy(&pdwratiofinishednumerator), ::core::mem::transmute_copy(&cbbmk), ::core::mem::transmute_copy(&pbmk), ::core::mem::transmute_copy(&pirowbmk), ::core::mem::transmute_copy(&pcrowstotal)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             GetStatusEx: GetStatusEx::<Identity, Impl, OFFSET>,
         }
@@ -3735,7 +3735,7 @@ impl IRowsetRefresh_Vtbl {
             (*this).GetLastVisibleData(::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RefreshVisibleData: RefreshVisibleData::<Identity, Impl, OFFSET>,
             GetLastVisibleData: GetLastVisibleData::<Identity, Impl, OFFSET>,
         }
@@ -3761,7 +3761,7 @@ impl IRowsetResynch_Vtbl {
             (*this).ResynchRows(::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rghrows), ::core::mem::transmute_copy(&pcrowsresynched), ::core::mem::transmute_copy(&prghrowsresynched), ::core::mem::transmute_copy(&prgrowstatus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetVisibleData: GetVisibleData::<Identity, Impl, OFFSET>,
             ResynchRows: ResynchRows::<Identity, Impl, OFFSET>,
         }
@@ -3787,7 +3787,7 @@ impl IRowsetScroll_Vtbl {
             (*this).GetRowsAtRatio(::core::mem::transmute_copy(&hreserved1), ::core::mem::transmute_copy(&hreserved2), ::core::mem::transmute_copy(&ulnumerator), ::core::mem::transmute_copy(&uldenominator), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&pcrowsobtained), ::core::mem::transmute_copy(&prghrows)).into()
         }
         Self {
-            base: IRowsetLocate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRowsetLocate_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetApproximatePosition: GetApproximatePosition::<Identity, Impl, OFFSET>,
             GetRowsAtRatio: GetRowsAtRatio::<Identity, Impl, OFFSET>,
         }
@@ -3831,7 +3831,7 @@ impl IRowsetUpdate_Vtbl {
             (*this).Update(::core::mem::transmute_copy(&hreserved), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rghrows), ::core::mem::transmute_copy(&pcrows), ::core::mem::transmute_copy(&prgrows), ::core::mem::transmute_copy(&prgrowstatus)).into()
         }
         Self {
-            base: IRowsetChange_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRowsetChange_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOriginalData: GetOriginalData::<Identity, Impl, OFFSET>,
             GetPendingRows: GetPendingRows::<Identity, Impl, OFFSET>,
             GetRowStatus: GetRowStatus::<Identity, Impl, OFFSET>,
@@ -3866,7 +3866,7 @@ impl IRowsetView_Vtbl {
             (*this).GetView(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&phchaptersource), ::core::mem::transmute_copy(&ppview)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateView: CreateView::<Identity, Impl, OFFSET>,
             GetView: GetView::<Identity, Impl, OFFSET>,
         }
@@ -3898,7 +3898,7 @@ impl IRowsetWatchAll_Vtbl {
             (*this).StopWatching().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Acknowledge: Acknowledge::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
             StopWatching: StopWatching::<Identity, Impl, OFFSET>,
@@ -3918,7 +3918,7 @@ impl IRowsetWatchNotify_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnChange(::core::mem::transmute(&prowset), ::core::mem::transmute_copy(&echangereason)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRowsetWatchNotify as ::windows::core::Interface>::IID
@@ -3965,7 +3965,7 @@ impl IRowsetWatchRegion_Vtbl {
             (*this).ShrinkWatchRegion(::core::mem::transmute_copy(&hregion), ::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&cbbookmark), ::core::mem::transmute_copy(&pbookmark), ::core::mem::transmute_copy(&crows)).into()
         }
         Self {
-            base: IRowsetWatchAll_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IRowsetWatchAll_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateWatchRegion: CreateWatchRegion::<Identity, Impl, OFFSET>,
             ChangeWatchMode: ChangeWatchMode::<Identity, Impl, OFFSET>,
             DeleteWatchRegion: DeleteWatchRegion::<Identity, Impl, OFFSET>,
@@ -3997,7 +3997,7 @@ impl IRowsetWithParameters_Vtbl {
             (*this).Requery(::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&pulerrorparam), ::core::mem::transmute_copy(&phreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetParameterInfo: GetParameterInfo::<Identity, Impl, OFFSET>,
             Requery: Requery::<Identity, Impl, OFFSET>,
         }
@@ -4018,7 +4018,7 @@ impl ISQLErrorInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSQLInfo(::core::mem::transmute_copy(&pbstrsqlstate), ::core::mem::transmute_copy(&plnativeerror)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSQLInfo: GetSQLInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSQLInfo: GetSQLInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISQLErrorInfo as ::windows::core::Interface>::IID
@@ -4036,7 +4036,7 @@ impl ISQLGetDiagField_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDiagField(::core::mem::transmute_copy(&pdiaginfo)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDiagField: GetDiagField::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDiagField: GetDiagField::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISQLGetDiagField as ::windows::core::Interface>::IID
@@ -4052,7 +4052,7 @@ impl ISQLRequestDiagFields_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RequestDiagFields(::core::mem::transmute_copy(&cdiagfields), ::core::mem::transmute_copy(&rgdiagfields)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), RequestDiagFields: RequestDiagFields::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), RequestDiagFields: RequestDiagFields::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISQLRequestDiagFields as ::windows::core::Interface>::IID
@@ -4068,7 +4068,7 @@ impl ISQLServerErrorInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetErrorInfo(::core::mem::transmute_copy(&pperrorinfo), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISQLServerErrorInfo as ::windows::core::Interface>::IID
@@ -4090,7 +4090,7 @@ impl ISchemaLocalizerSupport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Localize: Localize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Localize: Localize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISchemaLocalizerSupport as ::windows::core::Interface>::IID
@@ -4115,7 +4115,7 @@ impl ISchemaLock_Vtbl {
             (*this).ReleaseSchemaLock(::core::mem::transmute_copy(&hlockhandle)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSchemaLock: GetSchemaLock::<Identity, Impl, OFFSET>,
             ReleaseSchemaLock: ReleaseSchemaLock::<Identity, Impl, OFFSET>,
         }
@@ -4183,7 +4183,7 @@ impl ISchemaProvider_Vtbl {
             (*this).LookupAuthoredNamedEntity(::core::mem::transmute(&pentity), ::core::mem::transmute(&pszinputstring), ::core::mem::transmute(&ptokencollection), ::core::mem::transmute_copy(&ctokensbegin), ::core::mem::transmute_copy(&pctokenslength), ::core::mem::transmute_copy(&ppszvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Entities: Entities::<Identity, Impl, OFFSET>,
             RootEntity: RootEntity::<Identity, Impl, OFFSET>,
             GetEntity: GetEntity::<Identity, Impl, OFFSET>,
@@ -4228,7 +4228,7 @@ impl IScopedOperations_Vtbl {
             (*this).OpenRowset(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pindexid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets), ::core::mem::transmute_copy(&pprowset)).into()
         }
         Self {
-            base: IBindResource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IBindResource_Vtbl::new::<Identity, Impl, OFFSET>(),
             Copy: Copy::<Identity, Impl, OFFSET>,
             Move: Move::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -4480,7 +4480,7 @@ impl ISearchCatalogManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             GetParameter: GetParameter::<Identity, Impl, OFFSET>,
             SetParameter: SetParameter::<Identity, Impl, OFFSET>,
@@ -4525,7 +4525,7 @@ impl ISearchCatalogManager2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).PrioritizeMatchingURLs(::core::mem::transmute(&pszpattern), ::core::mem::transmute_copy(&dwprioritizeflags)).into()
         }
-        Self { base: ISearchCatalogManager_Vtbl::new::<Identity, Impl, OFFSET>(), PrioritizeMatchingURLs: PrioritizeMatchingURLs::<Identity, Impl, OFFSET> }
+        Self { base__: ISearchCatalogManager_Vtbl::new::<Identity, Impl, OFFSET>(), PrioritizeMatchingURLs: PrioritizeMatchingURLs::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchCatalogManager2 as ::windows::core::Interface>::IID || iid == &<ISearchCatalogManager as ::windows::core::Interface>::IID
@@ -4670,7 +4670,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             (*this).RemoveDefaultScopeRule(::core::mem::transmute(&pszurl)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddDefaultScopeRule: AddDefaultScopeRule::<Identity, Impl, OFFSET>,
             AddRoot: AddRoot::<Identity, Impl, OFFSET>,
             RemoveRoot: RemoveRoot::<Identity, Impl, OFFSET>,
@@ -4705,7 +4705,7 @@ impl ISearchCrawlScopeManager2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetVersion(::core::mem::transmute_copy(&plversion), ::core::mem::transmute_copy(&phfilemapping)).into()
         }
-        Self { base: ISearchCrawlScopeManager_Vtbl::new::<Identity, Impl, OFFSET>(), GetVersion: GetVersion::<Identity, Impl, OFFSET> }
+        Self { base__: ISearchCrawlScopeManager_Vtbl::new::<Identity, Impl, OFFSET>(), GetVersion: GetVersion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchCrawlScopeManager2 as ::windows::core::Interface>::IID || iid == &<ISearchCrawlScopeManager as ::windows::core::Interface>::IID
@@ -4736,7 +4736,7 @@ impl ISearchItemsChangedSink_Vtbl {
             (*this).OnItemsChanged(::core::mem::transmute_copy(&dwnumberofchanges), ::core::mem::transmute_copy(&rgdatachangeentries), ::core::mem::transmute_copy(&rgdwdocids), ::core::mem::transmute_copy(&rghrcompletioncodes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartedMonitoringScope: StartedMonitoringScope::<Identity, Impl, OFFSET>,
             StoppedMonitoringScope: StoppedMonitoringScope::<Identity, Impl, OFFSET>,
             OnItemsChanged: OnItemsChanged::<Identity, Impl, OFFSET>,
@@ -4795,7 +4795,7 @@ impl ISearchLanguageSupport_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDiacriticSensitivity: SetDiacriticSensitivity::<Identity, Impl, OFFSET>,
             GetDiacriticSensitivity: GetDiacriticSensitivity::<Identity, Impl, OFFSET>,
             LoadWordBreaker: LoadWordBreaker::<Identity, Impl, OFFSET>,
@@ -4946,7 +4946,7 @@ impl ISearchManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIndexerVersionStr: GetIndexerVersionStr::<Identity, Impl, OFFSET>,
             GetIndexerVersion: GetIndexerVersion::<Identity, Impl, OFFSET>,
             GetParameter: GetParameter::<Identity, Impl, OFFSET>,
@@ -4991,7 +4991,7 @@ impl ISearchManager2_Vtbl {
             (*this).DeleteCatalog(::core::mem::transmute(&pszcatalog)).into()
         }
         Self {
-            base: ISearchManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISearchManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateCatalog: CreateCatalog::<Identity, Impl, OFFSET>,
             DeleteCatalog: DeleteCatalog::<Identity, Impl, OFFSET>,
         }
@@ -5017,7 +5017,7 @@ impl ISearchNotifyInlineSite_Vtbl {
             (*this).OnCatalogStatusChange(::core::mem::transmute_copy(&guidcatalogresetsignature), ::core::mem::transmute_copy(&guidcheckpointsignature), ::core::mem::transmute_copy(&dwlastcheckpointnumber)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnItemIndexedStatusChange: OnItemIndexedStatusChange::<Identity, Impl, OFFSET>,
             OnCatalogStatusChange: OnCatalogStatusChange::<Identity, Impl, OFFSET>,
         }
@@ -5049,7 +5049,7 @@ impl ISearchPersistentItemsChangedSink_Vtbl {
             (*this).OnItemsChanged(::core::mem::transmute_copy(&dwnumberofchanges), ::core::mem::transmute_copy(&datachangeentries), ::core::mem::transmute_copy(&hrcompletioncodes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StartedMonitoringScope: StartedMonitoringScope::<Identity, Impl, OFFSET>,
             StoppedMonitoringScope: StoppedMonitoringScope::<Identity, Impl, OFFSET>,
             OnItemsChanged: OnItemsChanged::<Identity, Impl, OFFSET>,
@@ -5090,7 +5090,7 @@ impl ISearchProtocol_Vtbl {
             (*this).ShutDown().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             CreateAccessor: CreateAccessor::<Identity, Impl, OFFSET>,
             CloseAccessor: CloseAccessor::<Identity, Impl, OFFSET>,
@@ -5113,7 +5113,7 @@ impl ISearchProtocol2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateAccessorEx(::core::mem::transmute(&pcwszurl), ::core::mem::transmute_copy(&pauthenticationinfo), ::core::mem::transmute_copy(&pincrementalaccessinfo), ::core::mem::transmute_copy(&piteminfo), ::core::mem::transmute_copy(&puserdata), ::core::mem::transmute_copy(&ppaccessor)).into()
         }
-        Self { base: ISearchProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), CreateAccessorEx: CreateAccessorEx::<Identity, Impl, OFFSET> }
+        Self { base__: ISearchProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), CreateAccessorEx: CreateAccessorEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchProtocol2 as ::windows::core::Interface>::IID || iid == &<ISearchProtocol as ::windows::core::Interface>::IID
@@ -5142,7 +5142,7 @@ impl ISearchProtocolThreadContext_Vtbl {
             (*this).ThreadIdle(::core::mem::transmute_copy(&dwtimeelaspedsincelastcallinms)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ThreadInit: ThreadInit::<Identity, Impl, OFFSET>,
             ThreadShutdown: ThreadShutdown::<Identity, Impl, OFFSET>,
             ThreadIdle: ThreadIdle::<Identity, Impl, OFFSET>,
@@ -5351,7 +5351,7 @@ impl ISearchQueryHelper_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectionString: ConnectionString::<Identity, Impl, OFFSET>,
             SetQueryContentLocale: SetQueryContentLocale::<Identity, Impl, OFFSET>,
             QueryContentLocale: QueryContentLocale::<Identity, Impl, OFFSET>,
@@ -5404,7 +5404,7 @@ impl ISearchQueryHits_Vtbl {
             (*this).NextHitOffset(::core::mem::transmute_copy(&pcregion), ::core::mem::transmute_copy(&paregion))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             NextHitMoniker: NextHitMoniker::<Identity, Impl, OFFSET>,
             NextHitOffset: NextHitOffset::<Identity, Impl, OFFSET>,
@@ -5619,7 +5619,7 @@ impl ISearchRoot_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetSchedule: SetSchedule::<Identity, Impl, OFFSET>,
             Schedule: Schedule::<Identity, Impl, OFFSET>,
             SetRootURL: SetRootURL::<Identity, Impl, OFFSET>,
@@ -5703,7 +5703,7 @@ impl ISearchScopeRule_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PatternOrURL: PatternOrURL::<Identity, Impl, OFFSET>,
             IsIncluded: IsIncluded::<Identity, Impl, OFFSET>,
             IsDefault: IsDefault::<Identity, Impl, OFFSET>,
@@ -5726,7 +5726,7 @@ impl ISearchViewChangedSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnChange(::core::mem::transmute_copy(&pdwdocid), ::core::mem::transmute_copy(&pchange), ::core::mem::transmute_copy(&pfinview)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchViewChangedSink as ::windows::core::Interface>::IID
@@ -5757,7 +5757,7 @@ impl ISecurityInfo_Vtbl {
             (*this).GetPermissions(::core::mem::transmute(&objecttype), ::core::mem::transmute_copy(&ppermissions)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCurrentTrustee: GetCurrentTrustee::<Identity, Impl, OFFSET>,
             GetObjectTypes: GetObjectTypes::<Identity, Impl, OFFSET>,
             GetPermissions: GetPermissions::<Identity, Impl, OFFSET>,
@@ -5777,7 +5777,7 @@ impl IService_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InvokeService(::core::mem::transmute(&punkinner)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvokeService: InvokeService::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvokeService: InvokeService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IService as ::windows::core::Interface>::IID
@@ -5802,7 +5802,7 @@ impl ISessionProperties_Vtbl {
             (*this).SetProperties(::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             SetProperties: SetProperties::<Identity, Impl, OFFSET>,
         }
@@ -5834,7 +5834,7 @@ impl ISimpleCommandCreator_Vtbl {
             (*this).GetDefaultCatalog(::core::mem::transmute(&pwszcatalogname), ::core::mem::transmute_copy(&cwcin), ::core::mem::transmute_copy(&pcwcout)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateICommand: CreateICommand::<Identity, Impl, OFFSET>,
             VerifyCatalog: VerifyCatalog::<Identity, Impl, OFFSET>,
             GetDefaultCatalog: GetDefaultCatalog::<Identity, Impl, OFFSET>,
@@ -5856,7 +5856,7 @@ impl ISourcesRowset_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSourcesRowset(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgproperties), ::core::mem::transmute_copy(&ppsourcesrowset)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSourcesRowset: GetSourcesRowset::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSourcesRowset: GetSourcesRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISourcesRowset as ::windows::core::Interface>::IID
@@ -5887,7 +5887,7 @@ impl IStemmer_Vtbl {
             (*this).GetLicenseToUse(::core::mem::transmute_copy(&ppwcslicense)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             GenerateWordForms: GenerateWordForms::<Identity, Impl, OFFSET>,
             GetLicenseToUse: GetLicenseToUse::<Identity, Impl, OFFSET>,
@@ -5964,7 +5964,7 @@ impl ISubscriptionItem_Vtbl {
             (*this).NotifyChanged().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCookie: GetCookie::<Identity, Impl, OFFSET>,
             GetSubscriptionItemInfo: GetSubscriptionItemInfo::<Identity, Impl, OFFSET>,
             SetSubscriptionItemInfo: SetSubscriptionItemInfo::<Identity, Impl, OFFSET>,
@@ -6051,7 +6051,7 @@ impl ISubscriptionMgr_Vtbl {
             (*this).CreateSubscription(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&pwszurl), ::core::mem::transmute(&pwszfriendlyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&substype), ::core::mem::transmute_copy(&pinfo)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeleteSubscription: DeleteSubscription::<Identity, Impl, OFFSET>,
             UpdateSubscription: UpdateSubscription::<Identity, Impl, OFFSET>,
             UpdateAll: UpdateAll::<Identity, Impl, OFFSET>,
@@ -6133,7 +6133,7 @@ impl ISubscriptionMgr2_Vtbl {
             (*this).AbortAll().into()
         }
         Self {
-            base: ISubscriptionMgr_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISubscriptionMgr_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetItemFromURL: GetItemFromURL::<Identity, Impl, OFFSET>,
             GetItemFromCookie: GetItemFromCookie::<Identity, Impl, OFFSET>,
             GetSubscriptionRunState: GetSubscriptionRunState::<Identity, Impl, OFFSET>,
@@ -6159,7 +6159,7 @@ impl ITableCreation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetTableDefinition(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pccolumndescs), ::core::mem::transmute_copy(&prgcolumndescs), ::core::mem::transmute_copy(&pcpropertysets), ::core::mem::transmute_copy(&prgpropertysets), ::core::mem::transmute_copy(&pcconstraintdescs), ::core::mem::transmute_copy(&prgconstraintdescs), ::core::mem::transmute_copy(&ppwszstringbuffer)).into()
         }
-        Self { base: ITableDefinition_Vtbl::new::<Identity, Impl, OFFSET>(), GetTableDefinition: GetTableDefinition::<Identity, Impl, OFFSET> }
+        Self { base__: ITableDefinition_Vtbl::new::<Identity, Impl, OFFSET>(), GetTableDefinition: GetTableDefinition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITableCreation as ::windows::core::Interface>::IID || iid == &<ITableDefinition as ::windows::core::Interface>::IID
@@ -6202,7 +6202,7 @@ impl ITableDefinition_Vtbl {
             (*this).DropColumn(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pcolumnid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateTable: CreateTable::<Identity, Impl, OFFSET>,
             DropTable: DropTable::<Identity, Impl, OFFSET>,
             AddColumn: AddColumn::<Identity, Impl, OFFSET>,
@@ -6240,7 +6240,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
             (*this).DropConstraint(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pconstraintid)).into()
         }
         Self {
-            base: ITableCreation_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITableCreation_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddConstraint: AddConstraint::<Identity, Impl, OFFSET>,
             CreateTableWithConstraints: CreateTableWithConstraints::<Identity, Impl, OFFSET>,
             DropConstraint: DropConstraint::<Identity, Impl, OFFSET>,
@@ -6269,7 +6269,7 @@ impl ITableRename_Vtbl {
             (*this).RenameTable(::core::mem::transmute_copy(&poldtableid), ::core::mem::transmute_copy(&poldindexid), ::core::mem::transmute_copy(&pnewtableid), ::core::mem::transmute_copy(&pnewindexid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RenameColumn: RenameColumn::<Identity, Impl, OFFSET>,
             RenameTable: RenameTable::<Identity, Impl, OFFSET>,
         }
@@ -6295,7 +6295,7 @@ impl ITokenCollection_Vtbl {
             (*this).GetToken(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&pbegin), ::core::mem::transmute_copy(&plength), ::core::mem::transmute_copy(&ppsz)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NumberOfTokens: NumberOfTokens::<Identity, Impl, OFFSET>,
             GetToken: GetToken::<Identity, Impl, OFFSET>,
         }
@@ -6329,7 +6329,7 @@ impl ITransactionJoin_Vtbl {
             (*this).JoinTransaction(::core::mem::transmute(&punktransactioncoord), ::core::mem::transmute_copy(&isolevel), ::core::mem::transmute_copy(&isoflags), ::core::mem::transmute(&potheroptions)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetOptionsObject: GetOptionsObject::<Identity, Impl, OFFSET>,
             JoinTransaction: JoinTransaction::<Identity, Impl, OFFSET>,
         }
@@ -6369,7 +6369,7 @@ impl ITransactionLocal_Vtbl {
             }
         }
         Self {
-            base: super::DistributedTransactionCoordinator::ITransaction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::DistributedTransactionCoordinator::ITransaction_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOptionsObject: GetOptionsObject::<Identity, Impl, OFFSET>,
             StartTransaction: StartTransaction::<Identity, Impl, OFFSET>,
         }
@@ -6396,7 +6396,7 @@ impl ITransactionObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetTransactionObject: GetTransactionObject::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetTransactionObject: GetTransactionObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransactionObject as ::windows::core::Interface>::IID
@@ -6439,7 +6439,7 @@ impl ITrusteeAdmin_Vtbl {
             (*this).GetTrusteeProperties(::core::mem::transmute_copy(&ptrustee), ::core::mem::transmute_copy(&cpropertyidsets), ::core::mem::transmute_copy(&rgpropertyidsets), ::core::mem::transmute_copy(&pcpropertysets), ::core::mem::transmute_copy(&prgpropertysets)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CompareTrustees: CompareTrustees::<Identity, Impl, OFFSET>,
             CreateTrustee: CreateTrustee::<Identity, Impl, OFFSET>,
             DeleteTrustee: DeleteTrustee::<Identity, Impl, OFFSET>,
@@ -6488,7 +6488,7 @@ impl ITrusteeGroupAdmin_Vtbl {
             (*this).GetMemberships(::core::mem::transmute_copy(&ptrustee), ::core::mem::transmute_copy(&pcmemberships), ::core::mem::transmute_copy(&prgmemberships)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddMember: AddMember::<Identity, Impl, OFFSET>,
             DeleteMember: DeleteMember::<Identity, Impl, OFFSET>,
             IsMember: IsMember::<Identity, Impl, OFFSET>,
@@ -6558,7 +6558,7 @@ impl IUMSInitialize_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&pums)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUMSInitialize as ::windows::core::Interface>::IID
@@ -6685,7 +6685,7 @@ impl IUrlAccessor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddRequestParameter: AddRequestParameter::<Identity, Impl, OFFSET>,
             GetDocFormat: GetDocFormat::<Identity, Impl, OFFSET>,
             GetCLSID: GetCLSID::<Identity, Impl, OFFSET>,
@@ -6730,7 +6730,7 @@ impl IUrlAccessor2_Vtbl {
             (*this).GetCodePage(::core::mem::transmute_copy(&wszcodepage), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
         }
         Self {
-            base: IUrlAccessor_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUrlAccessor_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDisplayUrl: GetDisplayUrl::<Identity, Impl, OFFSET>,
             IsDocument: IsDocument::<Identity, Impl, OFFSET>,
             GetCodePage: GetCodePage::<Identity, Impl, OFFSET>,
@@ -6752,7 +6752,7 @@ impl IUrlAccessor3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetImpersonationSidBlobs(::core::mem::transmute(&pcwszurl), ::core::mem::transmute_copy(&pcsidcount), ::core::mem::transmute_copy(&ppsidblobs)).into()
         }
-        Self { base: IUrlAccessor2_Vtbl::new::<Identity, Impl, OFFSET>(), GetImpersonationSidBlobs: GetImpersonationSidBlobs::<Identity, Impl, OFFSET> }
+        Self { base__: IUrlAccessor2_Vtbl::new::<Identity, Impl, OFFSET>(), GetImpersonationSidBlobs: GetImpersonationSidBlobs::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUrlAccessor3 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor as ::windows::core::Interface>::IID || iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID
@@ -6789,7 +6789,7 @@ impl IUrlAccessor4_Vtbl {
             }
         }
         Self {
-            base: IUrlAccessor3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IUrlAccessor3_Vtbl::new::<Identity, Impl, OFFSET>(),
             ShouldIndexItemContent: ShouldIndexItemContent::<Identity, Impl, OFFSET>,
             ShouldIndexProperty: ShouldIndexProperty::<Identity, Impl, OFFSET>,
         }
@@ -6827,7 +6827,7 @@ impl IViewChapter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSpecification: GetSpecification::<Identity, Impl, OFFSET>,
             OpenViewChapter: OpenViewChapter::<Identity, Impl, OFFSET>,
         }
@@ -6861,7 +6861,7 @@ impl IViewFilter_Vtbl {
             (*this).SetFilter(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&compareops), ::core::mem::transmute_copy(&pcriteriadata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFilter: GetFilter::<Identity, Impl, OFFSET>,
             GetFilterBindings: GetFilterBindings::<Identity, Impl, OFFSET>,
             SetFilter: SetFilter::<Identity, Impl, OFFSET>,
@@ -6900,7 +6900,7 @@ impl IViewRowset_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSpecification: GetSpecification::<Identity, Impl, OFFSET>,
             OpenViewRowset: OpenViewRowset::<Identity, Impl, OFFSET>,
         }
@@ -6926,7 +6926,7 @@ impl IViewSort_Vtbl {
             (*this).SetSortOrder(::core::mem::transmute_copy(&cvalues), ::core::mem::transmute_copy(&rgcolumns), ::core::mem::transmute_copy(&rgorders)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSortOrder: GetSortOrder::<Identity, Impl, OFFSET>,
             SetSortOrder: SetSortOrder::<Identity, Impl, OFFSET>,
         }
@@ -6966,7 +6966,7 @@ impl IWordBreaker_Vtbl {
             (*this).GetLicenseToUse(::core::mem::transmute_copy(&ppwcslicense)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             BreakText: BreakText::<Identity, Impl, OFFSET>,
             ComposePhrase: ComposePhrase::<Identity, Impl, OFFSET>,
@@ -6994,7 +6994,7 @@ impl IWordFormSink_Vtbl {
             (*this).PutWord(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PutAltWord: PutAltWord::<Identity, Impl, OFFSET>,
             PutWord: PutWord::<Identity, Impl, OFFSET>,
         }
@@ -7040,7 +7040,7 @@ impl IWordSink_Vtbl {
             (*this).PutBreak(::core::mem::transmute_copy(&breaktype)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PutWord: PutWord::<Identity, Impl, OFFSET>,
             PutAltWord: PutAltWord::<Identity, Impl, OFFSET>,
             StartAltPhrase: StartAltPhrase::<Identity, Impl, OFFSET>,
@@ -7203,7 +7203,7 @@ impl OLEDBSimpleProvider_Vtbl {
             (*this).stopTransfer().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             getRowCount: getRowCount::<Identity, Impl, OFFSET>,
             getColumnCount: getColumnCount::<Identity, Impl, OFFSET>,
             getRWStatus: getRWStatus::<Identity, Impl, OFFSET>,
@@ -7277,7 +7277,7 @@ impl OLEDBSimpleProviderListener_Vtbl {
             (*this).transferComplete(::core::mem::transmute_copy(&xfer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             aboutToChangeCell: aboutToChangeCell::<Identity, Impl, OFFSET>,
             cellChanged: cellChanged::<Identity, Impl, OFFSET>,
             aboutToDeleteRows: aboutToDeleteRows::<Identity, Impl, OFFSET>,

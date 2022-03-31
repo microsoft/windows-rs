@@ -25,7 +25,7 @@ impl IGraphicsEffect_Vtbl {
             (*this).SetName(::core::mem::transmute(&name)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsEffect, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsEffect, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
         }
@@ -40,7 +40,7 @@ impl ::windows::core::RuntimeName for IGraphicsEffectSource {
 }
 impl IGraphicsEffectSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectSource_Impl, const OFFSET: isize>() -> IGraphicsEffectSource_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGraphicsEffectSource as ::windows::core::Interface>::IID

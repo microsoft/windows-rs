@@ -41,7 +41,7 @@ impl IAccountingProviderConfig_Vtbl {
             (*this).Deactivate(::core::mem::transmute_copy(&uconnectionparam), ::core::mem::transmute_copy(&ureserved1), ::core::mem::transmute_copy(&ureserved2)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
@@ -96,7 +96,7 @@ impl IAuthenticationProviderConfig_Vtbl {
             (*this).Deactivate(::core::mem::transmute_copy(&uconnectionparam), ::core::mem::transmute_copy(&ureserved1), ::core::mem::transmute_copy(&ureserved2)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
@@ -153,7 +153,7 @@ impl IEAPProviderConfig_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             ServerInvokeConfigUI: ServerInvokeConfigUI::<Identity, Impl, OFFSET>,
@@ -184,7 +184,7 @@ impl IEAPProviderConfig2_Vtbl {
             (*this).GetGlobalConfig(::core::mem::transmute_copy(&dweaptypeid), ::core::mem::transmute_copy(&ppconfigdataout), ::core::mem::transmute_copy(&pdwsizeofconfigdataout)).into()
         }
         Self {
-            base: IEAPProviderConfig_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEAPProviderConfig_Vtbl::new::<Identity, Impl, OFFSET>(),
             ServerInvokeConfigUI2: ServerInvokeConfigUI2::<Identity, Impl, OFFSET>,
             GetGlobalConfig: GetGlobalConfig::<Identity, Impl, OFFSET>,
         }
@@ -206,7 +206,7 @@ impl IEAPProviderConfig3_Vtbl {
             (*this).ServerInvokeCertificateConfigUI(::core::mem::transmute_copy(&dweaptypeid), ::core::mem::transmute_copy(&uconnectionparam), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&pconfigdatain), ::core::mem::transmute_copy(&dwsizeofconfigdatain), ::core::mem::transmute_copy(&ppconfigdataout), ::core::mem::transmute_copy(&pdwsizeofconfigdataout), ::core::mem::transmute_copy(&ureserved)).into()
         }
         Self {
-            base: IEAPProviderConfig2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IEAPProviderConfig2_Vtbl::new::<Identity, Impl, OFFSET>(),
             ServerInvokeCertificateConfigUI: ServerInvokeCertificateConfigUI::<Identity, Impl, OFFSET>,
         }
     }
@@ -233,7 +233,7 @@ impl IRouterProtocolConfig_Vtbl {
             (*this).RemoveProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddProtocol: AddProtocol::<Identity, Impl, OFFSET>,
             RemoveProtocol: RemoveProtocol::<Identity, Impl, OFFSET>,
         }

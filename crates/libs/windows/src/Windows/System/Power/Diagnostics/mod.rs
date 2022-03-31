@@ -86,7 +86,7 @@ unsafe impl ::windows::core::Interface for IBackgroundEnergyDiagnosticsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundEnergyDiagnosticsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceSpecificConversionFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -113,7 +113,7 @@ unsafe impl ::windows::core::Interface for IForegroundEnergyDiagnosticsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForegroundEnergyDiagnosticsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceSpecificConversionFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

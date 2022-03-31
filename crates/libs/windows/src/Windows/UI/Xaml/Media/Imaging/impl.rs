@@ -17,7 +17,7 @@ impl IXamlRenderingBackgroundTaskOverrides_Vtbl {
             (*this).OnRun(::core::mem::transmute(&taskinstance)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlRenderingBackgroundTaskOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlRenderingBackgroundTaskOverrides, OFFSET>(),
             OnRun: OnRun::<Identity, Impl, OFFSET>,
         }
     }

@@ -125,7 +125,7 @@ impl IActiveIME_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Inquire: Inquire::<Identity, Impl, OFFSET>,
             ConversionList: ConversionList::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
@@ -167,7 +167,7 @@ impl IActiveIME2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Unsleep(::core::mem::transmute_copy(&fdead)).into()
         }
-        Self { base: IActiveIME_Vtbl::new::<Identity, Impl, OFFSET>(), Sleep: Sleep::<Identity, Impl, OFFSET>, Unsleep: Unsleep::<Identity, Impl, OFFSET> }
+        Self { base__: IActiveIME_Vtbl::new::<Identity, Impl, OFFSET>(), Sleep: Sleep::<Identity, Impl, OFFSET>, Unsleep: Unsleep::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActiveIME2 as ::windows::core::Interface>::IID || iid == &<IActiveIME as ::windows::core::Interface>::IID
@@ -702,7 +702,7 @@ impl IActiveIMMApp_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AssociateContext: AssociateContext::<Identity, Impl, OFFSET>,
             ConfigureIMEA: ConfigureIMEA::<Identity, Impl, OFFSET>,
             ConfigureIMEW: ConfigureIMEW::<Identity, Impl, OFFSET>,
@@ -1486,7 +1486,7 @@ impl IActiveIMMIME_Vtbl {
             (*this).IsSleeping().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AssociateContext: AssociateContext::<Identity, Impl, OFFSET>,
             ConfigureIMEA: ConfigureIMEA::<Identity, Impl, OFFSET>,
             ConfigureIMEW: ConfigureIMEW::<Identity, Impl, OFFSET>,
@@ -1624,7 +1624,7 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
             (*this).Resume(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             End: End::<Identity, Impl, OFFSET>,
             OnTranslateMessage: OnTranslateMessage::<Identity, Impl, OFFSET>,
@@ -1653,7 +1653,7 @@ impl IActiveIMMRegistrar_Vtbl {
             (*this).UnregisterIME(::core::mem::transmute_copy(&rclsid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterIME: RegisterIME::<Identity, Impl, OFFSET>,
             UnregisterIME: UnregisterIME::<Identity, Impl, OFFSET>,
         }
@@ -1699,7 +1699,7 @@ impl IEnumInputContext_Vtbl {
             (*this).Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1745,7 +1745,7 @@ impl IEnumRegisterWordA_Vtbl {
             (*this).Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1791,7 +1791,7 @@ impl IEnumRegisterWordW_Vtbl {
             (*this).Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1807,7 +1807,7 @@ pub trait IFEClassFactory_Impl: Sized + super::super::super::System::Com::IClass
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFEClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFEClassFactory_Impl, const OFFSET: isize>() -> IFEClassFactory_Vtbl {
-        Self { base: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFEClassFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as ::windows::core::Interface>::IID
@@ -1844,7 +1844,7 @@ impl IFECommon_Vtbl {
             (*this).InvokeDictToolDialog(::core::mem::transmute_copy(&pimedlg)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsDefaultIME: IsDefaultIME::<Identity, Impl, OFFSET>,
             SetDefaultIME: SetDefaultIME::<Identity, Impl, OFFSET>,
             InvokeWordRegDialog: InvokeWordRegDialog::<Identity, Impl, OFFSET>,
@@ -1964,7 +1964,7 @@ impl IFEDictionary_Vtbl {
             (*this).ConvertFromUserToSys().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             GetHeader: GetHeader::<Identity, Impl, OFFSET>,
@@ -2031,7 +2031,7 @@ impl IFELanguage_Vtbl {
             (*this).GetConversion(::core::mem::transmute(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&result)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             GetJMorphResult: GetJMorphResult::<Identity, Impl, OFFSET>,
@@ -2056,7 +2056,7 @@ impl IImePad_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Request(::core::mem::transmute(&piimepadapplet), ::core::mem::transmute_copy(&reqid), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImePad as ::windows::core::Interface>::IID
@@ -2099,7 +2099,7 @@ impl IImePadApplet_Vtbl {
             (*this).Notify(::core::mem::transmute(&lpimepad), ::core::mem::transmute_copy(&notify), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Terminate: Terminate::<Identity, Impl, OFFSET>,
             GetAppletConfig: GetAppletConfig::<Identity, Impl, OFFSET>,
@@ -2130,7 +2130,7 @@ impl IImePlugInDictDictionaryList_Vtbl {
             (*this).DeleteDictionary(::core::mem::transmute(&bstrdictionaryguid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDictionariesInUse: GetDictionariesInUse::<Identity, Impl, OFFSET>,
             DeleteDictionary: DeleteDictionary::<Identity, Impl, OFFSET>,
         }
@@ -2149,7 +2149,7 @@ impl IImeSpecifyApplets_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetAppletIIDList(::core::mem::transmute_copy(&refiid), ::core::mem::transmute_copy(&lpiidlist)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetAppletIIDList: GetAppletIIDList::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetAppletIIDList: GetAppletIIDList::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IImeSpecifyApplets as ::windows::core::Interface>::IID

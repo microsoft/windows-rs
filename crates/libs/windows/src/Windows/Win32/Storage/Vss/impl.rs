@@ -33,7 +33,7 @@ impl IVssAdmin_Vtbl {
             (*this).AbortAllSnapshotsInProgress().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterProvider: RegisterProvider::<Identity, Impl, OFFSET>,
             UnregisterProvider: UnregisterProvider::<Identity, Impl, OFFSET>,
             QueryProviders: QueryProviders::<Identity, Impl, OFFSET>,
@@ -79,7 +79,7 @@ impl IVssAdminEx_Vtbl {
             (*this).SetProviderContext(::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&lcontext)).into()
         }
         Self {
-            base: IVssAdmin_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVssAdmin_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetProviderCapability: GetProviderCapability::<Identity, Impl, OFFSET>,
             GetProviderContext: GetProviderContext::<Identity, Impl, OFFSET>,
             SetProviderContext: SetProviderContext::<Identity, Impl, OFFSET>,
@@ -112,7 +112,7 @@ impl IVssAsync_Vtbl {
             (*this).QueryStatus(::core::mem::transmute_copy(&phrresult), ::core::mem::transmute_copy(&preserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             Wait: Wait::<Identity, Impl, OFFSET>,
             QueryStatus: QueryStatus::<Identity, Impl, OFFSET>,
@@ -369,7 +369,7 @@ impl IVssComponent_Vtbl {
             (*this).GetDifferencedFile(::core::mem::transmute_copy(&idifferencedfile), ::core::mem::transmute_copy(&pbstrpath), ::core::mem::transmute_copy(&pbstrfilespec), ::core::mem::transmute_copy(&pbrecursive), ::core::mem::transmute_copy(&pbstrlsnstring), ::core::mem::transmute_copy(&pftlastmodifytime)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetLogicalPath: GetLogicalPath::<Identity, Impl, OFFSET>,
             GetComponentType: GetComponentType::<Identity, Impl, OFFSET>,
             GetComponentName: GetComponentName::<Identity, Impl, OFFSET>,
@@ -487,7 +487,7 @@ impl IVssComponentEx_Vtbl {
             }
         }
         Self {
-            base: IVssComponent_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVssComponent_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPrepareForBackupFailureMsg: SetPrepareForBackupFailureMsg::<Identity, Impl, OFFSET>,
             SetPostSnapshotFailureMsg: SetPostSnapshotFailureMsg::<Identity, Impl, OFFSET>,
             GetPrepareForBackupFailureMsg: GetPrepareForBackupFailureMsg::<Identity, Impl, OFFSET>,
@@ -520,7 +520,7 @@ impl IVssComponentEx2_Vtbl {
             (*this).GetFailure(::core::mem::transmute_copy(&phr), ::core::mem::transmute_copy(&phrapplication), ::core::mem::transmute_copy(&pbstrapplicationmessage), ::core::mem::transmute_copy(&pdwreserved)).into()
         }
         Self {
-            base: IVssComponentEx_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVssComponentEx_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetFailure: SetFailure::<Identity, Impl, OFFSET>,
             GetFailure: GetFailure::<Identity, Impl, OFFSET>,
         }
@@ -586,7 +586,7 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddExcludeFiles: AddExcludeFiles::<Identity, Impl, OFFSET>,
             AddComponent: AddComponent::<Identity, Impl, OFFSET>,
             AddFilesToFileGroup: AddFilesToFileGroup::<Identity, Impl, OFFSET>,
@@ -770,7 +770,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddDiffArea: AddDiffArea::<Identity, Impl, OFFSET>,
             ChangeDiffAreaMaximumSize: ChangeDiffAreaMaximumSize::<Identity, Impl, OFFSET>,
             QueryVolumesSupportedForDiffAreas: QueryVolumesSupportedForDiffAreas::<Identity, Impl, OFFSET>,
@@ -820,7 +820,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
             (*this).SetSnapshotPriority(::core::mem::transmute(&idsnapshot), ::core::mem::transmute_copy(&priority)).into()
         }
         Self {
-            base: IVssDifferentialSoftwareSnapshotMgmt_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVssDifferentialSoftwareSnapshotMgmt_Vtbl::new::<Identity, Impl, OFFSET>(),
             ChangeDiffAreaMaximumSizeEx: ChangeDiffAreaMaximumSizeEx::<Identity, Impl, OFFSET>,
             MigrateDiffAreas: MigrateDiffAreas::<Identity, Impl, OFFSET>,
             QueryMigrationStatus: QueryMigrationStatus::<Identity, Impl, OFFSET>,
@@ -874,7 +874,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
             (*this).QuerySnapshotDeltaBitmap(::core::mem::transmute(&idsnapshotolder), ::core::mem::transmute(&idsnapshotyounger), ::core::mem::transmute_copy(&pcblocksizeperbit), ::core::mem::transmute_copy(&pcbitmaplength), ::core::mem::transmute_copy(&ppbbitmap)).into()
         }
         Self {
-            base: IVssDifferentialSoftwareSnapshotMgmt2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVssDifferentialSoftwareSnapshotMgmt2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetVolumeProtectLevel: SetVolumeProtectLevel::<Identity, Impl, OFFSET>,
             GetVolumeProtectLevel: GetVolumeProtectLevel::<Identity, Impl, OFFSET>,
             ClearVolumeProtectFault: ClearVolumeProtectFault::<Identity, Impl, OFFSET>,
@@ -915,7 +915,7 @@ impl IVssEnumMgmtObject_Vtbl {
             (*this).Clone(::core::mem::transmute_copy(&ppenum)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -955,7 +955,7 @@ impl IVssEnumObject_Vtbl {
             (*this).Clone(::core::mem::transmute_copy(&ppenum)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1001,7 +1001,7 @@ impl IVssExpressWriter_Vtbl {
             (*this).Unregister(::core::mem::transmute(&writerid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateMetadata: CreateMetadata::<Identity, Impl, OFFSET>,
             LoadMetadata: LoadMetadata::<Identity, Impl, OFFSET>,
             Register: Register::<Identity, Impl, OFFSET>,
@@ -1085,7 +1085,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             (*this).SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetContext: SetContext::<Identity, Impl, OFFSET>,
             GetSnapshotProperties: GetSnapshotProperties::<Identity, Impl, OFFSET>,
             Query: Query::<Identity, Impl, OFFSET>,
@@ -1143,7 +1143,7 @@ impl IVssHardwareSnapshotProvider_Vtbl {
             (*this).OnLunEmpty(::core::mem::transmute_copy(&wszdevicename), ::core::mem::transmute_copy(&pinformation)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AreLunsSupported: AreLunsSupported::<Identity, Impl, OFFSET>,
             FillInLunInfo: FillInLunInfo::<Identity, Impl, OFFSET>,
             BeginPrepareSnapshot: BeginPrepareSnapshot::<Identity, Impl, OFFSET>,
@@ -1199,7 +1199,7 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
             (*this).OnReuseLuns(::core::mem::transmute_copy(&psnapshotluns), ::core::mem::transmute_copy(&poriginalluns), ::core::mem::transmute_copy(&dwcount)).into()
         }
         Self {
-            base: IVssHardwareSnapshotProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVssHardwareSnapshotProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetProviderCapabilities: GetProviderCapabilities::<Identity, Impl, OFFSET>,
             OnLunStateChange: OnLunStateChange::<Identity, Impl, OFFSET>,
             ResyncLuns: ResyncLuns::<Identity, Impl, OFFSET>,
@@ -1257,7 +1257,7 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
             (*this).AbortSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EndPrepareSnapshots: EndPrepareSnapshots::<Identity, Impl, OFFSET>,
             PreCommitSnapshots: PreCommitSnapshots::<Identity, Impl, OFFSET>,
             CommitSnapshots: CommitSnapshots::<Identity, Impl, OFFSET>,
@@ -1290,7 +1290,7 @@ impl IVssProviderNotifications_Vtbl {
             (*this).OnUnload(::core::mem::transmute_copy(&bforceunload)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnLoad: OnLoad::<Identity, Impl, OFFSET>,
             OnUnload: OnUnload::<Identity, Impl, OFFSET>,
         }
@@ -1340,7 +1340,7 @@ impl IVssSnapshotMgmt_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetProviderMgmtInterface: GetProviderMgmtInterface::<Identity, Impl, OFFSET>,
             QueryVolumesSupportedForSnapshots: QueryVolumesSupportedForSnapshots::<Identity, Impl, OFFSET>,
             QuerySnapshotsByVolume: QuerySnapshotsByVolume::<Identity, Impl, OFFSET>,
@@ -1366,7 +1366,7 @@ impl IVssSnapshotMgmt2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMinDiffAreaSize: GetMinDiffAreaSize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMinDiffAreaSize: GetMinDiffAreaSize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVssSnapshotMgmt2 as ::windows::core::Interface>::IID
@@ -1463,7 +1463,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetContext: SetContext::<Identity, Impl, OFFSET>,
             GetSnapshotProperties: GetSnapshotProperties::<Identity, Impl, OFFSET>,
             Query: Query::<Identity, Impl, OFFSET>,
@@ -1505,7 +1505,7 @@ impl IVssWMDependency_Vtbl {
             (*this).GetComponentName(::core::mem::transmute_copy(&pbstrcomponentname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetWriterId: GetWriterId::<Identity, Impl, OFFSET>,
             GetLogicalPath: GetLogicalPath::<Identity, Impl, OFFSET>,
             GetComponentName: GetComponentName::<Identity, Impl, OFFSET>,
@@ -1582,7 +1582,7 @@ impl IVssWMFiledesc_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetPath: GetPath::<Identity, Impl, OFFSET>,
             GetFilespec: GetFilespec::<Identity, Impl, OFFSET>,
             GetRecursive: GetRecursive::<Identity, Impl, OFFSET>,
@@ -1781,7 +1781,7 @@ impl IVssWriterImpl_Vtbl {
             (*this).IsWriterShuttingDown()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Subscribe: Subscribe::<Identity, Impl, OFFSET>,
             Unsubscribe: Unsubscribe::<Identity, Impl, OFFSET>,

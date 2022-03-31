@@ -92,9 +92,7 @@ fn constant() {
 #[test]
 fn function() -> windows::core::Result<()> {
     unsafe {
-        let event = CreateEventW(core::ptr::null(), true, false, PCWSTR(core::ptr::null()));
-        assert!(event.0 != 0);
-
+        let event = CreateEventW(core::ptr::null(), true, false, PCWSTR(core::ptr::null()))?;
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);

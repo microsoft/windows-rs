@@ -3,7 +3,7 @@ pub trait DIFsrmClassificationEvents_Impl: Sized + super::super::System::Com::ID
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DIFsrmClassificationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DIFsrmClassificationEvents_Impl, const OFFSET: isize>() -> DIFsrmClassificationEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DIFsrmClassificationEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -27,7 +27,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFsrmAccessDeniedRemediationClient as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -88,7 +88,7 @@ impl IFsrmAction_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             ActionType: ActionType::<Identity, Impl, OFFSET>,
             RunLimitInterval: RunLimitInterval::<Identity, Impl, OFFSET>,
@@ -233,7 +233,7 @@ impl IFsrmActionCommand_Vtbl {
             (*this).SetLogResult(::core::mem::transmute_copy(&logresults)).into()
         }
         Self {
-            base: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             ExecutablePath: ExecutablePath::<Identity, Impl, OFFSET>,
             SetExecutablePath: SetExecutablePath::<Identity, Impl, OFFSET>,
             Arguments: Arguments::<Identity, Impl, OFFSET>,
@@ -387,7 +387,7 @@ impl IFsrmActionEmail_Vtbl {
             (*this).SetMessageText(::core::mem::transmute(&messagetext)).into()
         }
         Self {
-            base: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             MailFrom: MailFrom::<Identity, Impl, OFFSET>,
             SetMailFrom: SetMailFrom::<Identity, Impl, OFFSET>,
             MailReplyTo: MailReplyTo::<Identity, Impl, OFFSET>,
@@ -433,7 +433,7 @@ impl IFsrmActionEmail2_Vtbl {
             (*this).SetAttachmentFileListSize(::core::mem::transmute_copy(&attachmentfilelistsize)).into()
         }
         Self {
-            base: IFsrmActionEmail_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmActionEmail_Vtbl::new::<Identity, Impl, OFFSET>(),
             AttachmentFileListSize: AttachmentFileListSize::<Identity, Impl, OFFSET>,
             SetAttachmentFileListSize: SetAttachmentFileListSize::<Identity, Impl, OFFSET>,
         }
@@ -485,7 +485,7 @@ impl IFsrmActionEventLog_Vtbl {
             (*this).SetMessageText(::core::mem::transmute(&messagetext)).into()
         }
         Self {
-            base: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             EventType: EventType::<Identity, Impl, OFFSET>,
             SetEventType: SetEventType::<Identity, Impl, OFFSET>,
             MessageText: MessageText::<Identity, Impl, OFFSET>,
@@ -539,7 +539,7 @@ impl IFsrmActionReport_Vtbl {
             (*this).SetMailTo(::core::mem::transmute(&mailto)).into()
         }
         Self {
-            base: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
             ReportTypes: ReportTypes::<Identity, Impl, OFFSET>,
             SetReportTypes: SetReportTypes::<Identity, Impl, OFFSET>,
             MailTo: MailTo::<Identity, Impl, OFFSET>,
@@ -587,7 +587,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
             }
         }
         Self {
-            base: IFsrmQuotaObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmQuotaObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             ExcludeFolders: ExcludeFolders::<Identity, Impl, OFFSET>,
             SetExcludeFolders: SetExcludeFolders::<Identity, Impl, OFFSET>,
             CommitAndUpdateDerived: CommitAndUpdateDerived::<Identity, Impl, OFFSET>,
@@ -880,7 +880,7 @@ impl IFsrmClassificationManager_Vtbl {
             (*this).ClearFileProperty(::core::mem::transmute(&filepath), ::core::mem::transmute(&property)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClassificationReportFormats: ClassificationReportFormats::<Identity, Impl, OFFSET>,
             SetClassificationReportFormats: SetClassificationReportFormats::<Identity, Impl, OFFSET>,
             Logging: Logging::<Identity, Impl, OFFSET>,
@@ -926,7 +926,7 @@ impl IFsrmClassificationManager2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ClassifyFiles(::core::mem::transmute_copy(&filepaths), ::core::mem::transmute_copy(&propertynames), ::core::mem::transmute_copy(&propertyvalues), ::core::mem::transmute_copy(&options)).into()
         }
-        Self { base: IFsrmClassificationManager_Vtbl::new::<Identity, Impl, OFFSET>(), ClassifyFiles: ClassifyFiles::<Identity, Impl, OFFSET> }
+        Self { base__: IFsrmClassificationManager_Vtbl::new::<Identity, Impl, OFFSET>(), ClassifyFiles: ClassifyFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFsrmClassificationManager2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmClassificationManager as ::windows::core::Interface>::IID
@@ -993,7 +993,7 @@ impl IFsrmClassificationRule_Vtbl {
             (*this).SetValue(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: IFsrmRule_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmRule_Vtbl::new::<Identity, Impl, OFFSET>(),
             ExecutionOption: ExecutionOption::<Identity, Impl, OFFSET>,
             SetExecutionOption: SetExecutionOption::<Identity, Impl, OFFSET>,
             PropertyAffected: PropertyAffected::<Identity, Impl, OFFSET>,
@@ -1067,7 +1067,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             (*this).SetNeedsExplicitValue(::core::mem::transmute_copy(&needsexplicitvalue)).into()
         }
         Self {
-            base: IFsrmPipelineModuleDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmPipelineModuleDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
             PropertiesAffected: PropertiesAffected::<Identity, Impl, OFFSET>,
             SetPropertiesAffected: SetPropertiesAffected::<Identity, Impl, OFFSET>,
             PropertiesUsed: PropertiesUsed::<Identity, Impl, OFFSET>,
@@ -1129,7 +1129,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             (*this).OnEndFile().into()
         }
         Self {
-            base: IFsrmPipelineModuleImplementation_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmPipelineModuleImplementation_Vtbl::new::<Identity, Impl, OFFSET>(),
             LastModified: LastModified::<Identity, Impl, OFFSET>,
             UseRulesAndDefinitions: UseRulesAndDefinitions::<Identity, Impl, OFFSET>,
             OnBeginFile: OnBeginFile::<Identity, Impl, OFFSET>,
@@ -1227,7 +1227,7 @@ impl IFsrmCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1259,7 +1259,7 @@ impl IFsrmCommittableCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IFsrmMutableCollection_Vtbl::new::<Identity, Impl, OFFSET>(), Commit: Commit::<Identity, Impl, OFFSET> }
+        Self { base__: IFsrmMutableCollection_Vtbl::new::<Identity, Impl, OFFSET>(), Commit: Commit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFsrmCommittableCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmCollection as ::windows::core::Interface>::IID || iid == &<IFsrmMutableCollection as ::windows::core::Interface>::IID
@@ -1296,7 +1296,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DerivedObjects: DerivedObjects::<Identity, Impl, OFFSET>,
             Results: Results::<Identity, Impl, OFFSET>,
         }
@@ -1366,7 +1366,7 @@ impl IFsrmExportImport_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ExportFileGroups: ExportFileGroups::<Identity, Impl, OFFSET>,
             ImportFileGroups: ImportFileGroups::<Identity, Impl, OFFSET>,
             ExportFileScreenTemplates: ExportFileScreenTemplates::<Identity, Impl, OFFSET>,
@@ -1404,7 +1404,7 @@ impl IFsrmFileCondition_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
         }
@@ -1510,7 +1510,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             (*this).SetValue(::core::mem::transmute(&newval)).into()
         }
         Self {
-            base: IFsrmFileCondition_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmFileCondition_Vtbl::new::<Identity, Impl, OFFSET>(),
             PropertyName: PropertyName::<Identity, Impl, OFFSET>,
             SetPropertyName: SetPropertyName::<Identity, Impl, OFFSET>,
             PropertyId: PropertyId::<Identity, Impl, OFFSET>,
@@ -1588,7 +1588,7 @@ impl IFsrmFileGroup_Vtbl {
             (*this).SetNonMembers(::core::mem::transmute(&nonmembers)).into()
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Members: Members::<Identity, Impl, OFFSET>,
@@ -1626,7 +1626,7 @@ impl IFsrmFileGroupImported_Vtbl {
             (*this).SetOverwriteOnCommit(::core::mem::transmute_copy(&overwrite)).into()
         }
         Self {
-            base: IFsrmFileGroup_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmFileGroup_Vtbl::new::<Identity, Impl, OFFSET>(),
             OverwriteOnCommit: OverwriteOnCommit::<Identity, Impl, OFFSET>,
             SetOverwriteOnCommit: SetOverwriteOnCommit::<Identity, Impl, OFFSET>,
         }
@@ -1702,7 +1702,7 @@ impl IFsrmFileGroupManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateFileGroup: CreateFileGroup::<Identity, Impl, OFFSET>,
             GetFileGroup: GetFileGroup::<Identity, Impl, OFFSET>,
             EnumFileGroups: EnumFileGroups::<Identity, Impl, OFFSET>,
@@ -2183,7 +2183,7 @@ impl IFsrmFileManagementJob_Vtbl {
             }
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             NamespaceRoots: NamespaceRoots::<Identity, Impl, OFFSET>,
@@ -2306,7 +2306,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActionVariables: ActionVariables::<Identity, Impl, OFFSET>,
             ActionVariableDescriptions: ActionVariableDescriptions::<Identity, Impl, OFFSET>,
             EnumFileManagementJobs: EnumFileManagementJobs::<Identity, Impl, OFFSET>,
@@ -2391,7 +2391,7 @@ impl IFsrmFileScreen_Vtbl {
             (*this).ApplyTemplate(::core::mem::transmute(&filescreentemplatename)).into()
         }
         Self {
-            base: IFsrmFileScreenBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmFileScreenBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             SourceTemplateName: SourceTemplateName::<Identity, Impl, OFFSET>,
             MatchesSourceTemplate: MatchesSourceTemplate::<Identity, Impl, OFFSET>,
@@ -2471,7 +2471,7 @@ impl IFsrmFileScreenBase_Vtbl {
             }
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             BlockedFileGroups: BlockedFileGroups::<Identity, Impl, OFFSET>,
             SetBlockedFileGroups: SetBlockedFileGroups::<Identity, Impl, OFFSET>,
             FileScreenFlags: FileScreenFlags::<Identity, Impl, OFFSET>,
@@ -2521,7 +2521,7 @@ impl IFsrmFileScreenException_Vtbl {
             (*this).SetAllowedFileGroups(::core::mem::transmute(&allowlist)).into()
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             AllowedFileGroups: AllowedFileGroups::<Identity, Impl, OFFSET>,
             SetAllowedFileGroups: SetAllowedFileGroups::<Identity, Impl, OFFSET>,
@@ -2646,7 +2646,7 @@ impl IFsrmFileScreenManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActionVariables: ActionVariables::<Identity, Impl, OFFSET>,
             ActionVariableDescriptions: ActionVariableDescriptions::<Identity, Impl, OFFSET>,
             CreateFileScreen: CreateFileScreen::<Identity, Impl, OFFSET>,
@@ -2705,7 +2705,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
             }
         }
         Self {
-            base: IFsrmFileScreenBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmFileScreenBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             CopyTemplate: CopyTemplate::<Identity, Impl, OFFSET>,
@@ -2741,7 +2741,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
             (*this).SetOverwriteOnCommit(::core::mem::transmute_copy(&overwrite)).into()
         }
         Self {
-            base: IFsrmFileScreenTemplate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmFileScreenTemplate_Vtbl::new::<Identity, Impl, OFFSET>(),
             OverwriteOnCommit: OverwriteOnCommit::<Identity, Impl, OFFSET>,
             SetOverwriteOnCommit: SetOverwriteOnCommit::<Identity, Impl, OFFSET>,
         }
@@ -2817,7 +2817,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateTemplate: CreateTemplate::<Identity, Impl, OFFSET>,
             GetTemplate: GetTemplate::<Identity, Impl, OFFSET>,
             EnumTemplates: EnumTemplates::<Identity, Impl, OFFSET>,
@@ -2866,7 +2866,7 @@ impl IFsrmMutableCollection_Vtbl {
             }
         }
         Self {
-            base: IFsrmCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             RemoveById: RemoveById::<Identity, Impl, OFFSET>,
@@ -2926,7 +2926,7 @@ impl IFsrmObject_Vtbl {
             (*this).Commit().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
@@ -2957,7 +2957,7 @@ impl IFsrmPathMapper_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSharePathsForLocalPath: GetSharePathsForLocalPath::<Identity, Impl, OFFSET>,
         }
     }
@@ -3026,7 +3026,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             (*this).Bind(::core::mem::transmute(&moduledefinition), ::core::mem::transmute(&moduleimplementation)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ModuleImplementation: ModuleImplementation::<Identity, Impl, OFFSET>,
             ModuleName: ModuleName::<Identity, Impl, OFFSET>,
             HostingUserAccount: HostingUserAccount::<Identity, Impl, OFFSET>,
@@ -3219,7 +3219,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             (*this).SetParameters(::core::mem::transmute_copy(&parameters)).into()
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             ModuleClsid: ModuleClsid::<Identity, Impl, OFFSET>,
             SetModuleClsid: SetModuleClsid::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -3270,7 +3270,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
             (*this).OnUnload().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OnLoad: OnLoad::<Identity, Impl, OFFSET>,
             OnUnload: OnUnload::<Identity, Impl, OFFSET>,
         }
@@ -3334,7 +3334,7 @@ impl IFsrmProperty_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
             Sources: Sources::<Identity, Impl, OFFSET>,
@@ -3592,7 +3592,7 @@ impl IFsrmPropertyBag_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             RelativePath: RelativePath::<Identity, Impl, OFFSET>,
             VolumeName: VolumeName::<Identity, Impl, OFFSET>,
@@ -3651,7 +3651,7 @@ impl IFsrmPropertyBag2_Vtbl {
             }
         }
         Self {
-            base: IFsrmPropertyBag_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmPropertyBag_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFieldValue: GetFieldValue::<Identity, Impl, OFFSET>,
             GetUntrustedInFileProperties: GetUntrustedInFileProperties::<Identity, Impl, OFFSET>,
         }
@@ -3727,7 +3727,7 @@ impl IFsrmPropertyCondition_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -3838,7 +3838,7 @@ impl IFsrmPropertyDefinition_Vtbl {
             (*this).SetParameters(::core::mem::transmute_copy(&parameters)).into()
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -3916,7 +3916,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
             }
         }
         Self {
-            base: IFsrmPropertyDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmPropertyDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
             PropertyDefinitionFlags: PropertyDefinitionFlags::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
@@ -3983,7 +3983,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -4049,7 +4049,7 @@ impl IFsrmQuota_Vtbl {
             (*this).RefreshUsageProperties().into()
         }
         Self {
-            base: IFsrmQuotaObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmQuotaObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             QuotaUsed: QuotaUsed::<Identity, Impl, OFFSET>,
             QuotaPeakUsage: QuotaPeakUsage::<Identity, Impl, OFFSET>,
             QuotaPeakUsageTime: QuotaPeakUsageTime::<Identity, Impl, OFFSET>,
@@ -4158,7 +4158,7 @@ impl IFsrmQuotaBase_Vtbl {
             }
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             QuotaLimit: QuotaLimit::<Identity, Impl, OFFSET>,
             SetQuotaLimit: SetQuotaLimit::<Identity, Impl, OFFSET>,
             QuotaFlags: QuotaFlags::<Identity, Impl, OFFSET>,
@@ -4320,7 +4320,7 @@ impl IFsrmQuotaManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActionVariables: ActionVariables::<Identity, Impl, OFFSET>,
             ActionVariableDescriptions: ActionVariableDescriptions::<Identity, Impl, OFFSET>,
             CreateQuota: CreateQuota::<Identity, Impl, OFFSET>,
@@ -4357,7 +4357,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IFsrmQuotaManager_Vtbl::new::<Identity, Impl, OFFSET>(), IsAffectedByQuota: IsAffectedByQuota::<Identity, Impl, OFFSET> }
+        Self { base__: IFsrmQuotaManager_Vtbl::new::<Identity, Impl, OFFSET>(), IsAffectedByQuota: IsAffectedByQuota::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFsrmQuotaManagerEx as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaManager as ::windows::core::Interface>::IID
@@ -4436,7 +4436,7 @@ impl IFsrmQuotaObject_Vtbl {
             (*this).ApplyTemplate(::core::mem::transmute(&quotatemplatename)).into()
         }
         Self {
-            base: IFsrmQuotaBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmQuotaBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             UserSid: UserSid::<Identity, Impl, OFFSET>,
             UserAccount: UserAccount::<Identity, Impl, OFFSET>,
@@ -4492,7 +4492,7 @@ impl IFsrmQuotaTemplate_Vtbl {
             }
         }
         Self {
-            base: IFsrmQuotaBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmQuotaBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             CopyTemplate: CopyTemplate::<Identity, Impl, OFFSET>,
@@ -4528,7 +4528,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
             (*this).SetOverwriteOnCommit(::core::mem::transmute_copy(&overwrite)).into()
         }
         Self {
-            base: IFsrmQuotaTemplate_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmQuotaTemplate_Vtbl::new::<Identity, Impl, OFFSET>(),
             OverwriteOnCommit: OverwriteOnCommit::<Identity, Impl, OFFSET>,
             SetOverwriteOnCommit: SetOverwriteOnCommit::<Identity, Impl, OFFSET>,
         }
@@ -4604,7 +4604,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateTemplate: CreateTemplate::<Identity, Impl, OFFSET>,
             GetTemplate: GetTemplate::<Identity, Impl, OFFSET>,
             EnumTemplates: EnumTemplates::<Identity, Impl, OFFSET>,
@@ -4707,7 +4707,7 @@ impl IFsrmReport_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
@@ -4898,7 +4898,7 @@ impl IFsrmReportJob_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Task: Task::<Identity, Impl, OFFSET>,
             SetTask: SetTask::<Identity, Impl, OFFSET>,
             NamespaceRoots: NamespaceRoots::<Identity, Impl, OFFSET>,
@@ -5031,7 +5031,7 @@ impl IFsrmReportManager_Vtbl {
             (*this).SetReportSizeLimit(::core::mem::transmute_copy(&limit), ::core::mem::transmute(&limitvalue)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumReportJobs: EnumReportJobs::<Identity, Impl, OFFSET>,
             CreateReportJob: CreateReportJob::<Identity, Impl, OFFSET>,
             GetReportJob: GetReportJob::<Identity, Impl, OFFSET>,
@@ -5079,7 +5079,7 @@ impl IFsrmReportScheduler_Vtbl {
             (*this).DeleteScheduleTask(::core::mem::transmute(&taskname)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             VerifyNamespaces: VerifyNamespaces::<Identity, Impl, OFFSET>,
             CreateScheduleTask: CreateScheduleTask::<Identity, Impl, OFFSET>,
             ModifyScheduleTask: ModifyScheduleTask::<Identity, Impl, OFFSET>,
@@ -5211,7 +5211,7 @@ impl IFsrmRule_Vtbl {
             }
         }
         Self {
-            base: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             RuleType: RuleType::<Identity, Impl, OFFSET>,
@@ -5351,7 +5351,7 @@ impl IFsrmSetting_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SmtpServer: SmtpServer::<Identity, Impl, OFFSET>,
             SetSmtpServer: SetSmtpServer::<Identity, Impl, OFFSET>,
             MailFrom: MailFrom::<Identity, Impl, OFFSET>,
@@ -5432,7 +5432,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             (*this).SetUpdatesFileContent(::core::mem::transmute_copy(&updatesfilecontent)).into()
         }
         Self {
-            base: IFsrmPipelineModuleDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmPipelineModuleDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
             Capabilities: Capabilities::<Identity, Impl, OFFSET>,
             SetCapabilities: SetCapabilities::<Identity, Impl, OFFSET>,
             StorageType: StorageType::<Identity, Impl, OFFSET>,
@@ -5470,7 +5470,7 @@ impl IFsrmStorageModuleImplementation_Vtbl {
             (*this).SaveProperties(::core::mem::transmute(&propertybag)).into()
         }
         Self {
-            base: IFsrmPipelineModuleImplementation_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsrmPipelineModuleImplementation_Vtbl::new::<Identity, Impl, OFFSET>(),
             UseDefinitions: UseDefinitions::<Identity, Impl, OFFSET>,
             LoadProperties: LoadProperties::<Identity, Impl, OFFSET>,
             SaveProperties: SaveProperties::<Identity, Impl, OFFSET>,

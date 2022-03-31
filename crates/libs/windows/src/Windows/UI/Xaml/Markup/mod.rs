@@ -79,7 +79,7 @@ unsafe impl ::windows::core::Interface for IComponentConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentConnector_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Markup\"`*"]
@@ -165,7 +165,7 @@ unsafe impl ::windows::core::Interface for IComponentConnector2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentConnector2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetBindingConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Markup\"`*"]
@@ -253,7 +253,7 @@ unsafe impl ::windows::core::Interface for IDataTemplateComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataTemplateComponent_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Recycle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ProcessBindings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, itemindex: i32, phase: i32, nextphase: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::Interface for IMarkupExtension {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarkupExtension_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -279,7 +279,7 @@ unsafe impl ::windows::core::Interface for IMarkupExtensionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarkupExtensionFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -292,7 +292,7 @@ unsafe impl ::windows::core::Interface for IMarkupExtensionOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarkupExtensionOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ProvideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -305,7 +305,7 @@ unsafe impl ::windows::core::Interface for IXamlBinaryWriter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBinaryWriter_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Interface for IXamlBinaryWriterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBinaryWriterStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstreams: ::windows::core::RawPtr, outputstreams: ::windows::core::RawPtr, xamlmetadataprovider: ::windows::core::RawPtr, result__: *mut XamlBinaryWriterErrorInformation) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for IXamlBindScopeDiagnostics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBindScopeDiagnostics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linenumber: i32, columnnumber: i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -416,7 +416,7 @@ unsafe impl ::windows::core::Interface for IXamlBindingHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBindingHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -428,7 +428,7 @@ unsafe impl ::windows::core::Interface for IXamlBindingHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlBindingHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DataTemplateComponentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetDataTemplateComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDataTemplateComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -484,7 +484,7 @@ unsafe impl ::windows::core::Interface for IXamlMarkupHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMarkupHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -496,7 +496,7 @@ unsafe impl ::windows::core::Interface for IXamlMarkupHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMarkupHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UnloadObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Markup\"`*"]
@@ -635,7 +635,7 @@ unsafe impl ::windows::core::Interface for IXamlMember {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMember_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsAttachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsDependencyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -745,7 +745,7 @@ unsafe impl ::windows::core::Interface for IXamlMetadataProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlMetadataProvider_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Interop")]
     pub GetXamlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
@@ -763,7 +763,7 @@ unsafe impl ::windows::core::Interface for IXamlReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlReader_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -775,7 +775,7 @@ unsafe impl ::windows::core::Interface for IXamlReaderStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlReaderStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LoadWithInitialTemplateValidation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -990,7 +990,7 @@ unsafe impl ::windows::core::Interface for IXamlType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlType_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BaseType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ContentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FullName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1254,7 +1254,7 @@ unsafe impl ::windows::core::Interface for IXamlType2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlType2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub BoxedType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Markup\"`*"]

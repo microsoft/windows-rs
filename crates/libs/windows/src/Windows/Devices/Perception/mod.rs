@@ -14,7 +14,7 @@ unsafe impl ::windows::core::Interface for IKnownCameraIntrinsicsPropertiesStati
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownCameraIntrinsicsPropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FocalLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -45,7 +45,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionColorFrameSourcePrope
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionColorFrameSourcePropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -72,7 +72,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionDepthFrameSourcePrope
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub MinDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -95,7 +95,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionFrameSourceProperties
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameSourcePropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -130,7 +130,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionFrameSourceProperties
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameSourcePropertiesStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -149,7 +149,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionInfraredFrameSourcePr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -192,7 +192,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionVideoFrameSourcePrope
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub VideoProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -227,7 +227,7 @@ unsafe impl ::windows::core::Interface for IKnownPerceptionVideoProfilePropertie
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownPerceptionVideoProfilePropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub BitmapPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -262,7 +262,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Media", feature = "deprecated")))]
@@ -281,7 +281,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameArrivedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameArrivedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -304,7 +304,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameReader_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub AvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -474,7 +474,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -493,7 +493,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceAddedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceAddedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceRemovedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceRemovedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -531,7 +531,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -562,7 +562,7 @@ unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceWatcher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceWatcher_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -621,7 +621,7 @@ unsafe impl ::windows::core::Interface for IPerceptionControlSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionControlSession_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub ControlLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -648,7 +648,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCameraIntri
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthCorrelatedCameraIntrinsics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub UnprojectPixelAtCorrelatedDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
@@ -679,7 +679,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCoordinateM
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthCorrelatedCoordinateMapper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub MapPixelToTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -710,7 +710,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Media", feature = "deprecated")))]
@@ -729,7 +729,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameArrivedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameArrivedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -752,7 +752,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameReader_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -791,7 +791,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub AvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -922,7 +922,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -941,7 +941,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceAddedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceAddedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -960,7 +960,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceRemovedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceRemovedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -979,7 +979,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1010,7 +1010,7 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceWatcher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceWatcher_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -1069,7 +1069,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameSourcePropertiesChang
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrameSourcePropertiesChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Collections::CollectionChange) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
@@ -1092,7 +1092,7 @@ unsafe impl ::windows::core::Interface for IPerceptionFrameSourcePropertyChangeR
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionFrameSourcePropertyChangeResult_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1115,7 +1115,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrame_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Media", feature = "deprecated")))]
@@ -1134,7 +1134,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameArrivedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameArrivedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -1157,7 +1157,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameReader_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -1196,7 +1196,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSource_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub AvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -1327,7 +1327,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSource2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1346,7 +1346,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceAddedEv
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceAddedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1365,7 +1365,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceRemoved
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceRemovedEventArgs_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1384,7 +1384,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceWatcher
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceWatcher_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -1474,7 +1474,7 @@ unsafe impl ::windows::core::Interface for IPerceptionVideoProfile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionVideoProfile_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))]
     pub BitmapPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Graphics_Imaging", feature = "deprecated")))]

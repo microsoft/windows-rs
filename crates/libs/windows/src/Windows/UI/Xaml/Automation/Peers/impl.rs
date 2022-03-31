@@ -355,7 +355,7 @@ impl IAutomationPeerOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides, OFFSET>(),
             GetPatternCore: GetPatternCore::<Identity, Impl, OFFSET>,
             GetAcceleratorKeyCore: GetAcceleratorKeyCore::<Identity, Impl, OFFSET>,
             GetAccessKeyCore: GetAccessKeyCore::<Identity, Impl, OFFSET>,
@@ -421,7 +421,7 @@ impl IAutomationPeerOverrides2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides2, OFFSET>(),
             ShowContextMenuCore: ShowContextMenuCore::<Identity, Impl, OFFSET>,
             GetControlledPeersCore: GetControlledPeersCore::<Identity, Impl, OFFSET>,
         }
@@ -532,7 +532,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides3, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides3, OFFSET>(),
             NavigateCore: NavigateCore::<Identity, Impl, OFFSET>,
             GetElementFromPointCore: GetElementFromPointCore::<Identity, Impl, OFFSET>,
             GetFocusedElementCore: GetFocusedElementCore::<Identity, Impl, OFFSET>,
@@ -580,7 +580,7 @@ impl IAutomationPeerOverrides4_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides4, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides4, OFFSET>(),
             GetLandmarkTypeCore: GetLandmarkTypeCore::<Identity, Impl, OFFSET>,
             GetLocalizedLandmarkTypeCore: GetLocalizedLandmarkTypeCore::<Identity, Impl, OFFSET>,
         }
@@ -678,7 +678,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides5, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides5, OFFSET>(),
             IsPeripheralCore: IsPeripheralCore::<Identity, Impl, OFFSET>,
             IsDataValidForFormCore: IsDataValidForFormCore::<Identity, Impl, OFFSET>,
             GetFullDescriptionCore: GetFullDescriptionCore::<Identity, Impl, OFFSET>,
@@ -712,7 +712,7 @@ impl IAutomationPeerOverrides6_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides6, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides6, OFFSET>(),
             GetCultureCore: GetCultureCore::<Identity, Impl, OFFSET>,
         }
     }
@@ -741,7 +741,7 @@ impl IAutomationPeerOverrides8_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides8, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides8, OFFSET>(),
             GetHeadingLevelCore: GetHeadingLevelCore::<Identity, Impl, OFFSET>,
         }
     }
@@ -770,7 +770,7 @@ impl IAutomationPeerOverrides9_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides9, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationPeerOverrides9, OFFSET>(),
             IsDialogCore: IsDialogCore::<Identity, Impl, OFFSET>,
         }
     }
@@ -799,7 +799,7 @@ impl IItemsControlAutomationPeerOverrides2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlAutomationPeerOverrides2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlAutomationPeerOverrides2, OFFSET>(),
             OnCreateItemAutomationPeer: OnCreateItemAutomationPeer::<Identity, Impl, OFFSET>,
         }
     }

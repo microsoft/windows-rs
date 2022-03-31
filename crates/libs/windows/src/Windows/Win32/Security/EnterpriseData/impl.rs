@@ -21,7 +21,7 @@ impl IProtectionPolicyManagerInterop_Vtbl {
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&result)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop, OFFSET>(),
             RequestAccessForWindowAsync: RequestAccessForWindowAsync::<Identity, Impl, OFFSET>,
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
@@ -71,7 +71,7 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             (*this).RequestAccessForAppWithMessageForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&sourceidentity), ::core::mem::transmute(&apppackagefamilyname), ::core::mem::transmute(&auditinfounk), ::core::mem::transmute(&messagefromapp), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop2, OFFSET>(),
             RequestAccessForAppWithWindowAsync: RequestAccessForAppWithWindowAsync::<Identity, Impl, OFFSET>,
             RequestAccessWithAuditingInfoForWindowAsync: RequestAccessWithAuditingInfoForWindowAsync::<Identity, Impl, OFFSET>,
             RequestAccessWithMessageForWindowAsync: RequestAccessWithMessageForWindowAsync::<Identity, Impl, OFFSET>,
@@ -130,7 +130,7 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             (*this).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&sourceitemlistunk), ::core::mem::transmute_copy(&processid), ::core::mem::transmute(&auditinfounk), ::core::mem::transmute(&messagefromapp), ::core::mem::transmute_copy(&behavior), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop3, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IProtectionPolicyManagerInterop3, OFFSET>(),
             RequestAccessWithBehaviorForWindowAsync: RequestAccessWithBehaviorForWindowAsync::<Identity, Impl, OFFSET>,
             RequestAccessForAppWithBehaviorForWindowAsync: RequestAccessForAppWithBehaviorForWindowAsync::<Identity, Impl, OFFSET>,
             RequestAccessToFilesForAppForWindowAsync: RequestAccessToFilesForAppForWindowAsync::<Identity, Impl, OFFSET>,

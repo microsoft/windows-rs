@@ -524,7 +524,7 @@ unsafe impl ::windows::core::Interface for IMFDeviceTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFDeviceTransform_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub InitializeTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
@@ -647,7 +647,7 @@ unsafe impl ::windows::core::Interface for IMFDeviceTransformCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFDeviceTransformCallback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub OnBufferSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbackattributes: ::windows::core::RawPtr, pinid: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]

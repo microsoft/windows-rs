@@ -21,7 +21,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAddressFamily: SetAddressFamily::<Identity, Impl, OFFSET>,
             GetAddressFamily: GetAddressFamily::<Identity, Impl, OFFSET>,
         }
@@ -40,7 +40,7 @@ impl IUPnPAsyncResult_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AsyncOperationComplete(::core::mem::transmute_copy(&ullrequestid)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPAsyncResult as ::windows::core::Interface>::IID
@@ -119,7 +119,7 @@ impl IUPnPDescriptionDocument_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ReadyState: ReadyState::<Identity, Impl, OFFSET>,
             Load: Load::<Identity, Impl, OFFSET>,
             LoadAsync: LoadAsync::<Identity, Impl, OFFSET>,
@@ -143,7 +143,7 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).LoadComplete(::core::mem::transmute_copy(&hrloadresult)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LoadComplete: LoadComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LoadComplete: LoadComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPDescriptionDocumentCallback as ::windows::core::Interface>::IID
@@ -384,7 +384,7 @@ impl IUPnPDevice_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsRootDevice: IsRootDevice::<Identity, Impl, OFFSET>,
             RootDevice: RootDevice::<Identity, Impl, OFFSET>,
             ParentDevice: ParentDevice::<Identity, Impl, OFFSET>,
@@ -435,7 +435,7 @@ impl IUPnPDeviceControl_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetServiceObject: GetServiceObject::<Identity, Impl, OFFSET>,
         }
@@ -463,7 +463,7 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAdditionalResponseHeaders: GetAdditionalResponseHeaders::<Identity, Impl, OFFSET>,
         }
     }
@@ -489,7 +489,7 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDocumentURL: GetDocumentURL::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDocumentURL: GetDocumentURL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPDeviceDocumentAccess as ::windows::core::Interface>::IID
@@ -513,7 +513,7 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPDeviceDocumentAccessEx as ::windows::core::Interface>::IID
@@ -574,7 +574,7 @@ impl IUPnPDeviceFinder_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             FindByType: FindByType::<Identity, Impl, OFFSET>,
             CreateAsyncFind: CreateAsyncFind::<Identity, Impl, OFFSET>,
             StartAsyncFind: StartAsyncFind::<Identity, Impl, OFFSET>,
@@ -598,7 +598,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeviceAddedWithInterface(::core::mem::transmute_copy(&lfinddata), ::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pguidinterface)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DeviceAddedWithInterface: DeviceAddedWithInterface::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DeviceAddedWithInterface: DeviceAddedWithInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPDeviceFinderAddCallbackWithInterface as ::windows::core::Interface>::IID
@@ -629,7 +629,7 @@ impl IUPnPDeviceFinderCallback_Vtbl {
             (*this).SearchComplete(::core::mem::transmute_copy(&lfinddata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DeviceAdded: DeviceAdded::<Identity, Impl, OFFSET>,
             DeviceRemoved: DeviceRemoved::<Identity, Impl, OFFSET>,
             SearchComplete: SearchComplete::<Identity, Impl, OFFSET>,
@@ -657,7 +657,7 @@ impl IUPnPDeviceProvider_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Stop().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPDeviceProvider as ::windows::core::Interface>::IID
@@ -706,7 +706,7 @@ impl IUPnPDevices_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -735,7 +735,7 @@ impl IUPnPEventSink_Vtbl {
             (*this).OnStateChangedSafe(::core::mem::transmute(&varsadispidchanges)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnStateChanged: OnStateChanged::<Identity, Impl, OFFSET>,
             OnStateChangedSafe: OnStateChangedSafe::<Identity, Impl, OFFSET>,
         }
@@ -761,7 +761,7 @@ impl IUPnPEventSource_Vtbl {
             (*this).Unadvise(::core::mem::transmute(&pessubscriber)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Advise: Advise::<Identity, Impl, OFFSET>,
             Unadvise: Unadvise::<Identity, Impl, OFFSET>,
         }
@@ -782,7 +782,7 @@ impl IUPnPHttpHeaderControl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddRequestHeaders(::core::mem::transmute(&bstrhttpheaders)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddRequestHeaders: AddRequestHeaders::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddRequestHeaders: AddRequestHeaders::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPHttpHeaderControl as ::windows::core::Interface>::IID
@@ -849,7 +849,7 @@ impl IUPnPRegistrar_Vtbl {
             (*this).UnregisterDeviceProvider(::core::mem::transmute(&bstrprovidername)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterDevice: RegisterDevice::<Identity, Impl, OFFSET>,
             RegisterRunningDevice: RegisterRunningDevice::<Identity, Impl, OFFSET>,
             RegisterDeviceProvider: RegisterDeviceProvider::<Identity, Impl, OFFSET>,
@@ -905,7 +905,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDwordValue: GetDwordValue::<Identity, Impl, OFFSET>,
             GetStringValue: GetStringValue::<Identity, Impl, OFFSET>,
             GetGuidValue: GetGuidValue::<Identity, Impl, OFFSET>,
@@ -934,7 +934,7 @@ impl IUPnPReregistrar_Vtbl {
             (*this).ReregisterRunningDevice(::core::mem::transmute(&bstrdeviceidentifier), ::core::mem::transmute(&bstrxmldesc), ::core::mem::transmute(&punkdevicecontrol), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReregisterDevice: ReregisterDevice::<Identity, Impl, OFFSET>,
             ReregisterRunningDevice: ReregisterRunningDevice::<Identity, Impl, OFFSET>,
         }
@@ -1010,7 +1010,7 @@ impl IUPnPService_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueryStateVariable: QueryStateVariable::<Identity, Impl, OFFSET>,
             InvokeAction: InvokeAction::<Identity, Impl, OFFSET>,
             ServiceTypeIdentifier: ServiceTypeIdentifier::<Identity, Impl, OFFSET>,
@@ -1114,7 +1114,7 @@ impl IUPnPServiceAsync_Vtbl {
             (*this).CancelAsyncOperation(::core::mem::transmute_copy(&ullrequestid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeginInvokeAction: BeginInvokeAction::<Identity, Impl, OFFSET>,
             EndInvokeAction: EndInvokeAction::<Identity, Impl, OFFSET>,
             BeginQueryStateVariable: BeginQueryStateVariable::<Identity, Impl, OFFSET>,
@@ -1149,7 +1149,7 @@ impl IUPnPServiceCallback_Vtbl {
             (*this).ServiceInstanceDied(::core::mem::transmute(&pus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             StateVariableChanged: StateVariableChanged::<Identity, Impl, OFFSET>,
             ServiceInstanceDied: ServiceInstanceDied::<Identity, Impl, OFFSET>,
         }
@@ -1189,7 +1189,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDocumentURL: GetDocumentURL::<Identity, Impl, OFFSET>,
             GetDocument: GetDocument::<Identity, Impl, OFFSET>,
         }
@@ -1208,7 +1208,7 @@ impl IUPnPServiceEnumProperty_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetServiceEnumProperty(::core::mem::transmute_copy(&dwmask)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetServiceEnumProperty: SetServiceEnumProperty::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetServiceEnumProperty: SetServiceEnumProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUPnPServiceEnumProperty as ::windows::core::Interface>::IID
@@ -1257,7 +1257,7 @@ impl IUPnPServices_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,

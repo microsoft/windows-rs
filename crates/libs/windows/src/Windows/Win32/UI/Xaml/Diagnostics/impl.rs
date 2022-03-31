@@ -47,7 +47,7 @@ impl IBitmapData_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CopyBytesTo: CopyBytesTo::<Identity, Impl, OFFSET>,
             GetStride: GetStride::<Identity, Impl, OFFSET>,
             GetBitmapDescription: GetBitmapDescription::<Identity, Impl, OFFSET>,
@@ -149,7 +149,7 @@ impl IVisualTreeService_Vtbl {
             (*this).ClearChildren(::core::mem::transmute_copy(&parent)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AdviseVisualTreeChange: AdviseVisualTreeChange::<Identity, Impl, OFFSET>,
             UnadviseVisualTreeChange: UnadviseVisualTreeChange::<Identity, Impl, OFFSET>,
             GetEnums: GetEnums::<Identity, Impl, OFFSET>,
@@ -217,7 +217,7 @@ impl IVisualTreeService2_Vtbl {
             }
         }
         Self {
-            base: IVisualTreeService_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVisualTreeService_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPropertyIndex: GetPropertyIndex::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             ReplaceResource: ReplaceResource::<Identity, Impl, OFFSET>,
@@ -265,7 +265,7 @@ impl IVisualTreeService3_Vtbl {
             (*this).RemoveDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute_copy(&resourcekey)).into()
         }
         Self {
-            base: IVisualTreeService2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IVisualTreeService2_Vtbl::new::<Identity, Impl, OFFSET>(),
             ResolveResource: ResolveResource::<Identity, Impl, OFFSET>,
             GetDictionaryItem: GetDictionaryItem::<Identity, Impl, OFFSET>,
             AddDictionaryItem: AddDictionaryItem::<Identity, Impl, OFFSET>,
@@ -288,7 +288,7 @@ impl IVisualTreeServiceCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnVisualTreeChange(::core::mem::transmute(&relation), ::core::mem::transmute(&element), ::core::mem::transmute_copy(&mutationtype)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVisualTreeServiceCallback as ::windows::core::Interface>::IID
@@ -306,7 +306,7 @@ impl IVisualTreeServiceCallback2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnElementStateChanged(::core::mem::transmute_copy(&element), ::core::mem::transmute_copy(&elementstate), ::core::mem::transmute(&context)).into()
         }
-        Self { base: IVisualTreeServiceCallback_Vtbl::new::<Identity, Impl, OFFSET>(), OnElementStateChanged: OnElementStateChanged::<Identity, Impl, OFFSET> }
+        Self { base__: IVisualTreeServiceCallback_Vtbl::new::<Identity, Impl, OFFSET>(), OnElementStateChanged: OnElementStateChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVisualTreeServiceCallback2 as ::windows::core::Interface>::IID || iid == &<IVisualTreeServiceCallback as ::windows::core::Interface>::IID
@@ -409,7 +409,7 @@ impl IXamlDiagnostics_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDispatcher: GetDispatcher::<Identity, Impl, OFFSET>,
             GetUiLayer: GetUiLayer::<Identity, Impl, OFFSET>,
             GetApplication: GetApplication::<Identity, Impl, OFFSET>,

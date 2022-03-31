@@ -10,7 +10,7 @@ impl INetDiagExtensibleHelper_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ResolveAttributes(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgkeyattributes), ::core::mem::transmute_copy(&pcelt), ::core::mem::transmute_copy(&prgmatchvalues)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResolveAttributes: ResolveAttributes::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResolveAttributes: ResolveAttributes::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagExtensibleHelper as ::windows::core::Interface>::IID
@@ -149,7 +149,7 @@ impl INetDiagHelper_Vtbl {
             (*this).Cleanup().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetDiagnosticsInfo: GetDiagnosticsInfo::<Identity, Impl, OFFSET>,
             GetKeyAttributes: GetKeyAttributes::<Identity, Impl, OFFSET>,
@@ -199,7 +199,7 @@ impl INetDiagHelperEx_Vtbl {
             (*this).ReproduceFailure().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ReconfirmLowHealth: ReconfirmLowHealth::<Identity, Impl, OFFSET>,
             SetUtilities: SetUtilities::<Identity, Impl, OFFSET>,
             ReproduceFailure: ReproduceFailure::<Identity, Impl, OFFSET>,
@@ -219,7 +219,7 @@ impl INetDiagHelperInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetAttributeInfo(::core::mem::transmute_copy(&pcelt), ::core::mem::transmute_copy(&pprgattributeinfos)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagHelperInfo as ::windows::core::Interface>::IID
@@ -235,7 +235,7 @@ impl INetDiagHelperUtilFactory_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateUtilityInstance(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobject)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetDiagHelperUtilFactory as ::windows::core::Interface>::IID

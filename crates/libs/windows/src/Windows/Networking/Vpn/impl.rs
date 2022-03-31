@@ -12,7 +12,7 @@ impl IVpnChannelStatics_Vtbl {
             (*this).ProcessEventAsync(::core::mem::transmute(&thirdpartyplugin), ::core::mem::transmute(&event)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelStatics, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnChannelStatics, OFFSET>(),
             ProcessEventAsync: ProcessEventAsync::<Identity, Impl, OFFSET>,
         }
     }
@@ -83,7 +83,7 @@ impl IVpnCredential_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCredential, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCredential, OFFSET>(),
             PasskeyCredential: PasskeyCredential::<Identity, Impl, OFFSET>,
             CertificateCredential: CertificateCredential::<Identity, Impl, OFFSET>,
             AdditionalPin: AdditionalPin::<Identity, Impl, OFFSET>,
@@ -159,7 +159,7 @@ impl IVpnCustomPrompt_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPrompt, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPrompt, OFFSET>(),
             SetLabel: SetLabel::<Identity, Impl, OFFSET>,
             Label: Label::<Identity, Impl, OFFSET>,
             SetCompulsory: SetCompulsory::<Identity, Impl, OFFSET>,
@@ -237,7 +237,7 @@ impl IVpnCustomPromptElement_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptElement, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomPromptElement, OFFSET>(),
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetCompulsory: SetCompulsory::<Identity, Impl, OFFSET>,
@@ -274,7 +274,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnDomainNameInfoFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnDomainNameInfoFactory, OFFSET>(),
             CreateVpnDomainNameInfo: CreateVpnDomainNameInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -303,7 +303,7 @@ impl IVpnInterfaceIdFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnInterfaceIdFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnInterfaceIdFactory, OFFSET>(),
             CreateVpnInterfaceId: CreateVpnInterfaceId::<Identity, Impl, OFFSET>,
         }
     }
@@ -335,7 +335,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNamespaceInfoFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnNamespaceInfoFactory, OFFSET>(),
             CreateVpnNamespaceInfo: CreateVpnNamespaceInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -364,7 +364,7 @@ impl IVpnPacketBufferFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBufferFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPacketBufferFactory, OFFSET>(),
             CreateVpnPacketBuffer: CreateVpnPacketBuffer::<Identity, Impl, OFFSET>,
         }
     }
@@ -410,7 +410,7 @@ impl IVpnPlugIn_Vtbl {
             (*this).Decapsulate(::core::mem::transmute(&channel), ::core::mem::transmute(&encapbuffer), ::core::mem::transmute(&decapsulatedpackets), ::core::mem::transmute(&controlpacketstosend)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPlugIn, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnPlugIn, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
             GetKeepAlivePayload: GetKeepAlivePayload::<Identity, Impl, OFFSET>,
@@ -542,7 +542,7 @@ impl IVpnProfile_Vtbl {
             (*this).SetAlwaysOn(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnProfile, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnProfile, OFFSET>(),
             ProfileName: ProfileName::<Identity, Impl, OFFSET>,
             SetProfileName: SetProfileName::<Identity, Impl, OFFSET>,
             AppTriggers: AppTriggers::<Identity, Impl, OFFSET>,
@@ -579,7 +579,7 @@ impl IVpnRouteFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnRouteFactory, OFFSET>(), CreateVpnRoute: CreateVpnRoute::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IVpnRouteFactory, OFFSET>(), CreateVpnRoute: CreateVpnRoute::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnRouteFactory as ::windows::core::Interface>::IID

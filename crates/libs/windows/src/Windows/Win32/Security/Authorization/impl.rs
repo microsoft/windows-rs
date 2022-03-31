@@ -569,7 +569,7 @@ impl IAzApplication_Vtbl {
             (*this).DeleteDelegatedPolicyUserName(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -668,7 +668,7 @@ impl IAzApplication2_Vtbl {
             }
         }
         Self {
-            base: IAzApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzApplication_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeClientContextFromToken2: InitializeClientContextFromToken2::<Identity, Impl, OFFSET>,
             InitializeClientContext2: InitializeClientContext2::<Identity, Impl, OFFSET>,
         }
@@ -828,7 +828,7 @@ impl IAzApplication3_Vtbl {
             (*this).SetBizRulesEnabled(::core::mem::transmute_copy(&benabled)).into()
         }
         Self {
-            base: IAzApplication2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzApplication2_Vtbl::new::<Identity, Impl, OFFSET>(),
             ScopeExists: ScopeExists::<Identity, Impl, OFFSET>,
             OpenScope2: OpenScope2::<Identity, Impl, OFFSET>,
             CreateScope2: CreateScope2::<Identity, Impl, OFFSET>,
@@ -1120,7 +1120,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -1232,7 +1232,7 @@ impl IAzApplicationGroup2_Vtbl {
             }
         }
         Self {
-            base: IAzApplicationGroup_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzApplicationGroup_Vtbl::new::<Identity, Impl, OFFSET>(),
             BizRule: BizRule::<Identity, Impl, OFFSET>,
             SetBizRule: SetBizRule::<Identity, Impl, OFFSET>,
             BizRuleLanguage: BizRuleLanguage::<Identity, Impl, OFFSET>,
@@ -1289,7 +1289,7 @@ impl IAzApplicationGroups_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1342,7 +1342,7 @@ impl IAzApplications_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -1797,7 +1797,7 @@ impl IAzAuthorizationStore_Vtbl {
             (*this).CloseApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute_copy(&lflag)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             ApplicationData: ApplicationData::<Identity, Impl, OFFSET>,
@@ -1886,7 +1886,7 @@ impl IAzAuthorizationStore2_Vtbl {
             }
         }
         Self {
-            base: IAzAuthorizationStore_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzAuthorizationStore_Vtbl::new::<Identity, Impl, OFFSET>(),
             OpenApplication2: OpenApplication2::<Identity, Impl, OFFSET>,
             CreateApplication2: CreateApplication2::<Identity, Impl, OFFSET>,
         }
@@ -1950,7 +1950,7 @@ impl IAzAuthorizationStore3_Vtbl {
             (*this).GetSchemaVersion(::core::mem::transmute_copy(&plmajorversion), ::core::mem::transmute_copy(&plminorversion)).into()
         }
         Self {
-            base: IAzAuthorizationStore2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzAuthorizationStore2_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsUpdateNeeded: IsUpdateNeeded::<Identity, Impl, OFFSET>,
             BizruleGroupSupported: BizruleGroupSupported::<Identity, Impl, OFFSET>,
             UpgradeStoresFunctionalLevel: UpgradeStoresFunctionalLevel::<Identity, Impl, OFFSET>,
@@ -2005,7 +2005,7 @@ impl IAzBizRuleContext_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetBusinessRuleResult: SetBusinessRuleResult::<Identity, Impl, OFFSET>,
             SetBusinessRuleString: SetBusinessRuleString::<Identity, Impl, OFFSET>,
             BusinessRuleString: BusinessRuleString::<Identity, Impl, OFFSET>,
@@ -2065,7 +2065,7 @@ impl IAzBizRuleInterfaces_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddInterface: AddInterface::<Identity, Impl, OFFSET>,
             AddInterfaces: AddInterfaces::<Identity, Impl, OFFSET>,
             GetInterfaceValue: GetInterfaceValue::<Identity, Impl, OFFSET>,
@@ -2133,7 +2133,7 @@ impl IAzBizRuleParameters_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddParameter: AddParameter::<Identity, Impl, OFFSET>,
             AddParameters: AddParameters::<Identity, Impl, OFFSET>,
             GetParameterValue: GetParameterValue::<Identity, Impl, OFFSET>,
@@ -2314,7 +2314,7 @@ impl IAzClientContext_Vtbl {
             (*this).SetRoleForAccessCheck(::core::mem::transmute(&bstrprop)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AccessCheck: AccessCheck::<Identity, Impl, OFFSET>,
             GetBusinessRuleString: GetBusinessRuleString::<Identity, Impl, OFFSET>,
             UserDn: UserDn::<Identity, Impl, OFFSET>,
@@ -2383,7 +2383,7 @@ impl IAzClientContext2_Vtbl {
             }
         }
         Self {
-            base: IAzClientContext_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzClientContext_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAssignedScopesPage: GetAssignedScopesPage::<Identity, Impl, OFFSET>,
             AddRoles: AddRoles::<Identity, Impl, OFFSET>,
             AddApplicationGroups: AddApplicationGroups::<Identity, Impl, OFFSET>,
@@ -2499,7 +2499,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         Self {
-            base: IAzClientContext2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzClientContext2_Vtbl::new::<Identity, Impl, OFFSET>(),
             AccessCheck2: AccessCheck2::<Identity, Impl, OFFSET>,
             IsInRoleAssignment: IsInRoleAssignment::<Identity, Impl, OFFSET>,
             GetOperations: GetOperations::<Identity, Impl, OFFSET>,
@@ -2533,7 +2533,7 @@ impl IAzNameResolver_Vtbl {
             (*this).NamesFromSids(::core::mem::transmute(&vsids), ::core::mem::transmute_copy(&pvsidtypes), ::core::mem::transmute_copy(&pvnames)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             NameFromSid: NameFromSid::<Identity, Impl, OFFSET>,
             NamesFromSids: NamesFromSids::<Identity, Impl, OFFSET>,
         }
@@ -2567,7 +2567,7 @@ impl IAzObjectPicker_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetPrincipals: GetPrincipals::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
         }
@@ -2691,7 +2691,7 @@ impl IAzOperation_Vtbl {
             (*this).Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -2728,7 +2728,7 @@ impl IAzOperation2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IAzOperation_Vtbl::new::<Identity, Impl, OFFSET>(), RoleAssignments: RoleAssignments::<Identity, Impl, OFFSET> }
+        Self { base__: IAzOperation_Vtbl::new::<Identity, Impl, OFFSET>(), RoleAssignments: RoleAssignments::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAzOperation2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAzOperation as ::windows::core::Interface>::IID
@@ -2777,7 +2777,7 @@ impl IAzOperations_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -2818,7 +2818,7 @@ impl IAzPrincipalLocator_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             NameResolver: NameResolver::<Identity, Impl, OFFSET>,
             ObjectPicker: ObjectPicker::<Identity, Impl, OFFSET>,
         }
@@ -3056,7 +3056,7 @@ impl IAzRole_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -3133,7 +3133,7 @@ impl IAzRoleAssignment_Vtbl {
             }
         }
         Self {
-            base: IAzRole_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzRole_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddRoleDefinition: AddRoleDefinition::<Identity, Impl, OFFSET>,
             DeleteRoleDefinition: DeleteRoleDefinition::<Identity, Impl, OFFSET>,
             RoleDefinitions: RoleDefinitions::<Identity, Impl, OFFSET>,
@@ -3187,7 +3187,7 @@ impl IAzRoleAssignments_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3240,7 +3240,7 @@ impl IAzRoleDefinition_Vtbl {
             }
         }
         Self {
-            base: IAzTask_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzTask_Vtbl::new::<Identity, Impl, OFFSET>(),
             RoleAssignments: RoleAssignments::<Identity, Impl, OFFSET>,
             AddRoleDefinition: AddRoleDefinition::<Identity, Impl, OFFSET>,
             DeleteRoleDefinition: DeleteRoleDefinition::<Identity, Impl, OFFSET>,
@@ -3294,7 +3294,7 @@ impl IAzRoleDefinitions_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3347,7 +3347,7 @@ impl IAzRoles_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3712,7 +3712,7 @@ impl IAzScope_Vtbl {
             (*this).DeletePolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -3848,7 +3848,7 @@ impl IAzScope2_Vtbl {
             (*this).DeleteRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)).into()
         }
         Self {
-            base: IAzScope_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAzScope_Vtbl::new::<Identity, Impl, OFFSET>(),
             RoleDefinitions: RoleDefinitions::<Identity, Impl, OFFSET>,
             CreateRoleDefinition: CreateRoleDefinition::<Identity, Impl, OFFSET>,
             OpenRoleDefinition: OpenRoleDefinition::<Identity, Impl, OFFSET>,
@@ -3906,7 +3906,7 @@ impl IAzScopes_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4145,7 +4145,7 @@ impl IAzTask_Vtbl {
             (*this).Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -4196,7 +4196,7 @@ impl IAzTask2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IAzTask_Vtbl::new::<Identity, Impl, OFFSET>(), RoleAssignments: RoleAssignments::<Identity, Impl, OFFSET> }
+        Self { base__: IAzTask_Vtbl::new::<Identity, Impl, OFFSET>(), RoleAssignments: RoleAssignments::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAzTask2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAzTask as ::windows::core::Interface>::IID
@@ -4245,7 +4245,7 @@ impl IAzTasks_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,

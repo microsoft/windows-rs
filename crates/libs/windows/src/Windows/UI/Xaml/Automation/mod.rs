@@ -2521,7 +2521,7 @@ unsafe impl ::windows::core::Interface for IAnnotationPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2533,7 +2533,7 @@ unsafe impl ::windows::core::Interface for IAnnotationPatternIdentifiersStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AnnotationTypeIdProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AnnotationTypeNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AuthorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2550,7 +2550,7 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationAnnotation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnnotationType) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnnotationType) -> ::windows::core::HRESULT,
     pub Element: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2566,7 +2566,7 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationAnnotationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AnnotationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithElementParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AnnotationType, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2580,7 +2580,7 @@ unsafe impl ::windows::core::Interface for IAutomationAnnotationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationAnnotationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2594,7 +2594,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2606,7 +2606,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AcceleratorKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AccessKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AutomationIdProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2641,7 +2641,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics2
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ControlledPeersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2654,7 +2654,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics3
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PositionInSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SizeOfSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2670,7 +2670,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics4
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LocalizedLandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics5
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPeripheralProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsDataValidForFormProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FullDescriptionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2702,7 +2702,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics6
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CultureProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2715,7 +2715,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics7
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics7_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HeadingLevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2728,7 +2728,7 @@ unsafe impl ::windows::core::Interface for IAutomationElementIdentifiersStatics8
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics8_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsDialogProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2741,7 +2741,7 @@ unsafe impl ::windows::core::Interface for IAutomationProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationProperties_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2753,7 +2753,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AcceleratorKeyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetAcceleratorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAcceleratorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2801,7 +2801,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AccessibilityViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub GetAccessibilityView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AccessibilityView) -> ::windows::core::HRESULT,
@@ -2827,7 +2827,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub PositionInSetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPositionInSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetPositionInSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
@@ -2853,7 +2853,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub LandmarkTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub GetLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLandmarkType) -> ::windows::core::HRESULT,
@@ -2877,7 +2877,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPeripheralProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIsPeripheral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPeripheral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
@@ -2916,7 +2916,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CultureProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetCulture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetCulture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
@@ -2931,7 +2931,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics7_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HeadingLevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub GetHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT,
@@ -2952,7 +2952,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics8_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsDialogProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
@@ -2967,7 +2967,7 @@ unsafe impl ::windows::core::Interface for IAutomationPropertiesStatics9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics9_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AutomationControlTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub GetAutomationControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationControlType) -> ::windows::core::HRESULT,
@@ -2988,7 +2988,7 @@ unsafe impl ::windows::core::Interface for IAutomationProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationProperty_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3000,7 +3000,7 @@ unsafe impl ::windows::core::Interface for IDockPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDockPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3012,7 +3012,7 @@ unsafe impl ::windows::core::Interface for IDockPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDockPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DockPositionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3025,7 +3025,7 @@ unsafe impl ::windows::core::Interface for IDragPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3037,7 +3037,7 @@ unsafe impl ::windows::core::Interface for IDragPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DropEffectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DropEffectsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GrabbedItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3053,7 +3053,7 @@ unsafe impl ::windows::core::Interface for IDropTargetPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3065,7 +3065,7 @@ unsafe impl ::windows::core::Interface for IDropTargetPatternIdentifiersStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub DropTargetEffectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DropTargetEffectsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3079,7 +3079,7 @@ unsafe impl ::windows::core::Interface for IExpandCollapsePatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExpandCollapsePatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3091,7 +3091,7 @@ unsafe impl ::windows::core::Interface for IExpandCollapsePatternIdentifiersStat
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExpandCollapsePatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExpandCollapseStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3104,7 +3104,7 @@ unsafe impl ::windows::core::Interface for IGridItemPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3116,7 +3116,7 @@ unsafe impl ::windows::core::Interface for IGridItemPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColumnProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ColumnSpanProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ContainingGridProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3133,7 +3133,7 @@ unsafe impl ::windows::core::Interface for IGridPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3145,7 +3145,7 @@ unsafe impl ::windows::core::Interface for IGridPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColumnCountProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RowCountProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3159,7 +3159,7 @@ unsafe impl ::windows::core::Interface for IMultipleViewPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3171,7 +3171,7 @@ unsafe impl ::windows::core::Interface for IMultipleViewPatternIdentifiersStatic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CurrentViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SupportedViewsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3185,7 +3185,7 @@ unsafe impl ::windows::core::Interface for IRangeValuePatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeValuePatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3197,7 +3197,7 @@ unsafe impl ::windows::core::Interface for IRangeValuePatternIdentifiersStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeValuePatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsReadOnlyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LargeChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MaximumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3215,7 +3215,7 @@ unsafe impl ::windows::core::Interface for IScrollPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3227,7 +3227,7 @@ unsafe impl ::windows::core::Interface for IScrollPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub HorizontallyScrollableProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HorizontalScrollPercentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HorizontalViewSizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3246,7 +3246,7 @@ unsafe impl ::windows::core::Interface for ISelectionItemPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3258,7 +3258,7 @@ unsafe impl ::windows::core::Interface for ISelectionItemPatternIdentifiersStati
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsSelectedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SelectionContainerProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3272,7 +3272,7 @@ unsafe impl ::windows::core::Interface for ISelectionPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3284,7 +3284,7 @@ unsafe impl ::windows::core::Interface for ISelectionPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanSelectMultipleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsSelectionRequiredProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SelectionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3299,7 +3299,7 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3311,7 +3311,7 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemPatternIdentifiersSta
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FormulaProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3324,7 +3324,7 @@ unsafe impl ::windows::core::Interface for IStylesPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3336,7 +3336,7 @@ unsafe impl ::windows::core::Interface for IStylesPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ExtendedPropertiesProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FillColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FillPatternColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3355,7 +3355,7 @@ unsafe impl ::windows::core::Interface for ITableItemPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableItemPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3367,7 +3367,7 @@ unsafe impl ::windows::core::Interface for ITableItemPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableItemPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColumnHeaderItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RowHeaderItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3381,7 +3381,7 @@ unsafe impl ::windows::core::Interface for ITablePatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITablePatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3393,7 +3393,7 @@ unsafe impl ::windows::core::Interface for ITablePatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITablePatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ColumnHeadersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RowHeadersProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RowOrColumnMajorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3408,7 +3408,7 @@ unsafe impl ::windows::core::Interface for ITogglePatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITogglePatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3420,7 +3420,7 @@ unsafe impl ::windows::core::Interface for ITogglePatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITogglePatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ToggleStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3433,7 +3433,7 @@ unsafe impl ::windows::core::Interface for ITransformPattern2Identifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformPattern2Identifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3445,7 +3445,7 @@ unsafe impl ::windows::core::Interface for ITransformPattern2IdentifiersStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformPattern2IdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanZoomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ZoomLevelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MaxZoomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3461,7 +3461,7 @@ unsafe impl ::windows::core::Interface for ITransformPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3473,7 +3473,7 @@ unsafe impl ::windows::core::Interface for ITransformPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanMoveProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CanResizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CanRotateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3488,7 +3488,7 @@ unsafe impl ::windows::core::Interface for IValuePatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValuePatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3500,7 +3500,7 @@ unsafe impl ::windows::core::Interface for IValuePatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValuePatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsReadOnlyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3514,7 +3514,7 @@ unsafe impl ::windows::core::Interface for IWindowPatternIdentifiers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowPatternIdentifiers_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3526,7 +3526,7 @@ unsafe impl ::windows::core::Interface for IWindowPatternIdentifiersStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowPatternIdentifiersStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CanMaximizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CanMinimizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsModalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

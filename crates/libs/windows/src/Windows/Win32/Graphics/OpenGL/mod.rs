@@ -1577,14 +1577,7 @@ pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::G
 pub struct HGLRC(pub isize);
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for HGLRC {
@@ -7456,14 +7449,15 @@ pub unsafe fn wglCopyContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, 
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> HGLRC {
+pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> ::windows::core::Result<HGLRC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn wglCreateContext(param0: super::Gdi::HDC) -> HGLRC;
         }
-        ::core::mem::transmute(wglCreateContext(param0.into_param().abi()))
+        let result__ = wglCreateContext(param0.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7471,14 +7465,15 @@ pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32) -> HGLRC {
+pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32) -> ::windows::core::Result<HGLRC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> HGLRC;
         }
-        ::core::mem::transmute(wglCreateLayerContext(param0.into_param().abi(), ::core::mem::transmute(param1)))
+        let result__ = wglCreateLayerContext(param0.into_param().abi(), ::core::mem::transmute(param1));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

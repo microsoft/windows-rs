@@ -131,7 +131,7 @@ impl IADs_Vtbl {
             (*this).GetInfoEx(::core::mem::transmute(&vproperties), ::core::mem::transmute_copy(&lnreserved)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Class: Class::<Identity, Impl, OFFSET>,
             GUID: GUID::<Identity, Impl, OFFSET>,
@@ -308,7 +308,7 @@ impl IADsADSystemInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserName: UserName::<Identity, Impl, OFFSET>,
             ComputerName: ComputerName::<Identity, Impl, OFFSET>,
             SiteName: SiteName::<Identity, Impl, OFFSET>,
@@ -461,7 +461,7 @@ impl IADsAccessControlEntry_Vtbl {
             (*this).SetTrustee(::core::mem::transmute(&bstrtrustee)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AccessMask: AccessMask::<Identity, Impl, OFFSET>,
             SetAccessMask: SetAccessMask::<Identity, Impl, OFFSET>,
             AceType: AceType::<Identity, Impl, OFFSET>,
@@ -561,7 +561,7 @@ impl IADsAccessControlList_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AclRevision: AclRevision::<Identity, Impl, OFFSET>,
             SetAclRevision: SetAclRevision::<Identity, Impl, OFFSET>,
             AceCount: AceCount::<Identity, Impl, OFFSET>,
@@ -649,7 +649,7 @@ impl IADsAcl_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ProtectedAttrName: ProtectedAttrName::<Identity, Impl, OFFSET>,
             SetProtectedAttrName: SetProtectedAttrName::<Identity, Impl, OFFSET>,
             SubjectName: SubjectName::<Identity, Impl, OFFSET>,
@@ -692,7 +692,7 @@ impl IADsAggregatee_Vtbl {
             (*this).RestoreInterface(::core::mem::transmute_copy(&riid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectAsAggregatee: ConnectAsAggregatee::<Identity, Impl, OFFSET>,
             DisconnectAsAggregatee: DisconnectAsAggregatee::<Identity, Impl, OFFSET>,
             RelinquishInterface: RelinquishInterface::<Identity, Impl, OFFSET>,
@@ -720,7 +720,7 @@ impl IADsAggregator_Vtbl {
             (*this).DisconnectAsAggregator().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectAsAggregator: ConnectAsAggregator::<Identity, Impl, OFFSET>,
             DisconnectAsAggregator: DisconnectAsAggregator::<Identity, Impl, OFFSET>,
         }
@@ -772,7 +772,7 @@ impl IADsBackLink_Vtbl {
             (*this).SetObjectName(::core::mem::transmute(&bstrobjectname)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RemoteID: RemoteID::<Identity, Impl, OFFSET>,
             SetRemoteID: SetRemoteID::<Identity, Impl, OFFSET>,
             ObjectName: ObjectName::<Identity, Impl, OFFSET>,
@@ -808,7 +808,7 @@ impl IADsCaseIgnoreList_Vtbl {
             (*this).SetCaseIgnoreList(::core::mem::transmute(&vcaseignorelist)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CaseIgnoreList: CaseIgnoreList::<Identity, Impl, OFFSET>,
             SetCaseIgnoreList: SetCaseIgnoreList::<Identity, Impl, OFFSET>,
         }
@@ -1100,7 +1100,7 @@ impl IADsClass_Vtbl {
             }
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrimaryInterface: PrimaryInterface::<Identity, Impl, OFFSET>,
             CLSID: CLSID::<Identity, Impl, OFFSET>,
             SetCLSID: SetCLSID::<Identity, Impl, OFFSET>,
@@ -1180,7 +1180,7 @@ impl IADsCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -1492,7 +1492,7 @@ impl IADsComputer_Vtbl {
             (*this).SetNetAddresses(::core::mem::transmute(&vnetaddresses)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             ComputerID: ComputerID::<Identity, Impl, OFFSET>,
             Site: Site::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -1555,7 +1555,7 @@ impl IADsComputerOperations_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Shutdown(::core::mem::transmute_copy(&breboot)).into()
         }
-        Self { base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(), Status: Status::<Identity, Impl, OFFSET>, Shutdown: Shutdown::<Identity, Impl, OFFSET> }
+        Self { base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(), Status: Status::<Identity, Impl, OFFSET>, Shutdown: Shutdown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IADsComputerOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
@@ -1682,7 +1682,7 @@ impl IADsContainer_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Filter: Filter::<Identity, Impl, OFFSET>,
@@ -1743,7 +1743,7 @@ impl IADsDNWithBinary_Vtbl {
             (*this).SetDNString(::core::mem::transmute(&bstrdnstring)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BinaryValue: BinaryValue::<Identity, Impl, OFFSET>,
             SetBinaryValue: SetBinaryValue::<Identity, Impl, OFFSET>,
             DNString: DNString::<Identity, Impl, OFFSET>,
@@ -1797,7 +1797,7 @@ impl IADsDNWithString_Vtbl {
             (*this).SetDNString(::core::mem::transmute(&bstrdnstring)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StringValue: StringValue::<Identity, Impl, OFFSET>,
             SetStringValue: SetStringValue::<Identity, Impl, OFFSET>,
             DNString: DNString::<Identity, Impl, OFFSET>,
@@ -1820,7 +1820,7 @@ impl IADsDeleteOps_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeleteObject(::core::mem::transmute_copy(&lnflags)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), DeleteObject: DeleteObject::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), DeleteObject: DeleteObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IADsDeleteOps as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -1989,7 +1989,7 @@ impl IADsDomain_Vtbl {
             (*this).SetLockoutObservationInterval(::core::mem::transmute_copy(&lnlockoutobservationinterval)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsWorkgroup: IsWorkgroup::<Identity, Impl, OFFSET>,
             MinPasswordLength: MinPasswordLength::<Identity, Impl, OFFSET>,
             SetMinPasswordLength: SetMinPasswordLength::<Identity, Impl, OFFSET>,
@@ -2056,7 +2056,7 @@ impl IADsEmail_Vtbl {
             (*this).SetAddress(::core::mem::transmute(&bstraddress)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             SetType: SetType::<Identity, Impl, OFFSET>,
             Address: Address::<Identity, Impl, OFFSET>,
@@ -2098,7 +2098,7 @@ impl IADsExtension_Vtbl {
             (*this).PrivateInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Operate: Operate::<Identity, Impl, OFFSET>,
             PrivateGetIDsOfNames: PrivateGetIDsOfNames::<Identity, Impl, OFFSET>,
             PrivateInvoke: PrivateInvoke::<Identity, Impl, OFFSET>,
@@ -2151,7 +2151,7 @@ impl IADsFaxNumber_Vtbl {
             (*this).SetParameters(::core::mem::transmute(&vparameters)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             TelephoneNumber: TelephoneNumber::<Identity, Impl, OFFSET>,
             SetTelephoneNumber: SetTelephoneNumber::<Identity, Impl, OFFSET>,
             Parameters: Parameters::<Identity, Impl, OFFSET>,
@@ -2205,7 +2205,7 @@ impl IADsFileService_Vtbl {
             (*this).SetMaxUserCount(::core::mem::transmute_copy(&lnmaxusercount)).into()
         }
         Self {
-            base: IADsService_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADsService_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             MaxUserCount: MaxUserCount::<Identity, Impl, OFFSET>,
@@ -2247,7 +2247,7 @@ impl IADsFileServiceOperations_Vtbl {
             }
         }
         Self {
-            base: IADsServiceOperations_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADsServiceOperations_Vtbl::new::<Identity, Impl, OFFSET>(),
             Sessions: Sessions::<Identity, Impl, OFFSET>,
             Resources: Resources::<Identity, Impl, OFFSET>,
         }
@@ -2347,7 +2347,7 @@ impl IADsFileShare_Vtbl {
             (*this).SetMaxUserCount(::core::mem::transmute_copy(&lnmaxusercount)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentUserCount: CurrentUserCount::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
@@ -2424,7 +2424,7 @@ impl IADsGroup_Vtbl {
             (*this).Remove(::core::mem::transmute(&bstritemtoberemoved)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             Members: Members::<Identity, Impl, OFFSET>,
@@ -2480,7 +2480,7 @@ impl IADsHold_Vtbl {
             (*this).SetAmount(::core::mem::transmute_copy(&lnamount)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ObjectName: ObjectName::<Identity, Impl, OFFSET>,
             SetObjectName: SetObjectName::<Identity, Impl, OFFSET>,
             Amount: Amount::<Identity, Impl, OFFSET>,
@@ -2534,7 +2534,7 @@ impl IADsLargeInteger_Vtbl {
             (*this).SetLowPart(::core::mem::transmute_copy(&lnlowpart)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             HighPart: HighPart::<Identity, Impl, OFFSET>,
             SetHighPart: SetHighPart::<Identity, Impl, OFFSET>,
             LowPart: LowPart::<Identity, Impl, OFFSET>,
@@ -2624,7 +2624,7 @@ impl IADsLocality_Vtbl {
             (*this).SetSeeAlso(::core::mem::transmute(&vseealso)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             LocalityName: LocalityName::<Identity, Impl, OFFSET>,
@@ -2688,7 +2688,7 @@ impl IADsMembers_Vtbl {
             (*this).SetFilter(::core::mem::transmute(&pvfilter)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Filter: Filter::<Identity, Impl, OFFSET>,
@@ -2760,7 +2760,7 @@ impl IADsNameTranslate_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetChaseReferral: SetChaseReferral::<Identity, Impl, OFFSET>,
             Init: Init::<Identity, Impl, OFFSET>,
             InitEx: InitEx::<Identity, Impl, OFFSET>,
@@ -2799,7 +2799,7 @@ impl IADsNamespaces_Vtbl {
             (*this).SetDefaultContainer(::core::mem::transmute(&bstrdefaultcontainer)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             DefaultContainer: DefaultContainer::<Identity, Impl, OFFSET>,
             SetDefaultContainer: SetDefaultContainer::<Identity, Impl, OFFSET>,
         }
@@ -2851,7 +2851,7 @@ impl IADsNetAddress_Vtbl {
             (*this).SetAddress(::core::mem::transmute(&vaddress)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddressType: AddressType::<Identity, Impl, OFFSET>,
             SetAddressType: SetAddressType::<Identity, Impl, OFFSET>,
             Address: Address::<Identity, Impl, OFFSET>,
@@ -2977,7 +2977,7 @@ impl IADsO_Vtbl {
             (*this).SetSeeAlso(::core::mem::transmute(&vseealso)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             LocalityName: LocalityName::<Identity, Impl, OFFSET>,
@@ -3129,7 +3129,7 @@ impl IADsOU_Vtbl {
             (*this).SetBusinessCategory(::core::mem::transmute(&bstrbusinesscategory)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             SetDescription: SetDescription::<Identity, Impl, OFFSET>,
             LocalityName: LocalityName::<Identity, Impl, OFFSET>,
@@ -3175,7 +3175,7 @@ impl IADsObjectOptions_Vtbl {
             (*this).SetOption(::core::mem::transmute_copy(&lnoption), ::core::mem::transmute(&vvalue)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetOption: GetOption::<Identity, Impl, OFFSET>,
             SetOption: SetOption::<Identity, Impl, OFFSET>,
         }
@@ -3209,7 +3209,7 @@ impl IADsOctetList_Vtbl {
             (*this).SetOctetList(::core::mem::transmute(&voctetlist)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             OctetList: OctetList::<Identity, Impl, OFFSET>,
             SetOctetList: SetOctetList::<Identity, Impl, OFFSET>,
         }
@@ -3236,7 +3236,7 @@ impl IADsOpenDSObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), OpenDSObject: OpenDSObject::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), OpenDSObject: OpenDSObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IADsOpenDSObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -3303,7 +3303,7 @@ impl IADsPath_Vtbl {
             (*this).SetPath(::core::mem::transmute(&bstrpath)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             SetType: SetType::<Identity, Impl, OFFSET>,
             VolumeName: VolumeName::<Identity, Impl, OFFSET>,
@@ -3425,7 +3425,7 @@ impl IADsPathname_Vtbl {
             (*this).SetEscapedMode(::core::mem::transmute_copy(&lnescapedmode)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Set: Set::<Identity, Impl, OFFSET>,
             SetDisplayType: SetDisplayType::<Identity, Impl, OFFSET>,
             Retrieve: Retrieve::<Identity, Impl, OFFSET>,
@@ -3468,7 +3468,7 @@ impl IADsPostalAddress_Vtbl {
             (*this).SetPostalAddress(::core::mem::transmute(&vpostaladdress)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PostalAddress: PostalAddress::<Identity, Impl, OFFSET>,
             SetPostalAddress: SetPostalAddress::<Identity, Impl, OFFSET>,
         }
@@ -3664,7 +3664,7 @@ impl IADsPrintJob_Vtbl {
             (*this).SetNotifyPath(::core::mem::transmute(&bstrnotifypath)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             HostPrintQueue: HostPrintQueue::<Identity, Impl, OFFSET>,
             User: User::<Identity, Impl, OFFSET>,
             UserPath: UserPath::<Identity, Impl, OFFSET>,
@@ -3762,7 +3762,7 @@ impl IADsPrintJobOperations_Vtbl {
             (*this).Resume().into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             TimeElapsed: TimeElapsed::<Identity, Impl, OFFSET>,
             PagesPrinted: PagesPrinted::<Identity, Impl, OFFSET>,
@@ -4017,7 +4017,7 @@ impl IADsPrintQueue_Vtbl {
             (*this).SetNetAddresses(::core::mem::transmute(&vnetaddresses)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrinterPath: PrinterPath::<Identity, Impl, OFFSET>,
             SetPrinterPath: SetPrinterPath::<Identity, Impl, OFFSET>,
             Model: Model::<Identity, Impl, OFFSET>,
@@ -4099,7 +4099,7 @@ impl IADsPrintQueueOperations_Vtbl {
             (*this).Purge().into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             PrintJobs: PrintJobs::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
@@ -4220,7 +4220,7 @@ impl IADsProperty_Vtbl {
             }
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             OID: OID::<Identity, Impl, OFFSET>,
             SetOID: SetOID::<Identity, Impl, OFFSET>,
             Syntax: Syntax::<Identity, Impl, OFFSET>,
@@ -4323,7 +4323,7 @@ impl IADsPropertyEntry_Vtbl {
             (*this).SetValues(::core::mem::transmute(&vvalues)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Clear: Clear::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
@@ -4418,7 +4418,7 @@ impl IADsPropertyList_Vtbl {
             (*this).PurgePropertyList().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PropertyCount: PropertyCount::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -4663,7 +4663,7 @@ impl IADsPropertyValue_Vtbl {
             (*this).SetUTCTime(::core::mem::transmute_copy(&dautctime)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Clear: Clear::<Identity, Impl, OFFSET>,
             ADsType: ADsType::<Identity, Impl, OFFSET>,
             SetADsType: SetADsType::<Identity, Impl, OFFSET>,
@@ -4714,7 +4714,7 @@ impl IADsPropertyValue2_Vtbl {
             (*this).PutObjectProperty(::core::mem::transmute_copy(&lnadstype), ::core::mem::transmute(&vprop)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetObjectProperty: GetObjectProperty::<Identity, Impl, OFFSET>,
             PutObjectProperty: PutObjectProperty::<Identity, Impl, OFFSET>,
         }
@@ -4820,7 +4820,7 @@ impl IADsReplicaPointer_Vtbl {
             (*this).SetReplicaAddressHints(::core::mem::transmute(&vreplicaaddresshints)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ServerName: ServerName::<Identity, Impl, OFFSET>,
             SetServerName: SetServerName::<Identity, Impl, OFFSET>,
             ReplicaType: ReplicaType::<Identity, Impl, OFFSET>,
@@ -4892,7 +4892,7 @@ impl IADsResource_Vtbl {
             }
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             User: User::<Identity, Impl, OFFSET>,
             UserPath: UserPath::<Identity, Impl, OFFSET>,
             Path: Path::<Identity, Impl, OFFSET>,
@@ -5102,7 +5102,7 @@ impl IADsSecurityDescriptor_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Revision: Revision::<Identity, Impl, OFFSET>,
             SetRevision: SetRevision::<Identity, Impl, OFFSET>,
             Control: Control::<Identity, Impl, OFFSET>,
@@ -5185,7 +5185,7 @@ impl IADsSecurityUtility_Vtbl {
             (*this).SetSecurityMask(::core::mem::transmute_copy(&lnsecuritymask)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSecurityDescriptor: GetSecurityDescriptor::<Identity, Impl, OFFSET>,
             SetSecurityDescriptor: SetSecurityDescriptor::<Identity, Impl, OFFSET>,
             ConvertSecurityDescriptor: ConvertSecurityDescriptor::<Identity, Impl, OFFSET>,
@@ -5420,7 +5420,7 @@ impl IADsService_Vtbl {
             (*this).SetDependencies(::core::mem::transmute(&vdependencies)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             HostComputer: HostComputer::<Identity, Impl, OFFSET>,
             SetHostComputer: SetHostComputer::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
@@ -5500,7 +5500,7 @@ impl IADsServiceOperations_Vtbl {
             (*this).SetPassword(::core::mem::transmute(&bstrnewpassword)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
@@ -5592,7 +5592,7 @@ impl IADsSession_Vtbl {
             }
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             User: User::<Identity, Impl, OFFSET>,
             UserPath: UserPath::<Identity, Impl, OFFSET>,
             Computer: Computer::<Identity, Impl, OFFSET>,
@@ -5630,7 +5630,7 @@ impl IADsSyntax_Vtbl {
             (*this).SetOleAutoDataType(::core::mem::transmute_copy(&lnoleautodatatype)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             OleAutoDataType: OleAutoDataType::<Identity, Impl, OFFSET>,
             SetOleAutoDataType: SetOleAutoDataType::<Identity, Impl, OFFSET>,
         }
@@ -5682,7 +5682,7 @@ impl IADsTimestamp_Vtbl {
             (*this).SetEventID(::core::mem::transmute_copy(&lneventid)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             WholeSeconds: WholeSeconds::<Identity, Impl, OFFSET>,
             SetWholeSeconds: SetWholeSeconds::<Identity, Impl, OFFSET>,
             EventID: EventID::<Identity, Impl, OFFSET>,
@@ -5754,7 +5754,7 @@ impl IADsTypedName_Vtbl {
             (*this).SetInterval(::core::mem::transmute_copy(&lninterval)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ObjectName: ObjectName::<Identity, Impl, OFFSET>,
             SetObjectName: SetObjectName::<Identity, Impl, OFFSET>,
             Level: Level::<Identity, Impl, OFFSET>,
@@ -6608,7 +6608,7 @@ impl IADsUser_Vtbl {
             (*this).ChangePassword(::core::mem::transmute(&bstroldpassword), ::core::mem::transmute(&bstrnewpassword)).into()
         }
         Self {
-            base: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IADs_Vtbl::new::<Identity, Impl, OFFSET>(),
             BadLoginAddress: BadLoginAddress::<Identity, Impl, OFFSET>,
             BadLoginCount: BadLoginCount::<Identity, Impl, OFFSET>,
             LastLogin: LastLogin::<Identity, Impl, OFFSET>,
@@ -6761,7 +6761,7 @@ impl IADsWinNTSystemInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserName: UserName::<Identity, Impl, OFFSET>,
             ComputerName: ComputerName::<Identity, Impl, OFFSET>,
             DomainName: DomainName::<Identity, Impl, OFFSET>,
@@ -6784,7 +6784,7 @@ impl ICommonQuery_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OpenQueryWindow(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&pquerywnd), ::core::mem::transmute_copy(&ppdataobject)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenQueryWindow: OpenQueryWindow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenQueryWindow: OpenQueryWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommonQuery as ::windows::core::Interface>::IID
@@ -6845,7 +6845,7 @@ impl IDirectoryObject_Vtbl {
             (*this).DeleteDSObject(::core::mem::transmute(&pszrdnname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetObjectInformation: GetObjectInformation::<Identity, Impl, OFFSET>,
             GetObjectAttributes: GetObjectAttributes::<Identity, Impl, OFFSET>,
             SetObjectAttributes: SetObjectAttributes::<Identity, Impl, OFFSET>,
@@ -6912,7 +6912,7 @@ impl IDirectorySchemaMgmt_Vtbl {
             (*this).DeleteClassDefinition(::core::mem::transmute(&pszclassname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumAttributes: EnumAttributes::<Identity, Impl, OFFSET>,
             CreateAttributeDefinition: CreateAttributeDefinition::<Identity, Impl, OFFSET>,
             WriteAttributeDefinition: WriteAttributeDefinition::<Identity, Impl, OFFSET>,
@@ -7006,7 +7006,7 @@ impl IDirectorySearch_Vtbl {
             (*this).CloseSearchHandle(::core::mem::transmute_copy(&hsearchresult)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetSearchPreference: SetSearchPreference::<Identity, Impl, OFFSET>,
             ExecuteSearch: ExecuteSearch::<Identity, Impl, OFFSET>,
             AbandonSearch: AbandonSearch::<Identity, Impl, OFFSET>,
@@ -7048,7 +7048,7 @@ impl IDsAdminCreateObj_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             CreateModal: CreateModal::<Identity, Impl, OFFSET>,
         }
@@ -7076,7 +7076,7 @@ impl IDsAdminNewObj_Vtbl {
             (*this).GetPageCounts(::core::mem::transmute_copy(&pntotal), ::core::mem::transmute_copy(&pnstartindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetButtons: SetButtons::<Identity, Impl, OFFSET>,
             GetPageCounts: GetPageCounts::<Identity, Impl, OFFSET>,
         }
@@ -7128,7 +7128,7 @@ impl IDsAdminNewObjExt_Vtbl {
             (*this).GetSummaryInfo(::core::mem::transmute_copy(&pbstrtext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             AddPages: AddPages::<Identity, Impl, OFFSET>,
             SetObject: SetObject::<Identity, Impl, OFFSET>,
@@ -7158,7 +7158,7 @@ impl IDsAdminNewObjPrimarySite_Vtbl {
             (*this).Commit().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateNew: CreateNew::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
@@ -7198,7 +7198,7 @@ impl IDsAdminNotifyHandler_Vtbl {
             (*this).End().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Begin: Begin::<Identity, Impl, OFFSET>,
             Notify: Notify::<Identity, Impl, OFFSET>,
@@ -7246,7 +7246,7 @@ impl IDsBrowseDomainTree_Vtbl {
             (*this).SetComputer(::core::mem::transmute(&pszcomputername), ::core::mem::transmute(&pszusername), ::core::mem::transmute(&pszpassword)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BrowseTo: BrowseTo::<Identity, Impl, OFFSET>,
             GetDomains: GetDomains::<Identity, Impl, OFFSET>,
             FreeDomains: FreeDomains::<Identity, Impl, OFFSET>,
@@ -7331,7 +7331,7 @@ impl IDsDisplaySpecifier_Vtbl {
             (*this).GetAttributeADsType(::core::mem::transmute(&pszattributename))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetServer: SetServer::<Identity, Impl, OFFSET>,
             SetLanguageID: SetLanguageID::<Identity, Impl, OFFSET>,
             GetDisplaySpecifier: GetDisplaySpecifier::<Identity, Impl, OFFSET>,
@@ -7374,7 +7374,7 @@ impl IDsObjectPicker_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InvokeDialog: InvokeDialog::<Identity, Impl, OFFSET>,
         }
@@ -7395,7 +7395,7 @@ impl IDsObjectPickerCredentials_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetCredentials(::core::mem::transmute(&szusername), ::core::mem::transmute(&szpassword)).into()
         }
-        Self { base: IDsObjectPicker_Vtbl::new::<Identity, Impl, OFFSET>(), SetCredentials: SetCredentials::<Identity, Impl, OFFSET> }
+        Self { base__: IDsObjectPicker_Vtbl::new::<Identity, Impl, OFFSET>(), SetCredentials: SetCredentials::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDsObjectPickerCredentials as ::windows::core::Interface>::IID || iid == &<IDsObjectPicker as ::windows::core::Interface>::IID
@@ -7450,7 +7450,7 @@ impl IPersistQuery_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::System::Com::IPersist_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IPersist_Vtbl::new::<Identity, Impl, OFFSET>(),
             WriteString: WriteString::<Identity, Impl, OFFSET>,
             ReadString: ReadString::<Identity, Impl, OFFSET>,
             WriteInt: WriteInt::<Identity, Impl, OFFSET>,
@@ -7519,7 +7519,7 @@ impl IPrivateDispatch_Vtbl {
             (*this).ADSIInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ADSIInitializeDispatchManager: ADSIInitializeDispatchManager::<Identity, Impl, OFFSET>,
             ADSIGetTypeInfoCount: ADSIGetTypeInfoCount::<Identity, Impl, OFFSET>,
             ADSIGetTypeInfo: ADSIGetTypeInfo::<Identity, Impl, OFFSET>,
@@ -7550,7 +7550,7 @@ impl IPrivateUnknown_Vtbl {
             (*this).ADSIReleaseObject().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ADSIInitializeObject: ADSIInitializeObject::<Identity, Impl, OFFSET>,
             ADSIReleaseObject: ADSIReleaseObject::<Identity, Impl, OFFSET>,
         }
@@ -7584,7 +7584,7 @@ impl IQueryForm_Vtbl {
             (*this).AddPages(::core::mem::transmute(&paddpagesproc), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             AddForms: AddForms::<Identity, Impl, OFFSET>,
             AddPages: AddPages::<Identity, Impl, OFFSET>,

@@ -23,7 +23,7 @@ impl ID3D11On12Device_Vtbl {
             (*this).AcquireWrappedResources(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&numresources))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateWrappedResource: CreateWrappedResource::<Identity, Impl, OFFSET>,
             ReleaseWrappedResources: ReleaseWrappedResources::<Identity, Impl, OFFSET>,
             AcquireWrappedResources: AcquireWrappedResources::<Identity, Impl, OFFSET>,
@@ -45,7 +45,7 @@ impl ID3D11On12Device1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetD3D12Device(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvdevice)).into()
         }
-        Self { base: ID3D11On12Device_Vtbl::new::<Identity, Impl, OFFSET>(), GetD3D12Device: GetD3D12Device::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D11On12Device_Vtbl::new::<Identity, Impl, OFFSET>(), GetD3D12Device: GetD3D12Device::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D11On12Device1 as ::windows::core::Interface>::IID || iid == &<ID3D11On12Device as ::windows::core::Interface>::IID
@@ -70,7 +70,7 @@ impl ID3D11On12Device2_Vtbl {
             (*this).ReturnUnderlyingResource(::core::mem::transmute(&presource11), ::core::mem::transmute_copy(&numsync), ::core::mem::transmute_copy(&psignalvalues), ::core::mem::transmute_copy(&ppfences)).into()
         }
         Self {
-            base: ID3D11On12Device1_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D11On12Device1_Vtbl::new::<Identity, Impl, OFFSET>(),
             UnwrapUnderlyingResource: UnwrapUnderlyingResource::<Identity, Impl, OFFSET>,
             ReturnUnderlyingResource: ReturnUnderlyingResource::<Identity, Impl, OFFSET>,
         }

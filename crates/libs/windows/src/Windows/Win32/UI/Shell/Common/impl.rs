@@ -21,7 +21,7 @@ impl IObjectArray_Vtbl {
             (*this).GetAt(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
@@ -59,7 +59,7 @@ impl IObjectCollection_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: IObjectArray_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IObjectArray_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddObject: AddObject::<Identity, Impl, OFFSET>,
             AddFromArray: AddFromArray::<Identity, Impl, OFFSET>,
             RemoveObjectAt: RemoveObjectAt::<Identity, Impl, OFFSET>,

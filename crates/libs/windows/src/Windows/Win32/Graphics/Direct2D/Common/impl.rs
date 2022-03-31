@@ -45,7 +45,7 @@ impl ID2D1SimplifiedGeometrySink_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetFillMode: SetFillMode::<Identity, Impl, OFFSET>,
             SetSegmentFlags: SetSegmentFlags::<Identity, Impl, OFFSET>,
             BeginFigure: BeginFigure::<Identity, Impl, OFFSET>,

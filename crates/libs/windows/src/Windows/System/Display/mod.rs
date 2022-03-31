@@ -101,7 +101,7 @@ unsafe impl ::windows::core::Interface for IDisplayRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRequest_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RequestActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RequestRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

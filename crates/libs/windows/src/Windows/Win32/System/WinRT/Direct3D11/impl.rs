@@ -8,7 +8,7 @@ impl IDirect3DDxgiInterfaceAccess_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetInterface(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&p)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInterface: GetInterface::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInterface: GetInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirect3DDxgiInterfaceAccess as ::windows::core::Interface>::IID

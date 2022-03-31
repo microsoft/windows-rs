@@ -27,7 +27,7 @@ impl INavigationTransitionInfoOverrides_Vtbl {
             (*this).SetNavigationStateCore(::core::mem::transmute(&navigationstate)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationTransitionInfoOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INavigationTransitionInfoOverrides, OFFSET>(),
             GetNavigationStateCore: GetNavigationStateCore::<Identity, Impl, OFFSET>,
             SetNavigationStateCore: SetNavigationStateCore::<Identity, Impl, OFFSET>,
         }

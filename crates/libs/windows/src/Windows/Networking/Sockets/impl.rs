@@ -19,7 +19,7 @@ impl IControlChannelTriggerEventDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IControlChannelTriggerEventDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IControlChannelTriggerEventDetails, OFFSET>(),
             ControlChannelTrigger: ControlChannelTrigger::<Identity, Impl, OFFSET>,
         }
     }
@@ -74,7 +74,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IControlChannelTriggerResetEventDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IControlChannelTriggerResetEventDetails, OFFSET>(),
             ResetReason: ResetReason::<Identity, Impl, OFFSET>,
             HardwareSlotReset: HardwareSlotReset::<Identity, Impl, OFFSET>,
             SoftwareSlotReset: SoftwareSlotReset::<Identity, Impl, OFFSET>,
@@ -152,7 +152,7 @@ impl IWebSocket_Vtbl {
             (*this).CloseWithStatus(code, ::core::mem::transmute(&reason)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocket, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocket, OFFSET>(),
             OutputStream: OutputStream::<Identity, Impl, OFFSET>,
             ConnectAsync: ConnectAsync::<Identity, Impl, OFFSET>,
             SetRequestHeader: SetRequestHeader::<Identity, Impl, OFFSET>,
@@ -246,7 +246,7 @@ impl IWebSocketControl_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketControl, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketControl, OFFSET>(),
             OutboundBufferSizeInBytes: OutboundBufferSizeInBytes::<Identity, Impl, OFFSET>,
             SetOutboundBufferSizeInBytes: SetOutboundBufferSizeInBytes::<Identity, Impl, OFFSET>,
             ServerCredential: ServerCredential::<Identity, Impl, OFFSET>,
@@ -284,7 +284,7 @@ impl IWebSocketControl2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketControl2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketControl2, OFFSET>(),
             IgnorableServerCertificateErrors: IgnorableServerCertificateErrors::<Identity, Impl, OFFSET>,
         }
     }
@@ -339,7 +339,7 @@ impl IWebSocketInformation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketInformation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketInformation, OFFSET>(),
             LocalAddress: LocalAddress::<Identity, Impl, OFFSET>,
             BandwidthStatistics: BandwidthStatistics::<Identity, Impl, OFFSET>,
             Protocol: Protocol::<Identity, Impl, OFFSET>,
@@ -412,7 +412,7 @@ impl IWebSocketInformation2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketInformation2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebSocketInformation2, OFFSET>(),
             ServerCertificate: ServerCertificate::<Identity, Impl, OFFSET>,
             ServerCertificateErrorSeverity: ServerCertificateErrorSeverity::<Identity, Impl, OFFSET>,
             ServerCertificateErrors: ServerCertificateErrors::<Identity, Impl, OFFSET>,

@@ -8,7 +8,7 @@ impl IActivateAudioInterfaceAsyncOperation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetActivateResult(::core::mem::transmute_copy(&activateresult), ::core::mem::transmute_copy(&activatedinterface)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetActivateResult: GetActivateResult::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetActivateResult: GetActivateResult::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivateAudioInterfaceAsyncOperation as ::windows::core::Interface>::IID
@@ -24,7 +24,7 @@ impl IActivateAudioInterfaceCompletionHandler_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ActivateCompleted(::core::mem::transmute(&activateoperation)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ActivateCompleted: ActivateCompleted::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ActivateCompleted: ActivateCompleted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivateAudioInterfaceCompletionHandler as ::windows::core::Interface>::IID
@@ -67,7 +67,7 @@ impl IAudioAmbisonicsControl_Vtbl {
             (*this).SetRotation(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&z), ::core::mem::transmute_copy(&w)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetData: SetData::<Identity, Impl, OFFSET>,
             SetHeadTracking: SetHeadTracking::<Identity, Impl, OFFSET>,
             GetHeadTracking: GetHeadTracking::<Identity, Impl, OFFSET>,
@@ -103,7 +103,7 @@ impl IAudioAutoGainControl_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&benable), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEnabled: GetEnabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
         }
@@ -115,7 +115,7 @@ impl IAudioAutoGainControl_Vtbl {
 pub trait IAudioBass_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl IAudioBass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioBass_Impl, const OFFSET: isize>() -> IAudioBass_Vtbl {
-        Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioBass as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
@@ -150,7 +150,7 @@ impl IAudioCaptureClient_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
             ReleaseBuffer: ReleaseBuffer::<Identity, Impl, OFFSET>,
             GetNextPacketSize: GetNextPacketSize::<Identity, Impl, OFFSET>,
@@ -183,7 +183,7 @@ impl IAudioChannelConfig_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetChannelConfig: SetChannelConfig::<Identity, Impl, OFFSET>,
             GetChannelConfig: GetChannelConfig::<Identity, Impl, OFFSET>,
         }
@@ -198,7 +198,7 @@ pub trait IAudioClient_Impl: Sized {
     fn GetBufferSize(&self) -> ::windows::core::Result<u32>;
     fn GetStreamLatency(&self) -> ::windows::core::Result<i64>;
     fn GetCurrentPadding(&self) -> ::windows::core::Result<u32>;
-    fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX) -> ::windows::core::Result<*mut WAVEFORMATEX>;
+    fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT;
     fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX>;
     fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: *mut i64, phnsminimumdeviceperiod: *mut i64) -> ::windows::core::Result<()>;
     fn Start(&self) -> ::windows::core::Result<()>;
@@ -251,13 +251,7 @@ impl IAudioClient_Vtbl {
         unsafe extern "system" fn IsFormatSupported<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsFormatSupported(::core::mem::transmute_copy(&sharemode), ::core::mem::transmute_copy(&pformat)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *ppclosestmatch = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).IsFormatSupported(::core::mem::transmute_copy(&sharemode), ::core::mem::transmute_copy(&pformat), ::core::mem::transmute_copy(&ppclosestmatch))
         }
         unsafe extern "system" fn GetMixFormat<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdeviceformat: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -301,7 +295,7 @@ impl IAudioClient_Vtbl {
             (*this).GetService(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetBufferSize: GetBufferSize::<Identity, Impl, OFFSET>,
             GetStreamLatency: GetStreamLatency::<Identity, Impl, OFFSET>,
@@ -351,7 +345,7 @@ impl IAudioClient2_Vtbl {
             (*this).GetBufferSizeLimits(::core::mem::transmute_copy(&pformat), ::core::mem::transmute_copy(&beventdriven), ::core::mem::transmute_copy(&phnsminbufferduration), ::core::mem::transmute_copy(&phnsmaxbufferduration)).into()
         }
         Self {
-            base: IAudioClient_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAudioClient_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsOffloadCapable: IsOffloadCapable::<Identity, Impl, OFFSET>,
             SetClientProperties: SetClientProperties::<Identity, Impl, OFFSET>,
             GetBufferSizeLimits: GetBufferSizeLimits::<Identity, Impl, OFFSET>,
@@ -386,7 +380,7 @@ impl IAudioClient3_Vtbl {
             (*this).InitializeSharedAudioStream(::core::mem::transmute_copy(&streamflags), ::core::mem::transmute_copy(&periodinframes), ::core::mem::transmute_copy(&pformat), ::core::mem::transmute_copy(&audiosessionguid)).into()
         }
         Self {
-            base: IAudioClient2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAudioClient2_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSharedModeEnginePeriod: GetSharedModeEnginePeriod::<Identity, Impl, OFFSET>,
             GetCurrentSharedModeEnginePeriod: GetCurrentSharedModeEnginePeriod::<Identity, Impl, OFFSET>,
             InitializeSharedAudioStream: InitializeSharedAudioStream::<Identity, Impl, OFFSET>,
@@ -407,7 +401,7 @@ impl IAudioClientDuckingControl_Vtbl {
             (*this).SetDuckingOptionsForCurrentStream(::core::mem::transmute_copy(&options)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetDuckingOptionsForCurrentStream: SetDuckingOptionsForCurrentStream::<Identity, Impl, OFFSET>,
         }
     }
@@ -450,7 +444,7 @@ impl IAudioClock_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFrequency: GetFrequency::<Identity, Impl, OFFSET>,
             GetPosition: GetPosition::<Identity, Impl, OFFSET>,
             GetCharacteristics: GetCharacteristics::<Identity, Impl, OFFSET>,
@@ -470,7 +464,7 @@ impl IAudioClock2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDevicePosition(::core::mem::transmute_copy(&deviceposition), ::core::mem::transmute_copy(&qpcposition)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDevicePosition: GetDevicePosition::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDevicePosition: GetDevicePosition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioClock2 as ::windows::core::Interface>::IID
@@ -486,7 +480,7 @@ impl IAudioClockAdjustment_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSampleRate(::core::mem::transmute_copy(&flsamplerate)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSampleRate: SetSampleRate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSampleRate: SetSampleRate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioClockAdjustment as ::windows::core::Interface>::IID
@@ -502,7 +496,7 @@ impl IAudioEffectsChangedNotificationClient_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnAudioEffectsChanged().into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnAudioEffectsChanged: OnAudioEffectsChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnAudioEffectsChanged: OnAudioEffectsChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioEffectsChangedNotificationClient as ::windows::core::Interface>::IID
@@ -539,7 +533,7 @@ impl IAudioEffectsManager_Vtbl {
             (*this).SetAudioEffectState(::core::mem::transmute(&effectid), ::core::mem::transmute_copy(&state)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterAudioEffectsChangedNotificationCallback: RegisterAudioEffectsChangedNotificationCallback::<Identity, Impl, OFFSET>,
             UnregisterAudioEffectsChangedNotificationCallback: UnregisterAudioEffectsChangedNotificationCallback::<Identity, Impl, OFFSET>,
             GetAudioEffects: GetAudioEffects::<Identity, Impl, OFFSET>,
@@ -579,7 +573,7 @@ impl IAudioFormatEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetFormat: GetFormat::<Identity, Impl, OFFSET>,
         }
@@ -611,7 +605,7 @@ impl IAudioInputSelector_Vtbl {
             (*this).SetSelection(::core::mem::transmute_copy(&nidselect), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
             SetSelection: SetSelection::<Identity, Impl, OFFSET>,
         }
@@ -645,7 +639,7 @@ impl IAudioLoudness_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&benable), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetEnabled: GetEnabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
         }
@@ -657,7 +651,7 @@ impl IAudioLoudness_Vtbl {
 pub trait IAudioMidrange_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl IAudioMidrange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioMidrange_Impl, const OFFSET: isize>() -> IAudioMidrange_Vtbl {
-        Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioMidrange as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
@@ -688,7 +682,7 @@ impl IAudioMute_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMute: SetMute::<Identity, Impl, OFFSET>,
             GetMute: GetMute::<Identity, Impl, OFFSET>,
         }
@@ -720,7 +714,7 @@ impl IAudioOutputSelector_Vtbl {
             (*this).SetSelection(::core::mem::transmute_copy(&nidselect), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
             SetSelection: SetSelection::<Identity, Impl, OFFSET>,
         }
@@ -758,7 +752,7 @@ impl IAudioPeakMeter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetChannelCount: GetChannelCount::<Identity, Impl, OFFSET>,
             GetLevel: GetLevel::<Identity, Impl, OFFSET>,
         }
@@ -790,7 +784,7 @@ impl IAudioRenderClient_Vtbl {
             (*this).ReleaseBuffer(::core::mem::transmute_copy(&numframeswritten), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
             ReleaseBuffer: ReleaseBuffer::<Identity, Impl, OFFSET>,
         }
@@ -882,7 +876,7 @@ impl IAudioSessionControl_Vtbl {
             (*this).UnregisterAudioSessionNotification(::core::mem::transmute(&newnotifications)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetState: GetState::<Identity, Impl, OFFSET>,
             GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
@@ -953,7 +947,7 @@ impl IAudioSessionControl2_Vtbl {
             (*this).SetDuckingPreference(::core::mem::transmute_copy(&optout)).into()
         }
         Self {
-            base: IAudioSessionControl_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAudioSessionControl_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSessionIdentifier: GetSessionIdentifier::<Identity, Impl, OFFSET>,
             GetSessionInstanceIdentifier: GetSessionInstanceIdentifier::<Identity, Impl, OFFSET>,
             GetProcessId: GetProcessId::<Identity, Impl, OFFSET>,
@@ -994,7 +988,7 @@ impl IAudioSessionEnumerator_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetSession: GetSession::<Identity, Impl, OFFSET>,
         }
@@ -1052,7 +1046,7 @@ impl IAudioSessionEvents_Vtbl {
             (*this).OnSessionDisconnected(::core::mem::transmute_copy(&disconnectreason)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnDisplayNameChanged: OnDisplayNameChanged::<Identity, Impl, OFFSET>,
             OnIconPathChanged: OnIconPathChanged::<Identity, Impl, OFFSET>,
             OnSimpleVolumeChanged: OnSimpleVolumeChanged::<Identity, Impl, OFFSET>,
@@ -1095,7 +1089,7 @@ impl IAudioSessionManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAudioSessionControl: GetAudioSessionControl::<Identity, Impl, OFFSET>,
             GetSimpleAudioVolume: GetSimpleAudioVolume::<Identity, Impl, OFFSET>,
         }
@@ -1145,7 +1139,7 @@ impl IAudioSessionManager2_Vtbl {
             (*this).UnregisterDuckNotification(::core::mem::transmute(&ducknotification)).into()
         }
         Self {
-            base: IAudioSessionManager_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IAudioSessionManager_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSessionEnumerator: GetSessionEnumerator::<Identity, Impl, OFFSET>,
             RegisterSessionNotification: RegisterSessionNotification::<Identity, Impl, OFFSET>,
             UnregisterSessionNotification: UnregisterSessionNotification::<Identity, Impl, OFFSET>,
@@ -1167,7 +1161,7 @@ impl IAudioSessionNotification_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnSessionCreated(::core::mem::transmute(&newsession)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSessionCreated: OnSessionCreated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSessionCreated: OnSessionCreated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioSessionNotification as ::windows::core::Interface>::IID
@@ -1202,7 +1196,7 @@ impl IAudioStateMonitor_Vtbl {
             (*this).GetSoundLevel()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterCallback: RegisterCallback::<Identity, Impl, OFFSET>,
             UnregisterCallback: UnregisterCallback::<Identity, Impl, OFFSET>,
             GetSoundLevel: GetSoundLevel::<Identity, Impl, OFFSET>,
@@ -1259,7 +1253,7 @@ impl IAudioStreamVolume_Vtbl {
             (*this).GetAllVolumes(::core::mem::transmute_copy(&dwcount), ::core::mem::transmute_copy(&pfvolumes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetChannelCount: GetChannelCount::<Identity, Impl, OFFSET>,
             SetChannelVolume: SetChannelVolume::<Identity, Impl, OFFSET>,
             GetChannelVolume: GetChannelVolume::<Identity, Impl, OFFSET>,
@@ -1283,7 +1277,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnPropertyChanged(::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&key)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnPropertyChanged: OnPropertyChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnPropertyChanged: OnPropertyChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as ::windows::core::Interface>::IID
@@ -1356,7 +1350,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
             (*this).UnregisterPropertyChangeNotification(::core::mem::transmute(&callback)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OpenDefaultPropertyStore: OpenDefaultPropertyStore::<Identity, Impl, OFFSET>,
             OpenUserPropertyStore: OpenUserPropertyStore::<Identity, Impl, OFFSET>,
             OpenVolatilePropertyStore: OpenVolatilePropertyStore::<Identity, Impl, OFFSET>,
@@ -1373,7 +1367,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
 pub trait IAudioTreble_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl IAudioTreble_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioTreble_Impl, const OFFSET: isize>() -> IAudioTreble_Vtbl {
-        Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioTreble as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
@@ -1396,7 +1390,7 @@ impl IAudioVolumeDuckNotification_Vtbl {
             (*this).OnVolumeUnduckNotification(::core::mem::transmute(&sessionid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnVolumeDuckNotification: OnVolumeDuckNotification::<Identity, Impl, OFFSET>,
             OnVolumeUnduckNotification: OnVolumeUnduckNotification::<Identity, Impl, OFFSET>,
         }
@@ -1408,7 +1402,7 @@ impl IAudioVolumeDuckNotification_Vtbl {
 pub trait IAudioVolumeLevel_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl IAudioVolumeLevel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeLevel_Impl, const OFFSET: isize>() -> IAudioVolumeLevel_Vtbl {
-        Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioVolumeLevel as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
@@ -1461,7 +1455,7 @@ impl IChannelAudioVolume_Vtbl {
             (*this).GetAllVolumes(::core::mem::transmute_copy(&dwcount), ::core::mem::transmute_copy(&pfvolumes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetChannelCount: GetChannelCount::<Identity, Impl, OFFSET>,
             SetChannelVolume: SetChannelVolume::<Identity, Impl, OFFSET>,
             GetChannelVolume: GetChannelVolume::<Identity, Impl, OFFSET>,
@@ -1564,7 +1558,7 @@ impl IConnector_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetDataFlow: GetDataFlow::<Identity, Impl, OFFSET>,
             ConnectTo: ConnectTo::<Identity, Impl, OFFSET>,
@@ -1589,7 +1583,7 @@ impl IControlChangeNotify_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnNotify(::core::mem::transmute_copy(&dwsenderprocessid), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IControlChangeNotify as ::windows::core::Interface>::IID
@@ -1624,7 +1618,7 @@ impl IControlInterface_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetIID: GetIID::<Identity, Impl, OFFSET>,
         }
@@ -1668,7 +1662,7 @@ impl IDeviceSpecificProperty_Vtbl {
             (*this).Get4BRange(::core::mem::transmute_copy(&plmin), ::core::mem::transmute_copy(&plmax), ::core::mem::transmute_copy(&plstepping)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -1770,7 +1764,7 @@ impl IDeviceTopology_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConnectorCount: GetConnectorCount::<Identity, Impl, OFFSET>,
             GetConnector: GetConnector::<Identity, Impl, OFFSET>,
             GetSubunitCount: GetSubunitCount::<Identity, Impl, OFFSET>,
@@ -1833,7 +1827,7 @@ impl IMMDevice_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Activate: Activate::<Identity, Impl, OFFSET>,
             OpenPropertyStore: OpenPropertyStore::<Identity, Impl, OFFSET>,
             GetId: GetId::<Identity, Impl, OFFSET>,
@@ -1856,7 +1850,7 @@ impl IMMDeviceActivator_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Activate(::core::mem::transmute_copy(&iid), ::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pactivationparams), ::core::mem::transmute_copy(&ppinterface)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMMDeviceActivator as ::windows::core::Interface>::IID
@@ -1891,7 +1885,7 @@ impl IMMDeviceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
         }
@@ -1953,7 +1947,7 @@ impl IMMDeviceEnumerator_Vtbl {
             (*this).UnregisterEndpointNotificationCallback(::core::mem::transmute(&pclient)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumAudioEndpoints: EnumAudioEndpoints::<Identity, Impl, OFFSET>,
             GetDefaultAudioEndpoint: GetDefaultAudioEndpoint::<Identity, Impl, OFFSET>,
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
@@ -1981,7 +1975,7 @@ impl IMMEndpoint_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDataFlow: GetDataFlow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDataFlow: GetDataFlow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMMEndpoint as ::windows::core::Interface>::IID
@@ -2024,7 +2018,7 @@ impl IMMNotificationClient_Vtbl {
             (*this).OnPropertyValueChanged(::core::mem::transmute(&pwstrdeviceid), ::core::mem::transmute(&key)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnDeviceStateChanged: OnDeviceStateChanged::<Identity, Impl, OFFSET>,
             OnDeviceAdded: OnDeviceAdded::<Identity, Impl, OFFSET>,
             OnDeviceRemoved: OnDeviceRemoved::<Identity, Impl, OFFSET>,
@@ -2061,7 +2055,7 @@ impl IMessageFilter_Vtbl {
             (*this).MessagePending(::core::mem::transmute_copy(&htaskcallee), ::core::mem::transmute_copy(&dwtickcount), ::core::mem::transmute_copy(&dwpendingtype))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             HandleInComingCall: HandleInComingCall::<Identity, Impl, OFFSET>,
             RetryRejectedCall: RetryRejectedCall::<Identity, Impl, OFFSET>,
             MessagePending: MessagePending::<Identity, Impl, OFFSET>,
@@ -2214,7 +2208,7 @@ impl IPart_Vtbl {
             (*this).UnregisterControlChangeCallback(::core::mem::transmute(&pnotify)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetLocalId: GetLocalId::<Identity, Impl, OFFSET>,
             GetGlobalId: GetGlobalId::<Identity, Impl, OFFSET>,
@@ -2263,7 +2257,7 @@ impl IPartsList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetPart: GetPart::<Identity, Impl, OFFSET>,
         }
@@ -2325,7 +2319,7 @@ impl IPerChannelDbLevel_Vtbl {
             (*this).SetLevelAllChannels(::core::mem::transmute_copy(&alevelsdb), ::core::mem::transmute_copy(&cchannels), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetChannelCount: GetChannelCount::<Identity, Impl, OFFSET>,
             GetLevelRange: GetLevelRange::<Identity, Impl, OFFSET>,
             GetLevel: GetLevel::<Identity, Impl, OFFSET>,
@@ -2381,7 +2375,7 @@ impl ISimpleAudioVolume_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMasterVolume: SetMasterVolume::<Identity, Impl, OFFSET>,
             GetMasterVolume: GetMasterVolume::<Identity, Impl, OFFSET>,
             SetMute: SetMute::<Identity, Impl, OFFSET>,
@@ -2471,7 +2465,7 @@ impl ISpatialAudioClient_Vtbl {
             (*this).ActivateSpatialAudioStream(::core::mem::transmute_copy(&activationparams), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&stream)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStaticObjectPosition: GetStaticObjectPosition::<Identity, Impl, OFFSET>,
             GetNativeStaticObjectTypeMask: GetNativeStaticObjectTypeMask::<Identity, Impl, OFFSET>,
             GetMaxDynamicObjectCount: GetMaxDynamicObjectCount::<Identity, Impl, OFFSET>,
@@ -2517,7 +2511,7 @@ impl ISpatialAudioClient2_Vtbl {
             }
         }
         Self {
-            base: ISpatialAudioClient_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioClient_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsOffloadCapable: IsOffloadCapable::<Identity, Impl, OFFSET>,
             GetMaxFrameCountForCategory: GetMaxFrameCountForCategory::<Identity, Impl, OFFSET>,
         }
@@ -2585,7 +2579,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ActivateSpatialAudioMetadataItems: ActivateSpatialAudioMetadataItems::<Identity, Impl, OFFSET>,
             GetSpatialAudioMetadataItemsBufferLength: GetSpatialAudioMetadataItemsBufferLength::<Identity, Impl, OFFSET>,
             ActivateSpatialAudioMetadataWriter: ActivateSpatialAudioMetadataWriter::<Identity, Impl, OFFSET>,
@@ -2626,7 +2620,7 @@ impl ISpatialAudioMetadataCopier_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             CopyMetadataForFrames: CopyMetadataForFrames::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
@@ -2701,7 +2695,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetFrameCount: GetFrameCount::<Identity, Impl, OFFSET>,
             GetItemCount: GetItemCount::<Identity, Impl, OFFSET>,
             GetMaxItemCount: GetMaxItemCount::<Identity, Impl, OFFSET>,
@@ -2736,7 +2730,7 @@ impl ISpatialAudioMetadataItemsBuffer_Vtbl {
             (*this).DetachBuffer().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AttachToBuffer: AttachToBuffer::<Identity, Impl, OFFSET>,
             AttachToPopulatedBuffer: AttachToPopulatedBuffer::<Identity, Impl, OFFSET>,
             DetachBuffer: DetachBuffer::<Identity, Impl, OFFSET>,
@@ -2775,7 +2769,7 @@ impl ISpatialAudioMetadataReader_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             ReadNextItem: ReadNextItem::<Identity, Impl, OFFSET>,
             ReadNextItemCommand: ReadNextItemCommand::<Identity, Impl, OFFSET>,
@@ -2815,7 +2809,7 @@ impl ISpatialAudioMetadataWriter_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             WriteNextItem: WriteNextItem::<Identity, Impl, OFFSET>,
             WriteNextItemCommand: WriteNextItemCommand::<Identity, Impl, OFFSET>,
@@ -2845,7 +2839,7 @@ impl ISpatialAudioObject_Vtbl {
             (*this).SetVolume(::core::mem::transmute_copy(&volume)).into()
         }
         Self {
-            base: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPosition: SetPosition::<Identity, Impl, OFFSET>,
             SetVolume: SetVolume::<Identity, Impl, OFFSET>,
         }
@@ -2897,7 +2891,7 @@ impl ISpatialAudioObjectBase_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
             SetEndOfStream: SetEndOfStream::<Identity, Impl, OFFSET>,
             IsActive: IsActive::<Identity, Impl, OFFSET>,
@@ -2951,7 +2945,7 @@ impl ISpatialAudioObjectForHrtf_Vtbl {
             (*this).SetDirectivity(::core::mem::transmute_copy(&directivity)).into()
         }
         Self {
-            base: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPosition: SetPosition::<Identity, Impl, OFFSET>,
             SetGain: SetGain::<Identity, Impl, OFFSET>,
             SetOrientation: SetOrientation::<Identity, Impl, OFFSET>,
@@ -2977,7 +2971,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
             (*this).WriteNextMetadataCommand(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&valuebuffer), ::core::mem::transmute_copy(&valuebufferlength)).into()
         }
         Self {
-            base: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             WriteNextMetadataCommand: WriteNextMetadataCommand::<Identity, Impl, OFFSET>,
         }
     }
@@ -3004,7 +2998,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
             }
         }
         Self {
-            base: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSpatialAudioMetadataItems: GetSpatialAudioMetadataItems::<Identity, Impl, OFFSET>,
         }
     }
@@ -3029,7 +3023,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
             }
         }
         Self {
-            base: ISpatialAudioObjectRenderStreamBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectRenderStreamBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActivateSpatialAudioObject: ActivateSpatialAudioObject::<Identity, Impl, OFFSET>,
         }
     }
@@ -3090,7 +3084,7 @@ impl ISpatialAudioObjectRenderStreamBase_Vtbl {
             (*this).EndUpdatingAudioObjects().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAvailableDynamicObjectCount: GetAvailableDynamicObjectCount::<Identity, Impl, OFFSET>,
             GetService: GetService::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
@@ -3121,7 +3115,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
             }
         }
         Self {
-            base: ISpatialAudioObjectRenderStreamBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectRenderStreamBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActivateSpatialAudioObjectForHrtf: ActivateSpatialAudioObjectForHrtf::<Identity, Impl, OFFSET>,
         }
     }
@@ -3158,7 +3152,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
             }
         }
         Self {
-            base: ISpatialAudioObjectRenderStreamBase_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ISpatialAudioObjectRenderStreamBase_Vtbl::new::<Identity, Impl, OFFSET>(),
             ActivateSpatialAudioObjectForMetadataCommands: ActivateSpatialAudioObjectForMetadataCommands::<Identity, Impl, OFFSET>,
             ActivateSpatialAudioObjectForMetadataItems: ActivateSpatialAudioObjectForMetadataItems::<Identity, Impl, OFFSET>,
         }
@@ -3178,7 +3172,7 @@ impl ISpatialAudioObjectRenderStreamNotify_Vtbl {
             (*this).OnAvailableDynamicObjectCountChange(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&hnscompliancedeadlinetime), ::core::mem::transmute_copy(&availabledynamicobjectcountchange)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnAvailableDynamicObjectCountChange: OnAvailableDynamicObjectCountChange::<Identity, Impl, OFFSET>,
         }
     }
@@ -3189,7 +3183,7 @@ impl ISpatialAudioObjectRenderStreamNotify_Vtbl {
 pub trait ISubunit_Impl: Sized {}
 impl ISubunit_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubunit_Impl, const OFFSET: isize>() -> ISubunit_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISubunit as ::windows::core::Interface>::IID

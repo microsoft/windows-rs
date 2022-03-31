@@ -27,7 +27,7 @@ impl ID3D10Asynchronous_Vtbl {
             (*this).GetDataSize()
         }
         Self {
-            base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
             Begin: Begin::<Identity, Impl, OFFSET>,
             End: End::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
@@ -50,7 +50,7 @@ impl ID3D10BlendState_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10BlendState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -68,7 +68,7 @@ impl ID3D10BlendState1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc1(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10BlendState_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10BlendState_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10BlendState1 as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10BlendState as ::windows::core::Interface>::IID
@@ -97,7 +97,7 @@ impl ID3D10Buffer_Vtbl {
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
         Self {
-            base: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             Map: Map::<Identity, Impl, OFFSET>,
             Unmap: Unmap::<Identity, Impl, OFFSET>,
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
@@ -117,7 +117,7 @@ impl ID3D10Counter_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10Asynchronous_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10Asynchronous_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10Counter as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID
@@ -178,7 +178,7 @@ impl ID3D10Debug_Vtbl {
             (*this).Validate().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetFeatureMask: SetFeatureMask::<Identity, Impl, OFFSET>,
             GetFeatureMask: GetFeatureMask::<Identity, Impl, OFFSET>,
             SetPresentPerRenderOpDelay: SetPresentPerRenderOpDelay::<Identity, Impl, OFFSET>,
@@ -204,7 +204,7 @@ impl ID3D10DepthStencilState_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10DepthStencilState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -222,7 +222,7 @@ impl ID3D10DepthStencilView_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10DepthStencilView as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID
@@ -931,7 +931,7 @@ impl ID3D10Device_Vtbl {
             (*this).GetTextFilterSize(::core::mem::transmute_copy(&pwidth), ::core::mem::transmute_copy(&pheight))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             VSSetConstantBuffers: VSSetConstantBuffers::<Identity, Impl, OFFSET>,
             PSSetShaderResources: PSSetShaderResources::<Identity, Impl, OFFSET>,
             PSSetShader: PSSetShader::<Identity, Impl, OFFSET>,
@@ -1070,7 +1070,7 @@ impl ID3D10Device1_Vtbl {
             (*this).GetFeatureLevel()
         }
         Self {
-            base: ID3D10Device_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10Device_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateShaderResourceView1: CreateShaderResourceView1::<Identity, Impl, OFFSET>,
             CreateBlendState1: CreateBlendState1::<Identity, Impl, OFFSET>,
             GetFeatureLevel: GetFeatureLevel::<Identity, Impl, OFFSET>,
@@ -1109,7 +1109,7 @@ impl ID3D10DeviceChild_Vtbl {
             (*this).SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
@@ -1217,7 +1217,7 @@ impl ID3D10Effect_Vtbl {
             (*this).IsOptimized()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsValid: IsValid::<Identity, Impl, OFFSET>,
             IsPool: IsPool::<Identity, Impl, OFFSET>,
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
@@ -1262,7 +1262,7 @@ impl ID3D10EffectBlendVariable_Vtbl {
             (*this).GetBackingStore(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pblenddesc)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetBlendState: GetBlendState::<Identity, Impl, OFFSET>,
             GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
         }
@@ -1314,7 +1314,7 @@ impl ID3D10EffectConstantBuffer_Vtbl {
             }
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetConstantBuffer: SetConstantBuffer::<Identity, Impl, OFFSET>,
             GetConstantBuffer: GetConstantBuffer::<Identity, Impl, OFFSET>,
             SetTextureBuffer: SetTextureBuffer::<Identity, Impl, OFFSET>,
@@ -1356,7 +1356,7 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
             }
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDepthStencilState: GetDepthStencilState::<Identity, Impl, OFFSET>,
             GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
         }
@@ -1402,7 +1402,7 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
             (*this).GetDepthStencilArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetDepthStencil: SetDepthStencil::<Identity, Impl, OFFSET>,
             GetDepthStencil: GetDepthStencil::<Identity, Impl, OFFSET>,
             SetDepthStencilArray: SetDepthStencilArray::<Identity, Impl, OFFSET>,
@@ -1468,7 +1468,7 @@ impl ID3D10EffectMatrixVariable_Vtbl {
             (*this).GetMatrixTransposeArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetMatrix: SetMatrix::<Identity, Impl, OFFSET>,
             GetMatrix: GetMatrix::<Identity, Impl, OFFSET>,
             SetMatrixArray: SetMatrixArray::<Identity, Impl, OFFSET>,
@@ -1575,7 +1575,7 @@ impl ID3D10EffectPool_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AsEffect()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsEffect: AsEffect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsEffect: AsEffect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10EffectPool as ::windows::core::Interface>::IID
@@ -1612,7 +1612,7 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
             }
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetRasterizerState: GetRasterizerState::<Identity, Impl, OFFSET>,
             GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
         }
@@ -1658,7 +1658,7 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
             (*this).GetRenderTargetArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRenderTarget: SetRenderTarget::<Identity, Impl, OFFSET>,
             GetRenderTarget: GetRenderTarget::<Identity, Impl, OFFSET>,
             SetRenderTargetArray: SetRenderTargetArray::<Identity, Impl, OFFSET>,
@@ -1700,7 +1700,7 @@ impl ID3D10EffectSamplerVariable_Vtbl {
             }
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetSampler: GetSampler::<Identity, Impl, OFFSET>,
             GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
         }
@@ -1806,7 +1806,7 @@ impl ID3D10EffectScalarVariable_Vtbl {
             (*this).GetBoolArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetFloat: SetFloat::<Identity, Impl, OFFSET>,
             GetFloat: GetFloat::<Identity, Impl, OFFSET>,
             SetFloatArray: SetFloatArray::<Identity, Impl, OFFSET>,
@@ -1862,7 +1862,7 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
             (*this).GetResourceArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetResource: SetResource::<Identity, Impl, OFFSET>,
             GetResource: GetResource::<Identity, Impl, OFFSET>,
             SetResourceArray: SetResourceArray::<Identity, Impl, OFFSET>,
@@ -1952,7 +1952,7 @@ impl ID3D10EffectShaderVariable_Vtbl {
             }
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetShaderDesc: GetShaderDesc::<Identity, Impl, OFFSET>,
             GetVertexShader: GetVertexShader::<Identity, Impl, OFFSET>,
             GetGeometryShader: GetGeometryShader::<Identity, Impl, OFFSET>,
@@ -1990,7 +1990,7 @@ impl ID3D10EffectStringVariable_Vtbl {
             (*this).GetStringArray(::core::mem::transmute_copy(&ppstrings), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetString: GetString::<Identity, Impl, OFFSET>,
             GetStringArray: GetStringArray::<Identity, Impl, OFFSET>,
         }
@@ -2402,7 +2402,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
             (*this).GetFloatVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetBoolVector: SetBoolVector::<Identity, Impl, OFFSET>,
             SetIntVector: SetIntVector::<Identity, Impl, OFFSET>,
             SetFloatVector: SetFloatVector::<Identity, Impl, OFFSET>,
@@ -2424,7 +2424,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
 pub trait ID3D10GeometryShader_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ID3D10GeometryShader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10GeometryShader_Impl, const OFFSET: isize>() -> ID3D10GeometryShader_Vtbl {
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10GeometryShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -2647,7 +2647,7 @@ impl ID3D10InfoQueue_Vtbl {
             (*this).GetMuteDebugOutput()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, Impl, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, Impl, OFFSET>,
             GetMessage: GetMessage::<Identity, Impl, OFFSET>,
@@ -2692,7 +2692,7 @@ impl ID3D10InfoQueue_Vtbl {
 pub trait ID3D10InputLayout_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ID3D10InputLayout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InputLayout_Impl, const OFFSET: isize>() -> ID3D10InputLayout_Vtbl {
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10InputLayout as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -2729,7 +2729,7 @@ impl ID3D10Multithread_Vtbl {
             (*this).GetMultithreadProtected()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Enter: Enter::<Identity, Impl, OFFSET>,
             Leave: Leave::<Identity, Impl, OFFSET>,
             SetMultithreadProtected: SetMultithreadProtected::<Identity, Impl, OFFSET>,
@@ -2743,7 +2743,7 @@ impl ID3D10Multithread_Vtbl {
 pub trait ID3D10PixelShader_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ID3D10PixelShader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10PixelShader_Impl, const OFFSET: isize>() -> ID3D10PixelShader_Vtbl {
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10PixelShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -2752,7 +2752,7 @@ impl ID3D10PixelShader_Vtbl {
 pub trait ID3D10Predicate_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl + ID3D10Query_Impl {}
 impl ID3D10Predicate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Predicate_Impl, const OFFSET: isize>() -> ID3D10Predicate_Vtbl {
-        Self { base: ID3D10Query_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID3D10Query_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10Predicate as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D10Query as ::windows::core::Interface>::IID
@@ -2768,7 +2768,7 @@ impl ID3D10Query_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10Asynchronous_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10Asynchronous_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10Query as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID
@@ -2786,7 +2786,7 @@ impl ID3D10RasterizerState_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10RasterizerState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -2804,7 +2804,7 @@ impl ID3D10RenderTargetView_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10RenderTargetView as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID
@@ -2833,7 +2833,7 @@ impl ID3D10Resource_Vtbl {
             (*this).GetEvictionPriority()
         }
         Self {
-            base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             SetEvictionPriority: SetEvictionPriority::<Identity, Impl, OFFSET>,
             GetEvictionPriority: GetEvictionPriority::<Identity, Impl, OFFSET>,
@@ -2853,7 +2853,7 @@ impl ID3D10SamplerState_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10SamplerState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -2926,7 +2926,7 @@ impl ID3D10ShaderReflection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
@@ -3108,7 +3108,7 @@ impl ID3D10ShaderReflection1_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
@@ -3251,7 +3251,7 @@ impl ID3D10ShaderResourceView_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10ShaderResourceView as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID
@@ -3269,7 +3269,7 @@ impl ID3D10ShaderResourceView1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDesc1(::core::mem::transmute_copy(&pdesc))
         }
-        Self { base: ID3D10ShaderResourceView_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10ShaderResourceView_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10ShaderResourceView1 as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID || iid == &<ID3D10ShaderResourceView as ::windows::core::Interface>::IID
@@ -3310,7 +3310,7 @@ impl ID3D10StateBlock_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Capture: Capture::<Identity, Impl, OFFSET>,
             Apply: Apply::<Identity, Impl, OFFSET>,
             ReleaseAllDeviceObjects: ReleaseAllDeviceObjects::<Identity, Impl, OFFSET>,
@@ -3340,7 +3340,7 @@ impl ID3D10SwitchToRef_Vtbl {
             (*this).GetUseRef()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetUseRef: SetUseRef::<Identity, Impl, OFFSET>,
             GetUseRef: GetUseRef::<Identity, Impl, OFFSET>,
         }
@@ -3374,7 +3374,7 @@ impl ID3D10Texture1D_Vtbl {
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
         Self {
-            base: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             Map: Map::<Identity, Impl, OFFSET>,
             Unmap: Unmap::<Identity, Impl, OFFSET>,
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
@@ -3415,7 +3415,7 @@ impl ID3D10Texture2D_Vtbl {
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
         Self {
-            base: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             Map: Map::<Identity, Impl, OFFSET>,
             Unmap: Unmap::<Identity, Impl, OFFSET>,
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
@@ -3456,7 +3456,7 @@ impl ID3D10Texture3D_Vtbl {
             (*this).GetDesc(::core::mem::transmute_copy(&pdesc))
         }
         Self {
-            base: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ID3D10Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
             Map: Map::<Identity, Impl, OFFSET>,
             Unmap: Unmap::<Identity, Impl, OFFSET>,
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
@@ -3469,7 +3469,7 @@ impl ID3D10Texture3D_Vtbl {
 pub trait ID3D10VertexShader_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ID3D10VertexShader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10VertexShader_Impl, const OFFSET: isize>() -> ID3D10VertexShader_Vtbl {
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10VertexShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
@@ -3485,7 +3485,7 @@ impl ID3D10View_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetResource(::core::mem::transmute_copy(&ppresource))
         }
-        Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetResource: GetResource::<Identity, Impl, OFFSET> }
+        Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetResource: GetResource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10View as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID

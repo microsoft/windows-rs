@@ -443,7 +443,7 @@ impl IInertiaProcessor_Vtbl {
             (*this).CompleteTime(::core::mem::transmute_copy(&timestamp)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitialOriginX: InitialOriginX::<Identity, Impl, OFFSET>,
             SetInitialOriginX: SetInitialOriginX::<Identity, Impl, OFFSET>,
             InitialOriginY: InitialOriginY::<Identity, Impl, OFFSET>,
@@ -684,7 +684,7 @@ impl IManipulationProcessor_Vtbl {
             (*this).SetMinimumScaleRotateRadius(::core::mem::transmute_copy(&minradius)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SupportedManipulations: SupportedManipulations::<Identity, Impl, OFFSET>,
             SetSupportedManipulations: SetSupportedManipulations::<Identity, Impl, OFFSET>,
             PivotPointX: PivotPointX::<Identity, Impl, OFFSET>,
@@ -750,7 +750,7 @@ impl _IManipulationEvents_Vtbl {
             (*this).ManipulationCompleted(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&cumulativetranslationx), ::core::mem::transmute_copy(&cumulativetranslationy), ::core::mem::transmute_copy(&cumulativescale), ::core::mem::transmute_copy(&cumulativeexpansion), ::core::mem::transmute_copy(&cumulativerotation)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ManipulationStarted: ManipulationStarted::<Identity, Impl, OFFSET>,
             ManipulationDelta: ManipulationDelta::<Identity, Impl, OFFSET>,
             ManipulationCompleted: ManipulationCompleted::<Identity, Impl, OFFSET>,

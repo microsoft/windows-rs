@@ -7353,7 +7353,7 @@ unsafe impl ::windows::core::Interface for IAppBarAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7365,7 +7365,7 @@ unsafe impl ::windows::core::Interface for IAppBarAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -7381,7 +7381,7 @@ unsafe impl ::windows::core::Interface for IAppBarButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7393,7 +7393,7 @@ unsafe impl ::windows::core::Interface for IAppBarButtonAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -7409,7 +7409,7 @@ unsafe impl ::windows::core::Interface for IAppBarToggleButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarToggleButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7421,7 +7421,7 @@ unsafe impl ::windows::core::Interface for IAppBarToggleButtonAutomationPeerFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarToggleButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -7437,7 +7437,7 @@ unsafe impl ::windows::core::Interface for IAutoSuggestBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutoSuggestBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7449,7 +7449,7 @@ unsafe impl ::windows::core::Interface for IAutoSuggestBoxAutomationPeerFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutoSuggestBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -7465,7 +7465,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub EventsSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEventsSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patterninterface: PatternInterface, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7525,7 +7525,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7537,7 +7537,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: AutomationNavigationDirection, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetElementFromPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointinwindowcoordinates: super::super::super::super::Foundation::Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7573,7 +7573,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AutomationLandmarkType) -> ::windows::core::HRESULT,
     pub GetLocalizedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7587,7 +7587,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPeripheral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsDataValidForForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub GetFullDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7602,7 +7602,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetCulture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7615,7 +7615,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer7_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RaiseNotificationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationkind: AutomationNotificationKind, notificationprocessing: AutomationNotificationProcessing, displaystring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7628,7 +7628,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer8_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AutomationHeadingLevel) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7641,7 +7641,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeer9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer9_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7654,7 +7654,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerAnnotation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerAnnotation_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::AnnotationType) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::AnnotationType) -> ::windows::core::HRESULT,
     pub Peer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7670,7 +7670,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerAnnotationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerAnnotationFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::AnnotationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithPeerParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::AnnotationType, peer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7684,7 +7684,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerAnnotationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerAnnotationStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub TypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PeerProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7698,7 +7698,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7711,7 +7711,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetPatternCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patterninterface: PatternInterface, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAcceleratorKeyCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetAccessKeyCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7762,7 +7762,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ShowContextMenuCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetControlledPeersCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7779,7 +7779,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub NavigateCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: AutomationNavigationDirection, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetElementFromPointCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointinwindowcoordinates: super::super::super::super::Foundation::Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7804,7 +7804,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides4_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetLandmarkTypeCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AutomationLandmarkType) -> ::windows::core::HRESULT,
     pub GetLocalizedLandmarkTypeCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7818,7 +7818,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides5_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsPeripheralCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsDataValidForFormCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub GetFullDescriptionCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7845,7 +7845,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides6_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetCultureCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7858,7 +7858,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides8_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetHeadingLevelCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AutomationHeadingLevel) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7871,7 +7871,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides9_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub IsDialogCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7884,7 +7884,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerProtected {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerProtected_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
     pub PeerFromProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Automation_Provider"))]
@@ -7904,7 +7904,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ListenerExists: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: AutomationEvents, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7917,7 +7917,7 @@ unsafe impl ::windows::core::Interface for IAutomationPeerStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerStatics3_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GenerateRawElementProviderRuntimeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RawElementProviderRuntimeId) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -7930,7 +7930,7 @@ unsafe impl ::windows::core::Interface for IButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7942,7 +7942,7 @@ unsafe impl ::windows::core::Interface for IButtonAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -7958,7 +7958,7 @@ unsafe impl ::windows::core::Interface for IButtonBaseAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBaseAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7970,7 +7970,7 @@ unsafe impl ::windows::core::Interface for IButtonBaseAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBaseAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -7986,7 +7986,7 @@ unsafe impl ::windows::core::Interface for ICalendarDatePickerAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarDatePickerAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7998,7 +7998,7 @@ unsafe impl ::windows::core::Interface for ICalendarDatePickerAutomationPeerFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarDatePickerAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8014,7 +8014,7 @@ unsafe impl ::windows::core::Interface for ICaptureElementAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICaptureElementAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8026,7 +8026,7 @@ unsafe impl ::windows::core::Interface for ICaptureElementAutomationPeerFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICaptureElementAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8042,7 +8042,7 @@ unsafe impl ::windows::core::Interface for ICheckBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICheckBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8054,7 +8054,7 @@ unsafe impl ::windows::core::Interface for ICheckBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICheckBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8070,7 +8070,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8082,7 +8082,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderAutomationPeerFacto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -8098,7 +8098,7 @@ unsafe impl ::windows::core::Interface for IColorSpectrumAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrumAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8110,7 +8110,7 @@ unsafe impl ::windows::core::Interface for IColorSpectrumAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrumAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -8126,7 +8126,7 @@ unsafe impl ::windows::core::Interface for IComboBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8138,7 +8138,7 @@ unsafe impl ::windows::core::Interface for IComboBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8154,7 +8154,7 @@ unsafe impl ::windows::core::Interface for IComboBoxItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8166,7 +8166,7 @@ unsafe impl ::windows::core::Interface for IComboBoxItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8182,7 +8182,7 @@ unsafe impl ::windows::core::Interface for IComboBoxItemDataAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8194,7 +8194,7 @@ unsafe impl ::windows::core::Interface for IComboBoxItemDataAutomationPeerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxItemDataAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8207,7 +8207,7 @@ unsafe impl ::windows::core::Interface for IDatePickerAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatePickerAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8219,7 +8219,7 @@ unsafe impl ::windows::core::Interface for IDatePickerAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatePickerAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8235,7 +8235,7 @@ unsafe impl ::windows::core::Interface for IDatePickerFlyoutPresenterAutomationP
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatePickerFlyoutPresenterAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8247,7 +8247,7 @@ unsafe impl ::windows::core::Interface for IFlipViewAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8259,7 +8259,7 @@ unsafe impl ::windows::core::Interface for IFlipViewAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8275,7 +8275,7 @@ unsafe impl ::windows::core::Interface for IFlipViewItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8287,7 +8287,7 @@ unsafe impl ::windows::core::Interface for IFlipViewItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8303,7 +8303,7 @@ unsafe impl ::windows::core::Interface for IFlipViewItemDataAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8315,7 +8315,7 @@ unsafe impl ::windows::core::Interface for IFlipViewItemDataAutomationPeerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewItemDataAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8328,7 +8328,7 @@ unsafe impl ::windows::core::Interface for IFlyoutPresenterAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutPresenterAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8340,7 +8340,7 @@ unsafe impl ::windows::core::Interface for IFlyoutPresenterAutomationPeerFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutPresenterAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8356,7 +8356,7 @@ unsafe impl ::windows::core::Interface for IFrameworkElementAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkElementAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Owner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8369,7 +8369,7 @@ unsafe impl ::windows::core::Interface for IFrameworkElementAutomationPeerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkElementAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8382,7 +8382,7 @@ unsafe impl ::windows::core::Interface for IFrameworkElementAutomationPeerStatic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreatePeerForElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8396,7 +8396,7 @@ unsafe impl ::windows::core::Interface for IGridViewAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8408,7 +8408,7 @@ unsafe impl ::windows::core::Interface for IGridViewAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8424,7 +8424,7 @@ unsafe impl ::windows::core::Interface for IGridViewHeaderItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewHeaderItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8436,7 +8436,7 @@ unsafe impl ::windows::core::Interface for IGridViewHeaderItemAutomationPeerFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewHeaderItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8452,7 +8452,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8464,7 +8464,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8480,7 +8480,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemDataAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8492,7 +8492,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemDataAutomationPeerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemDataAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8505,7 +8505,7 @@ unsafe impl ::windows::core::Interface for IGroupItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGroupItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8517,7 +8517,7 @@ unsafe impl ::windows::core::Interface for IGroupItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGroupItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8533,7 +8533,7 @@ unsafe impl ::windows::core::Interface for IHubAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHubAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8545,7 +8545,7 @@ unsafe impl ::windows::core::Interface for IHubAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHubAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8561,7 +8561,7 @@ unsafe impl ::windows::core::Interface for IHubSectionAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHubSectionAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8573,7 +8573,7 @@ unsafe impl ::windows::core::Interface for IHubSectionAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHubSectionAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8589,7 +8589,7 @@ unsafe impl ::windows::core::Interface for IHyperlinkButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8601,7 +8601,7 @@ unsafe impl ::windows::core::Interface for IHyperlinkButtonAutomationPeerFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8617,7 +8617,7 @@ unsafe impl ::windows::core::Interface for IImageAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8629,7 +8629,7 @@ unsafe impl ::windows::core::Interface for IImageAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8645,7 +8645,7 @@ unsafe impl ::windows::core::Interface for IInkToolbarAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkToolbarAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8657,7 +8657,7 @@ unsafe impl ::windows::core::Interface for IItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ItemsControlAutomationPeer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8671,7 +8671,7 @@ unsafe impl ::windows::core::Interface for IItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8684,7 +8684,7 @@ unsafe impl ::windows::core::Interface for IItemsControlAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsControlAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8696,7 +8696,7 @@ unsafe impl ::windows::core::Interface for IItemsControlAutomationPeer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsControlAutomationPeer2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateItemAutomationPeer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8709,7 +8709,7 @@ unsafe impl ::windows::core::Interface for IItemsControlAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsControlAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8725,7 +8725,7 @@ unsafe impl ::windows::core::Interface for IItemsControlAutomationPeerOverrides2
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsControlAutomationPeerOverrides2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub OnCreateItemAutomationPeer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8738,7 +8738,7 @@ unsafe impl ::windows::core::Interface for IListBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8750,7 +8750,7 @@ unsafe impl ::windows::core::Interface for IListBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8766,7 +8766,7 @@ unsafe impl ::windows::core::Interface for IListBoxItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8778,7 +8778,7 @@ unsafe impl ::windows::core::Interface for IListBoxItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8794,7 +8794,7 @@ unsafe impl ::windows::core::Interface for IListBoxItemDataAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8806,7 +8806,7 @@ unsafe impl ::windows::core::Interface for IListBoxItemDataAutomationPeerFactory
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxItemDataAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8819,7 +8819,7 @@ unsafe impl ::windows::core::Interface for IListPickerFlyoutPresenterAutomationP
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListPickerFlyoutPresenterAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8831,7 +8831,7 @@ unsafe impl ::windows::core::Interface for IListViewAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8843,7 +8843,7 @@ unsafe impl ::windows::core::Interface for IListViewAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8859,7 +8859,7 @@ unsafe impl ::windows::core::Interface for IListViewBaseAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewBaseAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8871,7 +8871,7 @@ unsafe impl ::windows::core::Interface for IListViewBaseAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewBaseAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8887,7 +8887,7 @@ unsafe impl ::windows::core::Interface for IListViewBaseHeaderItemAutomationPeer
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewBaseHeaderItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8899,7 +8899,7 @@ unsafe impl ::windows::core::Interface for IListViewBaseHeaderItemAutomationPeer
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewBaseHeaderItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8915,7 +8915,7 @@ unsafe impl ::windows::core::Interface for IListViewHeaderItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewHeaderItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8927,7 +8927,7 @@ unsafe impl ::windows::core::Interface for IListViewHeaderItemAutomationPeerFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewHeaderItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8943,7 +8943,7 @@ unsafe impl ::windows::core::Interface for IListViewItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8955,7 +8955,7 @@ unsafe impl ::windows::core::Interface for IListViewItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -8971,7 +8971,7 @@ unsafe impl ::windows::core::Interface for IListViewItemDataAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8983,7 +8983,7 @@ unsafe impl ::windows::core::Interface for IListViewItemDataAutomationPeerFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemDataAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -8996,7 +8996,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9008,7 +9008,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9020,7 +9020,7 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorItemDataAutomationPee
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9032,7 +9032,7 @@ unsafe impl ::windows::core::Interface for IMapControlAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9044,7 +9044,7 @@ unsafe impl ::windows::core::Interface for IMediaElementAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaElementAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9056,7 +9056,7 @@ unsafe impl ::windows::core::Interface for IMediaElementAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaElementAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9072,7 +9072,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerElementAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerElementAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9084,7 +9084,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerElementAutomationPeerFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerElementAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9100,7 +9100,7 @@ unsafe impl ::windows::core::Interface for IMediaTransportControlsAutomationPeer
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTransportControlsAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9112,7 +9112,7 @@ unsafe impl ::windows::core::Interface for IMediaTransportControlsAutomationPeer
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTransportControlsAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9128,7 +9128,7 @@ unsafe impl ::windows::core::Interface for IMenuBarAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuBarAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9140,7 +9140,7 @@ unsafe impl ::windows::core::Interface for IMenuBarAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuBarAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9156,7 +9156,7 @@ unsafe impl ::windows::core::Interface for IMenuBarItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuBarItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9168,7 +9168,7 @@ unsafe impl ::windows::core::Interface for IMenuBarItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuBarItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9184,7 +9184,7 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9196,7 +9196,7 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutItemAutomationPeerFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9212,7 +9212,7 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutPresenterAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutPresenterAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9224,7 +9224,7 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutPresenterAutomationPeerFac
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutPresenterAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9240,7 +9240,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9252,7 +9252,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemAutomationPeerFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9268,7 +9268,7 @@ unsafe impl ::windows::core::Interface for IPasswordBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPasswordBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9280,7 +9280,7 @@ unsafe impl ::windows::core::Interface for IPasswordBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPasswordBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9296,7 +9296,7 @@ unsafe impl ::windows::core::Interface for IPersonPictureAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersonPictureAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9308,7 +9308,7 @@ unsafe impl ::windows::core::Interface for IPersonPictureAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersonPictureAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9324,7 +9324,7 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutPresenterAutomationPeer 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutPresenterAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9336,7 +9336,7 @@ unsafe impl ::windows::core::Interface for IPivotAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9348,7 +9348,7 @@ unsafe impl ::windows::core::Interface for IPivotAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9364,7 +9364,7 @@ unsafe impl ::windows::core::Interface for IPivotItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9376,7 +9376,7 @@ unsafe impl ::windows::core::Interface for IPivotItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9392,7 +9392,7 @@ unsafe impl ::windows::core::Interface for IPivotItemDataAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotItemDataAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9404,7 +9404,7 @@ unsafe impl ::windows::core::Interface for IPivotItemDataAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotItemDataAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9417,7 +9417,7 @@ unsafe impl ::windows::core::Interface for IProgressBarAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressBarAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9429,7 +9429,7 @@ unsafe impl ::windows::core::Interface for IProgressBarAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressBarAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9445,7 +9445,7 @@ unsafe impl ::windows::core::Interface for IProgressRingAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressRingAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9457,7 +9457,7 @@ unsafe impl ::windows::core::Interface for IProgressRingAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressRingAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9473,7 +9473,7 @@ unsafe impl ::windows::core::Interface for IRadioButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9485,7 +9485,7 @@ unsafe impl ::windows::core::Interface for IRadioButtonAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9501,7 +9501,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9513,7 +9513,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -9529,7 +9529,7 @@ unsafe impl ::windows::core::Interface for IRatingControlAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatingControlAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9541,7 +9541,7 @@ unsafe impl ::windows::core::Interface for IRatingControlAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatingControlAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9557,7 +9557,7 @@ unsafe impl ::windows::core::Interface for IRepeatButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9569,7 +9569,7 @@ unsafe impl ::windows::core::Interface for IRepeatButtonAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -9585,7 +9585,7 @@ unsafe impl ::windows::core::Interface for IRichEditBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9597,7 +9597,7 @@ unsafe impl ::windows::core::Interface for IRichEditBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9613,7 +9613,7 @@ unsafe impl ::windows::core::Interface for IRichTextBlockAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichTextBlockAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9625,7 +9625,7 @@ unsafe impl ::windows::core::Interface for IRichTextBlockAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichTextBlockAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9641,7 +9641,7 @@ unsafe impl ::windows::core::Interface for IRichTextBlockOverflowAutomationPeer 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichTextBlockOverflowAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9653,7 +9653,7 @@ unsafe impl ::windows::core::Interface for IRichTextBlockOverflowAutomationPeerF
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichTextBlockOverflowAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9669,7 +9669,7 @@ unsafe impl ::windows::core::Interface for IScrollBarAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollBarAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9681,7 +9681,7 @@ unsafe impl ::windows::core::Interface for IScrollBarAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollBarAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -9697,7 +9697,7 @@ unsafe impl ::windows::core::Interface for IScrollViewerAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollViewerAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9709,7 +9709,7 @@ unsafe impl ::windows::core::Interface for IScrollViewerAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollViewerAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9725,7 +9725,7 @@ unsafe impl ::windows::core::Interface for ISearchBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9737,7 +9737,7 @@ unsafe impl ::windows::core::Interface for ISearchBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9753,7 +9753,7 @@ unsafe impl ::windows::core::Interface for ISelectorAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9765,7 +9765,7 @@ unsafe impl ::windows::core::Interface for ISelectorAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -9781,7 +9781,7 @@ unsafe impl ::windows::core::Interface for ISelectorItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9793,7 +9793,7 @@ unsafe impl ::windows::core::Interface for ISelectorItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithParentAndItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, parent: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -9806,7 +9806,7 @@ unsafe impl ::windows::core::Interface for ISemanticZoomAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISemanticZoomAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9818,7 +9818,7 @@ unsafe impl ::windows::core::Interface for ISemanticZoomAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISemanticZoomAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9834,7 +9834,7 @@ unsafe impl ::windows::core::Interface for ISettingsFlyoutAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsFlyoutAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9846,7 +9846,7 @@ unsafe impl ::windows::core::Interface for ISettingsFlyoutAutomationPeerFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsFlyoutAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9862,7 +9862,7 @@ unsafe impl ::windows::core::Interface for ISliderAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISliderAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9874,7 +9874,7 @@ unsafe impl ::windows::core::Interface for ISliderAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISliderAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9890,7 +9890,7 @@ unsafe impl ::windows::core::Interface for ITextBlockAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBlockAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9902,7 +9902,7 @@ unsafe impl ::windows::core::Interface for ITextBlockAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBlockAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9918,7 +9918,7 @@ unsafe impl ::windows::core::Interface for ITextBoxAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBoxAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9930,7 +9930,7 @@ unsafe impl ::windows::core::Interface for ITextBoxAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBoxAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -9946,7 +9946,7 @@ unsafe impl ::windows::core::Interface for IThumbAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9958,7 +9958,7 @@ unsafe impl ::windows::core::Interface for IThumbAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -9974,7 +9974,7 @@ unsafe impl ::windows::core::Interface for ITimePickerAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimePickerAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9986,7 +9986,7 @@ unsafe impl ::windows::core::Interface for ITimePickerAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimePickerAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -10002,7 +10002,7 @@ unsafe impl ::windows::core::Interface for ITimePickerFlyoutPresenterAutomationP
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimePickerFlyoutPresenterAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10014,7 +10014,7 @@ unsafe impl ::windows::core::Interface for IToggleButtonAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10026,7 +10026,7 @@ unsafe impl ::windows::core::Interface for IToggleButtonAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls_Primitives"))]
@@ -10042,7 +10042,7 @@ unsafe impl ::windows::core::Interface for IToggleMenuFlyoutItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleMenuFlyoutItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10054,7 +10054,7 @@ unsafe impl ::windows::core::Interface for IToggleMenuFlyoutItemAutomationPeerFa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleMenuFlyoutItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -10070,7 +10070,7 @@ unsafe impl ::windows::core::Interface for IToggleSwitchAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleSwitchAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10082,7 +10082,7 @@ unsafe impl ::windows::core::Interface for IToggleSwitchAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleSwitchAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -10098,7 +10098,7 @@ unsafe impl ::windows::core::Interface for ITreeViewItemAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITreeViewItemAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10110,7 +10110,7 @@ unsafe impl ::windows::core::Interface for ITreeViewItemAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITreeViewItemAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]
@@ -10126,7 +10126,7 @@ unsafe impl ::windows::core::Interface for ITreeViewListAutomationPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITreeViewListAutomationPeer_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10138,7 +10138,7 @@ unsafe impl ::windows::core::Interface for ITreeViewListAutomationPeerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITreeViewListAutomationPeerFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls")]
     pub CreateInstanceWithOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Controls"))]

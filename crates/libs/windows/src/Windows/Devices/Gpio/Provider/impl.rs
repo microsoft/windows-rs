@@ -32,7 +32,7 @@ impl IGpioControllerProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioControllerProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGpioControllerProvider, OFFSET>(),
             PinCount: PinCount::<Identity, Impl, OFFSET>,
             OpenPinProvider: OpenPinProvider::<Identity, Impl, OFFSET>,
         }
@@ -167,7 +167,7 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProvider, OFFSET>(),
             ValueChanged: ValueChanged::<Identity, Impl, OFFSET>,
             RemoveValueChanged: RemoveValueChanged::<Identity, Impl, OFFSET>,
             DebounceTimeout: DebounceTimeout::<Identity, Impl, OFFSET>,
@@ -208,7 +208,7 @@ impl IGpioProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IGpioProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGpioProvider as ::windows::core::Interface>::IID

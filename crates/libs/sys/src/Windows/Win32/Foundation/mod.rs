@@ -4827,7 +4827,7 @@ impl ::core::clone::Clone for POINTS {
 pub const PRESENTATION_ERROR_LOST: ::windows_sys::core::HRESULT = -2004811775i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-pub type PSID = isize;
+pub type PSID = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const PSINK_E_INDEX_ONLY: ::windows_sys::core::HRESULT = -2147215471i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]

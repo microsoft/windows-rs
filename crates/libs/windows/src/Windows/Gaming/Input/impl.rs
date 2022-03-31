@@ -105,7 +105,7 @@ impl IGameController_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameController, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGameController, OFFSET>(),
             HeadsetConnected: HeadsetConnected::<Identity, Impl, OFFSET>,
             RemoveHeadsetConnected: RemoveHeadsetConnected::<Identity, Impl, OFFSET>,
             HeadsetDisconnected: HeadsetDisconnected::<Identity, Impl, OFFSET>,
@@ -145,7 +145,7 @@ impl IGameControllerBatteryInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerBatteryInfo, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IGameControllerBatteryInfo, OFFSET>(),
             TryGetBatteryReport: TryGetBatteryReport::<Identity, Impl, OFFSET>,
         }
     }

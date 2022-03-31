@@ -107,7 +107,7 @@ impl IRichEditOle_Vtbl {
             (*this).ImportDataObject(::core::mem::transmute(&lpdataobj), ::core::mem::transmute_copy(&cf), ::core::mem::transmute_copy(&hmetapict)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetClientSite: GetClientSite::<Identity, Impl, OFFSET>,
             GetObjectCount: GetObjectCount::<Identity, Impl, OFFSET>,
             GetLinkCount: GetLinkCount::<Identity, Impl, OFFSET>,
@@ -203,7 +203,7 @@ impl IRichEditOleCallback_Vtbl {
             (*this).GetContextMenu(::core::mem::transmute_copy(&seltype), ::core::mem::transmute(&lpoleobj), ::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&lphmenu)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetNewStorage: GetNewStorage::<Identity, Impl, OFFSET>,
             GetInPlaceContext: GetInPlaceContext::<Identity, Impl, OFFSET>,
             ShowContainerUI: ShowContainerUI::<Identity, Impl, OFFSET>,
@@ -232,7 +232,7 @@ impl IRicheditUiaOverrides_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPropertyOverrideValue(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&pretvalue)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRicheditUiaOverrides as ::windows::core::Interface>::IID
@@ -243,7 +243,7 @@ pub trait ITextDisplays_Impl: Sized + super::super::super::System::Com::IDispatc
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextDisplays_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextDisplays_Impl, const OFFSET: isize>() -> ITextDisplays_Vtbl {
-        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextDisplays as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -442,7 +442,7 @@ impl ITextDocument_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
             GetStoryCount: GetStoryCount::<Identity, Impl, OFFSET>,
@@ -883,7 +883,7 @@ impl ITextDocument2_Vtbl {
             }
         }
         Self {
-            base: ITextDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCaretType: GetCaretType::<Identity, Impl, OFFSET>,
             SetCaretType: SetCaretType::<Identity, Impl, OFFSET>,
             GetDisplays: GetDisplays::<Identity, Impl, OFFSET>,
@@ -1145,7 +1145,7 @@ impl ITextDocument2Old_Vtbl {
             (*this).ReleaseCallManager(::core::mem::transmute(&pvoid)).into()
         }
         Self {
-            base: ITextDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
             AttachMsgFilter: AttachMsgFilter::<Identity, Impl, OFFSET>,
             SetEffectColor: SetEffectColor::<Identity, Impl, OFFSET>,
             GetEffectColor: GetEffectColor::<Identity, Impl, OFFSET>,
@@ -1681,7 +1681,7 @@ impl ITextFont_Vtbl {
             (*this).SetWeight(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDuplicate: GetDuplicate::<Identity, Impl, OFFSET>,
             SetDuplicate: SetDuplicate::<Identity, Impl, OFFSET>,
             CanChange: CanChange::<Identity, Impl, OFFSET>,
@@ -2158,7 +2158,7 @@ impl ITextFont2_Vtbl {
             (*this).SetProperty(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ITextFont_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextFont_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAutoLigatures: GetAutoLigatures::<Identity, Impl, OFFSET>,
             SetAutoLigatures: SetAutoLigatures::<Identity, Impl, OFFSET>,
@@ -2458,7 +2458,7 @@ impl ITextHost_Vtbl {
             (*this).TxGetSelectionBarWidth(::core::mem::transmute_copy(&lselbarwidth)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             TxGetDC: TxGetDC::<Identity, Impl, OFFSET>,
             TxReleaseDC: TxReleaseDC::<Identity, Impl, OFFSET>,
             TxShowScrollBar: TxShowScrollBar::<Identity, Impl, OFFSET>,
@@ -2583,7 +2583,7 @@ impl ITextHost2_Vtbl {
             (*this).TxGetHorzExtent(::core::mem::transmute_copy(&plhorzextent)).into()
         }
         Self {
-            base: ITextHost_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextHost_Vtbl::new::<Identity, Impl, OFFSET>(),
             TxIsDoubleClickPending: TxIsDoubleClickPending::<Identity, Impl, OFFSET>,
             TxGetWindow: TxGetWindow::<Identity, Impl, OFFSET>,
             TxSetForegroundWindow: TxSetForegroundWindow::<Identity, Impl, OFFSET>,
@@ -3041,7 +3041,7 @@ impl ITextPara_Vtbl {
             (*this).GetTab(::core::mem::transmute_copy(&itab), ::core::mem::transmute_copy(&ptbpos), ::core::mem::transmute_copy(&ptbalign), ::core::mem::transmute_copy(&ptbleader)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDuplicate: GetDuplicate::<Identity, Impl, OFFSET>,
             SetDuplicate: SetDuplicate::<Identity, Impl, OFFSET>,
             CanChange: CanChange::<Identity, Impl, OFFSET>,
@@ -3247,7 +3247,7 @@ impl ITextPara2_Vtbl {
             (*this).SetProperty(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ITextPara_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextPara_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetBorders: GetBorders::<Identity, Impl, OFFSET>,
             GetDuplicate2: GetDuplicate2::<Identity, Impl, OFFSET>,
             SetDuplicate2: SetDuplicate2::<Identity, Impl, OFFSET>,
@@ -3793,7 +3793,7 @@ impl ITextRange_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetText: GetText::<Identity, Impl, OFFSET>,
             SetText: SetText::<Identity, Impl, OFFSET>,
             GetChar: GetChar::<Identity, Impl, OFFSET>,
@@ -4200,7 +4200,7 @@ impl ITextRange2_Vtbl {
             (*this).InsertImage(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&ascent), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&bstralttext), ::core::mem::transmute(&pstream)).into()
         }
         Self {
-            base: ITextSelection_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextSelection_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetCch: GetCch::<Identity, Impl, OFFSET>,
             GetCells: GetCells::<Identity, Impl, OFFSET>,
             GetColumn: GetColumn::<Identity, Impl, OFFSET>,
@@ -4656,7 +4656,7 @@ impl ITextRow_Vtbl {
             (*this).SetProperty(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAlignment: GetAlignment::<Identity, Impl, OFFSET>,
             SetAlignment: SetAlignment::<Identity, Impl, OFFSET>,
             GetCellCount: GetCellCount::<Identity, Impl, OFFSET>,
@@ -4824,7 +4824,7 @@ impl ITextSelection_Vtbl {
             (*this).TypeText(::core::mem::transmute(&bstr)).into()
         }
         Self {
-            base: ITextRange_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextRange_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
             SetFlags: SetFlags::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
@@ -4846,7 +4846,7 @@ pub trait ITextSelection2_Impl: Sized + super::super::super::System::Com::IDispa
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextSelection2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextSelection2_Impl, const OFFSET: isize>() -> ITextSelection2_Vtbl {
-        Self { base: ITextRange2_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: ITextRange2_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextSelection2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<ITextSelection as ::windows::core::Interface>::IID || iid == &<ITextRange2 as ::windows::core::Interface>::IID
@@ -4988,7 +4988,7 @@ impl ITextServices_Vtbl {
             (*this).TxGetCachedSize(::core::mem::transmute_copy(&pdwwidth), ::core::mem::transmute_copy(&pdwheight)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             TxSendMessage: TxSendMessage::<Identity, Impl, OFFSET>,
             TxDraw: TxDraw::<Identity, Impl, OFFSET>,
             TxGetHScroll: TxGetHScroll::<Identity, Impl, OFFSET>,
@@ -5032,7 +5032,7 @@ impl ITextServices2_Vtbl {
             (*this).TxDrawD2D(::core::mem::transmute(&prendertarget), ::core::mem::transmute_copy(&lprcbounds), ::core::mem::transmute_copy(&lprcupdate), ::core::mem::transmute_copy(&lviewid)).into()
         }
         Self {
-            base: ITextServices_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITextServices_Vtbl::new::<Identity, Impl, OFFSET>(),
             TxGetNaturalSize2: TxGetNaturalSize2::<Identity, Impl, OFFSET>,
             TxDrawD2D: TxDrawD2D::<Identity, Impl, OFFSET>,
         }
@@ -5162,7 +5162,7 @@ impl ITextStory_Vtbl {
             (*this).SetText(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&bstr)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetActive: GetActive::<Identity, Impl, OFFSET>,
             SetActive: SetActive::<Identity, Impl, OFFSET>,
             GetDisplay: GetDisplay::<Identity, Impl, OFFSET>,
@@ -5224,7 +5224,7 @@ impl ITextStoryRanges_Vtbl {
             }
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
@@ -5252,7 +5252,7 @@ impl ITextStoryRanges2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ITextStoryRanges_Vtbl::new::<Identity, Impl, OFFSET>(), Item2: Item2::<Identity, Impl, OFFSET> }
+        Self { base__: ITextStoryRanges_Vtbl::new::<Identity, Impl, OFFSET>(), Item2: Item2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextStoryRanges2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextStoryRanges as ::windows::core::Interface>::IID
@@ -5385,7 +5385,7 @@ impl ITextStrings_Vtbl {
             (*this).Swap().into()
         }
         Self {
-            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Item: Item::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,

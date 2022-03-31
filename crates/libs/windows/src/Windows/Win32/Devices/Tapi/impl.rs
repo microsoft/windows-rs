@@ -35,7 +35,7 @@ impl IEnumACDGroup_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -83,7 +83,7 @@ impl IEnumAddress_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -131,7 +131,7 @@ impl IEnumAgent_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -179,7 +179,7 @@ impl IEnumAgentHandler_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -227,7 +227,7 @@ impl IEnumAgentSession_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -275,7 +275,7 @@ impl IEnumBstr_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -323,7 +323,7 @@ impl IEnumCall_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -371,7 +371,7 @@ impl IEnumCallHub_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -419,7 +419,7 @@ impl IEnumCallingCard_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -467,7 +467,7 @@ impl IEnumDialableAddrs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -515,7 +515,7 @@ impl IEnumDirectory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -563,7 +563,7 @@ impl IEnumDirectoryObject_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -611,7 +611,7 @@ impl IEnumLocation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -659,7 +659,7 @@ impl IEnumMcastScope_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -707,7 +707,7 @@ impl IEnumPhone_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -755,7 +755,7 @@ impl IEnumPluggableSuperclassInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -803,7 +803,7 @@ impl IEnumPluggableTerminalClassInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -851,7 +851,7 @@ impl IEnumQueue_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -899,7 +899,7 @@ impl IEnumStream_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -947,7 +947,7 @@ impl IEnumSubStream_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -995,7 +995,7 @@ impl IEnumTerminal_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1041,7 +1041,7 @@ impl IEnumTerminalClass_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1137,7 +1137,7 @@ impl IMcastAddressAllocation_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Scopes: Scopes::<Identity, Impl, OFFSET>,
             EnumerateScopes: EnumerateScopes::<Identity, Impl, OFFSET>,
             RequestAddress: RequestAddress::<Identity, Impl, OFFSET>,
@@ -1266,7 +1266,7 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RequestID: RequestID::<Identity, Impl, OFFSET>,
             LeaseStartTime: LeaseStartTime::<Identity, Impl, OFFSET>,
             SetLeaseStartTime: SetLeaseStartTime::<Identity, Impl, OFFSET>,
@@ -1350,7 +1350,7 @@ impl IMcastScope_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ScopeID: ScopeID::<Identity, Impl, OFFSET>,
             ServerID: ServerID::<Identity, Impl, OFFSET>,
             InterfaceID: InterfaceID::<Identity, Impl, OFFSET>,
@@ -1405,7 +1405,7 @@ impl ITACDGroup_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             EnumerateQueues: EnumerateQueues::<Identity, Impl, OFFSET>,
             Queues: Queues::<Identity, Impl, OFFSET>,
@@ -1446,7 +1446,7 @@ impl ITACDGroupEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Group: Group::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
         }
@@ -1480,7 +1480,7 @@ impl ITAMMediaFormat_Vtbl {
             (*this).SetMediaFormat(::core::mem::transmute_copy(&pmt)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MediaFormat: MediaFormat::<Identity, Impl, OFFSET>,
             SetMediaFormat: SetMediaFormat::<Identity, Impl, OFFSET>,
         }
@@ -1532,7 +1532,7 @@ impl ITASRTerminalEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Terminal: Terminal::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
             Error: Error::<Identity, Impl, OFFSET>,
@@ -1711,7 +1711,7 @@ impl ITAddress_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             State: State::<Identity, Impl, OFFSET>,
             AddressName: AddressName::<Identity, Impl, OFFSET>,
             ServiceProviderName: ServiceProviderName::<Identity, Impl, OFFSET>,
@@ -1842,7 +1842,7 @@ impl ITAddress2_Vtbl {
             }
         }
         Self {
-            base: ITAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITAddress_Vtbl::new::<Identity, Impl, OFFSET>(),
             Phones: Phones::<Identity, Impl, OFFSET>,
             EnumeratePhones: EnumeratePhones::<Identity, Impl, OFFSET>,
             GetPhoneFromTerminal: GetPhoneFromTerminal::<Identity, Impl, OFFSET>,
@@ -1962,7 +1962,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddressCapability: AddressCapability::<Identity, Impl, OFFSET>,
             AddressCapabilityString: AddressCapabilityString::<Identity, Impl, OFFSET>,
             CallTreatments: CallTreatments::<Identity, Impl, OFFSET>,
@@ -2044,7 +2044,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Address: Address::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
             lParam1: lParam1::<Identity, Impl, OFFSET>,
@@ -2099,7 +2099,7 @@ impl ITAddressEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Address: Address::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
             Terminal: Terminal::<Identity, Impl, OFFSET>,
@@ -2182,7 +2182,7 @@ impl ITAddressTranslation_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             TranslateAddress: TranslateAddress::<Identity, Impl, OFFSET>,
             TranslateDialog: TranslateDialog::<Identity, Impl, OFFSET>,
             EnumerateLocations: EnumerateLocations::<Identity, Impl, OFFSET>,
@@ -2262,7 +2262,7 @@ impl ITAddressTranslationInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DialableString: DialableString::<Identity, Impl, OFFSET>,
             DisplayableString: DisplayableString::<Identity, Impl, OFFSET>,
             CurrentCountryCode: CurrentCountryCode::<Identity, Impl, OFFSET>,
@@ -2473,7 +2473,7 @@ impl ITAgent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumerateAgentSessions: EnumerateAgentSessions::<Identity, Impl, OFFSET>,
             CreateSession: CreateSession::<Identity, Impl, OFFSET>,
             CreateSessionWithPIN: CreateSessionWithPIN::<Identity, Impl, OFFSET>,
@@ -2528,7 +2528,7 @@ impl ITAgentEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Agent: Agent::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
         }
@@ -2628,7 +2628,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             CreateAgent: CreateAgent::<Identity, Impl, OFFSET>,
             CreateAgentWithID: CreateAgentWithID::<Identity, Impl, OFFSET>,
@@ -2673,7 +2673,7 @@ impl ITAgentHandlerEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AgentHandler: AgentHandler::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
         }
@@ -2887,7 +2887,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Agent: Agent::<Identity, Impl, OFFSET>,
             Address: Address::<Identity, Impl, OFFSET>,
             ACDGroup: ACDGroup::<Identity, Impl, OFFSET>,
@@ -2942,7 +2942,7 @@ impl ITAgentSessionEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Session: Session::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
         }
@@ -3012,7 +3012,7 @@ impl ITAllocatorProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllocatorProperties: SetAllocatorProperties::<Identity, Impl, OFFSET>,
             GetAllocatorProperties: GetAllocatorProperties::<Identity, Impl, OFFSET>,
             SetAllocateBuffers: SetAllocateBuffers::<Identity, Impl, OFFSET>,
@@ -3314,7 +3314,7 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartTone: StartTone::<Identity, Impl, OFFSET>,
             StopTone: StopTone::<Identity, Impl, OFFSET>,
             Tone: Tone::<Identity, Impl, OFFSET>,
@@ -3396,7 +3396,7 @@ impl ITBasicAudioTerminal_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetVolume: SetVolume::<Identity, Impl, OFFSET>,
             Volume: Volume::<Identity, Impl, OFFSET>,
             SetBalance: SetBalance::<Identity, Impl, OFFSET>,
@@ -3528,7 +3528,7 @@ impl ITBasicCallControl_Vtbl {
             (*this).RemoveFromConference().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Answer: Answer::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
@@ -3584,7 +3584,7 @@ impl ITBasicCallControl2_Vtbl {
             (*this).UnselectTerminalOnCall(::core::mem::transmute(&pterminal)).into()
         }
         Self {
-            base: ITBasicCallControl_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITBasicCallControl_Vtbl::new::<Identity, Impl, OFFSET>(),
             RequestTerminal: RequestTerminal::<Identity, Impl, OFFSET>,
             SelectTerminalOnCall: SelectTerminalOnCall::<Identity, Impl, OFFSET>,
             UnselectTerminalOnCall: UnselectTerminalOnCall::<Identity, Impl, OFFSET>,
@@ -3655,7 +3655,7 @@ impl ITCallHub_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Clear: Clear::<Identity, Impl, OFFSET>,
             EnumerateCalls: EnumerateCalls::<Identity, Impl, OFFSET>,
             Calls: Calls::<Identity, Impl, OFFSET>,
@@ -3710,7 +3710,7 @@ impl ITCallHubEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Event: Event::<Identity, Impl, OFFSET>,
             CallHub: CallHub::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
@@ -3847,7 +3847,7 @@ impl ITCallInfo_Vtbl {
             (*this).ReleaseUserUserInfo().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Address: Address::<Identity, Impl, OFFSET>,
             CallState: CallState::<Identity, Impl, OFFSET>,
             Privilege: Privilege::<Identity, Impl, OFFSET>,
@@ -3892,7 +3892,7 @@ impl ITCallInfo2_Vtbl {
             (*this).SetEventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
         }
         Self {
-            base: ITCallInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITCallInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
             EventFilter: EventFilter::<Identity, Impl, OFFSET>,
             SetEventFilter: SetEventFilter::<Identity, Impl, OFFSET>,
         }
@@ -3944,7 +3944,7 @@ impl ITCallInfoChangeEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             Cause: Cause::<Identity, Impl, OFFSET>,
             CallbackInstance: CallbackInstance::<Identity, Impl, OFFSET>,
@@ -4033,7 +4033,7 @@ impl ITCallMediaEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
             Error: Error::<Identity, Impl, OFFSET>,
@@ -4089,7 +4089,7 @@ impl ITCallNotificationEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
             CallbackInstance: CallbackInstance::<Identity, Impl, OFFSET>,
@@ -4154,7 +4154,7 @@ impl ITCallStateEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
             Cause: Cause::<Identity, Impl, OFFSET>,
@@ -4256,7 +4256,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PermanentCardID: PermanentCardID::<Identity, Impl, OFFSET>,
             NumberOfDigits: NumberOfDigits::<Identity, Impl, OFFSET>,
             Options: Options::<Identity, Impl, OFFSET>,
@@ -4313,7 +4313,7 @@ impl ITCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -4341,7 +4341,7 @@ impl ITCollection2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Remove(::core::mem::transmute_copy(&index)).into()
         }
-        Self { base: ITCollection_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Remove: Remove::<Identity, Impl, OFFSET> }
+        Self { base__: ITCollection_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Remove: Remove::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITCollection2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITCollection as ::windows::core::Interface>::IID
@@ -4426,7 +4426,7 @@ impl ITCustomTone_Vtbl {
             (*this).SetVolume(::core::mem::transmute_copy(&lvolume)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Frequency: Frequency::<Identity, Impl, OFFSET>,
             SetFrequency: SetFrequency::<Identity, Impl, OFFSET>,
             CadenceOn: CadenceOn::<Identity, Impl, OFFSET>,
@@ -4502,7 +4502,7 @@ impl ITDetectTone_Vtbl {
             (*this).SetFrequency(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&lfrequency)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AppSpecific: AppSpecific::<Identity, Impl, OFFSET>,
             SetAppSpecific: SetAppSpecific::<Identity, Impl, OFFSET>,
             Duration: Duration::<Identity, Impl, OFFSET>,
@@ -4582,7 +4582,7 @@ impl ITDigitDetectionEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             Digit: Digit::<Identity, Impl, OFFSET>,
             DigitMode: DigitMode::<Identity, Impl, OFFSET>,
@@ -4649,7 +4649,7 @@ impl ITDigitGenerationEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             GenerationTermination: GenerationTermination::<Identity, Impl, OFFSET>,
             TickCount: TickCount::<Identity, Impl, OFFSET>,
@@ -4727,7 +4727,7 @@ impl ITDigitsGatheredEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             Digits: Digits::<Identity, Impl, OFFSET>,
             GatherTermination: GatherTermination::<Identity, Impl, OFFSET>,
@@ -4866,7 +4866,7 @@ impl ITDirectory_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DirectoryType: DirectoryType::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             IsDynamic: IsDynamic::<Identity, Impl, OFFSET>,
@@ -4966,7 +4966,7 @@ impl ITDirectoryObject_Vtbl {
             (*this).SetSecurityDescriptor(::core::mem::transmute(&psecdes)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ObjectType: ObjectType::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
@@ -5125,7 +5125,7 @@ impl ITDirectoryObjectConference_Vtbl {
             (*this).SetStopTime(::core::mem::transmute_copy(&date)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Protocol: Protocol::<Identity, Impl, OFFSET>,
             Originator: Originator::<Identity, Impl, OFFSET>,
             SetOriginator: SetOriginator::<Identity, Impl, OFFSET>,
@@ -5172,7 +5172,7 @@ impl ITDirectoryObjectUser_Vtbl {
             (*this).SetIPPhonePrimary(::core::mem::transmute(&pname)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IPPhonePrimary: IPPhonePrimary::<Identity, Impl, OFFSET>,
             SetIPPhonePrimary: SetIPPhonePrimary::<Identity, Impl, OFFSET>,
         }
@@ -5200,7 +5200,7 @@ impl ITDispatchMapper_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             QueryDispatchInterface: QueryDispatchInterface::<Identity, Impl, OFFSET>,
         }
     }
@@ -5287,7 +5287,7 @@ impl ITFileTerminalEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Terminal: Terminal::<Identity, Impl, OFFSET>,
             Track: Track::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
@@ -5367,7 +5367,7 @@ impl ITFileTrack_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Format: Format::<Identity, Impl, OFFSET>,
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
             ControllingTerminal: ControllingTerminal::<Identity, Impl, OFFSET>,
@@ -5447,7 +5447,7 @@ impl ITForwardInformation_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetNumRingsNoAnswer: SetNumRingsNoAnswer::<Identity, Impl, OFFSET>,
             NumRingsNoAnswer: NumRingsNoAnswer::<Identity, Impl, OFFSET>,
             SetForwardType: SetForwardType::<Identity, Impl, OFFSET>,
@@ -5504,7 +5504,7 @@ impl ITForwardInformation2_Vtbl {
             }
         }
         Self {
-            base: ITForwardInformation_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITForwardInformation_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetForwardType2: SetForwardType2::<Identity, Impl, OFFSET>,
             GetForwardType2: GetForwardType2::<Identity, Impl, OFFSET>,
             ForwardTypeDestinationAddressType: ForwardTypeDestinationAddressType::<Identity, Impl, OFFSET>,
@@ -5540,7 +5540,7 @@ impl ITILSConfig_Vtbl {
             (*this).SetPort(::core::mem::transmute_copy(&port)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Port: Port::<Identity, Impl, OFFSET>,
             SetPort: SetPort::<Identity, Impl, OFFSET>,
         }
@@ -5574,7 +5574,7 @@ impl ITLegacyAddressMediaControl_Vtbl {
             (*this).SetDevConfig(::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdeviceconfig)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetID: GetID::<Identity, Impl, OFFSET>,
             GetDevConfig: GetDevConfig::<Identity, Impl, OFFSET>,
             SetDevConfig: SetDevConfig::<Identity, Impl, OFFSET>,
@@ -5603,7 +5603,7 @@ impl ITLegacyAddressMediaControl2_Vtbl {
             (*this).ConfigDialogEdit(::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&dwsizein), ::core::mem::transmute_copy(&pdeviceconfigin), ::core::mem::transmute_copy(&pdwsizeout), ::core::mem::transmute_copy(&ppdeviceconfigout)).into()
         }
         Self {
-            base: ITLegacyAddressMediaControl_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITLegacyAddressMediaControl_Vtbl::new::<Identity, Impl, OFFSET>(),
             ConfigDialog: ConfigDialog::<Identity, Impl, OFFSET>,
             ConfigDialogEdit: ConfigDialogEdit::<Identity, Impl, OFFSET>,
         }
@@ -5649,7 +5649,7 @@ impl ITLegacyCallMediaControl_Vtbl {
             (*this).MonitorMedia(::core::mem::transmute_copy(&lmediatype)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DetectDigits: DetectDigits::<Identity, Impl, OFFSET>,
             GenerateDigits: GenerateDigits::<Identity, Impl, OFFSET>,
             GetID: GetID::<Identity, Impl, OFFSET>,
@@ -5746,7 +5746,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
             }
         }
         Self {
-            base: ITLegacyCallMediaControl_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITLegacyCallMediaControl_Vtbl::new::<Identity, Impl, OFFSET>(),
             GenerateDigits2: GenerateDigits2::<Identity, Impl, OFFSET>,
             GatherDigits: GatherDigits::<Identity, Impl, OFFSET>,
             DetectTones: DetectTones::<Identity, Impl, OFFSET>,
@@ -5781,7 +5781,7 @@ impl ITLegacyWaveSupport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), IsFullDuplex: IsFullDuplex::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), IsFullDuplex: IsFullDuplex::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITLegacyWaveSupport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -5926,7 +5926,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             PermanentLocationID: PermanentLocationID::<Identity, Impl, OFFSET>,
             CountryCode: CountryCode::<Identity, Impl, OFFSET>,
             CountryID: CountryID::<Identity, Impl, OFFSET>,
@@ -5991,7 +5991,7 @@ impl ITMSPAddress_Vtbl {
             (*this).GetEvent(::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&peventbuffer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
             CreateMSPCall: CreateMSPCall::<Identity, Impl, OFFSET>,
@@ -6041,7 +6041,7 @@ impl ITMediaControl_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
@@ -6077,7 +6077,7 @@ impl ITMediaPlayback_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetPlayList: SetPlayList::<Identity, Impl, OFFSET>,
             PlayList: PlayList::<Identity, Impl, OFFSET>,
         }
@@ -6111,7 +6111,7 @@ impl ITMediaRecord_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetFileName: SetFileName::<Identity, Impl, OFFSET>,
             FileName: FileName::<Identity, Impl, OFFSET>,
         }
@@ -6151,7 +6151,7 @@ impl ITMediaSupport_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             MediaTypes: MediaTypes::<Identity, Impl, OFFSET>,
             QueryMediaType: QueryMediaType::<Identity, Impl, OFFSET>,
         }
@@ -6233,7 +6233,7 @@ impl ITMultiTrackTerminal_Vtbl {
             (*this).RemoveTrackTerminal(::core::mem::transmute(&ptrackterminaltoremove)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             TrackTerminals: TrackTerminals::<Identity, Impl, OFFSET>,
             EnumerateTrackTerminals: EnumerateTrackTerminals::<Identity, Impl, OFFSET>,
             CreateTrackTerminal: CreateTrackTerminal::<Identity, Impl, OFFSET>,
@@ -6571,7 +6571,7 @@ impl ITPhone_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             Addresses: Addresses::<Identity, Impl, OFFSET>,
@@ -6666,7 +6666,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Phone: Phone::<Identity, Impl, OFFSET>,
             lParam1: lParam1::<Identity, Impl, OFFSET>,
             lParam2: lParam2::<Identity, Impl, OFFSET>,
@@ -6792,7 +6792,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Phone: Phone::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
             ButtonState: ButtonState::<Identity, Impl, OFFSET>,
@@ -6899,7 +6899,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Company: Company::<Identity, Impl, OFFSET>,
             Version: Version::<Identity, Impl, OFFSET>,
@@ -6925,7 +6925,7 @@ impl ITPluggableTerminalEventSink_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).FireEvent(::core::mem::transmute_copy(&pmspeventinfo)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITPluggableTerminalEventSink as ::windows::core::Interface>::IID
@@ -6948,7 +6948,7 @@ impl ITPluggableTerminalEventSinkRegistration_Vtbl {
             (*this).UnregisterSink().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterSink: RegisterSink::<Identity, Impl, OFFSET>,
             UnregisterSink: UnregisterSink::<Identity, Impl, OFFSET>,
         }
@@ -6988,7 +6988,7 @@ impl ITPluggableTerminalSuperclassInfo_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             CLSID: CLSID::<Identity, Impl, OFFSET>,
         }
@@ -7064,7 +7064,7 @@ impl ITPrivateEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Address: Address::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
             CallHub: CallHub::<Identity, Impl, OFFSET>,
@@ -7119,7 +7119,7 @@ impl ITQOSEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
             MediaType: MediaType::<Identity, Impl, OFFSET>,
@@ -7274,7 +7274,7 @@ impl ITQueue_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetMeasurementPeriod: SetMeasurementPeriod::<Identity, Impl, OFFSET>,
             MeasurementPeriod: MeasurementPeriod::<Identity, Impl, OFFSET>,
             TotalCallsQueued: TotalCallsQueued::<Identity, Impl, OFFSET>,
@@ -7324,7 +7324,7 @@ impl ITQueueEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Queue: Queue::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
         }
@@ -7388,7 +7388,7 @@ impl ITRendezvous_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             DefaultDirectories: DefaultDirectories::<Identity, Impl, OFFSET>,
             EnumerateDefaultDirectories: EnumerateDefaultDirectories::<Identity, Impl, OFFSET>,
             CreateDirectory: CreateDirectory::<Identity, Impl, OFFSET>,
@@ -7411,7 +7411,7 @@ impl ITRequest_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).MakeCall(::core::mem::transmute(&pdestaddress), ::core::mem::transmute(&pappname), ::core::mem::transmute(&pcalledparty), ::core::mem::transmute(&pcomment)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), MakeCall: MakeCall::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), MakeCall: MakeCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7496,7 +7496,7 @@ impl ITRequestEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RegistrationInstance: RegistrationInstance::<Identity, Impl, OFFSET>,
             RequestMode: RequestMode::<Identity, Impl, OFFSET>,
             DestAddress: DestAddress::<Identity, Impl, OFFSET>,
@@ -7624,7 +7624,7 @@ impl ITScriptableAudioFormat_Vtbl {
             (*this).SetFormatTag(::core::mem::transmute_copy(&nnewval)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Channels: Channels::<Identity, Impl, OFFSET>,
             SetChannels: SetChannels::<Identity, Impl, OFFSET>,
             SamplesPerSec: SamplesPerSec::<Identity, Impl, OFFSET>,
@@ -7661,7 +7661,7 @@ impl ITStaticAudioTerminal_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), WaveId: WaveId::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), WaveId: WaveId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITStaticAudioTerminal as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -7764,7 +7764,7 @@ impl ITStream_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             MediaType: MediaType::<Identity, Impl, OFFSET>,
             Direction: Direction::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -7830,7 +7830,7 @@ impl ITStreamControl_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateStream: CreateStream::<Identity, Impl, OFFSET>,
             RemoveStream: RemoveStream::<Identity, Impl, OFFSET>,
             EnumerateStreams: EnumerateStreams::<Identity, Impl, OFFSET>,
@@ -7914,7 +7914,7 @@ impl ITSubStream_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartSubStream: StartSubStream::<Identity, Impl, OFFSET>,
             PauseSubStream: PauseSubStream::<Identity, Impl, OFFSET>,
             StopSubStream: StopSubStream::<Identity, Impl, OFFSET>,
@@ -7978,7 +7978,7 @@ impl ITSubStreamControl_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSubStream: CreateSubStream::<Identity, Impl, OFFSET>,
             RemoveSubStream: RemoveSubStream::<Identity, Impl, OFFSET>,
             EnumerateSubStreams: EnumerateSubStreams::<Identity, Impl, OFFSET>,
@@ -8140,7 +8140,7 @@ impl ITTAPI_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
             Addresses: Addresses::<Identity, Impl, OFFSET>,
@@ -8206,7 +8206,7 @@ impl ITTAPI2_Vtbl {
             }
         }
         Self {
-            base: ITTAPI_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITTAPI_Vtbl::new::<Identity, Impl, OFFSET>(),
             Phones: Phones::<Identity, Impl, OFFSET>,
             EnumeratePhones: EnumeratePhones::<Identity, Impl, OFFSET>,
             CreateEmptyCollectionObject: CreateEmptyCollectionObject::<Identity, Impl, OFFSET>,
@@ -8247,7 +8247,7 @@ impl ITTAPICallCenter_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnumerateAgentHandlers: EnumerateAgentHandlers::<Identity, Impl, OFFSET>,
             AgentHandlers: AgentHandlers::<Identity, Impl, OFFSET>,
         }
@@ -8261,7 +8261,7 @@ pub trait ITTAPIDispatchEventNotification_Impl: Sized + super::super::System::Co
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPIDispatchEventNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPIDispatchEventNotification_Impl, const OFFSET: isize>() -> ITTAPIDispatchEventNotification_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITTAPIDispatchEventNotification as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -8279,7 +8279,7 @@ impl ITTAPIEventNotification_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Event(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute(&pevent)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITTAPIEventNotification as ::windows::core::Interface>::IID
@@ -8340,7 +8340,7 @@ impl ITTAPIObjectEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             TAPIObject: TAPIObject::<Identity, Impl, OFFSET>,
             Event: Event::<Identity, Impl, OFFSET>,
             Address: Address::<Identity, Impl, OFFSET>,
@@ -8369,7 +8369,7 @@ impl ITTAPIObjectEvent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ITTAPIObjectEvent_Vtbl::new::<Identity, Impl, OFFSET>(), Phone: Phone::<Identity, Impl, OFFSET> }
+        Self { base__: ITTAPIObjectEvent_Vtbl::new::<Identity, Impl, OFFSET>(), Phone: Phone::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITTAPIObjectEvent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITTAPIObjectEvent as ::windows::core::Interface>::IID
@@ -8418,7 +8418,7 @@ impl ITTTSTerminalEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Terminal: Terminal::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
             Error: Error::<Identity, Impl, OFFSET>,
@@ -8507,7 +8507,7 @@ impl ITTerminal_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
             TerminalType: TerminalType::<Identity, Impl, OFFSET>,
@@ -8599,7 +8599,7 @@ impl ITTerminalSupport_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StaticTerminals: StaticTerminals::<Identity, Impl, OFFSET>,
             EnumerateStaticTerminals: EnumerateStaticTerminals::<Identity, Impl, OFFSET>,
             DynamicTerminalClasses: DynamicTerminalClasses::<Identity, Impl, OFFSET>,
@@ -8667,7 +8667,7 @@ impl ITTerminalSupport2_Vtbl {
             }
         }
         Self {
-            base: ITTerminalSupport_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ITTerminalSupport_Vtbl::new::<Identity, Impl, OFFSET>(),
             PluggableSuperclasses: PluggableSuperclasses::<Identity, Impl, OFFSET>,
             EnumeratePluggableSuperclasses: EnumeratePluggableSuperclasses::<Identity, Impl, OFFSET>,
             PluggableTerminalClasses: PluggableTerminalClasses::<Identity, Impl, OFFSET>,
@@ -8733,7 +8733,7 @@ impl ITToneDetectionEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Call: Call::<Identity, Impl, OFFSET>,
             AppSpecific: AppSpecific::<Identity, Impl, OFFSET>,
             TickCount: TickCount::<Identity, Impl, OFFSET>,
@@ -8787,7 +8787,7 @@ impl ITToneTerminalEvent_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Terminal: Terminal::<Identity, Impl, OFFSET>,
             Call: Call::<Identity, Impl, OFFSET>,
             Error: Error::<Identity, Impl, OFFSET>,
@@ -8852,7 +8852,7 @@ impl ITnef_Vtbl {
             (*this).FinishComponent(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&ulcomponentid), ::core::mem::transmute_copy(&lpcustomproplist), ::core::mem::transmute_copy(&lpcustomprops), ::core::mem::transmute_copy(&lpproplist), ::core::mem::transmute_copy(&lpproblems)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddProps: AddProps::<Identity, Impl, OFFSET>,
             ExtractProps: ExtractProps::<Identity, Impl, OFFSET>,
             Finish: Finish::<Identity, Impl, OFFSET>,

@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Interface for IAtomPubClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAtomPubClient_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
     pub RetrieveServiceDocumentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
@@ -370,7 +370,7 @@ unsafe impl ::windows::core::Interface for IAtomPubClientFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAtomPubClientFactory_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub CreateAtomPubClientWithCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servercredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
@@ -386,7 +386,7 @@ unsafe impl ::windows::core::Interface for IResourceCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCollection_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Syndication")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Web_Syndication"))]
@@ -414,7 +414,7 @@ unsafe impl ::windows::core::Interface for IServiceDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceDocument_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Workspaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -430,7 +430,7 @@ unsafe impl ::windows::core::Interface for IWorkspace {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspace_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Syndication")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Web_Syndication"))]

@@ -1591,7 +1591,7 @@ unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICcgDomainAuthCredentials_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetPasswordCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugininput: ::windows::core::PCWSTR, domainname: *mut ::windows::core::PWSTR, username: *mut ::windows::core::PWSTR, password: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -6813,14 +6813,7 @@ pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Founda
 pub struct LsaHandle(pub isize);
 impl LsaHandle {
     pub fn is_invalid(&self) -> bool {
-        *self == unsafe { ::core::mem::zeroed() }
-    }
-    pub fn ok(self) -> ::windows::core::Result<Self> {
-        if !self.is_invalid() {
-            Ok(self)
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
+        self.0 == -1 || self.0 == 0
     }
 }
 impl ::core::default::Default for LsaHandle {

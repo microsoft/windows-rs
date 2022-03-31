@@ -39,7 +39,7 @@ impl IMarshal_Vtbl {
             (*this).DisconnectObject(::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetUnmarshalClass: GetUnmarshalClass::<Identity, Impl, OFFSET>,
             GetMarshalSizeMax: GetMarshalSizeMax::<Identity, Impl, OFFSET>,
             MarshalInterface: MarshalInterface::<Identity, Impl, OFFSET>,
@@ -55,7 +55,7 @@ impl IMarshal_Vtbl {
 pub trait IMarshal2_Impl: Sized + IMarshal_Impl {}
 impl IMarshal2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarshal2_Impl, const OFFSET: isize>() -> IMarshal2_Vtbl {
-        Self { base: IMarshal_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IMarshal_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMarshal2 as ::windows::core::Interface>::IID || iid == &<IMarshal as ::windows::core::Interface>::IID
@@ -80,7 +80,7 @@ impl IMarshalingStream_Vtbl {
             }
         }
         Self {
-            base: super::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetMarshalingContextAttribute: GetMarshalingContextAttribute::<Identity, Impl, OFFSET>,
         }
     }

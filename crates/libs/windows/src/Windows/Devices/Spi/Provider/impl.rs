@@ -19,7 +19,7 @@ impl ISpiControllerProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiControllerProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpiControllerProvider, OFFSET>(),
             GetDeviceProvider: GetDeviceProvider::<Identity, Impl, OFFSET>,
         }
     }
@@ -88,7 +88,7 @@ impl ISpiDeviceProvider_Vtbl {
             (*this).TransferFullDuplex(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiDeviceProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpiDeviceProvider, OFFSET>(),
             DeviceId: DeviceId::<Identity, Impl, OFFSET>,
             ConnectionSettings: ConnectionSettings::<Identity, Impl, OFFSET>,
             Write: Write::<Identity, Impl, OFFSET>,
@@ -125,7 +125,7 @@ impl ISpiProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpiProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpiProvider, OFFSET>(),
             GetControllersAsync: GetControllersAsync::<Identity, Impl, OFFSET>,
         }
     }

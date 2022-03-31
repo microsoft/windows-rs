@@ -11,7 +11,7 @@ impl IAccessibleWinSAT_Vtbl {
             (*this).SetAccessiblityData(::core::mem::transmute(&wsname), ::core::mem::transmute(&wsvalue), ::core::mem::transmute(&wsdesc)).into()
         }
         Self {
-            base: super::super::UI::Accessibility::IAccessible_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::UI::Accessibility::IAccessible_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetAccessiblityData: SetAccessiblityData::<Identity, Impl, OFFSET>,
         }
     }
@@ -44,7 +44,7 @@ impl IInitiateWinSATAssessment_Vtbl {
             (*this).CancelAssessment().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             InitiateAssessment: InitiateAssessment::<Identity, Impl, OFFSET>,
             InitiateFormalAssessment: InitiateFormalAssessment::<Identity, Impl, OFFSET>,
             CancelAssessment: CancelAssessment::<Identity, Impl, OFFSET>,
@@ -97,7 +97,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Score: Score::<Identity, Impl, OFFSET>,
             Title: Title::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -174,7 +174,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             }
         }
         Self {
-            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAssessmentInfo: GetAssessmentInfo::<Identity, Impl, OFFSET>,
             AssessmentState: AssessmentState::<Identity, Impl, OFFSET>,
             AssessmentDateTime: AssessmentDateTime::<Identity, Impl, OFFSET>,
@@ -204,7 +204,7 @@ impl IProvideWinSATVisuals_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Bitmap: Bitmap::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Bitmap: Bitmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvideWinSATVisuals as ::windows::core::Interface>::IID
@@ -228,7 +228,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), AllXML: AllXML::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), AllXML: AllXML::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryAllWinSATAssessments as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -250,7 +250,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetOEMPrePopulationInfo: GetOEMPrePopulationInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetOEMPrePopulationInfo: GetOEMPrePopulationInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryOEMWinSATCustomization as ::windows::core::Interface>::IID
@@ -286,7 +286,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), XML: XML::<Identity, Impl, OFFSET>, Info: Info::<Identity, Impl, OFFSET> }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), XML: XML::<Identity, Impl, OFFSET>, Info: Info::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryRecentWinSATAssessment as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
@@ -309,7 +309,7 @@ impl IWinSATInitiateEvents_Vtbl {
             (*this).WinSATUpdate(::core::mem::transmute_copy(&ucurrenttick), ::core::mem::transmute_copy(&uticktotal), ::core::mem::transmute(&strcurrentstate)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             WinSATComplete: WinSATComplete::<Identity, Impl, OFFSET>,
             WinSATUpdate: WinSATUpdate::<Identity, Impl, OFFSET>,
         }

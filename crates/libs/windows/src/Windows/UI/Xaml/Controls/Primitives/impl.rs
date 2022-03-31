@@ -19,7 +19,7 @@ impl IFlyoutBaseOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseOverrides, OFFSET>(),
             CreatePresenter: CreatePresenter::<Identity, Impl, OFFSET>,
         }
     }
@@ -46,7 +46,7 @@ impl IFlyoutBaseOverrides4_Vtbl {
             (*this).OnProcessKeyboardAccelerators(::core::mem::transmute(&args)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseOverrides4, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFlyoutBaseOverrides4, OFFSET>(),
             OnProcessKeyboardAccelerators: OnProcessKeyboardAccelerators::<Identity, Impl, OFFSET>,
         }
     }
@@ -83,7 +83,7 @@ impl IPickerFlyoutBaseOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutBaseOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPickerFlyoutBaseOverrides, OFFSET>(),
             OnConfirmed: OnConfirmed::<Identity, Impl, OFFSET>,
             ShouldShowConfirmationButtons: ShouldShowConfirmationButtons::<Identity, Impl, OFFSET>,
         }
@@ -124,7 +124,7 @@ impl IRangeBaseOverrides_Vtbl {
             (*this).OnValueChanged(oldvalue, newvalue).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRangeBaseOverrides, OFFSET>(),
             OnMinimumChanged: OnMinimumChanged::<Identity, Impl, OFFSET>,
             OnMaximumChanged: OnMaximumChanged::<Identity, Impl, OFFSET>,
             OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET>,
@@ -235,7 +235,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollSnapPointsInfo, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IScrollSnapPointsInfo, OFFSET>(),
             AreHorizontalSnapPointsRegular: AreHorizontalSnapPointsRegular::<Identity, Impl, OFFSET>,
             AreVerticalSnapPointsRegular: AreVerticalSnapPointsRegular::<Identity, Impl, OFFSET>,
             HorizontalSnapPointsChanged: HorizontalSnapPointsChanged::<Identity, Impl, OFFSET>,
@@ -265,7 +265,7 @@ impl IToggleButtonOverrides_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnToggle().into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonOverrides, OFFSET>(), OnToggle: OnToggle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IToggleButtonOverrides, OFFSET>(), OnToggle: OnToggle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IToggleButtonOverrides as ::windows::core::Interface>::IID

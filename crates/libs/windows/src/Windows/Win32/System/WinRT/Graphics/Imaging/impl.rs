@@ -11,7 +11,7 @@ impl ISoftwareBitmapNative_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetData(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapNative, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapNative, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISoftwareBitmapNative as ::windows::core::Interface>::IID
@@ -40,7 +40,7 @@ impl ISoftwareBitmapNativeFactory_Vtbl {
             (*this).CreateFromMF2DBuffer2(::core::mem::transmute(&data), ::core::mem::transmute_copy(&subtype), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&forcereadonly), ::core::mem::transmute_copy(&mindisplayaperture), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapNativeFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISoftwareBitmapNativeFactory, OFFSET>(),
             CreateFromWICBitmap: CreateFromWICBitmap::<Identity, Impl, OFFSET>,
             CreateFromMF2DBuffer2: CreateFromMF2DBuffer2::<Identity, Impl, OFFSET>,
         }

@@ -27,7 +27,7 @@ impl IUIApplication_Vtbl {
             (*this).OnDestroyUICommand(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&commandhandler)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnViewChanged: OnViewChanged::<Identity, Impl, OFFSET>,
             OnCreateUICommand: OnCreateUICommand::<Identity, Impl, OFFSET>,
             OnDestroyUICommand: OnDestroyUICommand::<Identity, Impl, OFFSET>,
@@ -96,7 +96,7 @@ impl IUICollection_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetItem: GetItem::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -120,7 +120,7 @@ impl IUICollectionChangedEvent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnChanged(::core::mem::transmute_copy(&action), ::core::mem::transmute_copy(&oldindex), ::core::mem::transmute(&olditem), ::core::mem::transmute_copy(&newindex), ::core::mem::transmute(&newitem)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUICollectionChangedEvent as ::windows::core::Interface>::IID
@@ -151,7 +151,7 @@ impl IUICommandHandler_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Execute: Execute::<Identity, Impl, OFFSET>,
             UpdateProperty: UpdateProperty::<Identity, Impl, OFFSET>,
         }
@@ -170,7 +170,7 @@ impl IUIContextualUI_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ShowAtLocation(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ShowAtLocation: ShowAtLocation::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ShowAtLocation: ShowAtLocation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIContextualUI as ::windows::core::Interface>::IID
@@ -186,7 +186,7 @@ impl IUIEventLogger_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnUIEvent(::core::mem::transmute_copy(&peventparams))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUIEvent: OnUIEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUIEvent: OnUIEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIEventLogger as ::windows::core::Interface>::IID
@@ -202,7 +202,7 @@ impl IUIEventingManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetEventLogger(::core::mem::transmute(&eventlogger)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetEventLogger: SetEventLogger::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetEventLogger: SetEventLogger::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIEventingManager as ::windows::core::Interface>::IID
@@ -275,7 +275,7 @@ impl IUIFramework_Vtbl {
             (*this).SetModes(::core::mem::transmute_copy(&imodes)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Destroy: Destroy::<Identity, Impl, OFFSET>,
             LoadUI: LoadUI::<Identity, Impl, OFFSET>,
@@ -309,7 +309,7 @@ impl IUIImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBitmap: GetBitmap::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBitmap: GetBitmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIImage as ::windows::core::Interface>::IID
@@ -333,7 +333,7 @@ impl IUIImageFromBitmap_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateImage: CreateImage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateImage: CreateImage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIImageFromBitmap as ::windows::core::Interface>::IID
@@ -370,7 +370,7 @@ impl IUIRibbon_Vtbl {
             (*this).SaveSettingsToStream(::core::mem::transmute(&pstream)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetHeight: GetHeight::<Identity, Impl, OFFSET>,
             LoadSettingsFromStream: LoadSettingsFromStream::<Identity, Impl, OFFSET>,
             SaveSettingsToStream: SaveSettingsToStream::<Identity, Impl, OFFSET>,
@@ -398,7 +398,7 @@ impl IUISimplePropertySet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUISimplePropertySet as ::windows::core::Interface>::IID

@@ -405,7 +405,7 @@ unsafe impl ::windows::core::Interface for IDXCoreAdapter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXCoreAdapter_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,
     pub IsAttributeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeguid: *const ::windows::core::GUID) -> bool,
     pub IsPropertySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty) -> bool,
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::Interface for IDXCoreAdapterFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXCoreAdapterFactory_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateAdapterList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAdapterByLuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -573,7 +573,7 @@ unsafe impl ::windows::core::Interface for IDXCoreAdapterList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXCoreAdapterList_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub IsStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,

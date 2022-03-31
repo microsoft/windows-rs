@@ -15,7 +15,7 @@ unsafe impl ::windows::core::Interface for ISystemProtectionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemProtectionStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ScreenLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -28,7 +28,7 @@ unsafe impl ::windows::core::Interface for ISystemProtectionUnlockStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemProtectionUnlockStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub RequestScreenUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_System\"`*"]

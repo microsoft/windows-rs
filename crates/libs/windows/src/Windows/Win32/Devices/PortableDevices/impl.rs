@@ -8,7 +8,7 @@ impl IConnectionRequestCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnComplete(::core::mem::transmute_copy(&hrstatus)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IConnectionRequestCallback as ::windows::core::Interface>::IID
@@ -49,7 +49,7 @@ impl IEnumPortableDeviceConnectors_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -101,7 +101,7 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -136,7 +136,7 @@ impl IMediaRadioManager_Vtbl {
             (*this).OnSystemRadioStateChange(::core::mem::transmute_copy(&sysradiostate), ::core::mem::transmute_copy(&utimeoutsec)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRadioInstances: GetRadioInstances::<Identity, Impl, OFFSET>,
             OnSystemRadioStateChange: OnSystemRadioStateChange::<Identity, Impl, OFFSET>,
         }
@@ -170,7 +170,7 @@ impl IMediaRadioManagerNotifySink_Vtbl {
             (*this).OnInstanceRadioChange(::core::mem::transmute(&bstrradioinstanceid), ::core::mem::transmute_copy(&radiostate)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnInstanceAdd: OnInstanceAdd::<Identity, Impl, OFFSET>,
             OnInstanceRemove: OnInstanceRemove::<Identity, Impl, OFFSET>,
             OnInstanceRadioChange: OnInstanceRadioChange::<Identity, Impl, OFFSET>,
@@ -269,7 +269,7 @@ impl IPortableDevice_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             SendCommand: SendCommand::<Identity, Impl, OFFSET>,
             Content: Content::<Identity, Impl, OFFSET>,
@@ -418,7 +418,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSupportedCommands: GetSupportedCommands::<Identity, Impl, OFFSET>,
             GetCommandOptions: GetCommandOptions::<Identity, Impl, OFFSET>,
             GetFunctionalCategories: GetFunctionalCategories::<Identity, Impl, OFFSET>,
@@ -485,7 +485,7 @@ impl IPortableDeviceConnector_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
@@ -589,7 +589,7 @@ impl IPortableDeviceContent_Vtbl {
             (*this).Copy(::core::mem::transmute(&pobjectids), ::core::mem::transmute(&pszdestinationfolderobjectid), ::core::mem::transmute_copy(&ppresults)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnumObjects: EnumObjects::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
             Transfer: Transfer::<Identity, Impl, OFFSET>,
@@ -619,7 +619,7 @@ impl IPortableDeviceContent2_Vtbl {
             (*this).UpdateObjectWithPropertiesAndData(::core::mem::transmute(&pszobjectid), ::core::mem::transmute(&pproperties), ::core::mem::transmute_copy(&ppdata), ::core::mem::transmute_copy(&pdwoptimalwritebuffersize)).into()
         }
         Self {
-            base: IPortableDeviceContent_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IPortableDeviceContent_Vtbl::new::<Identity, Impl, OFFSET>(),
             UpdateObjectWithPropertiesAndData: UpdateObjectWithPropertiesAndData::<Identity, Impl, OFFSET>,
         }
     }
@@ -652,7 +652,7 @@ impl IPortableDeviceDataStream_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetObjectID: GetObjectID::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
@@ -679,7 +679,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDeviceDispatch: GetDeviceDispatch::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDeviceDispatch: GetDeviceDispatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPortableDeviceDispatchFactory as ::windows::core::Interface>::IID
@@ -695,7 +695,7 @@ impl IPortableDeviceEventCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnEvent(::core::mem::transmute(&peventparameters)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPortableDeviceEventCallback as ::windows::core::Interface>::IID
@@ -738,7 +738,7 @@ impl IPortableDeviceKeyCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -797,7 +797,7 @@ impl IPortableDeviceManager_Vtbl {
             (*this).GetPrivateDevices(::core::mem::transmute_copy(&ppnpdeviceids), ::core::mem::transmute_copy(&pcpnpdeviceids)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDevices: GetDevices::<Identity, Impl, OFFSET>,
             RefreshDeviceList: RefreshDeviceList::<Identity, Impl, OFFSET>,
             GetDeviceFriendlyName: GetDeviceFriendlyName::<Identity, Impl, OFFSET>,
@@ -866,7 +866,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -947,7 +947,7 @@ impl IPortableDeviceProperties_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSupportedProperties: GetSupportedProperties::<Identity, Impl, OFFSET>,
             GetPropertyAttributes: GetPropertyAttributes::<Identity, Impl, OFFSET>,
             GetValues: GetValues::<Identity, Impl, OFFSET>,
@@ -1013,7 +1013,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
             (*this).Cancel(::core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueueGetValuesByObjectList: QueueGetValuesByObjectList::<Identity, Impl, OFFSET>,
             QueueGetValuesByObjectFormat: QueueGetValuesByObjectFormat::<Identity, Impl, OFFSET>,
             QueueSetValuesByObjectList: QueueSetValuesByObjectList::<Identity, Impl, OFFSET>,
@@ -1048,7 +1048,7 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
             (*this).OnEnd(::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&hrstatus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnStart: OnStart::<Identity, Impl, OFFSET>,
             OnProgress: OnProgress::<Identity, Impl, OFFSET>,
             OnEnd: OnEnd::<Identity, Impl, OFFSET>,
@@ -1113,7 +1113,7 @@ impl IPortableDeviceResources_Vtbl {
             (*this).CreateResource(::core::mem::transmute(&presourceattributes), ::core::mem::transmute_copy(&ppdata), ::core::mem::transmute_copy(&pdwoptimalwritebuffersize), ::core::mem::transmute_copy(&ppszcookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSupportedResources: GetSupportedResources::<Identity, Impl, OFFSET>,
             GetResourceAttributes: GetResourceAttributes::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
@@ -1239,7 +1239,7 @@ impl IPortableDeviceService_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Capabilities: Capabilities::<Identity, Impl, OFFSET>,
             Content: Content::<Identity, Impl, OFFSET>,
@@ -1274,7 +1274,7 @@ impl IPortableDeviceServiceActivation_Vtbl {
             (*this).CancelOpenAsync().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OpenAsync: OpenAsync::<Identity, Impl, OFFSET>,
             CancelOpenAsync: CancelOpenAsync::<Identity, Impl, OFFSET>,
         }
@@ -1476,7 +1476,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSupportedMethods: GetSupportedMethods::<Identity, Impl, OFFSET>,
             GetSupportedMethodsByFormat: GetSupportedMethodsByFormat::<Identity, Impl, OFFSET>,
             GetMethodAttributes: GetMethodAttributes::<Identity, Impl, OFFSET>,
@@ -1522,7 +1522,7 @@ impl IPortableDeviceServiceManager_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDeviceServices: GetDeviceServices::<Identity, Impl, OFFSET>,
             GetDeviceForService: GetDeviceForService::<Identity, Impl, OFFSET>,
         }
@@ -1541,7 +1541,7 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnComplete(::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute(&presults)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPortableDeviceServiceMethodCallback as ::windows::core::Interface>::IID
@@ -1570,7 +1570,7 @@ impl IPortableDeviceServiceMethods_Vtbl {
             (*this).Cancel(::core::mem::transmute(&pcallback)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
             InvokeAsync: InvokeAsync::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
@@ -1590,7 +1590,7 @@ impl IPortableDeviceServiceOpenCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnComplete(::core::mem::transmute_copy(&hrstatus)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPortableDeviceServiceOpenCallback as ::windows::core::Interface>::IID
@@ -1619,7 +1619,7 @@ impl IPortableDeviceUnitsStream_Vtbl {
             (*this).Cancel().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SeekInUnits: SeekInUnits::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
@@ -1971,7 +1971,7 @@ impl IPortableDeviceValues_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -2059,7 +2059,7 @@ impl IPortableDeviceValuesCollection_Vtbl {
             (*this).RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -2096,7 +2096,7 @@ impl IPortableDeviceWebControl_Vtbl {
             (*this).GetDeviceFromIdAsync(::core::mem::transmute(&deviceid), ::core::mem::transmute(&pcompletionhandler), ::core::mem::transmute(&perrorhandler)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetDeviceFromId: GetDeviceFromId::<Identity, Impl, OFFSET>,
             GetDeviceFromIdAsync: GetDeviceFromIdAsync::<Identity, Impl, OFFSET>,
         }
@@ -2178,7 +2178,7 @@ impl IRadioInstance_Vtbl {
             (*this).IsAssociatingDevice()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetRadioManagerSignature: GetRadioManagerSignature::<Identity, Impl, OFFSET>,
             GetInstanceSignature: GetInstanceSignature::<Identity, Impl, OFFSET>,
             GetFriendlyName: GetFriendlyName::<Identity, Impl, OFFSET>,
@@ -2221,7 +2221,7 @@ impl IRadioInstanceCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
@@ -2271,7 +2271,7 @@ impl IWpdSerializer_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIPortableDeviceValuesFromBuffer: GetIPortableDeviceValuesFromBuffer::<Identity, Impl, OFFSET>,
             WriteIPortableDeviceValuesToBuffer: WriteIPortableDeviceValuesToBuffer::<Identity, Impl, OFFSET>,
             GetBufferFromIPortableDeviceValues: GetBufferFromIPortableDeviceValues::<Identity, Impl, OFFSET>,

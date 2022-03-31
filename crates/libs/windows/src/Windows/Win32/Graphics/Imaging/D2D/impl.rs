@@ -23,7 +23,7 @@ impl IWICImageEncoder_Vtbl {
             (*this).WriteThumbnail(::core::mem::transmute(&pimage), ::core::mem::transmute(&pencoder), ::core::mem::transmute_copy(&pimageparameters)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             WriteFrame: WriteFrame::<Identity, Impl, OFFSET>,
             WriteFrameThumbnail: WriteFrameThumbnail::<Identity, Impl, OFFSET>,
             WriteThumbnail: WriteThumbnail::<Identity, Impl, OFFSET>,
@@ -51,7 +51,7 @@ impl IWICImagingFactory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::IWICImagingFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CreateImageEncoder: CreateImageEncoder::<Identity, Impl, OFFSET> }
+        Self { base__: super::IWICImagingFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CreateImageEncoder: CreateImageEncoder::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWICImagingFactory2 as ::windows::core::Interface>::IID || iid == &<super::IWICImagingFactory as ::windows::core::Interface>::IID

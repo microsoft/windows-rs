@@ -22,7 +22,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnteredBackgroundEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IEnteredBackgroundEventArgs, OFFSET>(),
             GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
         }
     }
@@ -54,7 +54,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILeavingBackgroundEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILeavingBackgroundEventArgs, OFFSET>(),
             GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
         }
     }
@@ -75,7 +75,7 @@ impl ISuspendingDeferral_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Complete().into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISuspendingDeferral as ::windows::core::Interface>::IID
@@ -102,7 +102,7 @@ impl ISuspendingEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingEventArgs, OFFSET>(),
             SuspendingOperation: SuspendingOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -147,7 +147,7 @@ impl ISuspendingOperation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingOperation, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingOperation, OFFSET>(),
             GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
             Deadline: Deadline::<Identity, Impl, OFFSET>,
         }

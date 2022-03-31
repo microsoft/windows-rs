@@ -28,7 +28,7 @@ impl ISysStorageProviderEventSource_Vtbl {
             (*this).RemoveEventReceived(::core::mem::transmute(&token)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderEventSource, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderEventSource, OFFSET>(),
             EventReceived: EventReceived::<Identity, Impl, OFFSET>,
             RemoveEventReceived: RemoveEventReceived::<Identity, Impl, OFFSET>,
         }
@@ -71,7 +71,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderHandlerFactory, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderHandlerFactory, OFFSET>(),
             GetHttpRequestProvider: GetHttpRequestProvider::<Identity, Impl, OFFSET>,
             GetEventSource: GetEventSource::<Identity, Impl, OFFSET>,
         }
@@ -104,7 +104,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderHttpRequestProvider, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISysStorageProviderHttpRequestProvider, OFFSET>(),
             SendRequestAsync: SendRequestAsync::<Identity, Impl, OFFSET>,
         }
     }

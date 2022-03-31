@@ -1290,7 +1290,7 @@ unsafe impl ::windows::core::Interface for IMXAttributes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXAttributes_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub addAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::Interface for IMXNamespaceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXNamespaceManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub putAllowOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT,
     pub getAllowOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT,
     pub reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1539,7 +1539,7 @@ unsafe impl ::windows::core::Interface for IMXNamespacePrefixes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXNamespacePrefixes_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1643,7 +1643,7 @@ unsafe impl ::windows::core::Interface for IMXReaderControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXReaderControl_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1737,7 +1737,7 @@ unsafe impl ::windows::core::Interface for IMXSchemaDeclHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXSchemaDeclHandler_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub schemaElementDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oschemaelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1909,7 +1909,7 @@ unsafe impl ::windows::core::Interface for IMXWriter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXWriter_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Setoutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestination: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2088,7 +2088,7 @@ unsafe impl ::windows::core::Interface for IMXXMLFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXXMLFilter_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2217,7 +2217,7 @@ unsafe impl ::windows::core::Interface for ISAXAttributes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXAttributes_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub getLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnlength: *mut i32) -> ::windows::core::HRESULT,
     pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows::core::HRESULT,
     pub getLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> ::windows::core::HRESULT,
@@ -2324,7 +2324,7 @@ unsafe impl ::windows::core::Interface for ISAXContentHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXContentHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub putDocumentLocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub startDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub endDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2393,7 +2393,7 @@ unsafe impl ::windows::core::Interface for ISAXDTDHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDTDHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub notationDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::HRESULT,
     pub unparsedEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32, pwchnotationname: ::windows::core::PCWSTR, cchnotationname: i32) -> ::windows::core::HRESULT,
 }
@@ -2461,7 +2461,7 @@ unsafe impl ::windows::core::Interface for ISAXDeclHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDeclHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub elementDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchmodel: ::windows::core::PCWSTR, cchmodel: i32) -> ::windows::core::HRESULT,
     pub attributeDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchelementname: ::windows::core::PCWSTR, cchelementname: i32, pwchattributename: ::windows::core::PCWSTR, cchattributename: i32, pwchtype: ::windows::core::PCWSTR, cchtype: i32, pwchvaluedefault: ::windows::core::PCWSTR, cchvaluedefault: i32, pwchvalue: ::windows::core::PCWSTR, cchvalue: i32) -> ::windows::core::HRESULT,
     pub internalEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchvalue: ::windows::core::PCWSTR, cchvalue: i32) -> ::windows::core::HRESULT,
@@ -2521,7 +2521,7 @@ unsafe impl ::windows::core::Interface for ISAXEntityResolver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXEntityResolver_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchpublicid: ::windows::core::PCWSTR, pwchsystemid: ::windows::core::PCWSTR, pvarinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2587,7 +2587,7 @@ unsafe impl ::windows::core::Interface for ISAXErrorHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXErrorHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub fatalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub ignorableWarning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -2668,7 +2668,7 @@ unsafe impl ::windows::core::Interface for ISAXLexicalHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLexicalHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub startDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::HRESULT,
     pub endDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub startEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32) -> ::windows::core::HRESULT,
@@ -2745,7 +2745,7 @@ unsafe impl ::windows::core::Interface for ISAXLocator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLocator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub getColumnNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncolumn: *mut i32) -> ::windows::core::HRESULT,
     pub getLineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnline: *mut i32) -> ::windows::core::HRESULT,
     pub getPublicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -2758,85 +2758,85 @@ impl ISAXXMLFilter {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwchname: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getFeature)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.getFeature)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwchname: Param0, vfvalue: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putFeature)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), ::core::mem::transmute(vfvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.putFeature)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), ::core::mem::transmute(vfvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwchname: Param0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getProperty)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.getProperty)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, pwchname: Param0, varvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putProperty)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), varvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putProperty)(::core::mem::transmute_copy(self), pwchname.into_param().abi(), varvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getEntityResolver)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXEntityResolver>(result__)
+        (::windows::core::Interface::vtable(self).base__.getEntityResolver)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXEntityResolver>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putEntityResolver<'a, Param0: ::windows::core::IntoParam<'a, ISAXEntityResolver>>(&self, presolver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putEntityResolver)(::core::mem::transmute_copy(self), presolver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putEntityResolver)(::core::mem::transmute_copy(self), presolver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getContentHandler(&self) -> ::windows::core::Result<ISAXContentHandler> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getContentHandler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXContentHandler>(result__)
+        (::windows::core::Interface::vtable(self).base__.getContentHandler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXContentHandler>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putContentHandler<'a, Param0: ::windows::core::IntoParam<'a, ISAXContentHandler>>(&self, phandler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putContentHandler)(::core::mem::transmute_copy(self), phandler.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putContentHandler)(::core::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getDTDHandler(&self) -> ::windows::core::Result<ISAXDTDHandler> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getDTDHandler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXDTDHandler>(result__)
+        (::windows::core::Interface::vtable(self).base__.getDTDHandler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXDTDHandler>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putDTDHandler<'a, Param0: ::windows::core::IntoParam<'a, ISAXDTDHandler>>(&self, phandler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putDTDHandler)(::core::mem::transmute_copy(self), phandler.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putDTDHandler)(::core::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getErrorHandler(&self) -> ::windows::core::Result<ISAXErrorHandler> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getErrorHandler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXErrorHandler>(result__)
+        (::windows::core::Interface::vtable(self).base__.getErrorHandler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISAXErrorHandler>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putErrorHandler<'a, Param0: ::windows::core::IntoParam<'a, ISAXErrorHandler>>(&self, phandler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putErrorHandler)(::core::mem::transmute_copy(self), phandler.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putErrorHandler)(::core::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getBaseURL(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getBaseURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).base__.getBaseURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putBaseURL<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwchbaseurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putBaseURL)(::core::mem::transmute_copy(self), pwchbaseurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putBaseURL)(::core::mem::transmute_copy(self), pwchbaseurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getSecureBaseURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).base__.getSecureBaseURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn putSecureBaseURL<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwchsecurebaseurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putSecureBaseURL)(::core::mem::transmute_copy(self), pwchsecurebaseurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putSecureBaseURL)(::core::mem::transmute_copy(self), pwchsecurebaseurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn parse<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varinput: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parse)(::core::mem::transmute_copy(self), varinput.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.parse)(::core::mem::transmute_copy(self), varinput.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parseURL<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwchurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parseURL)(::core::mem::transmute_copy(self), pwchurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.parseURL)(::core::mem::transmute_copy(self), pwchurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getParent(&self) -> ::windows::core::Result<ISAXXMLReader> {
@@ -2911,7 +2911,7 @@ unsafe impl ::windows::core::Interface for ISAXXMLFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXXMLFilter_Vtbl {
-    pub base: ISAXXMLReader_Vtbl,
+    pub base__: ISAXXMLReader_Vtbl,
     pub getParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub putParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3046,7 +3046,7 @@ unsafe impl ::windows::core::Interface for ISAXXMLReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXXMLReader_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, pvfvalue: *mut i16) -> ::windows::core::HRESULT,
     pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, vfvalue: i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3085,41 +3085,41 @@ impl ISchema {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3277,7 +3277,7 @@ unsafe impl ::windows::core::Interface for ISchema {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchema_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub targetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetnamespace: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3325,53 +3325,53 @@ impl ISchemaAny {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.minOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.minOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.maxOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.maxOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3510,7 +3510,7 @@ unsafe impl ::windows::core::Interface for ISchemaAny {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaAny_Vtbl {
-    pub base: ISchemaParticle_Vtbl,
+    pub base__: ISchemaParticle_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub namespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3527,41 +3527,41 @@ impl ISchemaAttribute {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3699,7 +3699,7 @@ unsafe impl ::windows::core::Interface for ISchemaAttribute {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaAttribute_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub r#type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3729,41 +3729,41 @@ impl ISchemaAttributeGroup {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3879,7 +3879,7 @@ unsafe impl ::windows::core::Interface for ISchemaAttributeGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaAttributeGroup_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub anyAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3899,139 +3899,139 @@ impl ISchemaComplexType {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn baseTypes(&self) -> ::windows::core::Result<ISchemaItemCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.baseTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchemaItemCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.baseTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchemaItemCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn r#final(&self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: SCHEMADERIVATIONMETHOD = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.r#final)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
+        (::windows::core::Interface::vtable(self).base__.r#final)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn variety(&self) -> ::windows::core::Result<SCHEMATYPEVARIETY> {
         let mut result__: SCHEMATYPEVARIETY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.variety)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMATYPEVARIETY>(result__)
+        (::windows::core::Interface::vtable(self).base__.variety)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMATYPEVARIETY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn derivedBy(&self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: SCHEMADERIVATIONMETHOD = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.derivedBy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
+        (::windows::core::Interface::vtable(self).base__.derivedBy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isValid<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.isValid)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.isValid)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn minExclusive(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.minExclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.minExclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn minInclusive(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.minInclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.minInclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn maxExclusive(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.maxExclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.maxExclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn maxInclusive(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.maxInclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.maxInclusive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn totalDigits(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.totalDigits)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.totalDigits)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn fractionDigits(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.fractionDigits)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.fractionDigits)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn length(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minLength(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.minLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.minLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxLength(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.maxLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.maxLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn enumeration(&self) -> ::windows::core::Result<ISchemaStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.enumeration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchemaStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.enumeration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchemaStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn whitespace(&self) -> ::windows::core::Result<SCHEMAWHITESPACE> {
         let mut result__: SCHEMAWHITESPACE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.whitespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMAWHITESPACE>(result__)
+        (::windows::core::Interface::vtable(self).base__.whitespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SCHEMAWHITESPACE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn patterns(&self) -> ::windows::core::Result<ISchemaStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.patterns)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchemaStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.patterns)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchemaStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn isAbstract(&self) -> ::windows::core::Result<i16> {
@@ -4192,7 +4192,7 @@ unsafe impl ::windows::core::Interface for ISchemaComplexType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaComplexType_Vtbl {
-    pub base: ISchemaType_Vtbl,
+    pub base__: ISchemaType_Vtbl,
     pub isAbstract: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#abstract: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub anyAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4219,53 +4219,53 @@ impl ISchemaElement {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.minOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.minOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.maxOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.maxOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4454,7 +4454,7 @@ unsafe impl ::windows::core::Interface for ISchemaElement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaElement_Vtbl {
-    pub base: ISchemaParticle_Vtbl,
+    pub base__: ISchemaParticle_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub r#type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4495,41 +4495,41 @@ impl ISchemaIdentityConstraint {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4651,7 +4651,7 @@ unsafe impl ::windows::core::Interface for ISchemaIdentityConstraint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaIdentityConstraint_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub selector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selector: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4789,7 +4789,7 @@ unsafe impl ::windows::core::Interface for ISchemaItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaItem_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4925,7 +4925,7 @@ unsafe impl ::windows::core::Interface for ISchemaItemCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaItemCollection_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4951,53 +4951,53 @@ impl ISchemaModelGroup {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.minOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.minOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.maxOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.maxOccurs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5131,7 +5131,7 @@ unsafe impl ::windows::core::Interface for ISchemaModelGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaModelGroup_Vtbl {
-    pub base: ISchemaParticle_Vtbl,
+    pub base__: ISchemaParticle_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub particles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, particles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5147,41 +5147,41 @@ impl ISchemaNotation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5297,7 +5297,7 @@ unsafe impl ::windows::core::Interface for ISchemaNotation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaNotation_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub systemIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5317,41 +5317,41 @@ impl ISchemaParticle {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5467,7 +5467,7 @@ unsafe impl ::windows::core::Interface for ISchemaParticle {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaParticle_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub minOccurs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5577,7 +5577,7 @@ unsafe impl ::windows::core::Interface for ISchemaStringCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaStringCollection_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5595,41 +5595,41 @@ impl ISchemaType {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows::core::Result<ISchema> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
+        (::windows::core::Interface::vtable(self).base__.schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchema>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn itemType(&self) -> ::windows::core::Result<SOMITEMTYPE> {
         let mut result__: SOMITEMTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.itemType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SOMITEMTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::core::Result<IVBSAXAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
+        (::windows::core::Interface::vtable(self).base__.unhandledAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IVBSAXAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, annotationsink: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.writeAnnotation)(::core::mem::transmute_copy(self), annotationsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5831,7 +5831,7 @@ unsafe impl ::windows::core::Interface for ISchemaType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaType_Vtbl {
-    pub base: ISchemaItem_Vtbl,
+    pub base__: ISchemaItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub baseTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basetypes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5898,78 +5898,78 @@ impl IServerXMLHTTPRequest {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn open<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, bstrmethod: Param0, bstrurl: Param1, varasync: Param2, bstruser: Param3, bstrpassword: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.open)(::core::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.open)(::core::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.setRequestHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setRequestHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getResponseHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getResponseHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.getResponseHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getAllResponseHeaders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.getAllResponseHeaders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn send<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.send)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.send)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.abort)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.abort)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn status(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn statusText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.statusText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.statusText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn responseXML(&self) -> ::windows::core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.responseXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.responseXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn responseText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.responseText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.responseText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseBody(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.responseBody)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.responseBody)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseStream(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.responseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.responseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn readyState(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch>>(&self, preadystatesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setonreadystatechange)(::core::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setonreadystatechange)(::core::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()> {
@@ -6094,7 +6094,7 @@ unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServerXMLHTTPRequest_Vtbl {
-    pub base: IXMLHTTPRequest_Vtbl,
+    pub base__: IXMLHTTPRequest_Vtbl,
     pub setTimeouts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub waitForResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutinseconds: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, issuccessful: *mut i16) -> ::windows::core::HRESULT,
@@ -6118,99 +6118,99 @@ impl IServerXMLHTTPRequest2 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn open<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, bstrmethod: Param0, bstrurl: Param1, varasync: Param2, bstruser: Param3, bstrpassword: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.open)(::core::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.open)(::core::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.setRequestHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.setRequestHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getResponseHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.getResponseHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.getResponseHeader)(::core::mem::transmute_copy(self), bstrheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.getAllResponseHeaders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.getAllResponseHeaders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn send<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.send)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.send)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.abort)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.abort)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn status(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn statusText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.statusText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.statusText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn responseXML(&self) -> ::windows::core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.responseXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.responseXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn responseText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.responseText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.responseText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseBody(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.responseBody)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.responseBody)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseStream(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.responseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.responseStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn readyState(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch>>(&self, preadystatesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Setonreadystatechange)(::core::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setonreadystatechange)(::core::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.setTimeouts)(::core::mem::transmute_copy(self), ::core::mem::transmute(resolvetimeout), ::core::mem::transmute(connecttimeout), ::core::mem::transmute(sendtimeout), ::core::mem::transmute(receivetimeout)).ok()
+        (::windows::core::Interface::vtable(self).base__.setTimeouts)(::core::mem::transmute_copy(self), ::core::mem::transmute(resolvetimeout), ::core::mem::transmute(connecttimeout), ::core::mem::transmute(sendtimeout), ::core::mem::transmute(receivetimeout)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn waitForResponse<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, timeoutinseconds: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.waitForResponse)(::core::mem::transmute_copy(self), timeoutinseconds.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.waitForResponse)(::core::mem::transmute_copy(self), timeoutinseconds.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(option), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.getOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(option), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn setOption<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, option: SERVERXMLHTTP_OPTION, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.setOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(option), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(option), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6348,7 +6348,7 @@ unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServerXMLHTTPRequest2_Vtbl {
-    pub base: IServerXMLHTTPRequest_Vtbl,
+    pub base__: IServerXMLHTTPRequest_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub setProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, varbypasslist: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6497,7 +6497,7 @@ unsafe impl ::windows::core::Interface for IVBMXNamespaceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBMXNamespaceManager_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetallowOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT,
     pub allowOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT,
     pub reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6683,7 +6683,7 @@ unsafe impl ::windows::core::Interface for IVBSAXAttributes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXAttributes_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nlength: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -6867,7 +6867,7 @@ unsafe impl ::windows::core::Interface for IVBSAXContentHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXContentHandler_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub putref_documentLocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7001,7 +7001,7 @@ unsafe impl ::windows::core::Interface for IVBSAXDTDHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXDTDHandler_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub notationDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7115,7 +7115,7 @@ unsafe impl ::windows::core::Interface for IVBSAXDeclHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXDeclHandler_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub elementDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strmodel: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7222,7 +7222,7 @@ unsafe impl ::windows::core::Interface for IVBSAXEntityResolver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXEntityResolver_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7327,7 +7327,7 @@ unsafe impl ::windows::core::Interface for IVBSAXErrorHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXErrorHandler_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -7457,7 +7457,7 @@ unsafe impl ::windows::core::Interface for IVBSAXLexicalHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXLexicalHandler_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub startDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7584,7 +7584,7 @@ unsafe impl ::windows::core::Interface for IVBSAXLocator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXLocator_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub columnNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncolumn: *mut i32) -> ::windows::core::HRESULT,
     pub lineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nline: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7691,7 +7691,7 @@ unsafe impl ::windows::core::Interface for IVBSAXXMLFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXXMLFilter_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7883,7 +7883,7 @@ unsafe impl ::windows::core::Interface for IVBSAXXMLReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXXMLReader_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8053,7 +8053,7 @@ unsafe impl ::windows::core::Interface for IXMLAttribute {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLAttribute_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, n: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8072,194 +8072,194 @@ impl IXMLDOMAttribute {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8378,7 +8378,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMAttribute {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMAttribute_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8401,238 +8401,238 @@ impl IXMLDOMCDATASection {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.data)(::core::mem::transmute_copy(self), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.data)(::core::mem::transmute_copy(self), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setdata<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Setdata)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setdata)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(datalength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(datalength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.substringData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.substringData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn appendData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.appendData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.appendData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn insertData<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.insertData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.insertData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.deleteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.deleteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn replaceData<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.replaceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.replaceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn splitText(&self, offset: i32) -> ::windows::core::Result<IXMLDOMText> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.splitText)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMText>(result__)
+        (::windows::core::Interface::vtable(self).base__.splitText)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMText>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8784,7 +8784,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMCDATASection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMCDATASection_Vtbl {
-    pub base: IXMLDOMText_Vtbl,
+    pub base__: IXMLDOMText_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -8795,194 +8795,194 @@ impl IXMLDOMCharacterData {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9124,7 +9124,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMCharacterData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMCharacterData_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9161,232 +9161,232 @@ impl IXMLDOMComment {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.data)(::core::mem::transmute_copy(self), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.data)(::core::mem::transmute_copy(self), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setdata<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setdata)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setdata)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(datalength)).ok()
+        (::windows::core::Interface::vtable(self).base__.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(datalength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.substringData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.substringData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn appendData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.appendData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.appendData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn insertData<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.insertData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.insertData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.deleteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).base__.deleteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn replaceData<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.replaceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.replaceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), data.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9514,7 +9514,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMComment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMComment_Vtbl {
-    pub base: IXMLDOMCharacterData_Vtbl,
+    pub base__: IXMLDOMCharacterData_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9525,194 +9525,194 @@ impl IXMLDOMDocument {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9986,7 +9986,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocument_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documenttype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10099,364 +10099,364 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn doctype(&self) -> ::windows::core::Result<IXMLDOMDocumentType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.doctype)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentType>(result__)
+        (::windows::core::Interface::vtable(self).base__.doctype)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn implementation(&self) -> ::windows::core::Result<IXMLDOMImplementation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.implementation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMImplementation>(result__)
+        (::windows::core::Interface::vtable(self).base__.implementation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMImplementation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn documentElement(&self) -> ::windows::core::Result<IXMLDOMElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.documentElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
+        (::windows::core::Interface::vtable(self).base__.documentElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_documentElement<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMElement>>(&self, domelement: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putref_documentElement)(::core::mem::transmute_copy(self), domelement.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putref_documentElement)(::core::mem::transmute_copy(self), domelement.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::core::Result<IXMLDOMElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createElement)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
+        (::windows::core::Interface::vtable(self).base__.createElement)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDocumentFragment(&self) -> ::windows::core::Result<IXMLDOMDocumentFragment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createDocumentFragment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentFragment>(result__)
+        (::windows::core::Interface::vtable(self).base__.createDocumentFragment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentFragment>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createTextNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<IXMLDOMText> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createTextNode)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMText>(result__)
+        (::windows::core::Interface::vtable(self).base__.createTextNode)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMText>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createComment<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<IXMLDOMComment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createComment)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMComment>(result__)
+        (::windows::core::Interface::vtable(self).base__.createComment)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMComment>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createCDATASection<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<IXMLDOMCDATASection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createCDATASection)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMCDATASection>(result__)
+        (::windows::core::Interface::vtable(self).base__.createCDATASection)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMCDATASection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createProcessingInstruction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, target: Param0, data: Param1) -> ::windows::core::Result<IXMLDOMProcessingInstruction> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createProcessingInstruction)(::core::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMProcessingInstruction>(result__)
+        (::windows::core::Interface::vtable(self).base__.createProcessingInstruction)(::core::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMProcessingInstruction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IXMLDOMAttribute> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createAttribute)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMAttribute>(result__)
+        (::windows::core::Interface::vtable(self).base__.createAttribute)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMAttribute>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createEntityReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IXMLDOMEntityReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createEntityReference)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMEntityReference>(result__)
+        (::windows::core::Interface::vtable(self).base__.createEntityReference)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMEntityReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getElementsByTagName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getElementsByTagName)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.getElementsByTagName)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn createNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, r#type: Param0, name: Param1, namespaceuri: Param2) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.createNode)(::core::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.createNode)(::core::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn nodeFromID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, idstring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nodeFromID)(::core::mem::transmute_copy(self), idstring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nodeFromID)(::core::mem::transmute_copy(self), idstring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn load<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, xmlsource: Param0, issuccessful: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.load)(::core::mem::transmute_copy(self), xmlsource.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
+        (::windows::core::Interface::vtable(self).base__.load)(::core::mem::transmute_copy(self), xmlsource.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parseError(&self) -> ::windows::core::Result<IXMLDOMParseError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parseError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMParseError>(result__)
+        (::windows::core::Interface::vtable(self).base__.parseError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMParseError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.url)(::core::mem::transmute_copy(self), ::core::mem::transmute(urlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.url)(::core::mem::transmute_copy(self), ::core::mem::transmute(urlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn r#async(&self, isasync: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.r#async)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
+        (::windows::core::Interface::vtable(self).base__.r#async)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn Setasync(&self, isasync: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setasync)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
+        (::windows::core::Interface::vtable(self).base__.Setasync)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.abort)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.abort)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn loadXML<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrxml: Param0, issuccessful: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.loadXML)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
+        (::windows::core::Interface::vtable(self).base__.loadXML)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn save<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, destination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.save)(::core::mem::transmute_copy(self), destination.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.save)(::core::mem::transmute_copy(self), destination.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn validateOnParse(&self, isvalidating: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.validateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
+        (::windows::core::Interface::vtable(self).base__.validateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetvalidateOnParse(&self, isvalidating: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetvalidateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetvalidateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn resolveExternals(&self, isresolving: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.resolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
+        (::windows::core::Interface::vtable(self).base__.resolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetresolveExternals(&self, isresolving: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetresolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetresolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn preserveWhiteSpace(&self, ispreserving: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.preserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
+        (::windows::core::Interface::vtable(self).base__.preserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetpreserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetpreserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, readystatechangesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setonreadystatechange)(::core::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setonreadystatechange)(::core::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Setondataavailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ondataavailablesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setondataavailable)(::core::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setondataavailable)(::core::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Setontransformnode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ontransformnodesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setontransformnode)(::core::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setontransformnode)(::core::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10618,7 +10618,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocument2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocument2_Vtbl {
-    pub base: IXMLDOMDocument_Vtbl,
+    pub base__: IXMLDOMDocument_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub namespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespacecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10653,398 +10653,398 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn doctype(&self) -> ::windows::core::Result<IXMLDOMDocumentType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.doctype)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentType>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.doctype)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn implementation(&self) -> ::windows::core::Result<IXMLDOMImplementation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.implementation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMImplementation>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.implementation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMImplementation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn documentElement(&self) -> ::windows::core::Result<IXMLDOMElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.documentElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.documentElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_documentElement<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMElement>>(&self, domelement: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.putref_documentElement)(::core::mem::transmute_copy(self), domelement.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.putref_documentElement)(::core::mem::transmute_copy(self), domelement.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::core::Result<IXMLDOMElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createElement)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createElement)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMElement>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDocumentFragment(&self) -> ::windows::core::Result<IXMLDOMDocumentFragment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createDocumentFragment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentFragment>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createDocumentFragment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocumentFragment>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createTextNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<IXMLDOMText> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createTextNode)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMText>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createTextNode)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMText>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createComment<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<IXMLDOMComment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createComment)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMComment>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createComment)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMComment>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createCDATASection<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<IXMLDOMCDATASection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createCDATASection)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMCDATASection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createCDATASection)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMCDATASection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createProcessingInstruction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, target: Param0, data: Param1) -> ::windows::core::Result<IXMLDOMProcessingInstruction> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createProcessingInstruction)(::core::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMProcessingInstruction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createProcessingInstruction)(::core::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMProcessingInstruction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IXMLDOMAttribute> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createAttribute)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMAttribute>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createAttribute)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMAttribute>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn createEntityReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IXMLDOMEntityReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createEntityReference)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMEntityReference>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createEntityReference)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMEntityReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getElementsByTagName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.getElementsByTagName)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.getElementsByTagName)(::core::mem::transmute_copy(self), tagname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn createNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, r#type: Param0, name: Param1, namespaceuri: Param2) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.createNode)(::core::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.createNode)(::core::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn nodeFromID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, idstring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.nodeFromID)(::core::mem::transmute_copy(self), idstring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.nodeFromID)(::core::mem::transmute_copy(self), idstring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn load<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, xmlsource: Param0, issuccessful: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.load)(::core::mem::transmute_copy(self), xmlsource.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.load)(::core::mem::transmute_copy(self), xmlsource.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.readyState)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parseError(&self) -> ::windows::core::Result<IXMLDOMParseError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.parseError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMParseError>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.parseError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMParseError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.url)(::core::mem::transmute_copy(self), ::core::mem::transmute(urlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.url)(::core::mem::transmute_copy(self), ::core::mem::transmute(urlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn r#async(&self, isasync: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.r#async)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.r#async)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn Setasync(&self, isasync: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Setasync)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setasync)(::core::mem::transmute_copy(self), ::core::mem::transmute(isasync)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.abort)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.abort)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn loadXML<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrxml: Param0, issuccessful: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.loadXML)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.loadXML)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(issuccessful)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn save<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, destination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.save)(::core::mem::transmute_copy(self), destination.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.save)(::core::mem::transmute_copy(self), destination.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn validateOnParse(&self, isvalidating: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.validateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.validateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetvalidateOnParse(&self, isvalidating: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetvalidateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetvalidateOnParse)(::core::mem::transmute_copy(self), ::core::mem::transmute(isvalidating)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn resolveExternals(&self, isresolving: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.resolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.resolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetresolveExternals(&self, isresolving: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetresolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetresolveExternals)(::core::mem::transmute_copy(self), ::core::mem::transmute(isresolving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn preserveWhiteSpace(&self, ispreserving: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.preserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.preserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetpreserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetpreserveWhiteSpace)(::core::mem::transmute_copy(self), ::core::mem::transmute(ispreserving)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, readystatechangesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Setonreadystatechange)(::core::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setonreadystatechange)(::core::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Setondataavailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ondataavailablesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Setondataavailable)(::core::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setondataavailable)(::core::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Setontransformnode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ontransformnodesink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Setontransformnode)(::core::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setontransformnode)(::core::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn namespaces(&self) -> ::windows::core::Result<IXMLDOMSchemaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaces)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMSchemaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaces)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMSchemaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn schemas(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.schemas)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.schemas)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_schemas<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, othercollection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.putref_schemas)(::core::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putref_schemas)(::core::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn validate(&self) -> ::windows::core::Result<IXMLDOMParseError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.validate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMParseError>(result__)
+        (::windows::core::Interface::vtable(self).base__.validate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMParseError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn setProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.setProperty)(::core::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setProperty)(::core::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.getProperty)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.getProperty)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11208,7 +11208,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocument3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocument3_Vtbl {
-    pub base: IXMLDOMDocument2_Vtbl,
+    pub base__: IXMLDOMDocument2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub validateNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11227,194 +11227,194 @@ impl IXMLDOMDocumentFragment {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11518,7 +11518,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocumentFragment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocumentFragment_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -11529,194 +11529,194 @@ impl IXMLDOMDocumentType {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11837,7 +11837,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocumentType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocumentType_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rootname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11860,194 +11860,194 @@ impl IXMLDOMElement {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12199,7 +12199,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMElement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMElement_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12243,194 +12243,194 @@ impl IXMLDOMEntity {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12549,7 +12549,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMEntity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMEntity_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12572,194 +12572,194 @@ impl IXMLDOMEntityReference {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12863,7 +12863,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMEntityReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMEntityReference_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -12954,7 +12954,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMImplementation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMImplementation_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub hasFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, version: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, hasfeature: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13099,7 +13099,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMNamedNodeMap {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMNamedNodeMap_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub getNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nameditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -13408,7 +13408,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMNode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMNode_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub nodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13651,7 +13651,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMNodeList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMNodeList_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13673,194 +13673,194 @@ impl IXMLDOMNotation {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13974,7 +13974,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMNotation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMNotation_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -14099,7 +14099,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMParseError_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub errorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorcode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -14125,34 +14125,34 @@ pub struct IXMLDOMParseError2(::windows::core::IUnknown);
 impl IXMLDOMParseError2 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn errorCode(&self, errorcode: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.errorCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorcode)).ok()
+        (::windows::core::Interface::vtable(self).base__.errorCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorcode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.url)(::core::mem::transmute_copy(self), ::core::mem::transmute(urlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.url)(::core::mem::transmute_copy(self), ::core::mem::transmute(urlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn reason(&self, reasonstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.reason)(::core::mem::transmute_copy(self), ::core::mem::transmute(reasonstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.reason)(::core::mem::transmute_copy(self), ::core::mem::transmute(reasonstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn srcText(&self, sourcestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.srcText)(::core::mem::transmute_copy(self), ::core::mem::transmute(sourcestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.srcText)(::core::mem::transmute_copy(self), ::core::mem::transmute(sourcestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn line(&self, linenumber: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.line)(::core::mem::transmute_copy(self), ::core::mem::transmute(linenumber)).ok()
+        (::windows::core::Interface::vtable(self).base__.line)(::core::mem::transmute_copy(self), ::core::mem::transmute(linenumber)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn linepos(&self, lineposition: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.linepos)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.linepos)(::core::mem::transmute_copy(self), ::core::mem::transmute(lineposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn filepos(&self, fileposition: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.filepos)(::core::mem::transmute_copy(self), ::core::mem::transmute(fileposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.filepos)(::core::mem::transmute_copy(self), ::core::mem::transmute(fileposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14279,7 +14279,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseError2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMParseError2_Vtbl {
-    pub base: IXMLDOMParseError_Vtbl,
+    pub base__: IXMLDOMParseError_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub errorXPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpathexpr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14404,7 +14404,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseErrorCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMParseErrorCollection_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14426,194 +14426,194 @@ impl IXMLDOMProcessingInstruction {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14732,7 +14732,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMProcessingInstruction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMProcessingInstruction_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14867,7 +14867,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMSchemaCollection_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -14900,39 +14900,39 @@ impl IXMLDOMSchemaCollection2 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, namespaceuri: Param0, var: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.add)(::core::mem::transmute_copy(self), namespaceuri.into_param().abi(), var.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.add)(::core::mem::transmute_copy(self), namespaceuri.into_param().abi(), var.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn get<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.get)(::core::mem::transmute_copy(self), namespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.get)(::core::mem::transmute_copy(self), namespaceuri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.remove)(::core::mem::transmute_copy(self), namespaceuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.remove)(::core::mem::transmute_copy(self), namespaceuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn length(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn addCollection<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMSchemaCollection>>(&self, othercollection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.addCollection)(::core::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.addCollection)(::core::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base._newEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__._newEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn validate(&self) -> ::windows::core::Result<()> {
@@ -15061,7 +15061,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMSchemaCollection2_Vtbl {
-    pub base: IXMLDOMSchemaCollection_Vtbl,
+    pub base__: IXMLDOMSchemaCollection_Vtbl,
     pub validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetvalidateOnLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, validateonload: i16) -> ::windows::core::HRESULT,
     pub validateOnLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, validateonload: *mut i16) -> ::windows::core::HRESULT,
@@ -15084,26 +15084,26 @@ impl IXMLDOMSelection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, index: i32) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(listlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(listlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base._newEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__._newEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15268,7 +15268,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMSelection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMSelection_Vtbl {
-    pub base: IXMLDOMNodeList_Vtbl,
+    pub base__: IXMLDOMNodeList_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub expr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15320,232 +15320,232 @@ impl IXMLDOMText {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.data)(::core::mem::transmute_copy(self), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.data)(::core::mem::transmute_copy(self), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setdata<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Setdata)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setdata)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(datalength)).ok()
+        (::windows::core::Interface::vtable(self).base__.length)(::core::mem::transmute_copy(self), ::core::mem::transmute(datalength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.substringData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.substringData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn appendData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.appendData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.appendData)(::core::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn insertData<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.insertData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.insertData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.deleteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).base__.deleteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn replaceData<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.replaceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.replaceData)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset), ::core::mem::transmute(count), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15679,7 +15679,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMText {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMText_Vtbl {
-    pub base: IXMLDOMCharacterData_Vtbl,
+    pub base__: IXMLDOMCharacterData_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub splitText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, righthandtextnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -15794,7 +15794,7 @@ unsafe impl ::windows::core::Interface for IXMLDSOControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDSOControl_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub XMLDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -15978,7 +15978,7 @@ unsafe impl ::windows::core::Interface for IXMLDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDocument_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -16207,7 +16207,7 @@ unsafe impl ::windows::core::Interface for IXMLDocument2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDocument2_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -16413,7 +16413,7 @@ unsafe impl ::windows::core::Interface for IXMLElement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLElement_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16615,7 +16615,7 @@ unsafe impl ::windows::core::Interface for IXMLElement2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLElement2_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16770,7 +16770,7 @@ unsafe impl ::windows::core::Interface for IXMLElementCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLElementCollection_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Setlength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: i32) -> ::windows::core::HRESULT,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut i32) -> ::windows::core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -16832,7 +16832,7 @@ unsafe impl ::windows::core::Interface for IXMLError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLError_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16998,7 +16998,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -17142,7 +17142,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszmethod: ::windows::core::PCWSTR, pwszurl: ::windows::core::PCWSTR, pstatuscallback: ::windows::core::RawPtr, pwszusername: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR, pwszproxyusername: ::windows::core::PCWSTR, pwszproxypassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: ::windows::core::RawPtr, cbbody: u64) -> ::windows::core::HRESULT,
@@ -17236,7 +17236,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest2Callback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2Callback_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub OnRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, pwszredirecturl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub OnHeadersAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwstatus: u32, pwszstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -17255,50 +17255,50 @@ pub struct IXMLHTTPRequest3(::windows::core::IUnknown);
 impl IXMLHTTPRequest3 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IXMLHTTPRequest2Callback>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszmethod: Param0, pwszurl: Param1, pstatuscallback: Param2, pwszusername: Param3, pwszpassword: Param4, pwszproxyusername: Param5, pwszproxypassword: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Open)(::core::mem::transmute_copy(self), pwszmethod.into_param().abi(), pwszurl.into_param().abi(), pstatuscallback.into_param().abi(), pwszusername.into_param().abi(), pwszpassword.into_param().abi(), pwszproxyusername.into_param().abi(), pwszproxypassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Open)(::core::mem::transmute_copy(self), pwszmethod.into_param().abi(), pwszurl.into_param().abi(), pstatuscallback.into_param().abi(), pwszusername.into_param().abi(), pwszpassword.into_param().abi(), pwszproxyusername.into_param().abi(), pwszproxypassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pbody: Param0, cbbody: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Send)(::core::mem::transmute_copy(self), pbody.into_param().abi(), ::core::mem::transmute(cbbody)).ok()
+        (::windows::core::Interface::vtable(self).base__.Send)(::core::mem::transmute_copy(self), pbody.into_param().abi(), ::core::mem::transmute(cbbody)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Abort)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Abort)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.SetCookie)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcookie), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetCookie)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcookie), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCustomResponseStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, psequentialstream: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetCustomResponseStream)(::core::mem::transmute_copy(self), psequentialstream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCustomResponseStream)(::core::mem::transmute_copy(self), psequentialstream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(eproperty), ::core::mem::transmute(ullvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(eproperty), ::core::mem::transmute(ullvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszheader: Param0, pwszvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetRequestHeader)(::core::mem::transmute_copy(self), pwszheader.into_param().abi(), pwszvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRequestHeader)(::core::mem::transmute_copy(self), pwszheader.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetAllResponseHeaders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAllResponseHeaders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookie<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pwszname: Param1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetCookie)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), pwszname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccookies), ::core::mem::transmute(ppcookies)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetCookie)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), pwszname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccookies), ::core::mem::transmute(ppcookies)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn GetResponseHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszheader: Param0) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetResponseHeader)(::core::mem::transmute_copy(self), pwszheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetResponseHeader)(::core::mem::transmute_copy(self), pwszheader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetClientCertificate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pbclientcertificatehash: &[u8], pwszpin: Param2) -> ::windows::core::Result<()> {
@@ -17368,7 +17368,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest3_Vtbl {
-    pub base: IXMLHTTPRequest2_Vtbl,
+    pub base__: IXMLHTTPRequest2_Vtbl,
     pub SetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
@@ -17377,25 +17377,25 @@ pub struct IXMLHTTPRequest3Callback(::windows::core::IUnknown);
 impl IXMLHTTPRequest3Callback {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn OnRedirect<'a, Param0: ::windows::core::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pxhr: Param0, pwszredirecturl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnRedirect)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), pwszredirecturl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.OnRedirect)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), pwszredirecturl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn OnHeadersAvailable<'a, Param0: ::windows::core::IntoParam<'a, IXMLHTTPRequest2>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnHeadersAvailable)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), ::core::mem::transmute(dwstatus), pwszstatus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.OnHeadersAvailable)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), ::core::mem::transmute(dwstatus), pwszstatus.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDataAvailable<'a, Param0: ::windows::core::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pxhr: Param0, presponsestream: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnDataAvailable)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.OnDataAvailable)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnResponseReceived<'a, Param0: ::windows::core::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pxhr: Param0, presponsestream: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnResponseReceived)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.OnResponseReceived)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn OnError<'a, Param0: ::windows::core::IntoParam<'a, IXMLHTTPRequest2>>(&self, pxhr: Param0, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnError)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), ::core::mem::transmute(hrerror)).ok()
+        (::windows::core::Interface::vtable(self).base__.OnError)(::core::mem::transmute_copy(self), pxhr.into_param().abi(), ::core::mem::transmute(hrerror)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn OnServerCertificateReceived<'a, Param0: ::windows::core::IntoParam<'a, IXMLHTTPRequest3>>(&self, pxhr: Param0, dwcertificateerrors: u32, rgservercertificatechain: &[XHR_CERT]) -> ::windows::core::Result<()> {
@@ -17469,7 +17469,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest3Callback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest3Callback_Vtbl {
-    pub base: IXMLHTTPRequest2Callback_Vtbl,
+    pub base__: IXMLHTTPRequest2Callback_Vtbl,
     pub OnServerCertificateReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::HRESULT,
     pub OnClientCertificateRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::HRESULT,
 }
@@ -17633,7 +17633,7 @@ unsafe impl ::windows::core::Interface for IXMLHttpRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHttpRequest_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -17841,7 +17841,7 @@ unsafe impl ::windows::core::Interface for IXSLProcessor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXSLProcessor_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Setinput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -17991,7 +17991,7 @@ unsafe impl ::windows::core::Interface for IXSLTemplate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXSLTemplate_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub putref_stylesheet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -18014,194 +18014,194 @@ impl IXTLRuntime {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.parentNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.childNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.firstChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.lastChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.previousSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.nextSibling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.attributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn insertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.insertBefore)(::core::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.replaceChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.removeChild)(::core::mem::transmute_copy(self), childnode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.appendChild)(::core::mem::transmute_copy(self), newchild.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
+        (::windows::core::Interface::vtable(self).base__.hasChildNodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(haschild)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows::core::Result<IXMLDOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
+        (::windows::core::Interface::vtable(self).base__.ownerDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.cloneNode)(::core::mem::transmute_copy(self), ::core::mem::transmute(deep), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
+        (::windows::core::Interface::vtable(self).base__.text)(::core::mem::transmute_copy(self), ::core::mem::transmute(text)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Settext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Settext)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
+        (::windows::core::Interface::vtable(self).base__.specified)(::core::mem::transmute_copy(self), ::core::mem::transmute(isspecified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.definition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.nodeTypedValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(typedvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetnodeTypedValue)(::core::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
+        (::windows::core::Interface::vtable(self).base__.dataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdataType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdataType)(::core::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn transformNode<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNode)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), ::core::mem::transmute(xmlstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectNodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectNodes)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
+        (::windows::core::Interface::vtable(self).base__.selectSingleNode)(::core::mem::transmute_copy(self), querystring.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXMLDOMNode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
+        (::windows::core::Interface::vtable(self).base__.parsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(isparsed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).base__.namespaceURI)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.prefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(prefixstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseName)(::core::mem::transmute_copy(self), ::core::mem::transmute(namestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::core::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.transformNodeToObject)(::core::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -18350,7 +18350,7 @@ unsafe impl ::windows::core::Interface for IXTLRuntime {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXTLRuntime_Vtbl {
-    pub base: IXMLDOMNode_Vtbl,
+    pub base__: IXMLDOMNode_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub uniqueID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -19266,7 +19266,7 @@ unsafe impl ::windows::core::Interface for XMLDOMDocumentEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct XMLDOMDocumentEvents_Vtbl {
-    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
 pub const XMLDSOControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
 pub const XMLDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);

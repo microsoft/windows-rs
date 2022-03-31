@@ -45,14 +45,13 @@ where
     S: DXSample,
 {
     let instance = unsafe { GetModuleHandleA(None) };
-    debug_assert!(!instance.is_invalid());
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
         style: CS_HREDRAW | CS_VREDRAW,
         lpfnWndProc: Some(wndproc::<S>),
         hInstance: instance,
-        hCursor: unsafe { LoadCursorW(None, IDC_ARROW) },
+        hCursor: unsafe { LoadCursorW(None, IDC_ARROW)? },
         lpszClassName: PCSTR(b"RustWindowClass\0".as_ptr()),
         ..Default::default()
     };
@@ -90,10 +89,8 @@ where
             &mut sample as *mut _ as _,
         )
     };
-    debug_assert!(!hwnd.is_invalid());
 
     sample.bind_to_window(&hwnd)?;
-
     unsafe { ShowWindow(hwnd, SW_SHOW) };
 
     loop {
@@ -307,7 +304,7 @@ mod d3d12_hello_triangle {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, None) };
+            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, None)? };
 
             self.resources = Some(Resources {
                 command_queue,

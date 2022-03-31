@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListenerPreviewStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_WindowManagement")]
     pub CreateForApplicationWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]

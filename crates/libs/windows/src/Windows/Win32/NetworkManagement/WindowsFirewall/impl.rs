@@ -149,7 +149,7 @@ impl IDynamicPortMapping_Vtbl {
             (*this).EditInternalPort(::core::mem::transmute_copy(&linternalport)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ExternalIPAddress: ExternalIPAddress::<Identity, Impl, OFFSET>,
             RemoteHost: RemoteHost::<Identity, Impl, OFFSET>,
             ExternalPort: ExternalPort::<Identity, Impl, OFFSET>,
@@ -231,7 +231,7 @@ impl IDynamicPortMappingCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -278,7 +278,7 @@ impl IEnumNetConnection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -326,7 +326,7 @@ impl IEnumNetSharingEveryConnection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -374,7 +374,7 @@ impl IEnumNetSharingPortMapping_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -422,7 +422,7 @@ impl IEnumNetSharingPrivateConnection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -470,7 +470,7 @@ impl IEnumNetSharingPublicConnection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -500,7 +500,7 @@ impl INATEventManager_Vtbl {
             (*this).SetNumberOfEntriesCallback(::core::mem::transmute(&punk)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetExternalIPAddressCallback: SetExternalIPAddressCallback::<Identity, Impl, OFFSET>,
             SetNumberOfEntriesCallback: SetNumberOfEntriesCallback::<Identity, Impl, OFFSET>,
         }
@@ -521,7 +521,7 @@ impl INATExternalIPAddressCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NewExternalIPAddress(::core::mem::transmute(&bstrnewexternalipaddress)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewExternalIPAddress: NewExternalIPAddress::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewExternalIPAddress: NewExternalIPAddress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INATExternalIPAddressCallback as ::windows::core::Interface>::IID
@@ -537,7 +537,7 @@ impl INATNumberOfEntriesCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NewNumberOfEntries(::core::mem::transmute_copy(&lnewnumberofentries)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewNumberOfEntries: NewNumberOfEntries::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewNumberOfEntries: NewNumberOfEntries::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INATNumberOfEntriesCallback as ::windows::core::Interface>::IID
@@ -608,7 +608,7 @@ impl INetConnection_Vtbl {
             (*this).Rename(::core::mem::transmute(&pszwnewname)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -647,7 +647,7 @@ impl INetConnectionConnectUi_Vtbl {
             (*this).Disconnect(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetConnection: SetConnection::<Identity, Impl, OFFSET>,
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
@@ -673,7 +673,7 @@ impl INetConnectionManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumConnections: EnumConnections::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumConnections: EnumConnections::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetConnectionManager as ::windows::core::Interface>::IID
@@ -758,7 +758,7 @@ impl INetConnectionProps_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Guid: Guid::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             DeviceName: DeviceName::<Identity, Impl, OFFSET>,
@@ -886,7 +886,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             ProcessImageFileName: ProcessImageFileName::<Identity, Impl, OFFSET>,
@@ -960,7 +960,7 @@ impl INetFwAuthorizedApplications_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -1159,7 +1159,7 @@ impl INetFwIcmpSettings_Vtbl {
             (*this).SetAllowOutboundPacketTooBig(::core::mem::transmute_copy(&allow)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AllowOutboundDestinationUnreachable: AllowOutboundDestinationUnreachable::<Identity, Impl, OFFSET>,
             SetAllowOutboundDestinationUnreachable: SetAllowOutboundDestinationUnreachable::<Identity, Impl, OFFSET>,
             AllowRedirect: AllowRedirect::<Identity, Impl, OFFSET>,
@@ -1235,7 +1235,7 @@ impl INetFwMgr_Vtbl {
             (*this).IsIcmpTypeAllowed(::core::mem::transmute_copy(&ipversion), ::core::mem::transmute(&localaddress), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             LocalPolicy: LocalPolicy::<Identity, Impl, OFFSET>,
             CurrentProfileType: CurrentProfileType::<Identity, Impl, OFFSET>,
             RestoreDefaults: RestoreDefaults::<Identity, Impl, OFFSET>,
@@ -1392,7 +1392,7 @@ impl INetFwOpenPort_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             IpVersion: IpVersion::<Identity, Impl, OFFSET>,
@@ -1469,7 +1469,7 @@ impl INetFwOpenPorts_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -1512,7 +1512,7 @@ impl INetFwPolicy_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentProfile: CurrentProfile::<Identity, Impl, OFFSET>,
             GetProfileByType: GetProfileByType::<Identity, Impl, OFFSET>,
         }
@@ -1738,7 +1738,7 @@ impl INetFwPolicy2_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentProfileTypes: CurrentProfileTypes::<Identity, Impl, OFFSET>,
             FirewallEnabled: FirewallEnabled::<Identity, Impl, OFFSET>,
             SetFirewallEnabled: SetFirewallEnabled::<Identity, Impl, OFFSET>,
@@ -1822,7 +1822,7 @@ impl INetFwProduct_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RuleCategories: RuleCategories::<Identity, Impl, OFFSET>,
             SetRuleCategories: SetRuleCategories::<Identity, Impl, OFFSET>,
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
@@ -1889,7 +1889,7 @@ impl INetFwProducts_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Register: Register::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -2051,7 +2051,7 @@ impl INetFwProfile_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Type: Type::<Identity, Impl, OFFSET>,
             FirewallEnabled: FirewallEnabled::<Identity, Impl, OFFSET>,
             SetFirewallEnabled: SetFirewallEnabled::<Identity, Impl, OFFSET>,
@@ -2151,7 +2151,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
             (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IpVersion: IpVersion::<Identity, Impl, OFFSET>,
             SetIpVersion: SetIpVersion::<Identity, Impl, OFFSET>,
             Scope: Scope::<Identity, Impl, OFFSET>,
@@ -2497,7 +2497,7 @@ impl INetFwRule_Vtbl {
             (*this).SetAction(::core::mem::transmute_copy(&action)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -2565,7 +2565,7 @@ impl INetFwRule2_Vtbl {
             (*this).SetEdgeTraversalOptions(::core::mem::transmute_copy(&loptions)).into()
         }
         Self {
-            base: INetFwRule_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: INetFwRule_Vtbl::new::<Identity, Impl, OFFSET>(),
             EdgeTraversalOptions: EdgeTraversalOptions::<Identity, Impl, OFFSET>,
             SetEdgeTraversalOptions: SetEdgeTraversalOptions::<Identity, Impl, OFFSET>,
         }
@@ -2689,7 +2689,7 @@ impl INetFwRule3_Vtbl {
             (*this).SetSecureFlags(::core::mem::transmute_copy(&loptions)).into()
         }
         Self {
-            base: INetFwRule2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: INetFwRule2_Vtbl::new::<Identity, Impl, OFFSET>(),
             LocalAppPackageId: LocalAppPackageId::<Identity, Impl, OFFSET>,
             SetLocalAppPackageId: SetLocalAppPackageId::<Identity, Impl, OFFSET>,
             LocalUserOwner: LocalUserOwner::<Identity, Impl, OFFSET>,
@@ -2763,7 +2763,7 @@ impl INetFwRules_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -2902,7 +2902,7 @@ impl INetFwService_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
             Customized: Customized::<Identity, Impl, OFFSET>,
@@ -2958,7 +2958,7 @@ impl INetFwServiceRestriction_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             RestrictService: RestrictService::<Identity, Impl, OFFSET>,
             ServiceRestricted: ServiceRestricted::<Identity, Impl, OFFSET>,
             Rules: Rules::<Identity, Impl, OFFSET>,
@@ -3011,7 +3011,7 @@ impl INetFwServices_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
@@ -3118,7 +3118,7 @@ impl INetSharingConfiguration_Vtbl {
             (*this).RemovePortMapping(::core::mem::transmute(&pmapping)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SharingEnabled: SharingEnabled::<Identity, Impl, OFFSET>,
             SharingConnectionType: SharingConnectionType::<Identity, Impl, OFFSET>,
             DisableSharing: DisableSharing::<Identity, Impl, OFFSET>,
@@ -3166,7 +3166,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
@@ -3254,7 +3254,7 @@ impl INetSharingManager_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             SharingInstalled: SharingInstalled::<Identity, Impl, OFFSET>,
             EnumPublicConnections: EnumPublicConnections::<Identity, Impl, OFFSET>,
             EnumPrivateConnections: EnumPrivateConnections::<Identity, Impl, OFFSET>,
@@ -3304,7 +3304,7 @@ impl INetSharingPortMapping_Vtbl {
             (*this).Delete().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Disable: Disable::<Identity, Impl, OFFSET>,
             Enable: Enable::<Identity, Impl, OFFSET>,
             Properties: Properties::<Identity, Impl, OFFSET>,
@@ -3346,7 +3346,7 @@ impl INetSharingPortMappingCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
@@ -3458,7 +3458,7 @@ impl INetSharingPortMappingProps_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             IPProtocol: IPProtocol::<Identity, Impl, OFFSET>,
             ExternalPort: ExternalPort::<Identity, Impl, OFFSET>,
@@ -3504,7 +3504,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
@@ -3544,7 +3544,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
@@ -3668,7 +3668,7 @@ impl IStaticPortMapping_Vtbl {
             (*this).EditInternalPort(::core::mem::transmute_copy(&linternalport)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ExternalIPAddress: ExternalIPAddress::<Identity, Impl, OFFSET>,
             ExternalPort: ExternalPort::<Identity, Impl, OFFSET>,
             InternalPort: InternalPort::<Identity, Impl, OFFSET>,
@@ -3747,7 +3747,7 @@ impl IStaticPortMappingCollection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -3802,7 +3802,7 @@ impl IUPnPNAT_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StaticPortMappingCollection: StaticPortMappingCollection::<Identity, Impl, OFFSET>,
             DynamicPortMappingCollection: DynamicPortMappingCollection::<Identity, Impl, OFFSET>,
             NATEventManager: NATEventManager::<Identity, Impl, OFFSET>,

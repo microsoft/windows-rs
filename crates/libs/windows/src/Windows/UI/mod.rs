@@ -1249,7 +1249,7 @@ unsafe impl ::windows::core::Interface for IColorHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelper_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1261,7 +1261,7 @@ unsafe impl ::windows::core::Interface for IColorHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub FromArgb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1274,7 +1274,7 @@ unsafe impl ::windows::core::Interface for IColorHelperStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics2_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1287,7 +1287,7 @@ unsafe impl ::windows::core::Interface for IColors {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColors_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1299,7 +1299,7 @@ unsafe impl ::windows::core::Interface for IColorsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorsStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub AliceBlue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT,
     pub AntiqueWhite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT,
     pub Aqua: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT,
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::Interface for IUIContentRoot {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContentRoot_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1465,7 +1465,7 @@ unsafe impl ::windows::core::Interface for IUIContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContext_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]

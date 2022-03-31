@@ -39,7 +39,7 @@ impl IMLOperatorAttributes_Vtbl {
             (*this).GetStringAttributeElement(::core::mem::transmute(&name), ::core::mem::transmute_copy(&elementindex), ::core::mem::transmute_copy(&attributeelementbytesize), ::core::mem::transmute_copy(&attributeelement)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAttributeElementCount: GetAttributeElementCount::<Identity, Impl, OFFSET>,
             GetAttribute: GetAttribute::<Identity, Impl, OFFSET>,
             GetStringAttributeElementLength: GetStringAttributeElementLength::<Identity, Impl, OFFSET>,
@@ -60,7 +60,7 @@ impl IMLOperatorKernel_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Compute(::core::mem::transmute(&context)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Compute: Compute::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Compute: Compute::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMLOperatorKernel as ::windows::core::Interface>::IID
@@ -125,7 +125,7 @@ impl IMLOperatorKernelContext_Vtbl {
             (*this).GetExecutionInterface(::core::mem::transmute_copy(&executionobject))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInputTensor: GetInputTensor::<Identity, Impl, OFFSET>,
             GetOutputTensor: GetOutputTensor::<Identity, Impl, OFFSET>,
             GetOutputTensor2: GetOutputTensor2::<Identity, Impl, OFFSET>,
@@ -214,7 +214,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
             (*this).GetExecutionInterface(::core::mem::transmute_copy(&executionobject))
         }
         Self {
-            base: IMLOperatorAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMLOperatorAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetInputCount: GetInputCount::<Identity, Impl, OFFSET>,
             GetOutputCount: GetOutputCount::<Identity, Impl, OFFSET>,
             IsInputValid: IsInputValid::<Identity, Impl, OFFSET>,
@@ -246,7 +246,7 @@ impl IMLOperatorKernelFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateKernel: CreateKernel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateKernel: CreateKernel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMLOperatorKernelFactory as ::windows::core::Interface>::IID
@@ -269,7 +269,7 @@ impl IMLOperatorRegistry_Vtbl {
             (*this).RegisterOperatorKernel(::core::mem::transmute_copy(&operatorkernel), ::core::mem::transmute(&operatorkernelfactory), ::core::mem::transmute(&shapeinferrer)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterOperatorSetSchema: RegisterOperatorSetSchema::<Identity, Impl, OFFSET>,
             RegisterOperatorKernel: RegisterOperatorKernel::<Identity, Impl, OFFSET>,
         }
@@ -343,7 +343,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
             (*this).SetOutputTensorShape(::core::mem::transmute_copy(&outputindex), ::core::mem::transmute_copy(&dimensioncount), ::core::mem::transmute_copy(&dimensions)).into()
         }
         Self {
-            base: IMLOperatorAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMLOperatorAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetInputCount: GetInputCount::<Identity, Impl, OFFSET>,
             GetOutputCount: GetOutputCount::<Identity, Impl, OFFSET>,
             IsInputValid: IsInputValid::<Identity, Impl, OFFSET>,
@@ -368,7 +368,7 @@ impl IMLOperatorShapeInferrer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InferOutputShapes(::core::mem::transmute(&context)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InferOutputShapes: InferOutputShapes::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InferOutputShapes: InferOutputShapes::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMLOperatorShapeInferrer as ::windows::core::Interface>::IID
@@ -421,7 +421,7 @@ impl IMLOperatorTensor_Vtbl {
             (*this).GetDataInterface(::core::mem::transmute_copy(&datainterface))
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDimensionCount: GetDimensionCount::<Identity, Impl, OFFSET>,
             GetShape: GetShape::<Identity, Impl, OFFSET>,
             GetTensorDataType: GetTensorDataType::<Identity, Impl, OFFSET>,
@@ -482,7 +482,7 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
             (*this).GetOutputTensorShape(::core::mem::transmute_copy(&outputindex), ::core::mem::transmute_copy(&dimensioncount), ::core::mem::transmute_copy(&dimensions)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetInputTensorDimensionCount: GetInputTensorDimensionCount::<Identity, Impl, OFFSET>,
             GetInputTensorShape: GetInputTensorShape::<Identity, Impl, OFFSET>,
             HasOutputShapeDescription: HasOutputShapeDescription::<Identity, Impl, OFFSET>,
@@ -541,7 +541,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
             (*this).SetOutputEdgeDescription(::core::mem::transmute_copy(&outputindex), ::core::mem::transmute_copy(&edgedescription)).into()
         }
         Self {
-            base: IMLOperatorAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMLOperatorAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetInputCount: GetInputCount::<Identity, Impl, OFFSET>,
             GetOutputCount: GetOutputCount::<Identity, Impl, OFFSET>,
             IsInputValid: IsInputValid::<Identity, Impl, OFFSET>,
@@ -564,7 +564,7 @@ impl IMLOperatorTypeInferrer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InferOutputTypes(::core::mem::transmute(&context)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InferOutputTypes: InferOutputTypes::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InferOutputTypes: InferOutputTypes::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMLOperatorTypeInferrer as ::windows::core::Interface>::IID
@@ -601,7 +601,7 @@ impl IWinMLEvaluationContext_Vtbl {
             (*this).Clear().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BindValue: BindValue::<Identity, Impl, OFFSET>,
             GetValueByName: GetValueByName::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
@@ -660,7 +660,7 @@ impl IWinMLModel_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             EnumerateMetadata: EnumerateMetadata::<Identity, Impl, OFFSET>,
             EnumerateModelInputs: EnumerateModelInputs::<Identity, Impl, OFFSET>,
@@ -708,7 +708,7 @@ impl IWinMLRuntime_Vtbl {
             (*this).EvaluateModel(::core::mem::transmute(&pcontext)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             LoadModel: LoadModel::<Identity, Impl, OFFSET>,
             CreateEvaluationContext: CreateEvaluationContext::<Identity, Impl, OFFSET>,
             EvaluateModel: EvaluateModel::<Identity, Impl, OFFSET>,
@@ -734,7 +734,7 @@ impl IWinMLRuntimeFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRuntime: CreateRuntime::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRuntime: CreateRuntime::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWinMLRuntimeFactory as ::windows::core::Interface>::IID

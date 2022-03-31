@@ -47,7 +47,7 @@ impl IEnumNetworkConnections_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -108,7 +108,7 @@ impl IEnumNetworks_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -259,7 +259,7 @@ impl INetwork_Vtbl {
             (*this).SetCategory(::core::mem::transmute_copy(&newcategory)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
@@ -370,7 +370,7 @@ impl INetworkConnection_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetNetwork: GetNetwork::<Identity, Impl, OFFSET>,
             IsConnectedToInternet: IsConnectedToInternet::<Identity, Impl, OFFSET>,
             IsConnected: IsConnected::<Identity, Impl, OFFSET>,
@@ -415,7 +415,7 @@ impl INetworkConnectionCost_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCost: GetCost::<Identity, Impl, OFFSET>,
             GetDataPlanStatus: GetDataPlanStatus::<Identity, Impl, OFFSET>,
         }
@@ -441,7 +441,7 @@ impl INetworkConnectionCostEvents_Vtbl {
             (*this).ConnectionDataPlanStatusChanged(::core::mem::transmute(&connectionid)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ConnectionCostChanged: ConnectionCostChanged::<Identity, Impl, OFFSET>,
             ConnectionDataPlanStatusChanged: ConnectionDataPlanStatusChanged::<Identity, Impl, OFFSET>,
         }
@@ -467,7 +467,7 @@ impl INetworkConnectionEvents_Vtbl {
             (*this).NetworkConnectionPropertyChanged(::core::mem::transmute(&connectionid), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NetworkConnectionConnectivityChanged: NetworkConnectionConnectivityChanged::<Identity, Impl, OFFSET>,
             NetworkConnectionPropertyChanged: NetworkConnectionPropertyChanged::<Identity, Impl, OFFSET>,
         }
@@ -501,7 +501,7 @@ impl INetworkCostManager_Vtbl {
             (*this).SetDestinationAddresses(::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&pdestipaddrlist), ::core::mem::transmute_copy(&bappend)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCost: GetCost::<Identity, Impl, OFFSET>,
             GetDataPlanStatus: GetDataPlanStatus::<Identity, Impl, OFFSET>,
             SetDestinationAddresses: SetDestinationAddresses::<Identity, Impl, OFFSET>,
@@ -528,7 +528,7 @@ impl INetworkCostManagerEvents_Vtbl {
             (*this).DataPlanStatusChanged(::core::mem::transmute_copy(&pdestaddr)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CostChanged: CostChanged::<Identity, Impl, OFFSET>,
             DataPlanStatusChanged: DataPlanStatusChanged::<Identity, Impl, OFFSET>,
         }
@@ -566,7 +566,7 @@ impl INetworkEvents_Vtbl {
             (*this).NetworkPropertyChanged(::core::mem::transmute(&networkid), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NetworkAdded: NetworkAdded::<Identity, Impl, OFFSET>,
             NetworkDeleted: NetworkDeleted::<Identity, Impl, OFFSET>,
             NetworkConnectivityChanged: NetworkConnectivityChanged::<Identity, Impl, OFFSET>,
@@ -680,7 +680,7 @@ impl INetworkListManager_Vtbl {
             (*this).ClearSimulatedProfileInfo().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetNetworks: GetNetworks::<Identity, Impl, OFFSET>,
             GetNetwork: GetNetwork::<Identity, Impl, OFFSET>,
             GetNetworkConnections: GetNetworkConnections::<Identity, Impl, OFFSET>,
@@ -706,7 +706,7 @@ impl INetworkListManagerEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ConnectivityChanged(::core::mem::transmute_copy(&newconnectivity)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectivityChanged: ConnectivityChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ConnectivityChanged: ConnectivityChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkListManagerEvents as ::windows::core::Interface>::IID

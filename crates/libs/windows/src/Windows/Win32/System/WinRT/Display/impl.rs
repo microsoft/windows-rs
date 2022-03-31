@@ -29,7 +29,7 @@ impl IDisplayDeviceInterop_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateSharedHandle: CreateSharedHandle::<Identity, Impl, OFFSET>,
             OpenSharedHandle: OpenSharedHandle::<Identity, Impl, OFFSET>,
         }
@@ -69,7 +69,7 @@ impl IDisplayPathInterop_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateSourcePresentationHandle: CreateSourcePresentationHandle::<Identity, Impl, OFFSET>,
             GetSourceId: GetSourceId::<Identity, Impl, OFFSET>,
         }

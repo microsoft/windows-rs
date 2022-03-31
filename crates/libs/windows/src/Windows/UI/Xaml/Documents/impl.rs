@@ -14,7 +14,7 @@ impl ITextElementOverrides_Vtbl {
             (*this).OnDisconnectVisualChildren().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextElementOverrides, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ITextElementOverrides, OFFSET>(),
             OnDisconnectVisualChildren: OnDisconnectVisualChildren::<Identity, Impl, OFFSET>,
         }
     }

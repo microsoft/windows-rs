@@ -45,7 +45,7 @@ impl INumberFormatter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatter, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatter, OFFSET>(),
             FormatInt: FormatInt::<Identity, Impl, OFFSET>,
             FormatUInt: FormatUInt::<Identity, Impl, OFFSET>,
             FormatDouble: FormatDouble::<Identity, Impl, OFFSET>,
@@ -102,7 +102,7 @@ impl INumberFormatter2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatter2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatter2, OFFSET>(),
             FormatInt: FormatInt::<Identity, Impl, OFFSET>,
             FormatUInt: FormatUInt::<Identity, Impl, OFFSET>,
             FormatDouble: FormatDouble::<Identity, Impl, OFFSET>,
@@ -270,7 +270,7 @@ impl INumberFormatterOptions_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatterOptions, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INumberFormatterOptions, OFFSET>(),
             Languages: Languages::<Identity, Impl, OFFSET>,
             GeographicRegion: GeographicRegion::<Identity, Impl, OFFSET>,
             IntegerDigits: IntegerDigits::<Identity, Impl, OFFSET>,
@@ -341,7 +341,7 @@ impl INumberParser_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberParser, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INumberParser, OFFSET>(),
             ParseInt: ParseInt::<Identity, Impl, OFFSET>,
             ParseUInt: ParseUInt::<Identity, Impl, OFFSET>,
             ParseDouble: ParseDouble::<Identity, Impl, OFFSET>,
@@ -437,7 +437,7 @@ impl INumberRounder_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberRounder, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INumberRounder, OFFSET>(),
             RoundInt32: RoundInt32::<Identity, Impl, OFFSET>,
             RoundUInt32: RoundUInt32::<Identity, Impl, OFFSET>,
             RoundInt64: RoundInt64::<Identity, Impl, OFFSET>,
@@ -477,7 +477,7 @@ impl INumberRounderOption_Vtbl {
             (*this).SetNumberRounder(::core::mem::transmute(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, INumberRounderOption, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, INumberRounderOption, OFFSET>(),
             NumberRounder: NumberRounder::<Identity, Impl, OFFSET>,
             SetNumberRounder: SetNumberRounder::<Identity, Impl, OFFSET>,
         }
@@ -513,7 +513,7 @@ impl ISignedZeroOption_Vtbl {
             (*this).SetIsZeroSigned(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignedZeroOption, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISignedZeroOption, OFFSET>(),
             IsZeroSigned: IsZeroSigned::<Identity, Impl, OFFSET>,
             SetIsZeroSigned: SetIsZeroSigned::<Identity, Impl, OFFSET>,
         }
@@ -549,7 +549,7 @@ impl ISignificantDigitsOption_Vtbl {
             (*this).SetSignificantDigits(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISignificantDigitsOption, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISignificantDigitsOption, OFFSET>(),
             SignificantDigits: SignificantDigits::<Identity, Impl, OFFSET>,
             SetSignificantDigits: SetSignificantDigits::<Identity, Impl, OFFSET>,
         }

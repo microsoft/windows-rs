@@ -48,7 +48,7 @@ impl IStorageItemExtraProperties_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemExtraProperties, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemExtraProperties, OFFSET>(),
             RetrievePropertiesAsync: RetrievePropertiesAsync::<Identity, Impl, OFFSET>,
             SavePropertiesAsync: SavePropertiesAsync::<Identity, Impl, OFFSET>,
             SavePropertiesAsyncOverloadDefault: SavePropertiesAsyncOverloadDefault::<Identity, Impl, OFFSET>,

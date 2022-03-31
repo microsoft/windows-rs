@@ -29,7 +29,7 @@ impl ICloneViewHelper_Vtbl {
             (*this).Commit(::core::mem::transmute_copy(&ffinalcall)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConnectedIDs: GetConnectedIDs::<Identity, Impl, OFFSET>,
             GetActiveTopology: GetActiveTopology::<Identity, Impl, OFFSET>,
             SetActiveTopology: SetActiveTopology::<Identity, Impl, OFFSET>,
@@ -89,7 +89,7 @@ impl IViewHelper_Vtbl {
             (*this).GetProceedOnNewConfiguration().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetConnectedIDs: GetConnectedIDs::<Identity, Impl, OFFSET>,
             GetActiveTopology: GetActiveTopology::<Identity, Impl, OFFSET>,
             SetActiveTopology: SetActiveTopology::<Identity, Impl, OFFSET>,

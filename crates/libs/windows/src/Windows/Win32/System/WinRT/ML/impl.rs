@@ -17,7 +17,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateFromD3D12CommandQueue: CreateFromD3D12CommandQueue::<Identity, Impl, OFFSET>,
         }
     }
@@ -43,7 +43,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRegistry: GetRegistry::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRegistry: GetRegistry::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelOperatorProviderNative as ::windows::core::Interface>::IID
@@ -60,7 +60,7 @@ impl ILearningModelSessionOptionsNative_Vtbl {
             (*this).SetIntraOpNumThreadsOverride(::core::mem::transmute_copy(&intraopnumthreads)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetIntraOpNumThreadsOverride: SetIntraOpNumThreadsOverride::<Identity, Impl, OFFSET>,
         }
     }
@@ -93,7 +93,7 @@ impl ITensorNative_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
             GetD3D12Resource: GetD3D12Resource::<Identity, Impl, OFFSET>,
         }
@@ -114,7 +114,7 @@ impl ITensorStaticsNative_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateFromD3D12Resource(::core::mem::transmute(&value), ::core::mem::transmute_copy(&shape), ::core::mem::transmute_copy(&shapecount), ::core::mem::transmute_copy(&result)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITensorStaticsNative as ::windows::core::Interface>::IID

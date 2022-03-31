@@ -65,7 +65,6 @@ impl TypeName {
     pub const PWSTR: Self = Self::from_const("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self::from_const("Windows.Win32.Foundation", "PSTR");
     pub const BSTR: Self = Self::from_const("Windows.Win32.Foundation", "BSTR");
-    pub const HANDLE: Self = Self::from_const("Windows.Win32.Foundation", "HANDLE");
     pub const HRESULT: Self = Self::from_const("Windows.Win32.Foundation", "HRESULT");
     pub const D2D_MATRIX_3X2_F: Self = Self::from_const("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
     pub const IUnknown: Self = Self::from_const("Windows.Win32.System.Com", "IUnknown");

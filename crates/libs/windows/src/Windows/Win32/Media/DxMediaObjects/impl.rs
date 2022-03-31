@@ -27,7 +27,7 @@ impl IDMOQualityControl_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetNow: SetNow::<Identity, Impl, OFFSET>,
             SetStatus: SetStatus::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -84,7 +84,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryOperationModePreferences: QueryOperationModePreferences::<Identity, Impl, OFFSET>,
             SetOperationMode: SetOperationMode::<Identity, Impl, OFFSET>,
             GetCurrentOperationMode: GetCurrentOperationMode::<Identity, Impl, OFFSET>,
@@ -130,7 +130,7 @@ impl IEnumDMO_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -170,7 +170,7 @@ impl IMediaBuffer_Vtbl {
             (*this).GetBufferAndLength(::core::mem::transmute_copy(&ppbuffer), ::core::mem::transmute_copy(&pcblength)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetLength: SetLength::<Identity, Impl, OFFSET>,
             GetMaxLength: GetMaxLength::<Identity, Impl, OFFSET>,
             GetBufferAndLength: GetBufferAndLength::<Identity, Impl, OFFSET>,
@@ -361,7 +361,7 @@ impl IMediaObject_Vtbl {
             (*this).Lock(::core::mem::transmute_copy(&block)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetStreamCount: GetStreamCount::<Identity, Impl, OFFSET>,
             GetInputStreamInfo: GetInputStreamInfo::<Identity, Impl, OFFSET>,
             GetOutputStreamInfo: GetOutputStreamInfo::<Identity, Impl, OFFSET>,
@@ -424,7 +424,7 @@ impl IMediaObjectInPlace_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Process: Process::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
             GetLatency: GetLatency::<Identity, Impl, OFFSET>,

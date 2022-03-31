@@ -47,7 +47,7 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
             (*this).SetSharpness2(::core::mem::transmute_copy(&sharpness)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetInterpolationMode: SetInterpolationMode::<Identity, Impl, OFFSET>,
             SetBorderMode: SetBorderMode::<Identity, Impl, OFFSET>,
             SetTransformMatrix: SetTransformMatrix::<Identity, Impl, OFFSET>,
@@ -102,7 +102,7 @@ impl IDCompositionAnimation_Vtbl {
             (*this).End(::core::mem::transmute_copy(&endoffset), ::core::mem::transmute_copy(&endvalue)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             SetAbsoluteBeginTime: SetAbsoluteBeginTime::<Identity, Impl, OFFSET>,
             AddCubic: AddCubic::<Identity, Impl, OFFSET>,
@@ -182,7 +182,7 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
             (*this).SetCoefficient42(::core::mem::transmute_copy(&coefficient4)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetCoefficients: SetCoefficients::<Identity, Impl, OFFSET>,
             SetClampOutput: SetClampOutput::<Identity, Impl, OFFSET>,
             SetCoefficient1: SetCoefficient1::<Identity, Impl, OFFSET>,
@@ -211,7 +211,7 @@ impl IDCompositionBlendEffect_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetMode(::core::mem::transmute_copy(&mode)).into()
         }
-        Self { base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetMode: SetMode::<Identity, Impl, OFFSET> }
+        Self { base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetMode: SetMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionBlendEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionFilterEffect as ::windows::core::Interface>::IID
@@ -284,7 +284,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
             (*this).SetBlackPointY2(::core::mem::transmute_copy(&blackpointy)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetWhitePoint: SetWhitePoint::<Identity, Impl, OFFSET>,
             SetBlackPoint: SetBlackPoint::<Identity, Impl, OFFSET>,
             SetWhitePointX: SetWhitePointX::<Identity, Impl, OFFSET>,
@@ -304,7 +304,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
 pub trait IDCompositionClip_Impl: Sized {}
 impl IDCompositionClip_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionClip_Impl, const OFFSET: isize>() -> IDCompositionClip_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionClip as ::windows::core::Interface>::IID
@@ -347,7 +347,7 @@ impl IDCompositionColorMatrixEffect_Vtbl {
             (*this).SetClampOutput(::core::mem::transmute_copy(&clamp)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetMatrix: SetMatrix::<Identity, Impl, OFFSET>,
             SetMatrixElement: SetMatrixElement::<Identity, Impl, OFFSET>,
             SetMatrixElement2: SetMatrixElement2::<Identity, Impl, OFFSET>,
@@ -371,7 +371,7 @@ impl IDCompositionCompositeEffect_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetMode(::core::mem::transmute_copy(&mode)).into()
         }
-        Self { base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetMode: SetMode::<Identity, Impl, OFFSET> }
+        Self { base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetMode: SetMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionCompositeEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionFilterEffect as ::windows::core::Interface>::IID
@@ -420,7 +420,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
             (*this).StartNewTrail(::core::mem::transmute_copy(&color)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AddTrailPoints: AddTrailPoints::<Identity, Impl, OFFSET>,
             AddTrailPointsWithPrediction: AddTrailPointsWithPrediction::<Identity, Impl, OFFSET>,
             RemoveTrailPoints: RemoveTrailPoints::<Identity, Impl, OFFSET>,
@@ -474,7 +474,7 @@ impl IDCompositionDesktopDevice_Vtbl {
             }
         }
         Self {
-            base: IDCompositionDevice2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionDevice2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateTargetForHwnd: CreateTargetForHwnd::<Identity, Impl, OFFSET>,
             CreateSurfaceFromHandle: CreateSurfaceFromHandle::<Identity, Impl, OFFSET>,
             CreateSurfaceFromHwnd: CreateSurfaceFromHwnd::<Identity, Impl, OFFSET>,
@@ -767,7 +767,7 @@ impl IDCompositionDevice_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Commit: Commit::<Identity, Impl, OFFSET>,
             WaitForCommitCompletion: WaitForCommitCompletion::<Identity, Impl, OFFSET>,
             GetFrameStatistics: GetFrameStatistics::<Identity, Impl, OFFSET>,
@@ -1045,7 +1045,7 @@ impl IDCompositionDevice2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Commit: Commit::<Identity, Impl, OFFSET>,
             WaitForCommitCompletion: WaitForCommitCompletion::<Identity, Impl, OFFSET>,
             GetFrameStatistics: GetFrameStatistics::<Identity, Impl, OFFSET>,
@@ -1236,7 +1236,7 @@ impl IDCompositionDevice3_Vtbl {
             }
         }
         Self {
-            base: IDCompositionDevice2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionDevice2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateGaussianBlurEffect: CreateGaussianBlurEffect::<Identity, Impl, OFFSET>,
             CreateBrightnessEffect: CreateBrightnessEffect::<Identity, Impl, OFFSET>,
             CreateColorMatrixEffect: CreateColorMatrixEffect::<Identity, Impl, OFFSET>,
@@ -1273,7 +1273,7 @@ impl IDCompositionDeviceDebug_Vtbl {
             (*this).DisableDebugCounters().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EnableDebugCounters: EnableDebugCounters::<Identity, Impl, OFFSET>,
             DisableDebugCounters: DisableDebugCounters::<Identity, Impl, OFFSET>,
         }
@@ -1285,7 +1285,7 @@ impl IDCompositionDeviceDebug_Vtbl {
 pub trait IDCompositionEffect_Impl: Sized {}
 impl IDCompositionEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionEffect_Impl, const OFFSET: isize>() -> IDCompositionEffect_Vtbl {
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionEffect as ::windows::core::Interface>::IID
@@ -1314,7 +1314,7 @@ impl IDCompositionEffectGroup_Vtbl {
             (*this).SetTransform3D(::core::mem::transmute(&transform3d)).into()
         }
         Self {
-            base: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOpacity: SetOpacity::<Identity, Impl, OFFSET>,
             SetOpacity2: SetOpacity2::<Identity, Impl, OFFSET>,
             SetTransform3D: SetTransform3D::<Identity, Impl, OFFSET>,
@@ -1334,7 +1334,7 @@ impl IDCompositionFilterEffect_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetInput(::core::mem::transmute_copy(&index), ::core::mem::transmute(&input), ::core::mem::transmute_copy(&flags)).into()
         }
-        Self { base: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetInput: SetInput::<Identity, Impl, OFFSET> }
+        Self { base__: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetInput: SetInput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionFilterEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionEffect as ::windows::core::Interface>::IID
@@ -1365,7 +1365,7 @@ impl IDCompositionGaussianBlurEffect_Vtbl {
             (*this).SetBorderMode(::core::mem::transmute_copy(&mode)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetStandardDeviation: SetStandardDeviation::<Identity, Impl, OFFSET>,
             SetStandardDeviation2: SetStandardDeviation2::<Identity, Impl, OFFSET>,
             SetBorderMode: SetBorderMode::<Identity, Impl, OFFSET>,
@@ -1392,7 +1392,7 @@ impl IDCompositionHueRotationEffect_Vtbl {
             (*this).SetAngle2(::core::mem::transmute_copy(&amountdegrees)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetAngle: SetAngle::<Identity, Impl, OFFSET>,
             SetAngle2: SetAngle2::<Identity, Impl, OFFSET>,
         }
@@ -1430,7 +1430,7 @@ impl IDCompositionInkTrailDevice_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateDelegatedInkTrail: CreateDelegatedInkTrail::<Identity, Impl, OFFSET>,
             CreateDelegatedInkTrailForSwapChain: CreateDelegatedInkTrailForSwapChain::<Identity, Impl, OFFSET>,
         }
@@ -1572,7 +1572,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             (*this).SetClampOutput(::core::mem::transmute_copy(&clampoutput)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRedYIntercept: SetRedYIntercept::<Identity, Impl, OFFSET>,
             SetRedYIntercept2: SetRedYIntercept2::<Identity, Impl, OFFSET>,
             SetRedSlope: SetRedSlope::<Identity, Impl, OFFSET>,
@@ -1625,7 +1625,7 @@ impl IDCompositionMatrixTransform_Vtbl {
             (*this).SetMatrixElement2(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetMatrix: SetMatrix::<Identity, Impl, OFFSET>,
             SetMatrixElement: SetMatrixElement::<Identity, Impl, OFFSET>,
             SetMatrixElement2: SetMatrixElement2::<Identity, Impl, OFFSET>,
@@ -1660,7 +1660,7 @@ impl IDCompositionMatrixTransform3D_Vtbl {
             (*this).SetMatrixElement2(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetMatrix: SetMatrix::<Identity, Impl, OFFSET>,
             SetMatrixElement: SetMatrixElement::<Identity, Impl, OFFSET>,
             SetMatrixElement2: SetMatrixElement2::<Identity, Impl, OFFSET>,
@@ -1819,7 +1819,7 @@ impl IDCompositionRectangleClip_Vtbl {
             (*this).SetBottomRightRadiusY2(::core::mem::transmute_copy(&radius)).into()
         }
         Self {
-            base: IDCompositionClip_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionClip_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetLeft: SetLeft::<Identity, Impl, OFFSET>,
             SetLeft2: SetLeft2::<Identity, Impl, OFFSET>,
             SetTop: SetTop::<Identity, Impl, OFFSET>,
@@ -1891,7 +1891,7 @@ impl IDCompositionRotateTransform_Vtbl {
             (*this).SetCenterY2(::core::mem::transmute_copy(&centery)).into()
         }
         Self {
-            base: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetAngle: SetAngle::<Identity, Impl, OFFSET>,
             SetAngle2: SetAngle2::<Identity, Impl, OFFSET>,
             SetCenterX: SetCenterX::<Identity, Impl, OFFSET>,
@@ -1993,7 +1993,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             (*this).SetCenterZ2(::core::mem::transmute_copy(&centerz)).into()
         }
         Self {
-            base: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetAngle: SetAngle::<Identity, Impl, OFFSET>,
             SetAngle2: SetAngle2::<Identity, Impl, OFFSET>,
             SetAxisX: SetAxisX::<Identity, Impl, OFFSET>,
@@ -2031,7 +2031,7 @@ impl IDCompositionSaturationEffect_Vtbl {
             (*this).SetSaturation2(::core::mem::transmute_copy(&ratio)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSaturation: SetSaturation::<Identity, Impl, OFFSET>,
             SetSaturation2: SetSaturation2::<Identity, Impl, OFFSET>,
         }
@@ -2093,7 +2093,7 @@ impl IDCompositionScaleTransform_Vtbl {
             (*this).SetCenterY2(::core::mem::transmute_copy(&centery)).into()
         }
         Self {
-            base: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetScaleX: SetScaleX::<Identity, Impl, OFFSET>,
             SetScaleX2: SetScaleX2::<Identity, Impl, OFFSET>,
             SetScaleY: SetScaleY::<Identity, Impl, OFFSET>,
@@ -2185,7 +2185,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
             (*this).SetCenterZ2(::core::mem::transmute_copy(&centerz)).into()
         }
         Self {
-            base: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetScaleX: SetScaleX::<Identity, Impl, OFFSET>,
             SetScaleX2: SetScaleX2::<Identity, Impl, OFFSET>,
             SetScaleY: SetScaleY::<Identity, Impl, OFFSET>,
@@ -2277,7 +2277,7 @@ impl IDCompositionShadowEffect_Vtbl {
             (*this).SetAlpha2(::core::mem::transmute_copy(&amount)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetStandardDeviation: SetStandardDeviation::<Identity, Impl, OFFSET>,
             SetStandardDeviation2: SetStandardDeviation2::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
@@ -2348,7 +2348,7 @@ impl IDCompositionSkewTransform_Vtbl {
             (*this).SetCenterY2(::core::mem::transmute_copy(&centery)).into()
         }
         Self {
-            base: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetAngleX: SetAngleX::<Identity, Impl, OFFSET>,
             SetAngleX2: SetAngleX2::<Identity, Impl, OFFSET>,
             SetAngleY: SetAngleY::<Identity, Impl, OFFSET>,
@@ -2400,7 +2400,7 @@ impl IDCompositionSurface_Vtbl {
             (*this).Scroll(::core::mem::transmute_copy(&scrollrect), ::core::mem::transmute_copy(&cliprect), ::core::mem::transmute_copy(&offsetx), ::core::mem::transmute_copy(&offsety)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
             SuspendDraw: SuspendDraw::<Identity, Impl, OFFSET>,
@@ -2443,7 +2443,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
             CreateVirtualSurface: CreateVirtualSurface::<Identity, Impl, OFFSET>,
         }
@@ -2561,7 +2561,7 @@ impl IDCompositionTableTransferEffect_Vtbl {
             (*this).SetAlphaTableValue2(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRedTable: SetRedTable::<Identity, Impl, OFFSET>,
             SetGreenTable: SetGreenTable::<Identity, Impl, OFFSET>,
             SetBlueTable: SetBlueTable::<Identity, Impl, OFFSET>,
@@ -2595,7 +2595,7 @@ impl IDCompositionTarget_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetRoot(::core::mem::transmute(&visual)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRoot: SetRoot::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRoot: SetRoot::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionTarget as ::windows::core::Interface>::IID
@@ -2604,7 +2604,7 @@ impl IDCompositionTarget_Vtbl {
 pub trait IDCompositionTransform_Impl: Sized + IDCompositionEffect_Impl + IDCompositionTransform3D_Impl {}
 impl IDCompositionTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTransform_Impl, const OFFSET: isize>() -> IDCompositionTransform_Vtbl {
-        Self { base: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionTransform as ::windows::core::Interface>::IID || iid == &<IDCompositionEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionTransform3D as ::windows::core::Interface>::IID
@@ -2613,7 +2613,7 @@ impl IDCompositionTransform_Vtbl {
 pub trait IDCompositionTransform3D_Impl: Sized + IDCompositionEffect_Impl {}
 impl IDCompositionTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTransform3D_Impl, const OFFSET: isize>() -> IDCompositionTransform3D_Vtbl {
-        Self { base: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionTransform3D as ::windows::core::Interface>::IID || iid == &<IDCompositionEffect as ::windows::core::Interface>::IID
@@ -2648,7 +2648,7 @@ impl IDCompositionTranslateTransform_Vtbl {
             (*this).SetOffsetY2(::core::mem::transmute_copy(&offsety)).into()
         }
         Self {
-            base: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOffsetX: SetOffsetX::<Identity, Impl, OFFSET>,
             SetOffsetX2: SetOffsetX2::<Identity, Impl, OFFSET>,
             SetOffsetY: SetOffsetY::<Identity, Impl, OFFSET>,
@@ -2700,7 +2700,7 @@ impl IDCompositionTranslateTransform3D_Vtbl {
             (*this).SetOffsetZ2(::core::mem::transmute_copy(&offsetz)).into()
         }
         Self {
-            base: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOffsetX: SetOffsetX::<Identity, Impl, OFFSET>,
             SetOffsetX2: SetOffsetX2::<Identity, Impl, OFFSET>,
             SetOffsetY: SetOffsetY::<Identity, Impl, OFFSET>,
@@ -2762,7 +2762,7 @@ impl IDCompositionTurbulenceEffect_Vtbl {
             (*this).SetStitchable(::core::mem::transmute_copy(&stitchable)).into()
         }
         Self {
-            base: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOffset: SetOffset::<Identity, Impl, OFFSET>,
             SetBaseFrequency: SetBaseFrequency::<Identity, Impl, OFFSET>,
             SetSize: SetSize::<Identity, Impl, OFFSET>,
@@ -2794,7 +2794,11 @@ impl IDCompositionVirtualSurface_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Trim(::core::mem::transmute_copy(&rectangles), ::core::mem::transmute_copy(&count)).into()
         }
-        Self { base: IDCompositionSurface_Vtbl::new::<Identity, Impl, OFFSET>(), Resize: Resize::<Identity, Impl, OFFSET>, Trim: Trim::<Identity, Impl, OFFSET> }
+        Self {
+            base__: IDCompositionSurface_Vtbl::new::<Identity, Impl, OFFSET>(),
+            Resize: Resize::<Identity, Impl, OFFSET>,
+            Trim: Trim::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionVirtualSurface as ::windows::core::Interface>::IID || iid == &<IDCompositionSurface as ::windows::core::Interface>::IID
@@ -2909,7 +2913,7 @@ impl IDCompositionVisual_Vtbl {
             (*this).SetCompositeMode(::core::mem::transmute_copy(&compositemode)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetOffsetX: SetOffsetX::<Identity, Impl, OFFSET>,
             SetOffsetX2: SetOffsetX2::<Identity, Impl, OFFSET>,
             SetOffsetY: SetOffsetY::<Identity, Impl, OFFSET>,
@@ -2952,7 +2956,7 @@ impl IDCompositionVisual2_Vtbl {
             (*this).SetBackFaceVisibility(::core::mem::transmute_copy(&visibility)).into()
         }
         Self {
-            base: IDCompositionVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionVisual_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetOpacityMode: SetOpacityMode::<Identity, Impl, OFFSET>,
             SetBackFaceVisibility: SetBackFaceVisibility::<Identity, Impl, OFFSET>,
         }
@@ -3016,7 +3020,7 @@ impl IDCompositionVisual3_Vtbl {
             (*this).SetVisible(::core::mem::transmute_copy(&visible)).into()
         }
         Self {
-            base: IDCompositionVisualDebug_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionVisualDebug_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetDepthMode: SetDepthMode::<Identity, Impl, OFFSET>,
             SetOffsetZ: SetOffsetZ::<Identity, Impl, OFFSET>,
             SetOffsetZ2: SetOffsetZ2::<Identity, Impl, OFFSET>,
@@ -3062,7 +3066,7 @@ impl IDCompositionVisualDebug_Vtbl {
             (*this).DisableRedrawRegions().into()
         }
         Self {
-            base: IDCompositionVisual2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDCompositionVisual2_Vtbl::new::<Identity, Impl, OFFSET>(),
             EnableHeatMap: EnableHeatMap::<Identity, Impl, OFFSET>,
             DisableHeatMap: DisableHeatMap::<Identity, Impl, OFFSET>,
             EnableRedrawRegions: EnableRedrawRegions::<Identity, Impl, OFFSET>,

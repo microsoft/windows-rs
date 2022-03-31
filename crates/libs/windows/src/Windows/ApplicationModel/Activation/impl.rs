@@ -45,7 +45,7 @@ impl IActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgs, OFFSET>(),
             Kind: Kind::<Identity, Impl, OFFSET>,
             PreviousExecutionState: PreviousExecutionState::<Identity, Impl, OFFSET>,
             SplashScreen: SplashScreen::<Identity, Impl, OFFSET>,
@@ -78,7 +78,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgsWithUser, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgsWithUser, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IActivatedEventArgsWithUser as ::windows::core::Interface>::IID
@@ -105,7 +105,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IApplicationViewActivatedEventArgs, OFFSET>(),
             CurrentlyShownApplicationViewId: CurrentlyShownApplicationViewId::<Identity, Impl, OFFSET>,
         }
     }
@@ -134,7 +134,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderActivatedEventArgs, OFFSET>(),
             Verb: Verb::<Identity, Impl, OFFSET>,
         }
     }
@@ -166,7 +166,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderAddAppointmentActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderAddAppointmentActivatedEventArgs, OFFSET>(),
             AddAppointmentOperation: AddAppointmentOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -198,7 +198,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderRemoveAppointmentActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderRemoveAppointmentActivatedEventArgs, OFFSET>(),
             RemoveAppointmentOperation: RemoveAppointmentOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -230,7 +230,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderReplaceAppointmentActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderReplaceAppointmentActivatedEventArgs, OFFSET>(),
             ReplaceAppointmentOperation: ReplaceAppointmentOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -288,7 +288,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, OFFSET>(),
             InstanceStartDate: InstanceStartDate::<Identity, Impl, OFFSET>,
             LocalId: LocalId::<Identity, Impl, OFFSET>,
             RoamingId: RoamingId::<Identity, Impl, OFFSET>,
@@ -335,7 +335,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderShowTimeFrameActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentsProviderShowTimeFrameActivatedEventArgs, OFFSET>(),
             TimeToShow: TimeToShow::<Identity, Impl, OFFSET>,
             Duration: Duration::<Identity, Impl, OFFSET>,
         }
@@ -368,7 +368,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBackgroundActivatedEventArgs, OFFSET>(),
             TaskInstance: TaskInstance::<Identity, Impl, OFFSET>,
         }
     }
@@ -397,7 +397,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerPreviewActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IBarcodeScannerPreviewActivatedEventArgs, OFFSET>(),
             ConnectionId: ConnectionId::<Identity, Impl, OFFSET>,
         }
     }
@@ -429,7 +429,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICachedFileUpdaterActivatedEventArgs, OFFSET>(),
             CachedFileUpdaterUI: CachedFileUpdaterUI::<Identity, Impl, OFFSET>,
         }
     }
@@ -471,7 +471,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICameraSettingsActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICameraSettingsActivatedEventArgs, OFFSET>(),
             VideoDeviceController: VideoDeviceController::<Identity, Impl, OFFSET>,
             VideoDeviceExtension: VideoDeviceExtension::<Identity, Impl, OFFSET>,
         }
@@ -501,7 +501,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandLineActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICommandLineActivatedEventArgs, OFFSET>(),
             Operation: Operation::<Identity, Impl, OFFSET>,
         }
     }
@@ -529,7 +529,7 @@ impl IContactActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContactActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactActivatedEventArgs as ::windows::core::Interface>::IID
@@ -585,7 +585,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactCallActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactCallActivatedEventArgs, OFFSET>(),
             ServiceId: ServiceId::<Identity, Impl, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, Impl, OFFSET>,
             Contact: Contact::<Identity, Impl, OFFSET>,
@@ -632,7 +632,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactMapActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactMapActivatedEventArgs, OFFSET>(),
             Address: Address::<Identity, Impl, OFFSET>,
             Contact: Contact::<Identity, Impl, OFFSET>,
         }
@@ -691,7 +691,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactMessageActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactMessageActivatedEventArgs, OFFSET>(),
             ServiceId: ServiceId::<Identity, Impl, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, Impl, OFFSET>,
             Contact: Contact::<Identity, Impl, OFFSET>,
@@ -738,7 +738,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPanelActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactPanelActivatedEventArgs, OFFSET>(),
             ContactPanel: ContactPanel::<Identity, Impl, OFFSET>,
             Contact: Contact::<Identity, Impl, OFFSET>,
         }
@@ -771,7 +771,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPickerActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactPickerActivatedEventArgs, OFFSET>(),
             ContactPickerUI: ContactPickerUI::<Identity, Impl, OFFSET>,
         }
     }
@@ -829,7 +829,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactPostActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactPostActivatedEventArgs, OFFSET>(),
             ServiceId: ServiceId::<Identity, Impl, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, Impl, OFFSET>,
             Contact: Contact::<Identity, Impl, OFFSET>,
@@ -889,7 +889,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContactVideoCallActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactVideoCallActivatedEventArgs, OFFSET>(),
             ServiceId: ServiceId::<Identity, Impl, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, Impl, OFFSET>,
             Contact: Contact::<Identity, Impl, OFFSET>,
@@ -919,7 +919,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContactsProviderActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IContactsProviderActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContactsProviderActivatedEventArgs as ::windows::core::Interface>::IID
@@ -949,7 +949,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IContinuationActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IContinuationActivatedEventArgs, OFFSET>(),
             ContinuationData: ContinuationData::<Identity, Impl, OFFSET>,
         }
     }
@@ -991,7 +991,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDeviceActivatedEventArgs, OFFSET>(),
             DeviceInformationId: DeviceInformationId::<Identity, Impl, OFFSET>,
             Verb: Verb::<Identity, Impl, OFFSET>,
         }
@@ -1024,7 +1024,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingActivatedEventArgs, OFFSET>(),
             DeviceInformation: DeviceInformation::<Identity, Impl, OFFSET>,
         }
     }
@@ -1052,7 +1052,10 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDialReceiverActivatedEventArgs, OFFSET>(), AppName: AppName::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDialReceiverActivatedEventArgs, OFFSET>(),
+            AppName: AppName::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDialReceiverActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1095,7 +1098,7 @@ impl IFileActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgs, OFFSET>(),
             Files: Files::<Identity, Impl, OFFSET>,
             Verb: Verb::<Identity, Impl, OFFSET>,
         }
@@ -1125,7 +1128,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgsWithCallerPackageFamilyName, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgsWithCallerPackageFamilyName, OFFSET>(),
             CallerPackageFamilyName: CallerPackageFamilyName::<Identity, Impl, OFFSET>,
         }
     }
@@ -1157,7 +1160,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgsWithNeighboringFiles, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileActivatedEventArgsWithNeighboringFiles, OFFSET>(),
             NeighboringFilesQuery: NeighboringFilesQuery::<Identity, Impl, OFFSET>,
         }
     }
@@ -1189,7 +1192,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerActivatedEventArgs, OFFSET>(),
             FileOpenPickerUI: FileOpenPickerUI::<Identity, Impl, OFFSET>,
         }
     }
@@ -1218,7 +1221,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerActivatedEventArgs2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerActivatedEventArgs2, OFFSET>(),
             CallerPackageFamilyName: CallerPackageFamilyName::<Identity, Impl, OFFSET>,
         }
     }
@@ -1249,7 +1252,10 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerContinuationEventArgs, OFFSET>(), Files: Files::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileOpenPickerContinuationEventArgs, OFFSET>(),
+            Files: Files::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileOpenPickerContinuationEventArgs as ::windows::core::Interface>::IID
@@ -1279,7 +1285,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerActivatedEventArgs, OFFSET>(),
             FileSavePickerUI: FileSavePickerUI::<Identity, Impl, OFFSET>,
         }
     }
@@ -1321,7 +1327,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerActivatedEventArgs2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerActivatedEventArgs2, OFFSET>(),
             CallerPackageFamilyName: CallerPackageFamilyName::<Identity, Impl, OFFSET>,
             EnterpriseId: EnterpriseId::<Identity, Impl, OFFSET>,
         }
@@ -1353,7 +1359,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerContinuationEventArgs, OFFSET>(), File: File::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileSavePickerContinuationEventArgs, OFFSET>(), File: File::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSavePickerContinuationEventArgs as ::windows::core::Interface>::IID
@@ -1382,7 +1388,10 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPickerContinuationEventArgs, OFFSET>(), Folder: Folder::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IFolderPickerContinuationEventArgs, OFFSET>(),
+            Folder: Folder::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFolderPickerContinuationEventArgs as ::windows::core::Interface>::IID
@@ -1422,7 +1431,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILaunchActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILaunchActivatedEventArgs, OFFSET>(),
             Arguments: Arguments::<Identity, Impl, OFFSET>,
             TileId: TileId::<Identity, Impl, OFFSET>,
         }
@@ -1452,7 +1461,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILaunchActivatedEventArgs2, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILaunchActivatedEventArgs2, OFFSET>(),
             TileActivatedInfo: TileActivatedInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -1480,7 +1489,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenActivatedEventArgs, OFFSET>(), Info: Info::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenActivatedEventArgs, OFFSET>(), Info: Info::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1509,7 +1518,10 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenCallActivatedEventArgs, OFFSET>(), CallUI: CallUI::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILockScreenCallActivatedEventArgs, OFFSET>(),
+            CallUI: CallUI::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILockScreenCallActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1535,7 +1547,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallActivatedEventArgs, OFFSET>(), LineId: LineId::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IPhoneCallActivatedEventArgs, OFFSET>(), LineId: LineId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhoneCallActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1562,7 +1574,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPickerReturnedActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPickerReturnedActivatedEventArgs, OFFSET>(),
             PickerOperationId: PickerOperationId::<Identity, Impl, OFFSET>,
         }
     }
@@ -1591,7 +1603,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrelaunchActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrelaunchActivatedEventArgs, OFFSET>(),
             PrelaunchActivated: PrelaunchActivated::<Identity, Impl, OFFSET>,
         }
     }
@@ -1623,7 +1635,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DWorkflowActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrint3DWorkflowActivatedEventArgs, OFFSET>(),
             Workflow: Workflow::<Identity, Impl, OFFSET>,
         }
     }
@@ -1655,7 +1667,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskSettingsActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintTaskSettingsActivatedEventArgs, OFFSET>(),
             Configuration: Configuration::<Identity, Impl, OFFSET>,
         }
     }
@@ -1686,7 +1698,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolActivatedEventArgs, OFFSET>(), Uri: Uri::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolActivatedEventArgs, OFFSET>(), Uri: Uri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProtocolActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1729,7 +1741,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, OFFSET>(),
             CallerPackageFamilyName: CallerPackageFamilyName::<Identity, Impl, OFFSET>,
             Data: Data::<Identity, Impl, OFFSET>,
         }
@@ -1762,7 +1774,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolForResultsActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IProtocolForResultsActivatedEventArgs, OFFSET>(),
             ProtocolForResultsOperation: ProtocolForResultsOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -1791,7 +1803,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRestrictedLaunchActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IRestrictedLaunchActivatedEventArgs, OFFSET>(),
             SharedContext: SharedContext::<Identity, Impl, OFFSET>,
         }
     }
@@ -1833,7 +1845,7 @@ impl ISearchActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISearchActivatedEventArgs, OFFSET>(),
             QueryText: QueryText::<Identity, Impl, OFFSET>,
             Language: Language::<Identity, Impl, OFFSET>,
         }
@@ -1866,7 +1878,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchActivatedEventArgsWithLinguisticDetails, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISearchActivatedEventArgsWithLinguisticDetails, OFFSET>(),
             LinguisticDetails: LinguisticDetails::<Identity, Impl, OFFSET>,
         }
     }
@@ -1898,7 +1910,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IShareTargetActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IShareTargetActivatedEventArgs, OFFSET>(),
             ShareOperation: ShareOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -1926,7 +1938,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStartupTaskActivatedEventArgs, OFFSET>(), TaskId: TaskId::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IStartupTaskActivatedEventArgs, OFFSET>(), TaskId: TaskId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStartupTaskActivatedEventArgs as ::windows::core::Interface>::IID
@@ -1969,7 +1981,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IToastNotificationActivatedEventArgs, OFFSET>(),
             Argument: Argument::<Identity, Impl, OFFSET>,
             UserInput: UserInput::<Identity, Impl, OFFSET>,
         }
@@ -2002,7 +2014,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUserDataAccountProviderActivatedEventArgs, OFFSET>(),
             Operation: Operation::<Identity, Impl, OFFSET>,
         }
     }
@@ -2033,7 +2045,10 @@ impl IViewSwitcherProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IViewSwitcherProvider, OFFSET>(), ViewSwitcher: ViewSwitcher::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IViewSwitcherProvider, OFFSET>(),
+            ViewSwitcher: ViewSwitcher::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IViewSwitcherProvider as ::windows::core::Interface>::IID
@@ -2062,7 +2077,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandActivatedEventArgs, OFFSET>(), Result: Result::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IVoiceCommandActivatedEventArgs, OFFSET>(), Result: Result::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVoiceCommandActivatedEventArgs as ::windows::core::Interface>::IID
@@ -2118,7 +2133,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWalletActionActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWalletActionActivatedEventArgs, OFFSET>(),
             ItemId: ItemId::<Identity, Impl, OFFSET>,
             ActionKind: ActionKind::<Identity, Impl, OFFSET>,
             ActionId: ActionId::<Identity, Impl, OFFSET>,
@@ -2152,7 +2167,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderActivatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderActivatedEventArgs, OFFSET>(),
             Operation: Operation::<Identity, Impl, OFFSET>,
         }
     }
@@ -2184,7 +2199,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationBrokerContinuationEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationBrokerContinuationEventArgs, OFFSET>(),
             WebAuthenticationResult: WebAuthenticationResult::<Identity, Impl, OFFSET>,
         }
     }

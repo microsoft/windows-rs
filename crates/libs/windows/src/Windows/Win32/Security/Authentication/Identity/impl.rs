@@ -8,7 +8,7 @@ impl ICcgDomainAuthCredentials_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPasswordCredentials(::core::mem::transmute(&plugininput), ::core::mem::transmute_copy(&domainname), ::core::mem::transmute_copy(&username), ::core::mem::transmute_copy(&password)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPasswordCredentials: GetPasswordCredentials::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPasswordCredentials: GetPasswordCredentials::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICcgDomainAuthCredentials as ::windows::core::Interface>::IID

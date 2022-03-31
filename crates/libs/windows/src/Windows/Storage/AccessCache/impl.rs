@@ -189,7 +189,7 @@ impl IStorageItemAccessList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemAccessList, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IStorageItemAccessList, OFFSET>(),
             AddOverloadDefaultMetadata: AddOverloadDefaultMetadata::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             AddOrReplaceOverloadDefaultMetadata: AddOrReplaceOverloadDefaultMetadata::<Identity, Impl, OFFSET>,

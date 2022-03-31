@@ -89,7 +89,7 @@ impl ICivicAddressReport_Vtbl {
             }
         }
         Self {
-            base: ILocationReport_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ILocationReport_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAddressLine1: GetAddressLine1::<Identity, Impl, OFFSET>,
             GetAddressLine2: GetAddressLine2::<Identity, Impl, OFFSET>,
             GetCity: GetCity::<Identity, Impl, OFFSET>,
@@ -121,7 +121,7 @@ impl ICivicAddressReportFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ILocationReportFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CivicAddressReport: CivicAddressReport::<Identity, Impl, OFFSET> }
+        Self { base__: ILocationReportFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CivicAddressReport: CivicAddressReport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICivicAddressReportFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocationReportFactory as ::windows::core::Interface>::IID
@@ -150,7 +150,7 @@ impl IDefaultLocation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetReport: SetReport::<Identity, Impl, OFFSET>,
             GetReport: GetReport::<Identity, Impl, OFFSET>,
         }
@@ -262,7 +262,7 @@ impl IDispCivicAddressReport_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             AddressLine1: AddressLine1::<Identity, Impl, OFFSET>,
             AddressLine2: AddressLine2::<Identity, Impl, OFFSET>,
             City: City::<Identity, Impl, OFFSET>,
@@ -356,7 +356,7 @@ impl IDispLatLongReport_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Latitude: Latitude::<Identity, Impl, OFFSET>,
             Longitude: Longitude::<Identity, Impl, OFFSET>,
             ErrorRadius: ErrorRadius::<Identity, Impl, OFFSET>,
@@ -436,7 +436,7 @@ impl ILatLongReport_Vtbl {
             }
         }
         Self {
-            base: ILocationReport_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ILocationReport_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetLatitude: GetLatitude::<Identity, Impl, OFFSET>,
             GetLongitude: GetLongitude::<Identity, Impl, OFFSET>,
             GetErrorRadius: GetErrorRadius::<Identity, Impl, OFFSET>,
@@ -466,7 +466,7 @@ impl ILatLongReportFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ILocationReportFactory_Vtbl::new::<Identity, Impl, OFFSET>(), LatLongReport: LatLongReport::<Identity, Impl, OFFSET> }
+        Self { base__: ILocationReportFactory_Vtbl::new::<Identity, Impl, OFFSET>(), LatLongReport: LatLongReport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILatLongReportFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocationReportFactory as ::windows::core::Interface>::IID
@@ -557,7 +557,7 @@ impl ILocation_Vtbl {
             (*this).RequestPermissions(::core::mem::transmute_copy(&hparent), ::core::mem::transmute_copy(&preporttypes), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&fmodal)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RegisterForReport: RegisterForReport::<Identity, Impl, OFFSET>,
             UnregisterForReport: UnregisterForReport::<Identity, Impl, OFFSET>,
             GetReport: GetReport::<Identity, Impl, OFFSET>,
@@ -590,7 +590,7 @@ impl ILocationEvents_Vtbl {
             (*this).OnStatusChanged(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&newstatus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             OnLocationChanged: OnLocationChanged::<Identity, Impl, OFFSET>,
             OnStatusChanged: OnStatusChanged::<Identity, Impl, OFFSET>,
         }
@@ -616,7 +616,7 @@ impl ILocationPower_Vtbl {
             (*this).Disconnect().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
         }
@@ -668,7 +668,7 @@ impl ILocationReport_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetSensorID: GetSensorID::<Identity, Impl, OFFSET>,
             GetTimestamp: GetTimestamp::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -751,7 +751,7 @@ impl ILocationReportFactory_Vtbl {
             (*this).RequestPermissions(::core::mem::transmute_copy(&hwnd)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ListenForReports: ListenForReports::<Identity, Impl, OFFSET>,
             StopListeningForReports: StopListeningForReports::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
@@ -771,7 +771,7 @@ pub trait _ICivicAddressReportFactoryEvents_Impl: Sized + super::super::System::
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ICivicAddressReportFactoryEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ICivicAddressReportFactoryEvents_Impl, const OFFSET: isize>() -> _ICivicAddressReportFactoryEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_ICivicAddressReportFactoryEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -782,7 +782,7 @@ pub trait _ILatLongReportFactoryEvents_Impl: Sized + super::super::System::Com::
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ILatLongReportFactoryEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ILatLongReportFactoryEvents_Impl, const OFFSET: isize>() -> _ILatLongReportFactoryEvents_Vtbl {
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<_ILatLongReportFactoryEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID

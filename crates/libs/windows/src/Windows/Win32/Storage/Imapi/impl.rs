@@ -10,7 +10,7 @@ impl DDiscFormat2DataEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DDiscFormat2DataEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -28,7 +28,7 @@ impl DDiscFormat2EraseEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute(&object), ::core::mem::transmute_copy(&elapsedseconds), ::core::mem::transmute_copy(&estimatedtotalseconds)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DDiscFormat2EraseEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -46,7 +46,7 @@ impl DDiscFormat2RawCDEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DDiscFormat2RawCDEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -64,7 +64,7 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DDiscFormat2TrackAtOnceEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -89,7 +89,7 @@ impl DDiscMaster2Events_Vtbl {
             (*this).NotifyDeviceRemoved(::core::mem::transmute(&object), ::core::mem::transmute(&uniqueid)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             NotifyDeviceAdded: NotifyDeviceAdded::<Identity, Impl, OFFSET>,
             NotifyDeviceRemoved: NotifyDeviceRemoved::<Identity, Impl, OFFSET>,
         }
@@ -110,7 +110,7 @@ impl DFileSystemImageEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute(&object), ::core::mem::transmute(&currentfile), ::core::mem::transmute_copy(&copiedsectors), ::core::mem::transmute_copy(&totalsectors)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DFileSystemImageEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -128,7 +128,7 @@ impl DFileSystemImageImportEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).UpdateImport(::core::mem::transmute(&object), ::core::mem::transmute_copy(&filesystem), ::core::mem::transmute(&currentitem), ::core::mem::transmute_copy(&importeddirectoryitems), ::core::mem::transmute_copy(&totaldirectoryitems), ::core::mem::transmute_copy(&importedfileitems), ::core::mem::transmute_copy(&totalfileitems)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), UpdateImport: UpdateImport::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), UpdateImport: UpdateImport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DFileSystemImageImportEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -146,7 +146,7 @@ impl DWriteEngine2Events_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<DWriteEngine2Events as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -183,7 +183,7 @@ impl IBlockRange_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartLba: StartLba::<Identity, Impl, OFFSET>,
             EndLba: EndLba::<Identity, Impl, OFFSET>,
         }
@@ -210,7 +210,7 @@ impl IBlockRangeList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), BlockRanges: BlockRanges::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), BlockRanges: BlockRanges::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBlockRangeList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -307,7 +307,7 @@ impl IBootOptions_Vtbl {
             (*this).AssignBootImage(::core::mem::transmute(&newval)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             BootImage: BootImage::<Identity, Impl, OFFSET>,
             Manufacturer: Manufacturer::<Identity, Impl, OFFSET>,
             SetManufacturer: SetManufacturer::<Identity, Impl, OFFSET>,
@@ -346,7 +346,7 @@ impl IBurnVerification_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetBurnVerificationLevel: SetBurnVerificationLevel::<Identity, Impl, OFFSET>,
             BurnVerificationLevel: BurnVerificationLevel::<Identity, Impl, OFFSET>,
         }
@@ -422,7 +422,7 @@ impl IDiscFormat2_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsRecorderSupported: IsRecorderSupported::<Identity, Impl, OFFSET>,
             IsCurrentMediaSupported: IsCurrentMediaSupported::<Identity, Impl, OFFSET>,
             MediaPhysicallyBlank: MediaPhysicallyBlank::<Identity, Impl, OFFSET>,
@@ -765,7 +765,7 @@ impl IDiscFormat2Data_Vtbl {
             (*this).SetWriteSpeed(::core::mem::transmute_copy(&requestedsectorspersecond), ::core::mem::transmute_copy(&rotationtypeispurecav)).into()
         }
         Self {
-            base: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRecorder: SetRecorder::<Identity, Impl, OFFSET>,
             Recorder: Recorder::<Identity, Impl, OFFSET>,
             SetBufferUnderrunFreeDisabled: SetBufferUnderrunFreeDisabled::<Identity, Impl, OFFSET>,
@@ -859,7 +859,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             }
         }
         Self {
-            base: IWriteEngine2EventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWriteEngine2EventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             ElapsedTime: ElapsedTime::<Identity, Impl, OFFSET>,
             RemainingTime: RemainingTime::<Identity, Impl, OFFSET>,
             TotalTime: TotalTime::<Identity, Impl, OFFSET>,
@@ -949,7 +949,7 @@ impl IDiscFormat2Erase_Vtbl {
             (*this).EraseMedia().into()
         }
         Self {
-            base: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetRecorder: SetRecorder::<Identity, Impl, OFFSET>,
             Recorder: Recorder::<Identity, Impl, OFFSET>,
             SetFullErase: SetFullErase::<Identity, Impl, OFFSET>,
@@ -1199,7 +1199,7 @@ impl IDiscFormat2RawCD_Vtbl {
             }
         }
         Self {
-            base: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrepareMedia: PrepareMedia::<Identity, Impl, OFFSET>,
             WriteMedia: WriteMedia::<Identity, Impl, OFFSET>,
             WriteMedia2: WriteMedia2::<Identity, Impl, OFFSET>,
@@ -1273,7 +1273,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             }
         }
         Self {
-            base: IWriteEngine2EventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWriteEngine2EventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentAction: CurrentAction::<Identity, Impl, OFFSET>,
             ElapsedTime: ElapsedTime::<Identity, Impl, OFFSET>,
             RemainingTime: RemainingTime::<Identity, Impl, OFFSET>,
@@ -1536,7 +1536,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             }
         }
         Self {
-            base: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDiscFormat2_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrepareMedia: PrepareMedia::<Identity, Impl, OFFSET>,
             AddAudioTrack: AddAudioTrack::<Identity, Impl, OFFSET>,
             CancelAddTrack: CancelAddTrack::<Identity, Impl, OFFSET>,
@@ -1623,7 +1623,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             }
         }
         Self {
-            base: IWriteEngine2EventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IWriteEngine2EventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             CurrentTrackNumber: CurrentTrackNumber::<Identity, Impl, OFFSET>,
             CurrentAction: CurrentAction::<Identity, Impl, OFFSET>,
             ElapsedTime: ElapsedTime::<Identity, Impl, OFFSET>,
@@ -1741,7 +1741,7 @@ impl IDiscMaster_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             EnumDiscMasterFormats: EnumDiscMasterFormats::<Identity, Impl, OFFSET>,
             GetActiveDiscMasterFormat: GetActiveDiscMasterFormat::<Identity, Impl, OFFSET>,
@@ -1815,7 +1815,7 @@ impl IDiscMaster2_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -1891,7 +1891,7 @@ impl IDiscMasterProgressEvents_Vtbl {
             (*this).NotifyEraseComplete(::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             QueryCancel: QueryCancel::<Identity, Impl, OFFSET>,
             NotifyPnPActivity: NotifyPnPActivity::<Identity, Impl, OFFSET>,
             NotifyAddProgress: NotifyAddProgress::<Identity, Impl, OFFSET>,
@@ -2034,7 +2034,7 @@ impl IDiscRecorder_Vtbl {
             (*this).Close().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             GetRecorderGUID: GetRecorderGUID::<Identity, Impl, OFFSET>,
             GetRecorderType: GetRecorderType::<Identity, Impl, OFFSET>,
@@ -2273,7 +2273,7 @@ impl IDiscRecorder2_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             EjectMedia: EjectMedia::<Identity, Impl, OFFSET>,
             CloseTray: CloseTray::<Identity, Impl, OFFSET>,
             AcquireExclusiveAccess: AcquireExclusiveAccess::<Identity, Impl, OFFSET>,
@@ -2434,7 +2434,7 @@ impl IDiscRecorder2Ex_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SendCommandNoData: SendCommandNoData::<Identity, Impl, OFFSET>,
             SendCommandSendDataToDevice: SendCommandSendDataToDevice::<Identity, Impl, OFFSET>,
             SendCommandGetDataFromDevice: SendCommandGetDataFromDevice::<Identity, Impl, OFFSET>,
@@ -2494,7 +2494,7 @@ impl IEnumDiscMasterFormats_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2540,7 +2540,7 @@ impl IEnumDiscRecorders_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2588,7 +2588,7 @@ impl IEnumFsiItems_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2636,7 +2636,7 @@ impl IEnumProgressItems_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -3146,7 +3146,7 @@ impl IFileSystemImage_Vtbl {
             (*this).SetMultisessionInterfaces(::core::mem::transmute_copy(&newval)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Root: Root::<Identity, Impl, OFFSET>,
             SessionStartBlock: SessionStartBlock::<Identity, Impl, OFFSET>,
             SetSessionStartBlock: SetSessionStartBlock::<Identity, Impl, OFFSET>,
@@ -3228,7 +3228,7 @@ impl IFileSystemImage2_Vtbl {
             (*this).SetBootImageOptionsArray(::core::mem::transmute_copy(&newval)).into()
         }
         Self {
-            base: IFileSystemImage_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFileSystemImage_Vtbl::new::<Identity, Impl, OFFSET>(),
             BootImageOptionsArray: BootImageOptionsArray::<Identity, Impl, OFFSET>,
             SetBootImageOptionsArray: SetBootImageOptionsArray::<Identity, Impl, OFFSET>,
         }
@@ -3274,7 +3274,7 @@ impl IFileSystemImage3_Vtbl {
             }
         }
         Self {
-            base: IFileSystemImage2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFileSystemImage2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateRedundantUdfMetadataFiles: CreateRedundantUdfMetadataFiles::<Identity, Impl, OFFSET>,
             SetCreateRedundantUdfMetadataFiles: SetCreateRedundantUdfMetadataFiles::<Identity, Impl, OFFSET>,
             ProbeSpecificFileSystem: ProbeSpecificFileSystem::<Identity, Impl, OFFSET>,
@@ -3351,7 +3351,7 @@ impl IFileSystemImageResult_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ImageStream: ImageStream::<Identity, Impl, OFFSET>,
             ProgressItems: ProgressItems::<Identity, Impl, OFFSET>,
             TotalBlocks: TotalBlocks::<Identity, Impl, OFFSET>,
@@ -3381,7 +3381,7 @@ impl IFileSystemImageResult2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IFileSystemImageResult_Vtbl::new::<Identity, Impl, OFFSET>(), ModifiedBlocks: ModifiedBlocks::<Identity, Impl, OFFSET> }
+        Self { base__: IFileSystemImageResult_Vtbl::new::<Identity, Impl, OFFSET>(), ModifiedBlocks: ModifiedBlocks::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileSystemImageResult2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFileSystemImageResult as ::windows::core::Interface>::IID
@@ -3478,7 +3478,7 @@ impl IFsiDirectoryItem_Vtbl {
             (*this).RemoveTree(::core::mem::transmute(&path)).into()
         }
         Self {
-            base: IFsiItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsiItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -3507,7 +3507,7 @@ impl IFsiDirectoryItem2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddTreeWithNamedStreams(::core::mem::transmute(&sourcedirectory), ::core::mem::transmute_copy(&includebasedirectory)).into()
         }
-        Self { base: IFsiDirectoryItem_Vtbl::new::<Identity, Impl, OFFSET>(), AddTreeWithNamedStreams: AddTreeWithNamedStreams::<Identity, Impl, OFFSET> }
+        Self { base__: IFsiDirectoryItem_Vtbl::new::<Identity, Impl, OFFSET>(), AddTreeWithNamedStreams: AddTreeWithNamedStreams::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFsiDirectoryItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsiItem as ::windows::core::Interface>::IID || iid == &<IFsiDirectoryItem as ::windows::core::Interface>::IID
@@ -3574,7 +3574,7 @@ impl IFsiFileItem_Vtbl {
             (*this).SetData(::core::mem::transmute(&newval)).into()
         }
         Self {
-            base: IFsiItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsiItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             DataSize: DataSize::<Identity, Impl, OFFSET>,
             DataSize32BitLow: DataSize32BitLow::<Identity, Impl, OFFSET>,
             DataSize32BitHigh: DataSize32BitHigh::<Identity, Impl, OFFSET>,
@@ -3647,7 +3647,7 @@ impl IFsiFileItem2_Vtbl {
             (*this).SetIsRealTime(::core::mem::transmute_copy(&newval)).into()
         }
         Self {
-            base: IFsiFileItem_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IFsiFileItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             FsiNamedStreams: FsiNamedStreams::<Identity, Impl, OFFSET>,
             IsNamedStream: IsNamedStream::<Identity, Impl, OFFSET>,
             AddStream: AddStream::<Identity, Impl, OFFSET>,
@@ -3787,7 +3787,7 @@ impl IFsiItem_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             FullPath: FullPath::<Identity, Impl, OFFSET>,
             CreationTime: CreationTime::<Identity, Impl, OFFSET>,
@@ -3861,7 +3861,7 @@ impl IFsiNamedStreams_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -3921,7 +3921,7 @@ impl IIsoImageManager_Vtbl {
             (*this).Validate().into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Path: Path::<Identity, Impl, OFFSET>,
             Stream: Stream::<Identity, Impl, OFFSET>,
             SetPath: SetPath::<Identity, Impl, OFFSET>,
@@ -4000,7 +4000,7 @@ impl IJolietDiscMaster_Vtbl {
             (*this).SetJolietProperties(::core::mem::transmute(&ppropstg)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTotalDataBlocks: GetTotalDataBlocks::<Identity, Impl, OFFSET>,
             GetUsedDataBlocks: GetUsedDataBlocks::<Identity, Impl, OFFSET>,
             GetDataBlockSize: GetDataBlockSize::<Identity, Impl, OFFSET>,
@@ -4062,7 +4062,7 @@ impl IMultisession_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsSupportedOnCurrentMediaState: IsSupportedOnCurrentMediaState::<Identity, Impl, OFFSET>,
             SetInUse: SetInUse::<Identity, Impl, OFFSET>,
             InUse: InUse::<Identity, Impl, OFFSET>,
@@ -4116,7 +4116,7 @@ impl IMultisessionRandomWrite_Vtbl {
             }
         }
         Self {
-            base: IMultisession_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMultisession_Vtbl::new::<Identity, Impl, OFFSET>(),
             WriteUnitSize: WriteUnitSize::<Identity, Impl, OFFSET>,
             LastWrittenAddress: LastWrittenAddress::<Identity, Impl, OFFSET>,
             TotalSectorsOnMedia: TotalSectorsOnMedia::<Identity, Impl, OFFSET>,
@@ -4193,7 +4193,7 @@ impl IMultisessionSequential_Vtbl {
             }
         }
         Self {
-            base: IMultisession_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IMultisession_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsFirstDataSession: IsFirstDataSession::<Identity, Impl, OFFSET>,
             StartAddressOfPreviousSession: StartAddressOfPreviousSession::<Identity, Impl, OFFSET>,
             LastWrittenAddressOfPreviousSession: LastWrittenAddressOfPreviousSession::<Identity, Impl, OFFSET>,
@@ -4223,7 +4223,7 @@ impl IMultisessionSequential2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IMultisessionSequential_Vtbl::new::<Identity, Impl, OFFSET>(), WriteUnitSize: WriteUnitSize::<Identity, Impl, OFFSET> }
+        Self { base__: IMultisessionSequential_Vtbl::new::<Identity, Impl, OFFSET>(), WriteUnitSize: WriteUnitSize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMultisessionSequential2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMultisession as ::windows::core::Interface>::IID || iid == &<IMultisessionSequential as ::windows::core::Interface>::IID
@@ -4284,7 +4284,7 @@ impl IProgressItem_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Description: Description::<Identity, Impl, OFFSET>,
             FirstBlock: FirstBlock::<Identity, Impl, OFFSET>,
             LastBlock: LastBlock::<Identity, Impl, OFFSET>,
@@ -4374,7 +4374,7 @@ impl IProgressItems_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
@@ -4580,7 +4580,7 @@ impl IRawCDImageCreator_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateResultImage: CreateResultImage::<Identity, Impl, OFFSET>,
             AddTrack: AddTrack::<Identity, Impl, OFFSET>,
             AddSpecialPregap: AddSpecialPregap::<Identity, Impl, OFFSET>,
@@ -4739,7 +4739,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             (*this).ClearTrackIndex(::core::mem::transmute_copy(&lbaoffset)).into()
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartingLba: StartingLba::<Identity, Impl, OFFSET>,
             SectorCount: SectorCount::<Identity, Impl, OFFSET>,
             TrackNumber: TrackNumber::<Identity, Impl, OFFSET>,
@@ -4842,7 +4842,7 @@ impl IRedbookDiscMaster_Vtbl {
             (*this).CloseAudioTrack().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetTotalAudioTracks: GetTotalAudioTracks::<Identity, Impl, OFFSET>,
             GetTotalAudioBlocks: GetTotalAudioBlocks::<Identity, Impl, OFFSET>,
             GetUsedAudioBlocks: GetUsedAudioBlocks::<Identity, Impl, OFFSET>,
@@ -4888,7 +4888,7 @@ impl IStreamConcatenate_Vtbl {
             (*this).Append2(::core::mem::transmute_copy(&streams), ::core::mem::transmute_copy(&streamcount)).into()
         }
         Self {
-            base: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Initialize2: Initialize2::<Identity, Impl, OFFSET>,
             Append: Append::<Identity, Impl, OFFSET>,
@@ -4911,7 +4911,7 @@ impl IStreamInterleave_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&streams), ::core::mem::transmute_copy(&interleavesizes), ::core::mem::transmute_copy(&streamcount)).into()
         }
-        Self { base: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStreamInterleave as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
@@ -4954,7 +4954,7 @@ impl IStreamPseudoRandomBased_Vtbl {
             (*this).ExtendedSeed(::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&ecount)).into()
         }
         Self {
-            base: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSeed: SetSeed::<Identity, Impl, OFFSET>,
             Seed: Seed::<Identity, Impl, OFFSET>,
             SetExtendedSeed: SetExtendedSeed::<Identity, Impl, OFFSET>,
@@ -5086,7 +5086,7 @@ impl IWriteEngine2_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             WriteSection: WriteSection::<Identity, Impl, OFFSET>,
             CancelWrite: CancelWrite::<Identity, Impl, OFFSET>,
             SetRecorder: SetRecorder::<Identity, Impl, OFFSET>,
@@ -5197,7 +5197,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             StartLba: StartLba::<Identity, Impl, OFFSET>,
             SectorCount: SectorCount::<Identity, Impl, OFFSET>,
             LastReadLba: LastReadLba::<Identity, Impl, OFFSET>,
@@ -5254,7 +5254,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             }
         }
         Self {
-            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             MediaType: MediaType::<Identity, Impl, OFFSET>,
             RotationTypeIsPureCAV: RotationTypeIsPureCAV::<Identity, Impl, OFFSET>,
             WriteSpeed: WriteSpeed::<Identity, Impl, OFFSET>,

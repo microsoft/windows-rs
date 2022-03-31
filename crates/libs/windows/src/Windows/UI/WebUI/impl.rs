@@ -19,7 +19,7 @@ impl IActivatedEventArgsDeferral_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgsDeferral, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IActivatedEventArgsDeferral, OFFSET>(),
             ActivatedOperation: ActivatedOperation::<Identity, Impl, OFFSET>,
         }
     }
@@ -54,7 +54,7 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
             (*this).SetSucceeded(succeeded).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIBackgroundTaskInstance, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebUIBackgroundTaskInstance, OFFSET>(),
             Succeeded: Succeeded::<Identity, Impl, OFFSET>,
             SetSucceeded: SetSucceeded::<Identity, Impl, OFFSET>,
         }
@@ -84,7 +84,7 @@ impl IWebUINavigatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUINavigatedEventArgs, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebUINavigatedEventArgs, OFFSET>(),
             NavigatedOperation: NavigatedOperation::<Identity, Impl, OFFSET>,
         }
     }

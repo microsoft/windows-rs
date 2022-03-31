@@ -71,7 +71,7 @@ impl IDirectSound_Vtbl {
             (*this).Initialize(::core::mem::transmute_copy(&pcguiddevice)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateSoundBuffer: CreateSoundBuffer::<Identity, Impl, OFFSET>,
             GetCaps: GetCaps::<Identity, Impl, OFFSET>,
             DuplicateSoundBuffer: DuplicateSoundBuffer::<Identity, Impl, OFFSET>,
@@ -249,7 +249,7 @@ impl IDirectSound3DBuffer_Vtbl {
             (*this).SetVelocity(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&z), ::core::mem::transmute_copy(&dwapply)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
             GetConeAngles: GetConeAngles::<Identity, Impl, OFFSET>,
             GetConeOrientation: GetConeOrientation::<Identity, Impl, OFFSET>,
@@ -407,7 +407,7 @@ impl IDirectSound3DListener_Vtbl {
             (*this).CommitDeferredSettings().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
             GetDistanceFactor: GetDistanceFactor::<Identity, Impl, OFFSET>,
             GetDopplerFactor: GetDopplerFactor::<Identity, Impl, OFFSET>,
@@ -447,7 +447,7 @@ impl IDirectSound8_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDirectSound_Vtbl::new::<Identity, Impl, OFFSET>(), VerifyCertification: VerifyCertification::<Identity, Impl, OFFSET> }
+        Self { base__: IDirectSound_Vtbl::new::<Identity, Impl, OFFSET>(), VerifyCertification: VerifyCertification::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectSound8 as ::windows::core::Interface>::IID || iid == &<IDirectSound as ::windows::core::Interface>::IID
@@ -596,7 +596,7 @@ impl IDirectSoundBuffer_Vtbl {
             (*this).Restore().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCaps: GetCaps::<Identity, Impl, OFFSET>,
             GetCurrentPosition: GetCurrentPosition::<Identity, Impl, OFFSET>,
             GetFormat: GetFormat::<Identity, Impl, OFFSET>,
@@ -644,7 +644,7 @@ impl IDirectSoundBuffer8_Vtbl {
             (*this).GetObjectInPath(::core::mem::transmute_copy(&rguidobject), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&rguidinterface), ::core::mem::transmute_copy(&ppobject)).into()
         }
         Self {
-            base: IDirectSoundBuffer_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDirectSoundBuffer_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetFX: SetFX::<Identity, Impl, OFFSET>,
             AcquireResources: AcquireResources::<Identity, Impl, OFFSET>,
             GetObjectInPath: GetObjectInPath::<Identity, Impl, OFFSET>,
@@ -683,7 +683,7 @@ impl IDirectSoundCapture_Vtbl {
             (*this).Initialize(::core::mem::transmute_copy(&pcguiddevice)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateCaptureBuffer: CreateCaptureBuffer::<Identity, Impl, OFFSET>,
             GetCaps: GetCaps::<Identity, Impl, OFFSET>,
             Initialize: Initialize::<Identity, Impl, OFFSET>,
@@ -764,7 +764,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
             (*this).Unlock(::core::mem::transmute_copy(&pvaudioptr1), ::core::mem::transmute_copy(&dwaudiobytes1), ::core::mem::transmute_copy(&pvaudioptr2), ::core::mem::transmute_copy(&dwaudiobytes2)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCaps: GetCaps::<Identity, Impl, OFFSET>,
             GetCurrentPosition: GetCurrentPosition::<Identity, Impl, OFFSET>,
             GetFormat: GetFormat::<Identity, Impl, OFFSET>,
@@ -797,7 +797,7 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
             (*this).GetFXStatus(::core::mem::transmute_copy(&dweffectscount), ::core::mem::transmute_copy(&pdwfxstatus)).into()
         }
         Self {
-            base: IDirectSoundCaptureBuffer_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: IDirectSoundCaptureBuffer_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetObjectInPath: GetObjectInPath::<Identity, Impl, OFFSET>,
             GetFXStatus: GetFXStatus::<Identity, Impl, OFFSET>,
         }
@@ -849,7 +849,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
             (*this).Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -891,7 +891,7 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
             (*this).Reset().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -924,7 +924,7 @@ impl IDirectSoundFXChorus_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -956,7 +956,7 @@ impl IDirectSoundFXCompressor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -988,7 +988,7 @@ impl IDirectSoundFXDistortion_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -1020,7 +1020,7 @@ impl IDirectSoundFXEcho_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -1052,7 +1052,7 @@ impl IDirectSoundFXFlanger_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -1084,7 +1084,7 @@ impl IDirectSoundFXGargle_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -1152,7 +1152,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
             SetPreset: SetPreset::<Identity, Impl, OFFSET>,
@@ -1188,7 +1188,7 @@ impl IDirectSoundFXParamEq_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -1220,7 +1220,7 @@ impl IDirectSoundFXWavesReverb_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetAllParameters: SetAllParameters::<Identity, Impl, OFFSET>,
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
@@ -1241,7 +1241,7 @@ impl IDirectSoundFullDuplex_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&pcaptureguid), ::core::mem::transmute_copy(&prenderguid), ::core::mem::transmute_copy(&lpdscbufferdesc), ::core::mem::transmute_copy(&lpdsbufferdesc), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwlevel), ::core::mem::transmute_copy(&lplpdirectsoundcapturebuffer8), ::core::mem::transmute_copy(&lplpdirectsoundbuffer8)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectSoundFullDuplex as ::windows::core::Interface>::IID
@@ -1259,7 +1259,7 @@ impl IDirectSoundNotify_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetNotificationPositions(::core::mem::transmute_copy(&dwpositionnotifies), ::core::mem::transmute_copy(&pcpositionnotifies)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetNotificationPositions: SetNotificationPositions::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetNotificationPositions: SetNotificationPositions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDirectSoundNotify as ::windows::core::Interface>::IID

@@ -40,7 +40,7 @@ impl IAudioInputNode_Vtbl {
             (*this).RemoveOutgoingConnection(::core::mem::transmute(&destination)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioInputNode, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioInputNode, OFFSET>(),
             OutgoingConnections: OutgoingConnections::<Identity, Impl, OFFSET>,
             AddOutgoingConnection: AddOutgoingConnection::<Identity, Impl, OFFSET>,
             AddOutgoingConnectionWithGain: AddOutgoingConnectionWithGain::<Identity, Impl, OFFSET>,
@@ -74,7 +74,7 @@ impl IAudioInputNode2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioInputNode2, OFFSET>(), Emitter: Emitter::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioInputNode2, OFFSET>(), Emitter: Emitter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioInputNode2 as ::windows::core::Interface>::IID
@@ -185,7 +185,7 @@ impl IAudioNode_Vtbl {
             (*this).EnableEffectsByDefinition(::core::mem::transmute(&definition)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNode, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNode, OFFSET>(),
             EffectDefinitions: EffectDefinitions::<Identity, Impl, OFFSET>,
             SetOutgoingGain: SetOutgoingGain::<Identity, Impl, OFFSET>,
             OutgoingGain: OutgoingGain::<Identity, Impl, OFFSET>,
@@ -233,7 +233,7 @@ impl IAudioNodeWithListener_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeWithListener, OFFSET>(),
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioNodeWithListener, OFFSET>(),
             SetListener: SetListener::<Identity, Impl, OFFSET>,
             Listener: Listener::<Identity, Impl, OFFSET>,
         }

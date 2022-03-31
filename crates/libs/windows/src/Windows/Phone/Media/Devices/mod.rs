@@ -238,7 +238,7 @@ unsafe impl ::windows::core::Interface for IAudioRoutingManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRoutingManager_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
     pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRoutingManagerStatics_Vtbl {
-    pub base: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
