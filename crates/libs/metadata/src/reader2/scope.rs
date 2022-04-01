@@ -44,4 +44,12 @@ impl<'a> Scope<'a> {
             [].iter()
         }
     }
+
+    pub fn usize(&self, row: &RowId, column: usize) -> usize {
+        self.files[row.file as usize].usize(row.row as _, row.table as _, column)
+    }
+
+    pub fn str(&self, row: &RowId, column: usize) -> &str {
+        self.files[row.file as usize].str(row.row as _, row.table as _, column)
+    }
 }

@@ -5,6 +5,7 @@ mod tables;
 mod r#type;
 mod type_name;
 mod codes;
+mod row_id;
 
 use super::*;
 pub use file::*;
@@ -14,3 +15,4 @@ pub use scope::*;
 use tables::*;
 pub use type_name::*;
 use codes::*;
+use row_id::*;

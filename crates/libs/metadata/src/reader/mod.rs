@@ -20,6 +20,7 @@ mod type_reader;
 mod type_tree;
 mod workspace;
 
+use super::*;
 pub use array_info::*;
 pub use async_kind::*;
 pub use blob::*;

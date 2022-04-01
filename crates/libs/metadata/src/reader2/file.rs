@@ -321,6 +321,27 @@ impl File {
     pub fn name(&self) -> &str {
         &self.name
     }
+
+    pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
+        let table = &self.tables[table];
+        let column = &table.columns[column];
+        let offset = table.offset + row * table.width + column.offset;
+        match column.width {
+            1 => self.bytes.copy_as::<u8>(offset) as _,
+            2 => self.bytes.copy_as::<u16>(offset) as _,
+            4 => self.bytes.copy_as::<u32>(offset) as _,
+            _ => self.bytes.copy_as::<u64>(offset) as _,
+        }
+    }
+
+    pub fn str(&self, row: usize, table: usize, column: usize) -> &str {
+        let offset = self.strings + self.usize(row, table, column);
+
+        unsafe {
+            let len = strlen(self.bytes.as_ptr().add(offset));
+            std::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
+        }
+    }
 }
 
 impl Table {

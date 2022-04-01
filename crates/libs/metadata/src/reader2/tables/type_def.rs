@@ -9,11 +9,11 @@ impl<'a> TypeDef<'a> {
     }
 
     pub fn name(&self) -> &str {
-        todo!()
+        self.0.str(1)
     }
 
     pub fn namespace(&self) -> &str {
-        todo!()
+        self.0.str(2)
     }
 
     // pub fn extends(&self) -> TypeDefOrRef {

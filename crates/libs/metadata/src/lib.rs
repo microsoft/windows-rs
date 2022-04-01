@@ -24,6 +24,10 @@ struct METADATA_HEADER {
 
 const METADATA_SIGNATURE: u32 = 0x424A_5342;
 
+extern "C" {
+    fn strlen(cs: *const u8) -> usize;
+}
+
 fn composite_index_size(tables: &[usize]) -> usize {
     fn small(row_count: usize, bits: u8) -> bool {
         (row_count as u64) < (1u64 << (16 - bits))

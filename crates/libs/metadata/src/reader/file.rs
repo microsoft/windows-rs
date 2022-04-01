@@ -92,10 +92,6 @@ impl core::fmt::Debug for File {
     }
 }
 
-extern "C" {
-    fn strlen(cs: *const u8) -> usize;
-}
-
 impl File {
     pub fn u32(&self, row: u32, table: TableIndex, column: u32) -> u32 {
         let table = &self.tables[table as usize];
