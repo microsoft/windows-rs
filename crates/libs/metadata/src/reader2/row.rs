@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Clone)]
 pub struct Row<'a> {
-    scope: &'a Scope<'a>,
-    id: RowId,
+    pub scope: &'a Scope<'a>,
+    pub id: RowId,
 }
 
 impl<'a> Row<'a> {

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeDef<'a>(Row<'a>, Vec<Type<'a>>);
+pub struct TypeDef<'a>(pub Row<'a>, pub Vec<Type<'a>>);
 
 impl<'a> TypeDef<'a> {
     pub fn flags(&self) -> TypeAttributes {

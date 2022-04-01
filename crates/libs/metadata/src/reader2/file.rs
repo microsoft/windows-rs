@@ -7,41 +7,41 @@ pub struct File {
     bytes: Vec<u8>,
     strings: usize,
     blobs: usize,
-    tables: [Table; TABLE_LEN],
+    pub(crate) tables: [Table; TABLE_LEN],
 }
 
 #[derive(Default)]
-struct Table {
-    offset: usize,
-    len: usize,
-    width: usize,
-    columns: [Column; 6],
+pub struct Table {
+    pub offset: usize,
+    pub len: usize,
+    pub width: usize,
+    pub columns: [Column; 6],
 }
 
 #[derive(Default)]
-struct Column {
-    offset: usize,
-    width: usize,
+pub struct Column {
+    pub offset: usize,
+    pub width: usize,
 }
 
-const TABLE_CONSTANT: usize = 0;
-const TABLE_CUSTOMATTRIBUTE: usize = 1;
-const TABLE_FIELD: usize = 2;
-const TABLE_GENERICPARAM: usize = 3;
-const TABLE_INTERFACEIMPL: usize = 4;
-const TABLE_MEMBERREF: usize = 5;
-const TABLE_METHODDEF: usize = 6;
-const TABLE_PARAM: usize = 7;
-const TABLE_TYPEDEF: usize = 8;
-const TABLE_TYPEREF: usize = 9;
-const TABLE_TYPESPEC: usize = 10;
-const TABLE_IMPLMAP: usize = 11;
-const TABLE_MODULEREF: usize = 12;
-const TABLE_NESTEDCLASS: usize = 13;
-const TABLE_MODULE: usize = 14;
-const TABLE_ASSEMBLYREF: usize = 15;
-const TABLE_CLASSLAYOUT: usize = 16;
-const TABLE_LEN: usize = 17;
+pub const TABLE_CONSTANT: usize = 0;
+pub const TABLE_CUSTOMATTRIBUTE: usize = 1;
+pub const TABLE_FIELD: usize = 2;
+pub const TABLE_GENERICPARAM: usize = 3;
+pub const TABLE_INTERFACEIMPL: usize = 4;
+pub const TABLE_MEMBERREF: usize = 5;
+pub const TABLE_METHODDEF: usize = 6;
+pub const TABLE_PARAM: usize = 7;
+pub const TABLE_TYPEDEF: usize = 8;
+pub const TABLE_TYPEREF: usize = 9;
+pub const TABLE_TYPESPEC: usize = 10;
+pub const TABLE_IMPLMAP: usize = 11;
+pub const TABLE_MODULEREF: usize = 12;
+pub const TABLE_NESTEDCLASS: usize = 13;
+pub const TABLE_MODULE: usize = 14;
+pub const TABLE_ASSEMBLYREF: usize = 15;
+pub const TABLE_CLASSLAYOUT: usize = 16;
+pub const TABLE_LEN: usize = 17;
 
 fn error(message: &str) -> Error {
     Error::new(ErrorKind::Other, message)

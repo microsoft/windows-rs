@@ -25,7 +25,7 @@ fn main() {
     let files = [test];
     let scope = reader2::Scope::new(&files);
 
-    for ns in scope.namespaces() {
-        println!("{}", ns);
+    for ns in scope.raw_types() {
+        println!("{}.{}", ns.namespace(), ns.name());
     }
 }

@@ -37,6 +37,21 @@ impl<'a> Scope<'a> {
         self.nested[type_def].iter()
     }
 
+    pub fn raw_types(&self) -> impl Iterator<Item = TypeDef> {
+        self.files.iter().enumerate().map(move |(file_id, file)| {
+            (0..file.tables[TABLE_TYPEDEF].len).map(move |row|{
+                TypeDef(Row{
+                    scope: self,
+                    id: RowId {
+                        row: row as _,
+                        table: TABLE_TYPEDEF as _,
+                        file: file_id as _,
+                    }
+                }, Vec::new())
+            })
+        }).flatten()
+    }
+
     pub fn get_type(&self, name: &TypeName) -> impl Iterator<Item = &Type> {
         if let Some(types) = self.types.get(name.namespace).and_then(|types| types.get(name.name)) {
             types.iter()
