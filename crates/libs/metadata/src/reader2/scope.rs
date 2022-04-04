@@ -1,9 +1,5 @@
 use super::*;
 
-// TODO: Scope should be as simple as possible and only serve one function which
-// is to index the TypeDefs - not worry about other indexes like constants and functions
-// or do any other wrapping or help.
-
 pub struct Scope<'a> {
     files: &'a [File],
     types: HashMap<&'a str, BTreeMap<&'a str, Vec<ScopeKey>>>,
