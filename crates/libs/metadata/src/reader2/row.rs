@@ -3,36 +3,38 @@ use super::*;
 #[derive(Clone)]
 pub struct Row<'a> {
     pub scope: &'a Scope<'a>,
-    pub id: RowId,
+    pub key: ScopeKey,
 }
 
 impl<'a> Row<'a> {
+    pub fn new(scope: &'a Scope, key: ScopeKey) -> Self {
+        Self { scope, key }
+    }
+
     pub fn usize(&self, column: usize) -> usize {
-        self.scope.usize(&self.id, column)
+        self.scope.usize(&self.key, column)
     }
 
     pub fn str(&self, column: usize) -> &str {
-        self.scope.str(&self.id, column)
+        self.scope.str(&self.key, column)
     }
 }
 
-
-
 impl<'a> PartialEq for Row<'a> {
     fn eq(&self, other: &Self) -> bool {
-        self.id.eq(&other.id)
+        self.key.eq(&other.key)
     }
 }
 
 impl<'a> PartialOrd for Row<'a> {
     fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
-        self.id.partial_cmp(&other.id)
+        self.key.partial_cmp(&other.key)
     }
 }
 
 impl<'a> Ord for Row<'a> {
     fn cmp(&self, other: &Self) -> core::cmp::Ordering {
-        self.id.cmp(&other.id)
+        self.key.cmp(&other.key)
     }
 }
 

@@ -54,8 +54,8 @@ fn error_invalid_winmd() -> Error {
 impl File {
     pub fn new(path: &str) -> Result<Self> {
         let path = std::path::Path::new(path);
-        let mut result = File::default();
-        result.bytes = std::fs::read(&path)?;
+
+        let mut result = File { bytes: std::fs::read(&path)?, ..Default::default() };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 

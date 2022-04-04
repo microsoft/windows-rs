@@ -2,7 +2,7 @@ use super::*;
 
 // TODO: should just pass files directly to the reader. https://github.com/microsoft/windows-rs/issues/1406
 pub fn workspace_winmds() -> &'static [File] {
-    use std::{mem::MaybeUninit, sync::Once};
+    use std::sync::Once;
     static ONCE: Once = Once::new();
     static mut VALUE: MaybeUninit<Vec<File>> = MaybeUninit::uninit();
 

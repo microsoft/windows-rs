@@ -12,7 +12,7 @@ pub struct TypeReader {
 impl TypeReader {
     // TODO: figure out how this can be non-static
     pub fn get() -> &'static Self {
-        use std::{mem::MaybeUninit, sync::Once};
+        use std::sync::Once;
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
 

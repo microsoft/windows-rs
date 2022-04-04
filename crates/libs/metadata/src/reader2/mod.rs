@@ -1,18 +1,18 @@
+mod codes;
 mod file;
 mod row;
 mod scope;
+mod scope_key;
 mod tables;
 mod r#type;
 mod type_name;
-mod codes;
-mod row_id;
 
 use super::*;
+use codes::*;
 pub use file::*;
 pub use r#type::*;
 use row::*;
 pub use scope::*;
+use scope_key::*;
 use tables::*;
 pub use type_name::*;
-use codes::*;
-use row_id::*;
