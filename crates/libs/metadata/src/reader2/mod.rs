@@ -6,6 +6,7 @@ mod scope_key;
 mod tables;
 mod r#type;
 mod type_name;
+mod tree;
 
 use super::*;
 use codes::*;
@@ -16,3 +17,4 @@ pub use scope::*;
 use scope_key::*;
 use tables::*;
 pub use type_name::*;
+pub use tree::*;
