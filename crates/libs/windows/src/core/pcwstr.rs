@@ -55,12 +55,14 @@ impl<'a> IntoParam<'a, PCWSTR> for alloc::string::String {
         IntoParam::into_param(self.as_str())
     }
 }
+#[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCWSTR> for &::std::ffi::OsStr {
     fn into_param(self) -> Param<'a, PCWSTR> {
         use ::std::os::windows::ffi::OsStrExt;
         unsafe { Param::Boxed(PCWSTR(SysAllocStringLen(&self.encode_wide().collect::<alloc::vec::Vec<u16>>()).into_raw())) }
     }
 }
+#[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCWSTR> for ::std::ffi::OsString {
     fn into_param(self) -> Param<'a, PCWSTR> {
         IntoParam::into_param(self.as_os_str())
