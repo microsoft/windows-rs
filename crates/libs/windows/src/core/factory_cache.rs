@@ -6,13 +6,18 @@ use core::sync::atomic::{AtomicPtr, Ordering};
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<core::ffi::c_void>,
+    library: Option<&'static str>,
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
+        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), library: None, _c: PhantomData, _i: PhantomData }
+    }
+
+    pub const fn new_with_library(library: &'static str) -> Self {
+        Self { library: Some(library), ..Self::new() }
     }
 }
 
@@ -28,7 +33,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             }
 
             // Otherwise, we load the factory the usual way.
-            let factory = factory::<C, I>()?;
+            let factory = factory::<C, I>(self.library)?;
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
@@ -44,10 +49,19 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
     }
 }
 
-/// Attempts to load the factory interface for the given WinRT class.
-pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
+/// Attempts to load the factory interface for the given WinRT class, and library
+/// if provided.
+pub fn factory<C: RuntimeName, I: Interface>(library: Option<&str>) -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HSTRING::from(C::NAME);
+
+    if let Some(library) = library {
+        unsafe {
+            let abi = get_activation_factory(&library.as_bytes(), &name)?;
+            let factory: IActivationFactory = core::mem::transmute(abi);
+            return factory.cast();
+        }
+    }
 
     unsafe {
         let function = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0");
@@ -98,23 +112,31 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             library[..path.len()].copy_from_slice(path.as_bytes());
             library[path.len()..].copy_from_slice(b".dll\0");
 
-            let function = delay_load(library, b"DllGetActivationFactory\0");
-
             if !function.is_null() {
-                let function: DllGetActivationFactory = core::mem::transmute(function);
-                let mut abi = core::ptr::null_mut();
-                let _ = function(core::mem::transmute_copy(&name), &mut abi);
-
-                if abi.is_null() {
+                let result = get_activation_factory(library, &name);
+                
+                if result.is_err() {
                     continue;
                 }
 
-                let factory: IActivationFactory = core::mem::transmute(abi);
+                let factory: IActivationFactory = core::mem::transmute(result.unwrap());
                 return factory.cast();
             }
         }
 
         Err(original)
+    }
+}
+
+unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<*mut std::ffi::c_void> {
+    let function = delay_load(library, b"DllGetActivationFactory\0");
+    let function: DllGetActivationFactory = core::mem::transmute(function);
+    let mut abi = core::ptr::null_mut();
+    let hr = function(core::mem::transmute_copy(name), &mut abi);
+    if hr.is_err() {
+        return Err(hr.into());
+    } else {
+        return Ok(abi);
     }
 }
 

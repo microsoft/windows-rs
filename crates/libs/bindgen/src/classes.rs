@@ -17,6 +17,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
+    let class_name = format!("{}", def.type_name());
     let has_default = def.default_interface().is_some();
     let interfaces = def.class_interfaces();
     let mut methods = quote! {};
@@ -51,6 +52,12 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
                     quote! {}
                 };
 
+                let factory_cache_method = if let Some(library) = gen.class_map.get(&class_name.as_str()) {
+                    format_token!(r#"new_with_library("{library}")"#)
+                } else {
+                    format_token!("new()")
+                };
+
                 Some(quote! {
                     #hidden
                     #features
@@ -58,7 +65,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
                         callback: F,
                     ) -> ::windows::core::Result<R> {
                         static mut SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
-                            ::windows::core::FactoryCache::new();
+                            ::windows::core::FactoryCache::#factory_cache_method;
                         unsafe { SHARED.call(callback) }
                     }
                 })
@@ -71,6 +78,12 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     if has_default {
         let new = if def.has_default_constructor() {
+            let factory_cache_method = if let Some(library) = gen.class_map.get(&class_name.as_str()) {
+                format_token!(r#"new_with_library("{library}")"#)
+            } else {
+                format_token!("new()")
+            };
+
             quote! {
                 pub fn new() -> ::windows::core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -79,7 +92,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
                     callback: F,
                 ) -> ::windows::core::Result<R> {
                     static mut SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IActivationFactory> =
-                        ::windows::core::FactoryCache::new();
+                        ::windows::core::FactoryCache::#factory_cache_method;
                     unsafe { SHARED.call(callback) }
                 }
             }

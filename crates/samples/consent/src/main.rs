@@ -2,7 +2,7 @@ use windows::{core::*, Foundation::*, Security::Credentials::UI::*, Win32::Found
 
 fn main() -> Result<()> {
     unsafe {
-        let interop = factory::<UserConsentVerifier, IUserConsentVerifierInterop>()?;
+        let interop = factory::<UserConsentVerifier, IUserConsentVerifierInterop>(None)?;
 
         let window = HWND(0); // <== replace with your app's window handle
 
