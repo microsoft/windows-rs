@@ -46,6 +46,7 @@ unsafe impl Abi for PCSTR {
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCSTR> for &str {
     fn into_param(self) -> Param<'a, PCSTR> {
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/868
         unsafe { Param::Boxed(PCSTR(SysAllocStringByteLen(PCSTR(self.as_ptr()), self.len() as _).into_raw() as _)) }
     }
 }
