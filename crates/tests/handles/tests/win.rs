@@ -1,4 +1,4 @@
-use windows::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::Registry::*, Win32::Devices::Bluetooth::*, Win32::System::ApplicationInstallationAndServicing::*};
+use windows::{Win32::Devices::Bluetooth::*, Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::ApplicationInstallationAndServicing::*, Win32::System::Registry::*};
 
 #[test]
 fn handle() {
