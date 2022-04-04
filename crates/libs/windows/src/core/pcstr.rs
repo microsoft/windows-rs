@@ -37,7 +37,7 @@ unsafe impl Abi for PCSTR {
     unsafe fn drop_param(param: &mut Param<'_, Self>) {
         if let Param::Boxed(value) = param {
             if !value.is_null() {
-                alloc::boxed::Box::from_raw(value.0 as *mut u8);
+                bindings::BSTR::from_raw(value.0 as _);
             }
         }
     }
@@ -45,7 +45,8 @@ unsafe impl Abi for PCSTR {
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCSTR> for &str {
     fn into_param(self) -> Param<'a, PCSTR> {
-        Param::Boxed(PCSTR(alloc::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<alloc::vec::Vec<u8>>().into_boxed_slice()) as _))
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/868
+        unsafe { Param::Boxed(PCSTR(bindings::SysAllocStringByteLen(PCSTR(self.as_ptr()), self.len() as _).into_raw() as _)) }
     }
 }
 #[cfg(feature = "alloc")]
