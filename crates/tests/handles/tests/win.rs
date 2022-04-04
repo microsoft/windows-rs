@@ -1,4 +1,4 @@
-use windows::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::Registry::*};
+use windows::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::Registry::*, Win32::Devices::Bluetooth::*, Win32::System::ApplicationInstallationAndServicing::*};
 
 #[test]
 fn handle() {
@@ -54,4 +54,15 @@ fn const_pattern() {
         HKEY_CLASSES_ROOT => assert!(true),
         _ => assert!(false),
     }
+}
+
+#[test]
+fn unsigned_negative_invalid() {
+    assert!(MSIHANDLE(u32::MAX).is_invalid());
+    assert!(MSIHANDLE(0).is_invalid());
+    assert!(!MSIHANDLE(1).is_invalid());
+
+    assert!(HANDLE_SDP_TYPE(u64::MAX).is_invalid());
+    assert!(HANDLE_SDP_TYPE(0).is_invalid());
+    assert!(!HANDLE_SDP_TYPE(1).is_invalid());
 }

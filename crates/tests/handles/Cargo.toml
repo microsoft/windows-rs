@@ -10,6 +10,8 @@ features = [
     "Win32_Foundation",
     "Win32_Graphics_Gdi",
     "Win32_System_Registry",
+    "Win32_Devices_Bluetooth",
+    "Win32_System_ApplicationInstallationAndServicing",
 ]
 
 [dependencies.windows-sys]
