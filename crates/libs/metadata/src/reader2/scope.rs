@@ -9,14 +9,21 @@ pub struct Scope<'a> {
 impl<'a> Scope<'a> {
     pub fn new(files: &'a [File]) -> Self {
         let mut types = HashMap::<&'a str, BTreeMap<&'a str, Vec<ScopeKey>>>::new();
-        let mut nested = HashMap::new();
+        let mut nested = HashMap::<ScopeKey, BTreeMap<&'a str, ScopeKey>>::new();
 
         for (file_index, file) in files.iter().enumerate() {
             for row in 0..file.tables[TABLE_TYPEDEF].len {
-                let key = ScopeKey { row: row as _, table: TABLE_TYPEDEF as _, file: file_index as _ };
+                let key = ScopeKey::new(row, TABLE_TYPEDEF, file_index);
                 let namespace = file.str(key.row as _, key.table as _, 2);
                 let name = file.str(key.row as _, key.table as _, 1);
                 types.entry(namespace).or_default().entry(name).or_default().push(key);
+            }
+            for row in 0..file.tables[TABLE_NESTEDCLASS].len {
+                let key = ScopeKey::new(row, TABLE_NESTEDCLASS, file_index);
+                let inner = ScopeKey::new(file.usize(key.row as _, key.table as _, 0) - 1, TABLE_TYPEDEF, file_index);
+                let outer = ScopeKey::new(file.usize(key.row as _, key.table as _, 1) - 1, TABLE_TYPEDEF, file_index);
+                let name = file.str(inner.row as _, inner.table as _, 1);
+                nested.entry(outer).or_default().insert(name, inner);
             }
         }
 
