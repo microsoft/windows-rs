@@ -64,6 +64,12 @@ impl<'a> Scope<'a> {
         self.files[key.file as usize].str(key.row as _, key.table as _, column)
     }
 
+    pub fn list(&self, key: &'a ScopeKey, table: usize, column: usize) -> impl Iterator<Item = Row> {
+        let first = self.usize(key, column) - 1;
+        let last = if key.row + 1 < self.files[key.file as usize].tables[key.table as usize].len as _ { self.usize(&key.next(), column) - 1 } else { self.files[key.file as usize].tables[table].len };
+        (first..last).map(move |row| Row::new(self, ScopeKey::new(row, table, key.file as usize)))
+    }
+
     pub fn decode<T: Decode<'a>>(&'a self, key: &ScopeKey, column: usize) -> T {
         T::decode(self, key.file as _, self.usize(key, column))
     }

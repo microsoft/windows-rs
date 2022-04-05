@@ -20,13 +20,13 @@ impl<'a> TypeDef<'a> {
         self.0.decode(3)
     }
 
-    // pub fn field_list(&self) -> impl Iterator<Item = Field> {
-    //     todo!()
-    // }
+    pub fn fields(&self) -> impl Iterator<Item = Field> {
+        self.0.list(TABLE_FIELD, 4).map(Field)
+    }
 
-    // pub fn method_list(&self) -> impl Iterator<Item = MethodDef> {
-    //     todo!()
-    // }
+    pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
+        self.0.list(TABLE_METHODDEF, 5).map(MethodDef)
+    }
 }
 
 impl<'a> ToTypeName for TypeDef<'a> {
