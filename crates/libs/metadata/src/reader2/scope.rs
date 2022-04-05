@@ -64,6 +64,11 @@ impl<'a> Scope<'a> {
         self.files[key.file as usize].str(key.row as _, key.table as _, column)
     }
 
+    pub fn blob(&self, key: &ScopeKey, column: usize) -> Blob {
+        let file = key.file as usize;
+        Blob::new(self, file, self.files[file].blob(key.row as _, key.table as _, column))
+    }
+
     pub fn list(&self, key: &ScopeKey, table: usize, column: usize) -> impl Iterator<Item = Row> {
         let file = key.file as usize;
         let first = self.usize(key, column) - 1;

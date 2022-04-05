@@ -19,6 +19,10 @@ impl<'a> Row<'a> {
         self.scope.str(&self.key, column)
     }
 
+    pub fn blob(&self, column: usize) -> Blob {
+        self.scope.blob(&self.key, column)
+    }
+
     pub fn list(&'a self, table: usize, column: usize) -> impl Iterator<Item = Row<'a>> {
         self.scope.list(&self.key, table, column)
     }

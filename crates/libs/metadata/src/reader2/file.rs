@@ -342,6 +342,23 @@ impl File {
             std::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
         }
     }
+
+    pub fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
+        let offset = self.blobs + self.usize(row, table, column);
+        let initial_byte = self.bytes[offset];
+        let (blob_size, blob_size_bytes) = match initial_byte >> 5 {
+            0..=3 => (initial_byte & 0x7f, 1),
+            4..=5 => (initial_byte & 0x3f, 2),
+            6 => (initial_byte & 0x1f, 4),
+            _ => unimplemented!(),
+        };
+        let mut blob_size = blob_size as usize;
+        for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
+            blob_size = blob_size.checked_shl(8).unwrap_or(0) + (*byte as usize);
+        }
+        let offset = offset + blob_size_bytes;
+        &self.bytes[offset..offset + blob_size]
+    }
 }
 
 impl Table {
