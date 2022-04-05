@@ -52,12 +52,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
                     quote! {}
                 };
 
-                let factory_cache_method = if let Some(library) = gen.class_map.get(&class_name.as_str()) {
-                    format_token!(r#"new_with_library("{library}")"#)
-                } else {
-                    format_token!("new()")
-                };
-
+                let factory_cache_method = gen_factory_cache_method(gen, &class_name);
                 Some(quote! {
                     #hidden
                     #features
@@ -78,12 +73,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     if has_default {
         let new = if def.has_default_constructor() {
-            let factory_cache_method = if let Some(library) = gen.class_map.get(&class_name.as_str()) {
-                format_token!(r#"new_with_library("{library}")"#)
-            } else {
-                format_token!("new()")
-            };
-
+            let factory_cache_method = gen_factory_cache_method(gen, &class_name);
             quote! {
                 pub fn new() -> ::windows::core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -136,6 +126,14 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         tokens.combine(&gen_runtime_name(def, &cfg, gen));
         tokens
+    }
+}
+
+fn gen_factory_cache_method(gen: &Gen, class_name: &String) -> TokenStream {
+    if let Some(library) = gen.class_map.get(class_name) {
+        format_token!(r#"from_library("{library}")"#)
+    } else {
+        format_token!("new()")
     }
 }
 

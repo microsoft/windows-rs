@@ -6,18 +6,18 @@ use core::sync::atomic::{AtomicPtr, Ordering};
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<core::ffi::c_void>,
-    library: Option<&'static str>,
+    library: &'static str,
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), library: None, _c: PhantomData, _i: PhantomData }
+        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), library: "", _c: PhantomData, _i: PhantomData }
     }
 
-    pub const fn new_with_library(library: &'static str) -> Self {
-        Self { library: Some(library), ..Self::new() }
+    pub const fn from_library(library: &'static str) -> Self {
+        Self { library, ..Self::new() }
     }
 }
 
@@ -33,7 +33,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             }
 
             // Otherwise, we load the factory the usual way.
-            let factory = factory::<C, I>(self.library)?;
+            let factory = if self.library.is_empty() { factory::<C, I>()? } else { factory_from_library::<C, I>(self.library)? };
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
@@ -49,19 +49,10 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
     }
 }
 
-/// Attempts to load the factory interface for the given WinRT class, and library
-/// if provided.
-pub fn factory<C: RuntimeName, I: Interface>(library: Option<&str>) -> Result<I> {
+/// Attempts to load the factory interface for the given WinRT class
+pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HSTRING::from(C::NAME);
-
-    if let Some(library) = library {
-        unsafe {
-            let abi = get_activation_factory(&library.as_bytes(), &name)?;
-            let factory: IActivationFactory = core::mem::transmute(abi);
-            return factory.cast();
-        }
-    }
 
     unsafe {
         let function = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0");
@@ -114,7 +105,7 @@ pub fn factory<C: RuntimeName, I: Interface>(library: Option<&str>) -> Result<I>
 
             if !function.is_null() {
                 let result = get_activation_factory(library, &name);
-                
+
                 if result.is_err() {
                     continue;
                 }
@@ -128,15 +119,26 @@ pub fn factory<C: RuntimeName, I: Interface>(library: Option<&str>) -> Result<I>
     }
 }
 
+/// Attempts to load the factory interface for the given WinRT class located
+/// in the specified library.
+pub fn factory_from_library<C: RuntimeName, I: Interface>(library: &str) -> Result<I> {
+    let name = HSTRING::from(C::NAME);
+    unsafe {
+        let abi = get_activation_factory(library.as_bytes(), &name)?;
+        let factory: IActivationFactory = core::mem::transmute(abi);
+        factory.cast()
+    }
+}
+
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<*mut std::ffi::c_void> {
     let function = delay_load(library, b"DllGetActivationFactory\0");
     let function: DllGetActivationFactory = core::mem::transmute(function);
     let mut abi = core::ptr::null_mut();
     let hr = function(core::mem::transmute_copy(name), &mut abi);
     if hr.is_err() {
-        return Err(hr.into());
+        Err(hr.into())
     } else {
-        return Ok(abi);
+        Ok(abi)
     }
 }
 
