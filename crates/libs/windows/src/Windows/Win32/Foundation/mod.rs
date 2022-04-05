@@ -247,6 +247,12 @@ impl BSTR {
         }
         unsafe { ::core::slice::from_raw_parts(self.0, self.len()) }
     }
+    pub unsafe fn from_raw(raw: *const u16) -> Self {
+        Self(raw)
+    }
+    pub fn into_raw(self) -> *const u16 {
+        unsafe { std::mem::transmute(self) }
+    }
 }
 impl ::core::clone::Clone for BSTR {
     fn clone(&self) -> Self {

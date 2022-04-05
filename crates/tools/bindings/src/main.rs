@@ -23,6 +23,7 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.Foundation.HANDLE",
         "Windows.Win32.Foundation.HINSTANCE",
         "Windows.Win32.Foundation.S_OK",
+        "Windows.Win32.Foundation.SysAllocStringByteLen",
         "Windows.Win32.Foundation.SysAllocStringLen",
         "Windows.Win32.Foundation.SysFreeString",
         "Windows.Win32.Foundation.SysStringLen",

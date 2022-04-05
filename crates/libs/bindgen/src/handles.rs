@@ -35,8 +35,13 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         if !invalid.is_empty() {
             let invalid = invalid.iter().map(|value| {
-                let value = Literal::i64_unsuffixed(*value);
-                quote! { self.0 == #value }
+                let literal = Literal::i64_unsuffixed(*value);
+
+                if *value < 0 && underlying_type.is_unsigned() {
+                    quote! { self.0 == #literal as _ }
+                } else {
+                    quote! { self.0 == #literal }
+                }
             });
             quote! {
                 impl #ident {
