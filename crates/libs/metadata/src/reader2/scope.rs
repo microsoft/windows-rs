@@ -46,7 +46,7 @@ impl<'a> Scope<'a> {
         self.types[namespace].values().flatten().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
     }
 
-    pub fn nested_types(&self, type_def: &'a TypeDef) -> impl Iterator<Item = TypeDef> {
+    pub fn nested_types(&self, type_def: &TypeDef) -> impl Iterator<Item = TypeDef> {
         self.nested[&type_def.0.key].values().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
     }
 
@@ -64,10 +64,11 @@ impl<'a> Scope<'a> {
         self.files[key.file as usize].str(key.row as _, key.table as _, column)
     }
 
-    pub fn list(&self, key: &'a ScopeKey, table: usize, column: usize) -> impl Iterator<Item = Row> {
+    pub fn list(&self, key: &ScopeKey, table: usize, column: usize) -> impl Iterator<Item = Row> {
+        let file = key.file as usize;
         let first = self.usize(key, column) - 1;
-        let last = if key.row + 1 < self.files[key.file as usize].tables[key.table as usize].len as _ { self.usize(&key.next(), column) - 1 } else { self.files[key.file as usize].tables[table].len };
-        (first..last).map(move |row| Row::new(self, ScopeKey::new(row, table, key.file as usize)))
+        let last = if key.row + 1 < self.files[file].tables[key.table as usize].len as _ { self.usize(&key.next(), column) - 1 } else { self.files[file].tables[table].len };
+        (first..last).map(move |row| Row::new(self, ScopeKey::new(row, table, file)))
     }
 
     pub fn decode<T: Decode<'a>>(&'a self, key: &ScopeKey, column: usize) -> T {
