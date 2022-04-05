@@ -5,6 +5,6 @@ edition = "2021"
 publish = false
 
 [dependencies]
-metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.34.0" }
-bindgen = { package = "windows-bindgen", path = "../../libs/bindgen", version = "0.34.0" }
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.35.0" }
+bindgen = { package = "windows-bindgen", path = "../../libs/bindgen", version = "0.35.0" }
 rayon = "1.5.1"
