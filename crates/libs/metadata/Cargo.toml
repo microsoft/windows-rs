@@ -13,7 +13,7 @@ targets = []
 
 [dependencies.windows-sys]
 path = "../sys"
-version = "0.34.0"
+version = "0.35.0"
 features = [
     "Win32_System_SystemServices",
     "Win32_System_Diagnostics_Debug",

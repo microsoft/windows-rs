@@ -21,4 +21,3 @@ impl PInvokeAttributes {
         self.0 & 0x0040 != 0
     }
 }
-

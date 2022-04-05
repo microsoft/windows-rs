@@ -16,9 +16,9 @@ impl<'a> TypeDef<'a> {
         self.0.str(2)
     }
 
-    // pub fn extends(&self) -> TypeDefOrRef {
-    //     todo!()
-    // }
+    pub fn extends(&self) -> TypeDefOrRef {
+        self.0.decode(3)
+    }
 
     // pub fn field_list(&self) -> impl Iterator<Item = Field> {
     //     todo!()
@@ -27,4 +27,10 @@ impl<'a> TypeDef<'a> {
     // pub fn method_list(&self) -> impl Iterator<Item = MethodDef> {
     //     todo!()
     // }
+}
+
+impl<'a> ToTypeName for TypeDef<'a> {
+    fn type_name(&self) -> TypeName {
+        TypeName::new(self.namespace(), self.name())
+    }
 }

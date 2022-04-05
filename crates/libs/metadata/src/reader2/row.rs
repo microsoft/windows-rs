@@ -18,6 +18,10 @@ impl<'a> Row<'a> {
     pub fn str(&self, column: usize) -> &str {
         self.scope.str(&self.key, column)
     }
+
+    pub fn decode<T: Decode<'a>>(&self, column: usize) -> T {
+        self.scope.decode(&self.key, column)
+    }
 }
 
 impl<'a> PartialEq for Row<'a> {

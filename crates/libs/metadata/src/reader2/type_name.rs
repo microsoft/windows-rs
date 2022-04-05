@@ -4,6 +4,10 @@ pub struct TypeName<'a> {
     pub name: &'a str,
 }
 
+pub trait ToTypeName {
+    fn type_name(&self) -> TypeName;
+}
+
 #[allow(non_upper_case_globals)]
 impl<'a> TypeName<'a> {
     pub const None: Self = Self::from_const("", "");

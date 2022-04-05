@@ -21,6 +21,10 @@ use windows_metadata::*;
 use std::time::*;
 
 fn main() {
+    let now = Instant::now();
+    let _ = reader::TypeReader::get();
+    println!("TypeReader: {}", now.elapsed().as_millis());
+
     writer::test();
     let mut files = Vec::new();
     files.push(reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap());
@@ -29,7 +33,7 @@ fn main() {
 
     let now = Instant::now();
     let scope = reader2::Scope::new(&files);
-    println!("scope: {}", now.elapsed().as_millis());
+    println!("Scope: {}", now.elapsed().as_millis());
 
     // for ty in scope.raw_types() {
     //     println!("raw: {}.{}", ty.namespace(), ty.name());
@@ -48,8 +52,8 @@ fn main() {
     // }
 
     let now = Instant::now();
-    let tree = scope.tree();
-    println!("tree: {}", now.elapsed().as_millis());
+    let _tree = scope.tree();
+    println!("Tree: {}", now.elapsed().as_millis());
 
     //println!("{:#?}", tree);
 }

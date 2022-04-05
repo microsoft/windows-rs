@@ -50,7 +50,7 @@ impl<'a> Scope<'a> {
         self.nested[&type_def.0.key].values().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
     }
 
-    pub fn get_type(&self, name: &TypeName) -> impl Iterator<Item = TypeDef> {
+    pub fn resolve(&self, name: &TypeName) -> impl Iterator<Item = TypeDef> {
         let types: &[ScopeKey] = if let Some(types) = self.types.get(name.namespace).and_then(|types| types.get(name.name)) { types } else { &[] };
 
         types.iter().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
@@ -62,5 +62,9 @@ impl<'a> Scope<'a> {
 
     pub fn str(&self, key: &ScopeKey, column: usize) -> &str {
         self.files[key.file as usize].str(key.row as _, key.table as _, column)
+    }
+
+    pub fn decode<T: Decode<'a>>(&'a self, key: &ScopeKey, column: usize) -> T {
+        T::decode(self, key.file as _, self.usize(key, column))
     }
 }

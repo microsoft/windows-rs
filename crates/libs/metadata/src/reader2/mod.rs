@@ -1,22 +1,22 @@
 mod codes;
 mod file;
+mod flags;
 mod row;
 mod scope;
 mod scope_key;
 mod tables;
+mod tree;
 mod r#type;
 mod type_name;
-mod tree;
-mod flags;
 
 use super::*;
-use codes::*;
+pub use codes::*;
 pub use file::*;
+pub use flags::*;
 pub use r#type::*;
 use row::*;
 pub use scope::*;
 use scope_key::*;
 use tables::*;
-pub use type_name::*;
 pub use tree::*;
-pub use flags::*;
+pub use type_name::*;

@@ -1,46 +1,53 @@
-// use super::*;
+use super::*;
 
-// #[derive(Clone)]
-// pub enum TypeDefOrRef<'a> {
-//     TypeDef(TypeDef),
-//     TypeRef(TypeRef),
-//     TypeSpec(TypeSpec),
-// }
+#[derive(Clone)]
+pub enum TypeDefOrRef<'a> {
+    None,
+    TypeDef(TypeDef<'a>),
+    TypeRef(TypeRef<'a>),
+    TypeSpec(TypeSpec<'a>),
+}
 
-// impl<'a> Decode for TypeDefOrRef<'a> {
-//     fn decode(file: &'static File, code: u32) -> Self {
-//         let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
-//         match code.0 {
-//             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
-//             1 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-//             2 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
-//             _ => unimplemented!(),
-//         }
-//     }
-// }
+impl<'a> TypeDefOrRef<'a> {
+    pub fn encode(&self) -> u32 {
+        match self {
+            Self::None => 0,
+            Self::TypeDef(value) => ((value.0.key.row + 1) << 2),
+            Self::TypeRef(value) => ((value.0.key.row + 1) << 2) | 1,
+            Self::TypeSpec(value) => ((value.0.key.row + 1) << 2) | 2,
+        }
+    }
 
-// impl<'a> TypeDefOrRef<'a> {
-//     pub fn encode(&self) -> u32 {
-//         match self {
-//             Self::TypeDef(value) => ((value.row.row + 1) << 2),
-//             Self::TypeRef(value) => ((value.0.row + 1) << 2) | 1,
-//             Self::TypeSpec(value) => ((value.0.row + 1) << 2) | 2,
-//         }
-//     }
+    pub fn resolve(&self) -> impl Iterator<Item = TypeDef> {
+        match self {
+            Self::TypeDef(value) => value.0.scope.resolve(&value.type_name()),
+            Self::TypeRef(value) => value.0.scope.resolve(&value.type_name()),
+            _ => unimplemented!(),
+        }
+    }
+}
 
-//     pub fn type_name(&self) -> TypeName {
-//         match self {
-//             Self::TypeDef(value) => value.type_name(),
-//             Self::TypeRef(value) => value.type_name(),
-//             _ => unimplemented!(),
-//         }
-//     }
+impl<'a> Decode<'a> for TypeDefOrRef<'a> {
+    fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
+        if code == 0 {
+            return Self::None;
+        }
+        let (kind, row) = (code & ((1 << 2) - 1), (code >> 2) - 1);
+        match kind {
+            0 => Self::TypeDef(TypeDef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEDEF, file)), Vec::new())),
+            1 => Self::TypeRef(TypeRef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEREF, file)))),
+            2 => Self::TypeSpec(TypeSpec(Row::new(scope, ScopeKey::new(row, TABLE_TYPESPEC, file)))),
+            _ => unimplemented!(),
+        }
+    }
+}
 
-//     pub fn resolve(&self, enclosing: Option<&TypeDef>) -> TypeDef {
-//         match self {
-//             Self::TypeDef(value) => value.clone(),
-//             Self::TypeRef(value) => TypeReader::get().expect_type_ref(enclosing, value),
-//             _ => unimplemented!(),
-//         }
-//     }
-// }
+impl<'a> ToTypeName for TypeDefOrRef<'a> {
+    fn type_name(&self) -> TypeName {
+        match self {
+            Self::TypeDef(value) => value.type_name(),
+            Self::TypeRef(value) => value.type_name(),
+            _ => unimplemented!(),
+        }
+    }
+}

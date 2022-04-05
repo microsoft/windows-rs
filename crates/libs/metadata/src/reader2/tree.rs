@@ -1,17 +1,14 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct Tree<'a>{
+pub struct Tree<'a> {
     namespace: &'a str,
     nested: BTreeMap<&'a str, Tree<'a>>,
 }
 
 impl<'a> Tree<'a> {
     pub(crate) fn from_namespace(namespace: &'a str) -> Self {
-        Self {
-            namespace,
-            nested: BTreeMap::new(),
-        }
+        Self { namespace, nested: BTreeMap::new() }
     }
 
     pub(crate) fn insert_namespace(&mut self, namespace: &'a str, pos: usize) -> &mut Self {

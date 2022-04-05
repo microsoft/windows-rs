@@ -7,10 +7,6 @@ pub struct ScopeKey {
 
 impl ScopeKey {
     pub fn new(row: usize, table: usize, file: usize) -> Self {
-        Self {
-            row: row as _,
-            table: table as _,
-            file: file as _,
-        }
+        Self { row: row as _, table: table as _, file: file as _ }
     }
 }
