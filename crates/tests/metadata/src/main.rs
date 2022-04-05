@@ -29,31 +29,19 @@ fn main() {
     let mut files = Vec::new();
     files.push(reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap());
     files.push(reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap());
-    files.push(reader2::File::new("/git/test.winmd").unwrap());
+   // files.push(reader2::File::new("/git/test.winmd").unwrap());
 
     let now = Instant::now();
     let scope = reader2::Scope::new(&files);
     println!("Scope: {}", now.elapsed().as_millis());
 
-    // for ty in scope.raw_types() {
-    //     println!("raw: {}.{}", ty.namespace(), ty.name());
-    // }
-
-    // for ns in scope.namespaces() {
-    //     println!("ns: {}", ns);
-    // }
-
-    // for ns in scope.nested_namespaces("") {
-    //     println!(". {}", ns);
-    // }
-
-    // for ns in scope.nested_namespaces("Windows") {
-    //     println!("Windows. {}", ns);
-    // }
-
     let now = Instant::now();
     let _tree = scope.tree();
     println!("Tree: {}", now.elapsed().as_millis());
 
-    //println!("{:#?}", tree);
+    for ty in scope.resolve(&reader2::TypeName::new("Windows.Foundation", "Rect")) {
+        for m in ty.fields() {
+            println!("{}", m.name());
+        }
+    }
 }
