@@ -1,5 +1,31 @@
-#[derive(Default)]
-pub struct TypeAttributes(pub u32);
+pub struct FieldAttributes(pub usize);
+pub struct MethodAttributes(pub usize);
+pub struct MethodImplAttributes(pub usize);
+pub struct ParamAttributes(pub usize);
+pub struct PInvokeAttributes(pub usize);
+pub struct TypeAttributes(pub usize);
+
+impl FieldAttributes {
+
+}
+
+impl MethodAttributes {
+    
+}
+
+impl MethodImplAttributes {
+    
+}
+
+impl ParamAttributes {
+    
+}
+
+impl PInvokeAttributes {
+    pub fn last_error(&self) -> bool {
+        self.0 & 0x0040 != 0
+    }
+}
 
 impl TypeAttributes {
     pub fn input(&self) -> bool {
@@ -10,14 +36,5 @@ impl TypeAttributes {
     }
     pub fn optional(&self) -> bool {
         self.0 & 0x0010 != 0
-    }
-}
-
-#[derive(Default)]
-pub struct PInvokeAttributes(pub u32);
-
-impl PInvokeAttributes {
-    pub fn last_error(&self) -> bool {
-        self.0 & 0x0040 != 0
     }
 }

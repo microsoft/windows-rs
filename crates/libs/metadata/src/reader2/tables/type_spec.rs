@@ -4,9 +4,9 @@ use super::*;
 pub struct TypeSpec<'a>(pub Row<'a>);
 
 impl<'a> TypeSpec<'a> {
-    // pub fn blob(&self) -> Blob {
-    //     self.0.blob(0)
-    // }
+    pub fn signature(&self) -> Blob {
+        self.0.blob(0)
+    }
 }
 
 // impl<'a> ToTypeName for TypeRef<'a> {

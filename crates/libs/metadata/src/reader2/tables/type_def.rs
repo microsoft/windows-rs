@@ -5,7 +5,7 @@ pub struct TypeDef<'a>(pub Row<'a>, pub Vec<Type<'a>>);
 
 impl<'a> TypeDef<'a> {
     pub fn flags(&self) -> TypeAttributes {
-        todo!()
+        TypeAttributes(self.0.usize(0))
     }
 
     pub fn name(&self) -> &str {
