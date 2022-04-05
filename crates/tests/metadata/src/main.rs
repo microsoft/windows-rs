@@ -22,10 +22,10 @@ use std::time::*;
 
 fn main() {
     writer::test();
-    // let winrt = reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap();
-    // let win32 = reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap();
-    // let files = [winrt, win32];
-    let files = [ reader2::File::new("/git/test.winmd").unwrap()];
+    let mut files = Vec::new();
+    files.push(reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap());
+    files.push(reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap());
+    files.push(reader2::File::new("/git/test.winmd").unwrap());
 
     let now = Instant::now();
     let scope = reader2::Scope::new(&files);
@@ -51,5 +51,5 @@ fn main() {
     let tree = scope.tree();
     println!("tree: {}", now.elapsed().as_millis());
 
-    println!("{:#?}", tree);
+    //println!("{:#?}", tree);
 }
