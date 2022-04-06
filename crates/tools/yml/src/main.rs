@@ -64,8 +64,7 @@ jobs:
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       if: contains(matrix.target, 'windows-gnu')
     - name: Test stable
-      run: |
-        set PATH=%PATH%;"C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" &&"#
+      run: |"#
         .to_string();
 
     for name in crates() {
@@ -81,8 +80,8 @@ jobs:
       if: matrix.version == 'stable'
 
     - name: Test nightly
-      run: |"#,
-    );
+      run: |
+        set PATH=%PATH%;"C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" &&"#);
 
     for name in crates() {
         if requires_nightly(&name) {
