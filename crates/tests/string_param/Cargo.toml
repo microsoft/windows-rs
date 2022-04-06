@@ -1,5 +1,5 @@
 [package]
-name = "test_pwstr"
+name = "test_string_param"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2021"

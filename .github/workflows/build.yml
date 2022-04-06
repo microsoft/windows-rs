@@ -151,8 +151,8 @@ jobs:
         cargo clippy -p test_nightly_winrt &&
         cargo clippy -p test_not_dll &&
         cargo clippy -p test_ntstatus &&
-        cargo clippy -p test_pwstr &&
         cargo clippy -p test_return_struct &&
+        cargo clippy -p test_string_param &&
         cargo clippy -p test_structs &&
         cargo clippy -p test_sys &&
         cargo clippy -p test_unions &&

@@ -37,7 +37,7 @@ unsafe impl Abi for PCSTR {
     unsafe fn drop_param(param: &mut Param<'_, Self>) {
         if let Param::Boxed(value) = param {
             if !value.is_null() {
-                bindings::BSTR::from_raw(value.0 as _);
+                heap_free(value.0 as _);
             }
         }
     }
@@ -45,8 +45,7 @@ unsafe impl Abi for PCSTR {
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCSTR> for &str {
     fn into_param(self) -> Param<'a, PCSTR> {
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/868
-        unsafe { Param::Boxed(PCSTR(bindings::SysAllocStringByteLen(PCSTR(self.as_ptr()), self.len() as _).into_raw() as _)) }
+        Param::Boxed(PCSTR(heap_string(self.as_bytes())))
     }
 }
 #[cfg(feature = "alloc")]
