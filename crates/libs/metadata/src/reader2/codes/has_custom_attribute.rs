@@ -29,7 +29,6 @@ impl<'a> HasCustomAttribute<'a> {
     }
 }
 
-
 impl<'a> Decode<'a> for HasCustomAttribute<'a> {
     fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 5) - 1), (code >> 5) - 1);

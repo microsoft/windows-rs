@@ -5,21 +5,13 @@ pub struct ParamAttributes(pub usize);
 pub struct PInvokeAttributes(pub usize);
 pub struct TypeAttributes(pub usize);
 
-impl FieldAttributes {
+impl FieldAttributes {}
 
-}
+impl MethodAttributes {}
 
-impl MethodAttributes {
-    
-}
+impl MethodImplAttributes {}
 
-impl MethodImplAttributes {
-    
-}
-
-impl ParamAttributes {
-    
-}
+impl ParamAttributes {}
 
 impl PInvokeAttributes {
     pub fn last_error(&self) -> bool {
