@@ -6,10 +6,6 @@ use windows_bindgen::*;
 fn main() {
     std::fs::create_dir_all(".windows/winmd").unwrap();
 
-    while !std::path::Path::new("../component/.windows/winmd/component.winmd").exists() {
-        std::thread::yield_now();
-    }
-
     while copy("../component/.windows/winmd/component.winmd", ".windows/winmd/component.winmd").is_err() {
         std::thread::yield_now();
     }
