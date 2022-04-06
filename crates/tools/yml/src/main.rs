@@ -81,7 +81,7 @@ jobs:
 
     - name: Test nightly
       shell: cmd
-      run: |
+      run: >
         set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64 &&"#,
     );
 
