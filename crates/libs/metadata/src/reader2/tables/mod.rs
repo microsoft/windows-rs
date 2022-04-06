@@ -4,6 +4,8 @@ mod type_def;
 mod type_ref;
 mod type_spec;
 mod param;
+mod custom_attribute;
+mod member_ref;
 
 use super::*;
 pub use field::*;
@@ -12,3 +14,5 @@ pub use type_def::*;
 pub use type_ref::*;
 pub use type_spec::*;
 pub use param::*;
+pub use custom_attribute::*;
+pub use member_ref::*;

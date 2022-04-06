@@ -25,6 +25,14 @@ impl<'a> TypeDefOrRef<'a> {
             _ => unimplemented!(),
         }
     }
+
+    fn type_name(&self) -> TypeName {
+        match self {
+            Self::TypeDef(value) => value.type_name(),
+            Self::TypeRef(value) => value.type_name(),
+            _ => unimplemented!(),
+        }
+    }
 }
 
 impl<'a> Decode<'a> for TypeDefOrRef<'a> {
@@ -37,16 +45,6 @@ impl<'a> Decode<'a> for TypeDefOrRef<'a> {
             0 => Self::TypeDef(TypeDef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEDEF, file)), Vec::new())),
             1 => Self::TypeRef(TypeRef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEREF, file)))),
             2 => Self::TypeSpec(TypeSpec(Row::new(scope, ScopeKey::new(row, TABLE_TYPESPEC, file)))),
-            _ => unimplemented!(),
-        }
-    }
-}
-
-impl<'a> ToTypeName for TypeDefOrRef<'a> {
-    fn type_name(&self) -> TypeName {
-        match self {
-            Self::TypeDef(value) => value.type_name(),
-            Self::TypeRef(value) => value.type_name(),
             _ => unimplemented!(),
         }
     }

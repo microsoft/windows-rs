@@ -8,9 +8,3 @@ impl<'a> TypeSpec<'a> {
         self.0.blob(0)
     }
 }
-
-// impl<'a> ToTypeName for TypeRef<'a> {
-//     fn type_name(&self) -> TypeName {
-//         TypeName::new(self.namespace(), self.name())
-//     }
-// }
