@@ -67,7 +67,6 @@ jobs:
       shell: pwsh
       run: |
         "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-      if: contains(matrix.target, 'windows-msvc')
     - name: Test stable
       run: >"#
         .to_string();
