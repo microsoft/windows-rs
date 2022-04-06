@@ -6,6 +6,8 @@ mod type_spec;
 mod param;
 mod custom_attribute;
 mod member_ref;
+mod generic_param;
+mod interface_impl;
 
 use super::*;
 pub use field::*;
@@ -16,3 +18,5 @@ pub use type_spec::*;
 pub use param::*;
 pub use custom_attribute::*;
 pub use member_ref::*;
+pub use generic_param::*;
+pub use interface_impl::*;
